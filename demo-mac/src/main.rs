@@ -3088,6 +3088,18 @@ fn finalize_capture_test(state: &mut AppState, event_loop: &ActiveEventLoop) {
             diagnostics.empty_crop,
         );
         eprintln!(
+            "  - SCK frame statuses: missing={}, complete={}, idle={}, blank={}, suspended={}, started={}, stopped={}, unknown={}, last={:?}",
+            diagnostics.frame_status_missing,
+            diagnostics.frame_status_complete,
+            diagnostics.frame_status_idle,
+            diagnostics.frame_status_blank,
+            diagnostics.frame_status_suspended,
+            diagnostics.frame_status_started,
+            diagnostics.frame_status_stopped,
+            diagnostics.frame_status_unknown,
+            diagnostics.last_frame_status,
+        );
+        eprintln!(
             "  - capture revisions: requested={}, applied={}; last source dimensions={:?}, expected host dimensions={:?}",
             diagnostics.requested_config_revision,
             diagnostics.applied_config_revision,

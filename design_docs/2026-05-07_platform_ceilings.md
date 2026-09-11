@@ -1166,3 +1166,21 @@ required.
   are the platform-specific runtime benches where heavier behavioral
   assertions live. Add `demo-linux-wpe` once the WPE/DMABUF path can
   be exercised on Linux hardware.
+
+## macOS capture-status diagnostics, 2026-09-11
+
+**Status: integrated in source; native runtime acceptance remains open.** The
+reconciliation of the September 4 telemetry branch adds ScreenCaptureKit frame
+status counters to `CaptureDiagnostics` and the macOS demo's capture report.
+Missing status metadata, complete/idle/blank/suspended/started/stopped samples,
+unknown values, and the last reported status stay distinguishable. This helps
+diagnose why a sample arrives without a usable frame; it does not certify pixel
+correctness or change the capture admission policy.
+
+The library and demo, including their test targets, pass locked offline
+`cargo check -p scrying -p demo-mac --all-targets --target aarch64-apple-darwin`
+from Windows. This is cross-target compile coverage. The new counter test was
+type-checked but not executed on macOS, and no new ScreenCaptureKit hardware
+receipt was obtained. Native acceptance is done when a Mac capture run records
+the new report and the counter test passes on that host. No crate release was
+published by this reconciliation.

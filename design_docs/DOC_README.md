@@ -18,7 +18,7 @@ This is the canonical index for active documentation in this repository.
 ## Active documents
 
 - [Documentation policy](DOC_POLICY.md): shared documentation rules and the Wgpu-scry local addendum.
-- [Platform ceilings and parity roadmap](2026-05-07_platform_ceilings.md): platform API ceilings and the long-form backend implementation record.
+- [Platform ceilings and parity roadmap](2026-05-07_platform_ceilings.md): platform API ceilings, backend implementation record, and September 11 macOS capture-status compile receipt; native telemetry acceptance remains open.
 - [Browser-class parity checklist](2026-05-09_browser_parity_checklist.md): cross-platform browser capability and verification matrix.
 - [WKWebView SPI evaluation](2026-05-09_spi_evaluation.md): private-API research and public-API stop lines for macOS.
 - [Windows WebView2 integration target](2026-05-11_windows_webview2_target.md): Windows composition, capture, and input target shape.

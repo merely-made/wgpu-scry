@@ -212,8 +212,11 @@ impl WkWebViewProducer {
                 let samples_received = Arc::new(AtomicU64::new(0));
                 let samples_consumed = Arc::new(AtomicU64::new(0));
                 let diagnostics = Arc::new(CaptureDiagnosticsState::default());
-                let output_delegate =
-                    StreamOutputDelegate::new(Arc::clone(&latest), Arc::clone(&samples_received));
+                let output_delegate = StreamOutputDelegate::new(
+                    Arc::clone(&latest),
+                    Arc::clone(&samples_received),
+                    Arc::clone(&diagnostics),
+                );
                 let sample_queue = DispatchQueue::new("scrying.wkwebview.sck-sample", None);
                 if let Err(e) = unsafe {
                     stream.addStreamOutput_type_sampleHandlerQueue_error(
