@@ -151,8 +151,12 @@ impl WkWebViewProducer {
         let latest: Arc<LatestSample> = Arc::new(Mutex::new(None));
         let samples_received = Arc::new(AtomicU64::new(0));
         let samples_consumed = Arc::new(AtomicU64::new(0));
-        let output_delegate =
-            StreamOutputDelegate::new(Arc::clone(&latest), Arc::clone(&samples_received));
+        let diagnostics = Arc::new(CaptureDiagnosticsState::default());
+        let output_delegate = StreamOutputDelegate::new(
+            Arc::clone(&latest),
+            Arc::clone(&samples_received),
+            Arc::clone(&diagnostics),
+        );
         let sample_queue = DispatchQueue::new("scrying.wkwebview.sck-sample", None);
 
         unsafe {
@@ -221,7 +225,7 @@ impl WkWebViewProducer {
             stream_error,
             samples_received,
             samples_consumed,
-            diagnostics: Arc::new(CaptureDiagnosticsState::default()),
+            diagnostics,
             last_emitted: None,
             generation: AtomicU64::new(0),
             // The initial config was applied synchronously by

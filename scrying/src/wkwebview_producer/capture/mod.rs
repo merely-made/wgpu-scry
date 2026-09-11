@@ -19,13 +19,14 @@ use dpi::PhysicalSize;
 use objc2::rc::Retained;
 use objc2::runtime::ProtocolObject;
 use objc2::{AnyThread, DefinedClass, define_class, msg_send};
-use objc2_core_foundation::CFRetained;
+use objc2_core_foundation::{CFArray, CFDictionary, CFNumber, CFRetained, CFString};
 use objc2_core_media::CMSampleBuffer;
 use objc2_core_video::kCVPixelFormatType_32BGRA;
 use objc2_foundation::{NSError, NSObject, NSObjectProtocol};
 use objc2_metal::{MTLCommandQueue, MTLDevice, MTLSharedEvent};
 use objc2_screen_capture_kit::{
-    SCStream, SCStreamConfiguration, SCStreamDelegate, SCStreamOutput, SCStreamOutputType,
+    SCFrameStatus, SCStream, SCStreamConfiguration, SCStreamDelegate, SCStreamFrameInfo,
+    SCStreamFrameInfoStatus, SCStreamOutput, SCStreamOutputType,
 };
 
 use crate::WebSurfaceMode;
@@ -69,6 +70,9 @@ pub(super) struct OutputDelegateState {
     /// `try_acquire_frame` later drops via the dim-match guard or
     /// overwrites in `LatestSample` before the consumer polls.
     pub(super) samples_received: Arc<std::sync::atomic::AtomicU64>,
+    /// Per-status counters recorded on the SCK callback queue before the
+    /// sample is handed to the main-thread consumer.
+    pub(super) diagnostics: Arc<CaptureDiagnosticsState>,
 }
 
 /// Live ScreenCaptureKit pipeline counters. Read via
@@ -109,6 +113,26 @@ pub struct CaptureDiagnostics {
     pub source_dimension_mismatch: u64,
     /// The WKWebView crop rectangle lay wholly outside the captured source.
     pub empty_crop: u64,
+    /// A screen sample carried no attachments dictionary from which to read
+    /// `SCStreamFrameInfoStatus`.
+    pub frame_status_missing: u64,
+    /// Screen samples with `SCFrameStatus::Complete`.
+    pub frame_status_complete: u64,
+    /// Screen samples with `SCFrameStatus::Idle`.
+    pub frame_status_idle: u64,
+    /// Screen samples with `SCFrameStatus::Blank`.
+    pub frame_status_blank: u64,
+    /// Screen samples with `SCFrameStatus::Suspended`.
+    pub frame_status_suspended: u64,
+    /// Screen samples with `SCFrameStatus::Started`.
+    pub frame_status_started: u64,
+    /// Screen samples with `SCFrameStatus::Stopped`.
+    pub frame_status_stopped: u64,
+    /// Screen samples whose status was not known to this crate's SCK binding.
+    pub frame_status_unknown: u64,
+    /// Raw value of the most recently observed `SCStreamFrameInfoStatus`.
+    /// `None` means the stream has not produced an attachment with a status.
+    pub last_frame_status: Option<isize>,
     /// Revision requested from ScreenCaptureKit for the current stream.
     pub requested_config_revision: u64,
     /// Most recently successful ScreenCaptureKit configuration revision.
@@ -127,6 +151,15 @@ pub(super) struct CaptureDiagnosticsState {
     configuration_revision_pending: AtomicU64,
     source_dimension_mismatch: AtomicU64,
     empty_crop: AtomicU64,
+    frame_status_missing: AtomicU64,
+    frame_status_complete: AtomicU64,
+    frame_status_idle: AtomicU64,
+    frame_status_blank: AtomicU64,
+    frame_status_suspended: AtomicU64,
+    frame_status_started: AtomicU64,
+    frame_status_stopped: AtomicU64,
+    frame_status_unknown: AtomicU64,
+    last_frame_status: Mutex<Option<isize>>,
     last_source_size: Mutex<Option<PhysicalSize<u32>>>,
     last_expected_source_size: Mutex<Option<PhysicalSize<u32>>>,
 }
@@ -147,6 +180,19 @@ impl CaptureDiagnosticsState {
                 .load(Ordering::Relaxed),
             source_dimension_mismatch: self.source_dimension_mismatch.load(Ordering::Relaxed),
             empty_crop: self.empty_crop.load(Ordering::Relaxed),
+            frame_status_missing: self.frame_status_missing.load(Ordering::Relaxed),
+            frame_status_complete: self.frame_status_complete.load(Ordering::Relaxed),
+            frame_status_idle: self.frame_status_idle.load(Ordering::Relaxed),
+            frame_status_blank: self.frame_status_blank.load(Ordering::Relaxed),
+            frame_status_suspended: self.frame_status_suspended.load(Ordering::Relaxed),
+            frame_status_started: self.frame_status_started.load(Ordering::Relaxed),
+            frame_status_stopped: self.frame_status_stopped.load(Ordering::Relaxed),
+            frame_status_unknown: self.frame_status_unknown.load(Ordering::Relaxed),
+            last_frame_status: self
+                .last_frame_status
+                .lock()
+                .ok()
+                .and_then(|status| *status),
             requested_config_revision,
             applied_config_revision,
             last_source_size: self.last_source_size.lock().ok().and_then(|size| *size),
@@ -172,6 +218,50 @@ impl CaptureDiagnosticsState {
             *slot = Some(size);
         }
     }
+
+    pub(super) fn record_frame_status(&self, status: Option<SCFrameStatus>) {
+        use std::sync::atomic::Ordering;
+
+        let Some(status) = status else {
+            self.frame_status_missing.fetch_add(1, Ordering::Relaxed);
+            return;
+        };
+        if let Ok(mut slot) = self.last_frame_status.lock() {
+            *slot = Some(status.0);
+        }
+        match status {
+            SCFrameStatus::Complete => self.frame_status_complete.fetch_add(1, Ordering::Relaxed),
+            SCFrameStatus::Idle => self.frame_status_idle.fetch_add(1, Ordering::Relaxed),
+            SCFrameStatus::Blank => self.frame_status_blank.fetch_add(1, Ordering::Relaxed),
+            SCFrameStatus::Suspended => self.frame_status_suspended.fetch_add(1, Ordering::Relaxed),
+            SCFrameStatus::Started => self.frame_status_started.fetch_add(1, Ordering::Relaxed),
+            SCFrameStatus::Stopped => self.frame_status_stopped.fetch_add(1, Ordering::Relaxed),
+            _ => self.frame_status_unknown.fetch_add(1, Ordering::Relaxed),
+        };
+    }
+}
+
+/// Read ScreenCaptureKit's per-sample status attachment without making the
+/// capture outcome depend on that metadata.
+///
+/// Apple's `SCStreamOutput` contract specifies a one-element attachments
+/// array whose first dictionary maps `SCStreamFrameInfoStatus` to an
+/// `NSNumber`/`CFNumber`. The generic casts only express that documented
+/// layout; malformed or absent attachments remain `None` diagnostics.
+fn screen_frame_status(sample: &CMSampleBuffer) -> Option<SCFrameStatus> {
+    let attachments = unsafe { sample.sample_attachments_array(false) }?;
+    type FrameAttachments = CFArray<CFDictionary<CFString, CFNumber>>;
+    // SAFETY: ScreenCaptureKit documents the sample-attachments array as an
+    // array of frame-info dictionaries with numeric status values. Its
+    // `NSString` key is toll-free bridged to the `CFString` dictionary key.
+    let attachments: &FrameAttachments = unsafe { attachments.cast_unchecked() };
+    let frame_info = attachments.get(0)?;
+    // SAFETY: `SCStreamFrameInfoStatus` is an NSString constant. NSString
+    // and CFString are toll-free bridged and have the same object identity.
+    let status_key: &CFString =
+        unsafe { &*(SCStreamFrameInfoStatus as *const SCStreamFrameInfo).cast::<CFString>() };
+    let status = frame_info.get(status_key)?;
+    Some(SCFrameStatus(status.as_isize()?))
 }
 
 #[derive(Default)]
@@ -208,6 +298,9 @@ define_class!(
             state
                 .samples_received
                 .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+            state
+                .diagnostics
+                .record_frame_status(screen_frame_status(sample_buffer));
             // Retain the sample; the protocol contract is that the
             // callee must retain if it wants to outlive this call.
             let retained = unsafe { CFRetained::retain(NonNull::from(sample_buffer)) };
@@ -222,10 +315,12 @@ impl StreamOutputDelegate {
     pub(super) fn new(
         latest: Arc<LatestSample>,
         samples_received: Arc<std::sync::atomic::AtomicU64>,
+        diagnostics: Arc<CaptureDiagnosticsState>,
     ) -> Retained<Self> {
         let this = Self::alloc().set_ivars(OutputDelegateState {
             latest,
             samples_received,
+            diagnostics,
         });
         // SAFETY: NSObject's `init` returns a valid initialized instance.
         unsafe { msg_send![super(this), init] }
@@ -687,7 +782,9 @@ mod tests {
 
     use dpi::PhysicalSize;
 
-    use super::{CaptureDiagnosticsState, ConfigurationFailure, complete_configuration_update};
+    use super::{
+        CaptureDiagnosticsState, ConfigurationFailure, SCFrameStatus, complete_configuration_update,
+    };
 
     #[test]
     fn failed_configuration_never_acknowledges_its_revision() {
@@ -757,6 +854,14 @@ mod tests {
             .source_dimension_mismatch
             .fetch_add(7, Ordering::Relaxed);
         diagnostics.empty_crop.fetch_add(11, Ordering::Relaxed);
+        diagnostics.record_frame_status(None);
+        diagnostics.record_frame_status(Some(SCFrameStatus::Complete));
+        diagnostics.record_frame_status(Some(SCFrameStatus::Idle));
+        diagnostics.record_frame_status(Some(SCFrameStatus::Blank));
+        diagnostics.record_frame_status(Some(SCFrameStatus::Suspended));
+        diagnostics.record_frame_status(Some(SCFrameStatus::Started));
+        diagnostics.record_frame_status(Some(SCFrameStatus::Stopped));
+        diagnostics.record_frame_status(Some(SCFrameStatus(99)));
         diagnostics.record_source_size(PhysicalSize::new(2048, 1536));
         diagnostics.record_expected_source_size(PhysicalSize::new(2048, 1500));
 
@@ -766,6 +871,15 @@ mod tests {
         assert_eq!(snapshot.configuration_revision_pending, 5);
         assert_eq!(snapshot.source_dimension_mismatch, 7);
         assert_eq!(snapshot.empty_crop, 11);
+        assert_eq!(snapshot.frame_status_missing, 1);
+        assert_eq!(snapshot.frame_status_complete, 1);
+        assert_eq!(snapshot.frame_status_idle, 1);
+        assert_eq!(snapshot.frame_status_blank, 1);
+        assert_eq!(snapshot.frame_status_suspended, 1);
+        assert_eq!(snapshot.frame_status_started, 1);
+        assert_eq!(snapshot.frame_status_stopped, 1);
+        assert_eq!(snapshot.frame_status_unknown, 1);
+        assert_eq!(snapshot.last_frame_status, Some(99));
         assert_eq!(snapshot.requested_config_revision, 9);
         assert_eq!(snapshot.applied_config_revision, 8);
         assert_eq!(
