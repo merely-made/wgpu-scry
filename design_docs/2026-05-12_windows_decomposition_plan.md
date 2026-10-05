@@ -1,5 +1,9 @@
 # Windows Producer / Demo Decomposition Plan
 
+**Status (2026-10-05):** decomposition retained; bounded WGC capture-queue
+repair implemented and focused tests passing locally, native freshness
+acceptance open. The published Turnstone consumer still uses registry 0.7.1.
+
 The Windows browser-parity tranche proved the next WebView2 surface, but it
 also made two files violate the repository's 600-LOC module discipline:
 
@@ -73,3 +77,47 @@ cargo run --manifest-path repos/scrying/Cargo.toml -p demo-win -- --cookie-test
 
 All GUI commands above must be wrapped by an external timeout and process-tree
 kill during validation.
+
+## Capture queue maintenance (2026-10-05)
+
+### Findings
+
+- `scrying/src/webview2_composition_producer/capture.rs` coalesced all pending
+  `FrameArrived` notifications, then dequeued only one sample from a two-slot
+  WGC pool. Two paints before a poll followed by an idle page could strand the
+  newest queued paint until another arrival. The pinned registry 0.7.1 source
+  and the current checkout both contained this mismatch.
+- Frozen Turnstone's October 5 consumer receipt reports current DOM titles
+  ahead of imported pixels and blank final reconstructed tiles. The queue
+  mismatch is an actionable supplier defect and a candidate for the stale
+  pixels, not an established explanation for every observed failure. Cookie
+  persistence failures remain a separate open diagnostic.
+
+### Phase and done-conditions
+
+The local repair shares the pool capacity with a bounded newest-sample drain
+used by both nonblocking and explicit-wait acquisition. Superseded WGC frames
+are closed; the selected frame follows the existing size guard, copy, fence,
+and custody path. Continuous paint cannot turn acquisition into an unbounded
+drain. Arrivals during draining retain their wake notification.
+
+Done requires the two-arrival/no-new-paint regression, its deliberately broken
+single-dequeue positive control, empty/single-sample custody, and bounded
+continuous-arrival regressions to pass; then a headed Windows receipt must
+observe the final static DOM state in imported pixels, including resize and
+reconstruction. Counts and DOM/title assertions alone do not close that gate.
+
+### Progress
+
+- **2026-10-05:** `cargo test -p scrying --lib
+  webview2_composition_producer::capture::tests --target-dir
+  C:/t/cargo-targets/wgpu-scry --locked` compiled the Windows/default wgpu-30
+  library and passed all five focused tests (four new, retained reparenting
+  test; 22 other tests filtered). `rustfmt --edition 2024 --check
+  scrying/src/webview2_composition_producer/capture.rs` and `git diff --check`
+  passed. The old-behavior positive control proves that two notifications,
+  one dequeue, and no subsequent paint leave frame 2 unread; the repaired
+  drain delivers frame 2 and closes frame 1 in that same poll. The stable
+  repository target is retained for reuse. No native run, consumer repin,
+  package, tag, or publication performed. Existing capture/input and
+  platform gates remain qualified in the browser checklist and backlog.
