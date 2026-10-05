@@ -6,6 +6,8 @@ This is the canonical index for active documentation in this repository.
 
 - Keep compile coverage, imported-resource shape, pixel correctness, and
   headed hardware receipts as separate claims.
+- A DOM/title change and imported-frame count do not prove final static pixel
+  freshness; coalesced capture notifications must account for queued samples.
 - Scrying owns system-webview adaptation and frame production. The host owns
   windowing, embedding, navigation policy, storage policy, and fallback choice.
 - Keep the feature-selected wgpu row identical to the host row and re-export
@@ -22,7 +24,7 @@ This is the canonical index for active documentation in this repository.
 - [Browser-class parity checklist](2026-05-09_browser_parity_checklist.md): cross-platform browser capability and verification matrix.
 - [WKWebView SPI evaluation](2026-05-09_spi_evaluation.md): private-API research and public-API stop lines for macOS.
 - [Windows WebView2 integration target](2026-05-11_windows_webview2_target.md): Windows composition, capture, and input target shape.
-- [Windows producer decomposition plan](2026-05-12_windows_decomposition_plan.md): separation of reusable WebView2 production from the demo host.
+- [Windows producer decomposition plan](2026-05-12_windows_decomposition_plan.md): separation of reusable WebView2 production from the demo host and October 5 bounded WGC queue repair with native freshness acceptance open.
 - [Linux WebKitGTK phase 2a](2026-05-14_linux_webkitgtk_phase_2a.md): WebKitGTK 4.1 baseline and the three-backend Linux strategy.
 - [Phase 4 strategy](2026-05-15_phase4_strategy.md): Vulkan DMABUF import and WPE sequencing.
 - [WPE bindings decision](2026-05-20_phase4b_wpe_bindings_decision.md): ownership and generation strategy for WPE Rust bindings.

@@ -34,19 +34,19 @@ impl WebView2CompositionProducer {
                 Ok(result) => {
                     result.map_err(platform("CapturePreview completion"))?;
                     break;
-                }
+                },
                 Err(mpsc::TryRecvError::Empty) if Instant::now() < deadline => continue,
                 Err(mpsc::TryRecvError::Empty) => {
                     return Err(WebSurfaceError::Platform(format!(
                         "WebView2 CapturePreview did not complete within {:?}",
                         self.frame_timeout
                     )));
-                }
+                },
                 Err(mpsc::TryRecvError::Disconnected) => {
                     return Err(WebSurfaceError::Platform(
                         "CapturePreview completion channel closed unexpectedly".into(),
                     ));
-                }
+                },
             }
         }
 
@@ -197,7 +197,7 @@ impl WebView2CompositionProducer {
             if !state.frame_ready() {
                 return Ok(None);
             }
-            state.pool.TryGetNextFrame()
+            state.take_latest_frame()
         };
 
         match frame {
@@ -242,17 +242,17 @@ impl WebView2CompositionProducer {
                     self.size.width, self.size.height
                 )));
             }
-            match state.pool.TryGetNextFrame() {
+            match state.take_latest_frame() {
                 Ok(frame) => match self.capture_frame_to_shared(frame)? {
                     Some(frame) => return Ok(frame),
                     None if Instant::now() < deadline => {
                         pump_messages_for(Duration::from_millis(16))
-                    }
+                    },
                     None => {
                         return Err(WebSurfaceError::NotReady(
                             "WGC only returned stale frames before the acquire timeout",
                         ));
-                    }
+                    },
                 },
                 Err(_) if Instant::now() < deadline => pump_messages_for(Duration::from_millis(16)),
                 Err(error) => {
@@ -260,7 +260,7 @@ impl WebView2CompositionProducer {
                         "TryGetNextFrame timed out after {timeout:?} for {}x{}: {error}",
                         self.size.width, self.size.height
                     )));
-                }
+                },
             }
         }
     }
@@ -363,7 +363,7 @@ impl WebView2CompositionProducer {
         let pool = Direct3D11CaptureFramePool::CreateFreeThreaded(
             &self.capture_device,
             DirectXPixelFormat::B8G8R8A8UIntNormalized,
-            2,
+            CAPTURE_POOL_BUFFERS as i32,
             item_size,
         )
         .map_err(platform("Direct3D11CaptureFramePool::CreateFreeThreaded"))?;
@@ -425,6 +425,39 @@ impl CaptureState {
     fn mark_arrivals_observed(&mut self) {
         mark_arrivals_observed(&self.frame_arrivals, &mut self.frame_arrivals_observed);
     }
+
+    fn take_latest_frame(
+        &self,
+    ) -> windows::core::Result<windows::Graphics::Capture::Direct3D11CaptureFrame> {
+        newest_queued_capture_frame(
+            || self.pool.TryGetNextFrame(),
+            |frame| {
+                let _ = frame.Close();
+            },
+        )
+    }
+}
+
+const CAPTURE_POOL_BUFFERS: usize = 2;
+
+/// A readiness notification coalesces all arrivals since the previous poll.
+/// Drain at most the pool capacity so that a static page's final queued paint
+/// is not stranded behind that coalesced notification. Close superseded frames
+/// before converting the newest sample; arrivals during this bounded drain
+/// retain their notification for the next poll.
+fn newest_queued_capture_frame<T, E>(
+    mut next: impl FnMut() -> Result<T, E>,
+    mut close: impl FnMut(T),
+) -> Result<T, E> {
+    let mut latest = next()?;
+    for _ in 1..CAPTURE_POOL_BUFFERS {
+        let Ok(frame) = next() else {
+            break;
+        };
+        close(latest);
+        latest = frame;
+    }
+    Ok(latest)
 }
 
 fn take_unobserved_arrival(arrivals: &AtomicU64, observed: &mut u64) -> bool {
@@ -442,9 +475,89 @@ fn mark_arrivals_observed(arrivals: &AtomicU64, observed: &mut u64) {
 
 #[cfg(test)]
 mod tests {
+    use std::collections::VecDeque;
     use std::sync::atomic::{AtomicU64, Ordering};
 
-    use super::{mark_arrivals_observed, take_unobserved_arrival};
+    use super::{
+        CAPTURE_POOL_BUFFERS, mark_arrivals_observed, newest_queued_capture_frame,
+        take_unobserved_arrival,
+    };
+
+    #[test]
+    fn coalesced_arrivals_deliver_final_static_paint_and_close_superseded_frame() {
+        let arrivals = AtomicU64::new(2);
+        let mut observed = 0;
+        let mut queued = VecDeque::from([1, 2]);
+        let mut closed = Vec::new();
+        assert!(take_unobserved_arrival(&arrivals, &mut observed));
+        let latest = newest_queued_capture_frame(
+            || queued.pop_front().ok_or(()),
+            |frame| closed.push(frame),
+        );
+        assert_eq!(latest, Ok(2));
+        assert_eq!(closed, [1]);
+        assert!(queued.is_empty());
+        // No more paints are required to deliver the final state.
+        assert!(!take_unobserved_arrival(&arrivals, &mut observed));
+    }
+
+    #[test]
+    fn legacy_single_dequeue_strands_final_static_paint_positive_control() {
+        let arrivals = AtomicU64::new(2);
+        let mut observed = 0;
+        let mut queued = VecDeque::from([1, 2]);
+        // Deliberately broken old behavior consumes both notifications but
+        // removes only the first frame. Repeated idle polls cannot find frame 2.
+        assert!(take_unobserved_arrival(&arrivals, &mut observed));
+        assert_eq!(queued.pop_front(), Some(1));
+        for _ in 0..3 {
+            assert!(!take_unobserved_arrival(&arrivals, &mut observed));
+        }
+        assert_eq!(queued.front(), Some(&2));
+    }
+
+    #[test]
+    fn latest_frame_keeps_single_sample_and_propagates_empty_pool_error() {
+        let mut queued = VecDeque::from([1]);
+        let mut closed = Vec::new();
+        assert_eq!(
+            newest_queued_capture_frame(
+                || queued.pop_front().ok_or("empty"),
+                |frame| closed.push(frame),
+            ),
+            Ok(1)
+        );
+        assert!(closed.is_empty());
+        assert_eq!(
+            newest_queued_capture_frame(
+                || queued.pop_front().ok_or("empty"),
+                |frame| closed.push(frame),
+            ),
+            Err("empty")
+        );
+        assert!(closed.is_empty());
+    }
+
+    #[test]
+    fn continuous_arrivals_are_bounded_and_preserve_next_poll_notification() {
+        let arrivals = AtomicU64::new(2);
+        let mut observed = 0;
+        let mut dequeued = 0;
+        let mut closed = Vec::new();
+        assert!(take_unobserved_arrival(&arrivals, &mut observed));
+        let latest: Result<usize, ()> = newest_queued_capture_frame(
+            || {
+                dequeued += 1;
+                arrivals.fetch_add(1, Ordering::Relaxed);
+                Ok(dequeued)
+            },
+            |frame| closed.push(frame),
+        );
+        assert_eq!(dequeued, CAPTURE_POOL_BUFFERS);
+        assert_eq!(latest, Ok(CAPTURE_POOL_BUFFERS));
+        assert_eq!(closed, [1]);
+        assert!(take_unobserved_arrival(&arrivals, &mut observed));
+    }
 
     #[test]
     fn visual_reparent_keeps_pending_capture_and_discards_only_pre_move_arrivals() {
