@@ -160,6 +160,8 @@ jobs:
           bash scripts/test-active-wayland-session.sh
           bash scripts/assert-active-wayland-session.sh
 
+      - name: Refuse worker-thread WPE initialization safely
+        run: cargo test --locked -p scrying --features wpe --lib worker_constructor_is_refused
       - name: Run WPE DMABUF to Vulkan pixel gate
         run: |
           set -o pipefail
