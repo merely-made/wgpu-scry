@@ -162,6 +162,14 @@ impl WpeProducer {
                 config.size.width, config.size.height
             )));
         }
+        // WebKit initializes WTF's main thread here. On current WPE it aborts
+        // if that initialization happens on a worker, so refuse before FFI.
+        // SAFETY: gettid/getpid have no arguments or pointer obligations.
+        if unsafe { libc::gettid() != libc::getpid() } {
+            return Err(WebSurfaceError::Platform(
+                "WPE producers must be constructed on the process main thread".into(),
+            ));
+        }
         let main_context = glib::MainContext::default();
         let (webview, view) = super::headless::build_producer_view(url_schemes)?;
         let nav_state = std::rc::Rc::new(std::cell::RefCell::new(
@@ -567,11 +575,11 @@ impl WebSurfaceProducer for WpeProducer {
             match &event {
                 WebSurfaceEvent::Navigation(_) => {
                     self.nav_state.borrow_mut().events.pop_front();
-                }
+                },
                 WebSurfaceEvent::WebMessage(_) => {
                     self.web_messages.borrow_mut().pop_front();
-                }
-                _ => {}
+                },
+                _ => {},
             }
             Some(event)
         }
@@ -755,6 +763,20 @@ impl WebSurfaceProducer for WpeProducer {
 #[cfg(all(test, feature = "wpe"))]
 mod tests {
     use super::*;
+
+    #[test]
+    fn worker_constructor_is_refused_before_webkit_initialization() {
+        let message = std::thread::spawn(|| {
+            let config = WpeProducerConfig::new(PhysicalSize::new(256, 256), std::env::temp_dir());
+            match WpeProducer::new(config) {
+                Err(WebSurfaceError::Platform(message)) => message,
+                _ => panic!("worker construction must return a typed main-thread refusal"),
+            }
+        })
+        .join()
+        .unwrap();
+        assert!(message.contains("process main thread"));
+    }
 
     #[test]
     fn legacy_message_pop_removes_its_ordered_mirror() {
