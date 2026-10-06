@@ -167,6 +167,10 @@ jobs:
             2>&1 | tee "$log_file"; then
             exit 1
           fi
+          if ! grep -Fq 'NATIVE WPE GATE PASS: wpe_to_vulkan_roundtrip' "$log_file"; then
+            echo 'Native WPE gate did not complete on the process main thread.'
+            exit 1
+          fi
           if grep -q 'SKIP:' "$log_file"; then
             echo 'WPE Vulkan pixel gate emitted SKIP; hardware prerequisites were expected to be present.'
             exit 1
@@ -180,6 +184,10 @@ jobs:
           if ! cargo test --locked -p scrying --features wpe \
             --test wpe_input -- --ignored --nocapture --test-threads=1 \
             2>&1 | tee "$log_file"; then
+            exit 1
+          fi
+          if ! grep -Fq 'NATIVE WPE GATE PASS: wpe_input' "$log_file"; then
+            echo 'Native WPE gate did not complete on the process main thread.'
             exit 1
           fi
           if grep -q 'SKIP:' "$log_file"; then
