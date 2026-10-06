@@ -192,3 +192,14 @@ windows = { version = "0.62", features = [
     "Graphics_DirectX",
     "Graphics_DirectX_Direct3D11",
 ] }
+
+# Native WebKit initialization must run on the process main thread.
+[[test]]
+name = "wpe_to_vulkan_roundtrip"
+harness = false
+required-features = ["wpe"]
+
+[[test]]
+name = "wpe_input"
+harness = false
+required-features = ["wpe"]
