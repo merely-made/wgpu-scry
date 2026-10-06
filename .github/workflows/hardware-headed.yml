@@ -153,7 +153,8 @@ jobs:
           test -S "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY"
           test -z "${DISPLAY:-}"
           pkg-config --atleast-version=2.52 wpe-webkit-2.0
-          loginctl show-session 2 -p Active -p Type
+          bash scripts/test-active-wayland-session.sh
+          bash scripts/assert-active-wayland-session.sh
 
       - name: Run WPE DMABUF to Vulkan pixel gate
         run: |
