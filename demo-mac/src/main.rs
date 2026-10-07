@@ -483,6 +483,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut event_loop_builder = EventLoop::builder();
     if cli.is_headless() {
         event_loop_builder.with_activation_policy(ActivationPolicy::Prohibited);
+    } else if cli.capture_test {
+        // The headed capture fixture must be an active visible AppKit app.
+        // LaunchServices may otherwise leave its WKWebView page hidden and
+        // its CSS animation suspended even though the NSWindow is visible.
+        event_loop_builder.with_activation_policy(ActivationPolicy::Regular);
     }
     let event_loop = event_loop_builder.build()?;
     // Probe-snapshot, capture, and scripted modes need `Poll` so
@@ -1116,7 +1121,15 @@ impl ApplicationHandler for App {
             return;
         }
         match AppState::new(event_loop, self.cli) {
-            Ok(state) => self.state = Some(state),
+            Ok(state) => {
+                if self.cli.capture_test {
+                    // Only the explicitly headed capture test requests front
+                    // placement. Ordinary/headless modes keep their policy.
+                    state.window.focus_window();
+                    println!("demo-mac: headed capture window activation requested");
+                }
+                self.state = Some(state);
+            }
             Err(error) => {
                 eprintln!("demo-mac: initialization failed: {error}");
                 event_loop.exit();
