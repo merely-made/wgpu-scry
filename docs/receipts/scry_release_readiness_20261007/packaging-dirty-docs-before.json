@@ -1,0 +1,34 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "0345476e74b1cabc02ab37f566ad75e91bd144a024dcaec15ae0967faabc7f5a"
+  },
+  {
+    "path": "design_docs/2026-05-07_platform_ceilings.md",
+    "sha256": "f692a9953676dd655d7303466c50129396082527666c64358879f6e631cd7aa6"
+  },
+  {
+    "path": "design_docs/2026-05-09_browser_parity_checklist.md",
+    "sha256": "6c8c8e4596755e679b6cebd99a1f27fe5fda6152bd57d0b29d074c68cf5aea7a"
+  },
+  {
+    "path": "design_docs/2026-05-11_windows_webview2_target.md",
+    "sha256": "441fc850ed01a3f282e3f167b29cd6b4a8420e1df967c55744976a9578a8df5f"
+  },
+  {
+    "path": "design_docs/2026-05-15_phase4_strategy.md",
+    "sha256": "d96918a5ce2735b21057f616c88543cd5c78beebd0e6c4a6859c6d8734c4fbdd"
+  },
+  {
+    "path": "design_docs/2026-06-28_improvement_backlog.md",
+    "sha256": "33a1b0dfc0df40fb57d21cf19cab00d5a3892fb559bd7d60173af0d13268b5b0"
+  },
+  {
+    "path": "design_docs/DOC_README.md",
+    "sha256": "70c318ab23c5aa9df1de4242c96a8bdf1307254971b02575eb81eac75ce2333d"
+  },
+  {
+    "path": "docs/parity-matrix.md",
+    "sha256": "61300e80fbfe24b74902e609c438ca5ba89a1af262cc5243241a29220c8f8ec1"
+  }
+]

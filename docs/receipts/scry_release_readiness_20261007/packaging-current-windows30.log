@@ -1,0 +1,722 @@
+gate / windows-latest / wgpu-30	UNKNOWN STEP	﻿2026-10-07T01:11:36.3648449Z Current runner version: '2.337.0'
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3671902Z ##[group]Runner Image Provisioner
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3673125Z Hosted Compute Agent
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3673761Z Version: 20260901.588
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3674483Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3675388Z Build Date: 2026-09-01T19:56:44Z
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3676265Z Worker ID: {dd292800-ef4f-477c-bc73-458aee074e08}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3677153Z Azure Region: eastus
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3677748Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3679282Z ##[group]Operating System
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3680018Z Microsoft Windows Server 2025
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3680704Z 10.0.26100
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3681208Z Datacenter
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3681725Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3682317Z ##[group]Runner Image
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3682927Z Image: windows-2025-vs2026
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3683521Z Version: 20260925.250.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3685348Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20260925.250/images/windows/Windows2025-VS2026-Readme.md
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3687223Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20260925.250
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3688374Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3689719Z ##[group]GITHUB_TOKEN Permissions
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3692140Z Contents: read
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3692735Z Metadata: read
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3693270Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3695592Z Secret source: Actions
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3696423Z Cache mode: write
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.3697172Z Prepare workflow directory
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.5329323Z Prepare all required actions
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.5369423Z Getting action download info
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.6842223Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:36.7857344Z Download action repository 'dtolnay/rust-toolchain@master' (SHA:7e38f4b43b4db5c8dd498af069a4f6196df1d067)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0502865Z Uses: merely-made/.github/.github/workflows/wgpu-check.yml@refs/heads/main (0ecf5ddd3a74095590b62a3be5a895a13cb17e93)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0507089Z ##[group] Inputs
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0507462Z   crate: scrying
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0507867Z   os: ["ubuntu-latest", "macos-latest", "windows-latest"]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0508393Z   wgpu-versions: ["wgpu-28", "wgpu-29", "wgpu-30"]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0508864Z   lib-args: --lib --no-default-features
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0509568Z   run-clippy: false
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0509891Z   run-fmt: false
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0510194Z   test-row: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0510491Z   rustflags: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0510862Z   extra-packages: -p demo-scrying-winit -p demo-win
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0511624Z   extra-packages-os: ["windows-latest"]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0512039Z   linux-apt-packages: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0512855Z   timeout-minutes: 45
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0513207Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.0513572Z Complete job name: gate / windows-latest / wgpu-30
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3049428Z ##[group]Run actions/checkout@v4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3050501Z with:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3050854Z   repository: merely-made/wgpu-scry
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3054070Z   token: ***
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3054382Z   ssh-strict: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3054699Z   ssh-user: git
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3055022Z   persist-credentials: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3055367Z   clean: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3055685Z   sparse-checkout-cone-mode: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3056063Z   fetch-depth: 1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3056395Z   fetch-tags: false
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3056723Z   show-progress: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3057091Z   lfs: false
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3057387Z   submodules: false
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3057720Z   set-safe-directory: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3058089Z   allow-unsafe-pr-checkout: false
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3058622Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3058913Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3059267Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3059681Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.3061847Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.5410351Z Syncing repository: merely-made/wgpu-scry
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.5411672Z ##[group]Getting Git version info
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.5412139Z Working directory is 'D:\a\wgpu-scry\wgpu-scry'
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:37.5865920Z [command]"C:\Program Files\Git\bin\git.exe" version
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.2634123Z git version 2.55.0.windows.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.2678255Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.2700563Z Temporarily overriding HOME='D:\a\_temp\296f9d61-5a74-4de7-b214-9c63b25ed30f' before making global git config changes
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.2702406Z Adding repository directory to the temporary git global config as a safe directory
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.2710203Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wgpu-scry\wgpu-scry
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.4036954Z Deleting the contents of 'D:\a\wgpu-scry\wgpu-scry'
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.4043619Z ##[group]Initializing the repository
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.4051314Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\wgpu-scry\wgpu-scry
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.5406524Z Initialized empty Git repository in D:/a/wgpu-scry/wgpu-scry/.git/
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.5448674Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/merely-made/wgpu-scry
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.6454735Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.6455767Z ##[group]Disabling automatic garbage collection
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.6462818Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.6732383Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.6733387Z ##[group]Setting up auth
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.6743664Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:38.7031468Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:41.8137872Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:41.8399944Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:42.3099199Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:42.3364785Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:42.8521986Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:42.8809813Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:42.8810266Z ##[group]Fetching the repository
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:42.8825591Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +2c3ebd24118851cf6125cfb193f55aab20e3ad67:refs/remotes/origin/main
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.4258622Z From https://github.com/merely-made/wgpu-scry
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.4260996Z  * [new ref]         2c3ebd24118851cf6125cfb193f55aab20e3ad67 -> origin/main
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.4305203Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.4305888Z ##[group]Determining the checkout info
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.4307770Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.4323841Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.4868824Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.5151949Z ##[group]Checking out the ref
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.5160011Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.6633619Z Switched to a new branch 'main'
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.6757533Z branch 'main' set up to track 'origin/main'.
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.6798394Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.7269081Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.7517397Z 2c3ebd24118851cf6125cfb193f55aab20e3ad67
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.8065368Z ##[group]Run git config --global core.longpaths true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.8065840Z [36;1mgit config --global core.longpaths true[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.8998054Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.8998401Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.8998567Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.8998751Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.8998960Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:44.8999106Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4145363Z ##[group]Run dtolnay/rust-toolchain@master
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4145660Z with:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4145809Z   toolchain: 1.97.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4145956Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4146098Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4146272Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4146496Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4146636Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4337249Z ##[start-action display=Parse toolchain version;id=__dtolnay_rust-toolchain.parse]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4622208Z ##[group]Run if [[ -z $toolchain ]]; then
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4622505Z [36;1mif [[ -z $toolchain ]]; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4622962Z [36;1m  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4623428Z [36;1m  echo "'toolchain' is a required input" >&2[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4623689Z [36;1m  exit 1[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4624045Z [36;1melif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4624371Z [36;1m  if [[ Windows == macOS ]]; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4624775Z [36;1m    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4625171Z [36;1m  else[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4625504Z [36;1m    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4625856Z [36;1m  fi[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4626091Z [36;1melif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4626487Z [36;1m  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4626835Z [36;1melif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4627224Z [36;1m  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4627586Z [36;1melse[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4627776Z [36;1m  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4628012Z [36;1mfi[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4641501Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4641841Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4642230Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4642429Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4642622Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4642779Z   toolchain: 1.97.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.4642938Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5191619Z ##[end-action id=__dtolnay_rust-toolchain.parse;outcome=success;conclusion=success;duration_ms=85]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5334333Z ##[start-action display=Construct rustup command line;id=__dtolnay_rust-toolchain.flags]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5600466Z ##[group]Run echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5601023Z [36;1mecho "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5601491Z [36;1mecho "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5601851Z [36;1mecho "downgrade=" >> $GITHUB_OUTPUT[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5613357Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5613673Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5613928Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5614149Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5614362Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5614523Z   targets: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5614682Z   components: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.5614853Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.6196481Z ##[end-action id=__dtolnay_rust-toolchain.flags;outcome=success;conclusion=success;duration_ms=86]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.6354204Z ##[start-action display=Set $CARGO_HOME;id=__dtolnay_rust-toolchain.__run]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.6619111Z ##[group]Run echo CARGO_HOME=${CARGO_HOME:-"$USERPROFILE\.cargo"} >> $GITHUB_ENV
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.6619628Z [36;1mecho CARGO_HOME=${CARGO_HOME:-"$USERPROFILE\.cargo"} >> $GITHUB_ENV[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.6631654Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.6632699Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.6632902Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.6633182Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.6633428Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.6633626Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.6992805Z ##[end-action id=__dtolnay_rust-toolchain.__run;outcome=success;conclusion=success;duration_ms=63]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7127401Z ##[start-action display=Install rustup if needed;id=__dtolnay_rust-toolchain.__run_2]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7207817Z ##[end-action id=__dtolnay_rust-toolchain.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7340508Z ##[start-action display=Install rustup if needed on windows;id=__dtolnay_rust-toolchain.__run_3]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7647149Z ##[group]Run if ! command -v rustup &>/dev/null; then
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7647487Z [36;1mif ! command -v rustup &>/dev/null; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7648114Z [36;1m  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://win.rustup.rs/x86_64 --output 'D:\a\_temp\rustup-init.exe'[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7648799Z [36;1m  'D:\a\_temp\rustup-init.exe' --default-toolchain none --no-modify-path -y[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7649132Z [36;1m  echo "$CARGO_HOME\bin" >> $GITHUB_PATH[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7649377Z [36;1mfi[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7661984Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7662319Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7662480Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7662676Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7662880Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7663080Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.7663297Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8095190Z ##[end-action id=__dtolnay_rust-toolchain.__run_3;outcome=success;conclusion=success;duration_ms=75]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8240220Z ##[start-action display=rustup toolchain install 1.97.1;id=__dtolnay_rust-toolchain.__run_4]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8524270Z ##[group]Run log=$(mktemp)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8524513Z [36;1mlog=$(mktemp)[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8524695Z [36;1mtrap 'rm -f "$log"' EXIT[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8524899Z [36;1mfor attempt in 1 2 3 4 5; do[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8525310Z [36;1m  if rustup toolchain install 1.97.1 --profile minimal --no-self-update --force-non-host 2>&1 | tee "$log"; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8525701Z [36;1m    break[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8525849Z [36;1m  else[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8525993Z [36;1m    status=$?[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8526148Z [36;1m  fi[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8526367Z [36;1m  if [[ $attempt == 5 ]] || ! grep -Fq 'checksum failed for ' "$log" \[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8526789Z [36;1m      || ! grep -Fq 'this is likely due to an ongoing update of the official release server' "$log"; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8527131Z [36;1m    exit "$status"[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8527296Z [36;1m  fi[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8527562Z [36;1m  echo "Retrying rustup toolchain install in 30 seconds (retry $attempt of 4)" >&2[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8528059Z [36;1m  sleep 30[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8528206Z [36;1mdone[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8542471Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8542804Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8542958Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8543148Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8543344Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8543513Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8543730Z   RUSTUP_PERMIT_COPY_RENAME: 1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:45.8543907Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:47.1726055Z info: syncing channel updates for 1.97.1-x86_64-pc-windows-msvc
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:48.1070425Z info: latest update on 2026-07-16 for version 1.97.1 (8bab26f4f 2026-07-14)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:48.1364720Z info: downloading 3 components
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6007016Z 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6324299Z   1.97.1-x86_64-pc-windows-msvc installed - rustc 1.97.1 (8bab26f4f 2026-07-14)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6324765Z 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6621434Z ##[end-action id=__dtolnay_rust-toolchain.__run_4;outcome=success;conclusion=success;duration_ms=9838]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6652832Z ##[start-action display=rustup default 1.97.1;id=__dtolnay_rust-toolchain.__run_5]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6807926Z ##[group]Run rustup default 1.97.1 --force-non-host
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6808216Z [36;1mrustup default 1.97.1 --force-non-host[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6819060Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6819364Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6819507Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6819700Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6819908Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6820067Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.6820274Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.7434981Z info: using existing install for 1.97.1-x86_64-pc-windows-msvc
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.7643768Z info: default toolchain set to 1.97.1-x86_64-pc-windows-msvc
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.7704824Z 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.7896048Z   1.97.1-x86_64-pc-windows-msvc unchanged - rustc 1.97.1 (8bab26f4f 2026-07-14)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.7896353Z 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.7900949Z info: note that the toolchain '1.97.1-x86_64-pc-windows-msvc' is currently in use (overridden by 'D:\a\wgpu-scry\wgpu-scry\rust-toolchain.toml')
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.7965304Z ##[end-action id=__dtolnay_rust-toolchain.__run_5;outcome=success;conclusion=success;duration_ms=131]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.7990637Z ##[start-action display=Create cachekey;id=__dtolnay_rust-toolchain.rustc-version]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.8131727Z ##[group]Run DATE=$(rustc +1.97.1 --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.8132329Z [36;1mDATE=$(rustc +1.97.1 --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.8132802Z [36;1mHASH=$(rustc +1.97.1 --version --verbose | sed -ne 's/^commit-hash: //p')[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.8133177Z [36;1mecho "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.8143318Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.8143611Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.8143758Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.8143935Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.8144118Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.8144273Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:55.8144466Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1252039Z ##[end-action id=__dtolnay_rust-toolchain.rustc-version;outcome=success;conclusion=success;duration_ms=1326]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1276545Z ##[start-action display=Disable incremental compilation;id=__dtolnay_rust-toolchain.__run_6]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1427135Z ##[group]Run if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1427439Z [36;1mif [ -z "${CARGO_INCREMENTAL+set}" ]; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1428494Z [36;1m  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1428701Z [36;1mfi[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1439432Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1439735Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1439888Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1440066Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1440254Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1440410Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1440607Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1829720Z ##[end-action id=__dtolnay_rust-toolchain.__run_6;outcome=success;conclusion=success;duration_ms=55]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1854795Z ##[start-action display=Enable colors in Cargo output;id=__dtolnay_rust-toolchain.__run_7]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1990602Z ##[group]Run if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1990907Z [36;1mif [ -z "${CARGO_TERM_COLOR+set}" ]; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1991194Z [36;1m  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.1991415Z [36;1mfi[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2001646Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2001965Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2002124Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2002309Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2002503Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2002660Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2002866Z   CARGO_INCREMENTAL: 0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2003025Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2361018Z ##[end-action id=__dtolnay_rust-toolchain.__run_7;outcome=success;conclusion=success;duration_ms=50]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2385371Z ##[start-action display=Enable Cargo sparse registry;id=__dtolnay_rust-toolchain.__run_8]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2541730Z ##[group]Run # implemented in 1.66, stabilized in 1.68, made default in 1.70
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2542169Z [36;1m# implemented in 1.66, stabilized in 1.68, made default in 1.70[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2542696Z [36;1mif [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "D:\a\_temp"/.implicit_cargo_registries_crates_io_protocol ]; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2543212Z [36;1m  if rustc +1.97.1 --version --verbose | grep -q '^release: 1\.6[89]\.'; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2543575Z [36;1m    touch "D:\a\_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2543926Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2544283Z [36;1m  elif rustc +1.97.1 --version --verbose | grep -q '^release: 1\.6[67]\.'; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2544651Z [36;1m    touch "D:\a\_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2544983Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2545232Z [36;1m  fi[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2545376Z [36;1mfi[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2556193Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2556514Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2556665Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2556848Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2557035Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2557193Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2557393Z   CARGO_INCREMENTAL: 0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.2557562Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.4894840Z ##[end-action id=__dtolnay_rust-toolchain.__run_8;outcome=success;conclusion=success;duration_ms=250]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.4918676Z ##[start-action display=Work around spurious network errors in curl 8.0;id=__dtolnay_rust-toolchain.__run_9]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5058199Z ##[group]Run # https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5058781Z [36;1m# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5059235Z [36;1mif rustc +1.97.1 --version --verbose | grep -q '^release: 1\.7[01]\.'; then[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5059750Z [36;1m  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5059984Z [36;1mfi[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5070796Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5071105Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5071255Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5071432Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5071618Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5071782Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5071982Z   CARGO_INCREMENTAL: 0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.5072137Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6175933Z ##[end-action id=__dtolnay_rust-toolchain.__run_9;outcome=success;conclusion=success;duration_ms=125]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6208675Z ##[start-action display=rustc +1.97.1 --version --verbose;id=__dtolnay_rust-toolchain.__run_10]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6403633Z ##[group]Run rustc +1.97.1 --version --verbose
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6404062Z [36;1mrustc +1.97.1 --version --verbose[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6419984Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6420470Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6420701Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6420989Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6421289Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6421536Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6421860Z   CARGO_INCREMENTAL: 0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.6422109Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7219048Z rustc 1.97.1 (8bab26f4f 2026-07-14)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7219326Z binary: rustc
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7219567Z commit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7219812Z commit-date: 2026-07-14
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7219994Z host: x86_64-pc-windows-msvc
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7220184Z release: 1.97.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7221119Z LLVM version: 22.1.6
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7326928Z ##[end-action id=__dtolnay_rust-toolchain.__run_10;outcome=success;conclusion=success;duration_ms=111]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7597988Z ##[group]Run cargo --version
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7598302Z [36;1mcargo --version[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7598491Z [36;1mrustc --version[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7658261Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7658537Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7658709Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7658906Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7659098Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7659257Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7659457Z   CARGO_INCREMENTAL: 0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:57.7659612Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.7777040Z cargo 1.97.1 (c980f4866 2026-06-30)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.8684422Z rustc 1.97.1 (8bab26f4f 2026-07-14)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.9801432Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-30
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.9802002Z [36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-30[0m
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.9858239Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.9858519Z env:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.9858669Z   CARGO_TERM_COLOR: always
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.9858857Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.9859047Z   RUSTFLAGS: 
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.9859207Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.9859410Z   CARGO_INCREMENTAL: 0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:58.9859571Z ##[endgroup]
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:11:59.3152591Z [1m[92m    Updating[0m crates.io index
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:00.9957893Z [1m[92m Downloading[0m crates ...
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.1967339Z [1m[92m  Downloaded[0m serde v1.0.229
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.2506799Z [1m[92m  Downloaded[0m crossbeam-deque v0.8.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.2641746Z [1m[92m  Downloaded[0m reborrow v0.5.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.2809982Z [1m[92m  Downloaded[0m arg_enum_proc_macro v0.3.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.2958020Z [1m[92m  Downloaded[0m windows-targets v0.52.6
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.3034567Z [1m[92m  Downloaded[0m rustc-hash v1.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.3148857Z [1m[92m  Downloaded[0m winapi-util v0.1.11
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.3274578Z [1m[92m  Downloaded[0m crossbeam-utils v0.8.22
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.3648714Z [1m[92m  Downloaded[0m equator v0.4.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.3847418Z [1m[92m  Downloaded[0m pxfm v0.1.30
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.6043381Z [1m[92m  Downloaded[0m dpi v0.1.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.6124116Z [1m[92m  Downloaded[0m either v1.18.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.6289396Z [1m[92m  Downloaded[0m equivalent v1.0.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.6375271Z [1m[92m  Downloaded[0m quick-error v2.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.6491195Z [1m[92m  Downloaded[0m png v0.18.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.6838190Z [1m[92m  Downloaded[0m windows-core v0.62.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.7142838Z [1m[92m  Downloaded[0m windows-implement v0.60.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.7287488Z [1m[92m  Downloaded[0m bumpalo v3.20.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.7463201Z [1m[92m  Downloaded[0m bytemuck_derive v1.12.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.7607381Z [1m[92m  Downloaded[0m crc32fast v1.5.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.7734971Z [1m[92m  Downloaded[0m moxcms v0.8.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.8666788Z [1m[92m  Downloaded[0m maybe-rayon v0.1.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.8732477Z [1m[92m  Downloaded[0m num-integer v0.1.47
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.8878652Z [1m[92m  Downloaded[0m crossbeam-epoch v0.9.20
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.9083180Z [1m[92m  Downloaded[0m num-derive v0.4.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.9283280Z [1m[92m  Downloaded[0m loop9 v0.1.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.9424495Z [1m[92m  Downloaded[0m memchr v2.8.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.9811628Z [1m[92m  Downloaded[0m profiling v1.0.18
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:01.9995162Z [1m[92m  Downloaded[0m profiling-procmacros v1.0.18
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.0102946Z [1m[92m  Downloaded[0m pulp v0.22.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.0393221Z [1m[92m  Downloaded[0m gl_generator v0.14.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.0572041Z [1m[92m  Downloaded[0m num-rational v0.4.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.0657622Z [1m[92m  Downloaded[0m libloading v0.8.9
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.0902662Z [1m[92m  Downloaded[0m noop_proc_macro v0.3.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.1010467Z [1m[92m  Downloaded[0m zune-core v0.5.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.1200617Z [1m[92m  Downloaded[0m zune-jpeg v0.5.15
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.1457886Z [1m[92m  Downloaded[0m palette_math v0.7.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.1714651Z [1m[92m  Downloaded[0m quote v1.0.47
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.2003142Z [1m[92m  Downloaded[0m allocator-api2 v0.2.21
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.2227915Z [1m[92m  Downloaded[0m equator-macro v0.4.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.2294447Z [1m[92m  Downloaded[0m lebe v0.5.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.2423848Z [1m[92m  Downloaded[0m num-traits v0.2.19
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.2681638Z [1m[92m  Downloaded[0m ordered-float v5.5.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.2793494Z [1m[92m  Downloaded[0m parking_lot_core v0.9.12
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.3033340Z [1m[92m  Downloaded[0m presser v0.3.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.3280589Z [1m[92m  Downloaded[0m range-alloc v0.1.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.3367036Z [1m[92m  Downloaded[0m smallvec v1.15.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.3480913Z [1m[92m  Downloaded[0m no_std_io2 v0.9.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.3600339Z [1m[92m  Downloaded[0m num-complex v0.4.6
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.3713046Z [1m[92m  Downloaded[0m pulp-wasm-simd-flag v0.1.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.3775540Z [1m[92m  Downloaded[0m fax v0.2.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.3899204Z [1m[92m  Downloaded[0m document-features v0.2.12
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.4035364Z [1m[92m  Downloaded[0m pastey v0.1.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:02.4286808Z [1m[92m  Downloaded[0m zerocopy v0.8.56
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.2253713Z [1m[92m  Downloaded[0m gif v0.14.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.2390864Z [1m[92m  Downloaded[0m itertools v0.14.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.3339102Z [1m[92m  Downloaded[0m lock_api v0.4.14
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.3434370Z [1m[92m  Downloaded[0m once_cell v1.21.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.3709839Z [1m[92m  Downloaded[0m exr v1.74.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.4709676Z [1m[92m  Downloaded[0m glow v0.17.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.4884523Z [1m[92m  Downloaded[0m hashbrown v0.16.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.5182264Z [1m[92m  Downloaded[0m hashbrown v0.17.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.5656165Z [1m[92m  Downloaded[0m gpu-allocator v0.28.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.5953874Z [1m[92m  Downloaded[0m windows-numerics v0.3.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.6096987Z [1m[92m  Downloaded[0m tiff v0.11.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.6531290Z [1m[92m  Downloaded[0m palette_derive v0.7.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.6834758Z [1m[92m  Downloaded[0m qoi v0.4.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.7156230Z [1m[92m  Downloaded[0m proc-macro2 v1.0.107
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.7521724Z [1m[92m  Downloaded[0m image-webp v0.2.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.7727752Z [1m[92m  Downloaded[0m naga-types v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.7826606Z [1m[92m  Downloaded[0m wgpu-core-deps-windows-linux-android v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.7974697Z [1m[92m  Downloaded[0m cfg_aliases v0.2.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.8069231Z [1m[92m  Downloaded[0m log v0.4.34
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.8234802Z [1m[92m  Downloaded[0m fdeflate v0.3.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.8401353Z [1m[92m  Downloaded[0m khronos-egl v6.0.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.8524193Z [1m[92m  Downloaded[0m glutin_wgl_sys v0.6.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.8617404Z [1m[92m  Downloaded[0m adler2 v2.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.8707296Z [1m[92m  Downloaded[0m new_debug_unreachable v1.0.6
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.8816208Z [1m[92m  Downloaded[0m pkg-config v0.3.34
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.8927183Z [1m[92m  Downloaded[0m v_frame v0.3.9
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:03.9033900Z [1m[92m  Downloaded[0m wgpu-core v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.6188069Z [1m[92m  Downloaded[0m paste v1.0.15
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.6536154Z [1m[92m  Downloaded[0m raw-cpuid v11.6.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.6848517Z [1m[92m  Downloaded[0m spirv v0.4.0+sdk-1.4.341.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.6925703Z [1m[92m  Downloaded[0m foldhash v0.2.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.7045404Z [1m[92m  Downloaded[0m litrs v1.0.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.7309654Z [1m[92m  Downloaded[0m grafting v0.6.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.7589156Z [1m[92m  Downloaded[0m imgref v1.12.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.7680971Z [1m[92m  Downloaded[0m miniz_oxide v0.8.9
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.7950348Z [1m[92m  Downloaded[0m parking_lot v0.12.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.8141325Z [1m[92m  Downloaded[0m miniz_oxide v0.9.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.8282624Z [1m[92m  Downloaded[0m indexmap v2.14.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.8649444Z [1m[92m  Downloaded[0m nom v8.0.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.9038447Z [1m[92m  Downloaded[0m num-bigint v0.4.8
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:04.9587325Z [1m[92m  Downloaded[0m libm v0.2.16
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:05.0704728Z [1m[92m  Downloaded[0m flate2 v1.1.10
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:05.1183118Z [1m[92m  Downloaded[0m half v2.7.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:05.1386892Z [1m[92m  Downloaded[0m by_address v1.2.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:05.1492153Z [1m[92m  Downloaded[0m image v0.25.10
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:05.2756677Z [1m[92m  Downloaded[0m palette v0.7.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.4970267Z [1m[92m  Downloaded[0m static_assertions v1.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.5129372Z [1m[92m  Downloaded[0m termcolor v1.4.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.5259255Z [1m[92m  Downloaded[0m aligned v0.4.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.5380868Z [1m[92m  Downloaded[0m aligned-vec v0.6.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.5469898Z [1m[92m  Downloaded[0m khronos_api v3.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.7295991Z [1m[92m  Downloaded[0m wasm-bindgen-macro v0.2.127
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.8594435Z [1m[92m  Downloaded[0m webview2-com v0.39.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.8697872Z [1m[92m  Downloaded[0m windows-interface v0.59.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.8777745Z [1m[92m  Downloaded[0m bit-set v0.10.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.8896202Z [1m[92m  Downloaded[0m byteorder-lite v0.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.8973922Z [1m[92m  Downloaded[0m renderdoc-sys v1.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.9066974Z [1m[92m  Downloaded[0m simd-adler32 v0.3.10
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:06.9333196Z [1m[92m  Downloaded[0m libc v0.2.189
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.2664394Z [1m[92m  Downloaded[0m naga v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.5922183Z [1m[92m  Downloaded[0m windows-link v0.2.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.5992391Z [1m[92m  Downloaded[0m zune-inflate v0.2.54
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.6168535Z [1m[92m  Downloaded[0m version_check v0.9.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.6293989Z [1m[92m  Downloaded[0m xml-rs v0.8.29
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.6681683Z [1m[92m  Downloaded[0m stable_deref_trait v1.2.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.6811051Z [1m[92m  Downloaded[0m built v0.8.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.7071280Z [1m[92m  Downloaded[0m simd_helpers v0.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.7165627Z [1m[92m  Downloaded[0m windows-collections v0.3.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.7294700Z [1m[92m  Downloaded[0m windows-result v0.4.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.7451093Z [1m[92m  Downloaded[0m webview2-com-macros v0.8.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.7518651Z [1m[92m  Downloaded[0m weezl v0.1.12
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.7741631Z [1m[92m  Downloaded[0m raw-window-handle v0.6.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.7899513Z [1m[92m  Downloaded[0m unicode-width v0.2.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.8073465Z [1m[92m  Downloaded[0m wio v0.2.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.8199113Z [1m[92m  Downloaded[0m scopeguard v1.2.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.8348095Z [1m[92m  Downloaded[0m wgpu-naga-bridge v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.8408999Z [1m[92m  Downloaded[0m windows-strings v0.5.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.8540351Z [1m[92m  Downloaded[0m arrayvec v0.7.8
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.9052598Z [1m[92m  Downloaded[0m wasm-bindgen v0.2.127
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.9269891Z [1m[92m  Downloaded[0m wasm-bindgen-shared v0.2.127
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.9419456Z [1m[92m  Downloaded[0m approx v0.5.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.9690427Z [1m[92m  Downloaded[0m bit_field v0.10.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.9802492Z [1m[92m  Downloaded[0m color_quant v1.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:08.9920887Z [1m[92m  Downloaded[0m rgb v0.8.53
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.0230289Z [1m[92m  Downloaded[0m thiserror v2.0.20
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.1055609Z [1m[92m  Downloaded[0m avif-serialize v0.8.9
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.1147193Z [1m[92m  Downloaded[0m windows-threading v0.2.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.1253412Z [1m[92m  Downloaded[0m rayon-core v1.13.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.1919023Z [1m[92m  Downloaded[0m thiserror-impl v2.0.20
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.2134222Z [1m[92m  Downloaded[0m y4m v0.8.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.2225317Z [1m[92m  Downloaded[0m cfg-if v1.0.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.2329753Z [1m[92m  Downloaded[0m autocfg v1.5.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.2481305Z [1m[92m  Downloaded[0m rustversion v1.0.23
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.3471870Z [1m[92m  Downloaded[0m as-slice v0.2.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.3548084Z [1m[92m  Downloaded[0m av1-grain v0.2.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.3783339Z [1m[92m  Downloaded[0m ravif v0.13.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.3871287Z [1m[92m  Downloaded[0m bitflags v2.13.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.4379150Z [1m[92m  Downloaded[0m unicode-ident v1.0.24
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.4611925Z [1m[92m  Downloaded[0m bitstream-io v4.10.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.4884433Z [1m[92m  Downloaded[0m windows-future v0.3.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.5082503Z [1m[92m  Downloaded[0m serde_core v1.0.229
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.5319009Z [1m[92m  Downloaded[0m anyhow v1.0.104
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.5748349Z [1m[92m  Downloaded[0m bytemuck v1.25.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.6097526Z [1m[92m  Downloaded[0m wasm-bindgen-macro-support v0.2.127
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.6230164Z [1m[92m  Downloaded[0m codespan-reporting v0.13.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:09.7296397Z [1m[92m  Downloaded[0m zerocopy-derive v0.8.56
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.1094515Z [1m[92m  Downloaded[0m wgpu-types v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.1423700Z [1m[92m  Downloaded[0m ash v0.38.0+1.3.281
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.2415947Z [1m[92m  Downloaded[0m rayon v1.12.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.3435747Z [1m[92m  Downloaded[0m syn v2.0.119
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.4294815Z [1m[92m  Downloaded[0m wgpu v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.5967523Z [1m[92m  Downloaded[0m zlib-rs v0.6.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.6699224Z [1m[92m  Downloaded[0m bit-vec v0.9.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.6796656Z [1m[92m  Downloaded[0m syn v3.0.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.7749542Z [1m[92m  Downloaded[0m wgpu-hal v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.8591008Z [1m[92m  Downloaded[0m av-scenechange v0.14.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.9152493Z [1m[92m  Downloaded[0m windows_x86_64_msvc v0.52.6
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:10.9377261Z [1m[92m  Downloaded[0m winapi v0.3.9
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:11.7076878Z [1m[92m  Downloaded[0m windows-sys v0.52.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:12.0488135Z [1m[92m  Downloaded[0m rav1e v0.8.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:12.2504936Z [1m[92m  Downloaded[0m serde_derive v1.0.229
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:12.2892549Z [1m[92m  Downloaded[0m windows v0.62.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:13.7403956Z [1m[92m  Downloaded[0m webview2-com-sys v0.39.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:14.8838087Z [1m[92m   Compiling[0m proc-macro2 v1.0.107
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:14.8838568Z [1m[92m   Compiling[0m quote v1.0.47
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:14.8838964Z [1m[92m   Compiling[0m unicode-ident v1.0.24
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:14.8839416Z [1m[92m   Compiling[0m autocfg v1.5.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:14.9871253Z [1m[92m   Compiling[0m libm v0.2.16
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:15.2675045Z [1m[92m   Compiling[0m num-traits v0.2.19
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:17.6876160Z [1m[92m   Compiling[0m thiserror v2.0.20
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:17.8042485Z [1m[92m    Checking[0m windows-link v0.2.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:17.8504450Z [1m[92m    Checking[0m cfg-if v1.0.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:17.9021869Z [1m[92m   Compiling[0m cfg_aliases v0.2.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:18.0098993Z [1m[92m    Checking[0m bitflags v2.13.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:18.1700994Z [1m[92m    Checking[0m log v0.4.34
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:18.2284159Z [1m[92m    Checking[0m windows-result v0.4.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:18.3033439Z [1m[92m    Checking[0m windows-strings v0.5.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:18.3730393Z [1m[92m    Checking[0m foldhash v0.2.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:18.5032580Z [1m[92m   Compiling[0m khronos_api v3.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:18.7662180Z [1m[92m   Compiling[0m syn v2.0.119
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:18.7883747Z [1m[92m   Compiling[0m syn v3.0.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:18.7902830Z [1m[92m   Compiling[0m zerocopy v0.8.56
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:19.3832881Z [1m[92m    Checking[0m arrayvec v0.7.8
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:19.6775906Z [1m[92m   Compiling[0m crossbeam-utils v0.8.22
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:19.7018503Z [1m[92m    Checking[0m equivalent v1.0.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:19.8592672Z [1m[92m   Compiling[0m xml-rs v0.8.29
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:19.9931016Z [1m[92m   Compiling[0m crossbeam-epoch v0.9.20
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:20.2479062Z [1m[92m   Compiling[0m libc v0.2.189
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:20.8270120Z [1m[92m   Compiling[0m gl_generator v0.14.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:21.4882262Z [1m[92m    Checking[0m hashbrown v0.17.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:21.5913246Z [1m[92m    Checking[0m windows-threading v0.2.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:21.6650260Z [1m[92m   Compiling[0m crossbeam-deque v0.8.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:22.1291874Z [1m[92m    Checking[0m indexmap v2.14.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:22.2076856Z [1m[92m   Compiling[0m thiserror-impl v2.0.20
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:22.3252049Z [1m[92m   Compiling[0m bytemuck_derive v1.12.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:22.8552339Z [1m[92m    Checking[0m simd-adler32 v0.3.10
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:22.9904099Z [1m[92m   Compiling[0m rayon-core v1.13.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:23.1663458Z [1m[92m    Checking[0m smallvec v1.15.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:23.3569462Z [1m[92m    Checking[0m rustc-hash v1.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:23.6293647Z [1m[92m   Compiling[0m naga v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:23.9328734Z [1m[92m    Checking[0m libloading v0.8.9
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:23.9421442Z [1m[92m    Checking[0m bytemuck v1.25.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:24.0269217Z [1m[92m    Checking[0m naga-types v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:24.0523674Z [1m[92m    Checking[0m bit-vec v0.9.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:24.1491115Z [1m[92m    Checking[0m unicode-width v0.2.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:24.1941838Z [1m[92m   Compiling[0m ash v0.38.0+1.3.281
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:24.2529814Z [1m[92m   Compiling[0m parking_lot_core v0.9.12
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:24.3805690Z [1m[92m    Checking[0m bit-set v0.10.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:24.4211458Z [1m[92m    Checking[0m codespan-reporting v0.13.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:24.5280412Z [1m[92m   Compiling[0m glutin_wgl_sys v0.6.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:24.7387182Z [1m[92m    Checking[0m num-integer v0.1.47
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:24.9119344Z [1m[92m    Checking[0m spirv v0.4.0+sdk-1.4.341.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:24.9905423Z [1m[92m   Compiling[0m khronos-egl v6.0.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:25.0793570Z [1m[92m   Compiling[0m windows-implement v0.60.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:25.2039862Z [1m[92m   Compiling[0m windows-interface v0.59.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:25.5730290Z [1m[92m   Compiling[0m zerocopy-derive v0.8.56
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:25.9251665Z [1m[92m   Compiling[0m profiling-procmacros v1.0.18
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:26.0691497Z [1m[92m    Checking[0m windows-core v0.62.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:26.3353832Z [1m[92m    Checking[0m profiling v1.0.18
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:26.3759489Z [1m[92m   Compiling[0m equator-macro v0.4.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:26.4498078Z [1m[92m    Checking[0m windows-numerics v0.3.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:26.5228618Z [1m[92m    Checking[0m windows-collections v0.3.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:26.5852464Z [1m[92m    Checking[0m windows-future v0.3.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:27.0219636Z [1m[92m   Compiling[0m anyhow v1.0.104
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:27.1775248Z [1m[92m    Checking[0m windows v0.62.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:27.2303537Z [1m[92m    Checking[0m equator v0.4.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:27.3767500Z [1m[92m    Checking[0m static_assertions v1.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:27.4220532Z [1m[92m    Checking[0m adler2 v2.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:27.4296832Z [1m[92m   Compiling[0m paste v1.0.15
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:27.4939492Z [1m[92m    Checking[0m memchr v2.8.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:27.7045251Z [1m[92m    Checking[0m raw-window-handle v0.6.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:27.8807955Z [1m[92m    Checking[0m once_cell v1.21.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:28.0088682Z [1m[92m    Checking[0m either v1.18.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:28.0389072Z [1m[92m    Checking[0m allocator-api2 v0.2.21
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:28.2026848Z [1m[92m    Checking[0m scopeguard v1.2.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:28.2628691Z [1m[92m    Checking[0m lock_api v0.4.14
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:28.3576159Z [1m[92m    Checking[0m hashbrown v0.16.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:28.4642863Z [1m[92m    Checking[0m wgpu-types v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:29.0495057Z [1m[92m    Checking[0m aligned-vec v0.6.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:29.4164961Z [1m[92m    Checking[0m num-bigint v0.4.8
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:30.9182942Z [1m[92m   Compiling[0m wgpu-hal v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:31.4274122Z [1m[92m    Checking[0m stable_deref_trait v1.2.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:31.4716931Z [1m[92m    Checking[0m presser v0.3.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:31.5561676Z [1m[92m   Compiling[0m crc32fast v1.5.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:31.9264250Z [1m[92m    Checking[0m as-slice v0.2.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:31.9862494Z [1m[92m    Checking[0m parking_lot v0.12.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:32.1486734Z [1m[92m    Checking[0m num-rational v0.4.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:32.2046110Z [1m[92m    Checking[0m half v2.7.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:33.1668473Z [1m[92m    Checking[0m v_frame v0.3.9
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:33.9774463Z [1m[92m    Checking[0m rayon v1.12.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:36.2003831Z [1m[92m    Checking[0m ordered-float v5.5.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:36.4744675Z [1m[92m   Compiling[0m version_check v0.9.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:36.8334757Z [1m[92m    Checking[0m range-alloc v0.1.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:36.9330597Z [1m[92m   Compiling[0m built v0.8.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:37.5983078Z [1m[92m    Checking[0m glow v0.17.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:39.2610160Z [1m[92m   Compiling[0m av-scenechange v0.14.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:39.5128947Z [1m[92m    Checking[0m renderdoc-sys v1.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:39.6052060Z [1m[92m   Compiling[0m rav1e v0.8.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:39.8445269Z [1m[92m   Compiling[0m pulp v0.22.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:40.1777907Z [1m[92m    Checking[0m aligned v0.4.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:40.4026345Z [1m[92m    Checking[0m nom v8.0.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:42.0930709Z [1m[92m    Checking[0m wgpu-naga-bridge v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:42.1931427Z [1m[92m    Checking[0m no_std_io2 v0.9.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:42.2429849Z [1m[92m    Checking[0m miniz_oxide v0.9.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:42.6901507Z [1m[92m   Compiling[0m arg_enum_proc_macro v0.3.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:42.9998665Z [1m[92m   Compiling[0m wgpu-core v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:43.5564525Z [1m[92m   Compiling[0m litrs v1.0.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:43.5939789Z [1m[92m    Checking[0m y4m v0.8.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:43.6354235Z [1m[92m   Compiling[0m pastey v0.1.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:43.7198101Z [1m[92m   Compiling[0m winapi v0.3.9
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:44.2276544Z [1m[92m    Checking[0m quick-error v2.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:44.2277177Z [1m[92m   Compiling[0m document-features v0.2.12
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:44.3554755Z [1m[92m    Checking[0m av1-grain v0.2.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:44.8135136Z [1m[92m   Compiling[0m webview2-com-sys v0.39.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:44.8246534Z [1m[92m    Checking[0m flate2 v1.1.10
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:44.9253145Z [1m[92m    Checking[0m bitstream-io v4.10.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:45.1810548Z [1m[92m    Checking[0m maybe-rayon v0.1.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:45.2257795Z [1m[92m    Checking[0m itertools v0.14.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:45.2422773Z [1m[92m    Checking[0m miniz_oxide v0.8.9
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:45.5678676Z [1m[92m   Compiling[0m num-derive v0.4.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:45.6794404Z [1m[92m    Checking[0m num-complex v0.4.6
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:46.1393542Z [1m[92m   Compiling[0m simd_helpers v0.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:46.4511410Z [1m[92m    Checking[0m raw-cpuid v11.6.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:46.7512423Z [1m[92m   Compiling[0m wgpu v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:46.7592179Z [1m[92m   Compiling[0m noop_proc_macro v0.3.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:47.0482995Z [1m[92m    Checking[0m zune-core v0.5.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:47.2833527Z [1m[92m    Checking[0m reborrow v0.5.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:47.3549559Z [1m[92m    Checking[0m weezl v0.1.12
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:47.4340651Z [1m[92m    Checking[0m new_debug_unreachable v1.0.6
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:47.4777885Z [1m[92m    Checking[0m imgref v1.12.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:47.6321064Z [1m[92m    Checking[0m pulp-wasm-simd-flag v0.1.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:47.6616892Z [1m[92m    Checking[0m loop9 v0.1.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:47.7537224Z [1m[92m    Checking[0m zune-jpeg v0.5.15
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:49.9228754Z [1m[92m    Checking[0m fdeflate v0.3.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:50.1818699Z [1m[92m    Checking[0m zune-inflate v0.2.54
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:50.3889856Z [1m[92m   Compiling[0m grafting v0.6.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:51.3085129Z [1m[92m    Checking[0m avif-serialize v0.8.9
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:51.5732381Z [1m[92m    Checking[0m pxfm v0.1.30
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:52.4443802Z [1m[92m    Checking[0m byteorder-lite v0.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:52.6303147Z [1m[92m    Checking[0m fax v0.2.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:52.7067940Z [1m[92m   Compiling[0m pkg-config v0.3.34
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:52.8604672Z [1m[92m    Checking[0m lebe v0.5.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:53.0042982Z [1m[92m    Checking[0m color_quant v1.1.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:53.1072399Z [1m[92m   Compiling[0m by_address v1.2.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:53.2112777Z [1m[92m    Checking[0m rgb v0.8.53
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:53.3628119Z [1m[92m    Checking[0m bit_field v0.10.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:53.4812255Z [1m[92m    Checking[0m exr v1.74.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:53.5500389Z [1m[92m    Checking[0m ravif v0.13.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:53.7746396Z [1m[92m   Compiling[0m scrying v0.7.1 (D:\a\wgpu-scry\wgpu-scry\scrying)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:53.9900699Z [1m[92m   Compiling[0m palette_derive v0.7.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:54.3945722Z [1m[92m    Checking[0m moxcms v0.8.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:55.1747199Z [1m[92m    Checking[0m gif v0.14.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:55.5352863Z [1m[92m    Checking[0m tiff v0.11.3
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:56.6210243Z [1m[92m    Checking[0m image-webp v0.2.4
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:56.8403022Z [1m[92m    Checking[0m png v0.18.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:57.5952533Z [1m[92m    Checking[0m wio v0.2.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:57.6664288Z [1m[92m   Compiling[0m webview2-com-macros v0.8.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:57.6858513Z [1m[92m    Checking[0m qoi v0.4.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:57.8659575Z [1m[92m    Checking[0m palette_math v0.7.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:57.8660277Z [1m[92m    Checking[0m dpi v0.1.2
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:57.9819736Z [1m[92m    Checking[0m palette v0.7.7
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:58.0213871Z [1m[92m    Checking[0m image v0.25.10
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:12:59.3378588Z [1m[92m    Checking[0m gpu-allocator v0.28.0
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:02.7848663Z [1m[92m    Checking[0m webview2-com v0.39.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:03.7486050Z [1m[92m    Checking[0m wgpu-core-deps-windows-linux-android v30.0.1
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:10.1402147Z [1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 1m 10s
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:10.3505978Z Post job cleanup.
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:10.4886666Z [command]"C:\Program Files\Git\bin\git.exe" version
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:10.5125588Z git version 2.55.0.windows.5
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:10.5182458Z Copying 'C:\Users\runneradmin\.gitconfig' to 'D:\a\_temp\f202bf8f-106c-4cb1-b0a2-ec4db768b729\.gitconfig'
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:10.5202750Z Temporarily overriding HOME='D:\a\_temp\f202bf8f-106c-4cb1-b0a2-ec4db768b729' before making global git config changes
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:10.5203819Z Adding repository directory to the temporary git global config as a safe directory
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:10.5215607Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wgpu-scry\wgpu-scry
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:10.5533718Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:10.5857019Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:11.2710091Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:11.2947221Z http.https://github.com/.extraheader
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:11.2986925Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:11.3245365Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:11.7828239Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:11.8103602Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:12.2763439Z Cleaning up orphan processes
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:12.2907024Z Terminate orphan process: pid (7856) (vctip)
+gate / windows-latest / wgpu-30	UNKNOWN STEP	2026-10-07T01:13:12.2925927Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

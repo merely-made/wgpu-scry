@@ -1,0 +1,2336 @@
+diff --git a/scrying/Cargo.toml b/scrying/Cargo.toml
+index 7177629..f1be75b 100644
+--- a/scrying/Cargo.toml
++++ b/scrying/Cargo.toml
+@@ -192,3 +192,14 @@ windows = { version = "0.62", features = [
+     "Graphics_DirectX",
+     "Graphics_DirectX_Direct3D11",
+ ] }
++
++# Native WebKit initialization must run on the process main thread.
++[[test]]
++name = "wpe_to_vulkan_roundtrip"
++harness = false
++required-features = ["wpe"]
++
++[[test]]
++name = "wpe_input"
++harness = false
++required-features = ["wpe"]
+diff --git a/scrying/src/latest_image_sample.rs b/scrying/src/latest_image_sample.rs
+new file mode 100644
+index 0000000..d410e73
+--- /dev/null
++++ b/scrying/src/latest_image_sample.rs
+@@ -0,0 +1,77 @@
++// Copyright 2026 Mark Alan Boykin
++// This Source Code Form is subject to the terms of the Mozilla Public
++// License, v. 2.0. If a copy of the MPL was not distributed with this
++// file, You can obtain one at https://mozilla.org/MPL/2.0/.
++// SPDX-License-Identifier: MPL-2.0
++
++use std::sync::Mutex;
++
++/// Status-only capture callbacks must not evict an unconsumed image. Keep
++/// custody bounded to one image, replacing it only when a newer image arrives.
++pub(crate) fn update_latest_image<T>(latest: &Mutex<Option<T>>, image: Option<T>) {
++    if let Some(image) = image
++        && let Ok(mut slot) = latest.lock()
++    {
++        *slot = Some(image);
++    }
++}
++
++#[cfg(test)]
++mod tests {
++    use super::update_latest_image;
++    use std::sync::atomic::{AtomicUsize, Ordering};
++    use std::sync::{Arc, Mutex};
++
++    struct Image {
++        id: usize,
++        drops: Arc<AtomicUsize>,
++    }
++
++    impl Drop for Image {
++        fn drop(&mut self) {
++            self.drops.fetch_add(1, Ordering::Relaxed);
++        }
++    }
++
++    #[test]
++    fn status_only_burst_preserves_pending_image_and_its_custody() {
++        let drops = Arc::new(AtomicUsize::new(0));
++        let latest = Mutex::new(None);
++        update_latest_image(
++            &latest,
++            Some(Image {
++                id: 1,
++                drops: drops.clone(),
++            }),
++        );
++        for _ in 0..100 {
++            update_latest_image(&latest, None);
++        }
++        assert_eq!(drops.load(Ordering::Relaxed), 0);
++        let image = latest.lock().unwrap().take().unwrap();
++        assert_eq!(image.id, 1);
++        assert!(latest.lock().unwrap().is_none());
++        drop(image);
++        assert_eq!(drops.load(Ordering::Relaxed), 1);
++    }
++
++    #[test]
++    fn newer_image_replaces_only_one_pending_image() {
++        let drops = Arc::new(AtomicUsize::new(0));
++        let latest = Mutex::new(None);
++        for id in 1..=2 {
++            update_latest_image(
++                &latest,
++                Some(Image {
++                    id,
++                    drops: drops.clone(),
++                }),
++            );
++        }
++        assert_eq!(drops.load(Ordering::Relaxed), 1);
++        let image = latest.lock().unwrap().take().unwrap();
++        assert_eq!(image.id, 2);
++        drop(image);
++        assert_eq!(drops.load(Ordering::Relaxed), 2);
++    }
++}
+diff --git a/scrying/src/lib.rs b/scrying/src/lib.rs
+index 3fd020c..d7a0f8d 100644
+--- a/scrying/src/lib.rs
++++ b/scrying/src/lib.rs
+@@ -49,6 +49,9 @@ pub(crate) fn lock_fd_table() -> std::sync::MutexGuard<'static, ()> {
+ 
+ pub mod native_frame;
+ 
++#[cfg(any(target_os = "macos", test))]
++mod latest_image_sample;
++
+ #[cfg(target_os = "macos")]
+ mod wgpu_compat;
+ 
+diff --git a/scrying/src/webview2_composition_producer/capture.rs b/scrying/src/webview2_composition_producer/capture.rs
+index ee17f96..bccde1c 100644
+--- a/scrying/src/webview2_composition_producer/capture.rs
++++ b/scrying/src/webview2_composition_producer/capture.rs
+@@ -34,19 +34,19 @@ impl WebView2CompositionProducer {
+                 Ok(result) => {
+                     result.map_err(platform("CapturePreview completion"))?;
+                     break;
+-                }
++                },
+                 Err(mpsc::TryRecvError::Empty) if Instant::now() < deadline => continue,
+                 Err(mpsc::TryRecvError::Empty) => {
+                     return Err(WebSurfaceError::Platform(format!(
+                         "WebView2 CapturePreview did not complete within {:?}",
+                         self.frame_timeout
+                     )));
+-                }
++                },
+                 Err(mpsc::TryRecvError::Disconnected) => {
+                     return Err(WebSurfaceError::Platform(
+                         "CapturePreview completion channel closed unexpectedly".into(),
+                     ));
+-                }
++                },
+             }
+         }
+ 
+@@ -197,7 +197,7 @@ impl WebView2CompositionProducer {
+             if !state.frame_ready() {
+                 return Ok(None);
+             }
+-            state.pool.TryGetNextFrame()
++            state.take_latest_frame()
+         };
+ 
+         match frame {
+@@ -242,17 +242,17 @@ impl WebView2CompositionProducer {
+                     self.size.width, self.size.height
+                 )));
+             }
+-            match state.pool.TryGetNextFrame() {
++            match state.take_latest_frame() {
+                 Ok(frame) => match self.capture_frame_to_shared(frame)? {
+                     Some(frame) => return Ok(frame),
+                     None if Instant::now() < deadline => {
+                         pump_messages_for(Duration::from_millis(16))
+-                    }
++                    },
+                     None => {
+                         return Err(WebSurfaceError::NotReady(
+                             "WGC only returned stale frames before the acquire timeout",
+                         ));
+-                    }
++                    },
+                 },
+                 Err(_) if Instant::now() < deadline => pump_messages_for(Duration::from_millis(16)),
+                 Err(error) => {
+@@ -260,7 +260,7 @@ impl WebView2CompositionProducer {
+                         "TryGetNextFrame timed out after {timeout:?} for {}x{}: {error}",
+                         self.size.width, self.size.height
+                     )));
+-                }
++                },
+             }
+         }
+     }
+@@ -363,7 +363,7 @@ impl WebView2CompositionProducer {
+         let pool = Direct3D11CaptureFramePool::CreateFreeThreaded(
+             &self.capture_device,
+             DirectXPixelFormat::B8G8R8A8UIntNormalized,
+-            2,
++            CAPTURE_POOL_BUFFERS as i32,
+             item_size,
+         )
+         .map_err(platform("Direct3D11CaptureFramePool::CreateFreeThreaded"))?;
+@@ -425,6 +425,39 @@ impl CaptureState {
+     fn mark_arrivals_observed(&mut self) {
+         mark_arrivals_observed(&self.frame_arrivals, &mut self.frame_arrivals_observed);
+     }
++
++    fn take_latest_frame(
++        &self,
++    ) -> windows::core::Result<windows::Graphics::Capture::Direct3D11CaptureFrame> {
++        newest_queued_capture_frame(
++            || self.pool.TryGetNextFrame(),
++            |frame| {
++                let _ = frame.Close();
++            },
++        )
++    }
++}
++
++const CAPTURE_POOL_BUFFERS: usize = 2;
++
++/// A readiness notification coalesces all arrivals since the previous poll.
++/// Drain at most the pool capacity so that a static page's final queued paint
++/// is not stranded behind that coalesced notification. Close superseded frames
++/// before converting the newest sample; arrivals during this bounded drain
++/// retain their notification for the next poll.
++fn newest_queued_capture_frame<T, E>(
++    mut next: impl FnMut() -> Result<T, E>,
++    mut close: impl FnMut(T),
++) -> Result<T, E> {
++    let mut latest = next()?;
++    for _ in 1..CAPTURE_POOL_BUFFERS {
++        let Ok(frame) = next() else {
++            break;
++        };
++        close(latest);
++        latest = frame;
++    }
++    Ok(latest)
+ }
+ 
+ fn take_unobserved_arrival(arrivals: &AtomicU64, observed: &mut u64) -> bool {
+@@ -442,9 +475,89 @@ fn mark_arrivals_observed(arrivals: &AtomicU64, observed: &mut u64) {
+ 
+ #[cfg(test)]
+ mod tests {
++    use std::collections::VecDeque;
+     use std::sync::atomic::{AtomicU64, Ordering};
+ 
+-    use super::{mark_arrivals_observed, take_unobserved_arrival};
++    use super::{
++        CAPTURE_POOL_BUFFERS, mark_arrivals_observed, newest_queued_capture_frame,
++        take_unobserved_arrival,
++    };
++
++    #[test]
++    fn coalesced_arrivals_deliver_final_static_paint_and_close_superseded_frame() {
++        let arrivals = AtomicU64::new(2);
++        let mut observed = 0;
++        let mut queued = VecDeque::from([1, 2]);
++        let mut closed = Vec::new();
++        assert!(take_unobserved_arrival(&arrivals, &mut observed));
++        let latest = newest_queued_capture_frame(
++            || queued.pop_front().ok_or(()),
++            |frame| closed.push(frame),
++        );
++        assert_eq!(latest, Ok(2));
++        assert_eq!(closed, [1]);
++        assert!(queued.is_empty());
++        // No more paints are required to deliver the final state.
++        assert!(!take_unobserved_arrival(&arrivals, &mut observed));
++    }
++
++    #[test]
++    fn legacy_single_dequeue_strands_final_static_paint_positive_control() {
++        let arrivals = AtomicU64::new(2);
++        let mut observed = 0;
++        let mut queued = VecDeque::from([1, 2]);
++        // Deliberately broken old behavior consumes both notifications but
++        // removes only the first frame. Repeated idle polls cannot find frame 2.
++        assert!(take_unobserved_arrival(&arrivals, &mut observed));
++        assert_eq!(queued.pop_front(), Some(1));
++        for _ in 0..3 {
++            assert!(!take_unobserved_arrival(&arrivals, &mut observed));
++        }
++        assert_eq!(queued.front(), Some(&2));
++    }
++
++    #[test]
++    fn latest_frame_keeps_single_sample_and_propagates_empty_pool_error() {
++        let mut queued = VecDeque::from([1]);
++        let mut closed = Vec::new();
++        assert_eq!(
++            newest_queued_capture_frame(
++                || queued.pop_front().ok_or("empty"),
++                |frame| closed.push(frame),
++            ),
++            Ok(1)
++        );
++        assert!(closed.is_empty());
++        assert_eq!(
++            newest_queued_capture_frame(
++                || queued.pop_front().ok_or("empty"),
++                |frame| closed.push(frame),
++            ),
++            Err("empty")
++        );
++        assert!(closed.is_empty());
++    }
++
++    #[test]
++    fn continuous_arrivals_are_bounded_and_preserve_next_poll_notification() {
++        let arrivals = AtomicU64::new(2);
++        let mut observed = 0;
++        let mut dequeued = 0;
++        let mut closed = Vec::new();
++        assert!(take_unobserved_arrival(&arrivals, &mut observed));
++        let latest: Result<usize, ()> = newest_queued_capture_frame(
++            || {
++                dequeued += 1;
++                arrivals.fetch_add(1, Ordering::Relaxed);
++                Ok(dequeued)
++            },
++            |frame| closed.push(frame),
++        );
++        assert_eq!(dequeued, CAPTURE_POOL_BUFFERS);
++        assert_eq!(latest, Ok(CAPTURE_POOL_BUFFERS));
++        assert_eq!(closed, [1]);
++        assert!(take_unobserved_arrival(&arrivals, &mut observed));
++    }
+ 
+     #[test]
+     fn visual_reparent_keeps_pending_capture_and_discards_only_pre_move_arrivals() {
+diff --git a/scrying/src/wkwebview_producer/capture/async_start.rs b/scrying/src/wkwebview_producer/capture/async_start.rs
+index 18c28f6..bc11436 100644
+--- a/scrying/src/wkwebview_producer/capture/async_start.rs
++++ b/scrying/src/wkwebview_producer/capture/async_start.rs
+@@ -212,8 +212,11 @@ impl WkWebViewProducer {
+                 let samples_received = Arc::new(AtomicU64::new(0));
+                 let samples_consumed = Arc::new(AtomicU64::new(0));
+                 let diagnostics = Arc::new(CaptureDiagnosticsState::default());
+-                let output_delegate =
+-                    StreamOutputDelegate::new(Arc::clone(&latest), Arc::clone(&samples_received));
++                let output_delegate = StreamOutputDelegate::new(
++                    Arc::clone(&latest),
++                    Arc::clone(&samples_received),
++                    Arc::clone(&diagnostics),
++                );
+                 let sample_queue = DispatchQueue::new("scrying.wkwebview.sck-sample", None);
+                 if let Err(e) = unsafe {
+                     stream.addStreamOutput_type_sampleHandlerQueue_error(
+diff --git a/scrying/src/wkwebview_producer/capture/blocking.rs b/scrying/src/wkwebview_producer/capture/blocking.rs
+index 34c9871..9492a3c 100644
+--- a/scrying/src/wkwebview_producer/capture/blocking.rs
++++ b/scrying/src/wkwebview_producer/capture/blocking.rs
+@@ -151,8 +151,12 @@ impl WkWebViewProducer {
+         let latest: Arc<LatestSample> = Arc::new(Mutex::new(None));
+         let samples_received = Arc::new(AtomicU64::new(0));
+         let samples_consumed = Arc::new(AtomicU64::new(0));
+-        let output_delegate =
+-            StreamOutputDelegate::new(Arc::clone(&latest), Arc::clone(&samples_received));
++        let diagnostics = Arc::new(CaptureDiagnosticsState::default());
++        let output_delegate = StreamOutputDelegate::new(
++            Arc::clone(&latest),
++            Arc::clone(&samples_received),
++            Arc::clone(&diagnostics),
++        );
+         let sample_queue = DispatchQueue::new("scrying.wkwebview.sck-sample", None);
+ 
+         unsafe {
+@@ -221,7 +225,7 @@ impl WkWebViewProducer {
+             stream_error,
+             samples_received,
+             samples_consumed,
+-            diagnostics: Arc::new(CaptureDiagnosticsState::default()),
++            diagnostics,
+             last_emitted: None,
+             generation: AtomicU64::new(0),
+             // The initial config was applied synchronously by
+diff --git a/scrying/src/wkwebview_producer/capture/mod.rs b/scrying/src/wkwebview_producer/capture/mod.rs
+index dfe5fe4..60a00e0 100644
+--- a/scrying/src/wkwebview_producer/capture/mod.rs
++++ b/scrying/src/wkwebview_producer/capture/mod.rs
+@@ -19,13 +19,14 @@ use dpi::PhysicalSize;
+ use objc2::rc::Retained;
+ use objc2::runtime::ProtocolObject;
+ use objc2::{AnyThread, DefinedClass, define_class, msg_send};
+-use objc2_core_foundation::CFRetained;
++use objc2_core_foundation::{CFArray, CFDictionary, CFNumber, CFRetained, CFString};
+ use objc2_core_media::CMSampleBuffer;
+ use objc2_core_video::kCVPixelFormatType_32BGRA;
+ use objc2_foundation::{NSError, NSObject, NSObjectProtocol};
+ use objc2_metal::{MTLCommandQueue, MTLDevice, MTLSharedEvent};
+ use objc2_screen_capture_kit::{
+-    SCStream, SCStreamConfiguration, SCStreamDelegate, SCStreamOutput, SCStreamOutputType,
++    SCFrameStatus, SCStream, SCStreamConfiguration, SCStreamDelegate, SCStreamFrameInfo,
++    SCStreamFrameInfoStatus, SCStreamOutput, SCStreamOutputType,
+ };
+ 
+ use crate::WebSurfaceMode;
+@@ -55,8 +56,9 @@ unsafe impl Send for QueuedSampleBuffer {}
+ /// Latest screen-capture sample handed off from the
+ /// `SCStreamOutput::stream:didOutputSampleBuffer:ofType:` callback
+ /// (which fires on a background dispatch queue) to `try_acquire_frame`
+-/// on the main thread. Only the most recent sample is kept; older
+-/// samples are dropped on overwrite.
++/// on the main thread. Only the most recent image-bearing sample is kept;
++/// older images are dropped on overwrite. Status-only callbacks are recorded
++/// in diagnostics without replacing an image awaiting consumption.
+ pub(super) type LatestSample = Mutex<Option<QueuedSampleBuffer>>;
+ 
+ /// State the SCK output delegate writes to from the background
+@@ -69,6 +71,9 @@ pub(super) struct OutputDelegateState {
+     /// `try_acquire_frame` later drops via the dim-match guard or
+     /// overwrites in `LatestSample` before the consumer polls.
+     pub(super) samples_received: Arc<std::sync::atomic::AtomicU64>,
++    /// Per-status counters recorded on the SCK callback queue before the
++    /// sample is handed to the main-thread consumer.
++    pub(super) diagnostics: Arc<CaptureDiagnosticsState>,
+ }
+ 
+ /// Live ScreenCaptureKit pipeline counters. Read via
+@@ -99,7 +104,8 @@ pub struct CaptureMetrics {
+ pub struct CaptureDiagnostics {
+     /// `try_acquire_frame` found no sample in the latest-sample slot.
+     pub no_latest_sample: u64,
+-    /// The dequeued ScreenCaptureKit sample did not carry an image buffer.
++    /// ScreenCaptureKit callbacks which did not carry an image buffer. These
++    /// are counted before handoff so they cannot evict a pending image.
+     pub sample_without_image_payload: u64,
+     /// A sample arrived while `updateConfiguration:` had a newer requested
+     /// revision than its last successful acknowledgement.
+@@ -109,6 +115,26 @@ pub struct CaptureDiagnostics {
+     pub source_dimension_mismatch: u64,
+     /// The WKWebView crop rectangle lay wholly outside the captured source.
+     pub empty_crop: u64,
++    /// A screen sample carried no attachments dictionary from which to read
++    /// `SCStreamFrameInfoStatus`.
++    pub frame_status_missing: u64,
++    /// Screen samples with `SCFrameStatus::Complete`.
++    pub frame_status_complete: u64,
++    /// Screen samples with `SCFrameStatus::Idle`.
++    pub frame_status_idle: u64,
++    /// Screen samples with `SCFrameStatus::Blank`.
++    pub frame_status_blank: u64,
++    /// Screen samples with `SCFrameStatus::Suspended`.
++    pub frame_status_suspended: u64,
++    /// Screen samples with `SCFrameStatus::Started`.
++    pub frame_status_started: u64,
++    /// Screen samples with `SCFrameStatus::Stopped`.
++    pub frame_status_stopped: u64,
++    /// Screen samples whose status was not known to this crate's SCK binding.
++    pub frame_status_unknown: u64,
++    /// Raw value of the most recently observed `SCStreamFrameInfoStatus`.
++    /// `None` means the stream has not produced an attachment with a status.
++    pub last_frame_status: Option<isize>,
+     /// Revision requested from ScreenCaptureKit for the current stream.
+     pub requested_config_revision: u64,
+     /// Most recently successful ScreenCaptureKit configuration revision.
+@@ -127,6 +153,15 @@ pub(super) struct CaptureDiagnosticsState {
+     configuration_revision_pending: AtomicU64,
+     source_dimension_mismatch: AtomicU64,
+     empty_crop: AtomicU64,
++    frame_status_missing: AtomicU64,
++    frame_status_complete: AtomicU64,
++    frame_status_idle: AtomicU64,
++    frame_status_blank: AtomicU64,
++    frame_status_suspended: AtomicU64,
++    frame_status_started: AtomicU64,
++    frame_status_stopped: AtomicU64,
++    frame_status_unknown: AtomicU64,
++    last_frame_status: Mutex<Option<isize>>,
+     last_source_size: Mutex<Option<PhysicalSize<u32>>>,
+     last_expected_source_size: Mutex<Option<PhysicalSize<u32>>>,
+ }
+@@ -147,6 +182,19 @@ impl CaptureDiagnosticsState {
+                 .load(Ordering::Relaxed),
+             source_dimension_mismatch: self.source_dimension_mismatch.load(Ordering::Relaxed),
+             empty_crop: self.empty_crop.load(Ordering::Relaxed),
++            frame_status_missing: self.frame_status_missing.load(Ordering::Relaxed),
++            frame_status_complete: self.frame_status_complete.load(Ordering::Relaxed),
++            frame_status_idle: self.frame_status_idle.load(Ordering::Relaxed),
++            frame_status_blank: self.frame_status_blank.load(Ordering::Relaxed),
++            frame_status_suspended: self.frame_status_suspended.load(Ordering::Relaxed),
++            frame_status_started: self.frame_status_started.load(Ordering::Relaxed),
++            frame_status_stopped: self.frame_status_stopped.load(Ordering::Relaxed),
++            frame_status_unknown: self.frame_status_unknown.load(Ordering::Relaxed),
++            last_frame_status: self
++                .last_frame_status
++                .lock()
++                .ok()
++                .and_then(|status| *status),
+             requested_config_revision,
+             applied_config_revision,
+             last_source_size: self.last_source_size.lock().ok().and_then(|size| *size),
+@@ -172,6 +220,50 @@ impl CaptureDiagnosticsState {
+             *slot = Some(size);
+         }
+     }
++
++    pub(super) fn record_frame_status(&self, status: Option<SCFrameStatus>) {
++        use std::sync::atomic::Ordering;
++
++        let Some(status) = status else {
++            self.frame_status_missing.fetch_add(1, Ordering::Relaxed);
++            return;
++        };
++        if let Ok(mut slot) = self.last_frame_status.lock() {
++            *slot = Some(status.0);
++        }
++        match status {
++            SCFrameStatus::Complete => self.frame_status_complete.fetch_add(1, Ordering::Relaxed),
++            SCFrameStatus::Idle => self.frame_status_idle.fetch_add(1, Ordering::Relaxed),
++            SCFrameStatus::Blank => self.frame_status_blank.fetch_add(1, Ordering::Relaxed),
++            SCFrameStatus::Suspended => self.frame_status_suspended.fetch_add(1, Ordering::Relaxed),
++            SCFrameStatus::Started => self.frame_status_started.fetch_add(1, Ordering::Relaxed),
++            SCFrameStatus::Stopped => self.frame_status_stopped.fetch_add(1, Ordering::Relaxed),
++            _ => self.frame_status_unknown.fetch_add(1, Ordering::Relaxed),
++        };
++    }
++}
++
++/// Read ScreenCaptureKit's per-sample status attachment without making the
++/// capture outcome depend on that metadata.
++///
++/// Apple's `SCStreamOutput` contract specifies a one-element attachments
++/// array whose first dictionary maps `SCStreamFrameInfoStatus` to an
++/// `NSNumber`/`CFNumber`. The generic casts only express that documented
++/// layout; malformed or absent attachments remain `None` diagnostics.
++fn screen_frame_status(sample: &CMSampleBuffer) -> Option<SCFrameStatus> {
++    let attachments = unsafe { sample.sample_attachments_array(false) }?;
++    type FrameAttachments = CFArray<CFDictionary<CFString, CFNumber>>;
++    // SAFETY: ScreenCaptureKit documents the sample-attachments array as an
++    // array of frame-info dictionaries with numeric status values. Its
++    // `NSString` key is toll-free bridged to the `CFString` dictionary key.
++    let attachments: &FrameAttachments = unsafe { attachments.cast_unchecked() };
++    let frame_info = attachments.get(0)?;
++    // SAFETY: `SCStreamFrameInfoStatus` is an NSString constant. NSString
++    // and CFString are toll-free bridged and have the same object identity.
++    let status_key: &CFString =
++        unsafe { &*(SCStreamFrameInfoStatus as *const SCStreamFrameInfo).cast::<CFString>() };
++    let status = frame_info.get(status_key)?;
++    Some(SCFrameStatus(status.as_isize()?))
+ }
+ 
+ #[derive(Default)]
+@@ -208,12 +300,25 @@ define_class!(
+             state
+                 .samples_received
+                 .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+-            // Retain the sample; the protocol contract is that the
+-            // callee must retain if it wants to outlive this call.
+-            let retained = unsafe { CFRetained::retain(NonNull::from(sample_buffer)) };
+-            if let Ok(mut slot) = state.latest.lock() {
+-                *slot = Some(QueuedSampleBuffer(retained));
++            state
++                .diagnostics
++                .record_frame_status(screen_frame_status(sample_buffer));
++            // SCK sends Idle/Started/etc. samples without image payloads.
++            // They may arrive after a Complete sample before the host polls;
++            // replacing the slot with them would discard the pending frame.
++            let image = unsafe { sample_buffer.image_buffer() }.map(|_| {
++                // Retain only an image-bearing sample; it must outlive this
++                // callback until the main-thread consumer acquires it.
++                let retained = unsafe { CFRetained::retain(NonNull::from(sample_buffer)) };
++                QueuedSampleBuffer(retained)
++            });
++            if image.is_none() {
++                state
++                    .diagnostics
++                    .sample_without_image_payload
++                    .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+             }
++            crate::latest_image_sample::update_latest_image(&state.latest, image);
+         }
+     }
+ );
+@@ -222,10 +327,12 @@ impl StreamOutputDelegate {
+     pub(super) fn new(
+         latest: Arc<LatestSample>,
+         samples_received: Arc<std::sync::atomic::AtomicU64>,
++        diagnostics: Arc<CaptureDiagnosticsState>,
+     ) -> Retained<Self> {
+         let this = Self::alloc().set_ivars(OutputDelegateState {
+             latest,
+             samples_received,
++            diagnostics,
+         });
+         // SAFETY: NSObject's `init` returns a valid initialized instance.
+         unsafe { msg_send![super(this), init] }
+@@ -687,7 +794,9 @@ mod tests {
+ 
+     use dpi::PhysicalSize;
+ 
+-    use super::{CaptureDiagnosticsState, ConfigurationFailure, complete_configuration_update};
++    use super::{
++        CaptureDiagnosticsState, ConfigurationFailure, SCFrameStatus, complete_configuration_update,
++    };
+ 
+     #[test]
+     fn failed_configuration_never_acknowledges_its_revision() {
+@@ -757,6 +866,14 @@ mod tests {
+             .source_dimension_mismatch
+             .fetch_add(7, Ordering::Relaxed);
+         diagnostics.empty_crop.fetch_add(11, Ordering::Relaxed);
++        diagnostics.record_frame_status(None);
++        diagnostics.record_frame_status(Some(SCFrameStatus::Complete));
++        diagnostics.record_frame_status(Some(SCFrameStatus::Idle));
++        diagnostics.record_frame_status(Some(SCFrameStatus::Blank));
++        diagnostics.record_frame_status(Some(SCFrameStatus::Suspended));
++        diagnostics.record_frame_status(Some(SCFrameStatus::Started));
++        diagnostics.record_frame_status(Some(SCFrameStatus::Stopped));
++        diagnostics.record_frame_status(Some(SCFrameStatus(99)));
+         diagnostics.record_source_size(PhysicalSize::new(2048, 1536));
+         diagnostics.record_expected_source_size(PhysicalSize::new(2048, 1500));
+ 
+@@ -766,6 +883,15 @@ mod tests {
+         assert_eq!(snapshot.configuration_revision_pending, 5);
+         assert_eq!(snapshot.source_dimension_mismatch, 7);
+         assert_eq!(snapshot.empty_crop, 11);
++        assert_eq!(snapshot.frame_status_missing, 1);
++        assert_eq!(snapshot.frame_status_complete, 1);
++        assert_eq!(snapshot.frame_status_idle, 1);
++        assert_eq!(snapshot.frame_status_blank, 1);
++        assert_eq!(snapshot.frame_status_suspended, 1);
++        assert_eq!(snapshot.frame_status_started, 1);
++        assert_eq!(snapshot.frame_status_stopped, 1);
++        assert_eq!(snapshot.frame_status_unknown, 1);
++        assert_eq!(snapshot.last_frame_status, Some(99));
+         assert_eq!(snapshot.requested_config_revision, 9);
+         assert_eq!(snapshot.applied_config_revision, 8);
+         assert_eq!(
+diff --git a/scrying/src/wpe_producer/producer.rs b/scrying/src/wpe_producer/producer.rs
+index 4c48766..b3f7acd 100644
+--- a/scrying/src/wpe_producer/producer.rs
++++ b/scrying/src/wpe_producer/producer.rs
+@@ -162,6 +162,14 @@ impl WpeProducer {
+                 config.size.width, config.size.height
+             )));
+         }
++        // WebKit initializes WTF's main thread here. On current WPE it aborts
++        // if that initialization happens on a worker, so refuse before FFI.
++        // SAFETY: gettid/getpid have no arguments or pointer obligations.
++        if unsafe { libc::gettid() != libc::getpid() } {
++            return Err(WebSurfaceError::Platform(
++                "WPE producers must be constructed on the process main thread".into(),
++            ));
++        }
+         let main_context = glib::MainContext::default();
+         let (webview, view) = super::headless::build_producer_view(url_schemes)?;
+         let nav_state = std::rc::Rc::new(std::cell::RefCell::new(
+@@ -567,11 +575,11 @@ impl WebSurfaceProducer for WpeProducer {
+             match &event {
+                 WebSurfaceEvent::Navigation(_) => {
+                     self.nav_state.borrow_mut().events.pop_front();
+-                }
++                },
+                 WebSurfaceEvent::WebMessage(_) => {
+                     self.web_messages.borrow_mut().pop_front();
+-                }
+-                _ => {}
++                },
++                _ => {},
+             }
+             Some(event)
+         }
+@@ -756,6 +764,20 @@ impl WebSurfaceProducer for WpeProducer {
+ mod tests {
+     use super::*;
+ 
++    #[test]
++    fn worker_constructor_is_refused_before_webkit_initialization() {
++        let message = std::thread::spawn(|| {
++            let config = WpeProducerConfig::new(PhysicalSize::new(256, 256), std::env::temp_dir());
++            match WpeProducer::new(config) {
++                Err(WebSurfaceError::Platform(message)) => message,
++                _ => panic!("worker construction must return a typed main-thread refusal"),
++            }
++        })
++        .join()
++        .unwrap();
++        assert!(message.contains("process main thread"));
++    }
++
+     #[test]
+     fn legacy_message_pop_removes_its_ordered_mirror() {
+         let legacy = std::rc::Rc::new(std::cell::RefCell::new(std::collections::VecDeque::from([
+diff --git a/scrying/tests/wpe_input.rs b/scrying/tests/wpe_input.rs
+index 451fb40..3fa687c 100644
+--- a/scrying/tests/wpe_input.rs
++++ b/scrying/tests/wpe_input.rs
+@@ -20,30 +20,31 @@
+ //!   cargo test -p scrying --features wpe --test wpe_input \
+ //!     -- --ignored --nocapture
+ 
+-#![cfg(all(target_os = "linux", feature = "wpe"))]
++// WebKit requires initialization on the process main thread. libtest's
++// worker thread cannot host WPE, even with --test-threads=1.
++#[cfg(all(target_os = "linux", feature = "wpe"))]
++mod native_gate {
+ 
+-use dpi::PhysicalSize;
+-use scrying::wpe_producer::{WpeProducer, WpeProducerConfig};
+-use scrying::{
+-    KeyEventKind, KeyboardInput, MouseEventKind, MouseInput, NativeFrame, NavigationEvent,
+-    PointerDevice, PointerEventKind, PointerInput, WebSurfaceFrame, WebSurfaceProducer,
+-};
+-
+-#[test]
+-#[ignore = "needs a headless WPE display (GPU + Wayland); run manually"]
+-fn input_dispatch_reaches_page() {
+-    // --- 1. Stand up the producer ---
+-    let config = WpeProducerConfig::new(PhysicalSize::new(256, 256), std::env::temp_dir());
+-    let mut producer = match WpeProducer::new(config) {
+-        Ok(p) => p,
+-        Err(e) => {
+-            eprintln!("SKIP: WpeProducer::new failed (no display / GPU?): {e}");
+-            return;
+-        }
++    use dpi::PhysicalSize;
++    use scrying::wpe_producer::{WpeProducer, WpeProducerConfig};
++    use scrying::{
++        KeyEventKind, KeyboardInput, MouseEventKind, MouseInput, NativeFrame, NavigationEvent,
++        PointerDevice, PointerEventKind, PointerInput, WebSurfaceFrame, WebSurfaceProducer,
+     };
+ 
+-    // --- 2. Navigate to a page with a focusable <input> ---
+-    producer
++    pub(super) fn run() {
++        // --- 1. Stand up the producer ---
++        let config = WpeProducerConfig::new(PhysicalSize::new(256, 256), std::env::temp_dir());
++        let mut producer = match WpeProducer::new(config) {
++            Ok(p) => p,
++            Err(e) => {
++                eprintln!("SKIP: WpeProducer::new failed (no display / GPU?): {e}");
++                return;
++            },
++        };
++
++        // --- 2. Navigate to a page with a focusable <input> ---
++        producer
+         .navigate_to_string(
+             "<body style='margin:0;background:#1e90ff'>\
+              <script>\
+@@ -68,293 +69,307 @@ fn input_dispatch_reaches_page() {
+             std::time::Duration::from_secs(5),
+         )
+         .expect("navigate_to_string for pointer receipt page");
+-    let mut saw_completed = false;
+-    while let Some(e) = producer.poll_navigation_event() {
+-        if matches!(e, NavigationEvent::Completed { success: true, .. }) {
+-            saw_completed = true;
++        let mut saw_completed = false;
++        while let Some(e) = producer.poll_navigation_event() {
++            if matches!(e, NavigationEvent::Completed { success: true, .. }) {
++                saw_completed = true;
++            }
+         }
+-    }
+-    assert!(saw_completed, "expected a successful Completed nav event");
++        assert!(saw_completed, "expected a successful Completed nav event");
+ 
+-    let ready = wait_for_message_prefix(&producer, "wpe-input:ready");
+-    assert_eq!(ready, "wpe-input:ready", "pointer probe did not initialize");
+-    eprintln!("input smoke: page-side pointer listeners ready");
++        let ready = wait_for_message_prefix(&producer, "wpe-input:ready");
++        assert_eq!(ready, "wpe-input:ready", "pointer probe did not initialize");
++        eprintln!("input smoke: page-side pointer listeners ready");
+ 
+-    // --- 3. Wait for the first frame so we know rendering's alive ---
+-    let first = acquire_with_pump(&mut producer);
+-    let first_size = match &first {
+-        WebSurfaceFrame::Native(NativeFrame::DmaBufImage(img)) => img.size,
+-        _ => panic!("expected DMABUF frame"),
+-    };
+-    eprintln!(
+-        "input smoke: first frame {}x{}",
+-        first_size.width, first_size.height
+-    );
+-
+-    // --- 4. Dispatch a sequence of input events ---
+-    let cx = (first_size.width / 2) as i32;
+-    let cy = (first_size.height / 2) as i32;
++        // --- 3. Wait for the first frame so we know rendering's alive ---
++        let first = acquire_with_pump(&mut producer);
++        let first_size = match &first {
++            WebSurfaceFrame::Native(NativeFrame::DmaBufImage(img)) => img.size,
++            _ => panic!("expected DMABUF frame"),
++        };
++        eprintln!(
++            "input smoke: first frame {}x{}",
++            first_size.width, first_size.height
++        );
+ 
+-    // Pointer move to center.
+-    producer
+-        .send_pointer_input(make_pointer(PointerEventKind::Update, cx, cy))
+-        .expect("send_pointer_input move");
+-    let move_receipt = wait_for_input_receipt(&producer, "move");
+-    eprintln!("input smoke: page received pointer move: {move_receipt}");
++        // --- 4. Dispatch a sequence of input events ---
++        let cx = (first_size.width / 2) as i32;
++        let cy = (first_size.height / 2) as i32;
+ 
+-    // Mouse click (down + up) at center.
+-    producer
+-        .send_mouse_input(MouseInput {
+-            kind: MouseEventKind::LeftButtonDown,
+-            virtual_keys: Default::default(),
+-            mouse_data: 0,
+-            point: (cx, cy),
+-        })
+-        .expect("send_mouse_input down");
+-    let down_receipt = wait_for_input_receipt(&producer, "down");
+-    eprintln!("input smoke: page received button down: {down_receipt}");
+-    producer
+-        .send_mouse_input(MouseInput {
+-            kind: MouseEventKind::LeftButtonUp,
+-            virtual_keys: Default::default(),
+-            mouse_data: 0,
+-            point: (cx, cy),
+-        })
+-        .expect("send_mouse_input up");
+-    let up_receipt = wait_for_input_receipt(&producer, "up");
+-    eprintln!("input smoke: page received button up: {up_receipt}");
++        // Pointer move to center.
++        producer
++            .send_pointer_input(make_pointer(PointerEventKind::Update, cx, cy))
++            .expect("send_pointer_input move");
++        let move_receipt = wait_for_input_receipt(&producer, "move");
++        eprintln!("input smoke: page received pointer move: {move_receipt}");
+ 
+-    // Type three keys (xkb keycodes for 'w'=25, 'p'=33, 'e'=26 on the
+-    // standard Linux USB-HID xkb layout — these MVP-dispatch with
+-    // keyval=0 so WebKit derives from the keycode internally).
+-    for &keycode in &[25u32, 33, 26] {
++        // Mouse click (down + up) at center.
+         producer
+-            .send_keyboard_input(make_keyboard(KeyEventKind::Down, keycode))
+-            .expect("send_keyboard_input down");
++            .send_mouse_input(MouseInput {
++                kind: MouseEventKind::LeftButtonDown,
++                virtual_keys: Default::default(),
++                mouse_data: 0,
++                point: (cx, cy),
++            })
++            .expect("send_mouse_input down");
++        let down_receipt = wait_for_input_receipt(&producer, "down");
++        eprintln!("input smoke: page received button down: {down_receipt}");
+         producer
+-            .send_keyboard_input(make_keyboard(KeyEventKind::Up, keycode))
+-            .expect("send_keyboard_input up");
+-    }
++            .send_mouse_input(MouseInput {
++                kind: MouseEventKind::LeftButtonUp,
++                virtual_keys: Default::default(),
++                mouse_data: 0,
++                point: (cx, cy),
++            })
++            .expect("send_mouse_input up");
++        let up_receipt = wait_for_input_receipt(&producer, "up");
++        eprintln!("input smoke: page received button up: {up_receipt}");
+ 
+-    // Vertical scroll.
+-    producer
+-        .send_mouse_input(MouseInput {
+-            kind: MouseEventKind::Wheel,
+-            virtual_keys: Default::default(),
+-            mouse_data: 120,
+-            point: (cx, cy),
+-        })
+-        .expect("send_mouse_input wheel");
+-    let scroll_receipt = wait_for_input_receipt(&producer, "scroll");
+-    eprintln!("input smoke: page received scroll: {scroll_receipt}");
++        // Type three keys (xkb keycodes for 'w'=25, 'p'=33, 'e'=26 on the
++        // standard Linux USB-HID xkb layout — these MVP-dispatch with
++        // keyval=0 so WebKit derives from the keycode internally).
++        for &keycode in &[25u32, 33, 26] {
++            producer
++                .send_keyboard_input(make_keyboard(KeyEventKind::Down, keycode))
++                .expect("send_keyboard_input down");
++            producer
++                .send_keyboard_input(make_keyboard(KeyEventKind::Up, keycode))
++                .expect("send_keyboard_input up");
++        }
+ 
+-    // --- 4c.4.1 — touch dispatch is NOT exercised here ---
+-    //
+-    // The `dispatch_pointer` Touch branch (which builds
+-    // `wpe_event_touch_new` with sequence_id = pointer_id) is correct
+-    // in shape and covered by the `touch_kind_translation` unit test
+-    // in `scrying/src/wpe_producer/input.rs`. End-to-end runtime
+-    // dispatch through `wpe_view_event` hangs the headless WebKit
+-    // process indefinitely (observed: futex_do_wait inside the
+-    // dispatch, no progress after several seconds). The same shape
+-    // bit us in 4c.3's resize: the headless WPEDisplay simply
+-    // doesn't provide the gesture-controller / screen state WPE's
+-    // touch path needs to dispatch synchronously. Until a non-headless
+-    // WPE producer lands or we provide our own gesture controller via
+-    // `wpe_view_set_gesture_controller`, end-to-end touch testing
+-    // belongs in a non-headless target.
++        // Vertical scroll.
++        producer
++            .send_mouse_input(MouseInput {
++                kind: MouseEventKind::Wheel,
++                virtual_keys: Default::default(),
++                mouse_data: 120,
++                point: (cx, cy),
++            })
++            .expect("send_mouse_input wheel");
++        let scroll_receipt = wait_for_input_receipt(&producer, "scroll");
++        eprintln!("input smoke: page received scroll: {scroll_receipt}");
+ 
+-    // --- 4c.5.a — JS → host postMessage round-trip ---
+-    //
+-    // Navigate to a page whose inline <script> calls
+-    // window.chrome.webview.postMessage('hi from page') at parse time.
+-    // The chrome.webview shim is injected at document-start by
+-    // script_message::install, so the postMessage call hits the scry
+-    // user-content handler, which extracts the JSCValue string via
+-    // jsc_value_to_string and pushes "hi from page" onto the
+-    // producer's web_messages queue. wait_for_web_message drains it.
+-    //
+-    // We re-navigate (rather than appending to the existing page)
+-    // because the chrome.webview shim runs at document-start: a second
+-    // navigation is the cleanest way to trigger the postMessage from
+-    // page-side code without script injection.
+-    producer
+-        .navigate_to_string(
+-            "<body><script>window.chrome.webview.postMessage('hi from page');</script></body>",
+-            std::time::Duration::from_secs(5),
+-        )
+-        .expect("navigate_to_string for postMessage round-trip");
+-    // Drain navigation events from the re-navigate so they don't
+-    // pollute later assertions.
+-    while producer.poll_navigation_event().is_some() {}
++        // --- 4c.4.1 — touch dispatch is NOT exercised here ---
++        //
++        // The `dispatch_pointer` Touch branch (which builds
++        // `wpe_event_touch_new` with sequence_id = pointer_id) is correct
++        // in shape and covered by the `touch_kind_translation` unit test
++        // in `scrying/src/wpe_producer/input.rs`. End-to-end runtime
++        // dispatch through `wpe_view_event` hangs the headless WebKit
++        // process indefinitely (observed: futex_do_wait inside the
++        // dispatch, no progress after several seconds). The same shape
++        // bit us in 4c.3's resize: the headless WPEDisplay simply
++        // doesn't provide the gesture-controller / screen state WPE's
++        // touch path needs to dispatch synchronously. Until a non-headless
++        // WPE producer lands or we provide our own gesture controller via
++        // `wpe_view_set_gesture_controller`, end-to-end touch testing
++        // belongs in a non-headless target.
+ 
+-    let msg = producer.wait_for_web_message(std::time::Duration::from_secs(2));
+-    assert_eq!(
+-        msg.as_deref(),
+-        Some("hi from page"),
+-        "expected the page's chrome.webview.postMessage to round-trip back as 'hi from page' \
++        // --- 4c.5.a — JS → host postMessage round-trip ---
++        //
++        // Navigate to a page whose inline <script> calls
++        // window.chrome.webview.postMessage('hi from page') at parse time.
++        // The chrome.webview shim is injected at document-start by
++        // script_message::install, so the postMessage call hits the scry
++        // user-content handler, which extracts the JSCValue string via
++        // jsc_value_to_string and pushes "hi from page" onto the
++        // producer's web_messages queue. wait_for_web_message drains it.
++        //
++        // We re-navigate (rather than appending to the existing page)
++        // because the chrome.webview shim runs at document-start: a second
++        // navigation is the cleanest way to trigger the postMessage from
++        // page-side code without script injection.
++        producer
++            .navigate_to_string(
++                "<body><script>window.chrome.webview.postMessage('hi from page');</script></body>",
++                std::time::Duration::from_secs(5),
++            )
++            .expect("navigate_to_string for postMessage round-trip");
++        // Drain navigation events from the re-navigate so they don't
++        // pollute later assertions.
++        while producer.poll_navigation_event().is_some() {}
++
++        let msg = producer.wait_for_web_message(std::time::Duration::from_secs(2));
++        assert_eq!(
++            msg.as_deref(),
++            Some("hi from page"),
++            "expected the page's chrome.webview.postMessage to round-trip back as 'hi from page' \
+          (got {:?}); this verifies the script_message::install signal closure + the \
+          chrome.webview shim injection are wired correctly end-to-end.",
+-        msg
+-    );
+-    eprintln!(
+-        "input smoke: chrome.webview.postMessage round-trip = {:?}",
+-        msg
+-    );
++            msg
++        );
++        eprintln!(
++            "input smoke: chrome.webview.postMessage round-trip = {:?}",
++            msg
++        );
+ 
+-    // --- 4c.5.b — cookie store round-trip ---
+-    //
+-    // Set a cookie via the producer, then read it back via
+-    // request_cookies_for_url. Asserts both name AND value to verify
+-    // the soup<->scry translators are wired in both directions.
+-    //
+-    // Domain/path here are intentionally NOT bound to the load_html
+-    // base-uri (about:blank): the WPE cookie manager scopes lookups by
+-    // (domain, path), so the get URL just needs to match those — no
+-    // network round-trip required.
+-    let probe = scrying::Cookie {
+-        name: "scry_probe".to_string(),
+-        value: "round_trip_ok".to_string(),
+-        domain: "example.test".to_string(),
+-        path: "/".to_string(),
+-        expires_at: None, // session cookie
+-        is_secure: false,
+-        is_http_only: false,
+-        same_site: None,
+-        partitioned: false,
+-    };
+-    producer.set_cookie(&probe).expect("set_cookie round-trip");
+-    let cookies = producer
+-        .request_cookies_for_url("http://example.test/")
+-        .expect("request_cookies_for_url");
+-    let hit = cookies.iter().find(|c| c.name == "scry_probe");
+-    assert!(
+-        hit.is_some(),
+-        "expected the scry_probe cookie we just set to come back \
++        // --- 4c.5.b — cookie store round-trip ---
++        //
++        // Set a cookie via the producer, then read it back via
++        // request_cookies_for_url. Asserts both name AND value to verify
++        // the soup<->scry translators are wired in both directions.
++        //
++        // Domain/path here are intentionally NOT bound to the load_html
++        // base-uri (about:blank): the WPE cookie manager scopes lookups by
++        // (domain, path), so the get URL just needs to match those — no
++        // network round-trip required.
++        let probe = scrying::Cookie {
++            name: "scry_probe".to_string(),
++            value: "round_trip_ok".to_string(),
++            domain: "example.test".to_string(),
++            path: "/".to_string(),
++            expires_at: None, // session cookie
++            is_secure: false,
++            is_http_only: false,
++            same_site: None,
++            partitioned: false,
++        };
++        producer.set_cookie(&probe).expect("set_cookie round-trip");
++        let cookies = producer
++            .request_cookies_for_url("http://example.test/")
++            .expect("request_cookies_for_url");
++        let hit = cookies.iter().find(|c| c.name == "scry_probe");
++        assert!(
++            hit.is_some(),
++            "expected the scry_probe cookie we just set to come back \
+          from request_cookies_for_url; got {} cookies: {:?}",
+-        cookies.len(),
+-        cookies.iter().map(|c| &c.name).collect::<Vec<_>>()
+-    );
+-    assert_eq!(hit.unwrap().value, "round_trip_ok");
+-    eprintln!(
+-        "input smoke: cookie round-trip OK ({} cookie(s) returned for example.test)",
+-        cookies.len()
+-    );
+-    // Clean up so subsequent test runs against the same ephemeral
+-    // session don't see stale state. (The ephemeral
+-    // WebKitNetworkSession resets on producer drop anyway, but the
+-    // assert exercises delete_cookie's success path.)
+-    producer
+-        .delete_cookie(&probe)
+-        .expect("delete_cookie round-trip");
++            cookies.len(),
++            cookies.iter().map(|c| &c.name).collect::<Vec<_>>()
++        );
++        assert_eq!(hit.unwrap().value, "round_trip_ok");
++        eprintln!(
++            "input smoke: cookie round-trip OK ({} cookie(s) returned for example.test)",
++            cookies.len()
++        );
++        // Clean up so subsequent test runs against the same ephemeral
++        // session don't see stale state. (The ephemeral
++        // WebKitNetworkSession resets on producer drop anyway, but the
++        // assert exercises delete_cookie's success path.)
++        producer
++            .delete_cookie(&probe)
++            .expect("delete_cookie round-trip");
+ 
+-    // --- 5. Verify the renderer is still alive after the input sequence ---
+-    //
+-    // Page-side receipts above are the authoritative input assertion. WPE
+-    // may or may not auto-paint from these events, so a missing *new* frame
+-    // remains diagnostic rather than a substitute for the receipt gate.
+-    let second = acquire_with_pump_or_skip(&mut producer);
+-    match &second {
+-        Some(WebSurfaceFrame::Native(NativeFrame::DmaBufImage(img))) => {
+-            assert!(img.size.width > 0 && img.size.height > 0);
+-            eprintln!(
+-                "input smoke: post-input frame {}x{}",
+-                img.size.width, img.size.height
+-            );
+-        }
+-        Some(_) => panic!("expected DMABUF frame post-input"),
+-        None => eprintln!(
+-            "input smoke: no NEW frame arrived within 2s post-input — \
++        // --- 5. Verify the renderer is still alive after the input sequence ---
++        //
++        // Page-side receipts above are the authoritative input assertion. WPE
++        // may or may not auto-paint from these events, so a missing *new* frame
++        // remains diagnostic rather than a substitute for the receipt gate.
++        let second = acquire_with_pump_or_skip(&mut producer);
++        match &second {
++            Some(WebSurfaceFrame::Native(NativeFrame::DmaBufImage(img))) => {
++                assert!(img.size.width > 0 && img.size.height > 0);
++                eprintln!(
++                    "input smoke: post-input frame {}x{}",
++                    img.size.width, img.size.height
++                );
++            },
++            Some(_) => panic!("expected DMABUF frame post-input"),
++            None => eprintln!(
++                "input smoke: no NEW frame arrived within 2s post-input — \
+              producer is still alive, dispatch didn't crash; contract met"
+-        ),
++            ),
++        }
+     }
+-}
+ 
+-/// Construct a `PointerInput` with mouse device defaults. `PointerInput`
+-/// does not derive `Default`, so every field is filled explicitly with
+-/// a zero-equivalent.
+-fn make_pointer(kind: PointerEventKind, x: i32, y: i32) -> PointerInput {
+-    PointerInput {
+-        kind,
+-        device: PointerDevice::Mouse,
+-        pointer_id: 1,
+-        point: (x, y),
+-        pressure: 0.0,
+-        tilt: (0.0, 0.0),
++    /// Construct a `PointerInput` with mouse device defaults. `PointerInput`
++    /// does not derive `Default`, so every field is filled explicitly with
++    /// a zero-equivalent.
++    fn make_pointer(kind: PointerEventKind, x: i32, y: i32) -> PointerInput {
++        PointerInput {
++            kind,
++            device: PointerDevice::Mouse,
++            pointer_id: 1,
++            point: (x, y),
++            pressure: 0.0,
++            tilt: (0.0, 0.0),
++        }
+     }
+-}
+ 
+-/// Construct a `KeyboardInput` with a keycode and empty characters.
+-/// `KeyboardInput` does not derive `Default`, so every field is filled
+-/// explicitly. `KeyModifierFlags` does derive `Default`.
+-fn make_keyboard(kind: KeyEventKind, virtual_key_code: u32) -> KeyboardInput {
+-    KeyboardInput {
+-        kind,
+-        virtual_key_code,
+-        characters: String::new(),
+-        characters_ignoring_modifiers: String::new(),
+-        modifiers: Default::default(),
+-        is_repeat: false,
++    /// Construct a `KeyboardInput` with a keycode and empty characters.
++    /// `KeyboardInput` does not derive `Default`, so every field is filled
++    /// explicitly. `KeyModifierFlags` does derive `Default`.
++    fn make_keyboard(kind: KeyEventKind, virtual_key_code: u32) -> KeyboardInput {
++        KeyboardInput {
++            kind,
++            virtual_key_code,
++            characters: String::new(),
++            characters_ignoring_modifiers: String::new(),
++            modifiers: Default::default(),
++            is_repeat: false,
++        }
+     }
+-}
+ 
+-/// Block-pump glib::MainContext::default() until a frame lands or 5s
+-/// elapses. Mirrors the wpe_to_vulkan_roundtrip pattern.
+-fn acquire_with_pump(producer: &mut WpeProducer) -> WebSurfaceFrame {
+-    let ctx = glib::MainContext::default();
+-    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+-    loop {
+-        match producer.acquire_frame() {
+-            Ok(f) => return f,
+-            Err(_) if std::time::Instant::now() < deadline => {
+-                ctx.iteration(false);
+-                std::thread::sleep(std::time::Duration::from_millis(20));
+-                continue;
++    /// Block-pump glib::MainContext::default() until a frame lands or 5s
++    /// elapses. Mirrors the wpe_to_vulkan_roundtrip pattern.
++    fn acquire_with_pump(producer: &mut WpeProducer) -> WebSurfaceFrame {
++        let ctx = glib::MainContext::default();
++        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
++        loop {
++            match producer.acquire_frame() {
++                Ok(f) => return f,
++                Err(_) if std::time::Instant::now() < deadline => {
++                    ctx.iteration(false);
++                    std::thread::sleep(std::time::Duration::from_millis(20));
++                    continue;
++                },
++                Err(e) => panic!("FAIL: acquire_frame timed out: {e}"),
+             }
+-            Err(e) => panic!("FAIL: acquire_frame timed out: {e}"),
+         }
+     }
+-}
+ 
+-/// Pump until a page-side message with `prefix` arrives. Pointer receipts are
+-/// deliberately a hard assertion: dispatching an event without observing it
+-/// in the document is not an input-forwarding proof.
+-fn wait_for_message_prefix(producer: &WpeProducer, prefix: &str) -> String {
+-    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(2);
+-    loop {
+-        let remaining = deadline.saturating_duration_since(std::time::Instant::now());
+-        if remaining.is_zero() {
+-            panic!("FAIL: timed out waiting for page-side message with prefix {prefix:?}");
+-        }
+-        let Some(message) = producer.wait_for_web_message(remaining) else {
+-            panic!("FAIL: timed out waiting for page-side message with prefix {prefix:?}");
+-        };
+-        if message.starts_with(prefix) {
+-            return message;
++    /// Pump until a page-side message with `prefix` arrives. Pointer receipts are
++    /// deliberately a hard assertion: dispatching an event without observing it
++    /// in the document is not an input-forwarding proof.
++    fn wait_for_message_prefix(producer: &WpeProducer, prefix: &str) -> String {
++        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(2);
++        loop {
++            let remaining = deadline.saturating_duration_since(std::time::Instant::now());
++            if remaining.is_zero() {
++                panic!("FAIL: timed out waiting for page-side message with prefix {prefix:?}");
++            }
++            let Some(message) = producer.wait_for_web_message(remaining) else {
++                panic!("FAIL: timed out waiting for page-side message with prefix {prefix:?}");
++            };
++            if message.starts_with(prefix) {
++                return message;
++            }
++            eprintln!("input smoke: ignoring unrelated page message {message:?}");
+         }
+-        eprintln!("input smoke: ignoring unrelated page message {message:?}");
+     }
+-}
+ 
+-fn wait_for_input_receipt(producer: &WpeProducer, kind: &str) -> String {
+-    wait_for_message_prefix(producer, &format!("wpe-input:{kind}:"))
+-}
++    fn wait_for_input_receipt(producer: &WpeProducer, kind: &str) -> String {
++        wait_for_message_prefix(producer, &format!("wpe-input:{kind}:"))
++    }
+ 
+-/// Like `acquire_with_pump` but with a SHORTER (2s) deadline and `None`
+-/// on timeout instead of panic — used for the post-input frame check
+-/// where "no new frame" is acceptable as long as dispatch didn't crash.
+-fn acquire_with_pump_or_skip(producer: &mut WpeProducer) -> Option<WebSurfaceFrame> {
+-    let ctx = glib::MainContext::default();
+-    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(2);
+-    loop {
+-        match producer.acquire_frame() {
+-            Ok(f) => return Some(f),
+-            Err(_) if std::time::Instant::now() < deadline => {
+-                ctx.iteration(false);
+-                std::thread::sleep(std::time::Duration::from_millis(20));
+-                continue;
++    /// Like `acquire_with_pump` but with a SHORTER (2s) deadline and `None`
++    /// on timeout instead of panic — used for the post-input frame check
++    /// where "no new frame" is acceptable as long as dispatch didn't crash.
++    fn acquire_with_pump_or_skip(producer: &mut WpeProducer) -> Option<WebSurfaceFrame> {
++        let ctx = glib::MainContext::default();
++        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(2);
++        loop {
++            match producer.acquire_frame() {
++                Ok(f) => return Some(f),
++                Err(_) if std::time::Instant::now() < deadline => {
++                    ctx.iteration(false);
++                    std::thread::sleep(std::time::Duration::from_millis(20));
++                    continue;
++                },
++                Err(_) => return None,
+             }
+-            Err(_) => return None,
+         }
+     }
+ }
++fn main() {
++    if !std::env::args().any(|arg| arg == "--ignored") {
++        println!("ignored native WPE gate (requires --ignored)");
++        return;
++    }
++    #[cfg(all(target_os = "linux", feature = "wpe"))]
++    {
++        native_gate::run();
++        println!("NATIVE WPE GATE PASS: wpe_input");
++    }
++    #[cfg(not(all(target_os = "linux", feature = "wpe")))]
++    panic!("native WPE gate requires Linux and the wpe feature");
++}
+diff --git a/scrying/tests/wpe_to_vulkan_roundtrip.rs b/scrying/tests/wpe_to_vulkan_roundtrip.rs
+index 90d03a9..d42bf69 100644
+--- a/scrying/tests/wpe_to_vulkan_roundtrip.rs
++++ b/scrying/tests/wpe_to_vulkan_roundtrip.rs
+@@ -21,19 +21,22 @@
+ //! `SKIP: ...` and return — cargo records the test as pass. A genuine
+ //! `import_frame` Err is NOT a skip (added in Task 3); it fails loudly.
+ 
+-#![cfg(all(target_os = "linux", feature = "wpe"))]
++// WebKit requires initialization on the process main thread. libtest's
++// worker thread cannot host WPE, even with --test-threads=1.
++#[cfg(all(target_os = "linux", feature = "wpe"))]
++mod native_gate {
+ 
+-use dpi::PhysicalSize;
+-use std::os::fd::AsRawFd;
+-use scrying::wgpu;
+-use scrying::wpe_producer::{WpeProducer, WpeProducerConfig};
+-use scrying::{
+-    DmaBufImage, HostWgpuContext, ImportOptions, ImportedTexture, NativeFrame, NavigationEvent,
+-    SyncMechanism, TextureImporter, WebSurfaceFrame, WebSurfaceProducer, WgpuTextureImporter,
+-};
++    use dpi::PhysicalSize;
++    use scrying::wgpu;
++    use scrying::wpe_producer::{WpeProducer, WpeProducerConfig};
++    use scrying::{
++        DmaBufImage, HostWgpuContext, ImportOptions, ImportedTexture, NativeFrame, NavigationEvent,
++        SyncMechanism, TextureImporter, WebSurfaceFrame, WebSurfaceProducer, WgpuTextureImporter,
++    };
++    use std::os::fd::AsRawFd;
+ 
+-#[cfg(feature = "wgpu-30")]
+-const SAMPLE_SHADER: &str = r#"
++    #[cfg(feature = "wgpu-30")]
++    const SAMPLE_SHADER: &str = r#"
+ struct VsOut {
+     @builtin(position) position: vec4<f32>,
+     @location(0) uv: vec2<f32>,
+@@ -58,519 +61,529 @@ fn fs(in: VsOut) -> @location(0) vec4<f32> {
+ }
+ "#;
+ 
+-#[test]
+-#[ignore = "needs a headless WPE display (GPU + Wayland); run manually"]
+-fn wpe_to_vulkan_round_trip() {
+-    // --- 1. Stand up the WPE producer ---
+-    let config = WpeProducerConfig::new(PhysicalSize::new(256, 256), std::env::temp_dir());
+-    let mut producer = match WpeProducer::new(config) {
+-        Ok(p) => p,
+-        Err(e) => {
+-            eprintln!("SKIP: WpeProducer::new failed (no display / GPU?): {e}");
+-            return;
+-        }
+-    };
++    pub(super) fn run() {
++        // --- 1. Stand up the WPE producer ---
++        let config = WpeProducerConfig::new(PhysicalSize::new(256, 256), std::env::temp_dir());
++        let mut producer = match WpeProducer::new(config) {
++            Ok(p) => p,
++            Err(e) => {
++                eprintln!("SKIP: WpeProducer::new failed (no display / GPU?): {e}");
++                return;
++            },
++        };
+ 
+-    // --- 2. Navigate to inline HTML; verify load completion event ---
+-    const CONTENT: &str =
+-        "<!doctype html><html style='width:100%;height:100%;background:#1e90ff'>\
++        // --- 2. Navigate to inline HTML; verify load completion event ---
++        const CONTENT: &str = "<!doctype html><html style='width:100%;height:100%;background:#1e90ff'>\
+          <body style='width:100%;height:100%;margin:0;background:#1e90ff'>\
+          <div style='position:fixed;inset:0;background:#1e90ff'></div></body></html>";
+-    if let Err(e) =
+-        producer.navigate_to_string(CONTENT, std::time::Duration::from_secs(5))
+-    {
+-        eprintln!("SKIP: navigate_to_string failed: {e}");
+-        return;
+-    }
+-    let mut nav_events = Vec::new();
+-    while let Some(e) = producer.poll_navigation_event() {
+-        nav_events.push(e);
+-    }
+-    assert!(
+-        nav_events
+-            .iter()
+-            .any(|e| matches!(e, NavigationEvent::Completed { success: true, .. })),
+-        "expected a successful Completed event; got {:?}",
+-        nav_events
+-    );
++        if let Err(e) = producer.navigate_to_string(CONTENT, std::time::Duration::from_secs(5)) {
++            eprintln!("SKIP: navigate_to_string failed: {e}");
++            return;
++        }
++        let mut nav_events = Vec::new();
++        while let Some(e) = producer.poll_navigation_event() {
++            nav_events.push(e);
++        }
++        assert!(
++            nav_events
++                .iter()
++                .any(|e| matches!(e, NavigationEvent::Completed { success: true, .. })),
++            "expected a successful Completed event; got {:?}",
++            nav_events
++        );
+ 
+-    // Wait for and consume WPE's transparent startup frame. Merely draining
+-    // the producer's current slot races the delayed `buffer-rendered`
+-    // callback and can let that stale frame satisfy the content acquisition.
+-    let _first_frame = acquire_dmabuf_frame(&mut producer, "first navigation");
+-    producer
+-        .navigate_to_string(CONTENT, std::time::Duration::from_secs(5))
+-        .expect("request a post-startup content repaint by navigating again");
++        // Wait for and consume WPE's transparent startup frame. Merely draining
++        // the producer's current slot races the delayed `buffer-rendered`
++        // callback and can let that stale frame satisfy the content acquisition.
++        let _first_frame = acquire_dmabuf_frame(&mut producer, "first navigation");
++        producer
++            .navigate_to_string(CONTENT, std::time::Duration::from_secs(5))
++            .expect("request a post-startup content repaint by navigating again");
+ 
+-    // --- 3. Acquire one DMABUF frame ---
+-    //
+-    // `wait_for_load` (inside navigate_to_string) returns when load-changed
+-    // FINISHED fires; the first `buffer-rendered` arrives slightly later
+-    // on the same MainContext. Retry briefly, pumping the GLib main context
+-    // each iteration so the pending buffer-rendered signal can dispatch.
+-    // We can't reach `producer.handles.main_context` from outside the crate
+-    // (it's `pub(super)`), but `glib::MainContext::default()` is the same
+-    // context the WPE producer uses (it was created with
+-    // `glib::MainContext::default()` in producer.rs), so iterating it here
+-    // delivers any pending callbacks including `buffer-rendered`.
+-    let image = acquire_dmabuf_frame(&mut producer, "post-startup repaint");
++        // --- 3. Acquire one DMABUF frame ---
++        //
++        // `wait_for_load` (inside navigate_to_string) returns when load-changed
++        // FINISHED fires; the first `buffer-rendered` arrives slightly later
++        // on the same MainContext. Retry briefly, pumping the GLib main context
++        // each iteration so the pending buffer-rendered signal can dispatch.
++        // We can't reach `producer.handles.main_context` from outside the crate
++        // (it's `pub(super)`), but `glib::MainContext::default()` is the same
++        // context the WPE producer uses (it was created with
++        // `glib::MainContext::default()` in producer.rs), so iterating it here
++        // delivers any pending callbacks including `buffer-rendered`.
++        let image = acquire_dmabuf_frame(&mut producer, "post-startup repaint");
+ 
+-    // WPE-side sanity (always-on assertions).
+-    assert!(
+-        image.size.width > 0 && image.size.height > 0,
+-        "non-zero size"
+-    );
+-    assert!(!image.planes().is_empty(), "at least one plane");
+-    assert!(image.buffer_count() > 0, "owned descriptor buffer present");
+-    assert_eq!(image.producer_sync, SyncMechanism::None);
+-    eprintln!(
+-        "wpe→vk: {}x{} fourcc=0x{:08x} mod=0x{:016x} planes={}",
+-        image.size.width,
+-        image.size.height,
+-        image.drm_format,
+-        image.drm_modifier,
+-        image.planes().len()
+-    );
++        // WPE-side sanity (always-on assertions).
++        assert!(
++            image.size.width > 0 && image.size.height > 0,
++            "non-zero size"
++        );
++        assert!(!image.planes().is_empty(), "at least one plane");
++        assert!(image.buffer_count() > 0, "owned descriptor buffer present");
++        assert_eq!(image.producer_sync, SyncMechanism::None);
++        eprintln!(
++            "wpe→vk: {}x{} fourcc=0x{:08x} mod=0x{:016x} planes={}",
++            image.size.width,
++            image.size.height,
++            image.drm_format,
++            image.drm_modifier,
++            image.planes().len()
++        );
+ 
+-    // --- 3b. Plane-fd diagnostic for the (α) multi-plane import design. ---
+-    //
+-    // For each plane: fstat the dup'd fd and print (fd, st_ino, offset,
+-    // stride). If multiple planes share the same st_ino, they reference
+-    // the same kernel DMABUF (the AMD-on-Mesa convention: one buffer +
+-    // aux DCC metadata, distinguished by per-plane offsets). Different
+-    // inodes would mean genuinely separate DMABUFs requiring distinct
+-    // VkDeviceMemory imports.
+-    for (i, plane) in image.planes().iter().enumerate() {
+-        let fd = image
+-            .buffer_fd(plane.buffer_index())
+-            .expect("plane buffer index was validated")
+-            .as_raw_fd();
+-        let mut st = std::mem::MaybeUninit::<libc::stat>::uninit();
+-        // SAFETY: `fd` is borrowed from the producer-owned frame; fstat is read-only.
+-        let rc = unsafe { libc::fstat(fd, st.as_mut_ptr()) };
+-        if rc == 0 {
+-            let st = unsafe { st.assume_init() };
+-            eprintln!(
+-                "wpe→vk:   plane[{}]: fd={} st_ino={} offset={} stride={}",
+-                i,
+-                fd,
+-                st.st_ino,
+-                plane.offset(),
+-                plane.stride()
+-            );
+-        } else {
+-            eprintln!(
+-                "wpe→vk:   plane[{}]: fd={} fstat failed errno={} offset={} stride={}",
+-                i,
+-                fd,
+-                std::io::Error::last_os_error().raw_os_error().unwrap_or(0),
+-                plane.offset(),
+-                plane.stride()
+-            );
++        // --- 3b. Plane-fd diagnostic for the (α) multi-plane import design. ---
++        //
++        // For each plane: fstat the dup'd fd and print (fd, st_ino, offset,
++        // stride). If multiple planes share the same st_ino, they reference
++        // the same kernel DMABUF (the AMD-on-Mesa convention: one buffer +
++        // aux DCC metadata, distinguished by per-plane offsets). Different
++        // inodes would mean genuinely separate DMABUFs requiring distinct
++        // VkDeviceMemory imports.
++        for (i, plane) in image.planes().iter().enumerate() {
++            let fd = image
++                .buffer_fd(plane.buffer_index())
++                .expect("plane buffer index was validated")
++                .as_raw_fd();
++            let mut st = std::mem::MaybeUninit::<libc::stat>::uninit();
++            // SAFETY: `fd` is borrowed from the producer-owned frame; fstat is read-only.
++            let rc = unsafe { libc::fstat(fd, st.as_mut_ptr()) };
++            if rc == 0 {
++                let st = unsafe { st.assume_init() };
++                eprintln!(
++                    "wpe→vk:   plane[{}]: fd={} st_ino={} offset={} stride={}",
++                    i,
++                    fd,
++                    st.st_ino,
++                    plane.offset(),
++                    plane.stride()
++                );
++            } else {
++                eprintln!(
++                    "wpe→vk:   plane[{}]: fd={} fstat failed errno={} offset={} stride={}",
++                    i,
++                    fd,
++                    std::io::Error::last_os_error().raw_os_error().unwrap_or(0),
++                    plane.offset(),
++                    plane.stride()
++                );
++            }
+         }
+-    }
+ 
+-    // --- 4. Stand up the wgpu Vulkan DMABUF-capable host ---
+-    let (device, queue, host) = match make_vulkan_host() {
+-        Some(triple) => triple,
+-        None => {
+-            // SKIP message already printed inside make_vulkan_host.
+-            // Producer fds must still be closed — the importer never
+-            // takes ownership on this path.
+-            return;
+-        }
+-    };
+-    eprintln!("wpe→vk: wgpu Vulkan host up");
++        // --- 4. Stand up the wgpu Vulkan DMABUF-capable host ---
++        let (device, queue, host) = match make_vulkan_host() {
++            Some(triple) => triple,
++            None => {
++                // SKIP message already printed inside make_vulkan_host.
++                // Producer fds must still be closed — the importer never
++                // takes ownership on this path.
++                return;
++            },
++        };
++        eprintln!("wpe→vk: wgpu Vulkan host up");
+ 
+-    // --- 5. Hand the WPE frame to the importer ---
+-    //
+-    // EMPIRICAL: on this AMD/Fedora 44 box the headless WPE buffer is
+-    // 2-plane AMD-tiled DCC (modifier 0x020000044051ba01). Phase 4a's
+-    // importer reads only `planes[0]`. The importer either:
+-    //  (a) accepts the modifier + reads only plane 0 → texture imports,
+-    //      possibly with visual artifact (pixels are out of scope per
+-    //      the round-trip spec).
+-    //  (b) rejects the modifier outright → import_frame returns Err.
+-    //
+-    // On Err: panic with the literal message. The failure IS the
+-    // actionable signal that Phase 4a needs multi-plane DRM-modifier
+-    // import to handle WPE's real output on AMD. The harness exists
+-    // and remains useful when that lands.
+-    //
+-    // FD OWNERSHIP: import_frame consumes the fds on success. On Err
+-    // we don't manually close — matches dmabuf_roundtrip.rs's
+-    // behaviour and avoids any double-close risk.
+-    let importer = WgpuTextureImporter::new(host);
+-    let expected_size = image.size;
+-    let expected_format = image.format;
+-    let imported =
+-        match importer.import_frame(NativeFrame::DmaBufImage(image), &ImportOptions::default()) {
++        // --- 5. Hand the WPE frame to the importer ---
++        //
++        // EMPIRICAL: on this AMD/Fedora 44 box the headless WPE buffer is
++        // 2-plane AMD-tiled DCC (modifier 0x020000044051ba01). Phase 4a's
++        // importer reads only `planes[0]`. The importer either:
++        //  (a) accepts the modifier + reads only plane 0 → texture imports,
++        //      possibly with visual artifact (pixels are out of scope per
++        //      the round-trip spec).
++        //  (b) rejects the modifier outright → import_frame returns Err.
++        //
++        // On Err: panic with the literal message. The failure IS the
++        // actionable signal that Phase 4a needs multi-plane DRM-modifier
++        // import to handle WPE's real output on AMD. The harness exists
++        // and remains useful when that lands.
++        //
++        // FD OWNERSHIP: import_frame consumes the fds on success. On Err
++        // we don't manually close — matches dmabuf_roundtrip.rs's
++        // behaviour and avoids any double-close risk.
++        let importer = WgpuTextureImporter::new(host);
++        let expected_size = image.size;
++        let expected_format = image.format;
++        let imported = match importer
++            .import_frame(NativeFrame::DmaBufImage(image), &ImportOptions::default())
++        {
+             Ok(t) => t,
+             Err(e) => {
+                 panic!(
+                     "FAIL: import_frame errored — phase 4a.x multi-plane DCC import \
+                  should accept this WPE buffer. Error: {e}"
+                 );
+-            }
++            },
+         };
+ 
+-    // --- 6. Assert: import returned a wgpu texture of the right shape ---
+-    assert_eq!(
+-        imported.size.width, expected_size.width,
+-        "imported width matches"
+-    );
+-    assert_eq!(
+-        imported.size.height, expected_size.height,
+-        "imported height matches"
+-    );
+-    assert_eq!(imported.format, expected_format, "imported format matches");
+-    eprintln!(
+-        "wpe→vk: imported texture {}x{} format={:?} gen={}",
+-        imported.size.width, imported.size.height, imported.format, imported.generation
+-    );
++        // --- 6. Assert: import returned a wgpu texture of the right shape ---
++        assert_eq!(
++            imported.size.width, expected_size.width,
++            "imported width matches"
++        );
++        assert_eq!(
++            imported.size.height, expected_size.height,
++            "imported height matches"
++        );
++        assert_eq!(imported.format, expected_format, "imported format matches");
++        eprintln!(
++            "wpe→vk: imported texture {}x{} format={:?} gen={}",
++            imported.size.width, imported.size.height, imported.format, imported.generation
++        );
+ 
+-    // --- 7. Pixel-correctness sampling ---
+-    //
+-    // Exercise the imported texture through the contract consumers actually
+-    // use: sample it into a host-owned render target, then read that target.
+-    // A direct copy from a modifier-backed producer image asks the imported
+-    // allocation to support transfer-source use that WPE did not negotiate.
+-    #[cfg(feature = "wgpu-30")]
+-    let sampled = sample_imported_texture(&device, &queue, &imported);
+-    #[cfg(feature = "wgpu-30")]
+-    let bytes = read_back_center_region(&device, &queue, &sampled, 64, 64);
+-    #[cfg(not(feature = "wgpu-30"))]
+-    let bytes = read_back_center_region(
+-        &device,
+-        &queue,
+-        &imported.texture,
+-        expected_size.width,
+-        expected_size.height,
+-    );
+-    let expected = [0xFFu8, 0x90, 0x1E, 0xFF]; // B, G, R, A for dodger-blue
+-    let tolerance: i32 = 8;
+-    let mut bad_pixels = 0usize;
+-    let mut first_bad: Option<(usize, [u8; 4])> = None;
+-    for (idx, px) in bytes.chunks_exact(4).enumerate() {
+-        let off = px
+-            .iter()
+-            .zip(expected.iter())
+-            .any(|(g, e)| (*g as i32 - *e as i32).abs() > tolerance);
+-        if off {
+-            bad_pixels += 1;
+-            if first_bad.is_none() {
+-                first_bad = Some((idx, [px[0], px[1], px[2], px[3]]));
++        // --- 7. Pixel-correctness sampling ---
++        //
++        // Exercise the imported texture through the contract consumers actually
++        // use: sample it into a host-owned render target, then read that target.
++        // A direct copy from a modifier-backed producer image asks the imported
++        // allocation to support transfer-source use that WPE did not negotiate.
++        #[cfg(feature = "wgpu-30")]
++        let sampled = sample_imported_texture(&device, &queue, &imported);
++        #[cfg(feature = "wgpu-30")]
++        let bytes = read_back_center_region(&device, &queue, &sampled, 64, 64);
++        #[cfg(not(feature = "wgpu-30"))]
++        let bytes = read_back_center_region(
++            &device,
++            &queue,
++            &imported.texture,
++            expected_size.width,
++            expected_size.height,
++        );
++        let expected = [0xFFu8, 0x90, 0x1E, 0xFF]; // B, G, R, A for dodger-blue
++        let tolerance: i32 = 8;
++        let mut bad_pixels = 0usize;
++        let mut first_bad: Option<(usize, [u8; 4])> = None;
++        for (idx, px) in bytes.chunks_exact(4).enumerate() {
++            let off = px
++                .iter()
++                .zip(expected.iter())
++                .any(|(g, e)| (*g as i32 - *e as i32).abs() > tolerance);
++            if off {
++                bad_pixels += 1;
++                if first_bad.is_none() {
++                    first_bad = Some((idx, [px[0], px[1], px[2], px[3]]));
++                }
+             }
+         }
+-    }
+-    let total = 64 * 64;
+-    let (first_bad_idx, first_bad_bytes) = first_bad.unwrap_or((0, expected));
+-    assert_eq!(
+-        bad_pixels, 0,
+-        "{bad_pixels}/{total} center pixels diverged from dodger-blue ±{tolerance}; \
++        let total = 64 * 64;
++        let (first_bad_idx, first_bad_bytes) = first_bad.unwrap_or((0, expected));
++        assert_eq!(
++            bad_pixels, 0,
++            "{bad_pixels}/{total} center pixels diverged from dodger-blue ±{tolerance}; \
+          first divergent pixel at index {first_bad_idx} was BGRA{first_bad_bytes:?}, \
+          expected {expected:?}"
+-    );
+-    eprintln!(
+-        "wpe→vk: pixel-correctness OK (64×64 center sample all within ±{} of BGRA={:?})",
+-        tolerance, expected
+-    );
+-}
++        );
++        eprintln!(
++            "wpe→vk: pixel-correctness OK (64×64 center sample all within ±{} of BGRA={:?})",
++            tolerance, expected
++        );
++    }
+ 
+-fn acquire_dmabuf_frame(producer: &mut WpeProducer, boundary: &str) -> DmaBufImage {
+-    let ctx = glib::MainContext::default();
+-    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+-    loop {
+-        match producer.acquire_frame() {
+-            Ok(WebSurfaceFrame::Native(NativeFrame::DmaBufImage(image))) => return image,
+-            Ok(_) => panic!("FAIL: expected a DMABUF frame after {boundary}"),
+-            Err(_) if std::time::Instant::now() < deadline => {
+-                ctx.iteration(false);
+-                std::thread::sleep(std::time::Duration::from_millis(2));
++    fn acquire_dmabuf_frame(producer: &mut WpeProducer, boundary: &str) -> DmaBufImage {
++        let ctx = glib::MainContext::default();
++        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
++        loop {
++            match producer.acquire_frame() {
++                Ok(WebSurfaceFrame::Native(NativeFrame::DmaBufImage(image))) => return image,
++                Ok(_) => panic!("FAIL: expected a DMABUF frame after {boundary}"),
++                Err(_) if std::time::Instant::now() < deadline => {
++                    ctx.iteration(false);
++                    std::thread::sleep(std::time::Duration::from_millis(2));
++                },
++                Err(e) => panic!("FAIL: acquire_frame timed out after {boundary}: {e}"),
+             }
+-            Err(e) => panic!("FAIL: acquire_frame timed out after {boundary}: {e}"),
+         }
+     }
+-}
+ 
+-/// Read back a small center region of the imported texture as raw
+-/// BGRA bytes (4 bytes per pixel, untransformed). Mirrors the readback
+-/// shape from `tests/dmabuf_roundtrip.rs::read_back_texture` but reads
+-/// a smaller region — the WPE-rendered background is uniform so a
+-/// 64×64 center sample is representative and keeps the readback buffer
+-/// small (16 KiB instead of ~3 MiB for the full 1024×768).
+-///
+-/// `bytes_per_row` is aligned up to wgpu's 256-byte requirement; the
+-/// returned Vec drops the row padding so caller code can index by
+-/// `row * SAMPLE_W * 4 + col * 4`.
+-fn read_back_center_region(
+-    device: &wgpu::Device,
+-    queue: &wgpu::Queue,
+-    texture: &wgpu::Texture,
+-    full_width: u32,
+-    full_height: u32,
+-) -> Vec<u8> {
+-    const SAMPLE_W: u32 = 64;
+-    const SAMPLE_H: u32 = 64;
+-    let bytes_per_row = ((SAMPLE_W * 4 + 255) / 256) * 256;
+-    let readback_size = (bytes_per_row as u64) * (SAMPLE_H as u64);
+-    let readback = device.create_buffer(&wgpu::BufferDescriptor {
+-        label: Some("wpe_roundtrip_readback"),
+-        size: readback_size,
+-        usage: wgpu::BufferUsages::COPY_DST | wgpu::BufferUsages::MAP_READ,
+-        mapped_at_creation: false,
+-    });
+-    let mut encoder = device.create_command_encoder(&wgpu::CommandEncoderDescriptor {
+-        label: Some("wpe_roundtrip_readback_encoder"),
+-    });
+-    let center_x = full_width / 2 - SAMPLE_W / 2;
+-    let center_y = full_height / 2 - SAMPLE_H / 2;
+-    encoder.copy_texture_to_buffer(
+-        wgpu::TexelCopyTextureInfo {
+-            texture,
+-            mip_level: 0,
+-            origin: wgpu::Origin3d {
+-                x: center_x,
+-                y: center_y,
+-                z: 0,
++    /// Read back a small center region of the imported texture as raw
++    /// BGRA bytes (4 bytes per pixel, untransformed). Mirrors the readback
++    /// shape from `tests/dmabuf_roundtrip.rs::read_back_texture` but reads
++    /// a smaller region — the WPE-rendered background is uniform so a
++    /// 64×64 center sample is representative and keeps the readback buffer
++    /// small (16 KiB instead of ~3 MiB for the full 1024×768).
++    ///
++    /// `bytes_per_row` is aligned up to wgpu's 256-byte requirement; the
++    /// returned Vec drops the row padding so caller code can index by
++    /// `row * SAMPLE_W * 4 + col * 4`.
++    fn read_back_center_region(
++        device: &wgpu::Device,
++        queue: &wgpu::Queue,
++        texture: &wgpu::Texture,
++        full_width: u32,
++        full_height: u32,
++    ) -> Vec<u8> {
++        const SAMPLE_W: u32 = 64;
++        const SAMPLE_H: u32 = 64;
++        let bytes_per_row = ((SAMPLE_W * 4 + 255) / 256) * 256;
++        let readback_size = (bytes_per_row as u64) * (SAMPLE_H as u64);
++        let readback = device.create_buffer(&wgpu::BufferDescriptor {
++            label: Some("wpe_roundtrip_readback"),
++            size: readback_size,
++            usage: wgpu::BufferUsages::COPY_DST | wgpu::BufferUsages::MAP_READ,
++            mapped_at_creation: false,
++        });
++        let mut encoder = device.create_command_encoder(&wgpu::CommandEncoderDescriptor {
++            label: Some("wpe_roundtrip_readback_encoder"),
++        });
++        let center_x = full_width / 2 - SAMPLE_W / 2;
++        let center_y = full_height / 2 - SAMPLE_H / 2;
++        encoder.copy_texture_to_buffer(
++            wgpu::TexelCopyTextureInfo {
++                texture,
++                mip_level: 0,
++                origin: wgpu::Origin3d {
++                    x: center_x,
++                    y: center_y,
++                    z: 0,
++                },
++                aspect: wgpu::TextureAspect::All,
+             },
+-            aspect: wgpu::TextureAspect::All,
+-        },
+-        wgpu::TexelCopyBufferInfo {
+-            buffer: &readback,
+-            layout: wgpu::TexelCopyBufferLayout {
+-                offset: 0,
+-                bytes_per_row: Some(bytes_per_row),
+-                rows_per_image: Some(SAMPLE_H),
++            wgpu::TexelCopyBufferInfo {
++                buffer: &readback,
++                layout: wgpu::TexelCopyBufferLayout {
++                    offset: 0,
++                    bytes_per_row: Some(bytes_per_row),
++                    rows_per_image: Some(SAMPLE_H),
++                },
+             },
+-        },
+-        wgpu::Extent3d {
+-            width: SAMPLE_W,
+-            height: SAMPLE_H,
+-            depth_or_array_layers: 1,
+-        },
+-    );
+-    queue.submit(std::iter::once(encoder.finish()));
++            wgpu::Extent3d {
++                width: SAMPLE_W,
++                height: SAMPLE_H,
++                depth_or_array_layers: 1,
++            },
++        );
++        queue.submit(std::iter::once(encoder.finish()));
+ 
+-    let buffer_slice = readback.slice(..);
+-    let (sender, receiver) = std::sync::mpsc::channel();
+-    buffer_slice.map_async(wgpu::MapMode::Read, move |result| {
+-        let _ = sender.send(result);
+-    });
+-    device
+-        .poll(wgpu::PollType::Wait {
+-            submission_index: None,
+-            timeout: None,
+-        })
+-        .expect("device poll");
+-    receiver
+-        .recv()
+-        .expect("map_async sender dropped")
+-        .expect("map_async failed");
++        let buffer_slice = readback.slice(..);
++        let (sender, receiver) = std::sync::mpsc::channel();
++        buffer_slice.map_async(wgpu::MapMode::Read, move |result| {
++            let _ = sender.send(result);
++        });
++        device
++            .poll(wgpu::PollType::Wait {
++                submission_index: None,
++                timeout: None,
++            })
++            .expect("device poll");
++        receiver
++            .recv()
++            .expect("map_async sender dropped")
++            .expect("map_async failed");
+ 
+-    #[cfg(feature = "wgpu-30")]
+-    let mapped = buffer_slice
+-        .get_mapped_range()
+-        .expect("readback buffer map range");
+-    #[cfg(not(feature = "wgpu-30"))]
+-    let mapped = buffer_slice.get_mapped_range();
+-    let mut bytes = Vec::with_capacity((SAMPLE_W as usize) * (SAMPLE_H as usize) * 4);
+-    for row in 0..SAMPLE_H as usize {
+-        let row_start = row * (bytes_per_row as usize);
+-        let row_end = row_start + (SAMPLE_W as usize) * 4;
+-        bytes.extend_from_slice(&mapped[row_start..row_end]);
++        #[cfg(feature = "wgpu-30")]
++        let mapped = buffer_slice
++            .get_mapped_range()
++            .expect("readback buffer map range");
++        #[cfg(not(feature = "wgpu-30"))]
++        let mapped = buffer_slice.get_mapped_range();
++        let mut bytes = Vec::with_capacity((SAMPLE_W as usize) * (SAMPLE_H as usize) * 4);
++        for row in 0..SAMPLE_H as usize {
++            let row_start = row * (bytes_per_row as usize);
++            let row_end = row_start + (SAMPLE_W as usize) * 4;
++            bytes.extend_from_slice(&mapped[row_start..row_end]);
++        }
++        drop(mapped);
++        readback.unmap();
++        bytes
+     }
+-    drop(mapped);
+-    readback.unmap();
+-    bytes
+-}
+ 
+-/// Sample the imported producer texture into a host-owned 64x64 target.
+-/// This mirrors the compositing path used by the demos and keeps readback
+-/// requirements off the externally allocated image itself.
+-#[cfg(feature = "wgpu-30")]
+-fn sample_imported_texture(
+-    device: &wgpu::Device,
+-    queue: &wgpu::Queue,
+-    imported: &ImportedTexture,
+-) -> wgpu::Texture {
+-    const SAMPLE_SIZE: u32 = 64;
+-    let target = device.create_texture(&wgpu::TextureDescriptor {
+-        label: Some("wpe_roundtrip_sample_target"),
+-        size: wgpu::Extent3d {
+-            width: SAMPLE_SIZE,
+-            height: SAMPLE_SIZE,
+-            depth_or_array_layers: 1,
+-        },
+-        mip_level_count: 1,
+-        sample_count: 1,
+-        dimension: wgpu::TextureDimension::D2,
+-        format: wgpu::TextureFormat::Bgra8UnormSrgb,
+-        usage: wgpu::TextureUsages::RENDER_ATTACHMENT | wgpu::TextureUsages::COPY_SRC,
+-        view_formats: &[],
+-    });
+-    let source_view = imported
+-        .texture
+-        .create_view(&wgpu::TextureViewDescriptor::default());
+-    let target_view = target.create_view(&wgpu::TextureViewDescriptor::default());
+-    let sampler = device.create_sampler(&wgpu::SamplerDescriptor {
+-        label: Some("wpe_roundtrip_sample_sampler"),
+-        address_mode_u: wgpu::AddressMode::ClampToEdge,
+-        address_mode_v: wgpu::AddressMode::ClampToEdge,
+-        address_mode_w: wgpu::AddressMode::ClampToEdge,
+-        mag_filter: wgpu::FilterMode::Nearest,
+-        min_filter: wgpu::FilterMode::Nearest,
+-        mipmap_filter: wgpu::MipmapFilterMode::Nearest,
+-        ..Default::default()
+-    });
+-    let bind_group_layout = device.create_bind_group_layout(&wgpu::BindGroupLayoutDescriptor {
+-        label: Some("wpe_roundtrip_sample_bgl"),
+-        entries: &[
+-            wgpu::BindGroupLayoutEntry {
+-                binding: 0,
+-                visibility: wgpu::ShaderStages::FRAGMENT,
+-                ty: wgpu::BindingType::Texture {
+-                    sample_type: wgpu::TextureSampleType::Float { filterable: true },
+-                    view_dimension: wgpu::TextureViewDimension::D2,
+-                    multisampled: false,
+-                },
+-                count: None,
+-            },
+-            wgpu::BindGroupLayoutEntry {
+-                binding: 1,
+-                visibility: wgpu::ShaderStages::FRAGMENT,
+-                ty: wgpu::BindingType::Sampler(wgpu::SamplerBindingType::Filtering),
+-                count: None,
+-            },
+-        ],
+-    });
+-    let bind_group = device.create_bind_group(&wgpu::BindGroupDescriptor {
+-        label: Some("wpe_roundtrip_sample_bg"),
+-        layout: &bind_group_layout,
+-        entries: &[
+-            wgpu::BindGroupEntry {
+-                binding: 0,
+-                resource: wgpu::BindingResource::TextureView(&source_view),
+-            },
+-            wgpu::BindGroupEntry {
+-                binding: 1,
+-                resource: wgpu::BindingResource::Sampler(&sampler),
++    /// Sample the imported producer texture into a host-owned 64x64 target.
++    /// This mirrors the compositing path used by the demos and keeps readback
++    /// requirements off the externally allocated image itself.
++    #[cfg(feature = "wgpu-30")]
++    fn sample_imported_texture(
++        device: &wgpu::Device,
++        queue: &wgpu::Queue,
++        imported: &ImportedTexture,
++    ) -> wgpu::Texture {
++        const SAMPLE_SIZE: u32 = 64;
++        let target = device.create_texture(&wgpu::TextureDescriptor {
++            label: Some("wpe_roundtrip_sample_target"),
++            size: wgpu::Extent3d {
++                width: SAMPLE_SIZE,
++                height: SAMPLE_SIZE,
++                depth_or_array_layers: 1,
+             },
+-        ],
+-    });
+-    let pipeline_layout = device.create_pipeline_layout(&wgpu::PipelineLayoutDescriptor {
+-        label: Some("wpe_roundtrip_sample_pl"),
+-        bind_group_layouts: &[Some(&bind_group_layout)],
+-        immediate_size: 0,
+-    });
+-    let shader = device.create_shader_module(wgpu::ShaderModuleDescriptor {
+-        label: Some("wpe_roundtrip_sample_shader"),
+-        source: wgpu::ShaderSource::Wgsl(SAMPLE_SHADER.into()),
+-    });
+-    let pipeline = device.create_render_pipeline(&wgpu::RenderPipelineDescriptor {
+-        label: Some("wpe_roundtrip_sample_pipeline"),
+-        layout: Some(&pipeline_layout),
+-        vertex: wgpu::VertexState {
+-            module: &shader,
+-            entry_point: Some("vs"),
+-            buffers: &[],
+-            compilation_options: Default::default(),
+-        },
+-        primitive: wgpu::PrimitiveState::default(),
+-        depth_stencil: None,
+-        multisample: wgpu::MultisampleState::default(),
+-        fragment: Some(wgpu::FragmentState {
+-            module: &shader,
+-            entry_point: Some("fs"),
+-            targets: &[Some(wgpu::ColorTargetState {
+-                format: wgpu::TextureFormat::Bgra8UnormSrgb,
+-                blend: Some(wgpu::BlendState::REPLACE),
+-                write_mask: wgpu::ColorWrites::ALL,
+-            })],
+-            compilation_options: Default::default(),
+-        }),
+-        multiview_mask: None,
+-        cache: None,
+-    });
+-    let mut encoder = device.create_command_encoder(&wgpu::CommandEncoderDescriptor {
+-        label: Some("wpe_roundtrip_sample_encoder"),
+-    });
+-    {
+-        let mut pass = encoder.begin_render_pass(&wgpu::RenderPassDescriptor {
+-            label: Some("wpe_roundtrip_sample_pass"),
+-            color_attachments: &[Some(wgpu::RenderPassColorAttachment {
+-                view: &target_view,
+-                depth_slice: None,
+-                resolve_target: None,
+-                ops: wgpu::Operations {
+-                    load: wgpu::LoadOp::Clear(wgpu::Color::TRANSPARENT),
+-                    store: wgpu::StoreOp::Store,
++            mip_level_count: 1,
++            sample_count: 1,
++            dimension: wgpu::TextureDimension::D2,
++            format: wgpu::TextureFormat::Bgra8UnormSrgb,
++            usage: wgpu::TextureUsages::RENDER_ATTACHMENT | wgpu::TextureUsages::COPY_SRC,
++            view_formats: &[],
++        });
++        let source_view = imported
++            .texture
++            .create_view(&wgpu::TextureViewDescriptor::default());
++        let target_view = target.create_view(&wgpu::TextureViewDescriptor::default());
++        let sampler = device.create_sampler(&wgpu::SamplerDescriptor {
++            label: Some("wpe_roundtrip_sample_sampler"),
++            address_mode_u: wgpu::AddressMode::ClampToEdge,
++            address_mode_v: wgpu::AddressMode::ClampToEdge,
++            address_mode_w: wgpu::AddressMode::ClampToEdge,
++            mag_filter: wgpu::FilterMode::Nearest,
++            min_filter: wgpu::FilterMode::Nearest,
++            mipmap_filter: wgpu::MipmapFilterMode::Nearest,
++            ..Default::default()
++        });
++        let bind_group_layout = device.create_bind_group_layout(&wgpu::BindGroupLayoutDescriptor {
++            label: Some("wpe_roundtrip_sample_bgl"),
++            entries: &[
++                wgpu::BindGroupLayoutEntry {
++                    binding: 0,
++                    visibility: wgpu::ShaderStages::FRAGMENT,
++                    ty: wgpu::BindingType::Texture {
++                        sample_type: wgpu::TextureSampleType::Float { filterable: true },
++                        view_dimension: wgpu::TextureViewDimension::D2,
++                        multisampled: false,
++                    },
++                    count: None,
++                },
++                wgpu::BindGroupLayoutEntry {
++                    binding: 1,
++                    visibility: wgpu::ShaderStages::FRAGMENT,
++                    ty: wgpu::BindingType::Sampler(wgpu::SamplerBindingType::Filtering),
++                    count: None,
++                },
++            ],
++        });
++        let bind_group = device.create_bind_group(&wgpu::BindGroupDescriptor {
++            label: Some("wpe_roundtrip_sample_bg"),
++            layout: &bind_group_layout,
++            entries: &[
++                wgpu::BindGroupEntry {
++                    binding: 0,
++                    resource: wgpu::BindingResource::TextureView(&source_view),
++                },
++                wgpu::BindGroupEntry {
++                    binding: 1,
++                    resource: wgpu::BindingResource::Sampler(&sampler),
+                 },
+-            })],
+-            depth_stencil_attachment: None,
+-            timestamp_writes: None,
+-            occlusion_query_set: None,
++            ],
++        });
++        let pipeline_layout = device.create_pipeline_layout(&wgpu::PipelineLayoutDescriptor {
++            label: Some("wpe_roundtrip_sample_pl"),
++            bind_group_layouts: &[Some(&bind_group_layout)],
++            immediate_size: 0,
++        });
++        let shader = device.create_shader_module(wgpu::ShaderModuleDescriptor {
++            label: Some("wpe_roundtrip_sample_shader"),
++            source: wgpu::ShaderSource::Wgsl(SAMPLE_SHADER.into()),
++        });
++        let pipeline = device.create_render_pipeline(&wgpu::RenderPipelineDescriptor {
++            label: Some("wpe_roundtrip_sample_pipeline"),
++            layout: Some(&pipeline_layout),
++            vertex: wgpu::VertexState {
++                module: &shader,
++                entry_point: Some("vs"),
++                buffers: &[],
++                compilation_options: Default::default(),
++            },
++            primitive: wgpu::PrimitiveState::default(),
++            depth_stencil: None,
++            multisample: wgpu::MultisampleState::default(),
++            fragment: Some(wgpu::FragmentState {
++                module: &shader,
++                entry_point: Some("fs"),
++                targets: &[Some(wgpu::ColorTargetState {
++                    format: wgpu::TextureFormat::Bgra8UnormSrgb,
++                    blend: Some(wgpu::BlendState::REPLACE),
++                    write_mask: wgpu::ColorWrites::ALL,
++                })],
++                compilation_options: Default::default(),
++            }),
+             multiview_mask: None,
++            cache: None,
++        });
++        let mut encoder = device.create_command_encoder(&wgpu::CommandEncoderDescriptor {
++            label: Some("wpe_roundtrip_sample_encoder"),
+         });
+-        pass.set_pipeline(&pipeline);
+-        pass.set_bind_group(0, &bind_group, &[]);
+-        pass.draw(0..3, 0..1);
++        {
++            let mut pass = encoder.begin_render_pass(&wgpu::RenderPassDescriptor {
++                label: Some("wpe_roundtrip_sample_pass"),
++                color_attachments: &[Some(wgpu::RenderPassColorAttachment {
++                    view: &target_view,
++                    depth_slice: None,
++                    resolve_target: None,
++                    ops: wgpu::Operations {
++                        load: wgpu::LoadOp::Clear(wgpu::Color::TRANSPARENT),
++                        store: wgpu::StoreOp::Store,
++                    },
++                })],
++                depth_stencil_attachment: None,
++                timestamp_writes: None,
++                occlusion_query_set: None,
++                multiview_mask: None,
++            });
++            pass.set_pipeline(&pipeline);
++            pass.set_bind_group(0, &bind_group, &[]);
++            pass.draw(0..3, 0..1);
++        }
++        queue.submit(std::iter::once(encoder.finish()));
++        target
+     }
+-    queue.submit(std::iter::once(encoder.finish()));
+-    target
+-}
+ 
+-fn make_vulkan_host() -> Option<(wgpu::Device, wgpu::Queue, HostWgpuContext)> {
+-    // Turn on VK_LAYER_KHRONOS_validation so we catch any calls that
+-    // only "work by accident" on permissive Mesa — e.g. feeding a
+-    // DRM-modifier pNext chain to vkCreateImage on a device that
+-    // hadn't enabled VK_EXT_image_drm_format_modifier. wgpu-hal logs
+-    // a warning and proceeds without the layer if it isn't installed,
+-    // so this is safe on boxes that lack `vulkan-validation-layers`.
+-    // Validation messages route through `log`; run with
+-    // `RUST_LOG=wgpu_hal=warn` (or `=info`) to surface them.
+-    let flags = wgpu::InstanceFlags::VALIDATION | wgpu::InstanceFlags::DEBUG;
+-    eprintln!("wgpu instance flags: {flags:?} (VK_LAYER_KHRONOS_validation requested)");
+-    let instance = wgpu::Instance::new(wgpu::InstanceDescriptor {
+-        backends: wgpu::Backends::VULKAN,
+-        flags,
+-        memory_budget_thresholds: wgpu::MemoryBudgetThresholds::default(),
+-        backend_options: wgpu::BackendOptions::default(),
+-        display: None,
+-    });
+-    let adapter = pollster::block_on(instance.request_adapter(&wgpu::RequestAdapterOptions {
+-        power_preference: wgpu::PowerPreference::HighPerformance,
+-        compatible_surface: None,
+-        force_fallback_adapter: false,
+-        #[cfg(feature = "wgpu-30")]
+-        apply_limit_buckets: false,
+-    }))
+-    .ok()?;
++    fn make_vulkan_host() -> Option<(wgpu::Device, wgpu::Queue, HostWgpuContext)> {
++        // Turn on VK_LAYER_KHRONOS_validation so we catch any calls that
++        // only "work by accident" on permissive Mesa — e.g. feeding a
++        // DRM-modifier pNext chain to vkCreateImage on a device that
++        // hadn't enabled VK_EXT_image_drm_format_modifier. wgpu-hal logs
++        // a warning and proceeds without the layer if it isn't installed,
++        // so this is safe on boxes that lack `vulkan-validation-layers`.
++        // Validation messages route through `log`; run with
++        // `RUST_LOG=wgpu_hal=warn` (or `=info`) to surface them.
++        let flags = wgpu::InstanceFlags::VALIDATION | wgpu::InstanceFlags::DEBUG;
++        eprintln!("wgpu instance flags: {flags:?} (VK_LAYER_KHRONOS_validation requested)");
++        let instance = wgpu::Instance::new(wgpu::InstanceDescriptor {
++            backends: wgpu::Backends::VULKAN,
++            flags,
++            memory_budget_thresholds: wgpu::MemoryBudgetThresholds::default(),
++            backend_options: wgpu::BackendOptions::default(),
++            display: None,
++        });
++        let adapter = pollster::block_on(instance.request_adapter(&wgpu::RequestAdapterOptions {
++            power_preference: wgpu::PowerPreference::HighPerformance,
++            compatible_surface: None,
++            force_fallback_adapter: false,
++            #[cfg(feature = "wgpu-30")]
++            apply_limit_buckets: false,
++        }))
++        .ok()?;
+ 
+-    // Phase 4a.7 — use the scrying helper that enables
+-    // VK_EXT_image_drm_format_modifier + VK_EXT_queue_family_foreign +
+-    // VK_KHR_external_semaphore_fd at device creation time. Without these,
+-    // the import path only
+-    // works by accident (Mesa permissiveness) and the wait path
+-    // SKIPs because the function pointers can't be resolved.
+-    let desc = wgpu::DeviceDescriptor {
+-        label: Some("wpe_to_vulkan_roundtrip-device"),
+-        ..Default::default()
+-    };
+-    let (device, queue) = match scrying::build_dmabuf_capable_device(&adapter, &desc) {
+-        Ok(pair) => pair,
+-        Err(scrying::DmaBufDeviceError::MissingExtensions(missing)) => {
+-            eprintln!(
+-                "SKIP: physical device missing required extensions: {missing:?}; \
++        // Phase 4a.7 — use the scrying helper that enables
++        // VK_EXT_image_drm_format_modifier + VK_EXT_queue_family_foreign +
++        // VK_KHR_external_semaphore_fd at device creation time. Without these,
++        // the import path only
++        // works by accident (Mesa permissiveness) and the wait path
++        // SKIPs because the function pointers can't be resolved.
++        let desc = wgpu::DeviceDescriptor {
++            label: Some("wpe_to_vulkan_roundtrip-device"),
++            ..Default::default()
++        };
++        let (device, queue) = match scrying::build_dmabuf_capable_device(&adapter, &desc) {
++            Ok(pair) => pair,
++            Err(scrying::DmaBufDeviceError::MissingExtensions(missing)) => {
++                eprintln!(
++                    "SKIP: physical device missing required extensions: {missing:?}; \
+                  falling back is not useful for this test"
+-            );
+-            return None;
+-        }
+-        Err(e) => {
+-            eprintln!("SKIP: build_dmabuf_capable_device failed: {e}");
+-            return None;
+-        }
+-    };
+-    let host = HostWgpuContext::new(device.clone(), queue.clone());
+-    Some((device, queue, host))
++                );
++                return None;
++            },
++            Err(e) => {
++                eprintln!("SKIP: build_dmabuf_capable_device failed: {e}");
++                return None;
++            },
++        };
++        let host = HostWgpuContext::new(device.clone(), queue.clone());
++        Some((device, queue, host))
++    }
++}
++fn main() {
++    if !std::env::args().any(|arg| arg == "--ignored") {
++        println!("ignored native WPE gate (requires --ignored)");
++        return;
++    }
++    #[cfg(all(target_os = "linux", feature = "wpe"))]
++    {
++        native_gate::run();
++        println!("NATIVE WPE GATE PASS: wpe_to_vulkan_roundtrip");
++    }
++    #[cfg(not(all(target_os = "linux", feature = "wpe")))]
++    panic!("native WPE gate requires Linux and the wpe feature");
+ }

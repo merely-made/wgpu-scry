@@ -1,0 +1,288 @@
+{
+  "recorded_utc": "2026-10-07T12:27:17.853548+00:00",
+  "source_commit": "2c3ebd24118851cf6125cfb193f55aab20e3ad67",
+  "candidate_version": "0.7.2",
+  "candidate_unpublished": true,
+  "packaging_artifacts_independently_verified": 45,
+  "prior_dirty_docs_preserved": true,
+  "owned_worktree_removed": true,
+  "retained_reusable_target": "C:/t/cargo-targets/wgpu-scry",
+  "artifacts": [
+    {
+      "path": ".gitattributes",
+      "bytes": 20,
+      "sha256": "e97602ab9cac70102245345c5ab0fc9830df8b17f1072b188265a662a3a547ae"
+    },
+    {
+      "path": "current-main-runs.json",
+      "bytes": 148552,
+      "sha256": "084d75f3ed3e1106f6117e0c3b49565b5f5b9556d6f19436d248a73ddcb3044a"
+    },
+    {
+      "path": "headed-jobs.json",
+      "bytes": 10647,
+      "sha256": "6421bf3bfbfc9a802b678b62ce46d286e8c348b9688e51615f5f64e53d1cd3e7"
+    },
+    {
+      "path": "headed-run.json",
+      "bytes": 12317,
+      "sha256": "bc979a4a58f1af62bf55b400e548e7a21e3dee3697d3dae108195d328ca56983"
+    },
+    {
+      "path": "initial-source-and-dirty-guard.json",
+      "bytes": 1701,
+      "sha256": "23583b8dfab6e9fdfaf6eef69928be4beec6bf79fae908d64f6a180e7e7f07d7"
+    },
+    {
+      "path": "mac-session-observation.json",
+      "bytes": 1239,
+      "sha256": "745fcc53f07c9a5d918c964442f7ae4dbd058763d3646d0509900a42c8e2d86f"
+    },
+    {
+      "path": "packaging-api-diff-summary.json",
+      "bytes": 1144,
+      "sha256": "7766b2444dc479de2abdbcedd8022aed0136c4f3dffcdaadf56d6990732f2541"
+    },
+    {
+      "path": "packaging-cleanup.json",
+      "bytes": 2335,
+      "sha256": "6b0d90ef7f44331df84840eaddabdbf278467971209d718d46b36699313a613e"
+    },
+    {
+      "path": "packaging-crates-api.json",
+      "bytes": 15225,
+      "sha256": "086304f9ddafd0f65729ac14978882e4b9bc27466d89ffcda3d2a4813a6b576f"
+    },
+    {
+      "path": "packaging-current-exact-source.crate",
+      "bytes": 337499,
+      "sha256": "572d20225d2a310476b34d969f31c1fb5ce617ad3f735e406ccdefa7ce478c20"
+    },
+    {
+      "path": "packaging-current-git-comparison.json",
+      "bytes": 27390,
+      "sha256": "18bc7752066b9f43ec51f0d797fb6533b609f9a648475e719d6066fc785d9734"
+    },
+    {
+      "path": "packaging-current-lock.toml",
+      "bytes": 107205,
+      "sha256": "5a7c65d0b05bc9dd2ecbafc0d2417a7ab28b3b958395337afaa76416700dcc44"
+    },
+    {
+      "path": "packaging-current-manifest.toml",
+      "bytes": 6412,
+      "sha256": "bd3e3435c9ee3f695558b5a88f561dc921317de4d2a236aba8c0bbd21c5a4b22"
+    },
+    {
+      "path": "packaging-current-matrix-jobs.json",
+      "bytes": 29257,
+      "sha256": "90567e0e6de765f609d8700280df883ea4ffd80389c1840cc1df51042195935f"
+    },
+    {
+      "path": "packaging-current-package-inventory.json",
+      "bytes": 18530,
+      "sha256": "5376037e3e511c76feda221eca97b5d2e462001531533eb3f8fe942cef07b3c1"
+    },
+    {
+      "path": "packaging-current-resolved-toolchain.log",
+      "bytes": 19449,
+      "sha256": "e5f39ea0269a8c4bf685abe314b446674127b25abc24e6545f16175f0a1072e5"
+    },
+    {
+      "path": "packaging-current-vcs.json",
+      "bytes": 101,
+      "sha256": "2fc1710201aa1e511f2c804e19370137dd39d5fa89e9d69e961b0a6d1c55080e"
+    },
+    {
+      "path": "packaging-current-windows30.log",
+      "bytes": 88026,
+      "sha256": "83206642aeaabc379a4f2a100fecbc98bee3acf30113a5f26e26fecac1c08d43"
+    },
+    {
+      "path": "packaging-dirty-docs-before.json",
+      "bytes": 1134,
+      "sha256": "6f3e4ced4d250620b8a73848f9bab59982ef48190377187b335344a9e4d31322"
+    },
+    {
+      "path": "packaging-hashes.json",
+      "bytes": 7569,
+      "sha256": "402159feb5f41d4dc034fac020d2461d9068c1f85c0c5d0fb03979edca091c43"
+    },
+    {
+      "path": "packaging-inputs.json",
+      "bytes": 31069,
+      "sha256": "1442230616f468ecc60f3e8d9c950b85e464e473efbb5582fd6a50911fc25077"
+    },
+    {
+      "path": "packaging-list.result.json",
+      "bytes": 831,
+      "sha256": "2783c15880e099488927b6b1d6104b5acf6eaf0650969a2f6c1dfa2a8c4ee22f"
+    },
+    {
+      "path": "packaging-list.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "packaging-list.stdout.log",
+      "bytes": 3038,
+      "sha256": "9e62e62ed427878f9d7ddc6893a5ca9d5648ce01864accba0e04deb705dc0840"
+    },
+    {
+      "path": "packaging-local-summary.json",
+      "bytes": 5181,
+      "sha256": "e905745e8911fe11ef595e85f450db1639df355c41562bda0fa8c77e293f4a32"
+    },
+    {
+      "path": "packaging-msrv-runs.json",
+      "bytes": 172364,
+      "sha256": "10ba1a052006c98b65720aa1bc74c60e9d6305972e538e59d444a07fcbea35e7"
+    },
+    {
+      "path": "packaging-origin-main.json",
+      "bytes": 99591,
+      "sha256": "3d7a21496eab9742a95ca32ca334c8e73654940711d9233771dec5fd4afb64ee"
+    },
+    {
+      "path": "packaging-package.result.json",
+      "bytes": 830,
+      "sha256": "190198d3f5b3a74c0832f965f39b8b84955ca01bda4024ae80c6d3698368c8a7"
+    },
+    {
+      "path": "packaging-package.stderr.log",
+      "bytes": 5470,
+      "sha256": "742f489338a3d66c01bcd49da4a68e81ebc59766a4f7f2bd9fd643817b41ac05"
+    },
+    {
+      "path": "packaging-package.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "packaging-published-msrv-jobs.json",
+      "bytes": 31494,
+      "sha256": "59e26a67ad9ee2b309ee13ea2aaaa0efd19afc8778275b8b4d790146f5e42825"
+    },
+    {
+      "path": "packaging-published-msrv-windows30.log",
+      "bytes": 107145,
+      "sha256": "d96c5e762162ffae96112600e8bf76945a61857a5eef40cfff1d914bd0167f3d"
+    },
+    {
+      "path": "packaging-published-package-inventory.json",
+      "bytes": 16857,
+      "sha256": "7fb4d7f97c926245b33b9b209976500caf7d1bba3f7daee6671ee1742cff144c"
+    },
+    {
+      "path": "packaging-README.md",
+      "bytes": 7889,
+      "sha256": "ee651bfc6dfe74055bb63f665205e2bf2959552c1990d79a53848ab89435f542"
+    },
+    {
+      "path": "packaging-registry-Cargo.toml",
+      "bytes": 6324,
+      "sha256": "7db0b3a59fef2caa7724f69e89d7d2b3b6b3d14398fa4d917cca1258893a6b0f"
+    },
+    {
+      "path": "packaging-registry-Cargo.toml.orig",
+      "bytes": 8145,
+      "sha256": "ba545773c521d56036f5baf29c2970d73f82c4b106d9f8cd4a25faf359dfa597"
+    },
+    {
+      "path": "packaging-registry-cargo_vcs_info.json",
+      "bytes": 101,
+      "sha256": "6466caba1b974f3266d738563aee2c5cfd117bad43a9a030f8097d55ed9cccd2"
+    },
+    {
+      "path": "packaging-registry-git-comparison.json",
+      "bytes": 23176,
+      "sha256": "a49fce889933c6c828227014e9d62a3732b5979c8893012447ec24eed7cac007"
+    },
+    {
+      "path": "packaging-registry-line-ending-comparison.json",
+      "bytes": 27270,
+      "sha256": "5ee2b1fe783a26f154afbbe76ac8db4c67308fa65531856ea76947ff6db12213"
+    },
+    {
+      "path": "packaging-runner.py",
+      "bytes": 4065,
+      "sha256": "5c39f41a7743c70e20cc81d780c204ecdfaf0630034e2b9761483ce05cbc86dc"
+    },
+    {
+      "path": "packaging-scrying-0.7.1.crate",
+      "bytes": 333626,
+      "sha256": "91234eac6fdcb82aa895cc686d4f5eedfcc1492cb5d3b890d1a085d463d16073"
+    },
+    {
+      "path": "packaging-selected-dependencies.json",
+      "bytes": 2846,
+      "sha256": "3824bb158d9943d47eddc6cd8538f4aa63d3f86fc41ac5f7c666cf6d28fb16fa"
+    },
+    {
+      "path": "packaging-source-diff.patch",
+      "bytes": 103637,
+      "sha256": "d0cb8d776fdf786bbe637452376dff0af9e6b9aa904947f6ed65edaa3d6f2f2f"
+    },
+    {
+      "path": "packaging-wgpu-28.result.json",
+      "bytes": 903,
+      "sha256": "9d02acb1cbfb5b2d42dfcaa93a48986907829ad0a08276372d5c29f94ab32197"
+    },
+    {
+      "path": "packaging-wgpu-28.stderr.log",
+      "bytes": 4920,
+      "sha256": "13db81de65d7e2ef0a46281c939a1b9c6597a5d91ccb16931fc079c2cf2036a7"
+    },
+    {
+      "path": "packaging-wgpu-28.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "packaging-wgpu-29.result.json",
+      "bytes": 902,
+      "sha256": "07099dfd0db87add4ae5ad4af7dde0519537ceca13d7c36af50b5ffbd70cf87f"
+    },
+    {
+      "path": "packaging-wgpu-29.stderr.log",
+      "bytes": 830,
+      "sha256": "ba32b7fe8a9793714d5a410adae226ac06768771e7154430e5b1e6e5d8de4baa"
+    },
+    {
+      "path": "packaging-wgpu-29.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "packaging-wgpu-30.result.json",
+      "bytes": 902,
+      "sha256": "35569f6fe4c308617171908750dfea72baf5399a17b0097d14f6f3e8235fbf59"
+    },
+    {
+      "path": "packaging-wgpu-30.stderr.log",
+      "bytes": 687,
+      "sha256": "4d9d74913b8ee0f2662d4d7fa921091d2c331a5e39e029c97ff0483eb6d8eb1b"
+    },
+    {
+      "path": "packaging-wgpu-30.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3720,
+      "sha256": "4fce6b78414811b989b3cd0469960ae0db126998748c36bd6cb32b66e99866ba"
+    },
+    {
+      "path": "release-notes-draft.md",
+      "bytes": 1631,
+      "sha256": "083f7a7ecd9c57fd0ea100831219464a415a6482cde397e548f31f395b23cc8d"
+    },
+    {
+      "path": "root-package-audit.json",
+      "bytes": 26923,
+      "sha256": "3bf2777394318716b1b7b90359fc0ed8d0448cffe58fd4c2009251d4abd70687"
+    }
+  ],
+  "scope": "Release preparation checkpoint, not publication or native hardware qualification. No version, source, tags or CI dispatch changed."
+}

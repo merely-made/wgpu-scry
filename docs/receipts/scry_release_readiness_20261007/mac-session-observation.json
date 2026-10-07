@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-10-07T12:15:52.248081+00:00",
+  "attempts": [
+    {
+      "host": "imac-m4",
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "imac-m4",
+        "/usr/bin/uname -m; /usr/bin/who; /usr/sbin/ioreg -n Root -d 1 -a"
+      ],
+      "exit_code": 255,
+      "stdout": "",
+      "stderr": "banner exchange: Connection to UNKNOWN port -1: Connection refused\n",
+      "scope": "Read-only connection/session observation; no native app or session-state action. Failed connection proves no logged-in, lock-state or display observation."
+    },
+    {
+      "host": "imac-intel",
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "imac-intel",
+        "/usr/bin/uname -m; /usr/bin/who; /usr/sbin/ioreg -n Root -d 1 -a"
+      ],
+      "exit_code": 255,
+      "stdout": "",
+      "stderr": "ssh: connect to host 192.168.4.26 port 22: Connection refused\nConnection closed by UNKNOWN port 65535\n",
+      "scope": "Read-only connection/session observation; no native app or session-state action. Failed connection proves no logged-in, lock-state or display observation."
+    }
+  ]
+}

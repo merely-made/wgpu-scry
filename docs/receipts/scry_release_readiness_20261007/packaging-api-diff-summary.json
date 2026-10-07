@@ -1,0 +1,17 @@
+{
+  "published_version": "0.7.1",
+  "published_source_sha": "8386502915e6bad0f9d9d13cc17bb7d4bbaa769a",
+  "current_source_sha": "2c3ebd24118851cf6125cfb193f55aab20e3ad67",
+  "public_signature_changes": "None found in bounded complete scrying source diff",
+  "additions": "8 frame-status diagnostic counters + last_frame_status on already non_exhaustive CaptureDiagnostics",
+  "private_changes": [
+    "Bounded Windows coalesced frame-pool drain closes superseded samples",
+    "Mac status-only callbacks preserve one pending image-bearing sample; portable ownership helper/regression tests",
+    "WPE worker constructor refuses before native initialization",
+    "WPE native integration tests harness=false on process main thread"
+  ],
+  "features_dependencies_msrv": "unchanged; only two explicit test harness targets added to scrying manifest",
+  "recommended_next_version": "0.7.2",
+  "semver_scope": "compatible fixes plus additions to existing non_exhaustive diagnostic snapshot; user/release-owner must choose final candidate",
+  "source_diff_sha256": "d0cb8d776fdf786bbe637452376dff0af9e6b9aa904947f6ed65edaa3d6f2f2f"
+}

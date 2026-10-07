@@ -1,0 +1,39 @@
+# Scry release preparation, 2026-10-07
+
+**Preparation only. Release remains blocked on native Mac acceptance.** The registry already has `scrying 0.7.1`, published September 4, 2026 at 20:16:48Z, from Git `8386502915e6bad0f9d9d13cc17bb7d4bbaa769a`. Current published `main` is `2c3ebd24118851cf6125cfb193f55aab20e3ad67`. The next proposed compatible release is **0.7.2**; this audit did not bump a version, tag, publish, or alter source.
+
+## Published baseline and API
+
+[Raw crates.io metadata](packaging-crates-api.json), [official archive](packaging-scrying-0.7.1.crate), [archive inventory](packaging-published-package-inventory.json), and [VCS metadata](packaging-registry-cargo_vcs_info.json) establish the published baseline. Its archive SHA256 is `91234eac6fdcb82aa895cc686d4f5eedfcc1492cb5d3b890d1a085d463d16073`, equal to the registry checksum. All 89 original-manifest/readme/build/source/test files match that Git revision after only CRLF-to-LF conversion, as recorded by the [line-ending comparison](packaging-registry-line-ending-comparison.json). The separate [raw comparison](packaging-registry-git-comparison.json) deliberately preserves byte differences.
+
+The [complete library diff](packaging-source-diff.patch) and [API finding](packaging-api-diff-summary.json) show no removed public items, changed public function signatures, feature removals, dependency requirement changes, or MSRV increase. `CaptureDiagnostics` already had `#[non_exhaustive]` in 0.7.1; new status counters and `last_frame_status` are compatible additions. `CaptureMetrics` is unchanged. The fixes preserve a pending Mac image through status-only callbacks, drain bounded coalesced Windows capture arrivals to the newest frame, and refuse WPE construction on a worker before native initialization. WPE integration tests now use main-thread custom harnesses. These support proposing 0.7.2 rather than a compatibility-breaking 0.8 release. This is a bounded source review, not an automated semver checker result. [Cargo's compatibility guidance](https://doc.rust-lang.org/cargo/reference/semver.html) explains the non-exhaustive and pre-1.0 conventions.
+
+## Exact-source local gates
+
+The authorized detached checkout contained exact `2c3ebd`, clean tracked and untracked source. [Inputs](packaging-inputs.json) bind all 195 tracked files, actual Rust **1.92.0** (`ded5c06cf`, 2025-12-08), Windows host, stable target, and BelowNormal priority. Cargo used `CARGO_BUILD_JOBS=1` and `-j1`. [Runner](packaging-runner.py) and [summary](packaging-local-summary.json) preserve commands, actual exits, elapsed time, raw-log hashes, and unchanged source guards.
+
+| Windows gate | Actual exit | Seconds |
+| --- | ---: | ---: |
+| `cargo +1.92.0 package --locked -p scrying --list` | 0 | 1.281 |
+| `cargo +1.92.0 package --locked -p scrying -j1`, including verification build | 0 | 227.234 |
+| Library check, explicit wgpu-28 | 0 | 103.672 |
+| Library check, explicit wgpu-29 | 0 | 21.078 |
+| Library check, explicit wgpu-30 | 0 | 34.859 |
+
+This is the unchanged **0.7.1-version preparation package**, not a releasable new registry version. The [actual archive](packaging-current-exact-source.crate) contains 93 files, 337,499 compressed bytes, SHA256 `572d20225d2a310476b34d969f31c1fb5ce617ad3f735e406ccdefa7ce478c20`. Its [VCS metadata](packaging-current-vcs.json) identifies exact `2c3ebd` with `path_in_vcs: scrying` and no dirty marker. The [inventory](packaging-current-package-inventory.json) proves `src/latest_image_sample.rs`, crate README, build script, and test sources are included. It includes no repository receipt, demo, or private profile. All 90 source/original-manifest/readme/build/test files match exact Git after only CRLF-to-LF conversion ([comparison](packaging-current-git-comparison.json)).
+
+[Normalized manifest](packaging-current-manifest.toml) and [package lock](packaging-current-lock.toml) contain registry dependencies plus only the packaged crate itself. `grafting 0.6.0` comes from crates.io; no Git or external path overrides occur in the package lock. [Selected dependencies](packaging-selected-dependencies.json) records wgpu 28.0.0 / 29.0.4 / 30.0.1, wgpu-hal 28.0.1 / 29.0.4 / 30.0.1, image 0.25.10, WebView2 bindings 0.39.1, and windows 0.62.2. The source workspace lock is unchanged from the published baseline, SHA256 `31991a399e060af8a5adabd151a63bc5a5e0eb3c98bae3f56cb50b5a0d8b70f0`. Package verification closes the Windows default-row packaged registry graph, not every platform's optional engine graph.
+
+## Hosted evidence and open release gates
+
+Current exact-source [wgpu matrix 37555842648](https://github.com/merely-made/wgpu-scry/actions/runs/37555842648) passed all nine Windows/macOS/Linux wgpu 28/29/30 library check rows and the Windows demo extras. [Jobs](packaging-current-matrix-jobs.json) retain the complete statuses. The [actual Windows log](packaging-current-windows30.log) shows checkout `2c3ebd` and **Rust 1.97.1**, with [toolchain-resolution log](packaging-current-resolved-toolchain.log). Rustfmt was explicitly skipped by workflow configuration; this is not a formatting/clippy acceptance claim. Current hosted [Linux 37555841596](https://github.com/merely-made/wgpu-scry/actions/runs/37555841596) and [Mac 37555841449](https://github.com/merely-made/wgpu-scry/actions/runs/37555841449) tests passed. Hosted tests are distinct from the ordinary headed capture battery.
+
+The latest published-release [MSRV run 33915456482](https://github.com/merely-made/wgpu-scry/actions/runs/33915456482) passed the nine Rust 1.92 platform/wgpu rows plus three separate Linux engine-family checks, but its exact checkout is **8386502**, not current `2c3ebd` ([jobs](packaging-published-msrv-jobs.json), [actual Windows log](packaging-published-msrv-windows30.log), [all MSRV runs](packaging-msrv-runs.json)). The new local checks close current Windows rows only. A fresh full exact-candidate Rust 1.92 MSRV workflow, including Mac and independent Linux WebKitGTK 4.1/WPE/WebKitGTK 6.0 families, remains a prepublication gate. No new workflow was dispatched in this preparation.
+
+Native Mac capture visibility/animation suspension remains the material release blocker; failed controls and restored harness evidence must stay visible. Root owns hardware status and any next native execution. This package receipt cannot close Mac ordinary acceptance, NVIDIA native execution, full browser coexistence, or accessibility. Once those release-owner gates are resolved, prepare a clean 0.7.2 version commit, rerun exact release-source CI/MSRV/package verification, review release notes against actual platform limits, and only then publish. Existing eight dirty audit documents, including the repository README, remain owned by their existing lane; they were not absorbed into this preparation.
+
+## Cleanup and custody
+
+[Cleanup](packaging-cleanup.json) records removal of the clean owned detached `C:/Users/mark_/Code/worktrees/wgpu-scry-release` after source/live-owner guards. All eight primary dirty documents remain byte-identical. The stable marker-identified `C:/t/cargo-targets/wgpu-scry` is retained for reuse by release preparation and a future coordinated native gate. No isolated Cargo home was created. The routine installed Rust 1.92 toolchain is retained. [Hash index](packaging-hashes.json) covers only this lane's finished `packaging-*` files; root-owned hardware/draft artifacts remain separately owned.
+
+Primary retrieval locations: [crates.io API](https://crates.io/api/v1/crates/scrying), [0.7.1 package](https://static.crates.io/crates/scrying/scrying-0.7.1.crate), [source comparison](https://github.com/merely-made/wgpu-scry/compare/8386502915e6bad0f9d9d13cc17bb7d4bbaa769a...2c3ebd24118851cf6125cfb193f55aab20e3ad67), and [Cargo package-file selection](https://doc.rust-lang.org/cargo/reference/manifest.html#the-include-and-exclude-fields).
