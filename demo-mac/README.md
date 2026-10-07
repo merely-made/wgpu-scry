@@ -161,6 +161,13 @@ window). Once `capture_status` reports `Live`, drains 5 frames
 via `try_acquire_frame` and asserts each frame's reported
 `(width, height)` matches the configured webview size.
 
+This explicitly headed test uses AppKit's Regular activation policy and asks
+for window focus once after window, producer and render setup. A merely visible
+background window can leave the WebKit document hidden, pausing its CSS
+animation and suppressing capture activity. Acceptance still uses the original
+uninstrumented page; the separate activity mode verifies page visibility and
+animation progress. Ordinary and headless modes keep their existing policy.
+
 ScreenCaptureKit's status-only callbacks are counted in capture diagnostics
 without replacing the latest unconsumed image. A burst of Idle callbacks must
 leave that image available to the host; a newer image replaces it and releases

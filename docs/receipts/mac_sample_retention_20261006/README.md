@@ -112,3 +112,35 @@ animation clock/background, timer ticks and animation-frame callback counts.
 Nothing changes the capture dimensions, deadlines, resize schedules or minimum
 frame assertions. Native diagnosis must distinguish observer behavior from
 evidence about the underlying scarcity.
+
+## Exact activity diagnosis and headed focus trial
+
+Diagnostic revision `550b9fb86c272f6ad9949734023288dd0eb1b90b` was dispatched
+as run **37554112839**; actual checkout SHAs are present in its native job logs.
+RADV 112576238120 passed and NVIDIA 112576237940 remained queued.
+Intel 112576238318 and M4 112576238332 compiled and passed the portable custody
+and capture-size tests, but their ordinary and diagnostic battery steps failed.
+
+Intel ordinary base acquired three Complete frames, and ordinary resize acquired
+eleven, with startup only two versus the required three. Its opt-in base also
+failed at three; opt-in resize passed with twelve. M4 ordinary and opt-in bases
+passed at five, while both resize modes failed at eleven total and only two
+startup frames. These opt-in passes do not replace the ordinary failures.
+
+On both hosts, every reported opt-in page observation was `visibility: hidden`,
+`focused: false`, `animationFrames: 0`, unchanged blue background and CSS
+animation `currentTime: 0`, even though timer ticks advanced. Host counters
+reported a visible, non-minimized, unfocused window. Complete callbacks reached
+the consumer; the fixture's animation was not advancing. This is evidence of
+page suspension, not evidence of driver or importer failure.
+
+The demo does not invoke the producer's `set_visible`; the library's Mac method
+maps to `WKWebView.setHidden(!visible)`, and its constructor attaches the view
+with `parent_view.addSubview`. The reviewed bounded host trial makes
+`--capture-test` explicitly use Regular AppKit activation and requests
+`focus_window()` once after successful window/show/producer/render setup.
+That winit Mac method activates the application and makes the visible window
+key/front. No library producer, fixture bytes, deadlines or thresholds change.
+Ordinary/headless modes retain their policy; there is no refocus loop or forced
+paint. The exact next native run must show original acceptance and opt-in
+visible-page/advancing-animation evidence before this trial closes the gate.
