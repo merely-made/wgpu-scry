@@ -1,0 +1,1607 @@
+{
+  "run_id": 37637005234,
+  "job_id": 112845761275,
+  "head_sha": "d6c119f2b41cf5e81c99157166885c7f3800ab67",
+  "conclusion": "failure",
+  "started_at": "2026-10-07T14:28:41Z",
+  "completed_at": "2026-10-07T14:31:44Z",
+  "phases": {
+    "ordinary": {
+      "step_conclusion": "failure",
+      "exit_code": 1,
+      "passed": 9,
+      "total": 10,
+      "failed": 1,
+      "capture_modes": {
+        "--capture-test": {
+          "host_samples": [
+            {
+              "elapsed_seconds": 0.0,
+              "acquired_frames": 0,
+              "complete": 1,
+              "idle": 0,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 1.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 55,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 2.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 113,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 3.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 171,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 4.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 230,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 5.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 288,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 6.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 346,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 7.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 404,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 8.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 462,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 9.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 520,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 10.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 579,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 11.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 637,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 12.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 695,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 13.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 753,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 14.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 811,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 15.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 869,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 16.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 928,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 17.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 986,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 18.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1044,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 19.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1102,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 20.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1160,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 21.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1219,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 22.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1277,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 23.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1335,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 24.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1393,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 25.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1451,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 26.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1509,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 27.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1567,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 28.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1625,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 29.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1683,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            }
+          ],
+          "page_activity_samples": [],
+          "failure_details": [
+            "  - captured 3 frame(s) within 30s without observing 5 frame(s) at every expected size",
+            "  - observed 3 frame(s) at 1024x1536, expected at least 5",
+            "  - pre-import frame diagnostics: no-latest-sample=563883, no-image-payload=1741, config-revision-pending=0, source-dimension-mismatch=0, empty-crop=0",
+            "  - SCK frame statuses: missing=0, complete=3, idle=1741, blank=0, suspended=0, started=0, stopped=0, unknown=0, last=Some(1)",
+            "  - capture revisions: requested=0, applied=0; last source dimensions=Some(PhysicalSize { width: 2048, height: 1592 }), expected host dimensions=Some(PhysicalSize { width: 2048, height: 1592 })"
+          ],
+          "capture_receipt": "demo-mac: capture-test: FAIL",
+          "capture_pass": false,
+          "acquired_frames_at_receipt": 3,
+          "capture_deadline_seconds": 30,
+          "final_sck_statuses": {
+            "missing": 0,
+            "complete": 3,
+            "idle": 1741,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "page_activity_summary": {
+            "sample_count": 0,
+            "visibility_values": [],
+            "DOM_focused_values": [],
+            "max_animationFrames": null,
+            "max_timerTicks": null,
+            "CSS_animation_states": [],
+            "CSS_animation_times": []
+          },
+          "received_consumed_custody_counts": null,
+          "custody_limitation": "Final received/consumed custody counters not emitted; acquired/status/pre-import counters retained."
+        },
+        "--capture-test+resize": {
+          "host_samples": [
+            {
+              "elapsed_seconds": 0.0,
+              "acquired_frames": 0,
+              "complete": 1,
+              "idle": 0,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 1.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 56,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 2.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 114,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 3.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 172,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 4.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 230,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 5.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 289,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 6.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 347,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 7.0,
+              "acquired_frames": 6,
+              "complete": 6,
+              "idle": 401,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 8.0,
+              "acquired_frames": 6,
+              "complete": 6,
+              "idle": 459,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 9.0,
+              "acquired_frames": 6,
+              "complete": 6,
+              "idle": 517,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 10.0,
+              "acquired_frames": 6,
+              "complete": 6,
+              "idle": 575,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 11.0,
+              "acquired_frames": 9,
+              "complete": 9,
+              "idle": 629,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 12.0,
+              "acquired_frames": 9,
+              "complete": 9,
+              "idle": 687,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 13.0,
+              "acquired_frames": 9,
+              "complete": 9,
+              "idle": 745,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 14.0,
+              "acquired_frames": 9,
+              "complete": 9,
+              "idle": 803,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            }
+          ],
+          "page_activity_samples": [],
+          "failure_details": [],
+          "capture_receipt": "demo-mac: capture-test: PASS \u2014 SCK pipeline delivered 12 frames across [768x1200, 1024x1400, 1024x1536, 1280x1600]",
+          "capture_pass": true,
+          "acquired_frames_at_receipt": 12,
+          "page_activity_summary": {
+            "sample_count": 0,
+            "visibility_values": [],
+            "DOM_focused_values": [],
+            "max_animationFrames": null,
+            "max_timerTicks": null,
+            "CSS_animation_states": [],
+            "CSS_animation_times": []
+          },
+          "received_consumed_custody_counts": null,
+          "custody_limitation": "Final received/consumed custody counters not emitted; acquired/status/pre-import counters retained."
+        }
+      }
+    },
+    "activity": {
+      "step_conclusion": "failure",
+      "exit_code": 1,
+      "passed": 1,
+      "total": 2,
+      "failed": 1,
+      "capture_modes": {
+        "--capture-test": {
+          "host_samples": [
+            {
+              "elapsed_seconds": 0.0,
+              "acquired_frames": 0,
+              "complete": 1,
+              "idle": 0,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 1.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 54,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 2.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 112,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 3.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 170,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 4.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 228,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 5.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 286,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 6.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 344,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 7.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 402,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 8.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 461,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 9.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 519,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 10.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 577,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 11.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 635,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 12.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 693,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 13.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 751,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 14.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 809,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 15.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 867,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 16.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 926,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 17.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 984,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 18.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1042,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 19.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1100,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 20.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1158,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 21.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1216,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 22.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1274,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 23.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1332,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 24.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1390,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 25.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1448,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 26.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1506,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 27.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1564,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 28.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1623,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 29.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 1681,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            }
+          ],
+          "page_activity_samples": [
+            {
+              "kind": "ready",
+              "elapsedMs": 3,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 0,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 1005,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 1,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 2005,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 2,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 3005,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 3,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 4090,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 4,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 5090,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 5,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 6184,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 6,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            }
+          ],
+          "failure_details": [
+            "  - captured 3 frame(s) within 30s without observing 5 frame(s) at every expected size",
+            "  - observed 3 frame(s) at 1024x1536, expected at least 5",
+            "  - pre-import frame diagnostics: no-latest-sample=553578, no-image-payload=1739, config-revision-pending=0, source-dimension-mismatch=0, empty-crop=0",
+            "  - SCK frame statuses: missing=0, complete=3, idle=1739, blank=0, suspended=0, started=0, stopped=0, unknown=0, last=Some(1)",
+            "  - capture revisions: requested=0, applied=0; last source dimensions=Some(PhysicalSize { width: 2048, height: 1592 }), expected host dimensions=Some(PhysicalSize { width: 2048, height: 1592 })"
+          ],
+          "capture_receipt": "demo-mac: capture-test: FAIL",
+          "capture_pass": false,
+          "acquired_frames_at_receipt": 3,
+          "capture_deadline_seconds": 30,
+          "final_sck_statuses": {
+            "missing": 0,
+            "complete": 3,
+            "idle": 1739,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "page_activity_summary": {
+            "sample_count": 7,
+            "visibility_values": [
+              "hidden"
+            ],
+            "DOM_focused_values": [
+              false
+            ],
+            "max_animationFrames": 0,
+            "max_timerTicks": 6,
+            "CSS_animation_states": [
+              "running"
+            ],
+            "CSS_animation_times": [
+              0
+            ]
+          },
+          "received_consumed_custody_counts": null,
+          "custody_limitation": "Final received/consumed custody counters not emitted; acquired/status/pre-import counters retained."
+        },
+        "--capture-test+resize": {
+          "host_samples": [
+            {
+              "elapsed_seconds": 0.0,
+              "acquired_frames": 0,
+              "complete": 1,
+              "idle": 0,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 1.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 55,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 2.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 113,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 3.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 171,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 4.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 230,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 5.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 288,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 6.0,
+              "acquired_frames": 3,
+              "complete": 3,
+              "idle": 346,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 7.0,
+              "acquired_frames": 7,
+              "complete": 7,
+              "idle": 400,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 8.0,
+              "acquired_frames": 7,
+              "complete": 7,
+              "idle": 458,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 9.0,
+              "acquired_frames": 7,
+              "complete": 7,
+              "idle": 516,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 10.0,
+              "acquired_frames": 7,
+              "complete": 7,
+              "idle": 574,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 11.0,
+              "acquired_frames": 10,
+              "complete": 10,
+              "idle": 630,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 12.0,
+              "acquired_frames": 10,
+              "complete": 10,
+              "idle": 688,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 13.0,
+              "acquired_frames": 10,
+              "complete": 10,
+              "idle": 746,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            },
+            {
+              "elapsed_seconds": 14.0,
+              "acquired_frames": 10,
+              "complete": 10,
+              "idle": 804,
+              "visible": true,
+              "minimized": false,
+              "focused": false
+            }
+          ],
+          "page_activity_samples": [
+            {
+              "kind": "ready",
+              "elapsedMs": 3,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 0,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 1004,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 1,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 2004,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 2,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 3004,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 3,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 4102,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 4,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 5194,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 5,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 6294,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 6,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 9044,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 7,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "resize",
+              "elapsedMs": 9045,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                640,
+                800,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 7,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 10844,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                640,
+                800,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 8,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 12844,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                640,
+                800,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 9,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "resize",
+              "elapsedMs": 13044,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                384,
+                600,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 9,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 14844,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                384,
+                600,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 10,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 16844,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                384,
+                600,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 11,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            }
+          ],
+          "failure_details": [],
+          "capture_receipt": "demo-mac: capture-test: PASS \u2014 SCK pipeline delivered 13 frames across [768x1200, 1024x1400, 1024x1536, 1280x1600]",
+          "capture_pass": true,
+          "acquired_frames_at_receipt": 13,
+          "page_activity_summary": {
+            "sample_count": 14,
+            "visibility_values": [
+              "hidden"
+            ],
+            "DOM_focused_values": [
+              false
+            ],
+            "max_animationFrames": 0,
+            "max_timerTicks": 11,
+            "CSS_animation_states": [
+              "running"
+            ],
+            "CSS_animation_times": [
+              0
+            ]
+          },
+          "received_consumed_custody_counts": null,
+          "custody_limitation": "Final received/consumed custody counters not emitted; acquired/status/pre-import counters retained."
+        }
+      }
+    }
+  },
+  "identities": {
+    "checkout_and_helper": "workflow=d6c119f2b41cf5e81c99157166885c7f3800ab67\nhelper=e8ffee2d6b680154cae645d54a340116f08acb5d\nscry_fixture=4d8d1d3f8dd450b712960c90b74263a45b46e35b\nrustc 1.97.1 (8bab26f4f 2026-07-14)\ncargo 1.97.1 (c980f4866 2026-06-30)\n9980f707d2c10ec05b3b32562aa1bfff32ac6b1e6ac07c150d37ab1d7111495a  .registry-proof-helper/scripts/stage_registry_triplet.py\n5178c3b783b4306de37660c74a235af3d35a391f1757189728c5862248f2bc4d  .registry-proof-helper/scripts/verify_registry_triplet.py\n",
+    "staging": {
+      "fixture_source_sha": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+      "helper_sha256": "9980f707d2c10ec05b3b32562aa1bfff32ac6b1e6ac07c150d37ab1d7111495a",
+      "helper_source_sha": "e8ffee2d6b680154cae645d54a340116f08acb5d",
+      "kind": "scry-mac",
+      "workflow_source_sha": "d6c119f2b41cf5e81c99157166885c7f3800ab67"
+    },
+    "registry_packages": [
+      {
+        "name": "grafting",
+        "version": "0.6.0",
+        "source": "registry+https://github.com/rust-lang/crates.io-index",
+        "manifest_sha256": "ed0c37f7763a82274f6221d88d60f14765e9e9a9929908c3398c70ad811ce74a",
+        "cargo_vcs_info": {
+          "git": {
+            "sha1": "816f3e7857afee863200e1c25b300c43b1532aae"
+          },
+          "path_in_vcs": "grafting"
+        }
+      },
+      {
+        "name": "scrying",
+        "version": "0.7.2",
+        "source": "registry+https://github.com/rust-lang/crates.io-index",
+        "manifest_sha256": "cb5dd6e6be57a2304e9a35b0e42467e9e112feb848175eaff224134c06c791f8",
+        "cargo_vcs_info": {
+          "git": {
+            "sha1": "4d8d1d3f8dd450b712960c90b74263a45b46e35b"
+          },
+          "path_in_vcs": "scrying"
+        }
+      },
+      {
+        "name": "welding",
+        "version": "0.14.1",
+        "source": "registry+https://github.com/rust-lang/crates.io-index",
+        "manifest_sha256": "406ced71f799f1356867ec1d20d6cd736a2a63204a0b67236c5a62de94b1a9e2",
+        "cargo_vcs_info": {
+          "git": {
+            "sha1": "c7b7b4c52138643e22580a918542e8e036a0b24a"
+          },
+          "path_in_vcs": "welding"
+        }
+      }
+    ],
+    "registry_metadata_package_count": 367,
+    "non_registry_non_workspace_packages": [],
+    "wgpu_normal_tree_versions": [
+      "30.0.1"
+    ],
+    "raw_executable": {
+      "pre": [
+        "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721",
+        "/Users/markik/Code/targets/wgpu-scry-hardware/debug/demo-mac"
+      ],
+      "ordinary": [
+        "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721",
+        "/Users/markik/Code/targets/wgpu-scry-hardware/debug/demo-mac"
+      ],
+      "activity": [
+        "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721",
+        "/Users/markik/Code/targets/wgpu-scry-hardware/debug/demo-mac"
+      ]
+    },
+    "app_executable": {
+      "ordinary": [
+        "8d847e88752e58df2945f7a43b549527c73f988b399e8d808d725a728ab4934c",
+        "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac"
+      ],
+      "activity": [
+        "8d847e88752e58df2945f7a43b549527c73f988b399e8d808d725a728ab4934c",
+        "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac"
+      ]
+    },
+    "signing": {
+      "ordinary": "Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac\ndesignated => identifier \"org.merely.scry.hardware-demo\"\n",
+      "activity": "Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac\ndesignated => identifier \"org.merely.scry.hardware-demo\"\n"
+    },
+    "copied_demo_source_Git_equal_files": [
+      "consumer/src/main.rs",
+      "consumer/src/render.rs"
+    ]
+  },
+  "archive_entries": [
+    {
+      "path": "activity-app-executable.sha256",
+      "bytes": 169,
+      "sha256": "bdd88a468d5320bc866e73d2fa31315586dd2b44e0509fc3b90b1dc1733c86a0"
+    },
+    {
+      "path": "activity-executable.sha256",
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    {
+      "path": "activity-signing.txt",
+      "bytes": 171,
+      "sha256": "00dcda476c0fd67898fa233151fc94bd38bffd0acf208ffa61682b638a14963b"
+    },
+    {
+      "path": "activity-exit-code.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "activity.log",
+      "bytes": 13153,
+      "sha256": "8ef178c4465ce7902b541aef978002d21827d2e94c46a48de659040e015b99ec"
+    },
+    {
+      "path": "consumer/Cargo.lock",
+      "bytes": 93263,
+      "sha256": "b2f51457f6fde9ed36455e27f799dd8a850ce0f95f1375b9a18a1c08461cf946"
+    },
+    {
+      "path": "checkout-and-helper-identity.txt",
+      "bytes": 471,
+      "sha256": "f1c4401833f9a392c0d1febbc49a62612a5b69e588a0e61ee51562b3d059813c"
+    },
+    {
+      "path": "consumer/Cargo.toml",
+      "bytes": 601,
+      "sha256": "7acc2f0757b1e6134aeff338c964954b1648e725e5a7c600c251c60ce5c3e8dd"
+    },
+    {
+      "path": "consumer/scripts/test-mac.sh",
+      "bytes": 9762,
+      "sha256": "57f0eccb5916ad3ec2afea4fe68deb31eb11c2f2452b06568b8fc5e8e7d421a2"
+    },
+    {
+      "path": "consumer/src/main.rs",
+      "bytes": 175741,
+      "sha256": "f2953667b2edaef4f511fdb8b534fd1841982f5bbec9393b0c2ea768dd273f97"
+    },
+    {
+      "path": "consumer/src/render.rs",
+      "bytes": 23739,
+      "sha256": "dd78907ce7f98a901c9ff7a0a1efa19fe1cf572c21c7b519b1d9c78cbb59c1b2"
+    },
+    {
+      "path": "consumer/staging-source.json",
+      "bytes": 316,
+      "sha256": "1c9cc5bafd457db48829ca24979827655c4e1d1b117db29f8ae6946543a57e41"
+    },
+    {
+      "path": "ordinary-app-executable.sha256",
+      "bytes": 169,
+      "sha256": "bdd88a468d5320bc866e73d2fa31315586dd2b44e0509fc3b90b1dc1733c86a0"
+    },
+    {
+      "path": "ordinary-executable.sha256",
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    {
+      "path": "ordinary-exit-code.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "ordinary-signing.txt",
+      "bytes": 171,
+      "sha256": "00dcda476c0fd67898fa233151fc94bd38bffd0acf208ffa61682b638a14963b"
+    },
+    {
+      "path": "ordinary.log",
+      "bytes": 67762,
+      "sha256": "781648b627ac65b05492a27c06e5d8109320bb23f770d0a5db05bbe4ad0808f9"
+    },
+    {
+      "path": "pre-battery-executable.sha256",
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    {
+      "path": "registry/Cargo.lock",
+      "bytes": 93263,
+      "sha256": "b2f51457f6fde9ed36455e27f799dd8a850ce0f95f1375b9a18a1c08461cf946"
+    },
+    {
+      "path": "registry/allowed-non-registry.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "registry/cargo-tree.txt",
+      "bytes": 42438,
+      "sha256": "90042b0213953403fe2b21ad0dfe494587372af0f48cae7e91ecab6a5010dbcb"
+    },
+    {
+      "path": "registry/metadata.json",
+      "bytes": 2013609,
+      "sha256": "067a9169d3f207c61c6706b7286b981f95cb39033158d5cbd3590db6cee70b4f"
+    },
+    {
+      "path": "registry/release-inputs.json",
+      "bytes": 343,
+      "sha256": "4d3111975fc57fbc0ea1bcb160107a8e7464b59525330898d1d444b3cc7013b9"
+    },
+    {
+      "path": "registry-package-identity.json",
+      "bytes": 1092,
+      "sha256": "c64d6fe900a815aa6fdba3ba9a813795c48ae709c4d93be649cfe755e46cd962"
+    }
+  ],
+  "findings": [
+    "Ordinary9/10 and opt-in1/2 both fail only base capture at3frames; resize passes12 and13 respectively.",
+    "Instrumented DOM stays hidden, rAF0 and CSS currentTime0 despite running state; timers/resizes advance.",
+    "Host reports visible, nonminimized and unfocused; SCK receives3Complete and manyIdle samples; no source-dimension/config-revision mismatch."
+  ],
+  "limits": [
+    "No focus/session/driver cause established.",
+    "Opt-in instrumented page behavior cannot replace original fixture qualification.",
+    "SSH refusal is a transport constraint, not an unlocked-state finding."
+  ]
+}
