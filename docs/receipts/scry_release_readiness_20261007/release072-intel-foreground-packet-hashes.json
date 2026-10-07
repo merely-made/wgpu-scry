@@ -1,0 +1,38 @@
+{
+  "release072-intel-foreground-artifact-hashes.json": {
+    "bytes": 1098,
+    "sha256": "6e5f1b3d6e5c3e4b87c97543ed831c1dfa27639cec1b9b277b8448fbeb7f7dbd"
+  },
+  "release072-intel-foreground-artifact.zip": {
+    "bytes": 323261,
+    "sha256": "2427888adfbd9e85b1c5725fe5ab76fa16344317471f991eabe0d37aaa50e2c6"
+  },
+  "release072-intel-foreground-artifacts.json": {
+    "bytes": 739,
+    "sha256": "0e815c753d002749186f7bf2abf0ce64576aa149e9446d5952134d14aab3a815"
+  },
+  "release072-intel-foreground-dispatch.json": {
+    "bytes": 4356,
+    "sha256": "469b29f4390d6e3eb0b850159e02aab6442bea0b18028bf9f66466695c08d31d"
+  },
+  "release072-intel-foreground-job.json": {
+    "bytes": 5151,
+    "sha256": "236948af145e484f51e9403a139d9efa171a69f7ea6eee669b7456d04298e6e6"
+  },
+  "release072-intel-foreground-job.log": {
+    "bytes": 279161,
+    "sha256": "eac562be9f8a6304c8dab2ff0e9ecae07fc515cc3882ea968e0684c3b802963d"
+  },
+  "release072-intel-foreground-README.md": {
+    "bytes": 1514,
+    "sha256": "c0e0cb6b8d96da251716681e09dc3e9c99afd84878e1629e5f23cc01198bd137"
+  },
+  "release072-intel-foreground-result.json": {
+    "bytes": 50510,
+    "sha256": "bbb61af74d5b2a2d7c5e10c81c96043db62af979411320891f77d31db20d13a6"
+  },
+  "release072-intel-foreground-run.json": {
+    "bytes": 12605,
+    "sha256": "8e30193f6c4f53eb2904589f6a0c4cdd7eed266f77cd5c4c2ae9876c086195e7"
+  }
+}

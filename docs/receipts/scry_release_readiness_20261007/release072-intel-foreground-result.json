@@ -1,0 +1,1600 @@
+{
+  "recorded_utc": "2026-10-07T14:55:19.821285+00:00",
+  "run_id": 37639574080,
+  "job_id": 112854631296,
+  "head_sha": "0e491151d6943d04959fe0ad31477602806ed9df",
+  "conclusion": "failure",
+  "started_at": "2026-10-07T14:46:50Z",
+  "completed_at": "2026-10-07T14:52:10Z",
+  "original_failure_preserved": true,
+  "foreground_input_true_dispatch_sha256": "469b29f4390d6e3eb0b850159e02aab6442bea0b18028bf9f66466695c08d31d",
+  "raw_job_log_sha256": "eac562be9f8a6304c8dab2ff0e9ecae07fc515cc3882ea968e0684c3b802963d",
+  "phases": {
+    "ordinary": {
+      "step_conclusion": "failure",
+      "exit_code": 1,
+      "passed": 9,
+      "total": 10,
+      "failed": 1,
+      "activation_attempts": [],
+      "capture_modes": {
+        "--capture-test": {
+          "result": "FAIL",
+          "acquired_frames_final": 3,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 5,
+          "last_host_sample": {
+            "elapsed_seconds": 29.0,
+            "acquired_frames": 3,
+            "complete": 3,
+            "idle": 1682,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_sample_count": 30,
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": {
+            "missing": 0,
+            "complete": 3,
+            "idle": 1740,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "pre_import_final": {
+            "no-latest-sample": 568187,
+            "no-image-payload": 1740,
+            "config-revision-pending": 0,
+            "source-dimension-mismatch": 0,
+            "empty-crop": 0
+          },
+          "dom_samples": [],
+          "dom_visibility_values": [],
+          "dom_focus_values": [],
+          "max_animation_frames": null,
+          "css_animation_times": [],
+          "max_timer_ticks": null,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        },
+        "--capture-test+resize": {
+          "result": "PASS",
+          "acquired_frames_final": 14,
+          "capture_window_seconds": null,
+          "minimum_frames_per_expected_size": 5,
+          "last_host_sample": {
+            "elapsed_seconds": 14.01,
+            "acquired_frames": 11,
+            "complete": 11,
+            "idle": 805,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_sample_count": 15,
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": null,
+          "pre_import_final": null,
+          "dom_samples": [],
+          "dom_visibility_values": [],
+          "dom_focus_values": [],
+          "max_animation_frames": null,
+          "css_animation_times": [],
+          "max_timer_ticks": null,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        }
+      }
+    },
+    "activity": {
+      "step_conclusion": "failure",
+      "exit_code": 1,
+      "passed": 1,
+      "total": 2,
+      "failed": 1,
+      "activation_attempts": [],
+      "capture_modes": {
+        "--capture-test": {
+          "result": "FAIL",
+          "acquired_frames_final": 3,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 5,
+          "last_host_sample": {
+            "elapsed_seconds": 29.0,
+            "acquired_frames": 3,
+            "complete": 3,
+            "idle": 1683,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_sample_count": 30,
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": {
+            "missing": 0,
+            "complete": 3,
+            "idle": 1741,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "pre_import_final": {
+            "no-latest-sample": 554728,
+            "no-image-payload": 1741,
+            "config-revision-pending": 0,
+            "source-dimension-mismatch": 0,
+            "empty-crop": 0
+          },
+          "dom_samples": [
+            {
+              "kind": "ready",
+              "elapsedMs": 3,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 0,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 1004,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 1,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 2005,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 2,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 3005,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 3,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 4051,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 4,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 5067,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 5,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 6147,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 6,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            }
+          ],
+          "dom_visibility_values": [
+            "hidden"
+          ],
+          "dom_focus_values": [
+            false
+          ],
+          "max_animation_frames": 0,
+          "css_animation_times": [
+            0
+          ],
+          "max_timer_ticks": 6,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        },
+        "--capture-test+resize": {
+          "result": "PASS",
+          "acquired_frames_final": 12,
+          "capture_window_seconds": null,
+          "minimum_frames_per_expected_size": 5,
+          "last_host_sample": {
+            "elapsed_seconds": 14.0,
+            "acquired_frames": 9,
+            "complete": 9,
+            "idle": 803,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_sample_count": 15,
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": null,
+          "pre_import_final": null,
+          "dom_samples": [
+            {
+              "kind": "ready",
+              "elapsedMs": 3,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 0,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 1004,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 1,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 2014,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 2,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 3014,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 3,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 4087,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 4,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 5170,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 5,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 6266,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 6,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 9064,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 7,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "resize",
+              "elapsedMs": 9064,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                640,
+                800,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 7,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 10714,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                640,
+                800,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 8,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 12672,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                640,
+                800,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 9,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "resize",
+              "elapsedMs": 13064,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                384,
+                600,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 9,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 14673,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                384,
+                600,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 10,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 16714,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                384,
+                600,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 11,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            }
+          ],
+          "dom_visibility_values": [
+            "hidden"
+          ],
+          "dom_focus_values": [
+            false
+          ],
+          "max_animation_frames": 0,
+          "css_animation_times": [
+            0
+          ],
+          "max_timer_ticks": 11,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        }
+      }
+    },
+    "foreground-ordinary": {
+      "step_conclusion": "failure",
+      "exit_code": 1,
+      "passed": 9,
+      "total": 10,
+      "failed": 1,
+      "activation_attempts": [
+        {
+          "pid": 96069,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--scripted",
+          "activation_exit": 0
+        },
+        {
+          "pid": 96149,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--browser-test",
+          "activation_exit": 0
+        },
+        {
+          "pid": 96176,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--interaction-state-test",
+          "activation_exit": 0
+        },
+        {
+          "pid": 96207,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--pointer-input-test",
+          "activation_exit": 0
+        },
+        {
+          "pid": 96235,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--incognito-test",
+          "activation_exit": 0
+        },
+        {
+          "pid": 96253,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--download-test",
+          "activation_exit": 0
+        },
+        {
+          "pid": 96357,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--profile-test",
+          "activation_exit": 0
+        },
+        {
+          "pid": 96375,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--two-tabs",
+          "activation_exit": 0
+        },
+        {
+          "pid": 96496,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--capture-test",
+          "activation_exit": 0
+        },
+        {
+          "pid": 96962,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--capture-test+resize",
+          "activation_exit": 0
+        }
+      ],
+      "capture_modes": {
+        "--capture-test": {
+          "result": "FAIL",
+          "acquired_frames_final": 3,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 5,
+          "last_host_sample": {
+            "elapsed_seconds": 29.0,
+            "acquired_frames": 3,
+            "complete": 3,
+            "idle": 1681,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_sample_count": 30,
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": {
+            "missing": 0,
+            "complete": 3,
+            "idle": 1739,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "pre_import_final": {
+            "no-latest-sample": 567629,
+            "no-image-payload": 1739,
+            "config-revision-pending": 0,
+            "source-dimension-mismatch": 0,
+            "empty-crop": 0
+          },
+          "dom_samples": [],
+          "dom_visibility_values": [],
+          "dom_focus_values": [],
+          "max_animation_frames": null,
+          "css_animation_times": [],
+          "max_timer_ticks": null,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        },
+        "--capture-test+resize": {
+          "result": "PASS",
+          "acquired_frames_final": 14,
+          "capture_window_seconds": null,
+          "minimum_frames_per_expected_size": 5,
+          "last_host_sample": {
+            "elapsed_seconds": 14.0,
+            "acquired_frames": 11,
+            "complete": 13,
+            "idle": 801,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_sample_count": 15,
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": null,
+          "pre_import_final": null,
+          "dom_samples": [],
+          "dom_visibility_values": [],
+          "dom_focus_values": [],
+          "max_animation_frames": null,
+          "css_animation_times": [],
+          "max_timer_ticks": null,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        }
+      }
+    },
+    "foreground-activity": {
+      "step_conclusion": "failure",
+      "exit_code": 1,
+      "passed": 1,
+      "total": 2,
+      "failed": 1,
+      "activation_attempts": [
+        {
+          "pid": 97251,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--capture-test",
+          "activation_exit": 0
+        },
+        {
+          "pid": 97721,
+          "app": "/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app",
+          "mode": "--capture-test+resize",
+          "activation_exit": 0
+        }
+      ],
+      "capture_modes": {
+        "--capture-test": {
+          "result": "FAIL",
+          "acquired_frames_final": 3,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 5,
+          "last_host_sample": {
+            "elapsed_seconds": 29.0,
+            "acquired_frames": 3,
+            "complete": 3,
+            "idle": 1684,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_sample_count": 30,
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": {
+            "missing": 0,
+            "complete": 3,
+            "idle": 1742,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "pre_import_final": {
+            "no-latest-sample": 550288,
+            "no-image-payload": 1742,
+            "config-revision-pending": 0,
+            "source-dimension-mismatch": 0,
+            "empty-crop": 0
+          },
+          "dom_samples": [
+            {
+              "kind": "ready",
+              "elapsedMs": 3,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 0,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 1003,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 1,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 2004,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 2,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 3004,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 3,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 4103,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 4,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 5103,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 5,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 6202,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 6,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            }
+          ],
+          "dom_visibility_values": [
+            "hidden"
+          ],
+          "dom_focus_values": [
+            false
+          ],
+          "max_animation_frames": 0,
+          "css_animation_times": [
+            0
+          ],
+          "max_timer_ticks": 6,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        },
+        "--capture-test+resize": {
+          "result": "PASS",
+          "acquired_frames_final": 12,
+          "capture_window_seconds": null,
+          "minimum_frames_per_expected_size": 5,
+          "last_host_sample": {
+            "elapsed_seconds": 14.01,
+            "acquired_frames": 9,
+            "complete": 9,
+            "idle": 804,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_sample_count": 15,
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": null,
+          "pre_import_final": null,
+          "dom_samples": [
+            {
+              "kind": "ready",
+              "elapsedMs": 3,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 0,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 1004,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 1,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 2024,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 2,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 3024,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 3,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 4124,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 4,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 5224,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 5,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 6243,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 6,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 9038,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                768,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 7,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "resize",
+              "elapsedMs": 9039,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                640,
+                800,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 7,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 10974,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                640,
+                800,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 8,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 13029,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                640,
+                800,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 9,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "resize",
+              "elapsedMs": 13037,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                384,
+                600,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 9,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 15029,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                384,
+                600,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 10,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "timer",
+              "elapsedMs": 17024,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                384,
+                600,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 11,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            },
+            {
+              "kind": "resize",
+              "elapsedMs": 17037,
+              "visibility": "hidden",
+              "focused": false,
+              "viewport": [
+                512,
+                700,
+                2
+              ],
+              "animationFrames": 0,
+              "timerTicks": 11,
+              "background": "rgb(23, 97, 181)",
+              "animations": [
+                {
+                  "state": "running",
+                  "currentTime": 0
+                }
+              ]
+            }
+          ],
+          "dom_visibility_values": [
+            "hidden"
+          ],
+          "dom_focus_values": [
+            false
+          ],
+          "max_animation_frames": 0,
+          "css_animation_times": [
+            0
+          ],
+          "max_timer_ticks": 11,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        }
+      }
+    }
+  },
+  "executable_sha256_records": {
+    "activity-app-executable.sha256": "8d847e88752e58df2945f7a43b549527c73f988b399e8d808d725a728ab4934c",
+    "activity-executable.sha256": "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721",
+    "foreground-activity-app-executable.sha256": "8d847e88752e58df2945f7a43b549527c73f988b399e8d808d725a728ab4934c",
+    "foreground-activity-executable.sha256": "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721",
+    "foreground-ordinary-app-executable.sha256": "8d847e88752e58df2945f7a43b549527c73f988b399e8d808d725a728ab4934c",
+    "foreground-ordinary-executable.sha256": "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721",
+    "ordinary-app-executable.sha256": "8d847e88752e58df2945f7a43b549527c73f988b399e8d808d725a728ab4934c",
+    "ordinary-executable.sha256": "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721",
+    "pre-battery-executable.sha256": "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721"
+  },
+  "signing_records": {
+    "activity-signing.txt": "Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac\ndesignated => identifier \"org.merely.scry.hardware-demo\"\n",
+    "foreground-activity-signing.txt": "Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac\ndesignated => identifier \"org.merely.scry.hardware-demo\"\n",
+    "foreground-ordinary-signing.txt": "Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac\ndesignated => identifier \"org.merely.scry.hardware-demo\"\n",
+    "ordinary-signing.txt": "Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac\ndesignated => identifier \"org.merely.scry.hardware-demo\"\n"
+  },
+  "checkout_and_helper_identity": "workflow=0e491151d6943d04959fe0ad31477602806ed9df\nhelper=e8ffee2d6b680154cae645d54a340116f08acb5d\nscry_fixture=4d8d1d3f8dd450b712960c90b74263a45b46e35b\nrustc 1.97.1 (8bab26f4f 2026-07-14)\ncargo 1.97.1 (c980f4866 2026-06-30)\n9980f707d2c10ec05b3b32562aa1bfff32ac6b1e6ac07c150d37ab1d7111495a  .registry-proof-helper/scripts/stage_registry_triplet.py\n5178c3b783b4306de37660c74a235af3d35a391f1757189728c5862248f2bc4d  .registry-proof-helper/scripts/verify_registry_triplet.py\n",
+  "staging_source": {
+    "fixture_source_sha": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+    "helper_sha256": "9980f707d2c10ec05b3b32562aa1bfff32ac6b1e6ac07c150d37ab1d7111495a",
+    "helper_source_sha": "e8ffee2d6b680154cae645d54a340116f08acb5d",
+    "kind": "scry-mac",
+    "workflow_source_sha": "0e491151d6943d04959fe0ad31477602806ed9df"
+  },
+  "registry_package_identity": [
+    {
+      "name": "grafting",
+      "version": "0.6.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_sha256": "ed0c37f7763a82274f6221d88d60f14765e9e9a9929908c3398c70ad811ce74a",
+      "cargo_vcs_info": {
+        "git": {
+          "sha1": "816f3e7857afee863200e1c25b300c43b1532aae"
+        },
+        "path_in_vcs": "grafting"
+      }
+    },
+    {
+      "name": "scrying",
+      "version": "0.7.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_sha256": "cb5dd6e6be57a2304e9a35b0e42467e9e112feb848175eaff224134c06c791f8",
+      "cargo_vcs_info": {
+        "git": {
+          "sha1": "4d8d1d3f8dd450b712960c90b74263a45b46e35b"
+        },
+        "path_in_vcs": "scrying"
+      }
+    },
+    {
+      "name": "welding",
+      "version": "0.14.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_sha256": "406ced71f799f1356867ec1d20d6cd736a2a63204a0b67236c5a62de94b1a9e2",
+      "cargo_vcs_info": {
+        "git": {
+          "sha1": "c7b7b4c52138643e22580a918542e8e036a0b24a"
+        },
+        "path_in_vcs": "welding"
+      }
+    }
+  ],
+  "non_workspace_non_registry_packages": [],
+  "normal_tree_wgpu_versions": [
+    "30.0.1"
+  ],
+  "copied_source_identity": {
+    "main.rs": {
+      "byte_equal_git": true,
+      "sha256": "f2953667b2edaef4f511fdb8b534fd1841982f5bbec9393b0c2ea768dd273f97"
+    },
+    "render.rs": {
+      "byte_equal_git": true,
+      "sha256": "dd78907ce7f98a901c9ff7a0a1efa19fe1cf572c21c7b519b1d9c78cbb59c1b2"
+    }
+  },
+  "original_script_equals_immutable_fixture_with_only_standalone_build_rewrite": true,
+  "generated_script_identity": {
+    "original_sha256": "57f0eccb5916ad3ec2afea4fe68deb31eb11c2f2452b06568b8fc5e8e7d421a2",
+    "foreground_sha256": "7deb5cbb47eed301e14d1871f9dfe94eba975e01985f334d0632c05e61afbd00",
+    "rewrite_counts": {
+      "per_mode_reset": 1,
+      "owned_bundle_observation": 1
+    },
+    "activation_policy": "one open -a after the first observed still-live owned bundle PID per mode"
+  },
+  "archive_entries": {
+    "activity-app-executable.sha256": {
+      "bytes": 169,
+      "sha256": "bdd88a468d5320bc866e73d2fa31315586dd2b44e0509fc3b90b1dc1733c86a0"
+    },
+    "activity-executable.sha256": {
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    "activity-signing.txt": {
+      "bytes": 171,
+      "sha256": "00dcda476c0fd67898fa233151fc94bd38bffd0acf208ffa61682b638a14963b"
+    },
+    "activity-exit-code.txt": {
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "activity.log": {
+      "bytes": 13145,
+      "sha256": "a0ea0862b7c18e2590afde5bd53227e9720364fcff119c374f939a0aab101889"
+    },
+    "checkout-and-helper-identity.txt": {
+      "bytes": 471,
+      "sha256": "e29f7e68e335baf5800c5b89bbc9971668852c07b39cee446cf584766f850d96"
+    },
+    "consumer/Cargo.lock": {
+      "bytes": 93263,
+      "sha256": "b2f51457f6fde9ed36455e27f799dd8a850ce0f95f1375b9a18a1c08461cf946"
+    },
+    "consumer/Cargo.toml": {
+      "bytes": 601,
+      "sha256": "7acc2f0757b1e6134aeff338c964954b1648e725e5a7c600c251c60ce5c3e8dd"
+    },
+    "consumer/scripts/test-mac-foreground-control.sh": {
+      "bytes": 10505,
+      "sha256": "7deb5cbb47eed301e14d1871f9dfe94eba975e01985f334d0632c05e61afbd00"
+    },
+    "consumer/scripts/test-mac.sh": {
+      "bytes": 9762,
+      "sha256": "57f0eccb5916ad3ec2afea4fe68deb31eb11c2f2452b06568b8fc5e8e7d421a2"
+    },
+    "consumer/src/main.rs": {
+      "bytes": 175741,
+      "sha256": "f2953667b2edaef4f511fdb8b534fd1841982f5bbec9393b0c2ea768dd273f97"
+    },
+    "consumer/src/render.rs": {
+      "bytes": 23739,
+      "sha256": "dd78907ce7f98a901c9ff7a0a1efa19fe1cf572c21c7b519b1d9c78cbb59c1b2"
+    },
+    "consumer/staging-source.json": {
+      "bytes": 316,
+      "sha256": "2c3c91738a00699a3476dbb4434870c79474a251075e9e489484e33e56f9a80c"
+    },
+    "foreground-activity-app-executable.sha256": {
+      "bytes": 169,
+      "sha256": "bdd88a468d5320bc866e73d2fa31315586dd2b44e0509fc3b90b1dc1733c86a0"
+    },
+    "foreground-activity-executable.sha256": {
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    "foreground-activity-exit-code.txt": {
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "foreground-activity-signing.txt": {
+      "bytes": 171,
+      "sha256": "00dcda476c0fd67898fa233151fc94bd38bffd0acf208ffa61682b638a14963b"
+    },
+    "foreground-activity.log": {
+      "bytes": 13762,
+      "sha256": "6840ee9c72465263fff512f29eb1db1c1eb9b091197f1883b433613b58bf0657"
+    },
+    "foreground-ordinary-app-executable.sha256": {
+      "bytes": 169,
+      "sha256": "bdd88a468d5320bc866e73d2fa31315586dd2b44e0509fc3b90b1dc1733c86a0"
+    },
+    "foreground-ordinary-executable.sha256": {
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    "foreground-ordinary-signing.txt": {
+      "bytes": 171,
+      "sha256": "00dcda476c0fd67898fa233151fc94bd38bffd0acf208ffa61682b638a14963b"
+    },
+    "foreground-ordinary-exit-code.txt": {
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "foreground-ordinary.log": {
+      "bytes": 69590,
+      "sha256": "bda1053c13f7e4106a072327d8e41b4e7e2876cccc4c004b42b957298087384c"
+    },
+    "foreground-script-identity.json": {
+      "bytes": 369,
+      "sha256": "05e3b6febb5a1886618a9e7629c6aeeb3c6ce9ca6d81d317c261660a19e423d8"
+    },
+    "foreground-script.patch": {
+      "bytes": 1287,
+      "sha256": "b64cef8a105393396b9e92fd5f0ff99bcd091013ceb9ffe90cc6dc7253d9f1bb"
+    },
+    "ordinary-app-executable.sha256": {
+      "bytes": 169,
+      "sha256": "bdd88a468d5320bc866e73d2fa31315586dd2b44e0509fc3b90b1dc1733c86a0"
+    },
+    "ordinary-executable.sha256": {
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    "ordinary-exit-code.txt": {
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "ordinary-signing.txt": {
+      "bytes": 171,
+      "sha256": "00dcda476c0fd67898fa233151fc94bd38bffd0acf208ffa61682b638a14963b"
+    },
+    "ordinary.log": {
+      "bytes": 67772,
+      "sha256": "04a16cedcd0ab5c8bc2199194254e11689407c1b0ec1c6a434adb737d763817d"
+    },
+    "pre-battery-executable.sha256": {
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    "registry/Cargo.lock": {
+      "bytes": 93263,
+      "sha256": "b2f51457f6fde9ed36455e27f799dd8a850ce0f95f1375b9a18a1c08461cf946"
+    },
+    "registry/allowed-non-registry.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "registry/cargo-tree.txt": {
+      "bytes": 42438,
+      "sha256": "90042b0213953403fe2b21ad0dfe494587372af0f48cae7e91ecab6a5010dbcb"
+    },
+    "registry/metadata.json": {
+      "bytes": 2013609,
+      "sha256": "067a9169d3f207c61c6706b7286b981f95cb39033158d5cbd3590db6cee70b4f"
+    },
+    "registry/release-inputs.json": {
+      "bytes": 343,
+      "sha256": "57c424a7bed7f92d54d39335a7a4af1f39c9320a5539918dc437ae7c8d9d7c5a"
+    },
+    "registry-package-identity.json": {
+      "bytes": 1092,
+      "sha256": "c64d6fe900a815aa6fdba3ba9a813795c48ae709c4d93be649cfe755e46cd962"
+    }
+  },
+  "limitations": [
+    "No final custody received/consumed counters were printed; null is unknown, not zero.",
+    "Resize final Complete/Idle counts are not printed; last periodic samples are not final counts.",
+    "Activation command exit0 did not yield observed hostfocus or pagevisibility; no session/driver/library cause established.",
+    "Prior Windows-generated in-memory preview has one mojibake punctuation difference in a comment due subprocess default decoding; actual native scripts match UTF8 immutable source/rewrite and their actual hashes are recorded here."
+  ],
+  "proposed_next_read_only_diagnostic": "Observe console session and WindowServer ownership/runner UID/session, and the exact owned bundle activation/running state before and after the one-shot control; redact usernames/session identifiers beyond bounded classification. Do not infer unlocked state or change library until actual observations."
+}
