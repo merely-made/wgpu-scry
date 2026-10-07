@@ -1,0 +1,76 @@
+{
+  "source_sha": "2c3ebd24118851cf6125cfb193f55aab20e3ad67",
+  "lock_sha256": "31991a399e060af8a5adabd151a63bc5a5e0eb3c98bae3f56cb50b5a0d8b70f0",
+  "lock_equal_published_source_git": true,
+  "selected_registry_packages": [
+    {
+      "name": "grafting",
+      "version": "0.6.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "384d9d63669dd2b92a2433f2d0f36c7e8b775865b673deeb9ca34d7e631d4be1"
+    },
+    {
+      "name": "image",
+      "version": "0.25.10",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "85ab80394333c02fe689eaf900ab500fbd0c2213da414687ebf995a65d5a6104"
+    },
+    {
+      "name": "scrying",
+      "version": "0.7.1"
+    },
+    {
+      "name": "webview2-com",
+      "version": "0.39.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "3f89fca7a704cee10dcb3654c1dbb8941d1783132f1917358af75bec37a7d7e6"
+    },
+    {
+      "name": "wgpu",
+      "version": "28.0.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "f9cb534d5ffd109c7d1135f34cdae29e60eab94855a625dcfe1705f8bc7ad79f"
+    },
+    {
+      "name": "wgpu",
+      "version": "29.0.4",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "76e8840e1ba2881d4cbb18d2147627a56af426ff064c0401eb0c8410c6325d07"
+    },
+    {
+      "name": "wgpu",
+      "version": "30.0.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "527ccdf43dd5b2e8676eed9984ce00e2bbb0a1b85b70c1969dcb6cd2eb55ab9e"
+    },
+    {
+      "name": "wgpu-hal",
+      "version": "28.0.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "44d6cb474beb218824dcc9e1ce679d973f719262789bfb27407da560cac20eeb"
+    },
+    {
+      "name": "wgpu-hal",
+      "version": "29.0.4",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "97ace1c17727311c22a46e4e3faf56ea6de81af99dcc839bdfb54857b94d448d"
+    },
+    {
+      "name": "wgpu-hal",
+      "version": "30.0.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "b6b7fb58561a792bc237628ba0792e332de418fefe145f13b5ed8201e6d52f58"
+    },
+    {
+      "name": "windows",
+      "version": "0.62.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "527fadee13e0c05939a6a05d5bd6eec6cd2e3dbd648b9f8e447c6518133d8580"
+    }
+  ],
+  "cargo_or_rust_environment_knobs": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1"
+  },
+  "platform_claim": "InstalledWindowsnativebindings; Linux/Macoptional graph membership not platformbuild acceptance"
+}

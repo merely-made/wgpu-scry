@@ -1,0 +1,22 @@
+ Downloading crates ...
+  Downloaded wgpu-core-deps-windows-linux-android v29.0.4
+  Downloaded wgpu-naga-bridge v29.0.4
+  Downloaded wgpu v29.0.4
+  Downloaded wgpu-types v29.0.4
+  Downloaded wgpu-core v29.0.4
+  Downloaded wgpu-hal v29.0.4
+   Compiling naga v29.0.4
+    Checking bit-vec v0.9.1
+    Checking bit-set v0.9.1
+    Checking codespan-reporting v0.13.1
+    Checking spirv v0.4.0+sdk-1.4.341.0
+    Checking wgpu-types v29.0.4
+   Compiling wgpu-hal v29.0.4
+    Checking wgpu-naga-bridge v29.0.4
+    Checking glow v0.17.0
+   Compiling wgpu-core v29.0.4
+    Checking wgpu-core-deps-windows-linux-android v29.0.4
+   Compiling wgpu v29.0.4
+   Compiling grafting v0.6.0
+   Compiling scrying v0.7.1 (C:\Users\mark_\Code\worktrees\wgpu-scry-release\scrying)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 21.00s

@@ -1,0 +1,744 @@
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	﻿2026-09-04T20:17:10.3103549Z Current runner version: '2.337.0'
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3126604Z ##[group]Runner Image Provisioner
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3127344Z Hosted Compute Agent
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3127812Z Version: 20260819.586
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3128325Z Commit: 3cc4a88dfa507ef76119ad1bb3eccc6378bb2b76
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3128913Z Build Date: 2026-08-18T23:20:18Z
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3129466Z Worker ID: {9e097d36-d5d2-411f-bbae-dbf72457fa22}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3130032Z Azure Region: centralus
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3130471Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3131488Z ##[group]Operating System
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3131981Z Microsoft Windows Server 2025
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3132591Z 10.0.26100
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3133002Z Datacenter
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3133407Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3133855Z ##[group]Runner Image
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3134324Z Image: windows-2025-vs2026
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3134787Z Version: 20260824.214.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3136023Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20260824.214/images/windows/Windows2025-VS2026-Readme.md
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3137571Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20260824.214
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3138394Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3139254Z ##[group]GITHUB_TOKEN Permissions
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3140951Z Contents: read
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3141395Z Metadata: read
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3141835Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3144128Z Secret source: Actions
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3145096Z Prepare workflow directory
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3613269Z Prepare all required actions
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.3675671Z Getting action download info
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.5781373Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.7339683Z Download action repository 'dtolnay/rust-toolchain@master' (SHA:d1031067263f94b142dd6c0ce24c5eb9d02d52a0)
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.9993502Z Uses: merely-made/.github/.github/workflows/wgpu-msrv.yml@refs/heads/main (c994b3f4ce9745fea417543d137dd6accb71e1c4)
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.9997953Z ##[group] Inputs
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.9998444Z   crate: scrying
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.9998903Z   toolchain: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:10.9999427Z   os: ["ubuntu-latest", "macos-latest", "windows-latest"]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.0000058Z   wgpu-versions: ["wgpu-28", "wgpu-29", "wgpu-30"]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.0000900Z   run-library: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.0001417Z   lib-args: --lib --no-default-features
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.0001946Z   test-row: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.0002353Z   rustflags: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.0002747Z   extra-check: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.0003202Z   extra-check-name: extra graph
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.0003693Z   linux-apt-packages: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.0004505Z   timeout-minutes: 45
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.0004965Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.0005519Z Complete job name: platform-api / Rust 1.92.0 / windows-latest / wgpu-30
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1379652Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1387747Z ##[group]Run actions/checkout@v4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1388349Z with:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1388770Z   repository: merely-made/wgpu-scry
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1392074Z   token: ***
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1392496Z   ssh-strict: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1392950Z   ssh-user: git
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1393383Z   persist-credentials: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1393866Z   clean: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1394291Z   sparse-checkout-cone-mode: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1394774Z   fetch-depth: 1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1395165Z   fetch-tags: false
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1396416Z   show-progress: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1396845Z   lfs: false
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1397368Z   submodules: false
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1397820Z   set-safe-directory: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1399680Z   allow-unsafe-pr-checkout: false
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1400583Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1401007Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1401495Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1401975Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1402400Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.1402852Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.7606735Z Syncing repository: merely-made/wgpu-scry
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.7610139Z ##[group]Getting Git version info
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:11.7611518Z Working directory is 'D:\a\wgpu-scry\wgpu-scry'
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:12.5280915Z [command]"C:\Program Files\Git\bin\git.exe" version
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.0175107Z git version 2.55.0.windows.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.0216020Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.0234842Z Temporarily overriding HOME='D:\a\_temp\1c42365d-b2de-4b4c-b72e-d2d808f12049' before making global git config changes
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.0236084Z Adding repository directory to the temporary git global config as a safe directory
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.0244289Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wgpu-scry\wgpu-scry
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.0845608Z Deleting the contents of 'D:\a\wgpu-scry\wgpu-scry'
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.0851650Z ##[group]Initializing the repository
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.0859674Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\wgpu-scry\wgpu-scry
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.2005015Z Initialized empty Git repository in D:/a/wgpu-scry/wgpu-scry/.git/
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.2052689Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/merely-made/wgpu-scry
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.2615263Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.2616072Z ##[group]Disabling automatic garbage collection
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.2624156Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.2882319Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.2882952Z ##[group]Setting up auth
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.2893707Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:13.3159913Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:14.9217295Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:14.9486970Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:15.4546019Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:15.4844913Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:15.9743703Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:16.0019711Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:16.0020578Z ##[group]Fetching the repository
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:16.0031372Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8386502915e6bad0f9d9d13cc17bb7d4bbaa769a:refs/tags/scrying-v0.7.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.1262789Z From https://github.com/merely-made/wgpu-scry
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.1263543Z  * [new ref]         8386502915e6bad0f9d9d13cc17bb7d4bbaa769a -> scrying-v0.7.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.1310178Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.1311095Z ##[group]Determining the checkout info
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.1312907Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.1322533Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.1748519Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.2017758Z ##[group]Checking out the ref
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.2026444Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force refs/tags/scrying-v0.7.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3163627Z Note: switching to 'refs/tags/scrying-v0.7.1'.
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3164245Z 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3164544Z You are in 'detached HEAD' state. You can look around, make experimental
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3165280Z changes and commit them, and you can discard any commits you make in this
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3166033Z state without impacting any branches by switching back to a branch.
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3166316Z 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3167082Z If you want to create a new branch to retain commits you create, you may
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3167720Z do so (now or later) by using -c with the switch command. Example:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3168033Z 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3168373Z   git switch -c <new-branch-name>
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3168616Z 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3168764Z Or undo this operation with:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3168982Z 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3169208Z   git switch -
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3169421Z 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3169635Z Turn off this advice by setting config variable advice.detachedHead to false
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3169953Z 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3170127Z HEAD is now at 8386502 Fix WPE script result pointer free
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3275096Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3618643Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.3853065Z 8386502915e6bad0f9d9d13cc17bb7d4bbaa769a
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.4283184Z ##[group]Run git config --global core.longpaths true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.4283896Z [36;1mgit config --global core.longpaths true[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.6042332Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.6042703Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.6042995Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.6043377Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.6043717Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.6044042Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:17.6044363Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1073725Z ##[group]Run dtolnay/rust-toolchain@master
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1074176Z with:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1074468Z   toolchain: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1074723Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1074951Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1075253Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1075541Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1075799Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1076099Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1140079Z ##[start-action display=Parse toolchain version;id=__dtolnay_rust-toolchain.parse]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1284969Z ##[group]Run if [[ -z $toolchain ]]; then
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1285384Z [36;1mif [[ -z $toolchain ]]; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1285894Z [36;1m  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1286415Z [36;1m  echo "'toolchain' is a required input" >&2[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1286742Z [36;1m  exit 1[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1287323Z [36;1melif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1287732Z [36;1m  if [[ Windows == macOS ]]; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1288225Z [36;1m    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1288694Z [36;1m  else[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1289114Z [36;1m    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1289548Z [36;1m  fi[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1289862Z [36;1melif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1290357Z [36;1m  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1290791Z [36;1melif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1291388Z [36;1m  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1291863Z [36;1melse[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1292192Z [36;1m  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1292510Z [36;1mfi[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1307663Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1308065Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1308343Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1308685Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1309229Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1309500Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1309771Z   toolchain: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.1310028Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.2911264Z ##[end-action id=__dtolnay_rust-toolchain.parse;outcome=success;conclusion=success;duration_ms=177]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.2923468Z ##[start-action display=Construct rustup command line;id=__dtolnay_rust-toolchain.flags]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3041956Z ##[group]Run echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3042574Z [36;1mecho "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3043122Z [36;1mecho "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3043560Z [36;1mecho "downgrade=" >> $GITHUB_OUTPUT[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3053772Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3054241Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3054532Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3054857Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3055136Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3055403Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3055669Z   targets: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3055919Z   components: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3056175Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3635548Z ##[end-action id=__dtolnay_rust-toolchain.flags;outcome=success;conclusion=success;duration_ms=70]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3638420Z ##[start-action display=Set $CARGO_HOME;id=__dtolnay_rust-toolchain.__run]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3754240Z ##[group]Run echo CARGO_HOME=${CARGO_HOME:-"$USERPROFILE\.cargo"} >> $GITHUB_ENV
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3754740Z [36;1mecho CARGO_HOME=${CARGO_HOME:-"$USERPROFILE\.cargo"} >> $GITHUB_ENV[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3764620Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3764995Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3765270Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3765550Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3765823Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3766180Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.3766446Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4122026Z ##[end-action id=__dtolnay_rust-toolchain.__run;outcome=success;conclusion=success;duration_ms=48]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4124754Z ##[start-action display=Install rustup if needed;id=__dtolnay_rust-toolchain.__run_2]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4133918Z ##[end-action id=__dtolnay_rust-toolchain.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4136275Z ##[start-action display=Install rustup if needed on windows;id=__dtolnay_rust-toolchain.__run_3]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4255166Z ##[group]Run if ! command -v rustup &>/dev/null; then
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4255579Z [36;1mif ! command -v rustup &>/dev/null; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4256254Z [36;1m  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://win.rustup.rs/x86_64 --output 'D:\a\_temp\rustup-init.exe'[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4257035Z [36;1m  'D:\a\_temp\rustup-init.exe' --default-toolchain none --no-modify-path -y[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4257459Z [36;1m  echo "$CARGO_HOME\bin" >> $GITHUB_PATH[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4257743Z [36;1mfi[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4267692Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4268251Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4268509Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4268813Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4269101Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4269358Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4269641Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4269919Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4714066Z ##[end-action id=__dtolnay_rust-toolchain.__run_3;outcome=success;conclusion=success;duration_ms=57]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4727543Z ##[start-action display=rustup toolchain install 1.92.0;id=__dtolnay_rust-toolchain.__run_4]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4849820Z ##[group]Run rustup toolchain install 1.92.0 --profile minimal --no-self-update
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4850330Z [36;1mrustup toolchain install 1.92.0 --profile minimal --no-self-update[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4861236Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4861640Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4861897Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4862185Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4862455Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4862730Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4863013Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4863309Z   RUSTUP_PERMIT_COPY_RENAME: 1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:18.4863591Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:19.1869186Z info: syncing channel updates for 1.92.0-x86_64-pc-windows-msvc
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:20.0394945Z info: latest update on 2025-12-11 for version 1.92.0 (ded5c06cf 2025-12-08)
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:20.0494862Z info: downloading 3 components
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4209801Z 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4507584Z   1.92.0-x86_64-pc-windows-msvc installed - rustc 1.92.0 (ded5c06cf 2025-12-08)
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4508742Z 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4607503Z ##[end-action id=__dtolnay_rust-toolchain.__run_4;outcome=success;conclusion=success;duration_ms=10988]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4613107Z ##[start-action display=rustup default 1.92.0;id=__dtolnay_rust-toolchain.__run_5]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4729070Z ##[group]Run rustup default 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4729523Z [36;1mrustup default 1.92.0[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4739566Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4739968Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4740236Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4740554Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4740825Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4741083Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4741365Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.4741663Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5354406Z info: using existing install for 1.92.0-x86_64-pc-windows-msvc
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5395508Z info: default toolchain set to 1.92.0-x86_64-pc-windows-msvc
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5395838Z 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5587764Z info: note that the toolchain '1.92.0-x86_64-pc-windows-msvc' is currently in use (overridden by environment variable RUSTUP_TOOLCHAIN)
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5588642Z   1.92.0-x86_64-pc-windows-msvc unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5589000Z 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5664990Z ##[end-action id=__dtolnay_rust-toolchain.__run_5;outcome=success;conclusion=success;duration_ms=105]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5667854Z ##[start-action display=Create cachekey;id=__dtolnay_rust-toolchain.rustc-version]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5781615Z ##[group]Run DATE=$(rustc +1.92.0 --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5782376Z [36;1mDATE=$(rustc +1.92.0 --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5782924Z [36;1mHASH=$(rustc +1.92.0 --version --verbose | sed -ne 's/^commit-hash: //p')[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5783407Z [36;1mecho "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5793835Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5794237Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5794505Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5794789Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5795077Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5795325Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5795592Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:29.5796389Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.3885889Z ##[end-action id=__dtolnay_rust-toolchain.rustc-version;outcome=success;conclusion=success;duration_ms=821]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.3888913Z ##[start-action display=Disable incremental compilation;id=__dtolnay_rust-toolchain.__run_6]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4004740Z ##[group]Run if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4005163Z [36;1mif [ -z "${CARGO_INCREMENTAL+set}" ]; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4005573Z [36;1m  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4005902Z [36;1mfi[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4016036Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4016452Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4016747Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4017042Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4017329Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4017609Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4017908Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4018275Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4382136Z ##[end-action id=__dtolnay_rust-toolchain.__run_6;outcome=success;conclusion=success;duration_ms=49]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4384772Z ##[start-action display=Enable colors in Cargo output;id=__dtolnay_rust-toolchain.__run_7]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4491888Z ##[group]Run if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4492288Z [36;1mif [ -z "${CARGO_TERM_COLOR+set}" ]; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4492690Z [36;1m  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4493004Z [36;1mfi[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4503363Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4503799Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4504086Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4504376Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4504660Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4504890Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4505187Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4505481Z   CARGO_INCREMENTAL: 0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4505724Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4860578Z ##[end-action id=__dtolnay_rust-toolchain.__run_7;outcome=success;conclusion=success;duration_ms=47]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4863229Z ##[start-action display=Enable Cargo sparse registry;id=__dtolnay_rust-toolchain.__run_8]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4978210Z ##[group]Run # implemented in 1.66, stabilized in 1.68, made default in 1.70
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4978785Z [36;1m# implemented in 1.66, stabilized in 1.68, made default in 1.70[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4979427Z [36;1mif [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "D:\a\_temp"/.implicit_cargo_registries_crates_io_protocol ]; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4980023Z [36;1m  if rustc +1.92.0 --version --verbose | grep -q '^release: 1\.6[89]\.'; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4980529Z [36;1m    touch "D:\a\_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4981000Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4981512Z [36;1m  elif rustc +1.92.0 --version --verbose | grep -q '^release: 1\.6[67]\.'; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4981992Z [36;1m    touch "D:\a\_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4982429Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4982801Z [36;1m  fi[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4983046Z [36;1mfi[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4993094Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4993697Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4993965Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4994257Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4994544Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4994779Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4995145Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4995892Z   CARGO_INCREMENTAL: 0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.4996220Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6742469Z ##[end-action id=__dtolnay_rust-toolchain.__run_8;outcome=success;conclusion=success;duration_ms=187]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6745534Z ##[start-action display=Work around spurious network errors in curl 8.0;id=__dtolnay_rust-toolchain.__run_9]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6867589Z ##[group]Run # https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6868305Z [36;1m# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6868847Z [36;1mif rustc +1.92.0 --version --verbose | grep -q '^release: 1\.7[01]\.'; then[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6869307Z [36;1m  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6869649Z [36;1mfi[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6879104Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6879518Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6879768Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6880035Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6880336Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6880590Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6880862Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6881170Z   CARGO_INCREMENTAL: 0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.6881426Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7851870Z ##[end-action id=__dtolnay_rust-toolchain.__run_9;outcome=success;conclusion=success;duration_ms=110]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7855996Z ##[start-action display=rustc +1.92.0 --version --verbose;id=__dtolnay_rust-toolchain.__run_10]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7974268Z ##[group]Run rustc +1.92.0 --version --verbose
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7975108Z [36;1mrustc +1.92.0 --version --verbose[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7985046Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7985502Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7985738Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7986038Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7986325Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7986603Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7986905Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7987198Z   CARGO_INCREMENTAL: 0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.7987464Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.8855083Z rustc 1.92.0 (ded5c06cf 2025-12-08)
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.8855610Z binary: rustc
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.8856040Z commit-hash: ded5c06cf21d2b93bffd5d884aa6e96934ee4234
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.8856519Z commit-date: 2025-12-08
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.8856878Z host: x86_64-pc-windows-msvc
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.8857251Z release: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.8858681Z LLVM version: 21.1.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.8980365Z ##[end-action id=__dtolnay_rust-toolchain.__run_10;outcome=success;conclusion=success;duration_ms=112]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9139135Z ##[group]Run rustc --version
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9139552Z [36;1mrustc --version[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9140042Z [36;1mrustc --version | grep -q "1.92.0" || {[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9140561Z [36;1m  echo "::error::Expected rustc 1.92.0; rust-toolchain.toml appears to have won."[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9141044Z [36;1m  exit 1[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9141299Z [36;1m}[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9217499Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9217957Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9218212Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9218480Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9218797Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9219052Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9219331Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9219811Z   CARGO_INCREMENTAL: 0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:30.9220070Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.1844713Z rustc 1.92.0 (ded5c06cf 2025-12-08)
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.3303761Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-30
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.3304401Z [36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-30[0m
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.3380147Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.3380566Z env:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.3380832Z   CARGO_TERM_COLOR: always
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.3381117Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.3381416Z   RUSTFLAGS: 
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.3381667Z   RUSTUP_TOOLCHAIN: 1.92.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.3381940Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.3382258Z   CARGO_INCREMENTAL: 0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:31.3382512Z ##[endgroup]
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:32.3182383Z [1m[92m    Updating[0m crates.io index
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.0915539Z [1m[92m Downloading[0m crates ...
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.4062023Z [1m[92m  Downloaded[0m adler2 v2.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.4199301Z [1m[92m  Downloaded[0m allocator-api2 v0.2.21
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.4411837Z [1m[92m  Downloaded[0m glutin_wgl_sys v0.6.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.4504097Z [1m[92m  Downloaded[0m quote v1.0.47
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.4772465Z [1m[92m  Downloaded[0m wgpu-naga-bridge v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.4835442Z [1m[92m  Downloaded[0m winapi-util v0.1.11
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.4956725Z [1m[92m  Downloaded[0m windows-implement v0.60.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.5041052Z [1m[92m  Downloaded[0m windows-threading v0.2.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.5160557Z [1m[92m  Downloaded[0m wio v0.2.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.5288579Z [1m[92m  Downloaded[0m zune-core v0.5.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.5467101Z [1m[92m  Downloaded[0m zune-inflate v0.2.54
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.5653957Z [1m[92m  Downloaded[0m wasm-bindgen v0.2.127
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.5835779Z [1m[92m  Downloaded[0m zune-jpeg v0.5.15
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.6075280Z [1m[92m  Downloaded[0m zerocopy-derive v0.8.56
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.6853673Z [1m[92m  Downloaded[0m raw-cpuid v11.6.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.7076824Z [1m[92m  Downloaded[0m wgpu-types v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.7347268Z [1m[92m  Downloaded[0m moxcms v0.8.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.8115408Z [1m[92m  Downloaded[0m libm v0.2.16
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:35.9753696Z [1m[92m  Downloaded[0m rayon v1.12.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:36.0534678Z [1m[92m  Downloaded[0m glow v0.17.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:36.0684378Z [1m[92m  Downloaded[0m zlib-rs v0.6.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:36.1081515Z [1m[92m  Downloaded[0m unicode-width v0.2.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:36.1240939Z [1m[92m  Downloaded[0m exr v1.74.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:36.2042759Z [1m[92m  Downloaded[0m zerocopy v0.8.56
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:36.3790550Z [1m[92m  Downloaded[0m wgpu v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:36.4999629Z [1m[92m  Downloaded[0m syn v3.0.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:37.3869168Z [1m[92m  Downloaded[0m syn v2.0.119
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:37.8052555Z [1m[92m  Downloaded[0m palette v0.7.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:38.3022331Z [1m[92m  Downloaded[0m wgpu-core v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:38.4994037Z [1m[92m  Downloaded[0m av-scenechange v0.14.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:38.8123671Z [1m[92m  Downloaded[0m ash v0.38.0+1.3.281
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:39.1704842Z [1m[92m  Downloaded[0m image v0.25.10
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:39.2456290Z [1m[92m  Downloaded[0m wgpu-hal v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:39.8721779Z [1m[92m  Downloaded[0m tiff v0.11.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:39.9883105Z [1m[92m  Downloaded[0m serde v1.0.229
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:40.0204738Z [1m[92m  Downloaded[0m pulp v0.22.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:40.0477727Z [1m[92m  Downloaded[0m itertools v0.14.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:40.2134009Z [1m[92m  Downloaded[0m khronos_api v3.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:40.3099564Z [1m[92m  Downloaded[0m hashbrown v0.17.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:40.3433421Z [1m[92m  Downloaded[0m xml-rs v0.8.29
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:40.3680311Z [1m[92m  Downloaded[0m wasm-bindgen-macro-support v0.2.127
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:40.3790298Z [1m[92m  Downloaded[0m serde_core v1.0.229
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:40.3967301Z [1m[92m  Downloaded[0m rayon-core v1.13.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:40.4396996Z [1m[92m  Downloaded[0m qoi v0.4.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:40.4655645Z [1m[92m  Downloaded[0m nom v8.0.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:41.9977830Z [1m[92m  Downloaded[0m hashbrown v0.16.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:42.0614802Z [1m[92m  Downloaded[0m serde_derive v1.0.229
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:42.0881197Z [1m[92m  Downloaded[0m png v0.18.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:42.1273032Z [1m[92m  Downloaded[0m num-bigint v0.4.8
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:42.2124875Z [1m[92m  Downloaded[0m indexmap v2.14.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:42.2420237Z [1m[92m  Downloaded[0m weezl v0.1.12
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:42.2603086Z [1m[92m  Downloaded[0m naga v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:42.3837117Z [1m[92m  Downloaded[0m libc v0.2.189
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:43.1856176Z [1m[92m  Downloaded[0m windows_x86_64_msvc v0.52.6
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:43.2029179Z [1m[92m  Downloaded[0m pxfm v0.1.30
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:43.3379966Z [1m[92m  Downloaded[0m unicode-ident v1.0.24
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:43.3587149Z [1m[92m  Downloaded[0m spirv v0.4.0+sdk-1.4.341.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:43.4543861Z [1m[92m  Downloaded[0m smallvec v1.15.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:43.9742720Z [1m[92m  Downloaded[0m ravif v0.13.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:43.9806273Z [1m[92m  Downloaded[0m memchr v2.8.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.0092204Z [1m[92m  Downloaded[0m bumpalo v3.20.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.0218745Z [1m[92m  Downloaded[0m bitstream-io v4.10.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.0356120Z [1m[92m  Downloaded[0m y4m v0.8.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.0457066Z [1m[92m  Downloaded[0m windows-result v0.4.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.0541954Z [1m[92m  Downloaded[0m windows-core v0.62.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.0739271Z [1m[92m  Downloaded[0m webview2-com v0.39.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.1116859Z [1m[92m  Downloaded[0m thiserror-impl v2.0.20
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.1216276Z [1m[92m  Downloaded[0m thiserror v2.0.20
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.1673858Z [1m[92m  Downloaded[0m static_assertions v1.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.1772024Z [1m[92m  Downloaded[0m simd-adler32 v0.3.10
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.1926590Z [1m[92m  Downloaded[0m rustversion v1.0.23
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.2114586Z [1m[92m  Downloaded[0m winapi v0.3.9
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.4535782Z [1m[92m  Downloaded[0m rgb v0.8.53
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.4709492Z [1m[92m  Downloaded[0m renderdoc-sys v1.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.4786700Z [1m[92m  Downloaded[0m raw-window-handle v0.6.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.4919892Z [1m[92m  Downloaded[0m miniz_oxide v0.8.9
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.5046391Z [1m[92m  Downloaded[0m image-webp v0.2.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.5182074Z [1m[92m  Downloaded[0m grafting v0.6.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.5383957Z [1m[92m  Downloaded[0m flate2 v1.1.10
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.5740969Z [1m[92m  Downloaded[0m codespan-reporting v0.13.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.6277861Z [1m[92m  Downloaded[0m bytemuck v1.25.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.6477166Z [1m[92m  Downloaded[0m windows-strings v0.5.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.6578402Z [1m[92m  Downloaded[0m windows-link v0.2.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.6637840Z [1m[92m  Downloaded[0m windows-interface v0.59.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.6696314Z [1m[92m  Downloaded[0m windows-future v0.3.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.7255848Z [1m[92m  Downloaded[0m v_frame v0.3.9
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:44.8040504Z [1m[92m  Downloaded[0m rav1e v0.8.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.4083013Z [1m[92m  Downloaded[0m simd_helpers v0.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.4130185Z [1m[92m  Downloaded[0m scopeguard v1.2.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.4221531Z [1m[92m  Downloaded[0m reborrow v0.5.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.4266602Z [1m[92m  Downloaded[0m miniz_oxide v0.9.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.4372905Z [1m[92m  Downloaded[0m litrs v1.0.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.4774597Z [1m[92m  Downloaded[0m half v2.7.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.4904541Z [1m[92m  Downloaded[0m gpu-allocator v0.28.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.5072800Z [1m[92m  Downloaded[0m crossbeam-epoch v0.9.20
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.5429964Z [1m[92m  Downloaded[0m crc32fast v1.5.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.5530796Z [1m[92m  Downloaded[0m built v0.8.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.5693896Z [1m[92m  Downloaded[0m bitflags v2.13.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.6016987Z [1m[92m  Downloaded[0m windows-targets v0.52.6
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.6067075Z [1m[92m  Downloaded[0m windows-numerics v0.3.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.6152238Z [1m[92m  Downloaded[0m wgpu-core-deps-windows-linux-android v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.6219676Z [1m[92m  Downloaded[0m wasm-bindgen-macro v0.2.127
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.6273619Z [1m[92m  Downloaded[0m range-alloc v0.1.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.6330761Z [1m[92m  Downloaded[0m quick-error v2.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.6393796Z [1m[92m  Downloaded[0m proc-macro2 v1.0.107
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.6589897Z [1m[92m  Downloaded[0m parking_lot v0.12.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.6725134Z [1m[92m  Downloaded[0m palette_math v0.7.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.6803510Z [1m[92m  Downloaded[0m ordered-float v5.5.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.6913372Z [1m[92m  Downloaded[0m num-traits v0.2.19
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.7194025Z [1m[92m  Downloaded[0m no_std_io2 v0.9.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.7284289Z [1m[92m  Downloaded[0m log v0.4.34
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.7397421Z [1m[92m  Downloaded[0m libloading v0.8.9
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.7548132Z [1m[92m  Downloaded[0m khronos-egl v6.0.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.7752672Z [1m[92m  Downloaded[0m fdeflate v0.3.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.7862189Z [1m[92m  Downloaded[0m fax v0.2.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.7968431Z [1m[92m  Downloaded[0m crossbeam-utils v0.8.22
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.8176124Z [1m[92m  Downloaded[0m crossbeam-deque v0.8.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.8252610Z [1m[92m  Downloaded[0m bytemuck_derive v1.12.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.8322979Z [1m[92m  Downloaded[0m avif-serialize v0.8.9
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.8378481Z [1m[92m  Downloaded[0m av1-grain v0.2.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.8538104Z [1m[92m  Downloaded[0m arrayvec v0.7.8
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.8666216Z [1m[92m  Downloaded[0m windows-collections v0.3.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.8730062Z [1m[92m  Downloaded[0m webview2-com-macros v0.8.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.8777697Z [1m[92m  Downloaded[0m wasm-bindgen-shared v0.2.127
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.8835335Z [1m[92m  Downloaded[0m termcolor v1.4.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.8898044Z [1m[92m  Downloaded[0m rustc-hash v1.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.8959434Z [1m[92m  Downloaded[0m presser v0.3.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.9058918Z [1m[92m  Downloaded[0m pkg-config v0.3.34
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.9137128Z [1m[92m  Downloaded[0m paste v1.0.15
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.9371301Z [1m[92m  Downloaded[0m parking_lot_core v0.9.12
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:45.9505444Z [1m[92m  Downloaded[0m windows-sys v0.52.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.8740691Z [1m[92m  Downloaded[0m palette_derive v0.7.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.8847294Z [1m[92m  Downloaded[0m once_cell v1.21.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.9006520Z [1m[92m  Downloaded[0m num-integer v0.1.47
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.9336932Z [1m[92m  Downloaded[0m imgref v1.12.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.9402449Z [1m[92m  Downloaded[0m gif v0.14.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.9486197Z [1m[92m  Downloaded[0m bit-vec v0.9.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.9564151Z [1m[92m  Downloaded[0m lock_api v0.4.14
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.9627010Z [1m[92m  Downloaded[0m lebe v0.5.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.9694764Z [1m[92m  Downloaded[0m gl_generator v0.14.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.9796928Z [1m[92m  Downloaded[0m equator-macro v0.4.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.9844695Z [1m[92m  Downloaded[0m either v1.18.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:46.9961056Z [1m[92m  Downloaded[0m dpi v0.1.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.0020102Z [1m[92m  Downloaded[0m document-features v0.2.12
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.0095474Z [1m[92m  Downloaded[0m color_quant v1.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.0151837Z [1m[92m  Downloaded[0m cfg_aliases v0.2.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.0225079Z [1m[92m  Downloaded[0m cfg-if v1.0.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.0949359Z [1m[92m  Downloaded[0m byteorder-lite v0.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.1011146Z [1m[92m  Downloaded[0m by_address v1.2.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.1069716Z [1m[92m  Downloaded[0m bit-set v0.10.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.1153113Z [1m[92m  Downloaded[0m autocfg v1.5.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.1907142Z [1m[92m  Downloaded[0m arg_enum_proc_macro v0.3.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3105799Z [1m[92m  Downloaded[0m approx v0.5.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3243536Z [1m[92m  Downloaded[0m version_check v0.9.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3317421Z [1m[92m  Downloaded[0m stable_deref_trait v1.2.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3373930Z [1m[92m  Downloaded[0m pulp-wasm-simd-flag v0.1.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3441720Z [1m[92m  Downloaded[0m profiling-procmacros v1.0.18
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3487445Z [1m[92m  Downloaded[0m profiling v1.0.18
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3567761Z [1m[92m  Downloaded[0m pastey v0.1.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3674108Z [1m[92m  Downloaded[0m num-rational v0.4.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3739915Z [1m[92m  Downloaded[0m num-derive v0.4.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3860333Z [1m[92m  Downloaded[0m num-complex v0.4.6
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3925923Z [1m[92m  Downloaded[0m noop_proc_macro v0.3.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.3978293Z [1m[92m  Downloaded[0m new_debug_unreachable v1.0.6
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.4039515Z [1m[92m  Downloaded[0m naga-types v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.4103004Z [1m[92m  Downloaded[0m maybe-rayon v0.1.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.4151065Z [1m[92m  Downloaded[0m loop9 v0.1.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.4195267Z [1m[92m  Downloaded[0m foldhash v0.2.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.4268111Z [1m[92m  Downloaded[0m equator v0.4.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.4356375Z [1m[92m  Downloaded[0m aligned-vec v0.6.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.4410455Z [1m[92m  Downloaded[0m equivalent v1.0.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.4471181Z [1m[92m  Downloaded[0m anyhow v1.0.104
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.4746030Z [1m[92m  Downloaded[0m aligned v0.4.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.4812752Z [1m[92m  Downloaded[0m bit_field v0.10.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.4886696Z [1m[92m  Downloaded[0m as-slice v0.2.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.5051983Z [1m[92m  Downloaded[0m webview2-com-sys v0.39.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:47.9259352Z [1m[92m  Downloaded[0m windows v0.62.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:48.8139223Z [1m[92m   Compiling[0m proc-macro2 v1.0.107
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:48.8140042Z [1m[92m   Compiling[0m quote v1.0.47
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:48.8140751Z [1m[92m   Compiling[0m unicode-ident v1.0.24
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:48.8141763Z [1m[92m   Compiling[0m libm v0.2.16
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:48.9252929Z [1m[92m   Compiling[0m autocfg v1.5.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:49.9200005Z [1m[92m   Compiling[0m num-traits v0.2.19
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:52.0671802Z [1m[92m   Compiling[0m thiserror v2.0.20
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:52.1869932Z [1m[92m    Checking[0m windows-link v0.2.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:52.2407833Z [1m[92m    Checking[0m cfg-if v1.0.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:52.2924498Z [1m[92m   Compiling[0m cfg_aliases v0.2.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:52.3476050Z [1m[92m    Checking[0m log v0.4.34
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:52.4742826Z [1m[92m    Checking[0m bitflags v2.13.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:52.5983622Z [1m[92m    Checking[0m windows-strings v0.5.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:52.6161844Z [1m[92m    Checking[0m windows-result v0.4.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:52.7836379Z [1m[92m    Checking[0m foldhash v0.2.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:52.9347278Z [1m[92m   Compiling[0m zerocopy v0.8.56
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:53.1402466Z [1m[92m   Compiling[0m syn v2.0.119
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:53.1874248Z [1m[92m   Compiling[0m syn v3.0.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:53.4371994Z [1m[92m   Compiling[0m khronos_api v3.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:53.6672208Z [1m[92m    Checking[0m arrayvec v0.7.8
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:53.9186759Z [1m[92m    Checking[0m equivalent v1.0.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:53.9689900Z [1m[92m   Compiling[0m crossbeam-utils v0.8.22
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:54.0949983Z [1m[92m   Compiling[0m libc v0.2.189
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:54.4524544Z [1m[92m   Compiling[0m xml-rs v0.8.29
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:54.6427089Z [1m[92m   Compiling[0m crossbeam-epoch v0.9.20
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:55.3398687Z [1m[92m   Compiling[0m gl_generator v0.14.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:55.7266205Z [1m[92m    Checking[0m hashbrown v0.17.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:56.2364415Z [1m[92m    Checking[0m windows-threading v0.2.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:56.3142997Z [1m[92m   Compiling[0m crossbeam-deque v0.8.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:56.3588752Z [1m[92m    Checking[0m indexmap v2.14.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:56.4977253Z [1m[92m   Compiling[0m thiserror-impl v2.0.20
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:56.5707846Z [1m[92m   Compiling[0m bytemuck_derive v1.12.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:57.4961686Z [1m[92m    Checking[0m smallvec v1.15.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:57.7258750Z [1m[92m    Checking[0m simd-adler32 v0.3.10
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:57.8674661Z [1m[92m   Compiling[0m rayon-core v1.13.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.0786520Z [1m[92m    Checking[0m rustc-hash v1.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.0921036Z [1m[92m    Checking[0m bytemuck v1.25.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.1788017Z [1m[92m    Checking[0m naga-types v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.2967712Z [1m[92m   Compiling[0m naga v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.3314002Z [1m[92m    Checking[0m libloading v0.8.9
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.3406027Z [1m[92m    Checking[0m unicode-width v0.2.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.4666985Z [1m[92m   Compiling[0m ash v0.38.0+1.3.281
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.6111343Z [1m[92m    Checking[0m bit-vec v0.9.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.6120031Z [1m[92m   Compiling[0m parking_lot_core v0.9.12
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.6553216Z [1m[92m    Checking[0m codespan-reporting v0.13.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.8198543Z [1m[92m    Checking[0m bit-set v0.10.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.9505742Z [1m[92m   Compiling[0m glutin_wgl_sys v0.6.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:58.9938373Z [1m[92m    Checking[0m num-integer v0.1.47
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:59.2568674Z [1m[92m    Checking[0m spirv v0.4.0+sdk-1.4.341.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:59.2703873Z [1m[92m    Checking[0m static_assertions v1.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:59.3065579Z [1m[92m   Compiling[0m windows-interface v0.59.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:59.3123711Z [1m[92m   Compiling[0m windows-implement v0.60.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:17:59.8894240Z [1m[92m   Compiling[0m zerocopy-derive v0.8.56
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:00.1521597Z [1m[92m   Compiling[0m profiling-procmacros v1.0.18
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:00.2202045Z [1m[92m    Checking[0m windows-core v0.62.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:00.5232158Z [1m[92m    Checking[0m profiling v1.0.18
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:00.5691133Z [1m[92m   Compiling[0m equator-macro v0.4.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:00.6129630Z [1m[92m    Checking[0m windows-collections v0.3.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:00.7381281Z [1m[92m    Checking[0m windows-numerics v0.3.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:00.8882425Z [1m[92m    Checking[0m windows-future v0.3.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:01.1116541Z [1m[92m    Checking[0m adler2 v2.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:01.1907107Z [1m[92m   Compiling[0m paste v1.0.15
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:01.4756312Z [1m[92m    Checking[0m windows v0.62.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:01.5417527Z [1m[92m    Checking[0m equator v0.4.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:01.6556350Z [1m[92m    Checking[0m raw-window-handle v0.6.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:01.7417493Z [1m[92m   Compiling[0m khronos-egl v6.0.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:01.8520517Z [1m[92m    Checking[0m once_cell v1.21.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:01.9579097Z [1m[92m    Checking[0m allocator-api2 v0.2.21
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:02.0377332Z [1m[92m   Compiling[0m anyhow v1.0.104
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:02.3151987Z [1m[92m    Checking[0m either v1.18.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:02.3424099Z [1m[92m    Checking[0m memchr v2.8.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:02.5097114Z [1m[92m    Checking[0m scopeguard v1.2.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:02.5860881Z [1m[92m    Checking[0m lock_api v0.4.14
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:02.8135445Z [1m[92m    Checking[0m hashbrown v0.16.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:02.9250507Z [1m[92m    Checking[0m wgpu-types v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:03.4425069Z [1m[92m    Checking[0m aligned-vec v0.6.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:03.7786265Z [1m[92m    Checking[0m num-bigint v0.4.8
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:05.3391651Z [1m[92m   Compiling[0m wgpu-hal v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:05.8112719Z [1m[92m    Checking[0m presser v0.3.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:05.9312209Z [1m[92m    Checking[0m stable_deref_trait v1.2.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:05.9778561Z [1m[92m   Compiling[0m crc32fast v1.5.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:06.2740247Z [1m[92m    Checking[0m as-slice v0.2.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:06.3402792Z [1m[92m    Checking[0m parking_lot v0.12.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:06.5268046Z [1m[92m    Checking[0m num-rational v0.4.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:06.5359766Z [1m[92m    Checking[0m half v2.7.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:07.5691882Z [1m[92m    Checking[0m v_frame v0.3.9
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:08.3749438Z [1m[92m    Checking[0m rayon v1.12.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:10.5210508Z [1m[92m    Checking[0m ordered-float v5.5.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:10.8225520Z [1m[92m    Checking[0m renderdoc-sys v1.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:10.9070513Z [1m[92m   Compiling[0m version_check v0.9.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:11.2465208Z [1m[92m    Checking[0m glow v0.17.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:12.7332727Z [1m[92m   Compiling[0m built v0.8.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:13.3964422Z [1m[92m    Checking[0m range-alloc v0.1.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:13.4956325Z [1m[92m   Compiling[0m av-scenechange v0.14.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:13.7625375Z [1m[92m   Compiling[0m rav1e v0.8.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:13.9856162Z [1m[92m   Compiling[0m pulp v0.22.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:14.3098611Z [1m[92m    Checking[0m aligned v0.4.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:14.5302678Z [1m[92m    Checking[0m no_std_io2 v0.9.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:14.5755182Z [1m[92m    Checking[0m nom v8.0.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:16.3869934Z [1m[92m    Checking[0m wgpu-naga-bridge v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:16.4658326Z [1m[92m    Checking[0m miniz_oxide v0.9.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:16.9138533Z [1m[92m   Compiling[0m arg_enum_proc_macro v0.3.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:17.6631106Z [1m[92m   Compiling[0m wgpu-core v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:17.6963032Z [1m[92m   Compiling[0m pastey v0.1.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:18.1222872Z [1m[92m   Compiling[0m winapi v0.3.9
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:18.3140918Z [1m[92m    Checking[0m quick-error v2.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:18.3804334Z [1m[92m   Compiling[0m litrs v1.0.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:18.6658504Z [1m[92m    Checking[0m y4m v0.8.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:18.9266628Z [1m[92m    Checking[0m av1-grain v0.2.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:19.0133057Z [1m[92m   Compiling[0m document-features v0.2.12
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:19.3696115Z [1m[92m   Compiling[0m webview2-com-sys v0.39.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:19.3962464Z [1m[92m    Checking[0m flate2 v1.1.10
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:19.6974318Z [1m[92m    Checking[0m bitstream-io v4.10.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:19.8380462Z [1m[92m    Checking[0m maybe-rayon v0.1.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:19.8841823Z [1m[92m    Checking[0m itertools v0.14.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:19.8912160Z [1m[92m    Checking[0m miniz_oxide v0.8.9
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:20.3231117Z [1m[92m   Compiling[0m num-derive v0.4.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:20.3767515Z [1m[92m    Checking[0m num-complex v0.4.6
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:20.8424182Z [1m[92m   Compiling[0m simd_helpers v0.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:21.1311195Z [1m[92m    Checking[0m raw-cpuid v11.6.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:21.4372015Z [1m[92m   Compiling[0m wgpu v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:21.4457986Z [1m[92m    Checking[0m weezl v0.1.12
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:21.6898634Z [1m[92m    Checking[0m new_debug_unreachable v1.0.6
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:21.7339754Z [1m[92m    Checking[0m zune-core v0.5.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:21.9523813Z [1m[92m    Checking[0m imgref v1.12.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:22.1110058Z [1m[92m    Checking[0m pulp-wasm-simd-flag v0.1.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:22.1324271Z [1m[92m    Checking[0m reborrow v0.5.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:22.1523507Z [1m[92m   Compiling[0m noop_proc_macro v0.3.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:22.1908939Z [1m[92m    Checking[0m loop9 v0.1.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:22.2845721Z [1m[92m    Checking[0m zune-jpeg v0.5.15
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:24.5149989Z [1m[92m    Checking[0m zune-inflate v0.2.54
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:24.7164336Z [1m[92m    Checking[0m fdeflate v0.3.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:24.9845395Z [1m[92m   Compiling[0m grafting v0.6.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:25.9288895Z [1m[92m    Checking[0m avif-serialize v0.8.9
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:26.2116971Z [1m[92m    Checking[0m lebe v0.5.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:26.3609808Z [1m[92m   Compiling[0m pkg-config v0.3.34
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:26.8447144Z [1m[92m    Checking[0m bit_field v0.10.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:26.9671860Z [1m[92m   Compiling[0m by_address v1.2.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:27.0250389Z [1m[92m    Checking[0m fax v0.2.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:27.0539039Z [1m[92m    Checking[0m pxfm v0.1.30
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:27.0654905Z [1m[92m    Checking[0m byteorder-lite v0.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:27.2571806Z [1m[92m    Checking[0m color_quant v1.1.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:27.3172413Z [1m[92m    Checking[0m rgb v0.8.53
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:27.3948957Z [1m[92m    Checking[0m gif v0.14.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:27.6413943Z [1m[92m    Checking[0m ravif v0.13.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:27.7238447Z [1m[92m    Checking[0m image-webp v0.2.4
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:27.8728533Z [1m[92m    Checking[0m tiff v0.11.3
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:28.7332425Z [1m[92m   Compiling[0m palette_derive v0.7.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:28.9856531Z [1m[92m   Compiling[0m scrying v0.7.1 (D:\a\wgpu-scry\wgpu-scry\scrying)
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:29.1953962Z [1m[92m    Checking[0m exr v1.74.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:29.7046272Z [1m[92m    Checking[0m moxcms v0.8.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:29.8963537Z [1m[92m    Checking[0m png v0.18.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:30.7467563Z [1m[92m    Checking[0m wio v0.2.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:30.8367459Z [1m[92m   Compiling[0m webview2-com-macros v0.8.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:31.3694536Z [1m[92m    Checking[0m qoi v0.4.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:31.5587579Z [1m[92m    Checking[0m palette_math v0.7.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:31.7029889Z [1m[92m    Checking[0m dpi v0.1.2
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:31.8567116Z [1m[92m    Checking[0m palette v0.7.7
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:32.3622276Z [1m[92m    Checking[0m gpu-allocator v0.28.0
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:32.9116388Z [1m[92m    Checking[0m image v0.25.10
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:35.7608452Z [1m[92m    Checking[0m webview2-com v0.39.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:36.9518405Z [1m[92m    Checking[0m wgpu-core-deps-windows-linux-android v30.0.1
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:43.6283960Z [1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 1m 11s
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:43.8166397Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:43.8167786Z Post job cleanup.
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:43.9670133Z [command]"C:\Program Files\Git\bin\git.exe" version
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:43.9929958Z git version 2.55.0.windows.5
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:43.9991276Z Copying 'C:\Users\runneradmin\.gitconfig' to 'D:\a\_temp\74e1d805-15d4-4b6e-a241-a1cd261ce1b9\.gitconfig'
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:44.0010402Z Temporarily overriding HOME='D:\a\_temp\74e1d805-15d4-4b6e-a241-a1cd261ce1b9' before making global git config changes
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:44.0011532Z Adding repository directory to the temporary git global config as a safe directory
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:44.0021041Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\wgpu-scry\wgpu-scry
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:44.0343322Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:44.0683503Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:44.5625548Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:44.5847247Z http.https://github.com/.extraheader
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:44.5891271Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:44.6152540Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:45.1005296Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:45.1265891Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:45.6256089Z Cleaning up orphan processes
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:45.6723562Z Terminate orphan process: pid (9328) (vctip)
+platform-api / Rust 1.92.0 / windows-latest / wgpu-30	UNKNOWN STEP	2026-09-04T20:18:45.6742707Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

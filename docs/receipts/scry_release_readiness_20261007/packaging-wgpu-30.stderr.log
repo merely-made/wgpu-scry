@@ -1,0 +1,18 @@
+    Checking hashbrown v0.17.1
+    Checking indexmap v2.14.1
+    Checking naga-types v30.0.1
+    Checking windows v0.62.2
+    Checking bit-set v0.10.0
+    Checking naga v30.0.1
+    Checking wgpu-types v30.0.1
+    Checking gpu-allocator v0.28.0
+    Checking wgpu-naga-bridge v30.0.1
+    Checking wgpu-hal v30.0.1
+    Checking wgpu-core-deps-windows-linux-android v30.0.1
+    Checking wgpu-core v30.0.1
+   Compiling grafting v0.6.0
+   Compiling scrying v0.7.1 (C:\Users\mark_\Code\worktrees\wgpu-scry-release\scrying)
+    Checking webview2-com-sys v0.39.1
+    Checking wgpu v30.0.1
+    Checking webview2-com v0.39.1
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 34.77s

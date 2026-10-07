@@ -1,0 +1,31 @@
+{
+  "command": [
+    "cargo",
+    "+1.92.0",
+    "check",
+    "--locked",
+    "-p",
+    "scrying",
+    "--lib",
+    "--no-default-features",
+    "--features",
+    "wgpu-30",
+    "-j1"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "source_sha": "2c3ebd24118851cf6125cfb193f55aab20e3ad67",
+  "started_utc": "2026-10-07T12:22:55.163143+00:00",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1"
+  },
+  "priority": "BelowNormal",
+  "owned_pid": 26280,
+  "actual_exit_code": 0,
+  "finished_utc": "2026-10-07T12:23:30.013901+00:00",
+  "elapsed_seconds": 34.859,
+  "final_source_sha": "2c3ebd24118851cf6125cfb193f55aab20e3ad67",
+  "tracked_status": "",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "4d9d74913b8ee0f2662d4d7fa921091d2c331a5e39e029c97ff0483eb6d8eb1b"
+}
