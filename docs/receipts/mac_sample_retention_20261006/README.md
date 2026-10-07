@@ -144,3 +144,33 @@ key/front. No library producer, fixture bytes, deadlines or thresholds change.
 Ordinary/headless modes retain their policy; there is no refocus loop or forced
 paint. The exact next native run must show original acceptance and opt-in
 visible-page/advancing-animation evidence before this trial closes the gate.
+
+## Focus trial result and native layer ordering probe
+
+Focus revision `36c88881bbb090f6a18e87def7163f2e2659defe` ran as
+**37554693513**. Both native checkout logs explicitly record that source SHA.
+RADV 112578129198 passed; NVIDIA 112578128881 was queued in the recorded
+snapshot. Intel 112578129151 and M4 112578129205 failed their ordinary and
+separate diagnostic battery steps after portable custody/size tests passed.
+
+The activation-request log appears, but every host observation still reports
+an unfocused, visible, non-minimized window. Both opt-in pages remain hidden,
+with zero animation-frame callbacks and CSS animation time frozen at zero.
+The one-time focus trial did not restore fixture activity. M4 ordinary and
+opt-in base capture passed at five; both resize modes failed at eleven total
+and two startup frames. Intel ordinary base failed at three, ordinary resize at
+twelve and two startup frames; opt-in base failed at two, opt-in resize alone
+passed at twelve. These observations leave the original Mac gate open.
+
+The next bounded host probe changes construction order only: initialize the
+wgpu Metal surface before attaching WKWebView. The pinned `raw-window-metal`
+1.1.0 implementation makes the host view layer-backed and appends its Metal
+surface layer with `root_layer.addSublayer`. The former demo constructed that
+surface after `parent_view.addSubview(&webview)`. This is a concrete composition
+seam to test; it does not prove why WebKit reports the page hidden. The producer,
+fixture bytes, capture thresholds and one-time activation behavior stay as
+before. Native original acceptance and separate opt-in advancing-animation
+observations are still required to establish the result.
+
+Read-only SSH session inspection was attempted through the configured host
+routes, which refused the connection. No host session state was changed.
