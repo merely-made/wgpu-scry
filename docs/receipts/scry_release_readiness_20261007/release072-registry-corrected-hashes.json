@@ -1,0 +1,89 @@
+{
+  "recorded_utc": "2026-10-07T14:29:27.3737577Z",
+  "workflow_run": 37633624184,
+  "workflow_source": "e8ffee2d6b680154cae645d54a340116f08acb5d",
+  "phase": "M4 and RADV native success, Intel capture failure, NVIDIA unassigned",
+  "artifact_count": 16,
+  "artifacts": [
+    {
+      "path": "release072-registry-corrected-README.md",
+      "bytes": 3254,
+      "sha256": "7d662c9c41b7abf9889113e106cdc115e242afc3b955e22fde45e959cd86f880"
+    },
+    {
+      "path": "release072-registry-corrected-artifacts.json",
+      "bytes": 2129,
+      "sha256": "90c672560e9f27d6c734226ebb75be41e0ed45e01f23905093c0028d5fd15352"
+    },
+    {
+      "path": "release072-registry-corrected-audit.json",
+      "bytes": 8634,
+      "sha256": "3db5c5fe2247e81f06a83ab04d2f05a53874609f8048ae371dedcbc366d9f4d9"
+    },
+    {
+      "path": "release072-registry-corrected-audit.py",
+      "bytes": 3266,
+      "sha256": "cc4a0181af1f9567a8b87105faca4b9eb70a47a94a0e31204a3b893f323f5c6c"
+    },
+    {
+      "path": "release072-registry-corrected-completed-jobs.json",
+      "bytes": 12199,
+      "sha256": "8c52c36c322da06e4ee79e898c44458a8327b419727020c13dd10e1e544c9fba"
+    },
+    {
+      "path": "release072-registry-corrected-dispatch.json",
+      "bytes": 11468,
+      "sha256": "d1dee92299c694d665360ed56d3ae3d07e07a28551573cad3cbab9145aa04fa6"
+    },
+    {
+      "path": "release072-registry-corrected-final-run.json",
+      "bytes": 12223,
+      "sha256": "c82796ae22bee980217b3c9565315a00e6d0e58eeb2e1430a4875e2b38ef5c0e"
+    },
+    {
+      "path": "release072-registry-corrected-job-112834014127.json",
+      "bytes": 4817,
+      "sha256": "eaabc39430c5b92da32753a1fb358b45a2d9cf10de865103b5bd8b8615cb959c"
+    },
+    {
+      "path": "release072-registry-corrected-job-112834014127.log",
+      "bytes": 228925,
+      "sha256": "ba5e56591ee048ecd5113b8aefcc592bbf0ba378e7c8527a1bc98e484ffb7fba"
+    },
+    {
+      "path": "release072-registry-corrected-job-112834014591.json",
+      "bytes": 4805,
+      "sha256": "0465808e65a647cb8dca0a2543fc237eace2628a82f4013bb3522123e9131981"
+    },
+    {
+      "path": "release072-registry-corrected-job-112834014591.log",
+      "bytes": 360596,
+      "sha256": "d9767ecf36348e419a7e5dd91bd6ba7e799d085ab5ca857c57c135556caa4ab6"
+    },
+    {
+      "path": "release072-registry-corrected-job-112834014753.json",
+      "bytes": 4280,
+      "sha256": "e4da455d25102676ee3deb4f831f92ab1c76440183891b95c049c58989527d11"
+    },
+    {
+      "path": "release072-registry-corrected-job-112834014753.log",
+      "bytes": 196467,
+      "sha256": "0ae79b079177bce4330e6b1bf706dc1da387b90b02d171e52cd735a842e1b2e1"
+    },
+    {
+      "path": "release072-registry-corrected-registry-triplet-metal-intel.zip",
+      "bytes": 1202508,
+      "sha256": "e7a345c6cd19c683753363b3f6b070582456e58d7062e4faa3c899aa24ec463d"
+    },
+    {
+      "path": "release072-registry-corrected-registry-triplet-metal-m4.zip",
+      "bytes": 1287024,
+      "sha256": "099a4e404377d45e2c272dd4e72056bdf2b584336684cf24479589489f2cb83e"
+    },
+    {
+      "path": "release072-registry-corrected-registry-triplet-radv.zip",
+      "bytes": 1207806,
+      "sha256": "99080afccd64067b5bb3845b77ade6afe929c145cf2fe2524bfbd099f6e0032d"
+    }
+  ]
+}
