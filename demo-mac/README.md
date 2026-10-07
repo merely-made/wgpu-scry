@@ -179,6 +179,21 @@ cargo run -p demo-mac -- --capture-test
 cargo run -p demo-mac -- --capture-test --resize-test
 ```
 
+`--capture-activity` opts into a separate fixture with JavaScript reports of
+visibility, focus, CSS animation time, timer ticks and animation-frame callbacks:
+
+```bash
+cargo run -p demo-mac -- --capture-test --resize-test --capture-activity
+VISIBLE=1 CAPTURE=1 CAPTURE_ACTIVITY=1 bash scripts/test-mac.sh
+```
+
+The opt-in script run executes only the two capture modes. The hardware workflow
+runs it after the ordinary battery, including when that battery fails. An
+instrumented pass does not override the earlier failure: observers can affect
+page scheduling. The default fixture's HTML/CSS bytes remain unchanged. Both
+runs log host visibility/occlusion and per-second SCK delivery/acquisition
+counters; capture events are also drained during the host's polling tick.
+
 The self-hosted hardware workflow runs the full suite with
 `VISIBLE=1 CAPTURE=1`. `VISIBLE=1` adds `--visible` to the modes that normally
 hide their AppKit window and launches the built binary from a stable `.app`

@@ -60,3 +60,55 @@ A new exact-source hardware workflow dispatch is approved. Its
 `cancel-in-progress: true` concurrency rule is expected to cancel the previous
 Scry run, including its still-queued NVIDIA job. That cancellation does not
 provide NVIDIA qualification.
+
+## Reviewed fix: exact-source hardware run
+
+The reviewed fix was committed and pushed as
+`f952abc47d3d12b15530a958277df76f2e8eac2b`. GitHub rejects a commit SHA as a
+workflow-dispatch ref, so remote `main` was verified equal to that SHA before
+dispatching its branch ref. Run **37553214645** records that exact `headSha`,
+and the Intel/M4 job logs also record that actual final checkout SHA.
+The previous run 37533331164 was cancelled by workflow concurrency as expected.
+
+- RADV job 112573348029 passed on this revision.
+- Intel job 112573348255 passed the two ownership tests and size unit test,
+  then failed native cadence. Base delivered three Complete callbacks and
+  acquired all three, alongside 1,745 Idle callbacks. Resize delivered and
+  acquired fourteen Complete frames but had only two at startup 1024x1536.
+  Configuration, dimensions and crop rejection counters remained zero.
+- M4 job 112573348324 passed ownership/size unit tests and the five-frame base
+  capture, then failed resize with two startup 1024x1536 frames. All eleven
+  Complete callbacks were acquired; there were no Idle callbacks and no
+  configuration, dimensions or crop rejections.
+- NVIDIA job 112573348251 remains queued in the recorded snapshot.
+
+The retention regression is locally and natively validated, and every Complete
+callback in these failed runs reached the consumer. The broader Mac cadence
+gate remains open. Fixture animation/visibility, host activity and callback
+delivery require a separate diagnostic receipt; this run does not establish a
+driver or importer fault.
+
+## Separate activity diagnosis
+
+The next bounded diagnostic slice adds `--capture-activity`. Only that explicit
+flag selects `scrying-test://capture?activity=1`, which injects page observers.
+The default capture URL and its original HTML/CSS remain unchanged. The compiled
+`fixture-bytes-guard.rs` compares default fixture bytes against f952abc; its log
+records a pass. `verify-fixture.cjs` also parses the opt-in JavaScript without
+executing it. The temporary guard executable/PDB were removed.
+
+The hardware workflow runs the ordinary ten-mode native battery first. A
+separate `CAPTURE_ACTIVITY=1` script run then executes only the two capture
+modes, even if the earlier battery fails. The workflow retains that original
+failure; a diagnostic green result cannot close the uninstrumented gate.
+The script now exits immediately when a rebuild fails, preventing an older
+leftover executable from serving as an exact-source qualification receipt.
+
+Both paths add one-second host delivery/acquisition/window counters and
+Occluded event logs; capture-mode events are drained in the host polling tick
+as well as window events. Those host observations can affect scheduling too.
+The opt-in fixture additionally reports page visibility/focus, viewport, CSS
+animation clock/background, timer ticks and animation-frame callback counts.
+Nothing changes the capture dimensions, deadlines, resize schedules or minimum
+frame assertions. Native diagnosis must distinguish observer behavior from
+evidence about the underlying scarcity.

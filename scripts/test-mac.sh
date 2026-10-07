@@ -73,9 +73,18 @@ if [[ "${CAPTURE:-0}" = "1" ]]; then
     MODES+=(--capture-test --capture-test+resize)
 fi
 
+# Optional diagnosis is a separate bounded two-mode run. Preserve the default
+# battery and its original fixture; activity probes can affect scheduling.
+if [[ "${CAPTURE_ACTIVITY:-0}" = "1" ]]; then
+    MODES=(--capture-test --capture-test+resize)
+fi
+
 # Build once so each `cargo run` invocation skips compile overhead.
 echo "==> building demo-mac"
-cargo build --locked -q -p demo-mac
+if ! cargo build --locked -q -p demo-mac; then
+    # A failed rebuild must not run a leftover binary as source qualification.
+    exit 1
+fi
 
 DEMO_BIN="${CARGO_TARGET_DIR:-target}/debug/demo-mac"
 if [[ ! -x "$DEMO_BIN" ]]; then
@@ -224,6 +233,9 @@ for mode in "${MODES[@]}"; do
     args=("$mode")
     if [[ "$mode" = "--capture-test+resize" ]]; then
         args=(--capture-test --resize-test)
+    fi
+    if [[ "${CAPTURE_ACTIVITY:-0}" = "1" ]]; then
+        args+=(--capture-activity)
     fi
     # The two-tabs gate is already visible by default and uses the absence of
     # --visible to retain its bounded auto-exit deadline.
