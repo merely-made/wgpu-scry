@@ -1,0 +1,30 @@
+{
+  "release072-intel-registry-diagnostic-artifact.zip": {
+    "bytes": 302945,
+    "sha256": "dfe112b0fc1c8851f505235bbc5bb4d7e3ee3ee2979269d274a28068c6283deb"
+  },
+  "release072-intel-registry-diagnostic-artifacts.json": {
+    "bytes": 739,
+    "sha256": "1f868418f48194e25a515f4b51862bf6b4798b56fec7e056b35bb8e854e0c793"
+  },
+  "release072-intel-registry-diagnostic-dispatch.json": {
+    "bytes": 3789,
+    "sha256": "938aa88bc0534ddcff0bb7f15fb4d268f353d56cc61f0efd76a11b141641f368"
+  },
+  "release072-intel-registry-diagnostic-job.json": {
+    "bytes": 4551,
+    "sha256": "227f63e465ed304c1ea62b924c49422197ca957f0bcf3595fb6022899fbb1cc2"
+  },
+  "release072-intel-registry-diagnostic-job.log": {
+    "bytes": 174112,
+    "sha256": "739ffcf688dc50b26ac846355bb5835b7ad32fa240f89e4dc9992e9f87d46761"
+  },
+  "release072-intel-registry-diagnostic-result.json": {
+    "bytes": 50421,
+    "sha256": "73a600635b6f6a3bdc941c073ed67e04597d33a80908653469dd0f3e2be15b48"
+  },
+  "release072-intel-registry-diagnostic-run.json": {
+    "bytes": 12601,
+    "sha256": "910dd74844cabc3d861261dbbc1b68c686e72dc343f71805b9d7a2acad39d3d5"
+  }
+}

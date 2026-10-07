@@ -1,0 +1,1433 @@
+﻿2026-10-07T14:28:42.5943980Z Current runner version: '2.337.0'
+2026-10-07T14:28:42.5951370Z Runner name: 'wgpu-imac-intel'
+2026-10-07T14:28:42.5952020Z Runner group name: 'wgpu-hardware'
+2026-10-07T14:28:42.5952890Z Machine name: 'Q-PC'
+2026-10-07T14:28:42.5955320Z ##[group]GITHUB_TOKEN Permissions
+2026-10-07T14:28:42.5957720Z Contents: read
+2026-10-07T14:28:42.5958170Z Metadata: read
+2026-10-07T14:28:42.5958620Z ##[endgroup]
+2026-10-07T14:28:42.5960750Z Secret source: Actions
+2026-10-07T14:28:42.5961470Z Cache mode: write
+2026-10-07T14:28:42.5962010Z Prepare workflow directory
+2026-10-07T14:28:42.6908830Z Prepare all required actions
+2026-10-07T14:28:42.6967840Z Getting action download info
+2026-10-07T14:28:43.0986160Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-07T14:28:43.7259240Z Download action repository 'dtolnay/rust-toolchain@1.97.1' (SHA:9ca9f0b320e19763058bc9531663c225d20db487)
+2026-10-07T14:28:44.0039190Z Download action repository 'astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d' (SHA:20cfd1bf945f4377ade1205e4dbc17946fc9a30d)
+2026-10-07T14:28:44.7786540Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-07T14:28:45.7510560Z Complete job name: Intel Scry-only registry original battery and separate activity diagnosis
+2026-10-07T14:28:45.8388120Z ##[group]Run actions/checkout@v4
+2026-10-07T14:28:45.8389190Z with:
+2026-10-07T14:28:45.8389510Z   repository: merely-made/wgpu-graft
+2026-10-07T14:28:45.8392600Z   token: ***
+2026-10-07T14:28:45.8392870Z   ssh-strict: true
+2026-10-07T14:28:45.8393140Z   ssh-user: git
+2026-10-07T14:28:45.8393430Z   persist-credentials: true
+2026-10-07T14:28:45.8393730Z   clean: true
+2026-10-07T14:28:45.8394020Z   sparse-checkout-cone-mode: true
+2026-10-07T14:28:45.8394350Z   fetch-depth: 1
+2026-10-07T14:28:45.8394630Z   fetch-tags: false
+2026-10-07T14:28:45.8394910Z   show-progress: true
+2026-10-07T14:28:45.8395200Z   lfs: false
+2026-10-07T14:28:45.8395450Z   submodules: false
+2026-10-07T14:28:45.8395830Z   set-safe-directory: true
+2026-10-07T14:28:45.8396160Z   allow-unsafe-pr-checkout: false
+2026-10-07T14:28:45.8396860Z env:
+2026-10-07T14:28:45.8397130Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:45.8397460Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:45.8397770Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:45.8398110Z   WGPU_BACKEND: metal
+2026-10-07T14:28:45.8398400Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:45.8398700Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:45.8399000Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:45.8399360Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:45.8399870Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:45.8400650Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:45.8401230Z   CAPTURE: 1
+2026-10-07T14:28:45.8401480Z   TIMEOUT: 90
+2026-10-07T14:28:45.8401720Z   VISIBLE: 1
+2026-10-07T14:28:45.8401970Z ##[endgroup]
+2026-10-07T14:28:45.9879390Z Syncing repository: merely-made/wgpu-graft
+2026-10-07T14:28:45.9881520Z ##[group]Getting Git version info
+2026-10-07T14:28:45.9882200Z Working directory is '/Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft'
+2026-10-07T14:28:45.9883250Z [command]/usr/bin/git version
+2026-10-07T14:28:46.0057930Z git version 2.39.5 (Apple Git-154)
+2026-10-07T14:28:46.0076910Z ##[endgroup]
+2026-10-07T14:28:46.0085720Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/fea611c8-baa0-4b37-9df9-3e9621b6ef6c/.gitconfig'
+2026-10-07T14:28:46.0094460Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/fea611c8-baa0-4b37-9df9-3e9621b6ef6c' before making global git config changes
+2026-10-07T14:28:46.0095660Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T14:28:46.0099030Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft
+2026-10-07T14:28:46.0330480Z [command]/usr/bin/git config --local --get remote.origin.url
+2026-10-07T14:28:46.0532230Z https://github.com/merely-made/wgpu-graft
+2026-10-07T14:28:46.0545120Z ##[group]Removing previously created refs, to avoid conflicts
+2026-10-07T14:28:46.0549280Z [command]/usr/bin/git rev-parse --symbolic-full-name --verify --quiet HEAD
+2026-10-07T14:28:46.0762440Z refs/heads/main
+2026-10-07T14:28:46.0772410Z [command]/usr/bin/git checkout --detach
+2026-10-07T14:28:46.1187840Z HEAD is now at e8ffee2 Pin Servo registry proof fixture to qualified PKCS1 prerelease
+2026-10-07T14:28:46.1445520Z [command]/usr/bin/git branch --delete --force main
+2026-10-07T14:28:46.1695920Z Deleted branch main (was e8ffee2).
+2026-10-07T14:28:46.1959600Z ##[endgroup]
+2026-10-07T14:28:46.1962730Z [command]/usr/bin/git submodule status
+2026-10-07T14:28:46.3343360Z ##[group]Cleaning the repository
+2026-10-07T14:28:46.3347170Z [command]/usr/bin/git clean -ffdx
+2026-10-07T14:28:46.5388940Z Removing .registry-proof-source/
+2026-10-07T14:28:46.5399880Z [command]/usr/bin/git reset --hard HEAD
+2026-10-07T14:28:46.5845860Z HEAD is now at e8ffee2 Pin Servo registry proof fixture to qualified PKCS1 prerelease
+2026-10-07T14:28:46.5851970Z ##[endgroup]
+2026-10-07T14:28:46.5855200Z ##[group]Disabling automatic garbage collection
+2026-10-07T14:28:46.5860260Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-07T14:28:46.6070420Z ##[endgroup]
+2026-10-07T14:28:46.6071020Z ##[group]Setting up auth
+2026-10-07T14:28:46.6077200Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T14:28:46.6334850Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T14:28:46.7677000Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T14:28:46.7889880Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T14:28:46.9209890Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T14:28:46.9423860Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T14:28:47.0716290Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-07T14:28:47.0945210Z ##[endgroup]
+2026-10-07T14:28:47.0945830Z ##[group]Fetching the repository
+2026-10-07T14:28:47.0952360Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d6c119f2b41cf5e81c99157166885c7f3800ab67:refs/remotes/origin/main
+2026-10-07T14:28:47.5783430Z From https://github.com/merely-made/wgpu-graft
+2026-10-07T14:28:47.5784250Z  + e8ffee2...d6c119f d6c119f2b41cf5e81c99157166885c7f3800ab67 -> origin/main  (forced update)
+2026-10-07T14:28:47.5870830Z ##[endgroup]
+2026-10-07T14:28:47.5871390Z ##[group]Determining the checkout info
+2026-10-07T14:28:47.5871980Z ##[endgroup]
+2026-10-07T14:28:47.5877180Z [command]/usr/bin/git sparse-checkout disable
+2026-10-07T14:28:47.6121510Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-07T14:28:47.6345270Z ##[group]Checking out the ref
+2026-10-07T14:28:47.6345910Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-07T14:28:47.6649810Z Warning: you are leaving 1 commit behind, not connected to
+2026-10-07T14:28:47.6650340Z any of your branches:
+2026-10-07T14:28:47.6650570Z 
+2026-10-07T14:28:47.6650890Z   e8ffee2 Pin Servo registry proof fixture to qualified PKCS1 prerelease
+2026-10-07T14:28:47.6651290Z 
+2026-10-07T14:28:47.6651530Z If you want to keep it by creating a new branch, this may be a good time
+2026-10-07T14:28:47.6652060Z to do so with:
+2026-10-07T14:28:47.6652260Z 
+2026-10-07T14:28:47.6653510Z  git branch <new-branch-name> e8ffee2
+2026-10-07T14:28:47.6653790Z 
+2026-10-07T14:28:47.6674180Z Switched to a new branch 'main'
+2026-10-07T14:28:47.6675050Z branch 'main' set up to track 'origin/main'.
+2026-10-07T14:28:47.6683780Z ##[endgroup]
+2026-10-07T14:28:47.7001910Z [command]/usr/bin/git log -1 --format=%H
+2026-10-07T14:28:47.7289780Z d6c119f2b41cf5e81c99157166885c7f3800ab67
+2026-10-07T14:28:47.7539090Z ##[group]Run ./.github/actions/host-hardware-lock
+2026-10-07T14:28:47.7539570Z with:
+2026-10-07T14:28:47.7539800Z   timeout_seconds: 7200
+2026-10-07T14:28:47.7540040Z   stale_seconds: 14400
+2026-10-07T14:28:47.7540270Z   poll_seconds: 5
+2026-10-07T14:28:47.7540500Z env:
+2026-10-07T14:28:47.7540710Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:47.7540990Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:47.7541230Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:47.7541470Z   WGPU_BACKEND: metal
+2026-10-07T14:28:47.7541720Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:47.7541970Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:47.7542220Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:47.7542530Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:47.7542980Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:47.7543560Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:47.7544100Z   CAPTURE: 1
+2026-10-07T14:28:47.7544300Z   TIMEOUT: 90
+2026-10-07T14:28:47.7544500Z   VISIBLE: 1
+2026-10-07T14:28:47.7544700Z ##[endgroup]
+2026-10-07T14:28:47.8361920Z Acquired host hardware lock at /var/folders/nt/xlxwlg695b399ck_h55sfwtc0000gn/T/merely-wgpu-hardware-lock/host.lock
+2026-10-07T14:28:47.8611900Z ##[group]Run dtolnay/rust-toolchain@1.97.1
+2026-10-07T14:28:47.8612670Z with:
+2026-10-07T14:28:47.8613060Z env:
+2026-10-07T14:28:47.8613380Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:47.8613790Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:47.8614140Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:47.8614590Z   WGPU_BACKEND: metal
+2026-10-07T14:28:47.8614930Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:47.8615270Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:47.8634440Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:47.8634880Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:47.8635420Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:47.8636130Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:47.8636730Z   CAPTURE: 1
+2026-10-07T14:28:47.8636970Z   TIMEOUT: 90
+2026-10-07T14:28:47.8637250Z   VISIBLE: 1
+2026-10-07T14:28:47.8637550Z ##[endgroup]
+2026-10-07T14:28:47.8726530Z ##[start-action display=Parse toolchain version;id=__dtolnay_rust-toolchain.parse]
+2026-10-07T14:28:47.8806940Z ##[group]Run if [[ -z $toolchain ]]; then
+2026-10-07T14:28:47.8807570Z [36;1mif [[ -z $toolchain ]]; then[0m
+2026-10-07T14:28:47.8808270Z [36;1m  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070[0m
+2026-10-07T14:28:47.8809010Z [36;1m  echo "'toolchain' is a required input" >&2[0m
+2026-10-07T14:28:47.8809410Z [36;1m  exit 1[0m
+2026-10-07T14:28:47.8809820Z [36;1melif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then[0m
+2026-10-07T14:28:47.8810350Z [36;1m  if [[ macOS == macOS ]]; then[0m
+2026-10-07T14:28:47.8811040Z [36;1m    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2026-10-07T14:28:47.8811700Z [36;1m  else[0m
+2026-10-07T14:28:47.8812250Z [36;1m    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2026-10-07T14:28:47.8812840Z [36;1m  fi[0m
+2026-10-07T14:28:47.8813240Z [36;1melif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then[0m
+2026-10-07T14:28:47.8813910Z [36;1m  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT[0m
+2026-10-07T14:28:47.8815120Z [36;1melif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then[0m
+2026-10-07T14:28:47.8815800Z [36;1m  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT[0m
+2026-10-07T14:28:47.8816460Z [36;1melse[0m
+2026-10-07T14:28:47.8816830Z [36;1m  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT[0m
+2026-10-07T14:28:47.8817240Z [36;1mfi[0m
+2026-10-07T14:28:47.8845290Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:47.8845750Z env:
+2026-10-07T14:28:47.8846040Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:47.8846400Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:47.8846740Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:47.8847040Z   WGPU_BACKEND: metal
+2026-10-07T14:28:47.8847360Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:47.8847660Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:47.8847980Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:47.8848350Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:47.8848860Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:47.8849530Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:47.8850090Z   CAPTURE: 1
+2026-10-07T14:28:47.8850390Z   TIMEOUT: 90
+2026-10-07T14:28:47.8850650Z   VISIBLE: 1
+2026-10-07T14:28:47.8850910Z   toolchain: 1.97.1
+2026-10-07T14:28:47.8851200Z ##[endgroup]
+2026-10-07T14:28:47.9074070Z ##[end-action id=__dtolnay_rust-toolchain.parse;outcome=success;conclusion=success;duration_ms=34]
+2026-10-07T14:28:47.9092990Z ##[start-action display=Construct rustup command line;id=__dtolnay_rust-toolchain.flags]
+2026-10-07T14:28:47.9134670Z ##[group]Run echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+2026-10-07T14:28:47.9135560Z [36;1mecho "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT[0m
+2026-10-07T14:28:47.9136360Z [36;1mecho "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT[0m
+2026-10-07T14:28:47.9137090Z [36;1mecho "downgrade=" >> $GITHUB_OUTPUT[0m
+2026-10-07T14:28:47.9154440Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:47.9154880Z env:
+2026-10-07T14:28:47.9155180Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:47.9155540Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:47.9155840Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:47.9156190Z   WGPU_BACKEND: metal
+2026-10-07T14:28:47.9156540Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:47.9156870Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:47.9157180Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:47.9157590Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:47.9158120Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:47.9158800Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:47.9159440Z   CAPTURE: 1
+2026-10-07T14:28:47.9159730Z   TIMEOUT: 90
+2026-10-07T14:28:47.9160000Z   VISIBLE: 1
+2026-10-07T14:28:47.9160270Z   targets: 
+2026-10-07T14:28:47.9160570Z   components: 
+2026-10-07T14:28:47.9160850Z ##[endgroup]
+2026-10-07T14:28:47.9341580Z ##[end-action id=__dtolnay_rust-toolchain.flags;outcome=success;conclusion=success;duration_ms=24]
+2026-10-07T14:28:47.9388190Z ##[start-action display=Set $CARGO_HOME;id=__dtolnay_rust-toolchain.__run]
+2026-10-07T14:28:47.9417900Z ##[group]Run echo CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV
+2026-10-07T14:28:47.9418470Z [36;1mecho CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV[0m
+2026-10-07T14:28:47.9435210Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:47.9435620Z env:
+2026-10-07T14:28:47.9435850Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:47.9436120Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:47.9436370Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:47.9436660Z   WGPU_BACKEND: metal
+2026-10-07T14:28:47.9436910Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:47.9437610Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:47.9438360Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:47.9438780Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:47.9439320Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:47.9439980Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:47.9440560Z   CAPTURE: 1
+2026-10-07T14:28:47.9440830Z   TIMEOUT: 90
+2026-10-07T14:28:47.9441090Z   VISIBLE: 1
+2026-10-07T14:28:47.9441350Z ##[endgroup]
+2026-10-07T14:28:47.9606160Z ##[end-action id=__dtolnay_rust-toolchain.__run;outcome=success;conclusion=success;duration_ms=21]
+2026-10-07T14:28:47.9610080Z ##[start-action display=Install rustup if needed;id=__dtolnay_rust-toolchain.__run_2]
+2026-10-07T14:28:47.9650660Z ##[group]Run if ! command -v rustup &>/dev/null; then
+2026-10-07T14:28:47.9651190Z [36;1mif ! command -v rustup &>/dev/null; then[0m
+2026-10-07T14:28:47.9652210Z [36;1m  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y[0m
+2026-10-07T14:28:47.9653170Z [36;1m  echo "$CARGO_HOME/bin" >> $GITHUB_PATH[0m
+2026-10-07T14:28:47.9653550Z [36;1mfi[0m
+2026-10-07T14:28:47.9671150Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:47.9671590Z env:
+2026-10-07T14:28:47.9671880Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:47.9672230Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:47.9672540Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:47.9672890Z   WGPU_BACKEND: metal
+2026-10-07T14:28:47.9673800Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:47.9674120Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:47.9674420Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:47.9674780Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:47.9675260Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:47.9675890Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:47.9676440Z   CAPTURE: 1
+2026-10-07T14:28:47.9676690Z   TIMEOUT: 90
+2026-10-07T14:28:47.9677030Z   VISIBLE: 1
+2026-10-07T14:28:47.9677300Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:47.9677630Z ##[endgroup]
+2026-10-07T14:28:48.1900300Z info: downloading installer
+2026-10-07T14:28:49.4126980Z warn: it looks like you have an existing rustup settings file at:
+2026-10-07T14:28:49.4127570Z warn: /Users/markik/.rustup/settings.toml
+2026-10-07T14:28:49.4128120Z warn: rustup will install the default toolchain as specified in the settings file,
+2026-10-07T14:28:49.4128860Z warn: instead of the one inferred from the default host tuple.
+2026-10-07T14:28:49.4877250Z info: profile set to default
+2026-10-07T14:28:49.4877700Z info: default host tuple is x86_64-apple-darwin
+2026-10-07T14:28:49.4878130Z info: skipping toolchain installation
+2026-10-07T14:28:49.4878360Z 
+2026-10-07T14:28:49.4878800Z 
+2026-10-07T14:28:49.4879040Z Rust is installed now. Great!
+2026-10-07T14:28:49.4879280Z 
+2026-10-07T14:28:49.4879460Z To get started you may need to restart your current shell.
+2026-10-07T14:28:49.4879980Z This would reload your PATH environment variable to include
+2026-10-07T14:28:49.4880490Z Cargo's bin directory ($HOME/.cargo/bin).
+2026-10-07T14:28:49.4880720Z 
+2026-10-07T14:28:49.4880920Z To configure your current shell, you need to source the
+2026-10-07T14:28:49.4881370Z corresponding env file under $HOME/.cargo.
+2026-10-07T14:28:49.4881610Z 
+2026-10-07T14:28:49.4881880Z Consider running the right command for your shell (note the leading DOT):
+2026-10-07T14:28:49.4882450Z . "$HOME/.cargo/env"           # For sh/ash/dash/pdksh/zsh
+2026-10-07T14:28:49.4882880Z source "$HOME/.cargo/env.tcsh" # For tcsh
+2026-10-07T14:28:49.4883290Z cargo:rerun-if-env-changed=CC_x86_64-apple-darwin
+2026-10-07T14:28:49.4883700Z CC_x86_64-apple-darwin = None
+2026-10-07T14:28:49.4884100Z cargo:rerun-if-env-changed=CC_x86_64_apple_darwin
+2026-10-07T14:28:49.5012300Z CC_x86_64_apple_darwin = None
+2026-10-07T14:28:49.5012660Z cargo:rerun-if-env-changed=HOST_CC
+2026-10-07T14:28:49.5013010Z HOST_CC = None
+2026-10-07T14:28:49.5013300Z cargo:rerun-if-env-changed=CC
+2026-10-07T14:28:49.5013610Z CC = None
+2026-10-07T14:28:49.5201220Z cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+2026-10-07T14:28:49.6063840Z cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+2026-10-07T14:28:49.6064310Z CRATE_CC_NO_DEFAULTS = None
+2026-10-07T14:28:49.6064700Z cargo:rerun-if-env-changed=MACOSX_DEPLOYMENT_TARGET
+2026-10-07T14:28:49.6065180Z MACOSX_DEPLOYMENT_TARGET = None
+2026-10-07T14:28:49.6176330Z cargo:rerun-if-env-changed=CFLAGS
+2026-10-07T14:28:49.6176790Z CFLAGS = None
+2026-10-07T14:28:49.6177190Z cargo:rerun-if-env-changed=HOST_CFLAGS
+2026-10-07T14:28:49.6177770Z HOST_CFLAGS = None
+2026-10-07T14:28:49.6178150Z cargo:rerun-if-env-changed=CFLAGS_x86_64_apple_darwin
+2026-10-07T14:28:49.6178590Z CFLAGS_x86_64_apple_darwin = None
+2026-10-07T14:28:49.6179010Z cargo:rerun-if-env-changed=CFLAGS_x86_64-apple-darwin
+2026-10-07T14:28:49.6179450Z CFLAGS_x86_64-apple-darwin = None
+2026-10-07T14:28:49.6288100Z ##[end-action id=__dtolnay_rust-toolchain.__run_2;outcome=success;conclusion=success;duration_ms=1667]
+2026-10-07T14:28:49.6291690Z ##[start-action display=Install rustup if needed on windows;id=__dtolnay_rust-toolchain.__run_3]
+2026-10-07T14:28:49.6317590Z ##[end-action id=__dtolnay_rust-toolchain.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-07T14:28:49.6331200Z ##[start-action display=rustup toolchain install 1.97.1;id=__dtolnay_rust-toolchain.__run_4]
+2026-10-07T14:28:49.6360740Z ##[group]Run log=$(mktemp)
+2026-10-07T14:28:49.6361630Z [36;1mlog=$(mktemp)[0m
+2026-10-07T14:28:49.6361970Z [36;1mtrap 'rm -f "$log"' EXIT[0m
+2026-10-07T14:28:49.6362310Z [36;1mfor attempt in 1 2 3 4 5; do[0m
+2026-10-07T14:28:49.6362970Z [36;1m  if rustup toolchain install 1.97.1 --profile minimal --no-self-update --force-non-host 2>&1 | tee "$log"; then[0m
+2026-10-07T14:28:49.6363620Z [36;1m    break[0m
+2026-10-07T14:28:49.6363910Z [36;1m  else[0m
+2026-10-07T14:28:49.6364170Z [36;1m    status=$?[0m
+2026-10-07T14:28:49.6364460Z [36;1m  fi[0m
+2026-10-07T14:28:49.6364840Z [36;1m  if [[ $attempt == 5 ]] || ! grep -Fq 'checksum failed for ' "$log" \[0m
+2026-10-07T14:28:49.6365540Z [36;1m      || ! grep -Fq 'this is likely due to an ongoing update of the official release server' "$log"; then[0m
+2026-10-07T14:28:49.6366130Z [36;1m    exit "$status"[0m
+2026-10-07T14:28:49.6366460Z [36;1m  fi[0m
+2026-10-07T14:28:49.6366890Z [36;1m  echo "Retrying rustup toolchain install in 30 seconds (retry $attempt of 4)" >&2[0m
+2026-10-07T14:28:49.6367600Z [36;1m  sleep 30[0m
+2026-10-07T14:28:49.6367850Z [36;1mdone[0m
+2026-10-07T14:28:49.6388410Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:49.6388790Z env:
+2026-10-07T14:28:49.6389050Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:49.6389390Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:49.6389680Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:49.6389980Z   WGPU_BACKEND: metal
+2026-10-07T14:28:49.6390270Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:49.6390700Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:49.6391040Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:49.6391420Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:49.6391930Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:49.6392580Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:49.6393170Z   CAPTURE: 1
+2026-10-07T14:28:49.6393440Z   TIMEOUT: 90
+2026-10-07T14:28:49.6393700Z   VISIBLE: 1
+2026-10-07T14:28:49.6393990Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:49.6394330Z   RUSTUP_PERMIT_COPY_RENAME: 1
+2026-10-07T14:28:49.6394650Z ##[endgroup]
+2026-10-07T14:28:50.1005560Z info: syncing channel updates for 1.97.1-x86_64-apple-darwin
+2026-10-07T14:28:50.2562910Z 
+2026-10-07T14:28:50.2764390Z   1.97.1-x86_64-apple-darwin unchanged - rustc 1.97.1 (8bab26f4f 2026-07-14)
+2026-10-07T14:28:50.2765510Z 
+2026-10-07T14:28:50.2856100Z ##[end-action id=__dtolnay_rust-toolchain.__run_4;outcome=success;conclusion=success;duration_ms=652]
+2026-10-07T14:28:50.2862040Z ##[start-action display=rustup default 1.97.1;id=__dtolnay_rust-toolchain.__run_5]
+2026-10-07T14:28:50.2891360Z ##[group]Run rustup default 1.97.1 --force-non-host
+2026-10-07T14:28:50.2891830Z [36;1mrustup default 1.97.1 --force-non-host[0m
+2026-10-07T14:28:50.2910490Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:50.2910910Z env:
+2026-10-07T14:28:50.2911190Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:50.2911610Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:50.2911940Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:50.2912250Z   WGPU_BACKEND: metal
+2026-10-07T14:28:50.2912550Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:50.2912860Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:50.2913180Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:50.2913550Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:50.2914080Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:50.2914780Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:50.2915460Z   CAPTURE: 1
+2026-10-07T14:28:50.2915760Z   TIMEOUT: 90
+2026-10-07T14:28:50.2916020Z   VISIBLE: 1
+2026-10-07T14:28:50.2916300Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:50.2916630Z ##[endgroup]
+2026-10-07T14:28:50.3229760Z info: using existing install for 1.97.1-x86_64-apple-darwin
+2026-10-07T14:28:50.3420790Z info: default toolchain set to 1.97.1-x86_64-apple-darwin
+2026-10-07T14:28:50.3422170Z 
+2026-10-07T14:28:50.3622740Z   1.97.1-x86_64-apple-darwin unchanged - rustc 1.97.1 (8bab26f4f 2026-07-14)
+2026-10-07T14:28:50.3623180Z 
+2026-10-07T14:28:50.3627420Z info: note that the toolchain '1.97.1-x86_64-apple-darwin' is currently in use (overridden by '/Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/rust-toolchain.toml')
+2026-10-07T14:28:50.3647260Z ##[end-action id=__dtolnay_rust-toolchain.__run_5;outcome=success;conclusion=success;duration_ms=78]
+2026-10-07T14:28:50.3650590Z ##[start-action display=Create cachekey;id=__dtolnay_rust-toolchain.rustc-version]
+2026-10-07T14:28:50.3679950Z ##[group]Run DATE=$(rustc +1.97.1 --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+2026-10-07T14:28:50.3693920Z [36;1mDATE=$(rustc +1.97.1 --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')[0m
+2026-10-07T14:28:50.3694840Z [36;1mHASH=$(rustc +1.97.1 --version --verbose | sed -ne 's/^commit-hash: //p')[0m
+2026-10-07T14:28:50.3695490Z [36;1mecho "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT[0m
+2026-10-07T14:28:50.3714430Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:50.3714960Z env:
+2026-10-07T14:28:50.3715250Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:50.3715610Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:50.3715910Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:50.3716250Z   WGPU_BACKEND: metal
+2026-10-07T14:28:50.3716550Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:50.3716830Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:50.3717130Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:50.3717490Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:50.3717990Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:50.3718630Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:50.3719210Z   CAPTURE: 1
+2026-10-07T14:28:50.3719480Z   TIMEOUT: 90
+2026-10-07T14:28:50.3719740Z   VISIBLE: 1
+2026-10-07T14:28:50.3720050Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:50.3720380Z ##[endgroup]
+2026-10-07T14:28:50.4727740Z ##[end-action id=__dtolnay_rust-toolchain.rustc-version;outcome=success;conclusion=success;duration_ms=107]
+2026-10-07T14:28:50.4731280Z ##[start-action display=Disable incremental compilation;id=__dtolnay_rust-toolchain.__run_6]
+2026-10-07T14:28:50.4761150Z ##[group]Run if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+2026-10-07T14:28:50.4761640Z [36;1mif [ -z "${CARGO_INCREMENTAL+set}" ]; then[0m
+2026-10-07T14:28:50.4762100Z [36;1m  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV[0m
+2026-10-07T14:28:50.4762530Z [36;1mfi[0m
+2026-10-07T14:28:50.4781940Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:50.4782380Z env:
+2026-10-07T14:28:50.4782700Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:50.4783070Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:50.4783390Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:50.4783770Z   WGPU_BACKEND: metal
+2026-10-07T14:28:50.4784070Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:50.4784400Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:50.4784710Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:50.4785090Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:50.4785620Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:50.4786320Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:50.4786900Z   CAPTURE: 1
+2026-10-07T14:28:50.4787180Z   TIMEOUT: 90
+2026-10-07T14:28:50.4787450Z   VISIBLE: 1
+2026-10-07T14:28:50.4787750Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:50.4788090Z ##[endgroup]
+2026-10-07T14:28:50.4960630Z ##[end-action id=__dtolnay_rust-toolchain.__run_6;outcome=success;conclusion=success;duration_ms=22]
+2026-10-07T14:28:50.4964060Z ##[start-action display=Enable colors in Cargo output;id=__dtolnay_rust-toolchain.__run_7]
+2026-10-07T14:28:50.4990160Z ##[group]Run if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+2026-10-07T14:28:50.4990640Z [36;1mif [ -z "${CARGO_TERM_COLOR+set}" ]; then[0m
+2026-10-07T14:28:50.4991120Z [36;1m  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV[0m
+2026-10-07T14:28:50.4991540Z [36;1mfi[0m
+2026-10-07T14:28:50.5010140Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:50.5010630Z env:
+2026-10-07T14:28:50.5010910Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:50.5011270Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:50.5011570Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:50.5011880Z   WGPU_BACKEND: metal
+2026-10-07T14:28:50.5012210Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:50.5012530Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:50.5012840Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:50.5013210Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:50.5013730Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:50.5014410Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:50.5014990Z   CAPTURE: 1
+2026-10-07T14:28:50.5015260Z   TIMEOUT: 90
+2026-10-07T14:28:50.5015530Z   VISIBLE: 1
+2026-10-07T14:28:50.5015800Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:50.5016170Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:28:50.5016460Z ##[endgroup]
+2026-10-07T14:28:50.5190950Z ##[end-action id=__dtolnay_rust-toolchain.__run_7;outcome=success;conclusion=success;duration_ms=22]
+2026-10-07T14:28:50.5194330Z ##[start-action display=Enable Cargo sparse registry;id=__dtolnay_rust-toolchain.__run_8]
+2026-10-07T14:28:50.5237950Z ##[group]Run # implemented in 1.66, stabilized in 1.68, made default in 1.70
+2026-10-07T14:28:50.5238690Z [36;1m# implemented in 1.66, stabilized in 1.68, made default in 1.70[0m
+2026-10-07T14:28:50.5239700Z [36;1mif [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/Users/markik/actions-runner-wgpu/_work/_temp"/.implicit_cargo_registries_crates_io_protocol ]; then[0m
+2026-10-07T14:28:50.5240750Z [36;1m  if rustc +1.97.1 --version --verbose | grep -q '^release: 1\.6[89]\.'; then[0m
+2026-10-07T14:28:50.5241550Z [36;1m    touch "/Users/markik/actions-runner-wgpu/_work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2026-10-07T14:28:50.5242350Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV[0m
+2026-10-07T14:28:50.5243480Z [36;1m  elif rustc +1.97.1 --version --verbose | grep -q '^release: 1\.6[67]\.'; then[0m
+2026-10-07T14:28:50.5244290Z [36;1m    touch "/Users/markik/actions-runner-wgpu/_work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2026-10-07T14:28:50.5245090Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV[0m
+2026-10-07T14:28:50.5245550Z [36;1m  fi[0m
+2026-10-07T14:28:50.5245860Z [36;1mfi[0m
+2026-10-07T14:28:50.5266900Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:50.5267320Z env:
+2026-10-07T14:28:50.5267600Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:50.5268000Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:50.5268310Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:50.5268620Z   WGPU_BACKEND: metal
+2026-10-07T14:28:50.5268920Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:50.5269240Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:50.5269550Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:50.5269920Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:50.5270440Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:50.5271100Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:50.5271670Z   CAPTURE: 1
+2026-10-07T14:28:50.5271920Z   TIMEOUT: 90
+2026-10-07T14:28:50.5272160Z   VISIBLE: 1
+2026-10-07T14:28:50.5272450Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:50.5272770Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:28:50.5273060Z   CARGO_TERM_COLOR: always
+2026-10-07T14:28:50.5273370Z ##[endgroup]
+2026-10-07T14:28:50.6194650Z ##[end-action id=__dtolnay_rust-toolchain.__run_8;outcome=success;conclusion=success;duration_ms=99]
+2026-10-07T14:28:50.6198180Z ##[start-action display=Work around spurious network errors in curl 8.0;id=__dtolnay_rust-toolchain.__run_9]
+2026-10-07T14:28:50.6227450Z ##[group]Run # https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+2026-10-07T14:28:50.6228440Z [36;1m# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation[0m
+2026-10-07T14:28:50.6229260Z [36;1mif rustc +1.97.1 --version --verbose | grep -q '^release: 1\.7[01]\.'; then[0m
+2026-10-07T14:28:50.6229840Z [36;1m  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV[0m
+2026-10-07T14:28:50.6230280Z [36;1mfi[0m
+2026-10-07T14:28:50.6249420Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:50.6249870Z env:
+2026-10-07T14:28:50.6250170Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:50.6250570Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:50.6250880Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:50.6251210Z   WGPU_BACKEND: metal
+2026-10-07T14:28:50.6251520Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:50.6251840Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:50.6252160Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:50.6252540Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:50.6253060Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:50.6253750Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:50.6254320Z   CAPTURE: 1
+2026-10-07T14:28:50.6254630Z   TIMEOUT: 90
+2026-10-07T14:28:50.6254900Z   VISIBLE: 1
+2026-10-07T14:28:50.6255190Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:50.6255550Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:28:50.6255870Z   CARGO_TERM_COLOR: always
+2026-10-07T14:28:50.6256190Z ##[endgroup]
+2026-10-07T14:28:50.6796850Z ##[end-action id=__dtolnay_rust-toolchain.__run_9;outcome=success;conclusion=success;duration_ms=59]
+2026-10-07T14:28:50.6801810Z ##[start-action display=rustc +1.97.1 --version --verbose;id=__dtolnay_rust-toolchain.__run_10]
+2026-10-07T14:28:50.6827840Z ##[group]Run rustc +1.97.1 --version --verbose
+2026-10-07T14:28:50.6828300Z [36;1mrustc +1.97.1 --version --verbose[0m
+2026-10-07T14:28:50.6847950Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T14:28:50.6848370Z env:
+2026-10-07T14:28:50.6849280Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:50.6849630Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:50.6849940Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:50.6850260Z   WGPU_BACKEND: metal
+2026-10-07T14:28:50.6850590Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:50.6850920Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:50.6851240Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:50.6851610Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:50.6852140Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:50.6852810Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:50.6853400Z   CAPTURE: 1
+2026-10-07T14:28:50.6853670Z   TIMEOUT: 90
+2026-10-07T14:28:50.6853940Z   VISIBLE: 1
+2026-10-07T14:28:50.6854230Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:50.6854600Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:28:50.6854920Z   CARGO_TERM_COLOR: always
+2026-10-07T14:28:50.6855220Z ##[endgroup]
+2026-10-07T14:28:50.7355470Z rustc 1.97.1 (8bab26f4f 2026-07-14)
+2026-10-07T14:28:50.7355920Z binary: rustc
+2026-10-07T14:28:50.7356290Z commit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452
+2026-10-07T14:28:50.7356710Z commit-date: 2026-07-14
+2026-10-07T14:28:50.7357030Z host: x86_64-apple-darwin
+2026-10-07T14:28:50.7357460Z release: 1.97.1
+2026-10-07T14:28:50.7374440Z LLVM version: 22.1.6
+2026-10-07T14:28:50.7400720Z ##[end-action id=__dtolnay_rust-toolchain.__run_10;outcome=success;conclusion=success;duration_ms=59]
+2026-10-07T14:28:50.7561440Z ##[group]Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+2026-10-07T14:28:50.7561990Z with:
+2026-10-07T14:28:50.7562240Z   version: 0.12.8
+2026-10-07T14:28:50.7562560Z   enable-cache: false
+2026-10-07T14:28:50.7562880Z   activate-environment: false
+2026-10-07T14:28:50.7563210Z   no-project: false
+2026-10-07T14:28:50.7563680Z   working-directory: /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft
+2026-10-07T14:28:50.7566940Z   github-token: ***
+2026-10-07T14:28:50.7567680Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-10-07T14:28:50.7568370Z   restore-cache: true
+2026-10-07T14:28:50.7568650Z   save-cache: true
+2026-10-07T14:28:50.7568890Z   prune-cache: false
+2026-10-07T14:28:50.7569180Z   cache-python: false
+2026-10-07T14:28:50.7569460Z   ignore-nothing-to-cache: false
+2026-10-07T14:28:50.7569760Z   ignore-empty-workdir: false
+2026-10-07T14:28:50.7570200Z   download-from-astral-mirror: true
+2026-10-07T14:28:50.7570530Z   add-problem-matchers: true
+2026-10-07T14:28:50.7570830Z   quiet: false
+2026-10-07T14:28:50.7571100Z   resolution-strategy: highest
+2026-10-07T14:28:50.7571390Z env:
+2026-10-07T14:28:50.7571630Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:50.7571940Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:50.7572210Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:50.7572500Z   WGPU_BACKEND: metal
+2026-10-07T14:28:50.7572770Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:50.7573070Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:50.7573370Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:50.7573720Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:50.7574200Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:50.7574820Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:50.7575350Z   CAPTURE: 1
+2026-10-07T14:28:50.7575600Z   TIMEOUT: 90
+2026-10-07T14:28:50.7575860Z   VISIBLE: 1
+2026-10-07T14:28:50.7576130Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:50.7576450Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:28:50.7576740Z   CARGO_TERM_COLOR: always
+2026-10-07T14:28:50.7577190Z   RUNNER_TOOL_CACHE: /Users/markik/actions-runner-wgpu/_work/_temp/uv-tool-cache
+2026-10-07T14:28:50.7577670Z ##[endgroup]
+2026-10-07T14:28:50.9839080Z Found uv in tool-cache for 0.12.8
+2026-10-07T14:28:50.9842330Z Added /Users/markik/.local/bin to the path
+2026-10-07T14:28:50.9850890Z Added /Users/markik/actions-runner-wgpu/_work/_tool/uv/0.12.8/x86_64 to the path
+2026-10-07T14:28:50.9852720Z Set UV_PYTHON_INSTALL_DIR to /Users/markik/.local/share/uv/python
+2026-10-07T14:28:50.9853610Z Added /Users/markik/.local/share/uv/python to the path
+2026-10-07T14:28:50.9876950Z Successfully installed uv version 0.12.8
+2026-10-07T14:28:51.1957880Z ##[group]Run uv python install --no-bin 3.13
+2026-10-07T14:28:51.1958360Z [36;1muv python install --no-bin 3.13[0m
+2026-10-07T14:28:51.1958720Z [36;1mpython_bin="$(uv python find 3.13)"[0m
+2026-10-07T14:28:51.1959140Z [36;1mmkdir -p "$RUNNER_TEMP/python-bin"[0m
+2026-10-07T14:28:51.1959630Z [36;1mln -sf "$python_bin" "$RUNNER_TEMP/python-bin/python"[0m
+2026-10-07T14:28:51.1960160Z [36;1mln -sf "$python_bin" "$RUNNER_TEMP/python-bin/python3"[0m
+2026-10-07T14:28:51.1960670Z [36;1mecho "$RUNNER_TEMP/python-bin" >> "$GITHUB_PATH"[0m
+2026-10-07T14:28:51.1990360Z shell: /bin/bash -e {0}
+2026-10-07T14:28:51.1990660Z env:
+2026-10-07T14:28:51.1990930Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:51.1991260Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:51.1991540Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:51.1991840Z   WGPU_BACKEND: metal
+2026-10-07T14:28:51.1992130Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:51.1992420Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:51.1992810Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:51.1993170Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:51.1993660Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:51.1994280Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:51.1994810Z   CAPTURE: 1
+2026-10-07T14:28:51.1995040Z   TIMEOUT: 90
+2026-10-07T14:28:51.1995290Z   VISIBLE: 1
+2026-10-07T14:28:51.1995540Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:51.1995860Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:28:51.1996140Z   CARGO_TERM_COLOR: always
+2026-10-07T14:28:51.1996610Z   UV_PYTHON_INSTALL_DIR: /Users/markik/actions-runner-wgpu/_work/_temp/uv-python
+2026-10-07T14:28:51.1997190Z   UV_CACHE_DIR: /Users/markik/actions-runner-wgpu/_work/_temp/uv-cache
+2026-10-07T14:28:51.1997620Z ##[endgroup]
+2026-10-07T14:28:51.6028300Z Downloading cpython-3.13.15-macos-x86_64-none (download) (23.8MiB)
+2026-10-07T14:28:52.6939720Z  Downloaded cpython-3.13.15-macos-x86_64-none (download)
+2026-10-07T14:28:52.7704300Z Installed Python 3.13.15 in 1.53s
+2026-10-07T14:28:52.7708460Z  + cpython-3.13.15-macos-x86_64-none
+2026-10-07T14:28:53.3790280Z ##[group]Run actions/checkout@v4
+2026-10-07T14:28:53.3790670Z with:
+2026-10-07T14:28:53.3790970Z   repository: merely-made/wgpu-graft
+2026-10-07T14:28:53.3791370Z   ref: e8ffee2d6b680154cae645d54a340116f08acb5d
+2026-10-07T14:28:53.3791780Z   path: .registry-proof-helper
+2026-10-07T14:28:53.3794720Z   token: ***
+2026-10-07T14:28:53.3795070Z   ssh-strict: true
+2026-10-07T14:28:53.3795360Z   ssh-user: git
+2026-10-07T14:28:53.3795640Z   persist-credentials: true
+2026-10-07T14:28:53.3796000Z   clean: true
+2026-10-07T14:28:53.3796270Z   sparse-checkout-cone-mode: true
+2026-10-07T14:28:53.3796630Z   fetch-depth: 1
+2026-10-07T14:28:53.3796910Z   fetch-tags: false
+2026-10-07T14:28:53.3797190Z   show-progress: true
+2026-10-07T14:28:53.3797470Z   lfs: false
+2026-10-07T14:28:53.3797730Z   submodules: false
+2026-10-07T14:28:53.3798010Z   set-safe-directory: true
+2026-10-07T14:28:53.3798350Z   allow-unsafe-pr-checkout: false
+2026-10-07T14:28:53.3798680Z env:
+2026-10-07T14:28:53.3799050Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:53.3799390Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:53.3799670Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:53.3799970Z   WGPU_BACKEND: metal
+2026-10-07T14:28:53.3800250Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:53.3800540Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:53.3800830Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:53.3801190Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:53.3801700Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:53.3803010Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:53.3803690Z   CAPTURE: 1
+2026-10-07T14:28:53.3803970Z   TIMEOUT: 90
+2026-10-07T14:28:53.3804240Z   VISIBLE: 1
+2026-10-07T14:28:53.3804570Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:53.3804920Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:28:53.3805220Z   CARGO_TERM_COLOR: always
+2026-10-07T14:28:53.3805630Z   UV_PYTHON_INSTALL_DIR: /Users/markik/.local/share/uv/python
+2026-10-07T14:28:53.3806070Z ##[endgroup]
+2026-10-07T14:28:53.5189830Z Syncing repository: merely-made/wgpu-graft
+2026-10-07T14:28:53.5190620Z ##[group]Getting Git version info
+2026-10-07T14:28:53.5191280Z Working directory is '/Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-helper'
+2026-10-07T14:28:53.5219620Z [command]/usr/bin/git version
+2026-10-07T14:28:53.5453190Z git version 2.39.5 (Apple Git-154)
+2026-10-07T14:28:53.5471450Z ##[endgroup]
+2026-10-07T14:28:53.5479220Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/7608a08d-7220-4afd-99d6-b43a69f5c210/.gitconfig'
+2026-10-07T14:28:53.5489790Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/7608a08d-7220-4afd-99d6-b43a69f5c210' before making global git config changes
+2026-10-07T14:28:53.5490840Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T14:28:53.5494310Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-helper
+2026-10-07T14:28:53.5737090Z ##[group]Initializing the repository
+2026-10-07T14:28:53.5766390Z [command]/usr/bin/git init /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-helper
+2026-10-07T14:28:53.6107690Z Initialized empty Git repository in /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-helper/.git/
+2026-10-07T14:28:53.6128910Z [command]/usr/bin/git remote add origin https://github.com/merely-made/wgpu-graft
+2026-10-07T14:28:53.6458460Z ##[endgroup]
+2026-10-07T14:28:53.6458990Z ##[group]Disabling automatic garbage collection
+2026-10-07T14:28:53.6463160Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-07T14:28:53.6750770Z ##[endgroup]
+2026-10-07T14:28:53.6751510Z ##[group]Setting up auth
+2026-10-07T14:28:53.6763340Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T14:28:53.7031540Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T14:28:53.8470070Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T14:28:53.8678310Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T14:28:54.0111750Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T14:28:54.0322540Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T14:28:54.1596070Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-07T14:28:54.1815830Z ##[endgroup]
+2026-10-07T14:28:54.1816460Z ##[group]Fetching the repository
+2026-10-07T14:28:54.1823770Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin e8ffee2d6b680154cae645d54a340116f08acb5d
+2026-10-07T14:28:55.4579070Z From https://github.com/merely-made/wgpu-graft
+2026-10-07T14:28:55.4579680Z  * branch            e8ffee2d6b680154cae645d54a340116f08acb5d -> FETCH_HEAD
+2026-10-07T14:28:55.4722300Z ##[endgroup]
+2026-10-07T14:28:55.4723180Z ##[group]Determining the checkout info
+2026-10-07T14:28:55.4725190Z ##[endgroup]
+2026-10-07T14:28:55.4726320Z [command]/usr/bin/git sparse-checkout disable
+2026-10-07T14:28:55.5006020Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-07T14:28:55.5327370Z ##[group]Checking out the ref
+2026-10-07T14:28:55.5328360Z [command]/usr/bin/git checkout --progress --force e8ffee2d6b680154cae645d54a340116f08acb5d
+2026-10-07T14:28:55.8076480Z Note: switching to 'e8ffee2d6b680154cae645d54a340116f08acb5d'.
+2026-10-07T14:28:55.8076930Z 
+2026-10-07T14:28:55.8077210Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-07T14:28:55.8077830Z changes and commit them, and you can discard any commits you make in this
+2026-10-07T14:28:55.8078430Z state without impacting any branches by switching back to a branch.
+2026-10-07T14:28:55.8078810Z 
+2026-10-07T14:28:55.8079040Z If you want to create a new branch to retain commits you create, you may
+2026-10-07T14:28:55.8079620Z do so (now or later) by using -c with the switch command. Example:
+2026-10-07T14:28:55.8079970Z 
+2026-10-07T14:28:55.8080110Z   git switch -c <new-branch-name>
+2026-10-07T14:28:55.8080360Z 
+2026-10-07T14:28:55.8080520Z Or undo this operation with:
+2026-10-07T14:28:55.8080720Z 
+2026-10-07T14:28:55.8080850Z   git switch -
+2026-10-07T14:28:55.8081020Z 
+2026-10-07T14:28:55.8081310Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-07T14:28:55.8081680Z 
+2026-10-07T14:28:55.8082010Z HEAD is now at e8ffee2 Pin Servo registry proof fixture to qualified PKCS1 prerelease
+2026-10-07T14:28:55.8166820Z ##[endgroup]
+2026-10-07T14:28:55.8469170Z [command]/usr/bin/git log -1 --format=%H
+2026-10-07T14:28:55.8762620Z e8ffee2d6b680154cae645d54a340116f08acb5d
+2026-10-07T14:28:55.8999900Z ##[group]Run actions/checkout@v4
+2026-10-07T14:28:55.9000190Z with:
+2026-10-07T14:28:55.9000410Z   repository: merely-made/wgpu-scry
+2026-10-07T14:28:55.9000700Z   ref: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:55.9001020Z   path: .registry-proof-source/scry
+2026-10-07T14:28:55.9003670Z   token: ***
+2026-10-07T14:28:55.9003880Z   ssh-strict: true
+2026-10-07T14:28:55.9004080Z   ssh-user: git
+2026-10-07T14:28:55.9004300Z   persist-credentials: true
+2026-10-07T14:28:55.9004530Z   clean: true
+2026-10-07T14:28:55.9004750Z   sparse-checkout-cone-mode: true
+2026-10-07T14:28:55.9005180Z   fetch-depth: 1
+2026-10-07T14:28:55.9005450Z   fetch-tags: false
+2026-10-07T14:28:55.9005680Z   show-progress: true
+2026-10-07T14:28:55.9005900Z   lfs: false
+2026-10-07T14:28:55.9006320Z   submodules: false
+2026-10-07T14:28:55.9006560Z   set-safe-directory: true
+2026-10-07T14:28:55.9006950Z   allow-unsafe-pr-checkout: false
+2026-10-07T14:28:55.9007220Z env:
+2026-10-07T14:28:55.9007500Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:55.9007790Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:55.9008030Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:55.9008280Z   WGPU_BACKEND: metal
+2026-10-07T14:28:55.9008510Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:55.9008770Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:55.9009010Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:55.9009320Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:55.9009770Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:55.9010370Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:55.9010880Z   CAPTURE: 1
+2026-10-07T14:28:55.9011080Z   TIMEOUT: 90
+2026-10-07T14:28:55.9011280Z   VISIBLE: 1
+2026-10-07T14:28:55.9011490Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:55.9011770Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:28:55.9012010Z   CARGO_TERM_COLOR: always
+2026-10-07T14:28:55.9012350Z   UV_PYTHON_INSTALL_DIR: /Users/markik/.local/share/uv/python
+2026-10-07T14:28:55.9012710Z ##[endgroup]
+2026-10-07T14:28:56.0584250Z Syncing repository: merely-made/wgpu-scry
+2026-10-07T14:28:56.0622240Z ##[group]Getting Git version info
+2026-10-07T14:28:56.0623590Z Working directory is '/Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/scry'
+2026-10-07T14:28:56.0628120Z [command]/usr/bin/git version
+2026-10-07T14:28:56.0943590Z git version 2.39.5 (Apple Git-154)
+2026-10-07T14:28:56.0961800Z ##[endgroup]
+2026-10-07T14:28:56.0970220Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/e107f2d4-7905-4c7a-bf1a-0df27188582a/.gitconfig'
+2026-10-07T14:28:56.0980900Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/e107f2d4-7905-4c7a-bf1a-0df27188582a' before making global git config changes
+2026-10-07T14:28:56.0981940Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T14:28:56.0986320Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/scry
+2026-10-07T14:28:56.1259140Z ##[group]Initializing the repository
+2026-10-07T14:28:56.1264170Z [command]/usr/bin/git init /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/scry
+2026-10-07T14:28:56.1590240Z Initialized empty Git repository in /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/scry/.git/
+2026-10-07T14:28:56.1606440Z [command]/usr/bin/git remote add origin https://github.com/merely-made/wgpu-scry
+2026-10-07T14:28:56.1926270Z ##[endgroup]
+2026-10-07T14:28:56.1926820Z ##[group]Disabling automatic garbage collection
+2026-10-07T14:28:56.1930230Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-07T14:28:56.2168670Z ##[endgroup]
+2026-10-07T14:28:56.2169200Z ##[group]Setting up auth
+2026-10-07T14:28:56.2176470Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T14:28:56.2471750Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T14:28:56.4238670Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T14:28:56.4477000Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T14:28:56.5838470Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T14:28:56.6052380Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T14:28:56.7372280Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-07T14:28:56.7591080Z ##[endgroup]
+2026-10-07T14:28:56.7591670Z ##[group]Fetching the repository
+2026-10-07T14:28:56.7599440Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:57.7798570Z From https://github.com/merely-made/wgpu-scry
+2026-10-07T14:28:57.7874890Z  * branch            4d8d1d3f8dd450b712960c90b74263a45b46e35b -> FETCH_HEAD
+2026-10-07T14:28:57.7940960Z ##[endgroup]
+2026-10-07T14:28:57.7941510Z ##[group]Determining the checkout info
+2026-10-07T14:28:57.7942480Z ##[endgroup]
+2026-10-07T14:28:57.7947550Z [command]/usr/bin/git sparse-checkout disable
+2026-10-07T14:28:57.8217530Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-07T14:28:57.8454500Z ##[group]Checking out the ref
+2026-10-07T14:28:57.8458790Z [command]/usr/bin/git checkout --progress --force 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:57.9594080Z Note: switching to '4d8d1d3f8dd450b712960c90b74263a45b46e35b'.
+2026-10-07T14:28:57.9594610Z 
+2026-10-07T14:28:57.9594930Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-07T14:28:57.9595550Z changes and commit them, and you can discard any commits you make in this
+2026-10-07T14:28:57.9596160Z state without impacting any branches by switching back to a branch.
+2026-10-07T14:28:57.9597060Z 
+2026-10-07T14:28:57.9597330Z If you want to create a new branch to retain commits you create, you may
+2026-10-07T14:28:57.9597910Z do so (now or later) by using -c with the switch command. Example:
+2026-10-07T14:28:57.9598260Z 
+2026-10-07T14:28:57.9598390Z   git switch -c <new-branch-name>
+2026-10-07T14:28:57.9598640Z 
+2026-10-07T14:28:57.9598760Z Or undo this operation with:
+2026-10-07T14:28:57.9598980Z 
+2026-10-07T14:28:57.9599100Z   git switch -
+2026-10-07T14:28:57.9599250Z 
+2026-10-07T14:28:57.9599530Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-07T14:28:57.9599890Z 
+2026-10-07T14:28:57.9600280Z HEAD is now at 4d8d1d3 Release scrying 0.7.2 with explicit paint waits and native pixel qualification
+2026-10-07T14:28:57.9601520Z ##[endgroup]
+2026-10-07T14:28:57.9832500Z [command]/usr/bin/git log -1 --format=%H
+2026-10-07T14:28:58.0045360Z 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:58.0185790Z ##[group]Run proof="$RUNNER_TEMP/scry-registry-intel-diagnostic"
+2026-10-07T14:28:58.0186460Z [36;1mproof="$RUNNER_TEMP/scry-registry-intel-diagnostic"[0m
+2026-10-07T14:28:58.0186920Z [36;1mmkdir -p "$proof"[0m
+2026-10-07T14:28:58.0187560Z [36;1mbusy="$(ps -axo pid=,comm= | awk '$2 ~ /(^|\/)(cargo|rustc|clang|clang\+\+|demo-mac|demo-weld-mac|demo-servo-winit)$/ { print $1, $2 }')"[0m
+2026-10-07T14:28:58.0188270Z [36;1mif [ -n "$busy" ]; then[0m
+2026-10-07T14:28:58.0188670Z [36;1m  printf '%s\n' "$busy" > "$proof/live-owners.txt"[0m
+2026-10-07T14:28:58.0189160Z [36;1m  echo "Shared compiler/native slot is occupied" >&2[0m
+2026-10-07T14:28:58.0189610Z [36;1m  exit 1[0m
+2026-10-07T14:28:58.0189890Z [36;1mfi[0m
+2026-10-07T14:28:58.0190200Z [36;1mtest "$(git rev-parse HEAD)" = "$GITHUB_SHA"[0m
+2026-10-07T14:28:58.0190840Z [36;1mtest "$(git -C .registry-proof-helper rev-parse HEAD)" = e8ffee2d6b680154cae645d54a340116f08acb5d[0m
+2026-10-07T14:28:58.0191760Z [36;1mtest "$(git -C .registry-proof-source/scry rev-parse HEAD)" = "$SCRY_SOURCE_REF"[0m
+2026-10-07T14:28:58.0192290Z [36;1m{[0m
+2026-10-07T14:28:58.0192910Z [36;1m  printf 'workflow=%s\nhelper=%s\nscry_fixture=%s\n' "$GITHUB_SHA" e8ffee2d6b680154cae645d54a340116f08acb5d "$SCRY_SOURCE_REF"[0m
+2026-10-07T14:28:58.0193620Z [36;1m  rustc --version[0m
+2026-10-07T14:28:58.0193950Z [36;1m  cargo --version[0m
+2026-10-07T14:28:58.0194740Z [36;1m  shasum -a 256 .registry-proof-helper/scripts/stage_registry_triplet.py .registry-proof-helper/scripts/verify_registry_triplet.py[0m
+2026-10-07T14:28:58.0195540Z [36;1m} > "$proof/checkout-and-helper-identity.txt"[0m
+2026-10-07T14:28:58.0216910Z shell: /bin/bash -e {0}
+2026-10-07T14:28:58.0217270Z env:
+2026-10-07T14:28:58.0217540Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:58.0217860Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:58.0218170Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:58.0218470Z   WGPU_BACKEND: metal
+2026-10-07T14:28:58.0218790Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:58.0219330Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:58.0219650Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:58.0220070Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:58.0220590Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:58.0221300Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:58.0221910Z   CAPTURE: 1
+2026-10-07T14:28:58.0222190Z   TIMEOUT: 90
+2026-10-07T14:28:58.0222460Z   VISIBLE: 1
+2026-10-07T14:28:58.0222750Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:58.0223090Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:28:58.0223410Z   CARGO_TERM_COLOR: always
+2026-10-07T14:28:58.0223810Z   UV_PYTHON_INSTALL_DIR: /Users/markik/.local/share/uv/python
+2026-10-07T14:28:58.0224260Z ##[endgroup]
+2026-10-07T14:28:58.3004430Z ##[group]Run proof="$RUNNER_TEMP/scry-registry-intel-diagnostic"
+2026-10-07T14:28:58.3005120Z [36;1mproof="$RUNNER_TEMP/scry-registry-intel-diagnostic"[0m
+2026-10-07T14:28:58.3007060Z [36;1mpython3 .registry-proof-helper/scripts/stage_registry_triplet.py --kind scry-mac --source .registry-proof-source/scry --destination "$proof/consumer" --grafting-version "$GRAFTING_VERSION" --scrying-version "$SCRYING_VERSION" --welding-version "$WELDING_VERSION"[0m
+2026-10-07T14:28:58.3009230Z [36;1mpython3 .registry-proof-helper/scripts/verify_registry_triplet.py --consumer "$proof/consumer" --receipt-dir "$proof/registry" --grafting-version "$GRAFTING_VERSION" --scrying-version "$SCRYING_VERSION" --welding-version "$WELDING_VERSION"[0m
+2026-10-07T14:28:58.3029750Z shell: /bin/bash -e {0}
+2026-10-07T14:28:58.3030070Z env:
+2026-10-07T14:28:58.3030330Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:28:58.3030660Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:28:58.3031090Z   RUSTFLAGS: -D warnings
+2026-10-07T14:28:58.3031390Z   WGPU_BACKEND: metal
+2026-10-07T14:28:58.3031680Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:28:58.3031970Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:28:58.3032270Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:28:58.3032640Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:28:58.3033140Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:28:58.3033760Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:28:58.3034300Z   CAPTURE: 1
+2026-10-07T14:28:58.3034570Z   TIMEOUT: 90
+2026-10-07T14:28:58.3034830Z   VISIBLE: 1
+2026-10-07T14:28:58.3035100Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:28:58.3035420Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:28:58.3035710Z   CARGO_TERM_COLOR: always
+2026-10-07T14:28:58.3036080Z   UV_PYTHON_INSTALL_DIR: /Users/markik/.local/share/uv/python
+2026-10-07T14:28:58.3036490Z ##[endgroup]
+2026-10-07T14:28:58.5716690Z staged scry-mac registry consumer: /Users/markik/actions-runner-wgpu/_work/_temp/scry-registry-intel-diagnostic/consumer
+2026-10-07T14:28:58.6928910Z [1m[92m    Updating[0m crates.io index
+2026-10-07T14:29:01.2652480Z [1m[92m     Locking[0m 366 packages to latest Rust 1.97.1 compatible versions
+2026-10-07T14:29:01.3077490Z [1m[92m      Adding[0m objc2 v0.6.3 [1m[33m(available: v0.6.5)[0m
+2026-10-07T14:29:01.3319190Z [1m[92m      Adding[0m pollster v0.4.0 [1m[33m(available: v1.0.1)[0m
+2026-10-07T14:29:02.4542320Z registry proof: grafting 0.6.0 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T14:29:02.4543120Z registry proof: scrying 0.7.2 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T14:29:02.4543870Z registry proof: welding 0.14.1 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T14:29:02.4544730Z registry proof: PASS (/Users/markik/actions-runner-wgpu/_work/_temp/scry-registry-intel-diagnostic/consumer)
+2026-10-07T14:29:02.4690800Z ##[group]Run proof="$RUNNER_TEMP/scry-registry-intel-diagnostic"
+2026-10-07T14:29:02.4691550Z [36;1mproof="$RUNNER_TEMP/scry-registry-intel-diagnostic"[0m
+2026-10-07T14:29:02.4692020Z [36;1mcd "$proof/consumer"[0m
+2026-10-07T14:29:02.4692430Z [36;1mnice -n 10 cargo build --locked -j 1[0m
+2026-10-07T14:29:02.4693050Z [36;1mshasum -a 256 "$CARGO_TARGET_DIR/debug/demo-mac" > "$proof/pre-battery-executable.sha256"[0m
+2026-10-07T14:29:02.4693650Z [36;1mpython3 - "$proof" <<'PY'[0m
+2026-10-07T14:29:02.4694030Z [36;1mimport hashlib, json, pathlib, sys[0m
+2026-10-07T14:29:02.4694460Z [36;1mproof = pathlib.Path(sys.argv[1])[0m
+2026-10-07T14:29:02.4694970Z [36;1mmetadata = json.loads((proof / "registry/metadata.json").read_text())[0m
+2026-10-07T14:29:02.4695460Z [36;1mfacts = [][0m
+2026-10-07T14:29:02.4695820Z [36;1mfor name in ("grafting", "scrying", "welding"):[0m
+2026-10-07T14:29:02.4696440Z [36;1m    packages = [p for p in metadata["packages"] if p["name"] == name][0m
+2026-10-07T14:29:02.4696940Z [36;1m    if len(packages) != 1:[0m
+2026-10-07T14:29:02.4697450Z [36;1m        raise SystemExit(f"expected one registry package for {name}")[0m
+2026-10-07T14:29:02.4697970Z [36;1m    package = packages[0][0m
+2026-10-07T14:29:02.4698920Z [36;1m    manifest = pathlib.Path(package["manifest_path"])[0m
+2026-10-07T14:29:02.4699530Z [36;1m    vcs = manifest.parent / ".cargo_vcs_info.json"[0m
+2026-10-07T14:29:02.4700190Z [36;1m    facts.append({"name": name, "version": package["version"], "source": package["source"],[0m
+2026-10-07T14:29:02.4700920Z [36;1m                  "manifest_sha256": hashlib.sha256(manifest.read_bytes()).hexdigest(),[0m
+2026-10-07T14:29:02.4701630Z [36;1m                  "cargo_vcs_info": json.loads(vcs.read_text()) if vcs.is_file() else None})[0m
+2026-10-07T14:29:02.4702260Z [36;1mscry = next(p for p in facts if p["name"] == "scrying")[0m
+2026-10-07T14:29:02.4702990Z [36;1mif not scry["cargo_vcs_info"] or scry["cargo_vcs_info"]["git"]["sha1"] != "4d8d1d3f8dd450b712960c90b74263a45b46e35b":[0m
+2026-10-07T14:29:02.4703850Z [36;1m    raise SystemExit("registry Scry package does not bind the selected release source")[0m
+2026-10-07T14:29:02.4704690Z [36;1m(proof / "registry-package-identity.json").write_text(json.dumps(facts, indent=2) + "\n")[0m
+2026-10-07T14:29:02.4705260Z [36;1mPY[0m
+2026-10-07T14:29:02.4724940Z shell: /bin/bash -e {0}
+2026-10-07T14:29:02.4725250Z env:
+2026-10-07T14:29:02.4725510Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:29:02.4725850Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:29:02.4726170Z   RUSTFLAGS: -D warnings
+2026-10-07T14:29:02.4726660Z   WGPU_BACKEND: metal
+2026-10-07T14:29:02.4726960Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:29:02.4727460Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:29:02.4727810Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:29:02.4728190Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:29:02.4728800Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:29:02.4729540Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:29:02.4730140Z   CAPTURE: 1
+2026-10-07T14:29:02.4730420Z   TIMEOUT: 90
+2026-10-07T14:29:02.4730690Z   VISIBLE: 1
+2026-10-07T14:29:02.4730980Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:29:02.4731390Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:29:02.4731730Z   CARGO_TERM_COLOR: always
+2026-10-07T14:29:02.4732120Z   UV_PYTHON_INSTALL_DIR: /Users/markik/.local/share/uv/python
+2026-10-07T14:29:02.4732590Z ##[endgroup]
+2026-10-07T14:29:02.8299250Z [1m[92m   Compiling[0m welding v0.14.1
+2026-10-07T14:29:03.6687440Z [1m[92m   Compiling[0m registry-triplet-scry-mac v0.1.0 (/Users/markik/actions-runner-wgpu/_work/_temp/scry-registry-intel-diagnostic/consumer)
+2026-10-07T14:29:08.9523080Z [1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 6.42s
+2026-10-07T14:29:09.3565130Z ##[group]Run proof="$RUNNER_TEMP/scry-registry-intel-diagnostic"
+2026-10-07T14:29:09.3565870Z [36;1mproof="$RUNNER_TEMP/scry-registry-intel-diagnostic"[0m
+2026-10-07T14:29:09.3566300Z [36;1mcaffeinate -u -t 5 &[0m
+2026-10-07T14:29:09.3566600Z [36;1msleep 2[0m
+2026-10-07T14:29:09.3566880Z [36;1mset -o pipefail[0m
+2026-10-07T14:29:09.3567220Z [36;1mstatus=0[0m
+2026-10-07T14:29:09.3567800Z [36;1mnice -n 10 caffeinate -dims bash "$proof/consumer/scripts/test-mac.sh" 2>&1 | tee "$proof/ordinary.log" || status=$?[0m
+2026-10-07T14:29:09.3568540Z [36;1mprintf '%s\n' "$status" > "$proof/ordinary-exit-code.txt"[0m
+2026-10-07T14:29:09.3569160Z [36;1mshasum -a 256 "$CARGO_TARGET_DIR/debug/demo-mac" > "$proof/ordinary-executable.sha256"[0m
+2026-10-07T14:29:09.3569940Z [36;1mshasum -a 256 "$SCRY_MAC_APP/Contents/MacOS/demo-mac" > "$proof/ordinary-app-executable.sha256"[0m
+2026-10-07T14:29:09.3570700Z [36;1mcodesign -d -r- "$SCRY_MAC_APP" > "$proof/ordinary-signing.txt" 2>&1[0m
+2026-10-07T14:29:09.3571380Z [36;1mcmp "$proof/pre-battery-executable.sha256" "$proof/ordinary-executable.sha256"[0m
+2026-10-07T14:29:09.3571920Z [36;1mexit "$status"[0m
+2026-10-07T14:29:09.3591760Z shell: /bin/bash -e {0}
+2026-10-07T14:29:09.3592090Z env:
+2026-10-07T14:29:09.3592380Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:29:09.3592740Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:29:09.3593450Z   RUSTFLAGS: -D warnings
+2026-10-07T14:29:09.3593760Z   WGPU_BACKEND: metal
+2026-10-07T14:29:09.3594070Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:29:09.3594380Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:29:09.3594780Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:29:09.3595150Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:29:09.3595700Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:29:09.3596370Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:29:09.3597040Z   CAPTURE: 1
+2026-10-07T14:29:09.3597330Z   TIMEOUT: 90
+2026-10-07T14:29:09.3597600Z   VISIBLE: 1
+2026-10-07T14:29:09.3597890Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:29:09.3598240Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:29:09.3598550Z   CARGO_TERM_COLOR: always
+2026-10-07T14:29:09.3598950Z   UV_PYTHON_INSTALL_DIR: /Users/markik/.local/share/uv/python
+2026-10-07T14:29:09.3599420Z   CAPTURE_ACTIVITY: 0
+2026-10-07T14:29:09.3599720Z ##[endgroup]
+2026-10-07T14:29:13.4157180Z ==> ScreenCaptureKit display-awake hold active
+2026-10-07T14:29:13.4158920Z ==> building demo-mac
+2026-10-07T14:29:20.3590240Z ==> code-signing identity: -
+2026-10-07T14:29:20.3725120Z Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac
+2026-10-07T14:29:20.3725990Z designated => identifier "org.merely.scry.hardware-demo"
+2026-10-07T14:29:20.3730190Z ==> LaunchServices app: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:29:20.3733140Z 
+2026-10-07T14:29:20.3733410Z ==> --scripted
+2026-10-07T14:29:25.7934340Z demo-mac: nav event: Starting { url: "about:blank" }
+2026-10-07T14:29:25.7935600Z demo-mac: nav event: SourceChanged { url: "about:blank" }
+2026-10-07T14:29:25.7936100Z demo-mac: js->host: ready
+2026-10-07T14:29:25.7936450Z demo-mac: scripted: page ready
+2026-10-07T14:29:25.7936910Z demo-mac: nav event: Completed { url: "about:blank", success: true }
+2026-10-07T14:29:25.7937540Z demo-mac: nav event: TitleChanged { title: "scrying-test" }
+2026-10-07T14:29:25.7938000Z demo-mac: js->host: echo:ping-from-host
+2026-10-07T14:29:25.7938390Z demo-mac: scripted: JS echoed host message
+2026-10-07T14:29:25.7938870Z demo-mac: scripted: 6 ScrollWheel events dispatched without error
+2026-10-07T14:29:25.7939360Z demo-mac: cursor change: Default
+2026-10-07T14:29:25.7939850Z demo-mac: scripted: 3 KeyDown/KeyUp pairs dispatched without error
+2026-10-07T14:29:25.7940730Z demo-mac: scripted: PASS — slices E + G + I + cursor handler verified at runtime
+2026-10-07T14:29:25.7942020Z   - cursor handler fired 1 time(s) over the run
+2026-10-07T14:29:25.7971150Z   -> PASS
+2026-10-07T14:29:25.8004010Z 
+2026-10-07T14:29:25.8004310Z ==> --browser-test
+2026-10-07T14:29:27.1873160Z demo-mac: nav event: Starting { url: "scrying-test://history-1" }
+2026-10-07T14:29:27.1873820Z demo-mac: nav event: SourceChanged { url: "scrying-test://history-1" }
+2026-10-07T14:29:27.1874410Z demo-mac: js->host: loaded:history-1
+2026-10-07T14:29:27.1874810Z demo-mac: browser-test: history-1 loaded
+2026-10-07T14:29:27.1875420Z demo-mac: nav event: Completed { url: "scrying-test://history-1", success: true }
+2026-10-07T14:29:27.1876080Z demo-mac: nav event: Starting { url: "scrying-test://history-2" }
+2026-10-07T14:29:27.1876670Z demo-mac: nav event: SourceChanged { url: "scrying-test://history-2" }
+2026-10-07T14:29:27.1877180Z demo-mac: js->host: loaded:history-2
+2026-10-07T14:29:27.1877550Z demo-mac: browser-test: history-2 loaded
+2026-10-07T14:29:27.1878100Z demo-mac: nav event: Completed { url: "scrying-test://history-2", success: true }
+2026-10-07T14:29:27.1878730Z demo-mac: nav event: Starting { url: "scrying-test://history-1" }
+2026-10-07T14:29:27.1879320Z demo-mac: nav event: SourceChanged { url: "scrying-test://history-1" }
+2026-10-07T14:29:27.1880000Z demo-mac: nav event: Completed { url: "scrying-test://history-1", success: true }
+2026-10-07T14:29:27.1880590Z demo-mac: browser-test: go_back navigated to history-1
+2026-10-07T14:29:27.1882230Z demo-mac: nav event: Starting { url: "scrying-test://history-2" }
+2026-10-07T14:29:27.1882800Z demo-mac: nav event: SourceChanged { url: "scrying-test://history-2" }
+2026-10-07T14:29:27.1883480Z demo-mac: nav event: Completed { url: "scrying-test://history-2", success: true }
+2026-10-07T14:29:27.1884090Z demo-mac: browser-test: go_forward navigated to history-2
+2026-10-07T14:29:27.1884570Z demo-mac: browser-test: apply_settings ok
+2026-10-07T14:29:27.1885060Z demo-mac: nav event: Starting { url: "scrying-test://find-target" }
+2026-10-07T14:29:27.1885730Z demo-mac: nav event: SourceChanged { url: "scrying-test://find-target" }
+2026-10-07T14:29:27.1886260Z demo-mac: js->host: loaded:find-target
+2026-10-07T14:29:27.1886790Z demo-mac: nav event: Completed { url: "scrying-test://find-target", success: true }
+2026-10-07T14:29:27.1887360Z demo-mac: browser-test: find_in_page matched
+2026-10-07T14:29:27.1887800Z demo-mac: browser-test: PDF rendered (12150 bytes)
+2026-10-07T14:29:27.1888530Z demo-mac: browser-test: PASS — items 1, 3, 4, 9 verified at runtime
+2026-10-07T14:29:27.1889130Z   - history controls (go_back/go_forward observed via SourceChanged events)
+2026-10-07T14:29:27.1889660Z   - settings (apply_settings returned Ok)
+2026-10-07T14:29:27.1890110Z   - URL schemes (scrying-test:// served 3 pages successfully)
+2026-10-07T14:29:27.1890700Z   - find_in_page → Some(true), request_pdf → 12150 bytes
+2026-10-07T14:29:27.1912040Z   -> PASS
+2026-10-07T14:29:27.1946370Z 
+2026-10-07T14:29:27.1946650Z ==> --interaction-state-test
+2026-10-07T14:29:28.8790630Z demo-mac: nav event: Starting { url: "scrying-test://history-1" }
+2026-10-07T14:29:28.8791370Z demo-mac: nav event: SourceChanged { url: "scrying-test://history-1" }
+2026-10-07T14:29:28.8791920Z demo-mac: js->host: loaded:history-1
+2026-10-07T14:29:28.8792460Z demo-mac: nav event: Completed { url: "scrying-test://history-1", success: true }
+2026-10-07T14:29:28.8793110Z demo-mac: nav event: Starting { url: "scrying-test://history-2" }
+2026-10-07T14:29:28.8793710Z demo-mac: nav event: SourceChanged { url: "scrying-test://history-2" }
+2026-10-07T14:29:28.8794210Z demo-mac: js->host: loaded:history-2
+2026-10-07T14:29:28.8794740Z demo-mac: nav event: Completed { url: "scrying-test://history-2", success: true }
+2026-10-07T14:29:28.8795370Z demo-mac: nav event: Starting { url: "scrying-test://find-target" }
+2026-10-07T14:29:28.8795980Z demo-mac: nav event: SourceChanged { url: "scrying-test://find-target" }
+2026-10-07T14:29:28.8796510Z demo-mac: js->host: loaded:find-target
+2026-10-07T14:29:28.8797600Z demo-mac: nav event: Completed { url: "scrying-test://find-target", success: true }
+2026-10-07T14:29:28.8798250Z demo-mac: interaction-state-test: serialized 1024 bytes at C
+2026-10-07T14:29:28.8798790Z demo-mac: nav event: Starting { url: "scrying-test://history-2" }
+2026-10-07T14:29:28.8799380Z demo-mac: nav event: SourceChanged { url: "scrying-test://history-2" }
+2026-10-07T14:29:28.8800050Z demo-mac: nav event: Completed { url: "scrying-test://history-2", success: true }
+2026-10-07T14:29:28.8800700Z demo-mac: nav event: Starting { url: "scrying-test://history-1" }
+2026-10-07T14:29:28.8801390Z demo-mac: nav event: SourceChanged { url: "scrying-test://history-1" }
+2026-10-07T14:29:28.8802010Z demo-mac: nav event: Completed { url: "scrying-test://history-1", success: true }
+2026-10-07T14:29:28.8802610Z demo-mac: interaction-state-test: restore_interaction_state ok
+2026-10-07T14:29:28.8803160Z demo-mac: nav event: Starting { url: "scrying-test://find-target" }
+2026-10-07T14:29:28.8803740Z demo-mac: nav event: SourceChanged { url: "scrying-test://find-target" }
+2026-10-07T14:29:28.8804250Z demo-mac: js->host: loaded:find-target
+2026-10-07T14:29:28.8804780Z demo-mac: nav event: Completed { url: "scrying-test://find-target", success: true }
+2026-10-07T14:29:28.8805350Z demo-mac: interaction-state-test: restored to C
+2026-10-07T14:29:28.8806190Z demo-mac: interaction-state-test: PASS — serialize/restore round-trip verified
+2026-10-07T14:29:28.8807060Z   - serialized at C (1024 bytes), navigated back to A, restore landed on C
+2026-10-07T14:29:28.8807590Z   - post-restore can_go_back == true, can_go_forward == false
+2026-10-07T14:29:28.8826680Z   -> PASS
+2026-10-07T14:29:28.8858430Z 
+2026-10-07T14:29:28.8859080Z ==> --pointer-input-test
+2026-10-07T14:29:30.2776770Z demo-mac: nav event: Starting { url: "scrying-test://pointer" }
+2026-10-07T14:29:30.2777440Z demo-mac: nav event: SourceChanged { url: "scrying-test://pointer" }
+2026-10-07T14:29:30.2778030Z demo-mac: nav event: Completed { url: "scrying-test://pointer", success: true }
+2026-10-07T14:29:30.2778520Z demo-mac: js->host: ready
+2026-10-07T14:29:30.2778850Z demo-mac: pointer-input-test: page ready
+2026-10-07T14:29:30.2779250Z demo-mac: js->host: ptr:down:50,718:mouse
+2026-10-07T14:29:30.2779630Z demo-mac: cursor change: Default
+2026-10-07T14:29:30.2779980Z demo-mac: js->host: ptr:move:75,693:mouse
+2026-10-07T14:29:30.2780380Z demo-mac: js->host: ptr:up:75,693:mouse
+2026-10-07T14:29:30.2781220Z demo-mac: pointer-input-test: PASS — Down/Update/Up reached JS pointer listeners
+2026-10-07T14:29:30.2781840Z   - JS observed: down=true move=true up=true leave=false
+2026-10-07T14:29:30.2782470Z   - WebKit reported pointerType = Some("mouse") (macOS collapses every device to mouse)
+2026-10-07T14:29:30.2812430Z   -> PASS
+2026-10-07T14:29:30.2846240Z 
+2026-10-07T14:29:30.2846520Z ==> --incognito-test
+2026-10-07T14:29:31.0556700Z demo-mac: --incognito-test: spun up persistent comparison producer
+2026-10-07T14:29:31.0557390Z demo-mac: incognito-test: set_cookie 'scrying-incognito-91279' on incognito producer
+2026-10-07T14:29:31.0558050Z demo-mac: incognito-test: incognito store reports 1 cookie(s)
+2026-10-07T14:29:31.0558580Z demo-mac: incognito-test: persistent store reports 0 cookie(s)
+2026-10-07T14:29:31.0559460Z demo-mac: incognito-test: PASS — non_persistent stores stay isolated from persistent ones
+2026-10-07T14:29:31.0560190Z   - set_cookie on incognito producer was visible to its own request_all_cookies
+2026-10-07T14:29:31.0560890Z   - same cookie was absent from a separate persistent producer's store
+2026-10-07T14:29:31.0593590Z   -> PASS
+2026-10-07T14:29:31.0628270Z 
+2026-10-07T14:29:31.0628710Z ==> --download-test
+2026-10-07T14:29:38.6427900Z demo-mac: download-test: serving payload at http://127.0.0.1:56428/download
+2026-10-07T14:29:38.6428720Z demo-mac: download-test: auth-required payload at http://127.0.0.1:56428/download-auth
+2026-10-07T14:29:38.6429430Z demo-mac: nav event: Starting { url: "http://127.0.0.1:56428/download" }
+2026-10-07T14:29:38.6431810Z demo-mac: nav event: DownloadStarted { id: DownloadId(1), url: "http://127.0.0.1:56428/download", suggested_filename: "scrying-download.bin", destination_path: "/Users/markik/Code/targets/wgpu-scry-hardware/demo-mac-download-test-91297/download-output/scrying-download.bin", total_bytes_expected: Some(262144) }
+2026-10-07T14:29:38.6433630Z demo-mac: nav event: DownloadProgress { id: DownloadId(1), bytes_written: 262144, total_bytes_expected: Some(262144) }
+2026-10-07T14:29:38.6434980Z demo-mac: nav event: DownloadFinished { id: DownloadId(1), destination_path: "/Users/markik/Code/targets/wgpu-scry-hardware/demo-mac-download-test-91297/download-output/scrying-download.bin", error: None }
+2026-10-07T14:29:38.6436690Z demo-mac: download-test: phase A: 262144 bytes landed at /Users/markik/Code/targets/wgpu-scry-hardware/demo-mac-download-test-91297/download-output/scrying-download.bin (matches served payload)
+2026-10-07T14:29:38.6437780Z demo-mac: nav event: Completed { url: "", success: false }
+2026-10-07T14:29:38.6438330Z demo-mac: nav event: Starting { url: "http://127.0.0.1:56428/download" }
+2026-10-07T14:29:38.6438870Z demo-mac: nav event: Completed { url: "", success: false }
+2026-10-07T14:29:38.6439520Z demo-mac: nav event: DownloadCancelled { id: DownloadId(2), destination_path: "", resume_data: None }
+2026-10-07T14:29:38.6440330Z demo-mac: download-test: phase B: DownloadCancelled fired for id 2 after host Cancel decision
+2026-10-07T14:29:38.6441430Z demo-mac: download-test: phase C: cancel_download(unknown) returned Ok(false) as expected
+2026-10-07T14:29:38.6442250Z demo-mac: download-test: auth challenge for host '127.0.0.1' method 'NSURLAuthenticationMethodHTTPBasic'
+2026-10-07T14:29:38.6443370Z demo-mac: nav event: AuthChallenged { url: "http://127.0.0.1:56428/download-auth", host: "127.0.0.1", auth_method: "NSURLAuthenticationMethodHTTPBasic", source: Download }
+2026-10-07T14:29:38.6445520Z demo-mac: nav event: DownloadStarted { id: DownloadId(3), url: "http://127.0.0.1:56428/download-auth", suggested_filename: "scrying-download.bin", destination_path: "/Users/markik/Code/targets/wgpu-scry-hardware/demo-mac-download-test-91297/download-output/scrying-download-1.bin", total_bytes_expected: Some(262144) }
+2026-10-07T14:29:38.6447270Z demo-mac: nav event: DownloadProgress { id: DownloadId(3), bytes_written: 262144, total_bytes_expected: Some(262144) }
+2026-10-07T14:29:38.6448570Z demo-mac: nav event: DownloadFinished { id: DownloadId(3), destination_path: "/Users/markik/Code/targets/wgpu-scry-hardware/demo-mac-download-test-91297/download-output/scrying-download-1.bin", error: None }
+2026-10-07T14:29:38.6449900Z demo-mac: download-test: phase D: auth-protected download succeeded with 262144 bytes after credentials supplied
+2026-10-07T14:29:38.6450680Z demo-mac: nav event: Starting { url: "http://127.0.0.1:56428/download-slow" }
+2026-10-07T14:29:38.6451270Z demo-mac: nav event: Completed { url: "", success: false }
+2026-10-07T14:29:38.6452810Z demo-mac: nav event: DownloadStarted { id: DownloadId(4), url: "http://127.0.0.1:56428/download-slow", suggested_filename: "scrying-download.bin", destination_path: "/Users/markik/Code/targets/wgpu-scry-hardware/demo-mac-download-test-91297/download-output/scrying-download-2.bin", total_bytes_expected: Some(262144) }
+2026-10-07T14:29:38.6454370Z demo-mac: download-test: phase E: cancel_download(4) -> Ok(true), awaiting resume_data
+2026-10-07T14:29:38.6644590Z demo-mac: nav event: DownloadCancelled { id: DownloadId(4), destination_path: "/Users/markik/Code/targets/wgpu-scry-hardware/demo-mac-download-test-91297/download-output/scrying-download-2.bin", resume_data: Some([98, 112, 108, 105, 115, 116, 48, 48, 212, 1, 2, 3, 4, 5, 6, 7, 10, 88, 36, 118, 101, 114, 115, 105, 111, 110, 89, 36, 97, 114, 99, 104, 105, 118, 101, 114, 84, 36, 116, 111, 112, 88, 36, 111, 98, 106, 101, 99, 116, 115, 18, 0, 1, 134, 160, 95, 16, 15, 78, 83, 75, 101, 121, 101, 100, 65, 114, 99, 104, 105, 118, 101, 114, 209, 8, 9, 95, 16, 27, 78, 83, 75, 101, 121, 101, 100, 65, 114, 99, 104, 105, 118, 101, 82, 111, 111, 116, 79, 98, 106, 101, 99, 116, 75, 101, 121, 128, 1, 175, 16, 24, 11, 12, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 54, 61, 64, 67, 68, 69, 70, 71, 72, 73, 85, 36, 110, 117, 108, 108, 211, 13, 14, 15, 16, 27, 38, 87, 78, 83, 46, 107, 101, 121, 115, 90, 78, 83, 46, 111, 98, 106, 101, 99, 116, 115, 86, 36, 99, 108, 97, 115, 115, 170, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 128, 2, 128, 3, 128, 4, 128, 5, 128, 6, 128, 7, 128, 8, 128, 9, 128, 10, 128, 11, 170, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 128, 12, 128, 13, 128, 15, 128, 16, 128, 17, 128, 18, 128, 19, 128, 20, 128, 21, 128, 22, 128, 23, 95, 16, 31, 78, 83, 85, 82, 76, 83, 101, 115, 115, 105, 111, 110, 82, 101, 115, 117, 109, 101, 73, 110, 102, 111, 76, 111, 99, 97, 108, 80, 97, 116, 104, 95, 16, 26, 78, 83, 85, 82, 76, 83, 101, 115, 115, 105, 111, 110, 82, 101, 115, 117, 109, 101, 82, 101, 115, 112, 111, 110, 115, 101, 95, 16, 32, 78, 83, 85, 82, 76, 83, 101, 115, 115, 105, 111, 110, 82, 101, 115, 117, 109, 101, 67, 117, 114, 114, 101, 110, 116, 82, 101, 113, 117, 101, 115, 116, 95, 16, 33, 78, 83, 85, 82, 76, 83, 101, 115, 115, 105, 111, 110, 82, 101, 115, 117, 109, 101, 79, 114, 105, 103, 105, 110, 97, 108, 82, 101, 113, 117, 101, 115, 116, 95, 16, 23, 78, 83, 85, 82, 76, 83, 101, 115, 115, 105, 111, 110, 68, 111, 119, 110, 108, 111, 97, 100, 85, 82, 76, 95, 16, 34, 78, 83, 85, 82, 76, 83, 101, 115, 115, 105, 111, 110, 82, 101, 115, 117, 109, 101, 73, 110, 102, 111, 84, 101, 109, 112, 70, 105, 108, 101, 78, 97, 109, 101, 95, 16, 31, 78, 83, 85, 82, 76, 83, 101, 115, 115, 105, 111, 110, 82, 101, 115, 117, 109, 101, 66, 121, 116, 101, 115, 82, 101, 99, 101, 105, 118, 101, 100, 95, 16, 27, 78, 83, 85, 82, 76, 83, 101, 115, 115, 105, 111, 110, 82, 101, 115, 117, 109, 101, 69, 110, 116, 105, 116, 121, 84, 97, 103, 95, 16, 29, 78, 83, 85, 82, 76, 83, 101, 115, 115, 105, 111, 110, 82, 101, 115, 117, 109, 101, 73, 110, 102, 111, 86, 101, 114, 115, 105, 111, 110, 95, 16, 36, 78, 83, 85, 82, 76, 83, 101, 115, 115, 105, 111, 110, 82, 101, 115, 117, 109, 101, 83, 101, 114, 118, 101, 114, 68, 111, 119, 110, 108, 111, 97, 100, 68, 97, 116, 101, 95, 16, 113, 47, 85, 115, 101, 114, 115, 47, 109, 97, 114, 107, 105, 107, 47, 67, 111, 100, 101, 47, 116, 97, 114, 103, 101, 116, 115, 47, 119, 103, 112, 117, 45, 115, 99, 114, 121, 45, 104, 97, 114, 100, 119, 97, 114, 101, 47, 100, 101, 109, 111, 45, 109, 97, 99, 45, 100, 111, 119, 110, 108, 111, 97, 100, 45, 116, 101, 115, 116, 45, 57, 49, 50, 57, 55, 47, 100, 111, 119, 110, 108, 111, 97, 100, 45, 111, 117, 116, 112, 117, 116, 47, 115, 99, 114, 121, 105, 110, 103, 45, 100, 111, 119, 110, 108, 111, 97, 100, 45, 50, 46, 98, 105, 110, 210, 51, 15, 52, 53, 87, 78, 83, 46, 100, 97, 116, 97, 79, 17, 7, 36, 98, 112, 108, 105, 115, 116, 48, 48, 212, 1, 2, 3, 4, 5, 6, 7, 10, 88, 36, 118, 101, 114, 115, 105, 111, 110, 89, 36, 97, 114, 99, 104, 105, 118, 101, 114, 84, 36, 116, 111, 112, 88, 36, 111, 98, 106, 101, 99, 116, 115, 18, 0, 1, 134, 160, 95, 16, 15, 78, 83, 75, 101, 121, 101, 100, 65, 114, 99, 104, 105, 118, 101, 114, 209, 8, 9, 84, 114, 111, 111, 116, 128, 1, 175, 16, 29, 11, 12, 39, 45, 46, 52, 53, 54, 55, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 97, 101, 105, 85, 36, 110, 117, 108, 108, 221, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 54, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 51, 82, 36, 50, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 48, 82, 36, 51, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 52, 86, 36, 99, 108, 97, 115, 115, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 82, 36, 52, 82, 36, 48, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 53, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 50, 82, 36, 49, 128, 26, 128, 7, 16, 7, 128, 2, 16, 9, 128, 8, 128, 28, 128, 5, 8, 16, 8, 128, 0, 128, 6, 16, 1, 211, 40, 19, 41, 36, 43, 44, 87, 78, 83, 46, 98, 97, 115, 101, 91, 78, 83, 46, 114, 101, 108, 97, 116, 105, 118, 101, 128, 0, 128, 4, 128, 3, 95, 16, 36, 104, 116, 116, 112, 58, 47, 47, 49, 50, 55, 46, 48, 46, 48, 46, 49, 58, 53, 54, 52, 50, 56, 47, 100, 111, 119, 110, 108, 111, 97, 100, 45, 115, 108, 111, 119, 210, 47, 48, 49, 50, 90, 36, 99, 108, 97, 115, 115, 110, 97, 109, 101, 88, 36, 99, 108, 97, 115, 115, 101, 115, 85, 78, 83, 85, 82, 76, 162, 49, 51, 88, 78, 83, 79, 98, 106, 101, 99, 116, 35, 65, 200, 59, 71, 102, 21, 38, 32, 16, 0, 16, 200, 211, 56, 57, 19, 58, 67, 76, 87, 78, 83, 46, 107, 101, 121, 115, 90, 78, 83, 46, 111, 98, 106, 101, 99, 116, 115, 168, 59, 60, 61, 62, 63, 64, 65, 66, 128, 9, 128, 10, 128, 11, 128, 12, 128, 13, 128, 14, 128, 15, 128, 16, 168, 68, 69, 70, 71, 72, 73, 74, 75, 128, 17, 128, 18, 128, 19, 128, 20, 128, 21, 128, 22, 128, 23, 128, 24, 128, 25, 84, 69, 116, 97, 103, 92, 67, 111, 110, 116, 101, 110, 116, 45, 84, 121, 112, 101, 88, 95, 95, 104, 104, 97, 97, 95, 95, 93, 76, 97, 115, 116, 45, 77, 111, 100, 105, 102, 105, 101, 100, 93, 65, 99, 99, 101, 112, 116, 45, 82, 97, 110, 103, 101, 115, 95, 16, 19, 67, 111, 110, 116, 101, 110, 116, 45, 68, 105, 115, 112, 111, 115, 105, 116, 105, 111, 110, 94, 67, 111, 110, 116, 101, 110, 116, 45, 76, 101, 110, 103, 116, 104, 90, 67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 95, 16, 28, 34, 115, 99, 114, 121, 105, 110, 103, 45, 116, 101, 115, 116, 45, 101, 116, 97, 103, 45, 100, 101, 97, 100, 98, 101, 101, 102, 34, 95, 16, 24, 97, 112, 112, 108, 105, 99, 97, 116, 105, 111, 110, 47, 111, 99, 116, 101, 116, 45, 115, 116, 114, 101, 97, 109, 95, 17, 1, 232, 13, 10, 13, 10, 89, 110, 66, 115, 97, 88, 78, 48, 77, 68, 68, 88, 65, 81, 73, 68, 66, 65, 85, 71, 66, 119, 103, 75, 68, 65, 52, 81, 69, 104, 82, 97, 81, 50, 57, 117, 98, 109, 86, 106, 100, 71, 108, 118, 98, 108, 120, 68, 98, 50, 53, 48, 90, 87, 53, 48, 76, 86, 82, 53, 99, 71, 86, 100, 84, 71, 70, 122, 100, 67, 49, 78, 98, 50, 82, 112, 90, 109, 108, 108, 90, 70, 49, 66, 89, 50, 78, 108, 99, 72, 81, 116, 85, 109, 70, 117, 90, 50, 86, 122, 88, 120, 65, 84, 81, 50, 57, 117, 100, 71, 86, 117, 100, 67, 49, 69, 97, 88, 78, 119, 98, 51, 78, 112, 100, 71, 108, 118, 98, 108, 53, 68, 98, 50, 53, 48, 90, 87, 53, 48, 76, 85, 120, 108, 98, 109, 100, 48, 97, 70, 82, 70, 100, 71, 70, 110, 111, 81, 108, 86, 89, 50, 120, 118, 99, 50, 87, 104, 67, 49, 56, 81, 71, 71, 70, 119, 99, 71, 120, 112, 89, 50, 70, 48, 97, 87, 57, 117, 76, 50, 57, 106, 100, 71, 86, 48, 76, 88, 78, 48, 99, 109, 86, 104, 98, 97, 69, 78, 88, 120, 65, 100, 84, 87, 57, 117, 76, 67, 65, 119, 77, 83, 66, 75, 89, 87, 52, 103, 77, 106, 65, 121, 78, 67, 65, 119, 77, 68, 111, 119, 77, 68, 111, 119, 77, 67, 66, 72, 84, 86, 83, 104, 68, 49, 86, 105, 101, 88, 82, 108, 99, 54, 69, 82, 88, 120, 65, 114, 89, 88, 82, 48, 89, 87, 78, 111, 98, 87, 86, 117, 100, 68, 115, 103, 90, 109, 108, 115, 90, 87, 53, 104, 98, 87, 85, 57, 73, 110, 78, 106, 99, 110, 108, 112, 98, 109, 99, 116, 90, 71, 57, 51, 98, 109, 120, 118, 89, 87, 81, 117, 89, 109, 108, 117, 73, 113, 69, 84, 86, 106, 73, 50, 77, 106, 69, 48, 78, 75, 69, 86, 88, 120, 65, 99, 73, 110, 78, 106, 99, 110, 108, 112, 98, 109, 99, 116, 100, 71, 86, 122, 100, 67, 49, 108, 100, 71, 70, 110, 76, 87, 82, 108, 89, 87, 82, 105, 90, 87, 86, 109, 73, 103, 65, 73, 65, 66, 99, 65, 73, 103, 65, 118, 65, 68, 48, 65, 83, 119, 66, 104, 65, 72, 65, 65, 100, 81, 66, 51, 65, 72, 48, 65, 102, 119, 67, 97, 65, 74, 119, 65, 118, 65, 67, 43, 65, 77, 81, 65, 120, 103, 68, 48, 65, 80, 89, 65, 47, 81, 68, 47, 65, 65, 65, 65, 65, 65, 65, 65, 65, 103, 69, 65, 65, 65, 65, 65, 65, 65, 65, 65, 70, 103, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 82, 52, 61, 95, 16, 29, 77, 111, 110, 44, 32, 48, 49, 32, 74, 97, 110, 32, 50, 48, 50, 52, 32, 48, 48, 58, 48, 48, 58, 48, 48, 32, 71, 77, 84, 85, 98, 121, 116, 101, 115, 95, 16, 43, 97, 116, 116, 97, 99, 104, 109, 101, 110, 116, 59, 32, 102, 105, 108, 101, 110, 97, 109, 101, 61, 34, 115, 99, 114, 121, 105, 110, 103, 45, 100, 111, 119, 110, 108, 111, 97, 100, 46, 98, 105, 110, 34, 86, 50, 54, 50, 49, 52, 52, 85, 99, 108, 111, 115, 101, 210, 47, 48, 94, 95, 95, 16, 19, 78, 83, 77, 117, 116, 97, 98, 108, 101, 68, 105, 99, 116, 105, 111, 110, 97, 114, 121, 163, 94, 96, 51, 92, 78, 83, 68, 105, 99, 116, 105, 111, 110, 97, 114, 121, 210, 19, 98, 99, 100, 89, 78, 83, 46, 115, 116, 114, 105, 110, 103, 128, 27, 95, 16, 24, 97, 112, 112, 108, 105, 99, 97, 116, 105, 111, 110, 47, 111, 99, 116, 101, 116, 45, 115, 116, 114, 101, 97, 109, 210, 47, 48, 102, 103, 95, 16, 15, 78, 83, 77, 117, 116, 97, 98, 108, 101, 83, 116, 114, 105, 110, 103, 163, 102, 104, 51, 88, 78, 83, 83, 116, 114, 105, 110, 103, 210, 47, 48, 106, 107, 95, 16, 17, 78, 83, 72, 84, 84, 80, 85, 82, 76, 82, 101, 115, 112, 111, 110, 115, 101, 163, 108, 109, 51, 95, 16, 17, 78, 83, 72, 84, 84, 80, 85, 82, 76, 82, 101, 115, 112, 111, 110, 115, 101, 93, 78, 83, 85, 82, 76, 82, 101, 115, 112, 111, 110, 115, 101, 0, 8, 0, 17, 0, 26, 0, 36, 0, 41, 0, 50, 0, 55, 0, 73, 0, 76, 0, 81, 0, 83, 0, 115, 0, 121, 0, 148, 0, 182, 0, 216, 0, 219, 0, 253, 1, 0, 1, 34, 1, 41, 1, 75, 1, 78, 1, 81, 1, 115, 1, 149, 1, 152, 1, 154, 1, 156, 1, 158, 1, 160, 1, 162, 1, 164, 1, 166, 1, 168, 1, 169, 1, 171, 1, 173, 1, 175, 1, 177, 1, 184, 1, 192, 1, 204, 1, 206, 1, 208, 1, 210, 1, 249, 1, 254, 2, 9, 2, 18, 2, 24, 2, 27, 2, 36, 2, 45, 2, 47, 2, 49, 2, 56, 2, 64, 2, 75, 2, 84, 2, 86, 2, 88, 2, 90, 2, 92, 2, 94, 2, 96, 2, 98, 2, 100, 2, 109, 2, 111, 2, 113, 2, 115, 2, 117, 2, 119, 2, 121, 2, 123, 2, 125, 2, 127, 2, 132, 2, 145, 2, 154, 2, 168, 2, 182, 2, 204, 2, 219, 2, 230, 3, 5, 3, 32, 5, 12, 5, 44, 5, 50, 5, 96, 5, 103, 5, 109, 5, 114, 5, 136, 5, 140, 5, 153, 5, 158, 5, 168, 5, 170, 5, 197, 5, 202, 5, 220, 5, 224, 5, 233, 5, 238, 6, 2, 6, 6, 6, 26, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 110, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 40, 128, 14, 210, 55, 56, 57, 58, 90, 36, 99, 108, 97, 115, 115, 110, 97, 109, 101, 88, 36, 99, 108, 97, 115, 115, 101, 115, 93, 78, 83, 77, 117, 116, 97, 98, 108, 101, 68, 97, 116, 97, 163, 57, 59, 60, 86, 78, 83, 68, 97, 116, 97, 88, 78, 83, 79, 98, 106, 101, 99, 116, 210, 51, 15, 62, 53, 79, 17, 15, 254, 98, 112, 108, 105, 115, 116, 48, 48, 212, 1, 2, 3, 4, 5, 6, 7, 10, 88, 36, 118, 101, 114, 115, 105, 111, 110, 89, 36, 97, 114, 99, 104, 105, 118, 101, 114, 84, 36, 116, 111, 112, 88, 36, 111, 98, 106, 101, 99, 116, 115, 18, 0, 1, 134, 160, 95, 16, 15, 78, 83, 75, 101, 121, 101, 100, 65, 114, 99, 104, 105, 118, 101, 114, 209, 8, 9, 95, 16, 27, 78, 83, 75, 101, 121, 101, 100, 65, 114, 99, 104, 105, 118, 101, 82, 111, 111, 116, 79, 98, 106, 101, 99, 116, 75, 101, 121, 128, 1, 175, 16, 50, 11, 12, 70, 121, 127, 128, 134, 76, 135, 139, 89, 141, 94, 142, 110, 143, 144, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 190, 204, 205, 206, 207, 208, 209, 210, 211, 212, 218, 219, 220, 223, 85, 36, 110, 117, 108, 108, 223, 16, 56, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 69, 70, 69, 70, 74, 75, 76, 77, 78, 79, 78, 77, 75, 83, 78, 85, 86, 70, 88, 89, 70, 74, 70, 70, 94, 95, 96, 97, 78, 69, 70, 75, 89, 70, 103, 104, 78, 69, 71, 94, 70, 108, 78, 110, 70, 70, 70, 114, 70, 78, 117, 70, 78, 95, 16, 24, 114, 101, 113, 117, 105, 114, 101, 115, 68, 78, 83, 83, 69, 67, 86, 97, 108, 105, 100, 97, 116, 105, 111, 110, 95, 16, 18, 105, 115, 87, 101, 98, 83, 101, 97, 114, 99, 104, 67, 111, 110, 116, 101, 110, 116, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 57, 95, 16, 20, 97, 108, 108, 111, 119, 101, 100, 80, 114, 111, 116, 111, 99, 111, 108, 84, 121, 112, 101, 115, 93, 98, 108, 111, 99, 107, 84, 114, 97, 99, 107, 101, 114, 115, 95, 16, 30, 97, 108, 108, 111, 119, 115, 67, 111, 110, 115, 116, 114, 97, 105, 110, 101, 100, 78, 101, 116, 119, 111, 114, 107, 65, 99, 99, 101, 115, 115, 95, 16, 19, 97, 115, 115, 117, 109, 101, 115, 72, 84, 84, 80, 51, 67, 97, 112, 97, 98, 108, 101, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 48, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 49, 91, 97, 116, 116, 114, 105, 98, 117, 116, 105, 111, 110, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 50, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 50, 48, 95, 16, 26, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 115, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 50, 49, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 51, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 52, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 53, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 54, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 55, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 56, 95, 16, 22, 117, 115, 101, 69, 110, 104, 97, 110, 99, 101, 100, 80, 114, 105, 118, 97, 99, 121, 77, 111, 100, 101, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 57, 95, 16, 37, 97, 108, 108, 111, 119, 80, 114, 105, 118, 97, 116, 101, 65, 99, 99, 101, 115, 115, 84, 111, 107, 101, 110, 115, 70, 111, 114, 84, 104, 105, 114, 100, 80, 97, 114, 116, 121, 95, 16, 19, 97, 108, 108, 111, 119, 115, 80, 101, 114, 115, 105, 115, 116, 101, 110, 116, 68, 78, 83, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 48, 95, 16, 30, 114, 101, 113, 117, 105, 114, 101, 115, 83, 104, 111, 114, 116, 67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 84, 105, 109, 101, 111, 117, 116, 95, 16, 22, 112, 114, 105, 118, 97, 99, 121, 80, 114, 111, 120, 121, 70, 97, 105, 108, 67, 108, 111, 115, 101, 100, 95, 16, 26, 112, 97, 121, 108, 111, 97, 100, 84, 114, 97, 110, 115, 109, 105, 115, 115, 105, 111, 110, 84, 105, 109, 101, 111, 117, 116, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 95, 16, 39, 99, 111, 110, 116, 101, 110, 116, 68, 105, 115, 112, 111, 115, 105, 116, 105, 111, 110, 69, 110, 99, 111, 100, 105, 110, 103, 70, 97, 108, 108, 98, 97, 99, 107, 65, 114, 114, 97, 121, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 50, 94, 116, 114, 97, 99, 107, 101, 114, 67, 111, 110, 116, 101, 120, 116, 89, 97, 108, 108, 111, 119, 115, 85, 67, 65, 95, 16, 20, 112, 114, 111, 104, 105, 98, 105, 116, 80, 114, 105, 118, 97, 99, 121, 80, 114, 111, 120, 121, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 51, 95, 16, 48, 112, 114, 105, 118, 97, 99, 121, 80, 114, 111, 120, 121, 70, 97, 105, 108, 67, 108, 111, 115, 101, 100, 70, 111, 114, 85, 110, 114, 101, 97, 99, 104, 97, 98, 108, 101, 78, 111, 110, 77, 97, 105, 110, 72, 111, 115, 116, 115, 95, 16, 41, 112, 114, 105, 118, 97, 99, 121, 80, 114, 111, 120, 121, 70, 97, 105, 108, 67, 108, 111, 115, 101, 100, 70, 111, 114, 85, 110, 114, 101, 97, 99, 104, 97, 98, 108, 101, 72, 111, 115, 116, 115, 86, 36, 99, 108, 97, 115, 115, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 52, 95, 16, 24, 98, 111, 117, 110, 100, 73, 110, 116, 101, 114, 102, 97, 99, 101, 73, 100, 101, 110, 116, 105, 102, 105, 101, 114, 95, 16, 28, 97, 108, 108, 111, 119, 115, 69, 120, 112, 101, 110, 115, 105, 118, 101, 78, 101, 116, 119, 111, 114, 107, 65, 99, 99, 101, 115, 115, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 53, 95, 16, 16, 115, 116, 97, 114, 116, 84, 105, 109, 101, 111, 117, 116, 84, 105, 109, 101, 95, 16, 18, 112, 114, 101, 118, 101, 110, 116, 72, 83, 84, 83, 83, 116, 111, 114, 97, 103, 101, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 54, 95, 16, 25, 99, 111, 111, 107, 105, 101, 80, 97, 114, 116, 105, 116, 105, 111, 110, 73, 100, 101, 110, 116, 105, 102, 105, 101, 114, 82, 36, 48, 95, 16, 34, 102, 97, 105, 108, 73, 110, 115, 101, 99, 117, 114, 101, 76, 111, 97, 100, 87, 105, 116, 104, 72, 84, 84, 80, 83, 68, 78, 83, 82, 101, 99, 111, 114, 100, 92, 107, 110, 111, 119, 110, 84, 114, 97, 99, 107, 101, 114, 90, 105, 103, 110, 111, 114, 101, 72, 83, 84, 83, 82, 36, 49, 95, 16, 27, 97, 108, 108, 111, 119, 79, 110, 108, 121, 80, 97, 114, 116, 105, 116, 105, 111, 110, 101, 100, 67, 111, 111, 107, 105, 101, 115, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 55, 82, 36, 50, 95, 16, 33, 115, 99, 104, 101, 109, 101, 87, 97, 115, 85, 112, 103, 114, 97, 100, 101, 100, 68, 117, 101, 84, 111, 68, 121, 110, 97, 109, 105, 99, 72, 83, 84, 83, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 56, 16, 0, 8, 128, 10, 8, 8, 128, 2, 128, 7, 16, 0, 128, 12, 128, 0, 128, 36, 128, 0, 128, 12, 128, 7, 128, 13, 128, 0, 128, 14, 128, 15, 8, 128, 16, 9, 8, 128, 2, 8, 8, 35, 0, 0, 0, 0, 0, 0, 0, 0, 128, 3, 128, 45, 128, 6, 128, 0, 8, 128, 7, 9, 8, 128, 49, 128, 8, 128, 0, 128, 10, 8, 128, 11, 128, 0, 16, 2, 8, 8, 8, 16, 9, 8, 128, 0, 16, 22, 8, 128, 0, 8, 211, 122, 50, 123, 78, 125, 126, 87, 78, 83, 46, 98, 97, 115, 101, 91, 78, 83, 46, 114, 101, 108, 97, 116, 105, 118, 101, 128, 0, 128, 5, 128, 4, 95, 16, 36, 104, 116, 116, 112, 58, 47, 47, 49, 50, 55, 46, 48, 46, 48, 46, 49, 58, 53, 54, 52, 50, 56, 47, 100, 111, 119, 110, 108, 111, 97, 100, 45, 115, 108, 111, 119, 210, 129, 130, 131, 132, 90, 36, 99, 108, 97, 115, 115, 110, 97, 109, 101, 88, 36, 99, 108, 97, 115, 115, 101, 115, 85, 78, 83, 85, 82, 76, 162, 131, 133, 88, 78, 83, 79, 98, 106, 101, 99, 116, 35, 64, 78, 0, 0, 0, 0, 0, 0, 211, 122, 50, 123, 78, 125, 138, 128, 0, 128, 5, 128, 9, 95, 16, 36, 104, 116, 116, 112, 58, 47, 47, 49, 50, 55, 46, 48, 46, 48, 46, 49, 58, 53, 54, 52, 50, 56, 47, 100, 111, 119, 110, 108, 111, 97, 100, 45, 115, 108, 111, 119, 9, 17, 1, 134, 16, 4, 83, 71, 69, 84, 211, 145, 146, 50, 147, 157, 167, 87, 78, 83, 46, 107, 101, 121, 115, 90, 78, 83, 46, 111, 98, 106, 101, 99, 116, 115, 169, 148, 149, 150, 151, 152, 153, 154, 155, 156, 128, 17, 128, 18, 128, 19, 128, 20, 128, 21, 128, 22, 128, 23, 128, 24, 128, 25, 169, 158, 159, 160, 161, 162, 163, 164, 165, 166, 128, 26, 128, 27, 128, 28, 128, 29, 128, 30, 128, 31, 128, 32, 128, 33, 128, 34, 128, 35, 86, 65, 99, 99, 101, 112, 116, 94, 83, 101, 99, 45, 70, 101, 116, 99, 104, 45, 83, 105, 116, 101, 88, 95, 95, 104, 104, 97, 97, 95, 95, 95, 16, 25, 85, 112, 103, 114, 97, 100, 101, 45, 73, 110, 115, 101, 99, 117, 114, 101, 45, 82, 101, 113, 117, 101, 115, 116, 115, 94, 83, 101, 99, 45, 70, 101, 116, 99, 104, 45, 77, 111, 100, 101, 90, 85, 115, 101, 114, 45, 65, 103, 101, 110, 116, 95, 16, 15, 65, 99, 99, 101, 112, 116, 45, 76, 97, 110, 103, 117, 97, 103, 101, 94, 83, 101, 99, 45, 70, 101, 116, 99, 104, 45, 68, 101, 115, 116, 95, 16, 15, 65, 99, 99, 101, 112, 116, 45, 69, 110, 99, 111, 100, 105, 110, 103, 95, 16, 63, 116, 101, 120, 116, 47, 104, 116, 109, 108, 44, 97, 112, 112, 108, 105, 99, 97, 116, 105, 111, 110, 47, 120, 104, 116, 109, 108, 43, 120, 109, 108, 44, 97, 112, 112, 108, 105, 99, 97, 116, 105, 111, 110, 47, 120, 109, 108, 59, 113, 61, 48, 46, 57, 44, 42, 47, 42, 59, 113, 61, 48, 46, 56, 84, 110, 111, 110, 101, 95, 17, 2, 108, 13, 10, 13, 10, 89, 110, 66, 115, 97, 88, 78, 48, 77, 68, 68, 89, 65, 81, 73, 68, 66, 65, 85, 71, 66, 119, 103, 74, 67, 119, 48, 80, 69, 82, 77, 86, 70, 49, 90, 66, 89, 50, 78, 108, 99, 72, 82, 101, 85, 50, 86, 106, 76, 85, 90, 108, 100, 71, 78, 111, 76, 86, 78, 112, 100, 71, 86, 102, 69, 66, 108, 86, 99, 71, 100, 121, 89, 87, 82, 108, 76, 85, 108, 117, 99, 50, 86, 106, 100, 88, 74, 108, 76, 86, 74, 108, 99, 88, 86, 108, 99, 51, 82, 122, 88, 108, 78, 108, 89, 121, 49, 71, 90, 88, 82, 106, 97, 67, 49, 78, 98, 50, 82, 108, 87, 108, 86, 122, 90, 88, 73, 116, 81, 87, 100, 108, 98, 110, 82, 102, 69, 65, 57, 66, 89, 50, 78, 108, 99, 72, 81, 116, 84, 71, 70, 117, 90, 51, 86, 104, 90, 50, 86, 101, 85, 50, 86, 106, 76, 85, 90, 108, 100, 71, 78, 111, 76, 85, 82, 108, 99, 51, 82, 102, 69, 65, 57, 66, 89, 50, 78, 108, 99, 72, 81, 116, 82, 87, 53, 106, 98, 50, 82, 112, 98, 109, 101, 104, 67, 108, 56, 81, 80, 51, 82, 108, 101, 72, 81, 118, 97, 72, 82, 116, 98, 67, 120, 104, 99, 72, 66, 115, 97, 87, 78, 104, 100, 71, 108, 118, 98, 105, 57, 52, 97, 72, 82, 116, 98, 67, 116, 52, 98, 87, 119, 115, 89, 88, 66, 119, 98, 71, 108, 106, 89, 88, 82, 112, 98, 50, 52, 118, 101, 71, 49, 115, 79, 51, 69, 57, 77, 67, 52, 53, 76, 67, 111, 118, 75, 106, 116, 120, 80, 84, 65, 117, 79, 75, 69, 77, 86, 71, 53, 118, 98, 109, 87, 104, 68, 108, 69, 120, 111, 82, 66, 89, 98, 109, 70, 50, 97, 87, 100, 104, 100, 71, 87, 104, 69, 108, 56, 81, 87, 69, 49, 118, 101, 109, 108, 115, 98, 71, 69, 118, 78, 83, 52, 119, 73, 67, 104, 78, 89, 87, 78, 112, 98, 110, 82, 118, 99, 50, 103, 55, 73, 69, 108, 117, 100, 71, 86, 115, 73, 69, 49, 104, 89, 121, 66, 80, 85, 121, 66, 89, 73, 68, 69, 119, 88, 122, 69, 49, 88, 122, 99, 112, 73, 69, 70, 119, 99, 71, 120, 108, 86, 50, 86, 105, 83, 50, 108, 48, 76, 122, 89, 119, 78, 83, 52, 120, 76, 106, 69, 49, 73, 67, 104, 76, 83, 70, 82, 78, 84, 67, 119, 103, 98, 71, 108, 114, 90, 83, 66, 72, 90, 87, 78, 114, 98, 121, 109, 104, 70, 70, 53, 108, 98, 105, 49, 86, 85, 121, 120, 108, 98, 106, 116, 120, 80, 84, 65, 117, 79, 97, 69, 87, 87, 71, 82, 118, 89, 51, 86, 116, 90, 87, 53, 48, 111, 82, 104, 100, 90, 51, 112, 112, 99, 67, 119, 103, 90, 71, 86, 109, 98, 71, 70, 48, 90, 81, 65, 73, 65, 66, 107, 65, 73, 65, 65, 118, 65, 69, 115, 65, 87, 103, 66, 108, 65, 72, 99, 65, 104, 103, 67, 89, 65, 74, 111, 65, 51, 65, 68, 101, 65, 79, 77, 65, 53, 81, 68, 110, 65, 79, 107, 65, 56, 103, 68, 48, 65, 85, 56, 66, 85, 81, 70, 103, 65, 87, 73, 66, 97, 119, 70, 116, 65, 65, 65, 65, 65, 65, 65, 65, 65, 103, 69, 65, 65, 65, 65, 65, 65, 65, 65, 65, 71, 81, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 88, 115, 61, 81, 49, 88, 110, 97, 118, 105, 103, 97, 116, 101, 95, 16, 88, 77, 111, 122, 105, 108, 108, 97, 47, 53, 46, 48, 32, 40, 77, 97, 99, 105, 110, 116, 111, 115, 104, 59, 32, 73, 110, 116, 101, 108, 32, 77, 97, 99, 32, 79, 83, 32, 88, 32, 49, 48, 95, 49, 53, 95, 55, 41, 32, 65, 112, 112, 108, 101, 87, 101, 98, 75, 105, 116, 47, 54, 48, 53, 46, 49, 46, 49, 53, 32, 40, 75, 72, 84, 77, 76, 44, 32, 108, 105, 107, 101, 32, 71, 101, 99, 107, 111, 41, 94, 101, 110, 45, 85, 83, 44, 101, 110, 59, 113, 61, 48, 46, 57, 88, 100, 111, 99, 117, 109, 101, 110, 116, 93, 103, 122, 105, 112, 44, 32, 100, 101, 102, 108, 97, 116, 101, 210, 129, 130, 187, 188, 95, 16, 19, 78, 83, 77, 117, 116, 97, 98, 108, 101, 68, 105, 99, 116, 105, 111, 110, 97, 114, 121, 163, 187, 189, 133, 92, 78, 83, 68, 105, 99, 116, 105, 111, 110, 97, 114, 121, 211, 145, 146, 50, 191, 197, 167, 165, 192, 193, 194, 195, 196, 128, 37, 128, 38, 128, 39, 128, 40, 128, 41, 165, 198, 199, 199, 201, 199, 128, 42, 128, 43, 128, 43, 128, 44, 128, 43, 128, 35, 95, 16, 42, 95, 107, 67, 70, 72, 84, 84, 80, 67, 111, 111, 107, 105, 101, 80, 111, 108, 105, 99, 121, 80, 114, 111, 112, 101, 114, 116, 121, 83, 105, 116, 101, 70, 111, 114, 67, 111, 111, 107, 105, 101, 115, 95, 16, 48, 95, 107, 67, 70, 72, 84, 84, 80, 67, 111, 111, 107, 105, 101, 80, 111, 108, 105, 99, 121, 80, 114, 111, 112, 101, 114, 116, 121, 73, 115, 84, 111, 112, 76, 101, 118, 101, 108, 78, 97, 118, 105, 103, 97, 116, 105, 111, 110, 95, 16, 21, 87, 75, 86, 101, 114, 121, 76, 111, 119, 76, 111, 97, 100, 80, 114, 105, 111, 114, 105, 116, 121, 95, 16, 24, 95, 107, 67, 70, 85, 82, 76, 67, 97, 99, 104, 101, 80, 97, 114, 116, 105, 116, 105, 111, 110, 75, 101, 121, 95, 16, 32, 107, 67, 70, 85, 82, 76, 82, 101, 113, 117, 101, 115, 116, 65, 108, 108, 111, 119, 65, 108, 108, 80, 79, 83, 84, 67, 97, 99, 104, 105, 110, 103, 95, 16, 36, 104, 116, 116, 112, 58, 47, 47, 49, 50, 55, 46, 48, 46, 48, 46, 49, 58, 53, 54, 52, 50, 56, 47, 100, 111, 119, 110, 108, 111, 97, 100, 45, 115, 108, 111, 119, 16, 1, 89, 49, 50, 55, 46, 48, 46, 48, 46, 49, 210, 146, 50, 213, 217, 163, 83, 215, 216, 128, 13, 128, 46, 128, 47, 128, 48, 16, 12, 16, 5, 210, 129, 130, 221, 222, 87, 78, 83, 65, 114, 114, 97, 121, 162, 221, 133, 210, 129, 130, 224, 225, 95, 16, 19, 78, 83, 77, 117, 116, 97, 98, 108, 101, 85, 82, 76, 82, 101, 113, 117, 101, 115, 116, 163, 226, 227, 133, 95, 16, 19, 78, 83, 77, 117, 116, 97, 98, 108, 101, 85, 82, 76, 82, 101, 113, 117, 101, 115, 116, 92, 78, 83, 85, 82, 76, 82, 101, 113, 117, 101, 115, 116, 0, 8, 0, 17, 0, 26, 0, 36, 0, 41, 0, 50, 0, 55, 0, 73, 0, 76, 0, 106, 0, 108, 0, 161, 0, 167, 1, 26, 1, 53, 1, 74, 1, 108, 1, 131, 1, 145, 1, 178, 1, 200, 1, 235, 2, 14, 2, 26, 2, 61, 2, 96, 2, 125, 2, 160, 2, 195, 2, 230, 3, 9, 3, 44, 3, 79, 3, 114, 3, 139, 3, 174, 3, 214, 3, 236, 4, 14, 4, 47, 4, 72, 4, 101, 4, 135, 4, 177, 4, 211, 4, 226, 4, 236, 5, 3, 5, 37, 5, 88, 5, 132, 5, 139, 5, 173, 5, 200, 5, 231, 6, 9, 6, 28, 6, 49, 6, 83, 6, 111, 6, 114, 6, 151, 6, 164, 6, 175, 6, 178, 6, 208, 6, 242, 6, 245, 7, 25, 7, 59, 7, 61, 7, 62, 7, 64, 7, 65, 7, 66, 7, 68, 7, 70, 7, 72, 7, 74, 7, 76, 7, 78, 7, 80, 7, 82, 7, 84, 7, 86, 7, 88, 7, 90, 7, 92, 7, 93, 7, 95, 7, 96, 7, 97, 7, 99, 7, 100, 7, 101, 7, 110, 7, 112, 7, 114, 7, 116, 7, 118, 7, 119, 7, 121, 7, 122, 7, 123, 7, 125, 7, 127, 7, 129, 7, 131, 7, 132, 7, 134, 7, 136, 7, 138, 7, 139, 7, 140, 7, 141, 7, 143, 7, 144, 7, 146, 7, 148, 7, 149, 7, 151, 7, 152, 7, 159, 7, 167, 7, 179, 7, 181, 7, 183, 7, 185, 7, 224, 7, 229, 7, 240, 7, 249, 7, 255, 8, 2, 8, 11, 8, 20, 8, 27, 8, 29, 8, 31, 8, 33, 8, 72, 8, 73, 8, 76, 8, 78, 8, 82, 8, 89, 8, 97, 8, 108, 8, 118, 8, 120, 8, 122, 8, 124, 8, 126, 8, 128, 8, 130, 8, 132, 8, 134, 8, 136, 8, 146, 8, 148, 8, 150, 8, 152, 8, 154, 8, 156, 8, 158, 8, 160, 8, 162, 8, 164, 8, 166, 8, 173, 8, 188, 8, 197, 8, 225, 8, 240, 8, 251, 9, 13, 9, 28, 9, 46, 9, 112, 9, 117, 11, 229, 11, 231, 11, 240, 12, 75, 12, 90, 12, 99, 12, 113, 12, 118, 12, 140, 12, 144, 12, 157, 12, 164, 12, 170, 12, 172, 12, 174, 12, 176, 12, 178, 12, 180, 12, 186, 12, 188, 12, 190, 12, 192, 12, 194, 12, 196, 12, 198, 12, 243, 13, 38, 13, 62, 13, 89, 13, 124, 13, 163, 13, 165, 13, 175, 13, 180, 13, 184, 13, 186, 13, 188, 13, 190, 13, 192, 13, 194, 13, 196, 13, 201, 13, 209, 13, 212, 13, 217, 13, 239, 13, 243, 14, 9, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 228, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 22, 128, 14, 210, 51, 15, 65, 53, 79, 17, 15, 45, 98, 112, 108, 105, 115, 116, 48, 48, 212, 1, 2, 3, 4, 5, 6, 7, 10, 88, 36, 118, 101, 114, 115, 105, 111, 110, 89, 36, 97, 114, 99, 104, 105, 118, 101, 114, 84, 36, 116, 111, 112, 88, 36, 111, 98, 106, 101, 99, 116, 115, 18, 0, 1, 134, 160, 95, 16, 15, 78, 83, 75, 101, 121, 101, 100, 65, 114, 99, 104, 105, 118, 101, 114, 209, 8, 9, 95, 16, 27, 78, 83, 75, 101, 121, 101, 100, 65, 114, 99, 104, 105, 118, 101, 82, 111, 111, 116, 79, 98, 106, 101, 99, 116, 75, 101, 121, 128, 1, 175, 16, 46, 11, 12, 70, 121, 127, 128, 134, 76, 135, 139, 89, 141, 94, 142, 110, 143, 144, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 182, 196, 197, 198, 199, 200, 201, 202, 203, 204, 210, 211, 212, 215, 85, 36, 110, 117, 108, 108, 223, 16, 56, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 69, 70, 69, 70, 74, 75, 76, 77, 78, 79, 78, 77, 75, 83, 78, 85, 86, 70, 88, 89, 70, 74, 70, 70, 94, 95, 96, 97, 78, 69, 70, 75, 89, 70, 103, 104, 78, 69, 71, 94, 70, 108, 78, 110, 70, 70, 70, 114, 70, 78, 117, 70, 78, 95, 16, 24, 114, 101, 113, 117, 105, 114, 101, 115, 68, 78, 83, 83, 69, 67, 86, 97, 108, 105, 100, 97, 116, 105, 111, 110, 95, 16, 18, 105, 115, 87, 101, 98, 83, 101, 97, 114, 99, 104, 67, 111, 110, 116, 101, 110, 116, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 57, 95, 16, 20, 97, 108, 108, 111, 119, 101, 100, 80, 114, 111, 116, 111, 99, 111, 108, 84, 121, 112, 101, 115, 93, 98, 108, 111, 99, 107, 84, 114, 97, 99, 107, 101, 114, 115, 95, 16, 30, 97, 108, 108, 111, 119, 115, 67, 111, 110, 115, 116, 114, 97, 105, 110, 101, 100, 78, 101, 116, 119, 111, 114, 107, 65, 99, 99, 101, 115, 115, 95, 16, 19, 97, 115, 115, 117, 109, 101, 115, 72, 84, 84, 80, 51, 67, 97, 112, 97, 98, 108, 101, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 48, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 49, 91, 97, 116, 116, 114, 105, 98, 117, 116, 105, 111, 110, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 50, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 50, 48, 95, 16, 26, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 115, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 50, 49, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 51, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 52, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 53, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 54, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 55, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 56, 95, 16, 22, 117, 115, 101, 69, 110, 104, 97, 110, 99, 101, 100, 80, 114, 105, 118, 97, 99, 121, 77, 111, 100, 101, 95, 16, 32, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 57, 95, 16, 37, 97, 108, 108, 111, 119, 80, 114, 105, 118, 97, 116, 101, 65, 99, 99, 101, 115, 115, 84, 111, 107, 101, 110, 115, 70, 111, 114, 84, 104, 105, 114, 100, 80, 97, 114, 116, 121, 95, 16, 19, 97, 108, 108, 111, 119, 115, 80, 101, 114, 115, 105, 115, 116, 101, 110, 116, 68, 78, 83, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 48, 95, 16, 30, 114, 101, 113, 117, 105, 114, 101, 115, 83, 104, 111, 114, 116, 67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 84, 105, 109, 101, 111, 117, 116, 95, 16, 22, 112, 114, 105, 118, 97, 99, 121, 80, 114, 111, 120, 121, 70, 97, 105, 108, 67, 108, 111, 115, 101, 100, 95, 16, 26, 112, 97, 121, 108, 111, 97, 100, 84, 114, 97, 110, 115, 109, 105, 115, 115, 105, 111, 110, 84, 105, 109, 101, 111, 117, 116, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 49, 95, 16, 39, 99, 111, 110, 116, 101, 110, 116, 68, 105, 115, 112, 111, 115, 105, 116, 105, 111, 110, 69, 110, 99, 111, 100, 105, 110, 103, 70, 97, 108, 108, 98, 97, 99, 107, 65, 114, 114, 97, 121, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 50, 94, 116, 114, 97, 99, 107, 101, 114, 67, 111, 110, 116, 101, 120, 116, 89, 97, 108, 108, 111, 119, 115, 85, 67, 65, 95, 16, 20, 112, 114, 111, 104, 105, 98, 105, 116, 80, 114, 105, 118, 97, 99, 121, 80, 114, 111, 120, 121, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 51, 95, 16, 48, 112, 114, 105, 118, 97, 99, 121, 80, 114, 111, 120, 121, 70, 97, 105, 108, 67, 108, 111, 115, 101, 100, 70, 111, 114, 85, 110, 114, 101, 97, 99, 104, 97, 98, 108, 101, 78, 111, 110, 77, 97, 105, 110, 72, 111, 115, 116, 115, 95, 16, 41, 112, 114, 105, 118, 97, 99, 121, 80, 114, 111, 120, 121, 70, 97, 105, 108, 67, 108, 111, 115, 101, 100, 70, 111, 114, 85, 110, 114, 101, 97, 99, 104, 97, 98, 108, 101, 72, 111, 115, 116, 115, 86, 36, 99, 108, 97, 115, 115, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 52, 95, 16, 24, 98, 111, 117, 110, 100, 73, 110, 116, 101, 114, 102, 97, 99, 101, 73, 100, 101, 110, 116, 105, 102, 105, 101, 114, 95, 16, 28, 97, 108, 108, 111, 119, 115, 69, 120, 112, 101, 110, 115, 105, 118, 101, 78, 101, 116, 119, 111, 114, 107, 65, 99, 99, 101, 115, 115, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 53, 95, 16, 16, 115, 116, 97, 114, 116, 84, 105, 109, 101, 111, 117, 116, 84, 105, 109, 101, 95, 16, 18, 112, 114, 101, 118, 101, 110, 116, 72, 83, 84, 83, 83, 116, 111, 114, 97, 103, 101, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 54, 95, 16, 25, 99, 111, 111, 107, 105, 101, 80, 97, 114, 116, 105, 116, 105, 111, 110, 73, 100, 101, 110, 116, 105, 102, 105, 101, 114, 82, 36, 48, 95, 16, 34, 102, 97, 105, 108, 73, 110, 115, 101, 99, 117, 114, 101, 76, 111, 97, 100, 87, 105, 116, 104, 72, 84, 84, 80, 83, 68, 78, 83, 82, 101, 99, 111, 114, 100, 92, 107, 110, 111, 119, 110, 84, 114, 97, 99, 107, 101, 114, 90, 105, 103, 110, 111, 114, 101, 72, 83, 84, 83, 82, 36, 49, 95, 16, 27, 97, 108, 108, 111, 119, 79, 110, 108, 121, 80, 97, 114, 116, 105, 116, 105, 111, 110, 101, 100, 67, 111, 111, 107, 105, 101, 115, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 55, 82, 36, 50, 95, 16, 33, 115, 99, 104, 101, 109, 101, 87, 97, 115, 85, 112, 103, 114, 97, 100, 101, 100, 68, 117, 101, 84, 111, 68, 121, 110, 97, 109, 105, 99, 72, 83, 84, 83, 95, 16, 31, 95, 95, 110, 115, 117, 114, 108, 114, 101, 113, 117, 101, 115, 116, 95, 112, 114, 111, 116, 111, 95, 112, 114, 111, 112, 95, 111, 98, 106, 95, 56, 16, 0, 8, 128, 10, 8, 8, 128, 2, 128, 7, 16, 0, 128, 12, 128, 0, 128, 32, 128, 0, 128, 12, 128, 7, 128, 13, 128, 0, 128, 14, 128, 15, 8, 128, 16, 9, 8, 128, 2, 8, 8, 35, 0, 0, 0, 0, 0, 0, 0, 0, 128, 3, 128, 41, 128, 6, 128, 0, 8, 128, 7, 9, 8, 128, 45, 128, 8, 128, 0, 128, 10, 8, 128, 11, 128, 0, 16, 2, 8, 8, 8, 16, 9, 8, 128, 0, 16, 22, 8, 128, 0, 8, 211, 122, 50, 123, 78, 125, 126, 87, 78, 83, 46, 98, 97, 115, 101, 91, 78, 83, 46, 114, 101, 108, 97, 116, 105, 118, 101, 128, 0, 128, 5, 128, 4, 95, 16, 36, 104, 116, 116, 112, 58, 47, 47, 49, 50, 55, 46, 48, 46, 48, 46, 49, 58, 53, 54, 52, 50, 56, 47, 100, 111, 119, 110, 108, 111, 97, 100, 45, 115, 108, 111, 119, 210, 129, 130, 131, 132, 90, 36, 99, 108, 97, 115, 115, 110, 97, 109, 101, 88, 36, 99, 108, 97, 115, 115, 101, 115, 85, 78, 83, 85, 82, 76, 162, 131, 133, 88, 78, 83, 79, 98, 106, 101, 99, 116, 35, 64, 78, 0, 0, 0, 0, 0, 0, 211, 122, 50, 123, 78, 125, 138, 128, 0, 128, 5, 128, 9, 95, 16, 36, 104, 116, 116, 112, 58, 47, 47, 49, 50, 55, 46, 48, 46, 48, 46, 49, 58, 53, 54, 52, 50, 56, 47, 100, 111, 119, 110, 108, 111, 97, 100, 45, 115, 108, 111, 119, 9, 17, 1, 134, 16, 4, 83, 71, 69, 84, 211, 145, 146, 50, 147, 155, 163, 87, 78, 83, 46, 107, 101, 121, 115, 90, 78, 83, 46, 111, 98, 106, 101, 99, 116, 115, 167, 148, 149, 150, 151, 152, 153, 154, 128, 17, 128, 18, 128, 19, 128, 20, 128, 21, 128, 22, 128, 23, 167, 156, 157, 158, 159, 160, 161, 162, 128, 24, 128, 25, 128, 26, 128, 27, 128, 28, 128, 29, 128, 30, 128, 31, 86, 65, 99, 99, 101, 112, 116, 94, 83, 101, 99, 45, 70, 101, 116, 99, 104, 45, 83, 105, 116, 101, 88, 95, 95, 104, 104, 97, 97, 95, 95, 95, 16, 25, 85, 112, 103, 114, 97, 100, 101, 45, 73, 110, 115, 101, 99, 117, 114, 101, 45, 82, 101, 113, 117, 101, 115, 116, 115, 94, 83, 101, 99, 45, 70, 101, 116, 99, 104, 45, 77, 111, 100, 101, 90, 85, 115, 101, 114, 45, 65, 103, 101, 110, 116, 94, 83, 101, 99, 45, 70, 101, 116, 99, 104, 45, 68, 101, 115, 116, 95, 16, 63, 116, 101, 120, 116, 47, 104, 116, 109, 108, 44, 97, 112, 112, 108, 105, 99, 97, 116, 105, 111, 110, 47, 120, 104, 116, 109, 108, 43, 120, 109, 108, 44, 97, 112, 112, 108, 105, 99, 97, 116, 105, 111, 110, 47, 120, 109, 108, 59, 113, 61, 48, 46, 57, 44, 42, 47, 42, 59, 113, 61, 48, 46, 56, 84, 110, 111, 110, 101, 95, 17, 1, 252, 13, 10, 13, 10, 89, 110, 66, 115, 97, 88, 78, 48, 77, 68, 68, 87, 65, 81, 73, 68, 66, 65, 85, 71, 66, 119, 107, 76, 68, 81, 56, 82, 88, 108, 78, 108, 89, 121, 49, 71, 90, 88, 82, 106, 97, 67, 49, 69, 90, 88, 78, 48, 87, 108, 86, 122, 90, 88, 73, 116, 81, 87, 100, 108, 98, 110, 82, 102, 69, 66, 108, 86, 99, 71, 100, 121, 89, 87, 82, 108, 76, 85, 108, 117, 99, 50, 86, 106, 100, 88, 74, 108, 76, 86, 74, 108, 99, 88, 86, 108, 99, 51, 82, 122, 86, 107, 70, 106, 89, 50, 86, 119, 100, 70, 53, 84, 90, 87, 77, 116, 82, 109, 86, 48, 89, 50, 103, 116, 85, 50, 108, 48, 90, 86, 53, 84, 90, 87, 77, 116, 82, 109, 86, 48, 89, 50, 103, 116, 84, 87, 57, 107, 90, 97, 69, 73, 87, 71, 82, 118, 89, 51, 86, 116, 90, 87, 53, 48, 111, 81, 112, 102, 69, 70, 104, 78, 98, 51, 112, 112, 98, 71, 120, 104, 76, 122, 85, 117, 77, 67, 65, 111, 84, 87, 70, 106, 97, 87, 53, 48, 98, 51, 78, 111, 79, 121, 66, 74, 98, 110, 82, 108, 98, 67, 66, 78, 89, 87, 77, 103, 84, 49, 77, 103, 87, 67, 65, 120, 77, 70, 56, 120, 78, 86, 56, 51, 75, 83, 66, 66, 99, 72, 66, 115, 90, 86, 100, 108, 89, 107, 116, 112, 100, 67, 56, 50, 77, 68, 85, 117, 77, 83, 52, 120, 78, 83, 65, 111, 83, 48, 104, 85, 84, 85, 119, 115, 73, 71, 120, 112, 97, 50, 85, 103, 82, 50, 86, 106, 97, 50, 56, 112, 111, 81, 120, 82, 77, 97, 69, 79, 88, 120, 65, 47, 100, 71, 86, 52, 100, 67, 57, 111, 100, 71, 49, 115, 76, 71, 70, 119, 99, 71, 120, 112, 89, 50, 70, 48, 97, 87, 57, 117, 76, 51, 104, 111, 100, 71, 49, 115, 75, 51, 104, 116, 98, 67, 120, 104, 99, 72, 66, 115, 97, 87, 78, 104, 100, 71, 108, 118, 98, 105, 57, 52, 98, 87, 119, 55, 99, 84, 48, 119, 76, 106, 107, 115, 75, 105, 56, 113, 79, 51, 69, 57, 77, 67, 52, 52, 111, 82, 66, 85, 98, 109, 57, 117, 90, 97, 69, 83, 87, 71, 53, 104, 100, 109, 108, 110, 89, 88, 82, 108, 65, 65, 103, 65, 70, 81, 65, 107, 65, 67, 56, 65, 83, 119, 66, 83, 65, 71, 69, 65, 99, 65, 66, 121, 65, 72, 115, 65, 102, 81, 68, 89, 65, 78, 111, 65, 51, 65, 68, 101, 65, 83, 65, 66, 73, 103, 69, 110, 65, 83, 107, 65, 65, 65, 65, 65, 65, 65, 65, 67, 65, 81, 65, 65, 65, 65, 65, 65, 65, 65, 65, 84, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 77, 103, 61, 61, 81, 49, 88, 110, 97, 118, 105, 103, 97, 116, 101, 95, 16, 88, 77, 111, 122, 105, 108, 108, 97, 47, 53, 46, 48, 32, 40, 77, 97, 99, 105, 110, 116, 111, 115, 104, 59, 32, 73, 110, 116, 101, 108, 32, 77, 97, 99, 32, 79, 83, 32, 88, 32, 49, 48, 95, 49, 53, 95, 55, 41, 32, 65, 112, 112, 108, 101, 87, 101, 98, 75, 105, 116, 47, 54, 48, 53, 46, 49, 46, 49, 53, 32, 40, 75, 72, 84, 77, 76, 44, 32, 108, 105, 107, 101, 32, 71, 101, 99, 107, 111, 41, 88, 100, 111, 99, 117, 109, 101, 110, 116, 210, 129, 130, 179, 180, 95, 16, 19, 78, 83, 77, 117, 116, 97, 98, 108, 101, 68, 105, 99, 116, 105, 111, 110, 97, 114, 121, 163, 179, 181, 133, 92, 78, 83, 68, 105, 99, 116, 105, 111, 110, 97, 114, 121, 211, 145, 146, 50, 183, 189, 163, 165, 184, 185, 186, 187, 188, 128, 33, 128, 34, 128, 35, 128, 36, 128, 37, 165, 190, 191, 191, 193, 191, 128, 38, 128, 39, 128, 39, 128, 40, 128, 39, 128, 31, 95, 16, 42, 95, 107, 67, 70, 72, 84, 84, 80, 67, 111, 111, 107, 105, 101, 80, 111, 108, 105, 99, 121, 80, 114, 111, 112, 101, 114, 116, 121, 83, 105, 116, 101, 70, 111, 114, 67, 111, 111, 107, 105, 101, 115, 95, 16, 48, 95, 107, 67, 70, 72, 84, 84, 80, 67, 111, 111, 107, 105, 101, 80, 111, 108, 105, 99, 121, 80, 114, 111, 112, 101, 114, 116, 121, 73, 115, 84, 111, 112, 76, 101, 118, 101, 108, 78, 97, 118, 105, 103, 97, 116, 105, 111, 110, 95, 16, 21, 87, 75, 86, 101, 114, 121, 76, 111, 119, 76, 111, 97, 100, 80, 114, 105, 111, 114, 105, 116, 121, 95, 16, 24, 95, 107, 67, 70, 85, 82, 76, 67, 97, 99, 104, 101, 80, 97, 114, 116, 105, 116, 105, 111, 110, 75, 101, 121, 95, 16, 32, 107, 67, 70, 85, 82, 76, 82, 101, 113, 117, 101, 115, 116, 65, 108, 108, 111, 119, 65, 108, 108, 80, 79, 83, 84, 67, 97, 99, 104, 105, 110, 103, 95, 16, 36, 104, 116, 116, 112, 58, 47, 47, 49, 50, 55, 46, 48, 46, 48, 46, 49, 58, 53, 54, 52, 50, 56, 47, 100, 111, 119, 110, 108, 111, 97, 100, 45, 115, 108, 111, 119, 16, 1, 89, 49, 50, 55, 46, 48, 46, 48, 46, 49, 210, 146, 50, 205, 209, 163, 83, 207, 208, 128, 13, 128, 42, 128, 43, 128, 44, 16, 12, 16, 5, 210, 129, 130, 213, 214, 87, 78, 83, 65, 114, 114, 97, 121, 162, 213, 133, 210, 129, 130, 216, 217, 95, 16, 19, 78, 83, 77, 117, 116, 97, 98, 108, 101, 85, 82, 76, 82, 101, 113, 117, 101, 115, 116, 163, 218, 219, 133, 95, 16, 19, 78, 83, 77, 117, 116, 97, 98, 108, 101, 85, 82, 76, 82, 101, 113, 117, 101, 115, 116, 92, 78, 83, 85, 82, 76, 82, 101, 113, 117, 101, 115, 116, 0, 8, 0, 17, 0, 26, 0, 36, 0, 41, 0, 50, 0, 55, 0, 73, 0, 76, 0, 106, 0, 108, 0, 157, 0, 163, 1, 22, 1, 49, 1, 70, 1, 104, 1, 127, 1, 141, 1, 174, 1, 196, 1, 231, 2, 10, 2, 22, 2, 57, 2, 92, 2, 121, 2, 156, 2, 191, 2, 226, 3, 5, 3, 40, 3, 75, 3, 110, 3, 135, 3, 170, 3, 210, 3, 232, 4, 10, 4, 43, 4, 68, 4, 97, 4, 131, 4, 173, 4, 207, 4, 222, 4, 232, 4, 255, 5, 33, 5, 84, 5, 128, 5, 135, 5, 169, 5, 196, 5, 227, 6, 5, 6, 24, 6, 45, 6, 79, 6, 107, 6, 110, 6, 147, 6, 160, 6, 171, 6, 174, 6, 204, 6, 238, 6, 241, 7, 21, 7, 55, 7, 57, 7, 58, 7, 60, 7, 61, 7, 62, 7, 64, 7, 66, 7, 68, 7, 70, 7, 72, 7, 74, 7, 76, 7, 78, 7, 80, 7, 82, 7, 84, 7, 86, 7, 88, 7, 89, 7, 91, 7, 92, 7, 93, 7, 95, 7, 96, 7, 97, 7, 106, 7, 108, 7, 110, 7, 112, 7, 114, 7, 115, 7, 117, 7, 118, 7, 119, 7, 121, 7, 123, 7, 125, 7, 127, 7, 128, 7, 130, 7, 132, 7, 134, 7, 135, 7, 136, 7, 137, 7, 139, 7, 140, 7, 142, 7, 144, 7, 145, 7, 147, 7, 148, 7, 155, 7, 163, 7, 175, 7, 177, 7, 179, 7, 181, 7, 220, 7, 225, 7, 236, 7, 245, 7, 251, 7, 254, 8, 7, 8, 16, 8, 23, 8, 25, 8, 27, 8, 29, 8, 68, 8, 69, 8, 72, 8, 74, 8, 78, 8, 85, 8, 93, 8, 104, 8, 112, 8, 114, 8, 116, 8, 118, 8, 120, 8, 122, 8, 124, 8, 126, 8, 134, 8, 136, 8, 138, 8, 140, 8, 142, 8, 144, 8, 146, 8, 148, 8, 150, 8, 157, 8, 172, 8, 181, 8, 209, 8, 224, 8, 235, 8, 250, 9, 60, 9, 65, 11, 65, 11, 67, 11, 76, 11, 167, 11, 176, 11, 181, 11, 203, 11, 207, 11, 220, 11, 227, 11, 233, 11, 235, 11, 237, 11, 239, 11, 241, 11, 243, 11, 249, 11, 251, 11, 253, 11, 255, 12, 1, 12, 3, 12, 5, 12, 50, 12, 101, 12, 125, 12, 152, 12, 187, 12, 226, 12, 228, 12, 238, 12, 243, 12, 247, 12, 249, 12, 251, 12, 253, 12, 255, 13, 1, 13, 3, 13, 8, 13, 16, 13, 19, 13, 24, 13, 46, 13, 50, 13, 72, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 220, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 85, 128, 14, 95, 16, 36, 104, 116, 116, 112, 58, 47, 47, 49, 50, 55, 46, 48, 46, 48, 46, 49, 58, 53, 54, 52, 50, 56, 47, 100, 111, 119, 110, 108, 111, 97, 100, 45, 115, 108, 111, 119, 95, 16, 22, 115, 99, 114, 121, 105, 110, 103, 45, 100, 111, 119, 110, 108, 111, 97, 100, 45, 50, 46, 98, 105, 110, 18, 0, 1, 0, 0, 95, 16, 28, 34, 115, 99, 114, 121, 105, 110, 103, 45, 116, 101, 115, 116, 45, 101, 116, 97, 103, 45, 100, 101, 97, 100, 98, 101, 101, 102, 34, 16, 6, 95, 16, 29, 77, 111, 110, 44, 32, 48, 49, 32, 74, 97, 110, 32, 50, 48, 50, 52, 32, 48, 48, 58, 48, 48, 58, 48, 48, 32, 71, 77, 84, 210, 55, 56, 74, 75, 95, 16, 19, 78, 83, 77, 117, 116, 97, 98, 108, 101, 68, 105, 99, 116, 105, 111, 110, 97, 114, 121, 163, 74, 76, 60, 92, 78, 83, 68, 105, 99, 116, 105, 111, 110, 97, 114, 121, 0, 8, 0, 17, 0, 26, 0, 36, 0, 41, 0, 50, 0, 55, 0, 73, 0, 76, 0, 106, 0, 108, 0, 135, 0, 141, 0, 148, 0, 156, 0, 167, 0, 174, 0, 185, 0, 187, 0, 189, 0, 191, 0, 193, 0, 195, 0, 197, 0, 199, 0, 201, 0, 203, 0, 205, 0, 216, 0, 218, 0, 220, 0, 222, 0, 224, 0, 226, 0, 228, 0, 230, 0, 232, 0, 234, 0, 236, 0, 238, 1, 16, 1, 45, 1, 80, 1, 116, 1, 142, 1, 179, 1, 213, 1, 243, 2, 19, 2, 58, 2, 174, 2, 179, 2, 187, 9, 227, 9, 229, 9, 234, 9, 245, 9, 254, 10, 12, 10, 16, 10, 23, 10, 32, 10, 37, 26, 39, 26, 41, 26, 46, 41, 95, 41, 97, 41, 136, 41, 161, 41, 166, 41, 197, 41, 199, 41, 231, 41, 236, 42, 2, 42, 6, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 77, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 42, 19]) }
+2026-10-07T14:29:38.6758610Z demo-mac: download-test: phase E: DownloadCancelled with 10957 bytes of resume_data
+2026-10-07T14:29:38.6759330Z demo-mac: download-test: phase E: resume_download issued, resumed id = 5
+2026-10-07T14:29:38.6760800Z demo-mac: nav event: DownloadStarted { id: DownloadId(5), url: "", suggested_filename: "scrying-download-2.bin", destination_path: "/Users/markik/Code/targets/wgpu-scry-hardware/demo-mac-download-test-91297/download-output/scrying-download-2.bin", total_bytes_expected: None }
+2026-10-07T14:29:38.6762450Z demo-mac: nav event: DownloadProgress { id: DownloadId(5), bytes_written: 262144, total_bytes_expected: None }
+2026-10-07T14:29:38.6763980Z demo-mac: nav event: DownloadFinished { id: DownloadId(5), destination_path: "/Users/markik/Code/targets/wgpu-scry-hardware/demo-mac-download-test-91297/download-output/scrying-download-2.bin", error: None }
+2026-10-07T14:29:38.6765250Z demo-mac: download-test: phase E: resumed download produced 262144 bytes matching the expected payload
+2026-10-07T14:29:38.6766140Z demo-mac: download-test: PASS — item 8 download pipeline verified
+2026-10-07T14:29:38.6766820Z   - basic: DownloadStarted/Progress/Finished events landed with id 1 and bytes match served payload
+2026-10-07T14:29:38.6767570Z   - host Cancel decision: DownloadCancelled fired (no Started, no Finished) for id 2
+2026-10-07T14:29:38.6768150Z   - cancel_download(unknown_id): returned Ok(false) as expected
+2026-10-07T14:29:38.6769510Z   - basic-auth download via start_download: shared auth handler supplied credentials, download succeeded (download-level auth callback fired = true)
+2026-10-07T14:29:38.6770530Z   - resume: cancelled mid-stream (id 4), resume_download produced complete bytes (resumed id 5)
+2026-10-07T14:29:38.6771120Z   -> PASS
+2026-10-07T14:29:38.6771280Z 
+2026-10-07T14:29:38.6771410Z ==> --profile-test
+2026-10-07T14:29:39.4271850Z demo-mac: --profile-test: spun up persistent counterpart at same data_dir
+2026-10-07T14:29:39.4272630Z demo-mac: profile-test: set_cookie 'scrying-profile-91404' on producer #1
+2026-10-07T14:29:39.4273180Z demo-mac: profile-test: producer #1 store reports 1 cookie(s)
+2026-10-07T14:29:39.4273650Z demo-mac: profile-test: producer #2 store reports 1 cookie(s)
+2026-10-07T14:29:39.4274440Z demo-mac: profile-test: PASS — persistent stores at the same data_dir share cookies
+2026-10-07T14:29:39.4275030Z   - set_cookie on producer #1 was visible to its own request_all_cookies
+2026-10-07T14:29:39.4275630Z   - same cookie was visible to a separate persistent producer at the same data_dir
+2026-10-07T14:29:39.4308870Z   -> PASS
+2026-10-07T14:29:39.4341140Z 
+2026-10-07T14:29:39.4341450Z ==> --two-tabs
+2026-10-07T14:29:48.1879880Z demo-mac: --two-tabs: spun up second producer
+2026-10-07T14:29:48.1880440Z demo-mac: nav event: Starting { url: "scrying-test://history-1" }
+2026-10-07T14:29:48.1881770Z demo-mac: nav event: SourceChanged { url: "scrying-test://history-1" }
+2026-10-07T14:29:48.1882320Z demo-mac: [tab2] nav event: Starting { url: "scrying-test://history-2" }
+2026-10-07T14:29:48.1882920Z demo-mac: nav event: Completed { url: "scrying-test://history-1", success: true }
+2026-10-07T14:29:48.1883400Z demo-mac: js->host: loaded:history-1
+2026-10-07T14:29:48.1883840Z demo-mac: [tab2] nav event: SourceChanged { url: "scrying-test://history-2" }
+2026-10-07T14:29:48.1884310Z demo-mac: [tab2] js->host: loaded:history-2
+2026-10-07T14:29:48.1884810Z demo-mac: [tab2] nav event: Completed { url: "scrying-test://history-2", success: true }
+2026-10-07T14:29:48.1885820Z demo-mac: two-tabs: PASS — multi-instance independence verified (3 tab-1 urls, 3 tab-2 urls, no cross-talk)
+2026-10-07T14:29:48.1915800Z   -> PASS
+2026-10-07T14:29:48.1949660Z 
+2026-10-07T14:29:48.1949880Z ==> --capture-test
+2026-10-07T14:30:21.8720970Z demo-mac: started loading scrying-test://capture
+2026-10-07T14:30:21.8721590Z demo-mac: nav event: Starting { url: "scrying-test://capture" }
+2026-10-07T14:30:21.8722130Z demo-mac: nav event: SourceChanged { url: "scrying-test://capture" }
+2026-10-07T14:30:21.8722750Z demo-mac: nav event: Completed { url: "scrying-test://capture", success: true }
+2026-10-07T14:30:21.8723250Z demo-mac: start_capture_async kicked off
+2026-10-07T14:30:21.8723870Z demo-mac: capture activity at 0.00s: frames=0, complete=1, idle=0, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8724800Z demo-mac: capture activity at 1.00s: frames=3, complete=3, idle=55, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8725710Z demo-mac: capture activity at 2.00s: frames=3, complete=3, idle=113, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8726610Z demo-mac: capture activity at 3.00s: frames=3, complete=3, idle=171, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8727520Z demo-mac: capture activity at 4.00s: frames=3, complete=3, idle=230, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8728420Z demo-mac: capture activity at 5.00s: frames=3, complete=3, idle=288, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8729320Z demo-mac: capture activity at 6.00s: frames=3, complete=3, idle=346, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8730220Z demo-mac: capture activity at 7.00s: frames=3, complete=3, idle=404, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8731700Z demo-mac: capture activity at 8.00s: frames=3, complete=3, idle=462, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8732650Z demo-mac: capture activity at 9.00s: frames=3, complete=3, idle=520, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8733560Z demo-mac: capture activity at 10.00s: frames=3, complete=3, idle=579, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8734570Z demo-mac: capture activity at 11.00s: frames=3, complete=3, idle=637, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8735460Z demo-mac: capture activity at 12.00s: frames=3, complete=3, idle=695, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8736340Z demo-mac: capture activity at 13.00s: frames=3, complete=3, idle=753, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8737220Z demo-mac: capture activity at 14.00s: frames=3, complete=3, idle=811, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8738100Z demo-mac: capture activity at 15.00s: frames=3, complete=3, idle=869, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8738990Z demo-mac: capture activity at 16.00s: frames=3, complete=3, idle=928, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8739880Z demo-mac: capture activity at 17.00s: frames=3, complete=3, idle=986, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8741120Z demo-mac: capture activity at 18.00s: frames=3, complete=3, idle=1044, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8742020Z demo-mac: capture activity at 19.00s: frames=3, complete=3, idle=1102, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8742910Z demo-mac: capture activity at 20.00s: frames=3, complete=3, idle=1160, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8743810Z demo-mac: capture activity at 21.00s: frames=3, complete=3, idle=1219, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8744710Z demo-mac: capture activity at 22.00s: frames=3, complete=3, idle=1277, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8745600Z demo-mac: capture activity at 23.00s: frames=3, complete=3, idle=1335, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8746580Z demo-mac: capture activity at 24.00s: frames=3, complete=3, idle=1393, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8747430Z demo-mac: capture activity at 25.00s: frames=3, complete=3, idle=1451, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8748280Z demo-mac: capture activity at 26.00s: frames=3, complete=3, idle=1509, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8749130Z demo-mac: capture activity at 27.00s: frames=3, complete=3, idle=1567, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8750000Z demo-mac: capture activity at 28.00s: frames=3, complete=3, idle=1625, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8750850Z demo-mac: capture activity at 29.00s: frames=3, complete=3, idle=1683, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:21.8751430Z demo-mac: capture-test: FAIL
+2026-10-07T14:30:21.8751850Z   - captured 3 frame(s) within 30s without observing 5 frame(s) at every expected size
+2026-10-07T14:30:21.8752340Z   - observed 3 frame(s) at 1024x1536, expected at least 5
+2026-10-07T14:30:21.8753100Z   - pre-import frame diagnostics: no-latest-sample=563883, no-image-payload=1741, config-revision-pending=0, source-dimension-mismatch=0, empty-crop=0
+2026-10-07T14:30:21.8754090Z   - SCK frame statuses: missing=0, complete=3, idle=1741, blank=0, suspended=0, started=0, stopped=0, unknown=0, last=Some(1)
+2026-10-07T14:30:21.8755350Z   - capture revisions: requested=0, applied=0; last source dimensions=Some(PhysicalSize { width: 2048, height: 1592 }), expected host dimensions=Some(PhysicalSize { width: 2048, height: 1592 })
+2026-10-07T14:30:21.8759000Z   -> FAIL (PASS receipt absent)
+2026-10-07T14:30:21.8792650Z 
+2026-10-07T14:30:21.8793250Z ==> --capture-test+resize
+2026-10-07T14:30:39.8404610Z demo-mac: started loading scrying-test://capture
+2026-10-07T14:30:39.8405140Z demo-mac: nav event: Starting { url: "scrying-test://capture" }
+2026-10-07T14:30:39.8405690Z demo-mac: nav event: SourceChanged { url: "scrying-test://capture" }
+2026-10-07T14:30:39.8406270Z demo-mac: nav event: Completed { url: "scrying-test://capture", success: true }
+2026-10-07T14:30:39.8406750Z demo-mac: start_capture_async kicked off
+2026-10-07T14:30:39.8407360Z demo-mac: capture activity at 0.00s: frames=0, complete=1, idle=0, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8408270Z demo-mac: capture activity at 1.00s: frames=3, complete=3, idle=56, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8409180Z demo-mac: capture activity at 2.00s: frames=3, complete=3, idle=114, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8410080Z demo-mac: capture activity at 3.00s: frames=3, complete=3, idle=172, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8411050Z demo-mac: capture activity at 4.00s: frames=3, complete=3, idle=230, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8412330Z demo-mac: capture activity at 5.00s: frames=3, complete=3, idle=289, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8413280Z demo-mac: resize-test step 0 → request logical inner_size = 1280x800
+2026-10-07T14:30:39.8413990Z demo-mac: capture activity at 6.00s: frames=3, complete=3, idle=347, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8414890Z demo-mac: capture activity at 7.00s: frames=6, complete=6, idle=401, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8415800Z demo-mac: capture activity at 8.00s: frames=6, complete=6, idle=459, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8416710Z demo-mac: capture activity at 9.00s: frames=6, complete=6, idle=517, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8417480Z demo-mac: resize-test step 1 → request logical inner_size = 768x600
+2026-10-07T14:30:39.8418200Z demo-mac: capture activity at 10.00s: frames=6, complete=6, idle=575, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8419110Z demo-mac: capture activity at 11.00s: frames=9, complete=9, idle=629, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8420010Z demo-mac: capture activity at 12.00s: frames=9, complete=9, idle=687, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8420920Z demo-mac: capture activity at 13.00s: frames=9, complete=9, idle=745, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8421740Z demo-mac: resize-test step 2 → request logical inner_size = 1024x700
+2026-10-07T14:30:39.8422450Z demo-mac: capture activity at 14.00s: frames=9, complete=9, idle=803, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:30:39.8423450Z demo-mac: capture-test: PASS — SCK pipeline delivered 12 frames across [768x1200, 1024x1400, 1024x1536, 1280x1600]
+2026-10-07T14:30:39.8445310Z   -> PASS
+2026-10-07T14:30:39.8481090Z 
+2026-10-07T14:30:39.8481480Z ==> summary
+2026-10-07T14:30:39.8481830Z   passed: 9 / 10
+2026-10-07T14:30:39.8482110Z   failed: 1
+2026-10-07T14:30:39.8482330Z     - --capture-test
+2026-10-07T14:30:40.6229870Z ##[error]Process completed with exit code 1.
+2026-10-07T14:30:40.6304380Z ##[group]Run proof="$RUNNER_TEMP/scry-registry-intel-diagnostic"
+2026-10-07T14:30:40.6305020Z [36;1mproof="$RUNNER_TEMP/scry-registry-intel-diagnostic"[0m
+2026-10-07T14:30:40.6305450Z [36;1mcaffeinate -u -t 5 &[0m
+2026-10-07T14:30:40.6305760Z [36;1msleep 2[0m
+2026-10-07T14:30:40.6306050Z [36;1mset -o pipefail[0m
+2026-10-07T14:30:40.6306360Z [36;1mstatus=0[0m
+2026-10-07T14:30:40.6307040Z [36;1mnice -n 10 caffeinate -dims bash "$proof/consumer/scripts/test-mac.sh" 2>&1 | tee "$proof/activity.log" || status=$?[0m
+2026-10-07T14:30:40.6307770Z [36;1mprintf '%s\n' "$status" > "$proof/activity-exit-code.txt"[0m
+2026-10-07T14:30:40.6308390Z [36;1mshasum -a 256 "$CARGO_TARGET_DIR/debug/demo-mac" > "$proof/activity-executable.sha256"[0m
+2026-10-07T14:30:40.6309190Z [36;1mshasum -a 256 "$SCRY_MAC_APP/Contents/MacOS/demo-mac" > "$proof/activity-app-executable.sha256"[0m
+2026-10-07T14:30:40.6309970Z [36;1mcodesign -d -r- "$SCRY_MAC_APP" > "$proof/activity-signing.txt" 2>&1[0m
+2026-10-07T14:30:40.6310650Z [36;1mcmp "$proof/pre-battery-executable.sha256" "$proof/activity-executable.sha256"[0m
+2026-10-07T14:30:40.6311180Z [36;1mexit "$status"[0m
+2026-10-07T14:30:40.6332520Z shell: /bin/bash -e {0}
+2026-10-07T14:30:40.6332830Z env:
+2026-10-07T14:30:40.6333110Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:30:40.6333460Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:30:40.6333770Z   RUSTFLAGS: -D warnings
+2026-10-07T14:30:40.6334080Z   WGPU_BACKEND: metal
+2026-10-07T14:30:40.6334370Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:30:40.6334680Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:30:40.6334990Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:30:40.6335360Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:30:40.6336170Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:30:40.6336820Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:30:40.6337390Z   CAPTURE: 1
+2026-10-07T14:30:40.6337670Z   TIMEOUT: 90
+2026-10-07T14:30:40.6337940Z   VISIBLE: 1
+2026-10-07T14:30:40.6338210Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:30:40.6338530Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:30:40.6350990Z   CARGO_TERM_COLOR: always
+2026-10-07T14:30:40.6351340Z   UV_PYTHON_INSTALL_DIR: /Users/markik/.local/share/uv/python
+2026-10-07T14:30:40.6351720Z   CAPTURE_ACTIVITY: 1
+2026-10-07T14:30:40.6351940Z ##[endgroup]
+2026-10-07T14:30:44.6819280Z ==> ScreenCaptureKit display-awake hold active
+2026-10-07T14:30:44.6820040Z ==> building demo-mac
+2026-10-07T14:30:45.6191530Z ==> code-signing identity: -
+2026-10-07T14:30:45.6325760Z Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac
+2026-10-07T14:30:45.6326700Z designated => identifier "org.merely.scry.hardware-demo"
+2026-10-07T14:30:45.6330210Z ==> LaunchServices app: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:30:45.6333140Z 
+2026-10-07T14:30:45.6333710Z ==> --capture-test
+2026-10-07T14:31:20.1600020Z demo-mac: started loading scrying-test://capture?activity=1
+2026-10-07T14:31:20.1601490Z demo-mac: nav event: Starting { url: "scrying-test://capture?activity=1" }
+2026-10-07T14:31:20.1602230Z demo-mac: nav event: SourceChanged { url: "scrying-test://capture?activity=1" }
+2026-10-07T14:31:20.1603000Z demo-mac: nav event: Completed { url: "scrying-test://capture?activity=1", success: true }
+2026-10-07T14:31:20.1604370Z demo-mac: js->host: capture-activity:{"kind":"ready","elapsedMs":3,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":0,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:20.1606280Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":1005,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":1,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:20.1608880Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":2005,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":2,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:20.1610070Z demo-mac: start_capture_async kicked off
+2026-10-07T14:31:20.1611220Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":3005,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":3,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:20.1612660Z demo-mac: capture activity at 0.00s: frames=0, complete=1, idle=0, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1613660Z demo-mac: capture activity at 1.00s: frames=3, complete=3, idle=54, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1615090Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":4090,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":4,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:20.1616540Z demo-mac: capture activity at 2.00s: frames=3, complete=3, idle=112, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1618000Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":5090,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":5,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:20.1619440Z demo-mac: capture activity at 3.00s: frames=3, complete=3, idle=170, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1621220Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":6184,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":6,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:20.1622650Z demo-mac: capture activity at 4.00s: frames=3, complete=3, idle=228, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1623630Z demo-mac: capture activity at 5.00s: frames=3, complete=3, idle=286, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1624790Z demo-mac: capture activity at 6.00s: frames=3, complete=3, idle=344, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1625740Z demo-mac: capture activity at 7.00s: frames=3, complete=3, idle=402, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1626700Z demo-mac: capture activity at 8.00s: frames=3, complete=3, idle=461, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1627660Z demo-mac: capture activity at 9.00s: frames=3, complete=3, idle=519, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1628610Z demo-mac: capture activity at 10.00s: frames=3, complete=3, idle=577, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1629570Z demo-mac: capture activity at 11.00s: frames=3, complete=3, idle=635, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1630570Z demo-mac: capture activity at 12.00s: frames=3, complete=3, idle=693, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1631530Z demo-mac: capture activity at 13.00s: frames=3, complete=3, idle=751, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1632480Z demo-mac: capture activity at 14.00s: frames=3, complete=3, idle=809, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1633430Z demo-mac: capture activity at 15.00s: frames=3, complete=3, idle=867, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1634390Z demo-mac: capture activity at 16.00s: frames=3, complete=3, idle=926, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1635680Z demo-mac: capture activity at 17.00s: frames=3, complete=3, idle=984, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1636680Z demo-mac: capture activity at 18.00s: frames=3, complete=3, idle=1042, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1637650Z demo-mac: capture activity at 19.00s: frames=3, complete=3, idle=1100, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1638800Z demo-mac: capture activity at 20.00s: frames=3, complete=3, idle=1158, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1639810Z demo-mac: capture activity at 21.00s: frames=3, complete=3, idle=1216, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1640810Z demo-mac: capture activity at 22.00s: frames=3, complete=3, idle=1274, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1641810Z demo-mac: capture activity at 23.00s: frames=3, complete=3, idle=1332, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1642830Z demo-mac: capture activity at 24.00s: frames=3, complete=3, idle=1390, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1643820Z demo-mac: capture activity at 25.00s: frames=3, complete=3, idle=1448, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1644830Z demo-mac: capture activity at 26.00s: frames=3, complete=3, idle=1506, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1645810Z demo-mac: capture activity at 27.00s: frames=3, complete=3, idle=1564, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1647010Z demo-mac: capture activity at 28.00s: frames=3, complete=3, idle=1623, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1648000Z demo-mac: capture activity at 29.00s: frames=3, complete=3, idle=1681, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:20.1648700Z demo-mac: capture-test: FAIL
+2026-10-07T14:31:20.1649250Z   - captured 3 frame(s) within 30s without observing 5 frame(s) at every expected size
+2026-10-07T14:31:20.1649850Z   - observed 3 frame(s) at 1024x1536, expected at least 5
+2026-10-07T14:31:20.1650750Z   - pre-import frame diagnostics: no-latest-sample=553578, no-image-payload=1739, config-revision-pending=0, source-dimension-mismatch=0, empty-crop=0
+2026-10-07T14:31:20.1651890Z   - SCK frame statuses: missing=0, complete=3, idle=1739, blank=0, suspended=0, started=0, stopped=0, unknown=0, last=Some(1)
+2026-10-07T14:31:20.1653150Z   - capture revisions: requested=0, applied=0; last source dimensions=Some(PhysicalSize { width: 2048, height: 1592 }), expected host dimensions=Some(PhysicalSize { width: 2048, height: 1592 })
+2026-10-07T14:31:20.1654130Z   -> FAIL (PASS receipt absent)
+2026-10-07T14:31:20.1674300Z 
+2026-10-07T14:31:20.1674720Z ==> --capture-test+resize
+2026-10-07T14:31:38.0072890Z demo-mac: started loading scrying-test://capture?activity=1
+2026-10-07T14:31:38.0073580Z demo-mac: nav event: Starting { url: "scrying-test://capture?activity=1" }
+2026-10-07T14:31:38.0074250Z demo-mac: nav event: SourceChanged { url: "scrying-test://capture?activity=1" }
+2026-10-07T14:31:38.0075000Z demo-mac: nav event: Completed { url: "scrying-test://capture?activity=1", success: true }
+2026-10-07T14:31:38.0076320Z demo-mac: js->host: capture-activity:{"kind":"ready","elapsedMs":3,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":0,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0078210Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":1004,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":1,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0080790Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":2004,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":2,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0081950Z demo-mac: start_capture_async kicked off
+2026-10-07T14:31:38.0083110Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":3004,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":3,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0084520Z demo-mac: capture activity at 0.00s: frames=0, complete=1, idle=0, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0085510Z demo-mac: capture activity at 1.00s: frames=3, complete=3, idle=55, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0086940Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":4102,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":4,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0088360Z demo-mac: capture activity at 2.00s: frames=3, complete=3, idle=113, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0089820Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":5194,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":5,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0091230Z demo-mac: capture activity at 3.00s: frames=3, complete=3, idle=171, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0092670Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":6294,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":6,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0094340Z demo-mac: capture activity at 4.00s: frames=3, complete=3, idle=230, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0095310Z demo-mac: capture activity at 5.00s: frames=3, complete=3, idle=288, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0096350Z demo-mac: resize-test step 0 → request logical inner_size = 1280x800
+2026-10-07T14:31:38.0097130Z demo-mac: capture activity at 6.00s: frames=3, complete=3, idle=346, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0098560Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":9044,"visibility":"hidden","focused":false,"viewport":[512,768,2],"animationFrames":0,"timerTicks":7,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0100520Z demo-mac: js->host: capture-activity:{"kind":"resize","elapsedMs":9045,"visibility":"hidden","focused":false,"viewport":[640,800,2],"animationFrames":0,"timerTicks":7,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0101920Z demo-mac: capture activity at 7.00s: frames=7, complete=7, idle=400, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0103350Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":10844,"visibility":"hidden","focused":false,"viewport":[640,800,2],"animationFrames":0,"timerTicks":8,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0104770Z demo-mac: capture activity at 8.00s: frames=7, complete=7, idle=458, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0105910Z demo-mac: capture activity at 9.00s: frames=7, complete=7, idle=516, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0107340Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":12844,"visibility":"hidden","focused":false,"viewport":[640,800,2],"animationFrames":0,"timerTicks":9,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0108980Z demo-mac: resize-test step 1 → request logical inner_size = 768x600
+2026-10-07T14:31:38.0109770Z demo-mac: capture activity at 10.00s: frames=7, complete=7, idle=574, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0111240Z demo-mac: js->host: capture-activity:{"kind":"resize","elapsedMs":13044,"visibility":"hidden","focused":false,"viewport":[384,600,2],"animationFrames":0,"timerTicks":9,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0112690Z demo-mac: capture activity at 11.00s: frames=10, complete=10, idle=630, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0114220Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":14844,"visibility":"hidden","focused":false,"viewport":[384,600,2],"animationFrames":0,"timerTicks":10,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0115660Z demo-mac: capture activity at 12.00s: frames=10, complete=10, idle=688, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0116660Z demo-mac: capture activity at 13.00s: frames=10, complete=10, idle=746, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0118130Z demo-mac: js->host: capture-activity:{"kind":"timer","elapsedMs":16844,"visibility":"hidden","focused":false,"viewport":[384,600,2],"animationFrames":0,"timerTicks":11,"background":"rgb(23, 97, 181)","animations":[{"state":"running","currentTime":0}]}
+2026-10-07T14:31:38.0119450Z demo-mac: resize-test step 2 → request logical inner_size = 1024x700
+2026-10-07T14:31:38.0120250Z demo-mac: capture activity at 14.00s: frames=10, complete=10, idle=804, visible=Some(true), minimized=Some(false), focused=false
+2026-10-07T14:31:38.0121560Z demo-mac: capture-test: PASS — SCK pipeline delivered 13 frames across [768x1200, 1024x1400, 1024x1536, 1280x1600]
+2026-10-07T14:31:38.0122220Z   -> PASS
+2026-10-07T14:31:38.0149010Z 
+2026-10-07T14:31:38.0149340Z ==> summary
+2026-10-07T14:31:38.0149700Z   passed: 1 / 2
+2026-10-07T14:31:38.0149990Z   failed: 1
+2026-10-07T14:31:38.0150290Z     - --capture-test
+2026-10-07T14:31:38.7805900Z ##[error]Process completed with exit code 1.
+2026-10-07T14:31:38.7887450Z ##[group]Run actions/upload-artifact@v4
+2026-10-07T14:31:38.7887780Z with:
+2026-10-07T14:31:38.7888010Z   name: scry-only-registry-intel-diagnostic
+2026-10-07T14:31:38.7888510Z   path: /Users/markik/actions-runner-wgpu/_work/_temp/scry-registry-intel-diagnostic
+2026-10-07T14:31:38.7889070Z   if-no-files-found: warn
+2026-10-07T14:31:38.7889440Z   compression-level: 6
+2026-10-07T14:31:38.7889660Z   overwrite: false
+2026-10-07T14:31:38.7889900Z   include-hidden-files: false
+2026-10-07T14:31:38.7890150Z env:
+2026-10-07T14:31:38.7890350Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T14:31:38.7890610Z   CARGO_BUILD_JOBS: 1
+2026-10-07T14:31:38.7890840Z   RUSTFLAGS: -D warnings
+2026-10-07T14:31:38.7891070Z   WGPU_BACKEND: metal
+2026-10-07T14:31:38.7891290Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T14:31:38.7891520Z   SCRYING_VERSION: 0.7.2
+2026-10-07T14:31:38.7891760Z   WELDING_VERSION: 0.14.1
+2026-10-07T14:31:38.7892050Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T14:31:38.7892550Z   CARGO_TARGET_DIR: /Users/markik/Code/targets/wgpu-scry-hardware
+2026-10-07T14:31:38.7893110Z   SCRY_MAC_APP: /Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app
+2026-10-07T14:31:38.7893580Z   CAPTURE: 1
+2026-10-07T14:31:38.7893770Z   TIMEOUT: 90
+2026-10-07T14:31:38.7893960Z   VISIBLE: 1
+2026-10-07T14:31:38.7894160Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T14:31:38.7894430Z   CARGO_INCREMENTAL: 0
+2026-10-07T14:31:38.7894660Z   CARGO_TERM_COLOR: always
+2026-10-07T14:31:38.7894970Z   UV_PYTHON_INSTALL_DIR: /Users/markik/.local/share/uv/python
+2026-10-07T14:31:38.7895300Z ##[endgroup]
+2026-10-07T14:31:39.0071000Z (node:93016) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-07T14:31:39.0071970Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-07T14:31:39.0146400Z With the provided path, there will be 24 files uploaded
+2026-10-07T14:31:39.0150730Z Artifact name is valid!
+2026-10-07T14:31:39.0151410Z Root directory input is valid!
+2026-10-07T14:31:39.3367780Z Beginning upload of artifact content to blob storage
+2026-10-07T14:31:39.4093360Z (node:93016) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-07T14:31:39.8663630Z Uploaded bytes 302945
+2026-10-07T14:31:39.9261630Z Finished uploading artifact content to blob storage!
+2026-10-07T14:31:39.9262450Z SHA256 digest of uploaded artifact zip is dfe112b0fc1c8851f505235bbc5bb4d7e3ee3ee2979269d274a28068c6283deb
+2026-10-07T14:31:39.9263130Z Finalizing artifact upload
+2026-10-07T14:31:40.2064130Z Artifact scry-only-registry-intel-diagnostic.zip successfully finalized. Artifact ID 11489947393
+2026-10-07T14:31:40.2065230Z Artifact scry-only-registry-intel-diagnostic has been successfully uploaded! Final size is 302945 bytes. Artifact ID is 11489947393
+2026-10-07T14:31:40.2075520Z Artifact download URL: https://github.com/merely-made/wgpu-graft/actions/runs/37637005234/artifacts/11489947393
+2026-10-07T14:31:40.2337080Z Post job cleanup.
+2026-10-07T14:31:40.3661670Z [command]/usr/bin/git version
+2026-10-07T14:31:40.3877950Z git version 2.39.5 (Apple Git-154)
+2026-10-07T14:31:40.3907800Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/db9eb5c0-16a2-4eee-9bb5-c9534fa85a5c/.gitconfig'
+2026-10-07T14:31:40.3917170Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/db9eb5c0-16a2-4eee-9bb5-c9534fa85a5c' before making global git config changes
+2026-10-07T14:31:40.3918260Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T14:31:40.3922910Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/scry
+2026-10-07T14:31:40.4141790Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T14:31:40.4350830Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T14:31:40.5607650Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T14:31:40.5801910Z http.https://github.com/.extraheader
+2026-10-07T14:31:40.5812560Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-07T14:31:40.6023880Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T14:31:40.7296920Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T14:31:40.7501510Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T14:31:40.8926810Z Post job cleanup.
+2026-10-07T14:31:41.0310140Z [command]/usr/bin/git version
+2026-10-07T14:31:41.0526070Z git version 2.39.5 (Apple Git-154)
+2026-10-07T14:31:41.0555070Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/b2a0545e-e8bf-463e-9a42-7312d8fdbf6b/.gitconfig'
+2026-10-07T14:31:41.0565660Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/b2a0545e-e8bf-463e-9a42-7312d8fdbf6b' before making global git config changes
+2026-10-07T14:31:41.0566820Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T14:31:41.0570830Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-helper
+2026-10-07T14:31:41.0792080Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T14:31:41.0998240Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T14:31:41.2253200Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T14:31:41.2456530Z http.https://github.com/.extraheader
+2026-10-07T14:31:41.2465180Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-07T14:31:41.2677580Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T14:31:41.3946550Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T14:31:41.4147490Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T14:31:41.5542100Z Post job cleanup.
+2026-10-07T14:31:41.6313630Z Released host hardware lock at /var/folders/nt/xlxwlg695b399ck_h55sfwtc0000gn/T/merely-wgpu-hardware-lock/host.lock
+2026-10-07T14:31:41.6459030Z Post job cleanup.
+2026-10-07T14:31:41.7831210Z [command]/usr/bin/git version
+2026-10-07T14:31:41.8047110Z git version 2.39.5 (Apple Git-154)
+2026-10-07T14:31:41.8076340Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/711439e8-3b39-4014-89f7-24fc7e9ec2fd/.gitconfig'
+2026-10-07T14:31:41.8086830Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/711439e8-3b39-4014-89f7-24fc7e9ec2fd' before making global git config changes
+2026-10-07T14:31:41.8087870Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T14:31:41.8092400Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft
+2026-10-07T14:31:41.8314690Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T14:31:41.8523340Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T14:31:41.9815730Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T14:31:42.0010510Z http.https://github.com/.extraheader
+2026-10-07T14:31:42.0022880Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-07T14:31:42.0232380Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T14:31:42.1515530Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T14:31:42.1717740Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T14:31:42.3121070Z Cleaning up orphan processes
+2026-10-07T14:31:42.4887710Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
