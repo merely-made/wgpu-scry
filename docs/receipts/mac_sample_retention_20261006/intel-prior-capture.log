@@ -1,0 +1,13 @@
+2026-10-06T21:21:51.7662760Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +97b7579ca5e2818aff08a83b2f66d2ea4a82e77d:refs/remotes/origin/main
+2026-10-06T21:21:52.2556870Z  + 889d3b6...97b7579 97b7579ca5e2818aff08a83b2f66d2ea4a82e77d -> origin/main  (forced update)
+2026-10-06T21:21:52.3235840Z 97b7579ca5e2818aff08a83b2f66d2ea4a82e77d
+2026-10-06T21:21:52.4313490Z [command]/usr/bin/git log -1 --format=%H
+2026-10-06T21:21:52.4555260Z 97b7579ca5e2818aff08a83b2f66d2ea4a82e77d
+2026-10-06T21:21:54.7940880Z [command]/usr/bin/git log -1 --format=%H
+2026-10-06T21:23:14.4442740Z demo-mac: capture-test: FAIL
+2026-10-06T21:23:14.4443180Z   - captured 4 frame(s) within 30s without observing 5 frame(s) at every expected size
+2026-10-06T21:23:14.4443750Z   - observed 4 frame(s) at 1024x1536, expected at least 5
+2026-10-06T21:23:14.4444540Z   - pre-import frame diagnostics: no-latest-sample=1158, no-image-payload=1602, config-revision-pending=0, source-dimension-mismatch=0, empty-crop=0
+2026-10-06T21:23:14.4445580Z   - SCK frame statuses: missing=0, complete=46, idle=1791, blank=0, suspended=0, started=0, stopped=0, unknown=0, last=Some(1)
+2026-10-06T21:23:14.4446750Z   - capture revisions: requested=0, applied=0; last source dimensions=Some(PhysicalSize { width: 2048, height: 1592 }), expected host dimensions=Some(PhysicalSize { width: 2048, height: 1592 })
+2026-10-06T21:23:32.3973540Z demo-mac: capture-test: PASS — SCK pipeline delivered 812 frames across [768x1200, 1024x1400, 1024x1536, 1280x1600]

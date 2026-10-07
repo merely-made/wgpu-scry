@@ -91,6 +91,8 @@ jobs:
       - name: Serialize host hardware use
         uses: ./.host-hardware-lock/.github/actions/host-hardware-lock
       - uses: dtolnay/rust-toolchain@1.97.1
+      - name: Check image custody across status-only capture callbacks
+        run: cargo test --locked -p scrying --lib latest_image_sample
       - name: Check capture size expectations on the native toolchain
         run: cargo test --locked -p demo-mac --bin demo-mac capture_size_tests
       - name: Run WKWebView assertions including live capture and resize
@@ -119,6 +121,8 @@ jobs:
       - name: Serialize host hardware use
         uses: ./.host-hardware-lock/.github/actions/host-hardware-lock
       - uses: dtolnay/rust-toolchain@1.97.1
+      - name: Check image custody across status-only capture callbacks
+        run: cargo test --locked -p scrying --lib latest_image_sample
       - name: Check capture size expectations on the native toolchain
         run: cargo test --locked -p demo-mac --bin demo-mac capture_size_tests
       - name: Run WKWebView assertions including live capture and resize
