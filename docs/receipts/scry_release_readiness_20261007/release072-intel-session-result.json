@@ -1,0 +1,996 @@
+{
+  "recorded_utc": "2026-10-07T17:38:21.324979+00:00",
+  "run_id": 37659346531,
+  "job_id": 112922569689,
+  "head_sha": "d38c14eff9c0928f8a1e79f6ab6e0a5467ff6099",
+  "conclusion": "failure",
+  "started_at": "2026-10-07T17:28:37Z",
+  "completed_at": "2026-10-07T17:34:50Z",
+  "original_failure_preserved": true,
+  "sampled_diagnostic_not_release_qualification": true,
+  "raw_job_log_sha256": "f9c65a1bd614f88a44577e40aed38e917c070747b3d1c2150fa40947fe00db22",
+  "phases": {
+    "ordinary": {
+      "step_conclusion": "failure",
+      "exit_code": 1,
+      "passed": 8,
+      "total": 10,
+      "failed": 2,
+      "activation_attempts": [],
+      "capture_modes": {
+        "--capture-test": {
+          "result": "FAIL",
+          "acquired_frames_final": 3,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 5,
+          "failed_expected_sizes": [
+            {
+              "observed_frames": 3,
+              "width": 1024,
+              "height": 1536,
+              "required_frames": 5
+            }
+          ],
+          "host_sample_count": 30,
+          "last_host_sample": {
+            "elapsed_seconds": 29.0,
+            "acquired_frames": 3,
+            "complete": 3,
+            "idle": 1677,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": {
+            "missing": 0,
+            "complete": 3,
+            "idle": 1735,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "pre_import_final": {
+            "no-latest-sample": 561841,
+            "no-image-payload": 1735,
+            "config-revision-pending": 0,
+            "source-dimension-mismatch": 0,
+            "empty-crop": 0
+          },
+          "dom_sample_count": 0,
+          "dom_visibility_values": [],
+          "dom_focus_values": [],
+          "max_animation_frames": null,
+          "css_animation_times": [],
+          "max_timer_ticks": null,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        },
+        "--capture-test+resize": {
+          "result": "FAIL",
+          "acquired_frames_final": 12,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 3,
+          "failed_expected_sizes": [
+            {
+              "observed_frames": 2,
+              "width": 1024,
+              "height": 1536,
+              "required_frames": 3
+            }
+          ],
+          "host_sample_count": 30,
+          "last_host_sample": {
+            "elapsed_seconds": 29.0,
+            "acquired_frames": 12,
+            "complete": 12,
+            "idle": 1627,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": {
+            "missing": 0,
+            "complete": 12,
+            "idle": 1685,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "pre_import_final": {
+            "no-latest-sample": 558031,
+            "no-image-payload": 1685,
+            "config-revision-pending": 0,
+            "source-dimension-mismatch": 0,
+            "empty-crop": 0
+          },
+          "dom_sample_count": 0,
+          "dom_visibility_values": [],
+          "dom_focus_values": [],
+          "max_animation_frames": null,
+          "css_animation_times": [],
+          "max_timer_ticks": null,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        }
+      }
+    },
+    "activity": {
+      "step_conclusion": "failure",
+      "exit_code": 1,
+      "passed": 0,
+      "total": 2,
+      "failed": 2,
+      "activation_attempts": [],
+      "capture_modes": {
+        "--capture-test": {
+          "result": "FAIL",
+          "acquired_frames_final": 2,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 5,
+          "failed_expected_sizes": [
+            {
+              "observed_frames": 2,
+              "width": 1024,
+              "height": 1536,
+              "required_frames": 5
+            }
+          ],
+          "host_sample_count": 30,
+          "last_host_sample": {
+            "elapsed_seconds": 29.0,
+            "acquired_frames": 2,
+            "complete": 2,
+            "idle": 1680,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": {
+            "missing": 0,
+            "complete": 2,
+            "idle": 1738,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "pre_import_final": {
+            "no-latest-sample": 558888,
+            "no-image-payload": 1738,
+            "config-revision-pending": 0,
+            "source-dimension-mismatch": 0,
+            "empty-crop": 0
+          },
+          "dom_sample_count": 7,
+          "dom_visibility_values": [
+            "hidden"
+          ],
+          "dom_focus_values": [
+            false
+          ],
+          "max_animation_frames": 0,
+          "css_animation_times": [
+            0
+          ],
+          "max_timer_ticks": 6,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        },
+        "--capture-test+resize": {
+          "result": "FAIL",
+          "acquired_frames_final": 12,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 3,
+          "failed_expected_sizes": [
+            {
+              "observed_frames": 2,
+              "width": 1024,
+              "height": 1536,
+              "required_frames": 3
+            }
+          ],
+          "host_sample_count": 30,
+          "last_host_sample": {
+            "elapsed_seconds": 29.0,
+            "acquired_frames": 12,
+            "complete": 12,
+            "idle": 1628,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": {
+            "missing": 0,
+            "complete": 12,
+            "idle": 1686,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "pre_import_final": {
+            "no-latest-sample": 552472,
+            "no-image-payload": 1686,
+            "config-revision-pending": 0,
+            "source-dimension-mismatch": 0,
+            "empty-crop": 0
+          },
+          "dom_sample_count": 17,
+          "dom_visibility_values": [
+            "hidden"
+          ],
+          "dom_focus_values": [
+            false
+          ],
+          "max_animation_frames": 0,
+          "css_animation_times": [
+            0
+          ],
+          "max_timer_ticks": 13,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        }
+      }
+    },
+    "foreground-ordinary": {
+      "step_conclusion": "failure",
+      "exit_code": 1,
+      "passed": 8,
+      "total": 10,
+      "failed": 2,
+      "activation_attempts": [
+        {
+          "pid": 4001,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--scripted",
+          "utc": "2026-10-07T17:32:09.2713240Z",
+          "activation_exit": 0
+        },
+        {
+          "pid": 4104,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--browser-test",
+          "utc": "2026-10-07T17:32:14.8232580Z",
+          "activation_exit": 0
+        },
+        {
+          "pid": 4136,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--interaction-state-test",
+          "utc": "2026-10-07T17:32:16.3416000Z",
+          "activation_exit": 0
+        },
+        {
+          "pid": 4175,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--pointer-input-test",
+          "utc": "2026-10-07T17:32:18.1121810Z",
+          "activation_exit": 0
+        },
+        {
+          "pid": 4209,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--incognito-test",
+          "utc": "2026-10-07T17:32:19.6448250Z",
+          "activation_exit": 0
+        },
+        {
+          "pid": 4231,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--download-test",
+          "utc": "2026-10-07T17:32:20.6366310Z",
+          "activation_exit": 0
+        },
+        {
+          "pid": 4362,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--profile-test",
+          "utc": "2026-10-07T17:32:28.3061810Z",
+          "activation_exit": 0
+        },
+        {
+          "pid": 4384,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--two-tabs",
+          "utc": "2026-10-07T17:32:29.3280600Z",
+          "activation_exit": 0
+        },
+        {
+          "pid": 4532,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--capture-test",
+          "utc": "2026-10-07T17:32:37.9631340Z",
+          "activation_exit": 0
+        },
+        {
+          "pid": 5098,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--capture-test+resize",
+          "utc": "2026-10-07T17:33:11.7204190Z",
+          "activation_exit": 0
+        }
+      ],
+      "capture_modes": {
+        "--capture-test": {
+          "result": "FAIL",
+          "acquired_frames_final": 3,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 5,
+          "failed_expected_sizes": [
+            {
+              "observed_frames": 3,
+              "width": 1024,
+              "height": 1536,
+              "required_frames": 5
+            }
+          ],
+          "host_sample_count": 30,
+          "last_host_sample": {
+            "elapsed_seconds": 29.0,
+            "acquired_frames": 3,
+            "complete": 3,
+            "idle": 1675,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": {
+            "missing": 0,
+            "complete": 3,
+            "idle": 1733,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "pre_import_final": {
+            "no-latest-sample": 571834,
+            "no-image-payload": 1733,
+            "config-revision-pending": 0,
+            "source-dimension-mismatch": 0,
+            "empty-crop": 0
+          },
+          "dom_sample_count": 0,
+          "dom_visibility_values": [],
+          "dom_focus_values": [],
+          "max_animation_frames": null,
+          "css_animation_times": [],
+          "max_timer_ticks": null,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        },
+        "--capture-test+resize": {
+          "result": "FAIL",
+          "acquired_frames_final": 13,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 3,
+          "failed_expected_sizes": [
+            {
+              "observed_frames": 2,
+              "width": 1024,
+              "height": 1536,
+              "required_frames": 3
+            }
+          ],
+          "host_sample_count": 30,
+          "last_host_sample": {
+            "elapsed_seconds": 29.0,
+            "acquired_frames": 13,
+            "complete": 13,
+            "idle": 1628,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": {
+            "missing": 0,
+            "complete": 13,
+            "idle": 1686,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "pre_import_final": {
+            "no-latest-sample": 560211,
+            "no-image-payload": 1686,
+            "config-revision-pending": 0,
+            "source-dimension-mismatch": 0,
+            "empty-crop": 0
+          },
+          "dom_sample_count": 0,
+          "dom_visibility_values": [],
+          "dom_focus_values": [],
+          "max_animation_frames": null,
+          "css_animation_times": [],
+          "max_timer_ticks": null,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        }
+      }
+    },
+    "foreground-activity": {
+      "step_conclusion": "failure",
+      "exit_code": 1,
+      "passed": 1,
+      "total": 2,
+      "failed": 1,
+      "activation_attempts": [
+        {
+          "pid": 5719,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--capture-test",
+          "utc": "2026-10-07T17:33:51.4310720Z",
+          "activation_exit": 0
+        },
+        {
+          "pid": 6303,
+          "app_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+          "path": "$SCRY_MAC_APP",
+          "mode": "--capture-test+resize",
+          "utc": "2026-10-07T17:34:25.9411460Z",
+          "activation_exit": 0
+        }
+      ],
+      "capture_modes": {
+        "--capture-test": {
+          "result": "FAIL",
+          "acquired_frames_final": 3,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 5,
+          "failed_expected_sizes": [
+            {
+              "observed_frames": 3,
+              "width": 1024,
+              "height": 1536,
+              "required_frames": 5
+            }
+          ],
+          "host_sample_count": 30,
+          "last_host_sample": {
+            "elapsed_seconds": 29.0,
+            "acquired_frames": 3,
+            "complete": 3,
+            "idle": 1685,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": {
+            "missing": 0,
+            "complete": 3,
+            "idle": 1743,
+            "blank": 0,
+            "suspended": 0,
+            "started": 0,
+            "stopped": 0,
+            "unknown": 0
+          },
+          "pre_import_final": {
+            "no-latest-sample": 562010,
+            "no-image-payload": 1743,
+            "config-revision-pending": 0,
+            "source-dimension-mismatch": 0,
+            "empty-crop": 0
+          },
+          "dom_sample_count": 7,
+          "dom_visibility_values": [
+            "hidden"
+          ],
+          "dom_focus_values": [
+            false
+          ],
+          "max_animation_frames": 0,
+          "css_animation_times": [
+            0
+          ],
+          "max_timer_ticks": 6,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        },
+        "--capture-test+resize": {
+          "result": "PASS",
+          "acquired_frames_final": 12,
+          "capture_window_seconds": 30,
+          "minimum_frames_per_expected_size": 3,
+          "failed_expected_sizes": [],
+          "host_sample_count": 15,
+          "last_host_sample": {
+            "elapsed_seconds": 14.01,
+            "acquired_frames": 9,
+            "complete": 9,
+            "idle": 796,
+            "visible": true,
+            "minimized": false,
+            "focused": false
+          },
+          "host_visible_values": [
+            true
+          ],
+          "host_minimized_values": [
+            false
+          ],
+          "host_focused_values": [
+            false
+          ],
+          "sck_final_statuses": null,
+          "pre_import_final": null,
+          "dom_sample_count": 15,
+          "dom_visibility_values": [
+            "hidden"
+          ],
+          "dom_focus_values": [
+            false
+          ],
+          "max_animation_frames": 0,
+          "css_animation_times": [
+            0
+          ],
+          "max_timer_ticks": 11,
+          "custody_final_received": null,
+          "custody_final_consumed": null
+        }
+      }
+    }
+  },
+  "observer": {
+    "start": {
+      "pid": 463,
+      "interval_seconds": 3,
+      "max_seconds": 1800,
+      "max_samples": 600,
+      "helper_sha256": "feffc58422a0532da7480cb09c68431656bf6539b38d9cbb3f16a75130e0afce",
+      "bundle_path_sha256": "de939b4ef7e52ac89292234535625491065aae66eb6f26da25fe6feac6b5f36a",
+      "native_api_initialized": true,
+      "initialization_error_type": null,
+      "session_key_policy": "explicit optional compatibility spellings; unavailable/wrong-type means null, never an unlock inference"
+    },
+    "finish": {
+      "pid": 463,
+      "sample_count": 108,
+      "elapsed_seconds": 336.93340486305533,
+      "stop_requested": true,
+      "native_api_initialized": true,
+      "bounded_observation_only": true
+    },
+    "helper_matches_exact_git_source": true,
+    "observer_steps": {
+      "Start optional passive session and own-window observer": "success",
+      "Stop and retain passive observer even after native failures": "success"
+    },
+    "samples_file": "release072-intel-session-observations.jsonl",
+    "sample_count": 108,
+    "samples_sha256": "0499de49ccb21701b9faedf3ce0fa31f774dfc6fdbce589540136fa5126b3913",
+    "samples_per_phase": {
+      "before-baseline": 1,
+      "ordinary": 33,
+      "activity": 24,
+      "foreground-ordinary": 32,
+      "foreground-activity": 18
+    },
+    "field_value_counts": {
+      "runner_uid": {
+        "501": 108
+      },
+      "console_uid": {
+        "501": 108
+      },
+      "runner_matches_console_uid": {
+        "true": 108
+      },
+      "window_server_present": {
+        "true": 108
+      },
+      "session_dictionary_available": {
+        "false": 108
+      },
+      "session_uid": {
+        "null": 108
+      },
+      "on_console": {
+        "null": 108
+      },
+      "login_done": {
+        "null": 108
+      },
+      "locked": {
+        "null": 108
+      },
+      "window_list_available": {
+        "false": 108
+      },
+      "frontmost_is_own": {
+        "null": 108
+      },
+      "frontmost_is_loginwindow": {
+        "null": 108
+      },
+      "native_sample_error_type": {
+        "null": 108
+      }
+    },
+    "app_observation_counts": {
+      "exact_own_app_nonempty": 0,
+      "exact_own_app_empty": 108,
+      "exact_own_app_unknown": 0
+    },
+    "own_window_unknown_count": 108,
+    "stdout_empty": true,
+    "stderr_empty": true,
+    "sdk_header_evidence": "header=CoreGraphics/CGSession.h\n23:CG_EXTERN CFDictionaryRef __nullable CGSessionCopyCurrentDictionary(void)\n31:#define kCGSessionUserIDKey\t\tCFSTR(\"kCGSSessionUserIDKey\")\n46:#define kCGSessionOnConsoleKey\t\tCFSTR(\"kCGSSessionOnConsoleKey\")\n51:#define kCGSessionLoginDoneKey\t\tCFSTR(\"kCGSessionLoginDoneKey\")\nheader=CoreGraphics/CGWindow.h\n63:CG_EXTERN const CFStringRef  kCGWindowLayer\n71:CG_EXTERN const CFStringRef  kCGWindowBounds\n85:CG_EXTERN const CFStringRef  kCGWindowAlpha\n91:CG_EXTERN const CFStringRef  kCGWindowOwnerPID\n125:CG_EXTERN const CFStringRef  kCGWindowIsOnscreen\n170:CG_EXTERN CFArrayRef __nullable CGWindowListCopyWindowInfo(CGWindowListOption option,\nheader=AppKit/NSRunningApplication.h\n76:@property (readonly, getter=isHidden) BOOL hidden;\n80:@property (readonly, getter=isActive) BOOL active;\n88:@property (readonly) NSApplicationActivationPolicy activationPolicy;\n"
+  },
+  "executable_sha256_records": {
+    "activity-app-executable.sha256": "8d847e88752e58df2945f7a43b549527c73f988b399e8d808d725a728ab4934c",
+    "activity-executable.sha256": "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721",
+    "foreground-activity-app-executable.sha256": "8d847e88752e58df2945f7a43b549527c73f988b399e8d808d725a728ab4934c",
+    "foreground-activity-executable.sha256": "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721",
+    "foreground-ordinary-app-executable.sha256": "8d847e88752e58df2945f7a43b549527c73f988b399e8d808d725a728ab4934c",
+    "foreground-ordinary-executable.sha256": "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721",
+    "ordinary-app-executable.sha256": "8d847e88752e58df2945f7a43b549527c73f988b399e8d808d725a728ab4934c",
+    "ordinary-executable.sha256": "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721",
+    "pre-battery-executable.sha256": "201a3c67f7cde73f82122056b34defdfd9387e2e4c68f4ac9f71b846d9456721"
+  },
+  "signing_records": {
+    "activity-signing.txt": "Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac\ndesignated => identifier \"org.merely.scry.hardware-demo\"\n",
+    "foreground-activity-signing.txt": "Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac\ndesignated => identifier \"org.merely.scry.hardware-demo\"\n",
+    "foreground-ordinary-signing.txt": "Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac\ndesignated => identifier \"org.merely.scry.hardware-demo\"\n",
+    "ordinary-signing.txt": "Executable=/Users/markik/Code/targets/wgpu-scry-hardware/debug/scry-demo-mac-hardware.app/Contents/MacOS/demo-mac\ndesignated => identifier \"org.merely.scry.hardware-demo\"\n"
+  },
+  "checkout_and_helper_identity": "workflow=d38c14eff9c0928f8a1e79f6ab6e0a5467ff6099\nhelper=e8ffee2d6b680154cae645d54a340116f08acb5d\nscry_fixture=4d8d1d3f8dd450b712960c90b74263a45b46e35b\nrustc 1.97.1 (8bab26f4f 2026-07-14)\ncargo 1.97.1 (c980f4866 2026-06-30)\n9980f707d2c10ec05b3b32562aa1bfff32ac6b1e6ac07c150d37ab1d7111495a  .registry-proof-helper/scripts/stage_registry_triplet.py\n5178c3b783b4306de37660c74a235af3d35a391f1757189728c5862248f2bc4d  .registry-proof-helper/scripts/verify_registry_triplet.py\n",
+  "staging_source": {
+    "fixture_source_sha": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+    "helper_sha256": "9980f707d2c10ec05b3b32562aa1bfff32ac6b1e6ac07c150d37ab1d7111495a",
+    "helper_source_sha": "e8ffee2d6b680154cae645d54a340116f08acb5d",
+    "kind": "scry-mac",
+    "workflow_source_sha": "d38c14eff9c0928f8a1e79f6ab6e0a5467ff6099"
+  },
+  "registry_package_identity": [
+    {
+      "name": "grafting",
+      "version": "0.6.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_sha256": "ed0c37f7763a82274f6221d88d60f14765e9e9a9929908c3398c70ad811ce74a",
+      "cargo_vcs_info": {
+        "git": {
+          "sha1": "816f3e7857afee863200e1c25b300c43b1532aae"
+        },
+        "path_in_vcs": "grafting"
+      }
+    },
+    {
+      "name": "scrying",
+      "version": "0.7.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_sha256": "cb5dd6e6be57a2304e9a35b0e42467e9e112feb848175eaff224134c06c791f8",
+      "cargo_vcs_info": {
+        "git": {
+          "sha1": "4d8d1d3f8dd450b712960c90b74263a45b46e35b"
+        },
+        "path_in_vcs": "scrying"
+      }
+    },
+    {
+      "name": "welding",
+      "version": "0.14.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_sha256": "406ced71f799f1356867ec1d20d6cd736a2a63204a0b67236c5a62de94b1a9e2",
+      "cargo_vcs_info": {
+        "git": {
+          "sha1": "c7b7b4c52138643e22580a918542e8e036a0b24a"
+        },
+        "path_in_vcs": "welding"
+      }
+    }
+  ],
+  "non_workspace_non_registry_packages": [],
+  "normal_tree_wgpu_versions": [
+    "30.0.1"
+  ],
+  "copied_source_identity": {
+    "main.rs": {
+      "byte_equal_git": true,
+      "sha256": "f2953667b2edaef4f511fdb8b534fd1841982f5bbec9393b0c2ea768dd273f97"
+    },
+    "render.rs": {
+      "byte_equal_git": true,
+      "sha256": "dd78907ce7f98a901c9ff7a0a1efa19fe1cf572c21c7b519b1d9c78cbb59c1b2"
+    }
+  },
+  "original_script_equals_immutable_fixture_with_only_standalone_build_rewrite": true,
+  "generated_script_identity": {
+    "original_sha256": "57f0eccb5916ad3ec2afea4fe68deb31eb11c2f2452b06568b8fc5e8e7d421a2",
+    "foreground_sha256": "7deb5cbb47eed301e14d1871f9dfe94eba975e01985f334d0632c05e61afbd00",
+    "rewrite_counts": {
+      "per_mode_reset": 1,
+      "owned_bundle_observation": 1
+    },
+    "activation_policy": "one open -a after the first observed still-live owned bundle PID per mode"
+  },
+  "archive_entries": {
+    "activity-app-executable.sha256": {
+      "bytes": 169,
+      "sha256": "bdd88a468d5320bc866e73d2fa31315586dd2b44e0509fc3b90b1dc1733c86a0"
+    },
+    "activity-signing.txt": {
+      "bytes": 171,
+      "sha256": "00dcda476c0fd67898fa233151fc94bd38bffd0acf208ffa61682b638a14963b"
+    },
+    "activity-exit-code.txt": {
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "activity-executable.sha256": {
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    "activity.log": {
+      "bytes": 22980,
+      "sha256": "4a1658c42f5109c8b2afd330b64c092167b3d8074e394a550b018519d18fbf9c"
+    },
+    "checkout-and-helper-identity.txt": {
+      "bytes": 471,
+      "sha256": "7e2a6fd27085e9f49ec3a50a0e9b96d58c66017660ac03644c1609eda901734a"
+    },
+    "consumer/Cargo.lock": {
+      "bytes": 93263,
+      "sha256": "b2f51457f6fde9ed36455e27f799dd8a850ce0f95f1375b9a18a1c08461cf946"
+    },
+    "consumer/Cargo.toml": {
+      "bytes": 601,
+      "sha256": "7acc2f0757b1e6134aeff338c964954b1648e725e5a7c600c251c60ce5c3e8dd"
+    },
+    "consumer/scripts/test-mac-foreground-control.sh": {
+      "bytes": 10505,
+      "sha256": "7deb5cbb47eed301e14d1871f9dfe94eba975e01985f334d0632c05e61afbd00"
+    },
+    "consumer/scripts/test-mac.sh": {
+      "bytes": 9762,
+      "sha256": "57f0eccb5916ad3ec2afea4fe68deb31eb11c2f2452b06568b8fc5e8e7d421a2"
+    },
+    "consumer/src/main.rs": {
+      "bytes": 175741,
+      "sha256": "f2953667b2edaef4f511fdb8b534fd1841982f5bbec9393b0c2ea768dd273f97"
+    },
+    "consumer/src/render.rs": {
+      "bytes": 23739,
+      "sha256": "dd78907ce7f98a901c9ff7a0a1efa19fe1cf572c21c7b519b1d9c78cbb59c1b2"
+    },
+    "consumer/staging-source.json": {
+      "bytes": 316,
+      "sha256": "3122255881f99b95f694d23e90b486ac592e0b4a2082c5fefce4d66652ccd877"
+    },
+    "foreground-activity-app-executable.sha256": {
+      "bytes": 169,
+      "sha256": "bdd88a468d5320bc866e73d2fa31315586dd2b44e0509fc3b90b1dc1733c86a0"
+    },
+    "foreground-activity-executable.sha256": {
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    "foreground-activity-exit-code.txt": {
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "foreground-activity-signing.txt": {
+      "bytes": 171,
+      "sha256": "00dcda476c0fd67898fa233151fc94bd38bffd0acf208ffa61682b638a14963b"
+    },
+    "foreground-activity.log": {
+      "bytes": 18654,
+      "sha256": "af994805585f70220772964bf105e5ff4bc407d06532a82f6872d50ca864e591"
+    },
+    "foreground-ordinary-app-executable.sha256": {
+      "bytes": 169,
+      "sha256": "bdd88a468d5320bc866e73d2fa31315586dd2b44e0509fc3b90b1dc1733c86a0"
+    },
+    "foreground-ordinary-executable.sha256": {
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    "foreground-ordinary-signing.txt": {
+      "bytes": 171,
+      "sha256": "00dcda476c0fd67898fa233151fc94bd38bffd0acf208ffa61682b638a14963b"
+    },
+    "foreground-ordinary-exit-code.txt": {
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "foreground-ordinary.log": {
+      "bytes": 80860,
+      "sha256": "e977bcaab9e6fd6b320b3fd6795528aa8c9eb234c96dcc98dea330cd0c1630b7"
+    },
+    "foreground-script-identity.json": {
+      "bytes": 369,
+      "sha256": "05e3b6febb5a1886618a9e7629c6aeeb3c6ce9ca6d81d317c261660a19e423d8"
+    },
+    "foreground-script.patch": {
+      "bytes": 1287,
+      "sha256": "b64cef8a105393396b9e92fd5f0ff99bcd091013ceb9ffe90cc6dc7253d9f1bb"
+    },
+    "ordinary-app-executable.sha256": {
+      "bytes": 169,
+      "sha256": "bdd88a468d5320bc866e73d2fa31315586dd2b44e0509fc3b90b1dc1733c86a0"
+    },
+    "ordinary-executable.sha256": {
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    "ordinary-exit-code.txt": {
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "ordinary-signing.txt": {
+      "bytes": 171,
+      "sha256": "00dcda476c0fd67898fa233151fc94bd38bffd0acf208ffa61682b638a14963b"
+    },
+    "ordinary.log": {
+      "bytes": 79658,
+      "sha256": "c233791ee05de1a1c769f5798a0910231fa5a4577b487749b8840e586ae7b282"
+    },
+    "pre-battery-executable.sha256": {
+      "bytes": 127,
+      "sha256": "eeeeab9cf7e9fb016f730bf88967cdc3758d164d7f80f2f00060146fd4a3f279"
+    },
+    "registry/Cargo.lock": {
+      "bytes": 93263,
+      "sha256": "b2f51457f6fde9ed36455e27f799dd8a850ce0f95f1375b9a18a1c08461cf946"
+    },
+    "registry/allowed-non-registry.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "registry/cargo-tree.txt": {
+      "bytes": 42438,
+      "sha256": "90042b0213953403fe2b21ad0dfe494587372af0f48cae7e91ecab6a5010dbcb"
+    },
+    "registry/metadata.json": {
+      "bytes": 2013609,
+      "sha256": "067a9169d3f207c61c6706b7286b981f95cb39033158d5cbd3590db6cee70b4f"
+    },
+    "registry/release-inputs.json": {
+      "bytes": 343,
+      "sha256": "60c5183f1e711be2f032eccf092aac4aeabeb1dd5e8a3ffcb2b9fdec226b3ae2"
+    },
+    "registry-package-identity.json": {
+      "bytes": 1092,
+      "sha256": "c64d6fe900a815aa6fdba3ba9a813795c48ae709c4d93be649cfe755e46cd962"
+    },
+    "session-api-header-evidence.txt": {
+      "bytes": 889,
+      "sha256": "4897926c12742cf651df6e6a90a7be2cf02798965ef3ac95ea96bd8196f2cb94"
+    },
+    "session-observations.jsonl": {
+      "bytes": 49648,
+      "sha256": "0499de49ccb21701b9faedf3ce0fa31f774dfc6fdbce589540136fa5126b3913"
+    },
+    "session-observer-helper.sha256": {
+      "bytes": 163,
+      "sha256": "013305abfd0f207bff000d04c623db7ac4e118a0eb345681236be85099b9e648"
+    },
+    "session-observer-finish.json": {
+      "bytes": 177,
+      "sha256": "c6cb322a951afe67dc86b8d1d42f729ae3a9f993b6dfeaafc4dc55da4253cbfc"
+    },
+    "session-observer-pid.txt": {
+      "bytes": 4,
+      "sha256": "180dc9c8e8c0c6a974eae334b3340bb2d94148561c866786d8e24db4fa10cbc5"
+    },
+    "session-observer-start.json": {
+      "bytes": 468,
+      "sha256": "5b13c1f328f09670d1af8f9a29993c4bb569ce43119ca2a342d48d6690a457e7"
+    },
+    "session-observer.py": {
+      "bytes": 11811,
+      "sha256": "feffc58422a0532da7480cb09c68431656bf6539b38d9cbb3f16a75130e0afce"
+    },
+    "session-observer.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "session-observer.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "session-observer.stop": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "prior_compact_summary_erratum": {
+    "file": "release072-intel-foreground-result.json",
+    "issue": "minimum_frames_per_expected_size was erroneously hardcoded5 for resize entries",
+    "correct_contract": "immutable4d8 frames_per_size is3 with resize,5 without resize",
+    "old_raw_assertions_results_and_packet_bytes": "unchanged; original frozen summary preserved"
+  },
+  "limitations": [
+    "API nulls and empty own-app queries establish observer visibility failure only; physical lock, daemon/SSH launch mode and Scry defect are not established.",
+    "Runner and console UID equality does not prove GUI/security-session admission or unlocked state.",
+    "Session state fields null mean unknown; SDK headers confirm the allowlisted UID/onConsole/loginDone key spellings, but the session dictionary itself was null.",
+    "Baseline owned PIDs were not emitted by the original launch script; actual foreground owned-PID attempts and timestamps are bound from raw joblog.",
+    "Final custody received/consumed counts were not emitted; null is unknown, not zero.",
+    "Sampler workload is an additional observation; changed native outcomes cannot be attributed causally to session state or sampling without a controlled comparison."
+  ],
+  "next_control": "Root owns runner GUI-session admission check; no library/source/threshold or unlock action inferred."
+}

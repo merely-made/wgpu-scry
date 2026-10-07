@@ -1,0 +1,14 @@
+{
+  "recorded_utc": "2026-10-07T17:31:05.487140+00:00",
+  "origin_heads_verified": {
+    "wgpu-scry": "a3c05b6121fb369882563bab579b86a8e0d94dad",
+    "wgpu-graft": "d38c14eff9c0928f8a1e79f6ab6e0a5467ff6099"
+  },
+  "public_release_notes_match": true,
+  "public_release_url": "https://github.com/merely-made/wgpu-scry/releases/tag/scrying-v0.7.2",
+  "tag_name": "scrying-v0.7.2",
+  "notes_file_sha256": "10a177062581244ef5425e5e90a27c5d3dd6f0b193098caa1deff1d6e8217c9c",
+  "intel_session_run": 37659346531,
+  "nvidia_runner_start_not_retried": true,
+  "cleanup_not_retried": true
+}

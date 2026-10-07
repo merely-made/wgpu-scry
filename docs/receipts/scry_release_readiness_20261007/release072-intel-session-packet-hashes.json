@@ -1,0 +1,58 @@
+{
+  "release072-intel-session-artifact-hashes.json": {
+    "bytes": 1251,
+    "sha256": "1f94baa96d0cb9d3faa77ee29badc36a4bd180a6e227457242bd51744a7683ba"
+  },
+  "release072-intel-session-artifact.zip": {
+    "bytes": 332658,
+    "sha256": "c47b652f0a8accbf27d681d723acae1e37bba9e362625e4cf6b9cfd4ca68a5fa"
+  },
+  "release072-intel-session-artifacts.json": {
+    "bytes": 739,
+    "sha256": "79fd7c86accc687dab1f4a66bf4e476f3671cacfa8e87824df4b33aebf9de9bb"
+  },
+  "release072-intel-session-dispatch.json": {
+    "bytes": 410,
+    "sha256": "0a19b8db6d7ea235d4b5da473c2e8ff39103c5cf9700150ba227d06c42ff6a18"
+  },
+  "release072-intel-session-job.json": {
+    "bytes": 5548,
+    "sha256": "e6d8680570d8e47addd3684bd75d31082e8f36af6984f63dd272deebfca6b555"
+  },
+  "release072-intel-session-job.log": {
+    "bytes": 360772,
+    "sha256": "f9c65a1bd614f88a44577e40aed38e917c070747b3d1c2150fa40947fe00db22"
+  },
+  "release072-intel-session-observations.jsonl": {
+    "bytes": 49648,
+    "sha256": "0499de49ccb21701b9faedf3ce0fa31f774dfc6fdbce589540136fa5126b3913"
+  },
+  "release072-intel-session-README.md": {
+    "bytes": 3030,
+    "sha256": "6c128ca8c9d23596bd2fcc08bb70068569675e27402ee922f9b0e11792c15248"
+  },
+  "release072-intel-session-result.json": {
+    "bytes": 34633,
+    "sha256": "77889060c65deb082008152c6f739c8f0c61df34e3669f2ee888c5c6d964196f"
+  },
+  "release072-intel-session-run.json": {
+    "bytes": 12607,
+    "sha256": "f597ff87972e38cfc2dba1da6051674f7d95cd8b2f79efb94760858eaf814479"
+  },
+  "release072-session-release-notes.md": {
+    "bytes": 2717,
+    "sha256": "7b2752b6a94ee85653ce9f8384c7e6722018aeb4bb57cf84b15ec3faebce3fa4"
+  },
+  "release072-session-release-notes-verification.json": {
+    "bytes": 264,
+    "sha256": "1f0866b960d73cb0469abfa2581dde42036217f63e646c59781d50e38c1c0f22"
+  },
+  "release072-write-recovery.json": {
+    "bytes": 594,
+    "sha256": "56a7b3df10a6422bc6987e727d7b37491b446ad9965ffcfe74afdd6eb1969aa5"
+  },
+  "release072-write-recovery-README.md": {
+    "bytes": 1602,
+    "sha256": "37671aca23560d4dae20628b85da373b1025ef27a4d74b77294b347230607e9b"
+  }
+}
