@@ -174,3 +174,46 @@ observations are still required to establish the result.
 
 Read-only SSH session inspection was attempted through the configured host
 routes, which refused the connection. No host session state was changed.
+
+## Frozen layer-order result and restoration
+
+Layer-order revision `6143ed74bf0e8bf66fd6968b51fdd2b708273daf` ran as
+**37555489592**. Its M4 112580635135 and Intel 112580635124 logs record the
+actual checkout SHA, successful custody/size regressions and rebuilt binaries.
+RADV 112580635076 passed. NVIDIA 112580634919 remained queued at the frozen
+snapshot. The previous run's queued NVIDIA job was cancelled by normal workflow
+concurrency, as recorded in `36c8888-cancelled-status.json`.
+
+| Host | Ordinary base | Ordinary resize | Opt-in base | Opt-in resize |
+| --- | --- | --- | --- | --- |
+| M4 | Pass, 5 frames | Fail, 11 total; startup 2 vs 3 | Pass, 5 | Fail, 11 total; startup 2 vs 3 |
+| Intel | Fail, 2 vs 5 | Fail, 12 total; startup 2 vs 3 | Fail, 2 vs 5 | Fail, 11 total; startup 2 vs 3 |
+
+Both opt-in pages still reported hidden, unfocused, no animation-frame callbacks
+and CSS animation time zero while timer callbacks advanced. The unchanged
+ordinary battery remains red. Neither one-time focus nor the layer-order probe
+restored page activity; the suspension cause remains unproved. These receipts
+establish neither a driver nor an importer fault.
+
+Root review therefore approved removing the unproved runtime experiments.
+Only `demo-mac/src/main.rs` was restored to its exact Git blob at diagnostic
+revision `550b9fb86c272f6ad9949734023288dd0eb1b90b`; the source equality check
+passed. The custody fix, explicit opt-in JavaScript, ordinary fixture bytes,
+original assertions, separate diagnostic workflow and rebuild-failure guard
+remain. Failed trial logs and the deliberately broken custody control remain
+immutable evidence. No new native rerun is claimed for this source restoration.
+
+The current release remains blocked on Mac page suspension and fresh NVIDIA
+execution. Read-only package inventory confirms `src/latest_image_sample.rs`
+is included; a package build, Rust 1.92/wgpu feature-row qualification and a
+registry-only downstream consumer remain open. The runner API exposes no
+repository-specific runners and denies organization inventory with current
+permissions; no credentials, scopes or host locks were changed. A logged-in,
+unlocked headed Mac session with the opt-in page visibly animating is the next
+host observation needed before repeating the original native acceptance gates.
+This is a diagnostic request, not proof that the session is currently locked.
+
+Only the existing local Cargo build cache is retained. Temporary guard binaries
+were removed; no isolated Cargo home or worktree was created. The eight dirty
+audit files were neither staged nor modified by this lane. No version bump,
+tag or publication occurred.
