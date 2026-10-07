@@ -1,0 +1,291 @@
+{
+  "recorded_utc": "2026-10-07T12:41:28.991054+00:00",
+  "run_id": 37622431567,
+  "run_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567",
+  "actual_head_sha": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "run_status": "completed",
+  "run_conclusion": "success",
+  "created_at": "2026-10-07T12:38:17Z",
+  "updated_at": "2026-10-07T12:40:25Z",
+  "required_jobs_passed": 12,
+  "optional_extra_jobs_skipped": 1,
+  "jobs": [
+    {
+      "id": 112795762740,
+      "name": "Rust 1.92 / Linux / WebKitGTK 4.1 fallback",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795762740",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:21Z",
+      "completed_at": "2026-10-07T12:39:59Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:38:23.8248928Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:38:32.0027133Z   1.92.0-x86_64-unknown-linux-gnu installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:32.0402245Z   1.92.0-x86_64-unknown-linux-gnu unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:32.2283367Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:38:58.4487349Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-30,webkitgtk-fallback",
+        "2026-10-07T12:38:58.4488678Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-30,webkitgtk-fallback\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795762740.log",
+      "raw_log_sha256": "0e0b345da9373ad92cf96735b8f3a246e86352f09b7239730258f833bb10431f"
+    },
+    {
+      "id": 112795762944,
+      "name": "Rust 1.92 / Linux / WPE",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795762944",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:22Z",
+      "completed_at": "2026-10-07T12:40:17Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:39:09.7187246Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:39:17.6767546Z   1.92.0-x86_64-unknown-linux-gnu installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:39:17.7580465Z   1.92.0-x86_64-unknown-linux-gnu unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:39:18.2019275Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:39:18.2120323Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-30,wpe",
+        "2026-10-07T12:39:18.2121250Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-30,wpe\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795762944.log",
+      "raw_log_sha256": "c14a776cb83399e24a75301c760787fda3f51935bbc5f12bde8a0f0bb45b8528"
+    },
+    {
+      "id": 112795762956,
+      "name": "Rust 1.92 / Linux / WebKitGTK 6.0",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795762956",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:21Z",
+      "completed_at": "2026-10-07T12:40:22Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:38:59.6720428Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:39:07.8482501Z   1.92.0-x86_64-unknown-linux-gnu installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:39:07.9262797Z   1.92.0-x86_64-unknown-linux-gnu unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:39:08.3922054Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:39:08.4022317Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-30,webkit6",
+        "2026-10-07T12:39:08.4023040Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-30,webkit6\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795762956.log",
+      "raw_log_sha256": "97d9283b2125dde4d95d6506fa573980628200a36e73108d016ebd11cb822dbc"
+    },
+    {
+      "id": 112795763092,
+      "name": "platform-api / Rust 1.92.0 / macos-latest / wgpu-29",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795763092",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:25Z",
+      "completed_at": "2026-10-07T12:39:38Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:38:29.4457850Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:38:37.5514950Z   1.92.0-aarch64-apple-darwin installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:37.6922830Z   1.92.0-aarch64-apple-darwin unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:38.0580940Z rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:38.1103830Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:38:38.1349940Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-29",
+        "2026-10-07T12:38:38.1350520Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-29\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795763092.log",
+      "raw_log_sha256": "cd9fa224de85b07aa1b94f5e4c0962b7e05b820fadc65172f48b13240154c126"
+    },
+    {
+      "id": 112795763228,
+      "name": "platform-api / Rust 1.92.0 / macos-latest / wgpu-28",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795763228",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:26Z",
+      "completed_at": "2026-10-07T12:39:36Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:38:30.1421210Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:38:37.4888000Z   1.92.0-aarch64-apple-darwin installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:37.6612840Z   1.92.0-aarch64-apple-darwin unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:38.1165080Z rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:38.1796550Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:38:38.2026850Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-28",
+        "2026-10-07T12:38:38.2027490Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-28\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795763228.log",
+      "raw_log_sha256": "36ea203bc629945222877116540a524c7f700fb24b85ee8006344e2df471e7e0"
+    },
+    {
+      "id": 112795763240,
+      "name": "platform-api / Rust 1.92.0 / ubuntu-latest / wgpu-30",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795763240",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:21Z",
+      "completed_at": "2026-10-07T12:38:59Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:38:23.5474501Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:38:30.5768672Z   1.92.0-x86_64-unknown-linux-gnu installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:30.6113785Z   1.92.0-x86_64-unknown-linux-gnu unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:30.7786820Z rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:30.8098926Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:38:30.8250643Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-30",
+        "2026-10-07T12:38:30.8251294Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-30\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795763240.log",
+      "raw_log_sha256": "6ed4b9e27e0af0f6cf43277b51cccdec70609bd4806e750c1a43388c86c3e12f"
+    },
+    {
+      "id": 112795763258,
+      "name": "platform-api / Rust 1.92.0 / windows-latest / wgpu-28",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795763258",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:21Z",
+      "completed_at": "2026-10-07T12:40:14Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:38:30.0302648Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:38:40.5886784Z   1.92.0-x86_64-pc-windows-msvc installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:40.7938171Z   1.92.0-x86_64-pc-windows-msvc unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:42.2159163Z rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:42.5923688Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:38:42.7629904Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-28",
+        "2026-10-07T12:38:42.7630814Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-28\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795763258.log",
+      "raw_log_sha256": "6ea5d070e8992ba8ce8252cbc24b6648ca26efcc241d3d6c86c3daffb4d6d3bd"
+    },
+    {
+      "id": 112795763259,
+      "name": "platform-api / Rust 1.92.0 / ubuntu-latest / wgpu-29",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795763259",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:22Z",
+      "completed_at": "2026-10-07T12:39:06Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:38:25.3679556Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:38:33.1679571Z   1.92.0-x86_64-unknown-linux-gnu installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:33.2086352Z   1.92.0-x86_64-unknown-linux-gnu unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:33.4111916Z rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:33.4473525Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:38:33.4640114Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-29",
+        "2026-10-07T12:38:33.4641123Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-29\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795763259.log",
+      "raw_log_sha256": "22b607823473f9f6cca83b6a185e0acbfbfacb09c11335df2aba008e8235e3cd"
+    },
+    {
+      "id": 112795763276,
+      "name": "platform-api / Rust 1.92.0 / windows-latest / wgpu-29",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795763276",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:21Z",
+      "completed_at": "2026-10-07T12:40:09Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:38:27.8654940Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:38:38.2792696Z   1.92.0-x86_64-pc-windows-msvc installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:38.4432185Z   1.92.0-x86_64-pc-windows-msvc unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:39.9098711Z rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:40.3080969Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:38:40.4907547Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-29",
+        "2026-10-07T12:38:40.4908559Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-29\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795763276.log",
+      "raw_log_sha256": "894b1e67cd61b400d916549229dc03fdcd9b96f5f3160161c0048738b703182f"
+    },
+    {
+      "id": 112795763279,
+      "name": "platform-api / Rust 1.92.0 / windows-latest / wgpu-30",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795763279",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:23Z",
+      "completed_at": "2026-10-07T12:40:23Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:38:35.2131566Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:38:45.9471513Z   1.92.0-x86_64-pc-windows-msvc installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:46.1636412Z   1.92.0-x86_64-pc-windows-msvc unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:47.5097505Z rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:47.8831037Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:38:48.0614747Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-30",
+        "2026-10-07T12:38:48.0615697Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-30\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795763279.log",
+      "raw_log_sha256": "7242214354d763a85bd03ee75c319b1cbe399731f8cbe38194120e0c7e3b3d34"
+    },
+    {
+      "id": 112795763389,
+      "name": "platform-api / Rust 1.92.0 / macos-latest / wgpu-30",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795763389",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:26Z",
+      "completed_at": "2026-10-07T12:39:31Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:38:30.6263400Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:38:38.2166310Z   1.92.0-aarch64-apple-darwin installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:38.3310680Z   1.92.0-aarch64-apple-darwin unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:38.6376400Z rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:38.6904880Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:38:38.7138380Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-30",
+        "2026-10-07T12:38:38.7139280Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-30\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795763389.log",
+      "raw_log_sha256": "fa42fff27d3b6f336ecc3c30ba90ff4387148a07db6e9580cf8e058cdb2341a3"
+    },
+    {
+      "id": 112795763398,
+      "name": "platform-api / Rust 1.92.0 / ubuntu-latest / wgpu-28",
+      "html_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567/job/112795763398",
+      "conclusion": "success",
+      "started_at": "2026-10-07T12:38:22Z",
+      "completed_at": "2026-10-07T12:39:09Z",
+      "actual_checkout_log_lines": [
+        "2026-10-07T12:38:24.8810106Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+      ],
+      "actual_rust_1_92_log_lines": [
+        "2026-10-07T12:38:33.1424401Z   1.92.0-x86_64-unknown-linux-gnu installed - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:33.3211682Z   1.92.0-x86_64-unknown-linux-gnu unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:34.1975375Z rustc 1.92.0 (ded5c06cf 2025-12-08)",
+        "2026-10-07T12:38:34.2928932Z rustc 1.92.0 (ded5c06cf 2025-12-08)"
+      ],
+      "actual_library_check_command_lines": [
+        "2026-10-07T12:38:34.3281474Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-28",
+        "2026-10-07T12:38:34.3282184Z \u001b[36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-28\u001b[0m"
+      ],
+      "raw_log": "m4-unlocked-msrv-job-112795763398.log",
+      "raw_log_sha256": "628be27488d136a36dcd9c2e077e2f48c925f94beb1528a9c447db0ca2443c8d"
+    }
+  ],
+  "source_binding": "m4-unlocked-msrv-source-binding.json",
+  "eight_primary_dirty_docs_byte_unchanged": true,
+  "scope": "HostedRust1.92libraryAPI/nativefamilycompilechecks; notM4headed/nativecapture/ATqualification",
+  "publication_performed": false
+}

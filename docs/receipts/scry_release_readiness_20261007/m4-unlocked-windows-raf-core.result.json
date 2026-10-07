@@ -1,0 +1,270 @@
+{
+  "label": "core",
+  "command": [
+    "pwsh",
+    "-NoLogo",
+    "-NoProfile",
+    "-File",
+    "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\scripts\\test-win.ps1",
+    "-Suite",
+    "Core",
+    "-SkipBuild"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "started_utc": "2026-10-07T13:14:11.013402+00:00",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "WGPU_BACKEND": "dx12",
+    "TEMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+    "TMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+    "WEBVIEW_READBACK_VALIDATE": "0"
+  },
+  "priority": "BelowNormal",
+  "default_per_mode_timeout_seconds": 90,
+  "owned_pid": 31440,
+  "actual_exit_code": 0,
+  "finished_utc": "2026-10-07T13:14:56.312204+00:00",
+  "elapsed_seconds": 45.188,
+  "timed_out": false,
+  "native_process_observations": [
+    {
+      "pid": 2736,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--scripted"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:11.589965+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 34756,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--browser-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:13.076163+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 18696,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--cookie-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:14.910482+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 38796,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--profile-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:16.751691+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 19964,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--incognito-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:19.280173+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 46260,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--popup-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:21.588858+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 8240,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--routing-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:22.966463+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 45016,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--process-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:26.270444+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 34732,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--download-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:28.349349+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 38956,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--auth-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:31.564188+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 25144,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--permission-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:32.950666+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 31752,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--visibility-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:36.050377+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 22880,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--hidden-navigation-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:37.568230+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 17184,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--find-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:39.085452+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 25608,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--pdf-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:40.591437+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 50304,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--context-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:42.227212+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 47108,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--drop-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:43.737217+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 31552,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--media-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:45.475345+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 48508,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--multi-view-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:46.858509+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 39648,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--keyboard-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:48.612589+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 19468,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--cdp-input-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:50.693597+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 41408,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--accelerator-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:52.759754+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 10920,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--ime-bridge-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:54.376814+00:00",
+      "actual_exit_code": 0
+    }
+  ],
+  "observer_limitations": [],
+  "final_source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "tracked_status": "M Cargo.lock\n M demo-win/src/main.rs\n M demo-win/src/probe.rs\n M demo-win/src/smokes/network.rs\n M scripts/test-win.ps1\n M scrying/Cargo.toml\n M scrying/src/webview2_composition_producer.rs\n M scrying/src/webview2_composition_producer/navigation.rs",
+  "stdout_sha256": "d77ef363e6fda602dafa81be1fb21373937651529afe1ec31a11e3534e961c81",
+  "stderr_sha256": "5d1b7d43e77cda29979d0bf2ed96204631b800069a31251469cd8132f00146a0",
+  "executable_sha256": "f78e99efda4c20e6696186b6c0dac47db0a484bbf3404273282a7c0b4eea090f"
+}

@@ -285,6 +285,34 @@ fn permission_test_html() -> &'static str {
 </html>"#
 }
 
+pub(crate) fn validate_platform_hidden_navigation(
+    producer: &mut scrying::PlatformWebSurfaceProducer,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let result = (|| {
+        producer.set_visible(false)?;
+        producer.navigate_to_string(visibility_test_html(), std::time::Duration::from_secs(2))?;
+        wait_for_web_message(
+            producer,
+            "visibility-test:ready:hidden",
+            std::time::Duration::from_secs(2),
+        )?;
+        Ok::<(), Box<dyn std::error::Error>>(())
+    })();
+    // Attempt restoration even when navigation or hidden-state acknowledgement fails.
+    let restore = producer.set_visible(true);
+    result?;
+    restore?;
+    wait_for_web_message(
+        producer,
+        "visibility-test:state:visible",
+        std::time::Duration::from_secs(2),
+    )?;
+    println!(
+        "demo-win: hidden-navigation-test: PASS - NavigationCompleted and hidden document readiness without requiring animation callbacks; visibility restored"
+    );
+    Ok(())
+}
+
 fn visibility_test_html() -> &'static str {
     r#"<!doctype html>
 <html>

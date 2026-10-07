@@ -1,0 +1,589 @@
+{
+  "recorded_utc": "2026-10-07T13:22:47.142508+00:00",
+  "actual_result": {
+    "label": "geometry",
+    "command": [
+      "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+      "--pixel-geometry-test"
+    ],
+    "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+    "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+    "started_utc": "2026-10-07T13:22:30.423882+00:00",
+    "environment": {
+      "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+      "CARGO_BUILD_JOBS": "1",
+      "RUSTUP_TOOLCHAIN": "1.97.1",
+      "WGPU_BACKEND": "dx12",
+      "TEMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+      "TMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+      "WEBVIEW_READBACK_VALIDATE": "1"
+    },
+    "priority": "BelowNormal",
+    "default_per_mode_timeout_seconds": null,
+    "owned_pid": 26476,
+    "actual_exit_code": 1,
+    "finished_utc": "2026-10-07T13:22:32.606874+00:00",
+    "elapsed_seconds": 2.094,
+    "timed_out": false,
+    "native_process_observations": [
+      {
+        "pid": 26476,
+        "command": [
+          "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+          "--pixel-geometry-test"
+        ],
+        "observed_priority": 16384,
+        "observed_utc": "2026-10-07T13:22:30.999534+00:00",
+        "actual_exit_code": 1
+      }
+    ],
+    "observer_limitations": [],
+    "final_source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+    "tracked_status": "M Cargo.lock\n M demo-win/src/main.rs\n M demo-win/src/probe.rs\n M demo-win/src/smokes/network.rs\n M scripts/test-win.ps1\n M scrying/Cargo.toml\n M scrying/src/webview2_composition_producer.rs\n M scrying/src/webview2_composition_producer/navigation.rs",
+    "stdout_sha256": "06d615ee7870e8090342b0014bf1005da9fdff0562280fe287d30858f4e598b1",
+    "stderr_sha256": "88fe48160ec0bb4c5094691cc7f21054d6268338a8ec6c2f095339b208891f9e",
+    "executable_sha256": "b1324788450b45621d493b7be6c909c33683225e2be7a3f22bb9515a2b501ee3"
+  },
+  "exact_executable": {
+    "recorded_utc": "2026-10-07T13:22:30.423882+00:00",
+    "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+    "path": "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+    "bytes": 18890752,
+    "sha256": "b1324788450b45621d493b7be6c909c33683225e2be7a3f22bb9515a2b501ee3",
+    "actual_build_command": [
+      "cargo",
+      "+1.97.1",
+      "build",
+      "--locked",
+      "-p",
+      "demo-win",
+      "-j1"
+    ]
+  },
+  "geometry": {
+    "capturePhysical": {
+      "height": 260,
+      "width": 420
+    },
+    "devicePixelRatio": 2,
+    "elements": [
+      {
+        "backgroundColor": "rgb(23, 32, 42)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "16px",
+        "id": "",
+        "overflow": "hidden",
+        "rect": {
+          "bottom": 130,
+          "height": 130,
+          "left": 0,
+          "right": 210,
+          "top": 0,
+          "width": 210,
+          "x": 0,
+          "y": 0
+        },
+        "tag": "HTML",
+        "type": null
+      },
+      {
+        "backgroundColor": "rgb(23, 32, 42)",
+        "color": "rgb(248, 241, 216)",
+        "display": "grid",
+        "fontSize": "16px",
+        "id": "",
+        "overflow": "hidden",
+        "rect": {
+          "bottom": 130,
+          "height": 130,
+          "left": 0,
+          "right": 210,
+          "top": 0,
+          "width": 210,
+          "x": 0,
+          "y": 0
+        },
+        "tag": "BODY",
+        "type": null
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(143, 210, 199)",
+        "display": "block",
+        "fontSize": "13px",
+        "id": "tick",
+        "overflow": "visible",
+        "rect": {
+          "bottom": -87,
+          "height": 17.5,
+          "left": 8,
+          "right": 51.7734375,
+          "top": -104.5,
+          "width": 43.7734375,
+          "x": 8,
+          "y": -104.5
+        },
+        "tag": "DIV",
+        "type": null
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(248, 241, 216)",
+        "display": "grid",
+        "fontSize": "16px",
+        "id": "",
+        "overflow": "visible",
+        "rect": {
+          "bottom": 225,
+          "height": 337.5,
+          "left": 0,
+          "right": 220,
+          "top": -112.5,
+          "width": 220,
+          "x": 0,
+          "y": -112.5
+        },
+        "tag": "MAIN",
+        "type": null
+      },
+      {
+        "backgroundColor": "rgb(15, 23, 32)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "15px",
+        "id": "keyboard-smoke",
+        "overflow": "clip",
+        "rect": {
+          "bottom": 82,
+          "height": 34,
+          "left": 0,
+          "right": 220,
+          "top": 48,
+          "width": 220,
+          "x": 0,
+          "y": 48
+        },
+        "tag": "INPUT",
+        "type": null
+      },
+      {
+        "backgroundColor": "rgb(15, 23, 32)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "15px",
+        "id": "ime-textarea",
+        "overflow": "auto",
+        "rect": {
+          "bottom": 146,
+          "height": 54,
+          "left": 0,
+          "right": 220,
+          "top": 92,
+          "width": 220,
+          "x": 0,
+          "y": 92
+        },
+        "tag": "TEXTAREA",
+        "type": null
+      },
+      {
+        "backgroundColor": "rgb(15, 23, 32)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "15px",
+        "id": "password-smoke",
+        "overflow": "clip",
+        "rect": {
+          "bottom": 190,
+          "height": 34,
+          "left": 0,
+          "right": 220,
+          "top": 156,
+          "width": 220,
+          "x": 0,
+          "y": 156
+        },
+        "tag": "INPUT",
+        "type": "password"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(248, 241, 216)",
+        "display": "grid",
+        "fontSize": "16px",
+        "id": "matrix",
+        "overflow": "visible",
+        "rect": {
+          "bottom": 225,
+          "height": 21,
+          "left": 0,
+          "right": 220,
+          "top": 204,
+          "width": 220,
+          "x": 0,
+          "y": 204
+        },
+        "tag": "DIV",
+        "type": null
+      },
+      {
+        "backgroundColor": "rgb(15, 23, 32)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "11px",
+        "id": "purpose-search",
+        "overflow": "clip",
+        "rect": {
+          "bottom": 225,
+          "height": 21,
+          "left": 0,
+          "right": 28,
+          "top": 204,
+          "width": 28,
+          "x": 0,
+          "y": 204
+        },
+        "tag": "INPUT",
+        "type": "search"
+      },
+      {
+        "backgroundColor": "rgb(15, 23, 32)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "11px",
+        "id": "purpose-email",
+        "overflow": "clip",
+        "rect": {
+          "bottom": 225,
+          "height": 21,
+          "left": 32,
+          "right": 60,
+          "top": 204,
+          "width": 28,
+          "x": 32,
+          "y": 204
+        },
+        "tag": "INPUT",
+        "type": "email"
+      },
+      {
+        "backgroundColor": "rgb(15, 23, 32)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "11px",
+        "id": "purpose-url",
+        "overflow": "clip",
+        "rect": {
+          "bottom": 225,
+          "height": 21,
+          "left": 64,
+          "right": 92,
+          "top": 204,
+          "width": 28,
+          "x": 64,
+          "y": 204
+        },
+        "tag": "INPUT",
+        "type": "url"
+      },
+      {
+        "backgroundColor": "rgb(15, 23, 32)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "11px",
+        "id": "purpose-tel",
+        "overflow": "clip",
+        "rect": {
+          "bottom": 225,
+          "height": 21,
+          "left": 96,
+          "right": 124,
+          "top": 204,
+          "width": 28,
+          "x": 96,
+          "y": 204
+        },
+        "tag": "INPUT",
+        "type": "tel"
+      },
+      {
+        "backgroundColor": "rgb(15, 23, 32)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "11px",
+        "id": "purpose-number",
+        "overflow": "clip",
+        "rect": {
+          "bottom": 225,
+          "height": 21,
+          "left": 128,
+          "right": 156,
+          "top": 204,
+          "width": 28,
+          "x": 128,
+          "y": 204
+        },
+        "tag": "INPUT",
+        "type": "number"
+      },
+      {
+        "backgroundColor": "rgb(15, 23, 32)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "11px",
+        "id": "purpose-numeric-mode",
+        "overflow": "clip",
+        "rect": {
+          "bottom": 225,
+          "height": 21,
+          "left": 160,
+          "right": 188,
+          "top": 204,
+          "width": 28,
+          "x": 160,
+          "y": 204
+        },
+        "tag": "INPUT",
+        "type": null
+      },
+      {
+        "backgroundColor": "rgb(15, 23, 32)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "11px",
+        "id": "purpose-disabled",
+        "overflow": "clip",
+        "rect": {
+          "bottom": 225,
+          "height": 21,
+          "left": 192,
+          "right": 220,
+          "top": 204,
+          "width": 28,
+          "x": 192,
+          "y": 204
+        },
+        "tag": "INPUT",
+        "type": null
+      },
+      {
+        "backgroundColor": "rgb(44, 62, 80)",
+        "color": "rgb(248, 241, 216)",
+        "display": "block",
+        "fontSize": "16px",
+        "id": "bar",
+        "overflow": "hidden",
+        "rect": {
+          "bottom": 5.5,
+          "height": 6,
+          "left": 12,
+          "right": 198,
+          "top": -0.5,
+          "width": 186,
+          "x": 12,
+          "y": -0.5
+        },
+        "tag": "DIV",
+        "type": null
+      }
+    ],
+    "innerHeight": 130,
+    "innerWidth": 210,
+    "readyState": "complete",
+    "samples": [
+      {
+        "css": {
+          "x": 2,
+          "y": 2
+        },
+        "name": "tl",
+        "physical": {
+          "x": 4,
+          "y": 4
+        },
+        "target": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "color": "rgb(255, 190, 112)",
+          "display": "block",
+          "fontSize": "14px",
+          "id": "",
+          "overflow": "visible",
+          "rect": {
+            "bottom": 38,
+            "height": 37,
+            "left": 0,
+            "right": 220,
+            "top": 1,
+            "width": 220,
+            "x": 0,
+            "y": 1
+          },
+          "tag": "P",
+          "type": null
+        }
+      },
+      {
+        "css": {
+          "x": 207.5,
+          "y": 2
+        },
+        "name": "tr",
+        "physical": {
+          "x": 415,
+          "y": 4
+        },
+        "target": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "color": "rgb(255, 190, 112)",
+          "display": "block",
+          "fontSize": "14px",
+          "id": "",
+          "overflow": "visible",
+          "rect": {
+            "bottom": 38,
+            "height": 37,
+            "left": 0,
+            "right": 220,
+            "top": 1,
+            "width": 220,
+            "x": 0,
+            "y": 1
+          },
+          "tag": "P",
+          "type": null
+        }
+      },
+      {
+        "css": {
+          "x": 2,
+          "y": 127.5
+        },
+        "name": "bl",
+        "physical": {
+          "x": 4,
+          "y": 255
+        },
+        "target": {
+          "backgroundColor": "rgb(15, 23, 32)",
+          "color": "rgb(248, 241, 216)",
+          "display": "block",
+          "fontSize": "15px",
+          "id": "ime-textarea",
+          "overflow": "auto",
+          "rect": {
+            "bottom": 146,
+            "height": 54,
+            "left": 0,
+            "right": 220,
+            "top": 92,
+            "width": 220,
+            "x": 0,
+            "y": 92
+          },
+          "tag": "TEXTAREA",
+          "type": null
+        }
+      },
+      {
+        "css": {
+          "x": 207.5,
+          "y": 127.5
+        },
+        "name": "br",
+        "physical": {
+          "x": 415,
+          "y": 255
+        },
+        "target": {
+          "backgroundColor": "rgb(15, 23, 32)",
+          "color": "rgb(248, 241, 216)",
+          "display": "block",
+          "fontSize": "15px",
+          "id": "ime-textarea",
+          "overflow": "auto",
+          "rect": {
+            "bottom": 146,
+            "height": 54,
+            "left": 0,
+            "right": 220,
+            "top": 92,
+            "width": 220,
+            "x": 0,
+            "y": 92
+          },
+          "tag": "TEXTAREA",
+          "type": null
+        }
+      },
+      {
+        "css": {
+          "x": 105,
+          "y": 65
+        },
+        "name": "center",
+        "physical": {
+          "x": 210,
+          "y": 130
+        },
+        "target": {
+          "backgroundColor": "rgb(15, 23, 32)",
+          "color": "rgb(248, 241, 216)",
+          "display": "block",
+          "fontSize": "15px",
+          "id": "keyboard-smoke",
+          "overflow": "clip",
+          "rect": {
+            "bottom": 82,
+            "height": 34,
+            "left": 0,
+            "right": 220,
+            "top": 48,
+            "width": 220,
+            "x": 0,
+            "y": 48
+          },
+          "tag": "INPUT",
+          "type": null
+        }
+      }
+    ],
+    "scrollX": 0,
+    "scrollY": 0,
+    "visibilityState": "visible"
+  },
+  "readback_samples": {
+    "tl": [
+      42,
+      32,
+      23,
+      255
+    ],
+    "tr": [
+      42,
+      32,
+      23,
+      255
+    ],
+    "bl": [
+      32,
+      23,
+      15,
+      255
+    ],
+    "br": [
+      252,
+      252,
+      252,
+      255
+    ],
+    "center": [
+      32,
+      23,
+      15,
+      255
+    ]
+  },
+  "original_oracle_retained_fail": true,
+  "scope": "Read-only DOM geometry before single native acquire under original normal HTML; original physical sample points and\u00b16 oracle unchanged. This does not attribute browser native control coloring beyond measured element/style facts."
+}

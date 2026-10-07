@@ -1,0 +1,223 @@
+{
+  "recorded_utc": "2026-10-07T13:19:59.036379+00:00",
+  "artifact_count": 43,
+  "artifacts": [
+    {
+      "path": "m4-unlocked-windows-raf-build.result.json",
+      "bytes": 1491,
+      "sha256": "47c0e19a636bba0ad87985134aeee47fcde72314e4fa1fae85f64253995a7e53"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-build.stderr.log",
+      "bytes": 365,
+      "sha256": "934ea58aefa9afe8a48742707b8f758af0db97d88e9fb8aa2bee2a71f2f47056"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-build.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-capture.result.json",
+      "bytes": 2215,
+      "sha256": "0e7294e2d62bf9f5e01f02e62e6ff6446de7627170df032f34e8969669c8008e"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-capture.stderr.log",
+      "bytes": 222,
+      "sha256": "ec80bd2182b8836d83c72062b359d48f27b387fd823eb35e20f6e49e450bfa86"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-capture.stdout.log",
+      "bytes": 2464,
+      "sha256": "79d7eae7c0378f13394186516c0794267c9aee084b830b193500ea1cf5f79377"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-core.result.json",
+      "bytes": 7890,
+      "sha256": "d162483d0e47214c728b787920089ae5ad6b357cf4285c515c67797e94e73951"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-core.stderr.log",
+      "bytes": 3322,
+      "sha256": "5d1b7d43e77cda29979d0bf2ed96204631b800069a31251469cd8132f00146a0"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-core.stdout.log",
+      "bytes": 33799,
+      "sha256": "d77ef363e6fda602dafa81be1fb21373937651529afe1ec31a11e3534e961c81"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-executable.json",
+      "bytes": 413,
+      "sha256": "76e4dd900997915cbde8fb66621c87ddaa74c7367a0e399f11fb3ce7feadd373"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-first-resolution-lock.toml",
+      "bytes": 132171,
+      "sha256": "cf5f4312f1177003a5f106bbe1db81c9151fe1777d5db24e6d48ab1066349d6b"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-inputs.json",
+      "bytes": 30323,
+      "sha256": "ef34a134361e4768e2aeeecff6ce741d0c7173fd521d7d4f2af095d02fbb9ebb"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-lock-comparison.json",
+      "bytes": 4069,
+      "sha256": "c88379d739c682f7ec254d16d423011993330cabe3aceee9e021503e548f2a98"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-locked-metadata.result.json",
+      "bytes": 481,
+      "sha256": "ebafac386110356dd8b4ef34a3c4b599a1c3b759345f64d3666d3aa1156aba93"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-locked-metadata.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-locked-metadata.stdout.log",
+      "bytes": 1005600,
+      "sha256": "fbaf750ea5fa066057e427dc027a034656828f28018c4a374846e0efa6614de5"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-metadata-preserve.result.json",
+      "bytes": 650,
+      "sha256": "dc4bf058d36e5f2d48d92eed37d0537c40addb5af054289e1e7470234b9c58f0"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-metadata-preserve.stderr.log",
+      "bytes": 676,
+      "sha256": "3841dbf5e736e695cab51faf1711ea6b7db990608c191cd1ccaa2acd435e1de0"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-metadata-preserve.stdout.log",
+      "bytes": 1018990,
+      "sha256": "b895bb6d2fd38bd1141e74ed19a6d8c716e3f5c118b698818483a50b5800cc58"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-metadata.result.json",
+      "bytes": 561,
+      "sha256": "520ece05175b00ced383cbb1cf3f0f5949bf4b679d5604ac124d546773787e70"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-metadata.stderr.log",
+      "bytes": 749,
+      "sha256": "19d3a68b3b63243dffd4f45b406d7ce877747e929887d1c58f7042de4383a9bf"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-metadata.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-msrv-wgpu-28.result.json",
+      "bytes": 1570,
+      "sha256": "6a091eb812ff949390823b2c908bdf0f37a550f3a75282276706ac7bd5b1718c"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-msrv-wgpu-28.stderr.log",
+      "bytes": 277,
+      "sha256": "fb88d63817a5b2fdedf5034c40dcadd0dd14668e0acb34bcac53c7ab4397b258"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-msrv-wgpu-28.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-msrv-wgpu-29.result.json",
+      "bytes": 1571,
+      "sha256": "86a01b3af52ee91a78eea15f1eaa12635f85f7baf11079d9f5421e3bd12989ae"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-msrv-wgpu-29.stderr.log",
+      "bytes": 158,
+      "sha256": "6c42f1520d34b02b3bfabb85958e9ac7e1256ce4ea4a399c93d5ba4490f5f871"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-msrv-wgpu-29.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-msrv-wgpu-30.result.json",
+      "bytes": 1571,
+      "sha256": "6cb57a9e90ef394c535bb054d8791b532e41dc298f2bb0b037e725262523f754"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-msrv-wgpu-30.stderr.log",
+      "bytes": 158,
+      "sha256": "58b5ba47154a9b05e2554e7582de365e28bb05836490c7a4fc40623a48cc1f06"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-msrv-wgpu-30.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-parser-tests.result.json",
+      "bytes": 1565,
+      "sha256": "aee928fbdd48d50db4a7980e34b409bdfae47584501dadb8af2b4b9a05388573"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-parser-tests.stderr.log",
+      "bytes": 575,
+      "sha256": "e8ad0a9a344f4cfce96013910f3a86c200e66d590a82506696214891b9242307"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-parser-tests.stdout.log",
+      "bytes": 445,
+      "sha256": "c9a801652dd983fc42d5510af96b9119dc4505cae6d757325b3978a91d4be5da"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-pixels.result.json",
+      "bytes": 1838,
+      "sha256": "0f12297a2f6ea52441745c1ae4f9e794aa28746df20510689f0f188b576f4f09"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-pixels.stderr.log",
+      "bytes": 216,
+      "sha256": "d572270c85026d24b1f0148a5fa17c5595047a5b418109858c2986fae9ceb365"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-pixels.stdout.log",
+      "bytes": 1350,
+      "sha256": "473f2f841af9d8274af439023f5b06782ddfdbae689d87eeae114638b345825a"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-qualification.json",
+      "bytes": 32416,
+      "sha256": "410924d66123ed8de6ff199c7faf5a7d24fdca949111ece9c38cd7d4c60e46f5"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-runner.py",
+      "bytes": 9078,
+      "sha256": "1a0165fb3f849e758d9ec2f988498ad3096d8e2e7755cd88238df6600314a8ed"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-second-resolution-lock.toml",
+      "bytes": 131695,
+      "sha256": "462f2f3d8560b1d6e0d31f4a3ecd85f4251f90893f518aef00b85ec3973e3866"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-source-after.json",
+      "bytes": 1475,
+      "sha256": "24e889cc32bcbbc5e5b5c29fc702f07fb3f31a9becb0478f5f8972bc21400b76"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-source-inputs.zip",
+      "bytes": 783565,
+      "sha256": "7b84f79ab1d10e04dbf41510db07797efa12cb3664d890150d43816ca8d3368f"
+    },
+    {
+      "path": "m4-unlocked-windows-raf-source.patch",
+      "bytes": 12208,
+      "sha256": "1a4ed32806a54abec3408e4c75ef47b9da264808e604a956988fc906e877f16c"
+    }
+  ],
+  "includes_negative_and_resolver_diagnostics": true,
+  "scope": "Completed frozen acknowledged-render-wait candidate. Manifest excludes itself and later candidate overlays."
+}

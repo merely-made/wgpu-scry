@@ -1,0 +1,31 @@
+{
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "command": [
+    "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+    "--probe-only"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "WGPU_BACKEND": "dx12",
+    "TEMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-smoke-runtime",
+    "TMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-smoke-runtime",
+    "WEBVIEW_READBACK_VALIDATE": "1"
+  },
+  "priority": "BelowNormal",
+  "timeout_seconds": 90,
+  "started_utc": "2026-10-07T12:53:50.631364+00:00",
+  "fixture_selection": "--probe-only selects normal overflow:hidden probe HTML; retained --scripted negative selected scroll fixture and sent wheel/key inputs before fixed-corner readback.",
+  "owned_pid": 47748,
+  "observed_priority": 16384,
+  "actual_exit_code": 1,
+  "timed_out": false,
+  "finished_utc": "2026-10-07T12:53:52.050632+00:00",
+  "elapsed_seconds": 1.422,
+  "executable_sha256": "8107e3b749761049a092c2a1b0b6aa52256d354f8daa8ad8bbbb1020c7ecfecb",
+  "stdout_sha256": "3f1ad11826e660f4da772755534f70e19166c510a09b1d75c667f3243253320e",
+  "stderr_sha256": "b628574e437e575e4bffe7f0f5be4e2e5d0bc471945d2335d2789139d6c5a8da",
+  "source_inputs_unchanged": true
+}

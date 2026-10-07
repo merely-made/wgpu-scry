@@ -1,0 +1,159 @@
+{
+  "recorded_utc": "2026-10-07T12:56:21.842035+00:00",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "artifact_count": 28,
+  "artifacts": [
+    {
+      "path": "m4-unlocked-windows-build.result.json",
+      "bytes": 1224,
+      "sha256": "6cc959e11cc2e31f50356b00c002aede6d7cf96465fcaebf58bd680c91493df2"
+    },
+    {
+      "path": "m4-unlocked-windows-build.stderr.log",
+      "bytes": 5682,
+      "sha256": "221dd815a00e83b96e2e6796f4c0ee582960adcc75bffc0c411dc5b6829f52fc"
+    },
+    {
+      "path": "m4-unlocked-windows-build.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "m4-unlocked-windows-capture.result.json",
+      "bytes": 1948,
+      "sha256": "5db63d180fe4330dcb7a944e1f9623b3efc66155eed291f5bff77238d736ffc9"
+    },
+    {
+      "path": "m4-unlocked-windows-capture.stderr.log",
+      "bytes": 222,
+      "sha256": "f89306f1c8950ab4c024e6e5be3687285d91312dbce2dfb296fdf12bbf7be78d"
+    },
+    {
+      "path": "m4-unlocked-windows-capture.stdout.log",
+      "bytes": 2464,
+      "sha256": "36dce6077970867e8d38b0fe2ae228a0d9dc9d8ce5fd0919da260b3afe3a4753"
+    },
+    {
+      "path": "m4-unlocked-windows-cleanup-preflight.json",
+      "bytes": 19068,
+      "sha256": "829d76f86590ef1474b37a7353d2e0fc2a58b5bc090754cbdcbf85447fa9ca03"
+    },
+    {
+      "path": "m4-unlocked-windows-cleanup-result.json",
+      "bytes": 20933,
+      "sha256": "9f02aaf6ffb6ddc2c5e24fdf66b6c3c91b67f82d4c5dea130a5e6ea7cb1b68d8"
+    },
+    {
+      "path": "m4-unlocked-windows-core.result.json",
+      "bytes": 7342,
+      "sha256": "39272d37dfae05688eba86e58c82d713be803478530a523bcc3be5d611ce867d"
+    },
+    {
+      "path": "m4-unlocked-windows-core.stderr.log",
+      "bytes": 3164,
+      "sha256": "ab7f54a04db244f9c5bf816a009ff1d701ee36c3f5fbfef23c33ccb3b73d9a67"
+    },
+    {
+      "path": "m4-unlocked-windows-core.stdout.log",
+      "bytes": 32682,
+      "sha256": "81ba9e23ace736ca38ab0fcde0e84b4086d19700c937fe4020ed566f69758249"
+    },
+    {
+      "path": "m4-unlocked-windows-executable.json",
+      "bytes": 413,
+      "sha256": "4a5783608dc3204f693a8bea0e6a5865ecca47da810feda5e6fedebdfbf6d18c"
+    },
+    {
+      "path": "m4-unlocked-windows-finalize.py",
+      "bytes": 6514,
+      "sha256": "cf2ee338e1c5b88369b47ec3152aa4015d6f5c72334707221931f9ecbbfb6bb3"
+    },
+    {
+      "path": "m4-unlocked-windows-hardware.json",
+      "bytes": 1096,
+      "sha256": "52e3bd8056113e978721494d6faef70950edd65f13bd983de40cc32b6a89d8e2"
+    },
+    {
+      "path": "m4-unlocked-windows-initial-guards.json",
+      "bytes": 5228,
+      "sha256": "c949d852037a14c0d3e2cbf53a0800560d0733ed74f388501bcabaec3e78b8d8"
+    },
+    {
+      "path": "m4-unlocked-windows-inputs.json",
+      "bytes": 29835,
+      "sha256": "7a2d04a068319750bd193932c01ee9cf38247eed483b7492aec4bac767305d74"
+    },
+    {
+      "path": "m4-unlocked-windows-native-summary.json",
+      "bytes": 949629,
+      "sha256": "d933074e0fc1fdc14bea9112e253a2f33f43190a0d60f899daec01b29e8d1bac"
+    },
+    {
+      "path": "m4-unlocked-windows-pixels.result.json",
+      "bytes": 1567,
+      "sha256": "063d6ae6b62eb08a4cb915269a2b2ba04a18b66c32983e3f71f8c255fb6420c2"
+    },
+    {
+      "path": "m4-unlocked-windows-pixels.stderr.log",
+      "bytes": 216,
+      "sha256": "c6eb3fc7fac5ab72182ed3c0e3379053cfe97e22eb64859f8fdfe5f64fad3e73"
+    },
+    {
+      "path": "m4-unlocked-windows-pixels.stdout.log",
+      "bytes": 1449,
+      "sha256": "d652bac90a9e237e99f2fc992b0ebd250b3a48eb543fd73b2d0241ddbb1d9d2a"
+    },
+    {
+      "path": "m4-unlocked-windows-probe-pixels.py",
+      "bytes": 2434,
+      "sha256": "22d36e5fa3fabc19945b58cd0e91141ce3c604439244e0b430fee80846a99632"
+    },
+    {
+      "path": "m4-unlocked-windows-probe-pixels.result.json",
+      "bytes": 1357,
+      "sha256": "8b86c27faa59246326df40b2c0b6103e81f3acb3d29b8ae9c624dfbb492f5ce2"
+    },
+    {
+      "path": "m4-unlocked-windows-probe-pixels.stderr.log",
+      "bytes": 216,
+      "sha256": "b628574e437e575e4bffe7f0f5be4e2e5d0bc471945d2335d2789139d6c5a8da"
+    },
+    {
+      "path": "m4-unlocked-windows-probe-pixels.stdout.log",
+      "bytes": 1322,
+      "sha256": "3f1ad11826e660f4da772755534f70e19166c510a09b1d75c667f3243253320e"
+    },
+    {
+      "path": "m4-unlocked-windows-runner.py",
+      "bytes": 8028,
+      "sha256": "ecddd809e559cd9da00c43cd6fb03379d7921176a98332e9dbd57621f4ac8062"
+    },
+    {
+      "path": "m4-unlocked-windows-source-after.json",
+      "bytes": 822,
+      "sha256": "0d9e8494a73e0b047f089fb9273bb3c9041e4ac12b59390a3d5b1207e43e249f"
+    },
+    {
+      "path": "m4-unlocked-windows-source-inputs.zip",
+      "bytes": 782423,
+      "sha256": "77d545764b158ffe48fddc9dbe908a3d05ef56dd49bd399c535dae0dd021ccca"
+    },
+    {
+      "path": "m4-unlocked-windows-worktree-create.json",
+      "bytes": 380,
+      "sha256": "ed492f2d38caf37e9c1f8fd05437839efe2d3eea4677e1b8956bd2464c267a4f"
+    }
+  ],
+  "scope": "Finished Windows standalone source/executable/command/native result/per-mode exit evidence, including both negative startup pixel controls; no registry publication. This manifest excludes itself.",
+  "runtime_cache": {
+    "path": "C:\\t\\cargo-targets\\wgpu-scry\\native-smoke-runtime",
+    "files": 3921,
+    "bytes": 248059027,
+    "retained_for_negative_readback_review": true
+  },
+  "worktree_removed": true,
+  "core_modes_passed": 22,
+  "capture_modes_passed": 2,
+  "startup_pixel_controls_passed": 0,
+  "startup_pixel_controls_failed": 2
+}

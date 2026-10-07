@@ -1,0 +1,6 @@
+[producer] start_capture: 420x260 ready in 25ms
+[producer] resize: 420x260 -> 315x195
+[producer] start_capture: 315x195 ready in 26ms
+[producer] resize: 315x195 -> 420x260
+[producer] start_capture: 420x260 ready in 23ms
+[producer] start_capture: 420x260 ready in 21ms

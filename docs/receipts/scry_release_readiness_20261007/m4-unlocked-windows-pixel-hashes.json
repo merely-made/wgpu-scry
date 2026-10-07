@@ -1,0 +1,108 @@
+{
+  "recorded_utc": "2026-10-07T13:29:14.805268+00:00",
+  "artifact_count": 20,
+  "artifacts": [
+    {
+      "path": "m4-unlocked-windows-pixel-build.result.json",
+      "bytes": 1513,
+      "sha256": "bc4829c6a5fd933e605933a063ac23dec438a859fa80d106b0ce966f153582dd"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-build.stderr.log",
+      "bytes": 160,
+      "sha256": "a53be7ac264f0d4f4e6820d5096498c952a67518724329c4e93aec3fb76c5e9e"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-build.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-capture.result.json",
+      "bytes": 2506,
+      "sha256": "572fd03f206f2342a698a21cdd3c29650a47fbe25abce2141777e300ba8f58c8"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-capture.stderr.log",
+      "bytes": 271,
+      "sha256": "b37a3b9c372dfaaeaaafe11042225744f6099318520b7f0703bff8f441c45688"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-capture.stdout.log",
+      "bytes": 3984,
+      "sha256": "612fe45cd2c41978781f08f41c2745b5f1ac7e7deb5a15f2e034fe5a9ed109ac"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-core.result.json",
+      "bytes": 8126,
+      "sha256": "77ffe627abe2f8ce5631c68f139f2db76322f494fa321af86a434b7ac8eb8b5e"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-core.stderr.log",
+      "bytes": 3322,
+      "sha256": "a0866496abcd853c1c088a68c67a5bbbf6426dae729b20e99215a37e95ff74d5"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-core.stdout.log",
+      "bytes": 33799,
+      "sha256": "7525f1801e54de7586c8b6c153b72e5bf18e25b62b90abd2fe13e4000490f835"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-executable.json",
+      "bytes": 413,
+      "sha256": "d3c93e647f0dcb5d894b1b924f14a0a84b8c11e13870afc1096f6dc18950b695"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-inputs.json",
+      "bytes": 30420,
+      "sha256": "163677bd37aa6d6beb9823688412655dd7b1c76746715e02005ce674800d17b4"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-pixels.result.json",
+      "bytes": 1862,
+      "sha256": "04b62f00c14397d2de7816881a41ef722791b931e81bc9b03502f6e183123a83"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-pixels.stderr.log",
+      "bytes": 48,
+      "sha256": "92c33e435ad9d340fe27e2171a11d2dbadb9180bf8864916a0a1b5edd998d17e"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-pixels.stdout.log",
+      "bytes": 1488,
+      "sha256": "1ba1192b352ac0942aa3d8292faaccae75b348e7baf846db52b075ba921cd494"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-qualification.json",
+      "bytes": 31298,
+      "sha256": "eb30f38685e07c2ef7fccd9cdffe236ceb5e9d4865545b1999f0a88e56a76a78"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-runner.py",
+      "bytes": 8407,
+      "sha256": "054d58876c4d9e4bced489e481eb74776ac15c79f294ef633f6bf2482d58c2aa"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-source-after.json",
+      "bytes": 1106,
+      "sha256": "2270ab48e3f01afe8369ce77c87ccda0e2a6247e50284aae2895e7c4b37c277f"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-source-inputs.zip",
+      "bytes": 784596,
+      "sha256": "b634ef74eb7c700e48d425fdcce968e2659151d3270c033ac50dcd21ed36b9a8"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-source-proof.json",
+      "bytes": 1462,
+      "sha256": "db8e24ffe87c7d1612e97591bdcfa5eedd52fa9a9bd5f3cc41ca6769fe887884"
+    },
+    {
+      "path": "m4-unlocked-windows-pixel-source.patch",
+      "bytes": 17276,
+      "sha256": "da93d58ad8376c3329989223793e6f91d341d38f497ad3bf92d0593e56ece47b"
+    }
+  ],
+  "all_source_executable_and_finished_artifact_hashes_verified": true,
+  "scope": "Finaldedicatedpixel fixture source/commands/Core23/Capture3/firstpixelPASS. Originalnegative and parser/MSRV packets are referenced explicitly; this manifest excludes itself."
+}

@@ -1,0 +1,420 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index a4dad19..1327b0f 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1760,6 +1760,12 @@ dependencies = [
+  "either",
+ ]
+ 
++[[package]]
++name = "itoa"
++version = "1.0.18"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "8f42a60cbdf9a97f5d2305f08a87dc4e09308d1276d28c869c684d7777685682"
++
+ [[package]]
+ name = "javascriptcore-rs"
+ version = "1.1.2"
+@@ -3508,6 +3514,7 @@ dependencies = [
+  "palette",
+  "pkg-config",
+  "pollster",
++ "serde_json",
+  "soup3 0.5.0",
+  "thiserror 2.0.20",
+  "webkit2gtk",
+@@ -3572,6 +3579,19 @@ dependencies = [
+  "syn 3.0.4",
+ ]
+ 
++[[package]]
++name = "serde_json"
++version = "1.0.151"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "c841b55ecdae098c80dcae9cf767f6f8a0c2cdb3416bbef72181df4d0fe73f14"
++dependencies = [
++ "itoa",
++ "memchr",
++ "serde",
++ "serde_core",
++ "zmij",
++]
++
+ [[package]]
+ name = "serde_spanned"
+ version = "0.6.9"
+@@ -5338,6 +5358,12 @@ version = "0.6.7"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "34b31d188d9d685a4f9c7b46d6e36631b07058d2cfe190267adce54dc230bf12"
+ 
++[[package]]
++name = "zmij"
++version = "1.0.23"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b"
++
+ [[package]]
+ name = "zune-core"
+ version = "0.5.3"
+diff --git a/demo-win/src/gpu.rs b/demo-win/src/gpu.rs
+index ca1b9ff..b722a3f 100644
+--- a/demo-win/src/gpu.rs
++++ b/demo-win/src/gpu.rs
+@@ -9,7 +9,7 @@ pub(crate) fn validate_imported_pixels(
+     device: &wgpu::Device,
+     queue: &wgpu::Queue,
+     expected_rgb: (u8, u8, u8),
+-) -> Result<(), Box<dyn std::error::Error>> {
++) -> Result<[u8; 4], Box<dyn std::error::Error>> {
+     if imported.format != wgpu::TextureFormat::Bgra8Unorm {
+         return Err(format!(
+             "WebView readback: expected Bgra8Unorm imported texture, got {:?}",
+@@ -137,7 +137,7 @@ pub(crate) fn validate_imported_pixels(
+         );
+     }
+ 
+-    Ok(())
++    Ok(center)
+ }
+ 
+ pub(crate) async fn create_host_device() -> Result<
+diff --git a/demo-win/src/main.rs b/demo-win/src/main.rs
+index 9762258..7e24683 100644
+--- a/demo-win/src/main.rs
++++ b/demo-win/src/main.rs
+@@ -63,7 +63,8 @@ use smokes::input::{
+ #[cfg(target_os = "windows")]
+ use smokes::network::{
+     validate_platform_basic_auth, validate_platform_downloads, validate_platform_permissions,
+-    validate_platform_process_failure_recovery, validate_platform_virtual_host_routing,
++    validate_platform_hidden_navigation, validate_platform_process_failure_recovery,
++    validate_platform_virtual_host_routing,
+     validate_platform_visibility,
+ };
+ #[cfg(target_os = "windows")]
+@@ -106,6 +107,9 @@ struct Cli {
+     auth_test: bool,
+     permission_test: bool,
+     visibility_test: bool,
++    hidden_navigation_test: bool,
++    pixel_geometry_test: bool,
++    pixel_test: bool,
+     keyboard_test: bool,
+     cdp_input_test: bool,
+     accelerator_test: bool,
+@@ -142,6 +146,9 @@ impl Cli {
+                 "--auth-test" => cli.auth_test = true,
+                 "--permission-test" => cli.permission_test = true,
+                 "--visibility-test" => cli.visibility_test = true,
++                "--hidden-navigation-test" => cli.hidden_navigation_test = true,
++                "--pixel-geometry-test" => cli.pixel_geometry_test = true,
++                "--pixel-test" => cli.pixel_test = true,
+                 "--keyboard-test" => cli.keyboard_test = true,
+                 "--cdp-input-test" => cli.cdp_input_test = true,
+                 "--accelerator-test" => cli.accelerator_test = true,
+@@ -178,6 +185,9 @@ impl Cli {
+             || self.auth_test
+             || self.permission_test
+             || self.visibility_test
++            || self.hidden_navigation_test
++            || self.pixel_geometry_test
++            || self.pixel_test
+             || self.cdp_input_test
+             || self.accelerator_test
+             || self.ime_bridge_test
+diff --git a/demo-win/src/probe.rs b/demo-win/src/probe.rs
+index 99fa001..a52a1ca 100644
+--- a/demo-win/src/probe.rs
++++ b/demo-win/src/probe.rs
+@@ -401,6 +401,18 @@ const COMPOSITION_WEBVIEW_SCRIPTED_HTML: &str = r#"<!doctype html>
+ </body>
+ </html>"#;
+ 
++// The visual probe includes form controls that overlap its sample corners at
++// high DPI. This pixel-only fixture reserves those corners at every CSS size.
++const COMPOSITION_WEBVIEW_PIXEL_HTML: &str = r#"<!doctype html>
++<html>
++<head><meta charset="utf-8"><style>
++html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #17202a; }
++#pixel-center { position: fixed; left: 50%; top: 50%; width: 25vw; height: 25vh;
++    transform: translate(-50%, -50%); background: rgb(211, 71, 37); }
++</style></head>
++<body><div id="pixel-center"></div></body>
++</html>"#;
++
+ fn composition_probe_html(scripted: bool) -> &'static str {
+     if scripted {
+         COMPOSITION_WEBVIEW_SCRIPTED_HTML
+@@ -662,7 +674,11 @@ pub(crate) fn run_platform_composition_visual_probe(
+ 
+     let producer = unsafe { scrying::PlatformWebSurfaceProducer::new(parent_hwnd, config)? };
+     producer.navigate_to_string(
+-        composition_probe_html(cli.scripted),
++        if cli.pixel_test {
++            COMPOSITION_WEBVIEW_PIXEL_HTML
++        } else {
++            composition_probe_html(cli.scripted)
++        },
+         std::time::Duration::from_secs(5),
+     )?;
+     println!("CompositionController visual probe: navigation completed");
+@@ -710,6 +726,9 @@ pub(crate) fn run_platform_composition_visual_probe(
+     if cli.visibility_test {
+         validate_platform_visibility(&mut producer)?;
+     }
++    if cli.hidden_navigation_test {
++        validate_platform_hidden_navigation(&mut producer)?;
++    }
+     if cli.find_test {
+         validate_platform_find(&mut producer)?;
+     }
+@@ -755,7 +774,18 @@ pub(crate) fn run_platform_composition_visual_probe(
+         .ok()
+         .filter(|v| !v.is_empty() && v != "0")
+         .is_some()
++        || cli.pixel_geometry_test
++        || cli.pixel_test
+     {
++        producer.wait_for_render_tick(std::time::Duration::from_secs(5))?;
++        if cli.pixel_geometry_test {
++            let geometry = producer.call_devtools_protocol_method_blocking(
++                "Runtime.evaluate",
++                r#"{"expression":"(() => { const dpr = devicePixelRatio; const describe = element => { if (!element) return null; const r = element.getBoundingClientRect(); const s = getComputedStyle(element); return { tag: element.tagName, id: element.id, type: element.getAttribute('type'), rect: {x:r.x,y:r.y,width:r.width,height:r.height,top:r.top,right:r.right,bottom:r.bottom,left:r.left}, backgroundColor:s.backgroundColor,color:s.color,fontSize:s.fontSize,overflow:s.overflow,display:s.display }; }; const points = [['tl',4,4],['tr',415,4],['bl',4,255],['br',415,255],['center',210,130]]; return {capturePhysical:{width:420,height:260},innerWidth,innerHeight,devicePixelRatio:dpr,readyState:document.readyState,visibilityState:document.visibilityState,scrollX,scrollY,samples:points.map(([name,x,y])=>({name,physical:{x,y},css:{x:x/dpr,y:y/dpr},target:describe(document.elementFromPoint(x/dpr,y/dpr))})),elements:Array.from(document.querySelectorAll('html,body,main,input,textarea,#matrix,#tick,#bar')).map(describe)}; })()","returnByValue":true}"#,
++                std::time::Duration::from_secs(5),
++            )?;
++            println!("demo-win: pixel-geometry: {geometry}");
++        }
+         let mut producer_for_readback = producer;
+         let captured = producer_for_readback.acquire_full_frame()?;
+         let content_size = captured.content_size;
+@@ -777,7 +807,19 @@ pub(crate) fn run_platform_composition_visual_probe(
+             imported.generation
+         );
+         let html_background_rgb = (0x17u8, 0x20u8, 0x2au8);
+-        validate_imported_pixels(&imported, &host.device, &host.queue, html_background_rgb)?;
++        let center =
++            validate_imported_pixels(&imported, &host.device, &host.queue, html_background_rgb)?;
++        if cli.pixel_test {
++            if center != [37, 71, 211, 255] {
++                return Err(format!(
++                    "pixel-test: expected opaque center BGRA[37, 71, 211, 255], got {center:?}"
++                )
++                .into());
++            }
++            println!(
++                "demo-win: pixel-test: PASS - first imported 420x260 frame, four background corners within ±6 and exact opaque center BGRA{center:?}"
++            );
++        }
+         return Ok(Some(CapturedComposition {
+             imported: Some(imported),
+             producer: producer_for_readback,
+diff --git a/demo-win/src/smokes/network.rs b/demo-win/src/smokes/network.rs
+index ee9b210..64e0754 100644
+--- a/demo-win/src/smokes/network.rs
++++ b/demo-win/src/smokes/network.rs
+@@ -285,6 +285,34 @@ fn permission_test_html() -> &'static str {
+ </html>"#
+ }
+ 
++pub(crate) fn validate_platform_hidden_navigation(
++    producer: &mut scrying::PlatformWebSurfaceProducer,
++) -> Result<(), Box<dyn std::error::Error>> {
++    let result = (|| {
++        producer.set_visible(false)?;
++        producer.navigate_to_string(visibility_test_html(), std::time::Duration::from_secs(2))?;
++        wait_for_web_message(
++            producer,
++            "visibility-test:ready:hidden",
++            std::time::Duration::from_secs(2),
++        )?;
++        Ok::<(), Box<dyn std::error::Error>>(())
++    })();
++    // Attempt restoration even when navigation or hidden-state acknowledgement fails.
++    let restore = producer.set_visible(true);
++    result?;
++    restore?;
++    wait_for_web_message(
++        producer,
++        "visibility-test:state:visible",
++        std::time::Duration::from_secs(2),
++    )?;
++    println!(
++        "demo-win: hidden-navigation-test: PASS - NavigationCompleted and hidden document readiness without requiring animation callbacks; visibility restored"
++    );
++    Ok(())
++}
++
+ fn visibility_test_html() -> &'static str {
+     r#"<!doctype html>
+ <html>
+diff --git a/scripts/test-win.ps1 b/scripts/test-win.ps1
+index d1c2f35..2f2b51c 100644
+--- a/scripts/test-win.ps1
++++ b/scripts/test-win.ps1
+@@ -34,6 +34,7 @@ $coreModes = @(
+     "--auth-test",
+     "--permission-test",
+     "--visibility-test",
++    "--hidden-navigation-test",
+     "--find-test",
+     "--pdf-test",
+     "--context-test",
+@@ -45,7 +46,7 @@ $coreModes = @(
+     "--accelerator-test",
+     "--ime-bridge-test"
+ )
+-$captureModes = @("--capture-test", "--scale-test")
++$captureModes = @("--capture-test", "--scale-test", "--pixel-test")
+ $modes = switch ($Suite) {
+     "Core" { $coreModes }
+     "Capture" { $captureModes }
+diff --git a/scrying/Cargo.toml b/scrying/Cargo.toml
+index f1be75b..685bf19 100644
+--- a/scrying/Cargo.toml
++++ b/scrying/Cargo.toml
+@@ -166,6 +166,7 @@ dispatch2 = "0.3.0"
+ 
+ [target.'cfg(target_os = "windows")'.dependencies]
+ webview2-com = "0.39.1"
++serde_json = "1.0"
+ windows-numerics = "0.3"
+ windows = { version = "0.62", features = [
+     "Foundation",
+diff --git a/scrying/src/webview2_composition_producer.rs b/scrying/src/webview2_composition_producer.rs
+index 8fde5fa..d6183d0 100644
+--- a/scrying/src/webview2_composition_producer.rs
++++ b/scrying/src/webview2_composition_producer.rs
+@@ -572,20 +572,6 @@ impl crate::WebSurfaceProducer for WebView2CompositionProducer {
+     }
+ }
+ 
+-fn execute_script_blocking(webview: &ICoreWebView2, script: String) -> Result<(), WebSurfaceError> {
+-    let webview = webview.clone();
+-    ExecuteScriptCompletedHandler::wait_for_async_operation(
+-        Box::new(move |handler| unsafe {
+-            let script = CoTaskMemPWSTR::from(script.as_str());
+-            webview
+-                .ExecuteScript(*script.as_ref().as_pcwstr(), &handler)
+-                .map_err(webview2_com::Error::WindowsError)
+-        }),
+-        Box::new(|error_code, _result| error_code),
+-    )
+-    .map_err(|error| WebSurfaceError::Platform(format!("ExecuteScript: {error}")))
+-}
+-
+ fn add_script_to_execute_on_document_created_blocking(
+     webview: &ICoreWebView2,
+     script: String,
+diff --git a/scrying/src/webview2_composition_producer/navigation.rs b/scrying/src/webview2_composition_producer/navigation.rs
+index d08d01f..76095a6 100644
+--- a/scrying/src/webview2_composition_producer/navigation.rs
++++ b/scrying/src/webview2_composition_producer/navigation.rs
+@@ -40,17 +40,21 @@ impl WebView2CompositionProducer {
+             WebSurfaceError::Platform(format!(
+                 "WebView2 navigation did not complete within {timeout:?}"
+             ))
+-        })?;
+-
+-        self.wait_for_render_tick()
++        })
+     }
+ 
+-    fn wait_for_render_tick(&self) -> Result<(), WebSurfaceError> {
+-        let script = r#"(() => new Promise(resolve => {
+-            requestAnimationFrame(() => requestAnimationFrame(() => resolve("present")));
+-        }))()"#
+-            .to_string();
+-        execute_script_blocking(&self.webview, script)
++    /// Await two animation-frame callbacks, separately from navigation completion.
++    /// Hidden pages may pause these callbacks and return a timeout. A resolved
++    /// callback acknowledges document scheduling, not a captured compositor paint.
++    pub fn wait_for_render_tick(&self, timeout: Duration) -> Result<(), WebSurfaceError> {
++        // ExecuteScript serializes the Promise itself. CDP must explicitly await
++        // its resolution before an explicit caller can acknowledge the two render ticks.
++        let result = self.call_devtools_protocol_method_blocking(
++            "Runtime.evaluate",
++            r#"{"expression":"new Promise(resolve => { requestAnimationFrame(() => requestAnimationFrame(() => resolve('scrying:render-tick:present'))); })","awaitPromise":true,"returnByValue":true}"#,
++            timeout,
++        )?;
++        validate_render_tick_result(&result)
+     }
+ 
+     /// Navigate the underlying WebView2 to a URL and block until
+@@ -86,9 +90,7 @@ impl WebView2CompositionProducer {
+             WebSurfaceError::Platform(format!(
+                 "WebView2 navigation did not complete within {timeout:?}"
+             ))
+-        })?;
+-
+-        self.wait_for_render_tick()
++        })
+     }
+ 
+     /// Drain the next pending [`NavigationEvent`] from the producer's queue.
+@@ -623,6 +625,29 @@ pub(super) fn register_persistent_handlers(
+     ))
+ }
+ 
++/// CDP resolves this fixed expression to a string RemoteObject. A Promise,
++/// malformed reply, exception, or different value does not acknowledge a tick.
++fn validate_render_tick_result(json: &str) -> Result<(), WebSurfaceError> {
++    let reply: serde_json::Value = serde_json::from_str(json).map_err(|_| {
++        WebSurfaceError::Platform("WebView2 render tick evaluation returned malformed JSON".into())
++    })?;
++    if reply.get("exceptionDetails").is_some() {
++        return Err(WebSurfaceError::Platform(
++            "WebView2 render tick evaluation reported exceptionDetails".into(),
++        ));
++    }
++    let result = &reply["result"];
++    if result["type"].as_str() == Some("string")
++        && result["value"].as_str() == Some("scrying:render-tick:present")
++    {
++        Ok(())
++    } else {
++        Err(WebSurfaceError::Platform(
++            "WebView2 render tick evaluation did not resolve the expected string sentinel".into(),
++        ))
++    }
++}
++
+ fn is_content_process_failure(kind: COREWEBVIEW2_PROCESS_FAILED_KIND) -> bool {
+     matches!(
+         kind,
+@@ -637,6 +662,36 @@ fn is_content_process_failure(kind: COREWEBVIEW2_PROCESS_FAILED_KIND) -> bool {
+ mod tests {
+     use super::*;
+ 
++    #[test]
++    fn render_tick_requires_resolved_string_sentinel() {
++        assert!(validate_render_tick_result(
++            "{\n  \"result\": {\"type\": \"string\", \"value\": \"scrying:render-tick:present\"}\n}"
++        ).is_ok());
++        assert!(validate_render_tick_result(
++            r#"{"result":{"value":"scrying:render-tick:present","description":"resolved","type":"string"}}"#
++        ).is_ok());
++        for rejected in [
++            r#"{"result":{"type":"object","subtype":"promise","objectId":"pending"}}"#,
++            r#"{"result":{"type":"undefined"}}"#,
++            r#"{"result":{"type":"string","value":"present"}}"#,
++            r#"{"result":{"type":"string","value":"scrying:render-tick:pre sent"}}"#,
++            r#"{"result":{"type":"string","value":"scrying:render-tick:present"},"exceptionDetails":{"text":"Uncaught"}}"#,
++            r#"{"exceptionDetails":{"text":"Promise rejected"}}"#,
++            r#"{"result":{"type":"string","value":"scrying:render-tick:present"},"exceptionDetails":null}"#,
++            r#"{"result":{"type":"string","value":true}}"#,
++            r#"{"result":{"value":"scrying:render-tick:present"}}"#,
++            r#"{"result":{"type":"string","value":"scrying:render-tick:present"}"#,
++            "null",
++            "[]",
++            "",
++        ] {
++            assert!(
++                validate_render_tick_result(rejected).is_err(),
++                "accepted {rejected}"
++            );
++        }
++    }
++
+     #[test]
+     fn navigation_callback_is_duplicated_without_reordering() {
+         let legacy = Arc::new(Mutex::new(VecDeque::new()));

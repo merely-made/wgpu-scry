@@ -1,0 +1,8 @@
+
+running 3 tests
+test webview2_composition_producer::navigation::tests::page_message_is_duplicated_without_reordering ... ok
+test webview2_composition_producer::navigation::tests::navigation_callback_is_duplicated_without_reordering ... ok
+test webview2_composition_producer::navigation::tests::render_tick_requires_resolved_string_sentinel ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 27 filtered out; finished in 0.00s
+

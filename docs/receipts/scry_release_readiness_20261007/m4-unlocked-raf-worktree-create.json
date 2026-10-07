@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-10-07T13:02:41.250881+00:00",
+  "sha": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "real_collision": "Eight primary dirty audit documents; bounded supplier source repair isolated from parent-owned docs",
+  "command": [
+    "git",
+    "worktree",
+    "add",
+    "--detach",
+    "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+    "4771072a6827695dfaba9db104cd48b87e6cd543"
+  ],
+  "actual_exit_code": 0,
+  "stdout": "HEAD is now at 4771072 Record Scry 0.7.2 preparation and remaining native release gates\n",
+  "stderr": "Preparing worktree (detached HEAD 4771072)\n",
+  "primary_dirty_docs_preserved": true
+}

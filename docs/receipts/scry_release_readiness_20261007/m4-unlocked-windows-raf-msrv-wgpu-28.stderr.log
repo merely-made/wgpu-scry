@@ -1,0 +1,6 @@
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling serde_json v1.0.151
+   Compiling scrying v0.7.1 (C:\Users\mark_\Code\worktrees\wgpu-scry-release\scrying)
+    Checking itoa v1.0.18
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 10.44s

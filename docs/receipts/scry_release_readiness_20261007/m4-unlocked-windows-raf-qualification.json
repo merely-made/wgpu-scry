@@ -1,0 +1,917 @@
+{
+  "recorded_utc": "2026-10-07T13:19:59.036379+00:00",
+  "base_source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "owned_uncommitted_candidate": true,
+  "owned_changed_paths": [
+    "Cargo.lock",
+    "demo-win/src/main.rs",
+    "demo-win/src/probe.rs",
+    "demo-win/src/smokes/network.rs",
+    "scripts/test-win.ps1",
+    "scrying/Cargo.toml",
+    "scrying/src/webview2_composition_producer.rs",
+    "scrying/src/webview2_composition_producer/navigation.rs"
+  ],
+  "patch_sha256": "1a4ed32806a54abec3408e4c75ef47b9da264808e604a956988fc906e877f16c",
+  "source_inputs_verified": 165,
+  "source_archive_sha256": "7b84f79ab1d10e04dbf41510db07797efa12cb3664d890150d43816ca8d3368f",
+  "exact_executable": {
+    "recorded_utc": "2026-10-07T13:14:08.730637+00:00",
+    "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+    "path": "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+    "bytes": 18888704,
+    "sha256": "f78e99efda4c20e6696186b6c0dac47db0a484bbf3404273282a7c0b4eea090f",
+    "actual_build_command": [
+      "cargo",
+      "+1.97.1",
+      "build",
+      "--locked",
+      "-p",
+      "demo-win",
+      "-j1"
+    ]
+  },
+  "native_gates": [
+    {
+      "label": "core",
+      "actual_exit_code": 0,
+      "per_mode_timeout_seconds": 90,
+      "modes": [
+        {
+          "mode": "--scripted",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 2736,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--scripted"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:11.589965+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: scripted: PASS - JS message round-trip plus mouse and CDP-backed keyboard dispatch verified",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--browser-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 34756,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--browser-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:13.076163+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: browser-test: PASS - history, tab-state ceiling, reload/stop, title, settings, visibility controls, autofill toggles, and hard-throttle ceiling verified",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--cookie-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 18696,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--cookie-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:14.910482+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: cookie-test: PASS - set/read/delete and Set-Cookie observation verified for demo_win_cookie_18696",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--profile-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 38796,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--profile-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:16.751691+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: profile-test: PASS - persistent cookie store survived producer recreation with the same user_data_dir",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--incognito-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 19964,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--incognito-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:19.280173+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: incognito-test: PASS - InPrivate cookie stayed isolated from the persistent user_data_dir profile",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--popup-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 46260,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--popup-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:21.588858+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: popup-test: PASS - NewWindowRequested routed to the host and default popup was suppressed",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--routing-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 8240,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--routing-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:22.966463+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: routing-test: PASS - WebResourceRequested virtual host served app-owned content",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--process-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 45016,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--process-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:26.270444+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: process-test: PASS - ProcessFailed surfaced and producer recovered with a fresh navigation",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--download-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 34732,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--download-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:28.349349+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: download-test: PASS - DownloadStarting destination and completion events verified",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--auth-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 38956,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--auth-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:31.564188+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: auth-test: PASS - BasicAuthenticationRequested used host credentials",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--permission-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 25144,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--permission-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:32.950666+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: permission-test: PASS - PermissionRequested mapped to host denial",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--visibility-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 31752,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--visibility-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:36.050377+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: visibility-test: PASS - SetIsVisible reached Page Visibility state",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--hidden-navigation-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 22880,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--hidden-navigation-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:37.568230+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: hidden-navigation-test: PASS - NavigationCompleted and hidden document readiness without requiring animation callbacks; visibility restored",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--find-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 17184,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--find-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:39.085452+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: find-test: PASS - WebView2 native find reported 2 matches",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--pdf-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 25608,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--pdf-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:40.591437+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: pdf-test: PASS - WebView2 native PrintToPdfStream returned 34346 bytes",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--context-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 50304,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--context-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:42.227212+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: context-test: PASS - context-menu bridge reported link target Some(\"https://example.test/context\")",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--drop-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 47108,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--drop-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:43.737217+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: drop-test: PASS - drop bridge reported primary URL Some(\"https://example.test/drop\")",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--media-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 31552,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--media-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:45.475345+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: media-test: PASS - WebMessage media bridge emitted NavigationEvent::MediaCaptureStateChanged",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--multi-view-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 48508,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--multi-view-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:46.858509+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: multi-view-test: PASS - two simultaneous WebView2 composition producers ran on separate HWNDs",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--keyboard-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 39648,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--keyboard-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:48.612589+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: keyboard-test: PASS - SendInput delivered \"scry42\" to DOM in pure CompositionController",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--cdp-input-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 19468,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--cdp-input-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:50.693597+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: cdp-input-test: PASS - Input.dispatchKeyEvent: DOM input observed; Input.insertText: DOM input observed; Input.imeSetComposition: DOM input observed; Runtime.evaluate: DOM input observed; ExecuteScript: DOM input observed; ExecuteScript direct message and hash navigation probes passed",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--accelerator-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 41408,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--accelerator-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:52.759754+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: accelerator-test: PASS - WebView2 AcceleratorKeyPressed observed virtual key 114 (browser accelerator enabled: Some(true))",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--ime-bridge-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 10920,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--ime-bridge-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:54.376814+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: ime-bridge-test: PASS - focused editable caret state mapped to winit IME area, CDP composition and commit reached DOM; textarea scroll rect, purpose matrix (purpose-search->Search, purpose-email->Email, purpose-url->Url, purpose-tel->Tel, purpose-number->Decimal, purpose-numeric-mode->Numeric, purpose-disabled->Disabled), and password suppression passed",
+            "  -> PASS"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "capture",
+      "actual_exit_code": 0,
+      "per_mode_timeout_seconds": 90,
+      "modes": [
+        {
+          "mode": "--capture-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 43456,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--capture-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:57.107392+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: capture-test: captured 420x260, imported Bgra8Unorm 420x260 generation 1, color=Srgb, texture_format=Bgra8Unorm, received=1, consumed=1, stale_dropped=0",
+            "demo-win: capture-test: PASS - WebView2 WGC frame acquired and imported",
+            "  -> PASS"
+          ]
+        },
+        {
+          "mode": "--scale-test",
+          "actual_script_native_exit_code": 0,
+          "exit_proof": "Unmodified Invoke-DemoMode checks process ExitCode==0 before PASS; held independent own-child handles corroborate",
+          "native_process_observations": [
+            {
+              "pid": 45628,
+              "command": [
+                "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+                "--scale-test"
+              ],
+              "observed_priority": 16384,
+              "observed_utc": "2026-10-07T13:14:58.369500+00:00",
+              "actual_exit_code": 0
+            }
+          ],
+          "reported_assertions": [
+            "demo-win: scale-test: captured 315x195, imported Bgra8Unorm 315x195 generation 1",
+            "demo-win: scale-test: captured 420x260, imported Bgra8Unorm 420x260 generation 2",
+            "demo-win: scale-test: PASS - simulated scale resize path, received=2, consumed=2, stale_dropped=0",
+            "  -> PASS"
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "label": "build",
+      "actual_exit_code": 0,
+      "command": [
+        "cargo",
+        "+1.97.1",
+        "build",
+        "--locked",
+        "-p",
+        "demo-win",
+        "-j1"
+      ],
+      "elapsed_seconds": 17.375
+    },
+    {
+      "label": "parser-tests",
+      "actual_exit_code": 0,
+      "command": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "scrying",
+        "--lib",
+        "webview2_composition_producer::navigation::tests",
+        "-j1"
+      ],
+      "elapsed_seconds": 76.844
+    },
+    {
+      "label": "msrv-wgpu-28",
+      "actual_exit_code": 0,
+      "command": [
+        "cargo",
+        "+1.92.0",
+        "check",
+        "--locked",
+        "-p",
+        "scrying",
+        "--lib",
+        "--no-default-features",
+        "--features",
+        "wgpu-28",
+        "-j1"
+      ],
+      "elapsed_seconds": 10.64
+    },
+    {
+      "label": "msrv-wgpu-29",
+      "actual_exit_code": 0,
+      "command": [
+        "cargo",
+        "+1.92.0",
+        "check",
+        "--locked",
+        "-p",
+        "scrying",
+        "--lib",
+        "--no-default-features",
+        "--features",
+        "wgpu-29",
+        "-j1"
+      ],
+      "elapsed_seconds": 2.719
+    },
+    {
+      "label": "msrv-wgpu-30",
+      "actual_exit_code": 0,
+      "command": [
+        "cargo",
+        "+1.92.0",
+        "check",
+        "--locked",
+        "-p",
+        "scrying",
+        "--lib",
+        "--no-default-features",
+        "--features",
+        "wgpu-30",
+        "-j1"
+      ],
+      "elapsed_seconds": 2.516
+    }
+  ],
+  "pixel_control": {
+    "actual_exit_code": 1,
+    "timed_out": false,
+    "command": [
+      "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+      "--probe-only"
+    ],
+    "expected_bgra": [
+      42,
+      32,
+      23,
+      255
+    ],
+    "samples": {
+      "tl": [
+        42,
+        32,
+        23,
+        255
+      ],
+      "tr": [
+        42,
+        32,
+        23,
+        255
+      ],
+      "bl": [
+        32,
+        23,
+        15,
+        255
+      ],
+      "br": [
+        252,
+        252,
+        252,
+        255
+      ],
+      "center": [
+        32,
+        23,
+        15,
+        255
+      ]
+    },
+    "corner_tolerance": 6,
+    "corners_match": false,
+    "any_nonzero_alpha": true,
+    "imported_size": [
+      420,
+      260
+    ],
+    "generation": 1,
+    "awaited_sentinel_evidence": "Explicit validated Runtime.evaluate awaitPromise+returnByValue returned before the logged import; otherwise this source returns initialization failure before acquire. This acknowledges double-rAF scheduling, not compositor paint.",
+    "meaning": "Fixed normal-fixture corner oracle remains FAIL; top samples match background and bottom/center samples contain nonzero page pixels. DOM geometry not yet measured; no cause asserted."
+  },
+  "primary_dirty_docs": [
+    {
+      "path": "README.md",
+      "sha256": "0345476e74b1cabc02ab37f566ad75e91bd144a024dcaec15ae0967faabc7f5a",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-07_platform_ceilings.md",
+      "sha256": "f692a9953676dd655d7303466c50129396082527666c64358879f6e631cd7aa6",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-09_browser_parity_checklist.md",
+      "sha256": "6c8c8e4596755e679b6cebd99a1f27fe5fda6152bd57d0b29d074c68cf5aea7a",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-11_windows_webview2_target.md",
+      "sha256": "441fc850ed01a3f282e3f167b29cd6b4a8420e1df967c55744976a9578a8df5f",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-15_phase4_strategy.md",
+      "sha256": "d96918a5ce2735b21057f616c88543cd5c78beebd0e6c4a6859c6d8734c4fbdd",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-06-28_improvement_backlog.md",
+      "sha256": "33a1b0dfc0df40fb57d21cf19cab00d5a3892fb559bd7d60173af0d13268b5b0",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/DOC_README.md",
+      "sha256": "70c318ab23c5aa9df1de4242c96a8bdf1307254971b02575eb81eac75ce2333d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/parity-matrix.md",
+      "sha256": "61300e80fbfe24b74902e609c438ca5ba89a1af262cc5243241a29220c8f8ec1",
+      "unchanged": true
+    }
+  ],
+  "library_scope": "NavigationCompleted preserved while hidden; separately configurable explicit render-tick wait; Windows-only JSON dependency; other WebMessages/public settings queues untouched.",
+  "lock_comparison": {
+    "recorded_utc": "2026-10-07T13:11:56.785926+00:00",
+    "before_sha256": "31991a399e060af8a5adabd151a63bc5a5e0eb3c98bae3f56cb50b5a0d8b70f0",
+    "after_sha256": "81e2e8eeaf4769ebecd58edf1458b061ed318350cf9cea878fd11dc200744d3d",
+    "old_count": 491,
+    "new_count": 494,
+    "added": [
+      {
+        "name": "itoa",
+        "version": "1.0.18",
+        "source": "registry+https://github.com/rust-lang/crates.io-index",
+        "checksum": "8f42a60cbdf9a97f5d2305f08a87dc4e09308d1276d28c869c684d7777685682"
+      },
+      {
+        "name": "serde_json",
+        "version": "1.0.151",
+        "source": "registry+https://github.com/rust-lang/crates.io-index",
+        "checksum": "c841b55ecdae098c80dcae9cf767f6f8a0c2cdb3416bbef72181df4d0fe73f14",
+        "dependencies": [
+          "itoa",
+          "memchr",
+          "serde",
+          "serde_core",
+          "zmij"
+        ]
+      },
+      {
+        "name": "zmij",
+        "version": "1.0.23",
+        "source": "registry+https://github.com/rust-lang/crates.io-index",
+        "checksum": "29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b"
+      }
+    ],
+    "removed": [],
+    "changed": [
+      {
+        "identity": [
+          "scrying",
+          "0.7.1",
+          ""
+        ],
+        "before": {
+          "name": "scrying",
+          "version": "0.7.1",
+          "dependencies": [
+            "ash",
+            "block2 0.6.2",
+            "dispatch2",
+            "dpi",
+            "foreign-types-shared",
+            "gbm",
+            "gdk",
+            "gio 0.18.4",
+            "glib 0.18.5",
+            "grafting",
+            "gsk4",
+            "gtk",
+            "gtk4",
+            "image",
+            "javascriptcore-rs",
+            "libc",
+            "metal",
+            "objc2 0.6.4",
+            "objc2-app-kit 0.3.2",
+            "objc2-core-foundation",
+            "objc2-core-graphics",
+            "objc2-core-media",
+            "objc2-core-video",
+            "objc2-foundation 0.3.2",
+            "objc2-io-surface",
+            "objc2-metal 0.3.2",
+            "objc2-screen-capture-kit",
+            "objc2-web-kit",
+            "palette",
+            "pkg-config",
+            "pollster",
+            "soup3 0.5.0",
+            "thiserror 2.0.20",
+            "webkit2gtk",
+            "webkit6",
+            "webview2-com",
+            "wgpu 28.0.0",
+            "wgpu 29.0.4",
+            "wgpu 30.0.1",
+            "wgpu-hal 28.0.1",
+            "wgpu-hal 29.0.4",
+            "wgpu-hal 30.0.1",
+            "windows",
+            "windows-numerics"
+          ]
+        },
+        "after": {
+          "name": "scrying",
+          "version": "0.7.1",
+          "dependencies": [
+            "ash",
+            "block2 0.6.2",
+            "dispatch2",
+            "dpi",
+            "foreign-types-shared",
+            "gbm",
+            "gdk",
+            "gio 0.18.4",
+            "glib 0.18.5",
+            "grafting",
+            "gsk4",
+            "gtk",
+            "gtk4",
+            "image",
+            "javascriptcore-rs",
+            "libc",
+            "metal",
+            "objc2 0.6.4",
+            "objc2-app-kit 0.3.2",
+            "objc2-core-foundation",
+            "objc2-core-graphics",
+            "objc2-core-media",
+            "objc2-core-video",
+            "objc2-foundation 0.3.2",
+            "objc2-io-surface",
+            "objc2-metal 0.3.2",
+            "objc2-screen-capture-kit",
+            "objc2-web-kit",
+            "palette",
+            "pkg-config",
+            "pollster",
+            "serde_json",
+            "soup3 0.5.0",
+            "thiserror 2.0.20",
+            "webkit2gtk",
+            "webkit6",
+            "webview2-com",
+            "wgpu 28.0.0",
+            "wgpu 29.0.4",
+            "wgpu 30.0.1",
+            "wgpu-hal 28.0.1",
+            "wgpu-hal 29.0.4",
+            "wgpu-hal 30.0.1",
+            "windows",
+            "windows-numerics"
+          ]
+        }
+      }
+    ],
+    "all_other_package_records_exact": true,
+    "final_real_locked_metadata_exit_code": 0,
+    "initial_resolution_churn_preserved_as_diagnostic": true,
+    "preexisting_windows_sys_records_restored_and_real_locked_metadata_accepted": true
+  },
+  "worktree_retained": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "worktree_reason": "Owned8-path dirty tested supplier candidate awaits parent integration. No commit/stage/push performed.",
+  "runtime_cache": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+  "runtime_cache_reason": "Marker-owned candidate native profiles retained for pending negative-readback geometry comparison.",
+  "initial477_negative_preserved": true
+}

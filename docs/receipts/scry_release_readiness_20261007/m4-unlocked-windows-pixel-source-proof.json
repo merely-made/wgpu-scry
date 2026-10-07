@@ -1,0 +1,54 @@
+{
+  "recorded_utc": "2026-10-07T13:25:34.949058+00:00",
+  "normal_and_scripted_html_exact": [
+    {
+      "name": "COMPOSITION_WEBVIEW_PROBE_HTML",
+      "unchanged_utf8_sha256": "172dc6cb3be17e37034dcee30d88495e38e56cffcf7dcac110daa27e865f33d0"
+    },
+    {
+      "name": "COMPOSITION_WEBVIEW_SCRIPTED_HTML",
+      "unchanged_utf8_sha256": "3c999257e348229d0c270be1b5fa7daa20ae02c1914394745e5acdfc0785a014"
+    }
+  ],
+  "original_gpu_readback_body_oracle_exact_except_returning_existing_center_sample": true,
+  "original_sample_locations": {
+    "tl": [
+      4,
+      4
+    ],
+    "tr": [
+      415,
+      4
+    ],
+    "bl": [
+      4,
+      255
+    ],
+    "br": [
+      415,
+      255
+    ],
+    "center": [
+      210,
+      130
+    ]
+  },
+  "original_corner_tolerance": 6,
+  "original_gpu_acquire_and_readback_counts": {
+    "acquire": 1,
+    "gpu_copy_map": 1
+  },
+  "new_center_expectation_bgra": [
+    37,
+    71,
+    211,
+    255
+  ],
+  "library_and_cargo_raw_bytes_exact_to_qualified_raf_candidate": [
+    "scrying/Cargo.toml",
+    "Cargo.lock",
+    "scrying/src/webview2_composition_producer.rs",
+    "scrying/src/webview2_composition_producer/navigation.rs"
+  ],
+  "new_fixture_geometry": "Only25vw\u00d725vh opaque center block at50%/50%; remaining viewport opaque original background; current420x260/DPR2 remains unchanged; source design covers scale without claiming untested hardware scales."
+}

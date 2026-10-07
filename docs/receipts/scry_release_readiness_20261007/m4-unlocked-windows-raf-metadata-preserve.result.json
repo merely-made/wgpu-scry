@@ -1,0 +1,21 @@
+{
+  "command": [
+    "cargo",
+    "+1.97.1",
+    "metadata",
+    "--config",
+    "resolver.incompatible-rust-versions=\"allow\"",
+    "--format-version",
+    "1",
+    "--filter-platform",
+    "x86_64-pc-windows-msvc"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "started_utc": "2026-10-07T13:07:58.677716+00:00",
+  "priority": "BelowNormal",
+  "purpose": "Preserve previously locked platform versions; add only Windows JSON edge, verify by full parsed package comparison",
+  "owned_pid": 43804,
+  "actual_exit_code": 0,
+  "finished_utc": "2026-10-07T13:08:10.662854+00:00",
+  "elapsed_seconds": 11.984
+}

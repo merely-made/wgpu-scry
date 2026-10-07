@@ -1,0 +1,7 @@
+{
+  "recorded_utc": "2026-10-07T12:59:31.3019124Z",
+  "command": "gh run cancel 37622426510",
+  "exit_code": 0,
+  "output": "✓ Request to cancel workflow 37622426510 submitted.",
+  "reason": "Only outstanding job is queued NVIDIA without a runner; identical local NVIDIA Core22/Capture2 qualification is recorded. GitHub refuses Intel-only rerun while this run is pending. Completed M4/RADV/Intel raw logs preserved."
+}

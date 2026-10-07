@@ -1,0 +1,11 @@
+# Current-source hosted MSRV qualification, 2026-10-07
+
+[Run 37622431567](https://github.com/merely-made/wgpu-scry/actions/runs/37622431567) completed **success** at exact published head `4771072a6827695dfaba9db104cd48b87e6cd543`. All **12 required jobs passed**: Windows/macOS/Linux public-library checks at each wgpu 28/29/30 row, plus separate Linux WebKitGTK 4.1 fallback, WPE, and WebKitGTK 6.0 producer-family checks. The unused optional extra-package job was skipped as designed.
+
+[Result](m4-unlocked-msrv-result.json) binds each job ID, times, URL, raw-log SHA256, actual checkout SHA line, actual Rust **1.92.0** line, and actual locked library-check command. All 12 full job logs are retained under `m4-unlocked-msrv-job-<id>.log`. [Initial run](m4-unlocked-msrv-initial-run.json), [initial jobs](m4-unlocked-msrv-initial-jobs.json), and the final timestamped API snapshots preserve observed progression without overwriting earlier evidence.
+
+[Source binding](m4-unlocked-msrv-source-binding.json) proves `Cargo.toml`, `Cargo.lock`, and the entire `scrying` tree are unchanged from previously qualified `2c3ebd24118851cf6125cfb193f55aab20e3ad67`; this new head adds documentation evidence only. The current-source cross-platform Rust 1.92 gate previously left open by the historical [packaging preparation](packaging-README.md) is now closed. That older preparation receipt remains an immutable statement of its earlier observation.
+
+The `m4-unlocked` filename prefix records the coordination phase, **not the hosted macOS runner's physical identity**. These are hosted compile checks, distinct from the unlocked M4's headed ScreenCaptureKit/native capture acceptance. The native hardware run and its release decision remain root-owned. This receipt does not close native cadence/pixels, NVIDIA execution, accessibility, or a 0.7.2 publication gate. Version 0.7.2 remains proposed and unpublished.
+
+Eight existing primary dirty audit documents remain byte-identical. This lane created no source edit, local build, application process, worktree, Cargo home, or registry publication. [Hash index](m4-unlocked-msrv-hashes.json) covers only its finished `m4-unlocked-msrv-*` files; earlier package and root-owned native artifacts retain their separate indexes and ownership.

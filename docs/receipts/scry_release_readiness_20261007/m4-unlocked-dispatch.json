@@ -1,0 +1,40 @@
+{
+  "recorded_utc": "2026-10-07T12:38:17.470541+00:00",
+  "head_source": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "user_observation": "M4 is unlocked",
+  "observation_scope": "Reported by user at dispatch time; SSH route still refuses connection. No Intel session state inferred.",
+  "compiled_payload_equivalent_to": "2c3ebd24118851cf6125cfb193f55aab20e3ad67",
+  "hardware_concurrency": "New same-main run cancels old queued run37555489592; cancellation does not qualify NVIDIA. Existing raw failed Mac and passing RADV records remain preserved.",
+  "commands": [
+    {
+      "command": [
+        "gh",
+        "workflow",
+        "run",
+        "hardware-headed.yml",
+        "--repo",
+        "merely-made/wgpu-scry",
+        "--ref",
+        "main"
+      ],
+      "exit_code": 0,
+      "stdout": "https://github.com/merely-made/wgpu-scry/actions/runs/37622426510\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "gh",
+        "workflow",
+        "run",
+        "msrv.yml",
+        "--repo",
+        "merely-made/wgpu-scry",
+        "--ref",
+        "main"
+      ],
+      "exit_code": 0,
+      "stdout": "https://github.com/merely-made/wgpu-scry/actions/runs/37622431567\n",
+      "stderr": ""
+    }
+  ]
+}

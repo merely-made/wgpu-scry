@@ -1,0 +1,20 @@
+     Locking 15 packages to latest Rust 1.92 compatible versions
+ Downgrading cfg-expr v0.20.9 -> v0.20.8
+ Downgrading gio-sys v0.22.9 -> v0.22.0
+ Downgrading glib v0.22.9 -> v0.22.7
+ Downgrading glib-macros v0.22.9 -> v0.22.6
+ Downgrading glib-sys v0.22.9 -> v0.22.6
+ Downgrading gobject-sys v0.22.9 -> v0.22.6
+      Adding itoa v1.0.18
+    Updating libredox v0.1.21 -> v0.1.25
+ Downgrading proc-macro-crate v2.0.2 -> v2.0.0
+      Adding serde_json v1.0.151
+    Updating toml v0.8.2 -> v0.8.23
+    Updating toml_datetime v0.6.3 -> v0.6.11
+      Adding toml_edit v0.22.27
+      Adding winnow v0.7.15
+      Adding zmij v1.0.23
+error: failed to download `cfg-expr v0.15.8`
+
+Caused by:
+  attempting to make an HTTP request, but --offline was specified

@@ -1,0 +1,12 @@
+   Compiling windows v0.62.2
+   Compiling gpu-allocator v0.28.0
+   Compiling wgpu-hal v30.0.1
+   Compiling wgpu-core-deps-windows-linux-android v30.0.1
+   Compiling wgpu-core v30.0.1
+   Compiling wgpu v30.0.1
+   Compiling webview2-com-sys v0.39.1
+   Compiling grafting v0.6.0
+   Compiling webview2-com v0.39.1
+   Compiling scrying v0.7.1 (C:\Users\mark_\Code\worktrees\wgpu-scry-release\scrying)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 16s
+     Running unittests src\lib.rs (C:\t\cargo-targets\wgpu-scry\debug\deps\scrying-8fc26c8a816b7959.exe)

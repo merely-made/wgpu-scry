@@ -1,0 +1,60 @@
+{
+  "label": "capture",
+  "command": [
+    "pwsh",
+    "-NoLogo",
+    "-NoProfile",
+    "-File",
+    "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\scripts\\test-win.ps1",
+    "-Suite",
+    "Capture",
+    "-SkipBuild"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "started_utc": "2026-10-07T12:52:03.496305+00:00",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "WGPU_BACKEND": "dx12",
+    "TEMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-smoke-runtime",
+    "TMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-smoke-runtime",
+    "WEBVIEW_READBACK_VALIDATE": "0"
+  },
+  "priority": "BelowNormal",
+  "default_per_mode_timeout_seconds": 90,
+  "owned_pid": 48856,
+  "actual_exit_code": 0,
+  "finished_utc": "2026-10-07T12:52:06.871083+00:00",
+  "elapsed_seconds": 3.265,
+  "timed_out": false,
+  "native_process_observations": [
+    {
+      "pid": 47060,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--capture-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T12:52:04.078384+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 28636,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--scale-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T12:52:05.354403+00:00",
+      "actual_exit_code": 0
+    }
+  ],
+  "observer_limitations": [],
+  "final_source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "tracked_status": "",
+  "stdout_sha256": "36dce6077970867e8d38b0fe2ae228a0d9dc9d8ce5fd0919da260b3afe3a4753",
+  "stderr_sha256": "f89306f1c8950ab4c024e6e5be3687285d91312dbce2dfb296fdf12bbf7be78d",
+  "executable_sha256": "8107e3b749761049a092c2a1b0b6aa52256d354f8daa8ad8bbbb1020c7ecfecb"
+}
