@@ -3824,6 +3824,23 @@ impl AppState {
         )?;
         let window = Arc::new(window);
 
+        // Establish the Metal surface before attaching WKWebView. The Metal
+        // backend appends its surface layer to the host view; the intended
+        // ordering places the native browser overlay above that surface.
+        let render = if cli.capture {
+            let mut r = pollster::block_on(WgpuRender::new(window.clone()))?;
+            if cli.dump_every > 0 {
+                r.dump_every = Some(cli.dump_every);
+                println!(
+                    "demo-mac: dumping every {} imported frame(s) to demo-mac-frame-NNNN.png",
+                    cli.dump_every
+                );
+            }
+            Some(r)
+        } else {
+            None
+        };
+
         let ns_view_ptr = match window.window_handle()?.as_raw() {
             RawWindowHandle::AppKit(handle) => handle.ns_view.as_ptr(),
             other => return Err(format!("unexpected RawWindowHandle on macOS: {other:?}").into()),
@@ -4006,20 +4023,6 @@ impl AppState {
             let _ = second.load_url("scrying-test://history-2");
             println!("demo-mac: --two-tabs: spun up second producer");
             Some(second)
-        } else {
-            None
-        };
-
-        let render = if cli.capture {
-            let mut r = pollster::block_on(WgpuRender::new(window.clone()))?;
-            if cli.dump_every > 0 {
-                r.dump_every = Some(cli.dump_every);
-                println!(
-                    "demo-mac: dumping every {} imported frame(s) to demo-mac-frame-NNNN.png",
-                    cli.dump_every
-                );
-            }
-            Some(r)
         } else {
             None
         };
