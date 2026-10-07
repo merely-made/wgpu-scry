@@ -1,0 +1,245 @@
+[
+  {
+    "artifact_id": 11489710656,
+    "artifact_name": "registry-triplet-metal-m4",
+    "archive": "release072-registry-corrected-registry-triplet-metal-m4.zip",
+    "bytes": 1287024,
+    "sha256": "099a4e404377d45e2c272dd4e72056bdf2b584336684cf24479589489f2cb83e",
+    "consumers": [
+      {
+        "kind": "graft",
+        "selected_registry_packages": [
+          {
+            "name": "grafting",
+            "version": "0.6.0",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "scrying",
+            "version": "0.7.2",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "welding",
+            "version": "0.14.1",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          }
+        ],
+        "one_wgpu": "29.0.4",
+        "external_non_registry_count": 57,
+        "metadata_member": "registry-triplet/receipts/graft/metadata.json",
+        "metadata_sha256": "46bb797aa7677a2d6f8bc9c4224f421e849b5406a7f0bb6404e16923fe17aa41"
+      },
+      {
+        "kind": "scry",
+        "selected_registry_packages": [
+          {
+            "name": "grafting",
+            "version": "0.6.0",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "scrying",
+            "version": "0.7.2",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "welding",
+            "version": "0.14.1",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          }
+        ],
+        "one_wgpu": "30.0.1",
+        "external_non_registry_count": 0,
+        "metadata_member": "registry-triplet/receipts/scry/metadata.json",
+        "metadata_sha256": "5b8da9bf21a3ddbc001c780bcf7be6925184adca992840074d194fd55928f42e"
+      },
+      {
+        "kind": "weld",
+        "selected_registry_packages": [
+          {
+            "name": "grafting",
+            "version": "0.6.0",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "scrying",
+            "version": "0.7.2",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "welding",
+            "version": "0.14.1",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          }
+        ],
+        "one_wgpu": "30.0.1",
+        "external_non_registry_count": 0,
+        "metadata_member": "registry-triplet/receipts/weld/metadata.json",
+        "metadata_sha256": "e48886e709eba1731fd38ffbc8f8aee177a0724625b85b592838bd3a337271fc"
+      }
+    ]
+  },
+  {
+    "artifact_id": 11487982173,
+    "artifact_name": "registry-triplet-metal-intel",
+    "archive": "release072-registry-corrected-registry-triplet-metal-intel.zip",
+    "bytes": 1202508,
+    "sha256": "e7a345c6cd19c683753363b3f6b070582456e58d7062e4faa3c899aa24ec463d",
+    "consumers": [
+      {
+        "kind": "graft",
+        "selected_registry_packages": [
+          {
+            "name": "grafting",
+            "version": "0.6.0",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "scrying",
+            "version": "0.7.2",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "welding",
+            "version": "0.14.1",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          }
+        ],
+        "one_wgpu": "29.0.4",
+        "external_non_registry_count": 57,
+        "metadata_member": "registry-triplet/receipts/graft/metadata.json",
+        "metadata_sha256": "46bb797aa7677a2d6f8bc9c4224f421e849b5406a7f0bb6404e16923fe17aa41"
+      },
+      {
+        "kind": "scry",
+        "selected_registry_packages": [
+          {
+            "name": "grafting",
+            "version": "0.6.0",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "scrying",
+            "version": "0.7.2",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "welding",
+            "version": "0.14.1",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          }
+        ],
+        "one_wgpu": "30.0.1",
+        "external_non_registry_count": 0,
+        "metadata_member": "registry-triplet/receipts/scry/metadata.json",
+        "metadata_sha256": "5b8da9bf21a3ddbc001c780bcf7be6925184adca992840074d194fd55928f42e"
+      },
+      {
+        "kind": "weld",
+        "selected_registry_packages": [
+          {
+            "name": "grafting",
+            "version": "0.6.0",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "scrying",
+            "version": "0.7.2",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "welding",
+            "version": "0.14.1",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          }
+        ],
+        "one_wgpu": "30.0.1",
+        "external_non_registry_count": 0,
+        "metadata_member": "registry-triplet/receipts/weld/metadata.json",
+        "metadata_sha256": "e48886e709eba1731fd38ffbc8f8aee177a0724625b85b592838bd3a337271fc"
+      }
+    ]
+  },
+  {
+    "artifact_id": 11487893990,
+    "artifact_name": "registry-triplet-radv",
+    "archive": "release072-registry-corrected-registry-triplet-radv.zip",
+    "bytes": 1207806,
+    "sha256": "99080afccd64067b5bb3845b77ade6afe929c145cf2fe2524bfbd099f6e0032d",
+    "consumers": [
+      {
+        "kind": "graft",
+        "selected_registry_packages": [
+          {
+            "name": "grafting",
+            "version": "0.6.0",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "scrying",
+            "version": "0.7.2",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "welding",
+            "version": "0.14.1",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          }
+        ],
+        "one_wgpu": "29.0.4",
+        "external_non_registry_count": 57,
+        "metadata_member": "registry-triplet/receipts/graft/metadata.json",
+        "metadata_sha256": "375f7605432468fec47b0fc614aae55f964a34cceac80113a5fbad0fff238f0a"
+      },
+      {
+        "kind": "scry",
+        "selected_registry_packages": [
+          {
+            "name": "grafting",
+            "version": "0.6.0",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "scrying",
+            "version": "0.7.2",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "welding",
+            "version": "0.14.1",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          }
+        ],
+        "one_wgpu": "30.0.1",
+        "external_non_registry_count": 0,
+        "metadata_member": "registry-triplet/receipts/scry/metadata.json",
+        "metadata_sha256": "b829b488ac4a4172216f570e4a552738a06ce9e2a3efd9ea106d78275e9b4a70"
+      },
+      {
+        "kind": "weld",
+        "selected_registry_packages": [
+          {
+            "name": "grafting",
+            "version": "0.6.0",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "scrying",
+            "version": "0.7.2",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          },
+          {
+            "name": "welding",
+            "version": "0.14.1",
+            "source": "registry+https://github.com/rust-lang/crates.io-index"
+          }
+        ],
+        "one_wgpu": "30.0.1",
+        "external_non_registry_count": 0,
+        "metadata_member": "registry-triplet/receipts/weld/metadata.json",
+        "metadata_sha256": "b60744cac8f1e71b2081224fe5b2883187a8a62a67ecc750c8cee477d979d146"
+      }
+    ]
+  }
+]
