@@ -1,0 +1,122 @@
+{
+  "recorded_utc": "2026-10-07T13:45:13.164571+00:00",
+  "source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "finished_artifact_count": 23,
+  "artifacts": [
+    {
+      "path": "release072-package-audit.json",
+      "bytes": 111273,
+      "sha256": "bd5956b581da6c8f958fc79562537560b6d07542e1a2753abb722b20866f7072"
+    },
+    {
+      "path": "release072-package-dry-run.crate",
+      "bytes": 338664,
+      "sha256": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740"
+    },
+    {
+      "path": "release072-package-dry-run.result.json",
+      "bytes": 1181,
+      "sha256": "e91e01f06a6af33036ce94601999e6b2893ebafad1d6d204db5c10e90e81d70f"
+    },
+    {
+      "path": "release072-package-dry-run.stderr.log",
+      "bytes": 561,
+      "sha256": "ffbc4b49031c48c31a1ea1df132d74aff43a0d32292f20afa3b95fd3e23d803b"
+    },
+    {
+      "path": "release072-package-dry-run.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "release072-package-final-guards.json",
+      "bytes": 6434,
+      "sha256": "4e4daf17e32ed3fc1d1e594ccea0b7e6caccc419ba32c72d294215d778d1fd7f"
+    },
+    {
+      "path": "release072-package-generated-lock.toml",
+      "bytes": 107867,
+      "sha256": "8fd01f55d11dd189ff81d4535228bfffada2480fa01d46c7d462b0df45283c50"
+    },
+    {
+      "path": "release072-package-inputs.json",
+      "bytes": 30605,
+      "sha256": "fb439a1d037ddaa0d6e369a5721659877bb07a821900c7f854cf50fb526a3850"
+    },
+    {
+      "path": "release072-package-list.result.json",
+      "bytes": 889,
+      "sha256": "1b4a3f4ca56342260bd510733bfca267e7da45b6fcee930dbd2cccbb774a9a34"
+    },
+    {
+      "path": "release072-package-list.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "release072-package-list.stdout.log",
+      "bytes": 3038,
+      "sha256": "9e62e62ed427878f9d7ddc6893a5ca9d5648ce01864accba0e04deb705dc0840"
+    },
+    {
+      "path": "release072-package-normalized-manifest.toml",
+      "bytes": 6491,
+      "sha256": "cb5dd6e6be57a2304e9a35b0e42467e9e112feb848175eaff224134c06c791f8"
+    },
+    {
+      "path": "release072-package-original-manifest.toml",
+      "bytes": 8404,
+      "sha256": "54254f5ba1a87e8dd227ab59f58da4590c3f2a898295f317d99726df52eaf5ad"
+    },
+    {
+      "path": "release072-package-root-audit.json",
+      "bytes": 556,
+      "sha256": "465c729ca28b5df4fa57a67d9fa0ab6acf6537c3999d4dbe43824a72d52debda"
+    },
+    {
+      "path": "release072-package-root-audit.py",
+      "bytes": 2155,
+      "sha256": "ec0b404fc0c2d7accb6ab09e2bd8b8588a6c5c05670832c0b4c4ac33dcd0da33"
+    },
+    {
+      "path": "release072-package-runner.py",
+      "bytes": 4978,
+      "sha256": "5a28e708baf8795def897db7996de03db9293195c260f7fdd32e31aee554c705"
+    },
+    {
+      "path": "release072-package-source-inputs.zip",
+      "bytes": 784914,
+      "sha256": "dd7614155f9a007f54ffeea981b3cd14bbc90a7066119e943cc9ce002d2ea703"
+    },
+    {
+      "path": "release072-package-summary.json",
+      "bytes": 5552,
+      "sha256": "2225664220e971576d525756e607da25c33f206a6a91fe38157b35c0f357cc7b"
+    },
+    {
+      "path": "release072-package-vcs.json",
+      "bytes": 106,
+      "sha256": "2b2d5ed1e532a610649f085b92e8835ea06369e25caf177efd8755310552aa8d"
+    },
+    {
+      "path": "release072-package-verify.crate",
+      "bytes": 338664,
+      "sha256": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740"
+    },
+    {
+      "path": "release072-package-verify.result.json",
+      "bytes": 1162,
+      "sha256": "ad6b21c319c15bd983689fbdb0e8e5458ead94a120a365a65fc5bb8038ea6534"
+    },
+    {
+      "path": "release072-package-verify.stderr.log",
+      "bytes": 525,
+      "sha256": "c1de5466e19dd7e3d7f789831c051d09da4622532c955dcd01d24f664cbb784d"
+    },
+    {
+      "path": "release072-package-verify.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

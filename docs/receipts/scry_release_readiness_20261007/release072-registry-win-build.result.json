@@ -1,0 +1,22 @@
+{
+  "command": [
+    "cargo",
+    "+1.97.1",
+    "build",
+    "--locked",
+    "-j1"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry",
+  "started_utc": "2026-10-07T13:48:49.266493+00:00",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "WGPU_BACKEND": "dx12"
+  },
+  "priority": "BelowNormal",
+  "owned_pid": 17064,
+  "actual_exit_code": 0,
+  "finished_utc": "2026-10-07T13:51:41.532204+00:00",
+  "elapsed_seconds": 172.266
+}

@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-10-07T13:56:16.700288+00:00",
+  "cleanup_outcome": "blocked_before_execution",
+  "automatic_approval_review_reason": "Tool rejected guarded cleanup command: blocked by policy; no more specific reason supplied.",
+  "attempt_count": 1,
+  "no_retry_or_alternative_deletion_attempted": true,
+  "owned_generated_stage": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry",
+  "owned_detached_worktree": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "stage_retained": true,
+  "worktree_retained": true,
+  "tracked_source_clean": true,
+  "known_generated_untracked_files": 18,
+  "source_archive_sha256": "3a0aae8369c7f32820b090f6ff8e5667fbc0c45189392b05191c79b37fe78e37",
+  "owner": "root after handoff",
+  "retention_reason": "Automatic cleanup review rejection; qualified archive and paths retained unchanged."
+}

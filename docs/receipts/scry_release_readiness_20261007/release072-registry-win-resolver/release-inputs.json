@@ -1,0 +1,11 @@
+{
+  "graft_source_sha": "dcab3700cb8bbf208d1c4206433275c2c97cd715",
+  "grafting_version": "0.6.0",
+  "runner_name": "local",
+  "runner_os": "win32",
+  "scry_source_ref": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "scrying_version": "0.7.2",
+  "weld_source_ref": "local",
+  "welding_version": "0.14.1",
+  "wgpu_backend": "dx12"
+}

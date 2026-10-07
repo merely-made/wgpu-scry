@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "AMD Radeon 780M Graphics",
+    "DriverVersion": "31.0.14084.3001",
+    "PNPDeviceID": "PCI\\VEN_1002&DEV_15BF&SUBSYS_180D1043&REV_C1\\4&98C338A&0&0041"
+  },
+  {
+    "Name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "DriverVersion": "32.0.16.1088",
+    "PNPDeviceID": "PCI\\VEN_10DE&DEV_28E0&SUBSYS_180D1043&REV_A1\\4&2B5A5DA1&0&0009"
+  }
+]

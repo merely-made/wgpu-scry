@@ -1,0 +1,1130 @@
+{
+  "recorded_utc": "2026-10-07T13:48:49.195985+00:00",
+  "fixture_source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "helper_commit": "dcab3700cb8bbf208d1c4206433275c2c97cd715",
+  "inputs": [
+    {
+      "path": "consumer/Cargo.lock",
+      "bytes": 93242,
+      "sha256": "2d5751adf3dea460fbc1e163bb4d3b1c7005915d769c7b786335b783745bb0e4",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\Cargo.lock"
+    },
+    {
+      "path": "consumer/Cargo.toml",
+      "bytes": 989,
+      "sha256": "fdbe41c21b28bacb44b48cb3f07aff155012ef68975c4a04fabe5503924fa901",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\Cargo.toml"
+    },
+    {
+      "path": "consumer/scripts/test-win.ps1",
+      "bytes": 3682,
+      "sha256": "4e9c255a34b2303ff6d2105e79660aecc373ef4e236f4da1de246c7fc77e251a",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\scripts\\test-win.ps1"
+    },
+    {
+      "path": "consumer/src/gpu.rs",
+      "bytes": 6429,
+      "sha256": "9dab71d3c8387955378b66972e92008402a33203e5e99cf2d5868600224f2de1",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\gpu.rs"
+    },
+    {
+      "path": "consumer/src/main.rs",
+      "bytes": 30714,
+      "sha256": "128ca9cd873e5efcd0072828d04f3c3b68e9ab19f53428947f0ca542b2370b59",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\main.rs"
+    },
+    {
+      "path": "consumer/src/multi_pane.rs",
+      "bytes": 9880,
+      "sha256": "8a726b58077ebfe2e4fd063f0b9615f99df5ae8fd28728a59a96e4d2334067aa",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\multi_pane.rs"
+    },
+    {
+      "path": "consumer/src/probe.rs",
+      "bytes": 32836,
+      "sha256": "62ccfb6f0dedec6684eafb674717648118a135adbb1a61670e30e38ed7166cc4",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\probe.rs"
+    },
+    {
+      "path": "consumer/src/renderer.rs",
+      "bytes": 19970,
+      "sha256": "d523b9b2852ca3266abf32ee4aead63c0175b6dff7be4a2e98d8cf6f5fb1048a",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\renderer.rs"
+    },
+    {
+      "path": "consumer/src/smokes/browser.rs",
+      "bytes": 13009,
+      "sha256": "8a5584fee3bcbac379381e6b183ee6ebb7581959efb4b44f43d1eb3aec002c27",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\browser.rs"
+    },
+    {
+      "path": "consumer/src/smokes/capture.rs",
+      "bytes": 3728,
+      "sha256": "f57856c6bdb3ae04febd42a5e3e418b99649ba72a4dcf4f61327c8999572ffba",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\capture.rs"
+    },
+    {
+      "path": "consumer/src/smokes/composition_focus_hwnd.rs",
+      "bytes": 13122,
+      "sha256": "0f0c7362addc0603756da190fb90bffd6cfc451a67010ac8c628807222c1ef4c",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\composition_focus_hwnd.rs"
+    },
+    {
+      "path": "consumer/src/smokes/input.rs",
+      "bytes": 32336,
+      "sha256": "4cdcceae42965efb67471d7f0a303e14246fff436e121e842e5097b68288731e",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\input.rs"
+    },
+    {
+      "path": "consumer/src/smokes/mod.rs",
+      "bytes": 478,
+      "sha256": "d4e664a54f941cdf2b8ff5cc3f0c54bac61fb691a6ffcd364d24d7ac4cf45793",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\mod.rs"
+    },
+    {
+      "path": "consumer/src/smokes/network.rs",
+      "bytes": 16914,
+      "sha256": "fb47df4da772ecfdd6d72b52fea7e30cda78f73df124a8aad39290583234563f",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\network.rs"
+    },
+    {
+      "path": "consumer/src/smokes/profile.rs",
+      "bytes": 12600,
+      "sha256": "d64b5acf98b431c3c0babf197907ab741081fb490f7b2e88f809818c80e7fb95",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\profile.rs"
+    },
+    {
+      "path": "consumer/src/smokes/window_to_visual.rs",
+      "bytes": 22288,
+      "sha256": "f277df4217b6de7b7921fc522b83abbc6ed3e5369fa3eb7dc06b757b2f218dd0",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\window_to_visual.rs"
+    },
+    {
+      "path": "consumer/src/waits.rs",
+      "bytes": 11336,
+      "sha256": "da1769aa40540003cbba215fa9aedca7cbd7e2665a67cd16934ac07ecfe61a17",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\waits.rs"
+    },
+    {
+      "path": "consumer/staging-source.json",
+      "bytes": 323,
+      "sha256": "362b9ee48fa22611d5e870036aa141fec69aaab65508529b298cc69b3b04accf",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\staging-source.json"
+    },
+    {
+      "path": "registry/grafting-0.6.0/.cargo_vcs_info.json",
+      "bytes": 102,
+      "sha256": "232caae7c3e40137770892e9521426a4ee42e1d0d2a146b9a908c0171725a094",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\.cargo_vcs_info.json"
+    },
+    {
+      "path": "registry/grafting-0.6.0/build.rs",
+      "bytes": 1358,
+      "sha256": "91a1961d00ebb90790dc804d16374485e3022b2d546acad3d01687a2251611f2",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\build.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/Cargo.lock",
+      "bytes": 67695,
+      "sha256": "c0aabe5707e6bdaccb47d0a558e2944b36c4bb6d071694b19e8f0ed99ae19449",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\Cargo.lock"
+    },
+    {
+      "path": "registry/grafting-0.6.0/Cargo.toml",
+      "bytes": 3802,
+      "sha256": "ed0c37f7763a82274f6221d88d60f14765e9e9a9929908c3398c70ad811ce74a",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\Cargo.toml"
+    },
+    {
+      "path": "registry/grafting-0.6.0/Cargo.toml.orig",
+      "bytes": 4205,
+      "sha256": "648de2708ccf385d54d5251c23a92cfab14b31f90f6ed73a6347363bc5537b15",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\Cargo.toml.orig"
+    },
+    {
+      "path": "registry/grafting-0.6.0/README.md",
+      "bytes": 4043,
+      "sha256": "300cafb9935953b532bb5f8edbc12216693a8e1a685f9ec9915147a9762d403d",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\README.md"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/dx12_shared_texture.rs",
+      "bytes": 6292,
+      "sha256": "0deaae38b6ed09b7d785ef096b4eea7234e76c0e32c8b7e71d3cf8ed60d38ecb",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\dx12_shared_texture.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/error.rs",
+      "bytes": 3480,
+      "sha256": "ae6df7969c0b70b570e00b05c7bf5f76ff181bf784bdb9c7ff45723efc4a6eba",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\error.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/lib.rs",
+      "bytes": 46340,
+      "sha256": "0828732ec8ad8e1b7ddcf8b72388ed659f6c6b4b038a2b4e216633fce57feceb",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\lib.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/metal_texture_ref.rs",
+      "bytes": 5193,
+      "sha256": "8330b53f60d0ef0458835638fcfe6389fdd66f4dec9a9c0ef9046f0e67b11e7a",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\metal_texture_ref.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/raw_gl/angle_d3d11.rs",
+      "bytes": 12999,
+      "sha256": "23d511e0e21802b42b03ee0d53b106382209fb49b3395884fbd1d569e4728e66",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\raw_gl\\angle_d3d11.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/raw_gl/dx12.rs",
+      "bytes": 10278,
+      "sha256": "9defc3be1e60937ba2708c2c8586cac96b45a5c04a9b287c216f33e011c9a0a3",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\raw_gl\\dx12.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/raw_gl/linux.rs",
+      "bytes": 10562,
+      "sha256": "100cd6ef39648d85655090a3a62aa13ffa02fcd2089530dbd7a52477edce12ad",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\raw_gl\\linux.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/raw_gl/metal.rs",
+      "bytes": 6660,
+      "sha256": "aab229b803807dd5c00f40078fbcda522da6a25ee7aba5543001e41ade6a1301",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\raw_gl\\metal.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/raw_gl/mod.rs",
+      "bytes": 916,
+      "sha256": "2e528f577f8d0227fdca5bf28c309c0baea6db9cb79a54e67659b2ed2dd9232c",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\raw_gl\\mod.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/raw_gl/producer.rs",
+      "bytes": 6326,
+      "sha256": "fe15af0f85a68fc7e87fb5a458261e704b55f2e3e77ec9fee2bfadb8d46c097b",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\raw_gl\\producer.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/raw_gl/texture_normalizer.rs",
+      "bytes": 9251,
+      "sha256": "693fd71c20bf260fde66a521720eeb2a25259f9f4f4a36ebbe37e6e610fe3605",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\raw_gl\\texture_normalizer.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/raw_gl/windows.rs",
+      "bytes": 11959,
+      "sha256": "d1db327f8fd3e4f429fd046d3211b8dc6e0f9995dbbf821b02771b6d201bb876",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\raw_gl\\windows.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/surfman_gl/adapter.rs",
+      "bytes": 4962,
+      "sha256": "3eb0385b7fe2ef5827dff2e7ee224e06c09dd6fe31e9f56b878264da92af5882",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\surfman_gl\\adapter.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/surfman_gl/linux.rs",
+      "bytes": 2225,
+      "sha256": "39187f8d9a7e94f580ad99fcff97f4bed05d9d54cdbe8af4c2f32ce6c35ae598",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\surfman_gl\\linux.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/surfman_gl/metal/mod.rs",
+      "bytes": 1826,
+      "sha256": "78f7dd351b5ec0f2ab673631d269a9919953839cbc2ecbabc150fefd57a905c7",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\surfman_gl\\metal\\mod.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/surfman_gl/mod.rs",
+      "bytes": 5841,
+      "sha256": "2b04fb96b136dd35506a6cda4c6e4e5fb4cb2adcafaea0b80bd3ece2710b5f9d",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\surfman_gl\\mod.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/surfman_gl/surfman_frame_context.rs",
+      "bytes": 7008,
+      "sha256": "baff3333570fd6f25c6442e799a4fba61e9ffdf9cebeee5069812d483a324c77",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\surfman_gl\\surfman_frame_context.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/surfman_gl/windows.rs",
+      "bytes": 7469,
+      "sha256": "b364fbf8f0dd71f6a909495612311a8392b46528796827a6ac70834e8532eb81",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\surfman_gl\\windows.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/surfman_gl/windows_dx12_shared.rs",
+      "bytes": 18619,
+      "sha256": "25212afcf4a5e8aa664cd9081b2070042985b987c22e42e27dd844d5c6804e93",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\surfman_gl\\windows_dx12_shared.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/sync.rs",
+      "bytes": 3936,
+      "sha256": "94f2da58e71587005709a8550856c0264354d067c030102fb1293f7cdf93e694",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\sync.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/sync_dx12.rs",
+      "bytes": 7693,
+      "sha256": "7bd23a167f1ba1a4dbe2b732e7c7ef28602ba590692d0dec1a7387bdbc273ffb",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\sync_dx12.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/sync_metal.rs",
+      "bytes": 6941,
+      "sha256": "ee333ad5e66a2ae4034d2b4ce96f8c1e7ff39a2f358a307734e0a67f34e8b9b3",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\sync_metal.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/sync_vulkan.rs",
+      "bytes": 8173,
+      "sha256": "87a769246185227e979819de43ffab4df4a746ff18d341be7f5f3e028734fb1e",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\sync_vulkan.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/vulkan_dmabuf.rs",
+      "bytes": 27396,
+      "sha256": "2024672175268ed055a75c71ccfa3583dc0e6608e2b7d44ff60ab7a3f7f5e1be",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\vulkan_dmabuf.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/src/wgpu_compat.rs",
+      "bytes": 1701,
+      "sha256": "88f750d3908e3bf0a1fb22884a8b259d4490fd1f359d6effba96788f11494449",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\src\\wgpu_compat.rs"
+    },
+    {
+      "path": "registry/grafting-0.6.0/tests/dmabuf_roundtrip.rs",
+      "bytes": 16326,
+      "sha256": "e523febc6880702c8ba84320b6cc5275adcf346b59b4e568c3558afa90b08efd",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\tests\\dmabuf_roundtrip.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/.cargo_vcs_info.json",
+      "bytes": 101,
+      "sha256": "14eb63d1516ebec16430b1317d5e1c018115adc140d3113330c09207d7c2a8ca",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\.cargo_vcs_info.json"
+    },
+    {
+      "path": "registry/scrying-0.7.2/build.rs",
+      "bytes": 927,
+      "sha256": "8aa3466d9267a2d98e5cb368cc657f73ac8f965e33e43e905c675e909ca49a43",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\build.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/Cargo.lock",
+      "bytes": 107867,
+      "sha256": "8fd01f55d11dd189ff81d4535228bfffada2480fa01d46c7d462b0df45283c50",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\Cargo.lock"
+    },
+    {
+      "path": "registry/scrying-0.7.2/Cargo.toml",
+      "bytes": 6491,
+      "sha256": "cb5dd6e6be57a2304e9a35b0e42467e9e112feb848175eaff224134c06c791f8",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\Cargo.toml"
+    },
+    {
+      "path": "registry/scrying-0.7.2/Cargo.toml.orig",
+      "bytes": 8404,
+      "sha256": "54254f5ba1a87e8dd227ab59f58da4590c3f2a898295f317d99726df52eaf5ad",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\Cargo.toml.orig"
+    },
+    {
+      "path": "registry/scrying-0.7.2/README.md",
+      "bytes": 22396,
+      "sha256": "7157a93aa730a5c91d05373edde9ae088f15f32a100a8cd870ac6855a82811e4",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\README.md"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/latest_image_sample.rs",
+      "bytes": 2395,
+      "sha256": "e3363f72bb59d052d6796454f2e8c459341483f4b10797c6f15fe45ff8edf33b",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\latest_image_sample.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/lib.rs",
+      "bytes": 82121,
+      "sha256": "7730caf171fba78297ddf0e2ebbe51f7e6f2304469847d8b82dc9565ad041822",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\lib.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/native_frame/dmabuf.rs",
+      "bytes": 14743,
+      "sha256": "7ae59cb5126d831970a6ec9abadf28569c1308c128c21d82596dcb2ea813ef2f",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\native_frame\\dmabuf.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/native_frame/error.rs",
+      "bytes": 1394,
+      "sha256": "e7944a66dd88927c0ed751f537aaebb298db97e2b67f64ab467995f933a6f59b",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\native_frame\\error.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/native_frame/metal.rs",
+      "bytes": 1583,
+      "sha256": "4da58be4e42668a36e8820598a6bdefc466b95041db8d0b92ff59d24dbfa201b",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\native_frame\\metal.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/native_frame/mod.rs",
+      "bytes": 27983,
+      "sha256": "3b74cf33a3104e5ba827eaf8601a19f4ee6bfd2750eaf371c162b838b861178c",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\native_frame\\mod.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/native_frame/sync.rs",
+      "bytes": 6247,
+      "sha256": "7aa43903da9dfd408d15be9b29b9fb8f9c96d98347d7947990550633dd3363b8",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\native_frame\\sync.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/native_frame/sync_dx12.rs",
+      "bytes": 6997,
+      "sha256": "72dd90453f56aad8c40295b52ab3fc1acabcc7b965e0d474c229eaa70aa8d117",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\native_frame\\sync_dx12.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/native_frame/sync_metal.rs",
+      "bytes": 2976,
+      "sha256": "6110df04f1b5f73351c97040fb5c2f3a22563d036f162edf644e89215965996d",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\native_frame\\sync_metal.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/capture.rs",
+      "bytes": 21019,
+      "sha256": "4382a05e10b97d50e7617e8d12131c6eb3bee8a98335e00a96b7d4243a3dea92",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\capture.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/config.rs",
+      "bytes": 1396,
+      "sha256": "58232cd61ced0ad3de3d04fe7268d26c4762c306f1770715b6760db6bb51ec5e",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\config.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/cookies.rs",
+      "bytes": 7266,
+      "sha256": "c66cf033b500528d4106f8399adca8b69c75b3b7dda3aea126eefb214bac8f95",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\cookies.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/cursor.rs",
+      "bytes": 6096,
+      "sha256": "a2328ec222826ac5cf954050467004c6c141b6009c8ac59300f658ad5324fd04",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\cursor.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/downloads.rs",
+      "bytes": 10300,
+      "sha256": "c6989d32f307b0975ca40384330b7edc33b2045adcb375257a2f9df9955de39f",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\downloads.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/helpers.rs",
+      "bytes": 1731,
+      "sha256": "196cfccf0f72e0e991aa1dd89f1e55f1500e7b33e2caf82f11a7e37a68dbd212",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\helpers.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/ime.rs",
+      "bytes": 10103,
+      "sha256": "c5be3f5040c4bb94ced529bd108f21c374b979cb0d46e46627d19cf9e8fb4417",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\ime.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/input.rs",
+      "bytes": 15828,
+      "sha256": "76c591ddb960272a7ff2470fdba8a81dd1b118744e4c0ac596857bf901a3d7e3",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\input.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/mod.rs",
+      "bytes": 6259,
+      "sha256": "cd4e6b74f267c8caf7fcb18d9d3bc4b49ef766c2f561ca46dc09f7d8d18a46e9",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\mod.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/navigation.rs",
+      "bytes": 5210,
+      "sha256": "9f312a6ae8e3b6f55c077a7bec83993b97b4a5dbf2becfa20bba8b205976b2e9",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\navigation.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/producer.rs",
+      "bytes": 8837,
+      "sha256": "9c40ca4f318e784789e8e3241a89c8b8a7fc94ffb23ffbbb302b78dd297ed7e4",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\producer.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/scheme_handler.rs",
+      "bytes": 3651,
+      "sha256": "3eef2bc2d34dbf4268d79c874eecf1c3ff25f19597f381e6a98e647ff00cacc8",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\scheme_handler.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/script_message.rs",
+      "bytes": 6557,
+      "sha256": "134224b6a303bfbd9126284fc50834c8c2df6e85e0740b8f04c53de0f14aee9f",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\script_message.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkit6_producer/trait_impl.rs",
+      "bytes": 6324,
+      "sha256": "ee995f838a033c7e5375b60000c2bc47ed93a6383fccb00b26cf42e2cbeda8d5",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkit6_producer\\trait_impl.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/capture.rs",
+      "bytes": 5676,
+      "sha256": "3f88c624d031c0f24d755594e6eb3f14e1b11d3fa57b6a5db76abe41ce975782",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\capture.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/config.rs",
+      "bytes": 2085,
+      "sha256": "12e99be54a14f8476c9ce64265130dd26b260f2104af9f2bfa71c72ae7fe7964",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\config.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/cookies.rs",
+      "bytes": 7014,
+      "sha256": "ca15c6e8fab246b16c02006a93cb712346041d4475fbcb46343ad92a0e65b922",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\cookies.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/cursor.rs",
+      "bytes": 4035,
+      "sha256": "2ace0fa1e3a50d174ba32423fb6f94308d588979d36dc54325d87c41607af01b",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\cursor.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/downloads.rs",
+      "bytes": 6463,
+      "sha256": "ceb18e8842f8a34c575fa542b4bae725218bb831057a0835d308f3ff20fcb5a6",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\downloads.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/helpers.rs",
+      "bytes": 2400,
+      "sha256": "7e3006e5af07d90b868375c34da4a4b2e99edd37d839c02be65daa099b68b98a",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\helpers.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/ime.rs",
+      "bytes": 5983,
+      "sha256": "4aaa04e7a6a6c344b282aee28773b06048f48e8f52c6c5ec1e5f5071685034e9",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\ime.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/input.rs",
+      "bytes": 9671,
+      "sha256": "5abd5e7a5a4088fc720a2b147df6346933f4fbb30c951f9b3f965e360a4f5a80",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\input.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/input_native.rs",
+      "bytes": 13474,
+      "sha256": "8f8cda11ef2b54e5d6e7869b9f0c94dca5dde14f09fa20e5ce0d4b9a5253fed8",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\input_native.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/mod.rs",
+      "bytes": 7936,
+      "sha256": "267b487cb76a021c758a59097fcfd081b27f936c3bfe75a083ea2fddc28952de",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\mod.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/navigation.rs",
+      "bytes": 8292,
+      "sha256": "4514b4b26a378f57f1a54fa59548fc6956d6a53f8d459158f8e885a7c7602e9a",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\navigation.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/producer.rs",
+      "bytes": 6911,
+      "sha256": "6134fd18b8800db76bde43c8c55d6e580486a7276f08c9a1ee0da8428476ace3",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\producer.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/scheme_handler.rs",
+      "bytes": 2982,
+      "sha256": "202a901a4096f776b2982d84f78a48d0a5ad472cb93524c15b99229288e2eda9",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\scheme_handler.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/script_message.rs",
+      "bytes": 5307,
+      "sha256": "24cda7ee661d2ef138519234be13946f6bf8d25d9cad9138c5b3d9c37b53de36",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\script_message.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webkitgtk_producer/trait_impl.rs",
+      "bytes": 11887,
+      "sha256": "b29ac1913dd7714b1cecf2d413fd73907ce4d5fc70e8861a457186b592e02700",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webkitgtk_producer\\trait_impl.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer/auth_permissions.rs",
+      "bytes": 7385,
+      "sha256": "5c4401272f670f70d34fdd9a7e6f8cef36ee16f18ade3abbf49510c8406cd785",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer\\auth_permissions.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer/browser.rs",
+      "bytes": 34222,
+      "sha256": "11cf507ff3b799c318d67b22776a0e26d171305da3549dd35937ef733a3b0227",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer\\browser.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer/capture.rs",
+      "bytes": 22706,
+      "sha256": "2ce4c3e42f9ded688e9a44fb2e9baa6ece054bd2713296f121e54384d39a260f",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer\\capture.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer/cookies.rs",
+      "bytes": 11496,
+      "sha256": "6499ca87627f446acfe18213486bc754527da1a30c7b9cc51e3630c74f6641a4",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer\\cookies.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer/downloads.rs",
+      "bytes": 19378,
+      "sha256": "f8c87b3787d8fbce89a4c8955cb519da653a7fa0e8e23a8dbeb79bfe19bc5e74",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer\\downloads.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer/input.rs",
+      "bytes": 29295,
+      "sha256": "5db7a31356ced5aebe3941e8fa6b23519d647ad8aea3050ea1353993f4bf3544",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer\\input.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer/navigation.rs",
+      "bytes": 28916,
+      "sha256": "28f4a46790269a2288ce359576aba82664af3c4d24b9e40ea4ad218f87d6d4a4",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer\\navigation.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer/resources.rs",
+      "bytes": 6416,
+      "sha256": "f87118d2580d8fd946ce0c6df1fbe3494b31b12aef280888f69c7d4ec9404c7f",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer\\resources.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer/settings.rs",
+      "bytes": 4761,
+      "sha256": "fb8d1bfb1ab348d8350e53b219ff703f683d3f38acb33061b9f2cad090fd313d",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer\\settings.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer/setup.rs",
+      "bytes": 36198,
+      "sha256": "34d67cbb7a13be1e2d64e3d541733c4db7e59d47dfc4312ed1ac90d5569bc172",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer\\setup.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer/teardown.rs",
+      "bytes": 3623,
+      "sha256": "0f665b0589e87e0fa4b2a10588b8a0331c9afc129c63117d75d6887d318362bc",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer\\teardown.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/webview2_composition_producer.rs",
+      "bytes": 28683,
+      "sha256": "357a962f14c59656e582f7524c9afbf9e2d6fe83d59621d341b546f13d99c27d",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\webview2_composition_producer.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wgpu_compat.rs",
+      "bytes": 1236,
+      "sha256": "5ae10e9f79af62fcd101070bdbf5c57c9901366da6439175606d4d5de8df5970",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wgpu_compat.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/windows_capture.rs",
+      "bytes": 37882,
+      "sha256": "ce8b98ccd83ef31d07606da780b629139c67c3edd960b07ce27c24728cbeab48",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\windows_capture.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/api.rs",
+      "bytes": 43107,
+      "sha256": "f611c2a1ea4e3b228d94937e250028114542b1bd224a4e6e0a829e7db70bdb5a",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\api.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/capture/async_start.rs",
+      "bytes": 20016,
+      "sha256": "18a42cef5074883abc868e8d3a766da0d3cc5282fa9275fa93e3bfc22dcf2313",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\capture\\async_start.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/capture/blocking.rs",
+      "bytes": 30303,
+      "sha256": "09934354a4462434d29c5da13d3fcdb4d93795b2bf23b53b6c7e69a9b6454e5b",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\capture\\blocking.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/capture/mod.rs",
+      "bytes": 41705,
+      "sha256": "2305b21cea564ebc72fb80fb34b7c1671ffce29ca358c4b3b8179bc72787fdb3",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\capture\\mod.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/config.rs",
+      "bytes": 5233,
+      "sha256": "de3e45558e04eb46b5c64a8c5110d1688340967660376ec328d443b3b02a7139",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\config.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/cookie_observer.rs",
+      "bytes": 3487,
+      "sha256": "383294819efced62046e570b7f030d9ae34eaeeef8c79c49af455a2a740f4281",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\cookie_observer.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/cookies.rs",
+      "bytes": 6810,
+      "sha256": "39e228401efee084f98feaf947c27dd301500b6d685e4daba0f19634b6eed4b7",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\cookies.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/download_handler.rs",
+      "bytes": 27848,
+      "sha256": "1786b16c77e00d73d3283a1d5137e49ced591d56507c63085aceaf9a4464c9c8",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\download_handler.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/helpers.rs",
+      "bytes": 10396,
+      "sha256": "aed24e7baf829fda2db7ebd32e7ba5f16343071b845e29d1da2b58a775aad84e",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\helpers.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/input.rs",
+      "bytes": 12666,
+      "sha256": "1db5103471594b3d15932f4ebf3e4448006b245ef414c6cda5612f3c5329e900",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\input.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/mod.rs",
+      "bytes": 4771,
+      "sha256": "9660f977204c5dd9b4ce6802aea6fe0e33fa3d59d52174ca787e811500268104",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\mod.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/nav_delegate.rs",
+      "bytes": 19959,
+      "sha256": "1c60a02fdd3c2c2b7d0008a30f79d721719b3ab37aeb0c348c225ff91e9838f3",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\nav_delegate.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/producer.rs",
+      "bytes": 39704,
+      "sha256": "09c3b26f2a9250941df437d7c4adb8750f7cef5c8e9075bb47fde43414ad5869",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\producer.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/scheme_handler.rs",
+      "bytes": 6743,
+      "sha256": "22040ff2ea5f379281405d54fc6fcbc8acf7c6a499949e8d6c5a34db0f0a5426",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\scheme_handler.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/script_message.rs",
+      "bytes": 20924,
+      "sha256": "588fa47113b9c2e280d27c33220e3c491121e6ccfce4839bc9de550d04ee3f3d",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\script_message.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/snapshots.rs",
+      "bytes": 9377,
+      "sha256": "a2b50e33b4ef051aad3b0104d0b7614bdb5444b2e2889d4085abf18f2a73cee1",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\snapshots.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/title_observer.rs",
+      "bytes": 3684,
+      "sha256": "8d2dba1ea9d2dd73975227e0f6edb3c7b7e214d562a3f189c7f7e6be75a5844b",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\title_observer.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/trait_impl.rs",
+      "bytes": 29346,
+      "sha256": "3e694b3e45384c3399fb52090ba5266b4f85565d777811e3683058df52aaa622",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\trait_impl.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wkwebview_producer/ui_delegate.rs",
+      "bytes": 8196,
+      "sha256": "43a1636f9421d1031935ac44b22ca12df376e0e27be792d168f60cadc01d9817",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wkwebview_producer\\ui_delegate.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/config.rs",
+      "bytes": 1582,
+      "sha256": "c42a800d7e04996ff2f0a7a99a6fef6a84d3ca1697fae5f3fff652035c455fa2",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\config.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/cookies.rs",
+      "bytes": 24850,
+      "sha256": "8d1d63a0b8bdae0c4057d234d2c9d67d3a28a0aa1b55fc3c8abd5201231d4afa",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\cookies.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/cursor.rs",
+      "bytes": 7202,
+      "sha256": "a1f83e92157a2574874135cbab18f5397004fc887dc77c41bcd4d94f00d496ac",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\cursor.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/downloads.rs",
+      "bytes": 15864,
+      "sha256": "aa16f96169cbfd340b25e08cf294994300c5c5d29293341ba030ac000ed74293",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\downloads.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/ffi.rs",
+      "bytes": 20459,
+      "sha256": "cc4f4cbd54849d03cde4ff6346ece278a0d89865d372e94f33719fc582c353a4",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\ffi.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/headless.rs",
+      "bytes": 20651,
+      "sha256": "6a46e87f9b9e90c1cc2442a007bfceb530b43fa057727bc48ba7446c98e0f9e7",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\headless.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/ime.rs",
+      "bytes": 14115,
+      "sha256": "95d61b6d151309cea2ba594989ab27e4b03984d7995da78bc9cdaa9933327253",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\ime.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/input.rs",
+      "bytes": 17057,
+      "sha256": "a70f7c6c63b1959c136339ac16d533f31faa19eacf16002a8c74dd435cd40ad7",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\input.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/mod.rs",
+      "bytes": 7938,
+      "sha256": "55a22fb64b9f2cd0364f35d6269ce20044040916c8b2000847c123719f5df262",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\mod.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/navigation.rs",
+      "bytes": 11046,
+      "sha256": "e2ad93c43bbe48e2ffcb089328366438ec69b6c4392ea4459c5c5a799f9a0b16",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\navigation.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/producer.rs",
+      "bytes": 36228,
+      "sha256": "0855eb73a516f6d4969e345efa829a893aa276b1c2a8ae87ea93562fabd06605",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\producer.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/scheme_handler.rs",
+      "bytes": 11236,
+      "sha256": "02422845600f2b335e825e9adc8638449f22f88b427bb1d5bdeb31d35902b6bc",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\scheme_handler.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/src/wpe_producer/script_message.rs",
+      "bytes": 17788,
+      "sha256": "b2cdcd1bc662c7fb3cab06b1fedfb7f5bff466c480a8f493c82e3b8b6fd450b0",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\src\\wpe_producer\\script_message.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/tests/dmabuf_roundtrip.rs",
+      "bytes": 24703,
+      "sha256": "213f32cdd8e531cf9c1ec1a9bc809664135cd857920fab79469f04e94cdb9eb9",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\tests\\dmabuf_roundtrip.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/tests/wpe_input.rs",
+      "bytes": 17534,
+      "sha256": "a8600b36aa9804edcd5fbca4015621ccb1c78cd6da8c382bec52b077464ee1c5",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\tests\\wpe_input.rs"
+    },
+    {
+      "path": "registry/scrying-0.7.2/tests/wpe_to_vulkan_roundtrip.rs",
+      "bytes": 26166,
+      "sha256": "fc6f98124ca565292f9d451905550de1b6a9e8d95f6a235b465bf3bea9bed7fd",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\tests\\wpe_to_vulkan_roundtrip.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/.cargo_vcs_info.json",
+      "bytes": 101,
+      "sha256": "66d33dc8570604fcf7184d91e20b348851262e861946ef0ff8332b58d7a89ca4",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\.cargo_vcs_info.json"
+    },
+    {
+      "path": "registry/welding-0.14.1/build.rs",
+      "bytes": 728,
+      "sha256": "d9434bd89524ae1764b5e99b54712f3a3a7f1e6d173872b72e94bbda838c7d38",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\build.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/Cargo.lock",
+      "bytes": 75956,
+      "sha256": "b6bf65c1b4f009cc83fad93dbd856ac3a4ce184a7b8f6dc0c6befc85c2da019e",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\Cargo.lock"
+    },
+    {
+      "path": "registry/welding-0.14.1/Cargo.toml",
+      "bytes": 3452,
+      "sha256": "406ced71f799f1356867ec1d20d6cd736a2a63204a0b67236c5a62de94b1a9e2",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\Cargo.toml"
+    },
+    {
+      "path": "registry/welding-0.14.1/Cargo.toml.orig",
+      "bytes": 3457,
+      "sha256": "f6a9aa086fd24b5382fe9051748428baccb321a86e6ddef4755b1f19df4bcfa8",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\Cargo.toml.orig"
+    },
+    {
+      "path": "registry/welding-0.14.1/README.md",
+      "bytes": 29734,
+      "sha256": "5ce0022dab39be8f177628c820e38e648c0eb1bc44aca064ea30cbd228086093",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\README.md"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/app.rs",
+      "bytes": 8543,
+      "sha256": "c62ae1d653e56d9eea9e20e2ac61e46d58b21690dbab676178ee82b2e01de2ad",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\app.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/auth.rs",
+      "bytes": 4130,
+      "sha256": "7d1690c65ddd91a1d5300057fae36b4539c4aeaea8b11d8d2f6ac4a88920a48f",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\auth.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/cef_input.rs",
+      "bytes": 3605,
+      "sha256": "0b836185fd882f0ba6fbfbb00ebde5dd8b3d8ac4076d2a4ebc111e3880a364d9",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\cef_input.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/cookies.rs",
+      "bytes": 11087,
+      "sha256": "e87bc06ac256318b149cd458b274192e401bfc816762a0374c6eaff5450bacca",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\cookies.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/cursor.rs",
+      "bytes": 4374,
+      "sha256": "6672a1c8e0521a5733b362fd0b0500d288a81644de7251c253ee16505afdc88d",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\cursor.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/devtools.rs",
+      "bytes": 3692,
+      "sha256": "ef5f908a028744745e6712008d5e0da2ba6166f02be46d2d4f59a497a7d8f7c2",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\devtools.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/downloads.rs",
+      "bytes": 9995,
+      "sha256": "a2adbd38dda4e55b553590ccea6c77988908850bb760e9f3ce88b26e2329710e",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\downloads.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/drag.rs",
+      "bytes": 7649,
+      "sha256": "ce5d06a681bff9a2c7f4fb60900928c6c175678fb1fe869ccc8859a1163013fe",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\drag.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/error.rs",
+      "bytes": 1970,
+      "sha256": "055ad752d0c68202b51385a5e97682875e69b3bdb3fad9c2ad44972dfcc67faa",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\error.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/ime.rs",
+      "bytes": 2674,
+      "sha256": "2bc993815b66ab0e630a9124c6a37ca7d8b2399f63bee8cef624fc8678304745",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\ime.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/lib.rs",
+      "bytes": 4967,
+      "sha256": "3f0c4a1592e84f399c8abc9d03fd6a2eefaae1f33d532f2bd7b3f48e7156219c",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\lib.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/linux_cef/cef_backed.rs",
+      "bytes": 39156,
+      "sha256": "81ba15e65ee40462085666ac9c77e1ef56e3e1f360baa9471e327829239e6e76",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\linux_cef\\cef_backed.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/linux_cef/mod.rs",
+      "bytes": 43025,
+      "sha256": "c66f107cf764e0cb9d0fa0da09d420aebfd6cc2838387fbb3450287a7db020b8",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\linux_cef\\mod.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/macos_cef/cef_backed.rs",
+      "bytes": 37676,
+      "sha256": "50dccf130ebee957944c0ebcce509b7c591b5e5fc8373cb2e029c49cd529f92d",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\macos_cef\\cef_backed.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/macos_cef/mod.rs",
+      "bytes": 44919,
+      "sha256": "5ee2f8aac6568cb812b5db6e1dfa7f72e700b0c0e0f0773c5dd3490db5e1bbd6",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\macos_cef\\mod.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/native_frame/dx12.rs",
+      "bytes": 14641,
+      "sha256": "44423d2efc26d691d24cffe3e27f95f8a9f31d01e7b35631a71b96e0390fe770",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\native_frame\\dx12.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/native_frame/metal.rs",
+      "bytes": 4021,
+      "sha256": "63ce0a02ba0433f6757b8fe8729f14bf2bf9e55f647f8a9fc0ece0da7a5249f2",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\native_frame\\metal.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/native_frame/mod.rs",
+      "bytes": 23163,
+      "sha256": "396aea2439398f92a2589d508a3a88b0cf215a5ee1da2af51e8199ddea11345b",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\native_frame\\mod.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/native_frame/vulkan_dmabuf.rs",
+      "bytes": 17376,
+      "sha256": "997f58af8b6940caa7cd795051c68b0e4c41d91ad94c1134b3f83591507676cf",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\native_frame\\vulkan_dmabuf.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/permissions.rs",
+      "bytes": 9473,
+      "sha256": "17a133dcfa9cb01001331a6b422be600b66c4d13fa4d1b4d577ad3e038e690c0",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\permissions.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/popup.rs",
+      "bytes": 2978,
+      "sha256": "954e1011091a3b9646361fb2b8244c78cb6de5016ade5766fcb23853892cd5f2",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\popup.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/profile.rs",
+      "bytes": 3492,
+      "sha256": "792229d52913cd0fc8e9e4972b425ff61f4e532b32547022ebfa758738e462d5",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\profile.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/runtime.rs",
+      "bytes": 15685,
+      "sha256": "eed4068202cc9b4f0ce9006426ac6491d4d92f7104721e578350f5706aa033fe",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\runtime.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/snapshot.rs",
+      "bytes": 6141,
+      "sha256": "693959e9f8b264e7598d3be6ce26a2b25ba279ac58c966b8f479e3bccea6b301",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\snapshot.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/surface.rs",
+      "bytes": 61727,
+      "sha256": "4171c020c65a5e488dd208531a0a5ad9702b76c120eafba1889bb5a3eb3fa59b",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\surface.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/view.rs",
+      "bytes": 5132,
+      "sha256": "6ccaf96207a09be5e82a03ebb59a2cd04985cd2f429d063554cc2574a0e33302",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\view.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/wgpu_compat.rs",
+      "bytes": 1297,
+      "sha256": "b003ef191620981ac79b55bd70f486bc8ac585025194cae8db2c422d2547fb1a",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\wgpu_compat.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/windows_cef/cef_backed.rs",
+      "bytes": 41259,
+      "sha256": "26a4467cfd6c87f2c73be71c02e436d3d39e78474cbdefdf42cd08a48500ea2e",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\windows_cef\\cef_backed.rs"
+    },
+    {
+      "path": "registry/welding-0.14.1/src/windows_cef/mod.rs",
+      "bytes": 48576,
+      "sha256": "6f2f55d709c08b3fb4eb6908933c908326f2b6ab00075a6437a27cefcae049ba",
+      "actual_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\src\\windows_cef\\mod.rs"
+    },
+    {
+      "path": "helpers/stage_registry_triplet.py",
+      "bytes": 16131,
+      "sha256": "8ba5aac06b01bd6f8a64604df38853afed6c123d83c13dc7787c84a852ae5f5d",
+      "actual_path": "C:\\Users\\mark_\\Code\\repos\\wgpu-graft\\scripts\\stage_registry_triplet.py"
+    },
+    {
+      "path": "helpers/verify_registry_triplet.py",
+      "bytes": 4982,
+      "sha256": "5178c3b783b4306de37660c74a235af3d35a391f1757189728c5862248f2bc4d",
+      "actual_path": "C:\\Users\\mark_\\Code\\repos\\wgpu-graft\\scripts\\verify_registry_triplet.py"
+    }
+  ],
+  "zip_sha256": "3a0aae8369c7f32820b090f6ff8e5667fbc0c45189392b05191c79b37fe78e37",
+  "selected_registry_packages": [
+    {
+      "name": "grafting",
+      "version": "0.6.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\Cargo.toml",
+      "package_checksum": "384d9d63669dd2b92a2433f2d0f36c7e8b775865b673deeb9ca34d7e631d4be1",
+      "preserved_archive": "release072-registry-win-grafting-0.6.0.crate",
+      "bytes": 76827,
+      "source_root": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0"
+    },
+    {
+      "name": "scrying",
+      "version": "0.7.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\Cargo.toml",
+      "package_checksum": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740",
+      "preserved_archive": "release072-registry-win-scrying-0.7.2.crate",
+      "bytes": 338664,
+      "source_root": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2"
+    },
+    {
+      "name": "welding",
+      "version": "0.14.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\Cargo.toml",
+      "package_checksum": "6fc43b8b7f4f09b452ef9699a0dd23c9c6cc1cf874374c39a9faa1f6e0bff085",
+      "preserved_archive": "release072-registry-win-welding-0.14.1.crate",
+      "bytes": 139698,
+      "source_root": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1"
+    }
+  ],
+  "one_wgpu": "30.0.1",
+  "all_external_packages_registry_only": true,
+  "no_patch_override": true,
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-pc-windows-msvc\nrelease: 1.97.1\nLLVM version: 22.1.6\n",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "WGPU_BACKEND": "dx12"
+  }
+}

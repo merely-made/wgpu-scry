@@ -1,0 +1,31 @@
+{
+  "command": [
+    "python",
+    "C:\\Users\\mark_\\Code\\repos\\wgpu-graft\\scripts\\verify_registry_triplet.py",
+    "--consumer",
+    "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry",
+    "--receipt-dir",
+    "C:\\Users\\mark_\\Code\\repos\\wgpu-scry\\docs\\receipts\\scry_release_readiness_20261007\\release072-registry-win-resolver",
+    "--grafting-version",
+    "0.6.0",
+    "--scrying-version",
+    "0.7.2",
+    "--welding-version",
+    "0.14.1"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry",
+  "started_utc": "2026-10-07T13:47:21.771002+00:00",
+  "priority": "BelowNormal",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:/t/cargo-targets/wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "WGPU_BACKEND": "dx12",
+    "GITHUB_SHA": "dcab3700cb8bbf208d1c4206433275c2c97cd715",
+    "SCRY_SOURCE_REF": "4d8d1d3f8dd450b712960c90b74263a45b46e35b"
+  },
+  "owned_pid": 47384,
+  "actual_exit_code": 0,
+  "finished_utc": "2026-10-07T13:47:29.049891+00:00",
+  "elapsed_seconds": 7.281
+}

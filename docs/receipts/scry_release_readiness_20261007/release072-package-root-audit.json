@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-10-07T13:41:01.441171+00:00",
+  "source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "version": "0.7.2",
+  "member_count": 93,
+  "rust_members_match_committed_source": 88,
+  "msrv": "1.92",
+  "published_grafting_dependency": "0.6.0",
+  "windows_json_dependency_present": true,
+  "vcs_clean": true,
+  "package_and_dry_run_archives_identical": true,
+  "archive_bytes": 338664,
+  "archive_sha256": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740",
+  "actual_publication_performed": false
+}

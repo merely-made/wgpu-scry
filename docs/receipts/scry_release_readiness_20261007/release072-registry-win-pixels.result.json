@@ -1,0 +1,40 @@
+{
+  "command": [
+    "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+    "--pixel-test"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry",
+  "started_utc": "2026-10-07T13:51:59.577464+00:00",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "WGPU_BACKEND": "dx12",
+    "TEMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-registry-runtime",
+    "TMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-registry-runtime",
+    "WEBVIEW_READBACK_VALIDATE": "1"
+  },
+  "priority": "BelowNormal",
+  "executable_sha256": "09727985de18cf1d73a270cbdff66596647ad31ed0581117890063bac1b2ad87",
+  "default_per_mode_timeout_seconds": 90,
+  "timed_out": false,
+  "owned_pid": 49024,
+  "actual_exit_code": 0,
+  "finished_utc": "2026-10-07T13:52:01.903742+00:00",
+  "elapsed_seconds": 2.328,
+  "native_process_observations": [
+    {
+      "pid": 49024,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--pixel-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:52:00.347913+00:00",
+      "actual_exit_code": 0
+    }
+  ],
+  "observer_limitations": [],
+  "stdout_sha256": "11e1090256f56e5822277e99f36e7a121e602f529287668631fc39a5e9465bfc",
+  "stderr_sha256": "4cddb20527009609e49c68d98baa91fca1fc6f34f73b073a74ea7a60f5c3ff14"
+}

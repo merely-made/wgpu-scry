@@ -1,0 +1,12 @@
+    Updating crates.io index
+     Locking 366 packages to latest Rust 1.97.1 compatible versions
+      Adding pollster v0.4.0 (available: v1.0.1)
+ Downloading crates ...
+  Downloaded arbitrary v1.5.0
+  Downloaded objc2 v0.5.3
+  Downloaded objc2 v0.6.5
+  Downloaded scrying v0.7.2
+  Downloaded tokio v1.53.2
+  Downloaded zerocopy-derive v0.8.61
+  Downloaded zerocopy v0.8.61
+  Downloaded welding v0.14.1
