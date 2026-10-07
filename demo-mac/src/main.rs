@@ -286,6 +286,43 @@ fn base64_decode(input: &str) -> Option<Vec<u8>> {
 /// `scrying-test://` scheme to canned HTML responses that drive the
 /// browser-class state machine. Each response embeds known marker
 /// text so JS-side and host-side assertions can verify what loaded.
+const CAPTURE_ACTIVITY_SCRIPT: &str = r#"<script>
+  // Diagnostic opt-in only: observations can affect scheduling.
+  let animationFrames = 0;
+  let timerTicks = 0;
+  function observeAnimationFrame() {
+    animationFrames += 1;
+    requestAnimationFrame(observeAnimationFrame);
+  }
+  requestAnimationFrame(observeAnimationFrame);
+  function reportCaptureActivity(kind) {
+    const report = {
+      kind,
+      elapsedMs: Math.round(performance.now()),
+      visibility: document.visibilityState,
+      focused: document.hasFocus(),
+      viewport: [innerWidth, innerHeight, devicePixelRatio],
+      animationFrames,
+      timerTicks,
+      background: getComputedStyle(document.body).backgroundColor,
+      animations: document.body.getAnimations().map(animation => ({
+        state: animation.playState,
+        currentTime: animation.currentTime
+      }))
+    };
+    if (window.chrome && window.chrome.webview) {
+      window.chrome.webview.postMessage('capture-activity:' + JSON.stringify(report));
+    }
+  }
+  document.addEventListener('visibilitychange', () => reportCaptureActivity('visibility'));
+  window.addEventListener('resize', () => reportCaptureActivity('resize'));
+  setInterval(() => {
+    timerTicks += 1;
+    reportCaptureActivity('timer');
+  }, 1000);
+  reportCaptureActivity('ready');
+</script>"#;
+
 fn browser_test_scheme_handler() -> UrlSchemeHandlerFn {
     Arc::new(|url: &str| -> UrlSchemeResponse {
         let body = if url.contains("/history-1") {
@@ -372,9 +409,14 @@ fn browser_test_scheme_handler() -> UrlSchemeHandlerFn {
         } else {
             r#"<!doctype html><body>scrying-test fallback</body>"#
         };
+        let body = if url.contains("/capture?activity=1") {
+            body.replace("</body>", &format!("{CAPTURE_ACTIVITY_SCRIPT}</body>"))
+        } else {
+            body.to_owned()
+        };
         UrlSchemeResponse {
             mime_type: "text/html".into(),
-            body: body.as_bytes().to_vec(),
+            body: body.into_bytes(),
             headers: Vec::new(),
         }
     })
@@ -562,6 +604,9 @@ struct Cli {
     /// pre-grant via tccutil. Run manually: `cargo run -p
     /// demo-mac -- --capture-test`.
     capture_test: bool,
+    /// Opt into fixture JavaScript activity probes; observations can change
+    /// scheduling and are not a substitute for the ordinary capture gate.
+    capture_activity: bool,
     /// Force the demo window to remain visible even when the test
     /// mode would normally run headless. Useful for debugging a
     /// failing test by watching the WKWebView in real time.
@@ -595,6 +640,7 @@ impl Cli {
             match arg.as_str() {
                 "--probe-snapshot" => cli.probe_snapshot = true,
                 "--capture" => cli.capture = true,
+                "--capture-activity" => cli.capture_activity = true,
                 "--scripted" => cli.scripted = true,
                 "--dump-every" => {
                     let value = iter.next().unwrap_or_default();
@@ -823,6 +869,8 @@ struct CaptureTestState {
     /// capture-test resize schedules are measured from this point so macOS
     /// permission/startup latency cannot consume their observation windows.
     live_started_at: Option<Instant>,
+    /// Bounded one-second diagnostic samples; never changes acceptance.
+    next_activity_report_at: Duration,
     /// Final pass/fail accumulator.
     failures: Vec<String>,
 }
@@ -1089,6 +1137,7 @@ impl ApplicationHandler for App {
             || state.pointer_input_test.is_some()
             || state.download_test.is_some()
             || state.two_tabs_test.is_some()
+            || state.capture_test.is_some()
         {
             drain_events(state);
         }
@@ -1301,6 +1350,9 @@ impl ApplicationHandler for App {
         match event {
             WindowEvent::CloseRequested => {
                 event_loop.exit();
+            }
+            WindowEvent::Occluded(occluded) if state.capture_test.is_some() => {
+                println!("demo-mac: capture host occluded={occluded}");
             }
             WindowEvent::Resized(new_size) => {
                 // The startup code in `App::resumed` wires three
@@ -2975,6 +3027,21 @@ fn advance_capture_test(state: &mut AppState, event_loop: &ActiveEventLoop) {
         return;
     };
     let live_started_at = *test.live_started_at.get_or_insert_with(Instant::now);
+    let elapsed = live_started_at.elapsed();
+    if elapsed >= test.next_activity_report_at {
+        let diagnostics = state.producer.capture_diagnostics();
+        println!(
+            "demo-mac: capture activity at {:.2}s: frames={}, complete={}, idle={}, visible={:?}, minimized={:?}, focused={}",
+            elapsed.as_secs_f64(),
+            test.frame_dims.len(),
+            diagnostics.frame_status_complete,
+            diagnostics.frame_status_idle,
+            state.window.is_visible(),
+            state.window.is_minimized(),
+            state.window.has_focus(),
+        );
+        test.next_activity_report_at = elapsed + Duration::from_secs(1);
+    }
 
     match state.producer.try_acquire_frame() {
         Ok(Some(scrying::WebSurfaceFrame::Native(scrying::NativeFrame::MetalTextureRef(
@@ -3846,7 +3913,11 @@ impl AppState {
             && !cli.download_test
         {
             let initial_url = if cli.capture_test {
-                "scrying-test://capture"
+                if cli.capture_activity {
+                    "scrying-test://capture?activity=1"
+                } else {
+                    "scrying-test://capture"
+                }
             } else {
                 INITIAL_URL
             };
@@ -3969,6 +4040,7 @@ impl AppState {
                 frames_per_size: if cli.resize_test { 3 } else { 5 },
                 capture_started_at: None,
                 live_started_at: None,
+                next_activity_report_at: Duration::ZERO,
                 failures: Vec::new(),
             }
         });

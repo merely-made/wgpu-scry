@@ -96,6 +96,12 @@ jobs:
       - name: Check capture size expectations on the native toolchain
         run: cargo test --locked -p demo-mac --bin demo-mac capture_size_tests
       - name: Run WKWebView assertions including live capture and resize
+        id: native_battery
+        run: bash scripts/test-mac.sh
+      - name: Diagnose capture activity separately from the native battery
+        if: ${{ always() && !cancelled() && steps.native_battery.outcome != 'skipped' }}
+        env:
+          CAPTURE_ACTIVITY: "1"
         run: bash scripts/test-mac.sh
 
   metal-intel:
@@ -126,6 +132,12 @@ jobs:
       - name: Check capture size expectations on the native toolchain
         run: cargo test --locked -p demo-mac --bin demo-mac capture_size_tests
       - name: Run WKWebView assertions including live capture and resize
+        id: native_battery
+        run: bash scripts/test-mac.sh
+      - name: Diagnose capture activity separately from the native battery
+        if: ${{ always() && !cancelled() && steps.native_battery.outcome != 'skipped' }}
+        env:
+          CAPTURE_ACTIVITY: "1"
         run: bash scripts/test-mac.sh
 
   radv-wpe:
