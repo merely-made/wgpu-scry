@@ -1,0 +1,107 @@
+{
+  "version": {
+    "id": 3426766,
+    "crate": "scrying",
+    "num": "0.7.2",
+    "dl_path": "/api/v1/crates/scrying/0.7.2/download",
+    "readme_path": "/api/v1/crates/scrying/0.7.2/readme",
+    "updated_at": "2026-10-07T13:42:15.497345Z",
+    "created_at": "2026-10-07T13:42:15.497345Z",
+    "downloads": 0,
+    "features": {
+      "default": [
+        "wgpu-30"
+      ],
+      "webkit6": [
+        "dep:gtk4",
+        "dep:gsk4",
+        "dep:webkit6"
+      ],
+      "webkitgtk-fallback": [
+        "dep:gdk",
+        "dep:glib",
+        "dep:gtk",
+        "dep:javascriptcore",
+        "dep:soup",
+        "dep:webkit2gtk"
+      ],
+      "wgpu-28": [
+        "dep:wgpu_28",
+        "dep:wgpu_hal_28",
+        "dep:metal",
+        "dep:foreign-types-shared",
+        "grafting/wgpu-28"
+      ],
+      "wgpu-29": [
+        "dep:wgpu_29",
+        "dep:wgpu_hal_29",
+        "grafting/wgpu-29"
+      ],
+      "wgpu-30": [
+        "dep:wgpu_30",
+        "dep:wgpu_hal_30",
+        "grafting/wgpu-30"
+      ],
+      "wpe": [
+        "dep:gio",
+        "dep:glib",
+        "dep:soup"
+      ]
+    },
+    "yanked": false,
+    "yank_message": null,
+    "lib_links": null,
+    "license": "MPL-2.0",
+    "links": {
+      "dependencies": "/api/v1/crates/scrying/0.7.2/dependencies",
+      "version_downloads": "/api/v1/crates/scrying/0.7.2/downloads",
+      "authors": "/api/v1/crates/scrying/0.7.2/authors"
+    },
+    "crate_size": 338664,
+    "published_by": {
+      "id": 387677,
+      "login": "mark-ik",
+      "name": "Markik",
+      "avatar": "https://avatars.githubusercontent.com/u/54276851?v=4",
+      "url": "https://github.com/mark-ik",
+      "github_username_matches": true,
+      "created_at": "2019-08-19T13:44:01Z"
+    },
+    "audit_actions": [
+      {
+        "action": "publish",
+        "user": {
+          "id": 387677,
+          "login": "mark-ik",
+          "name": "Markik",
+          "avatar": "https://avatars.githubusercontent.com/u/54276851?v=4",
+          "url": "https://github.com/mark-ik",
+          "github_username_matches": true,
+          "created_at": "2019-08-19T13:44:01Z"
+        },
+        "time": "2026-10-07T13:42:15.497345Z"
+      }
+    ],
+    "checksum": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740",
+    "rust_version": "1.92",
+    "has_lib": true,
+    "bin_names": [],
+    "edition": "2024",
+    "description": "Capability-driven system-webview frame adapter for WebView2, WKWebView, WebKitGTK, and WPE",
+    "homepage": null,
+    "documentation": null,
+    "repository": "https://github.com/merely-made/wgpu-scry",
+    "trustpub_data": null,
+    "linecounts": {
+      "languages": {
+        "Rust": {
+          "code_lines": 20181,
+          "comment_lines": 1997,
+          "files": 85
+        }
+      },
+      "total_code_lines": 20181,
+      "total_comment_lines": 1997
+    }
+  }
+}

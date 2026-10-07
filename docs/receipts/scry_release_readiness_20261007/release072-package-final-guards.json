@@ -1,0 +1,227 @@
+{
+  "recorded_utc": "2026-10-07T13:45:13.164571+00:00",
+  "source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "source_clean": true,
+  "source_inputs_verified": 165,
+  "source_zip_all_raw_bytes_verified": true,
+  "primary_head": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "primary_dirty_docs_preserved": [
+    {
+      "path": "README.md",
+      "bytes": 5116,
+      "sha256": "0345476e74b1cabc02ab37f566ad75e91bd144a024dcaec15ae0967faabc7f5a"
+    },
+    {
+      "path": "design_docs/2026-05-07_platform_ceilings.md",
+      "bytes": 70730,
+      "sha256": "f692a9953676dd655d7303466c50129396082527666c64358879f6e631cd7aa6"
+    },
+    {
+      "path": "design_docs/2026-05-09_browser_parity_checklist.md",
+      "bytes": 17666,
+      "sha256": "6c8c8e4596755e679b6cebd99a1f27fe5fda6152bd57d0b29d074c68cf5aea7a"
+    },
+    {
+      "path": "design_docs/2026-05-11_windows_webview2_target.md",
+      "bytes": 39788,
+      "sha256": "441fc850ed01a3f282e3f167b29cd6b4a8420e1df967c55744976a9578a8df5f"
+    },
+    {
+      "path": "design_docs/2026-05-15_phase4_strategy.md",
+      "bytes": 50514,
+      "sha256": "d96918a5ce2735b21057f616c88543cd5c78beebd0e6c4a6859c6d8734c4fbdd"
+    },
+    {
+      "path": "design_docs/2026-06-28_improvement_backlog.md",
+      "bytes": 11172,
+      "sha256": "33a1b0dfc0df40fb57d21cf19cab00d5a3892fb559bd7d60173af0d13268b5b0"
+    },
+    {
+      "path": "design_docs/DOC_README.md",
+      "bytes": 4522,
+      "sha256": "70c318ab23c5aa9df1de4242c96a8bdf1307254971b02575eb81eac75ce2333d"
+    },
+    {
+      "path": "docs/parity-matrix.md",
+      "bytes": 13777,
+      "sha256": "61300e80fbfe24b74902e609c438ca5ba89a1af262cc5243241a29220c8f8ec1"
+    }
+  ],
+  "source_status_with_ignored": "",
+  "lock_semantic_proof": {
+    "workspace_records": 494,
+    "package_records": 405,
+    "all_package_record_non_dependency_fields_exact": true,
+    "all_resolved_dependency_identity_sets_exact": true,
+    "textual_dependency_disambiguation_only_record_count": 32,
+    "identities": [
+      [
+        "block2",
+        "0.6.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "core-graphics-types",
+        "0.2.0",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "dispatch2",
+        "0.3.1",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "grafting",
+        "0.6.0",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "metal",
+        "0.33.0",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-app-kit",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-av-foundation",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-cloud-kit",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-core-audio",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-core-audio-types",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-core-data",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-core-foundation",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-core-graphics",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-core-image",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-core-media",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-core-text",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-core-video",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-foundation",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-io-surface",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-javascript-core",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-metal",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-quartz-core",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-screen-capture-kit",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-security",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-uniform-type-identifiers",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "objc2-web-kit",
+        "0.3.2",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "parking_lot_core",
+        "0.9.12",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "raw-window-metal",
+        "1.1.0",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "scrying",
+        "0.7.2",
+        ""
+      ],
+      [
+        "wgpu-hal",
+        "28.0.1",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "wgpu-hal",
+        "29.0.4",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      [
+        "wgpu-hal",
+        "30.0.1",
+        "registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    ],
+    "excluded_workspace_count": 89
+  },
+  "observed_build_native_processes": [],
+  "our_cargo_and_native_ownership_closed": true,
+  "retained_worktree": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "retained_target": "C:/t/cargo-targets/wgpu-scry",
+  "retention_reason": "Root requested exact registry-only Windows consumer qualification; worktree and runtime profiles are retained for that next gate.",
+  "no_source_edits_publish_tag_or_cleanup": true
+}

@@ -1,0 +1,179 @@
+{
+  "recorded_utc": "2026-10-07T13:56:16.703595+00:00",
+  "fixture_source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "helper_commit": "dcab3700cb8bbf208d1c4206433275c2c97cd715",
+  "source_inputs_verified": 180,
+  "source_zip_sha256": "3a0aae8369c7f32820b090f6ff8e5667fbc0c45189392b05191c79b37fe78e37",
+  "registry_package_checksums": {
+    "grafting": "384d9d63669dd2b92a2433f2d0f36c7e8b775865b673deeb9ca34d7e631d4be1",
+    "scrying": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740",
+    "welding": "6fc43b8b7f4f09b452ef9699a0dd23c9c6cc1cf874374c39a9faa1f6e0bff085"
+  },
+  "one_wgpu": "30.0.1",
+  "all_external_sources_registry_only": true,
+  "no_git_path_or_patch_override": true,
+  "executable": {
+    "recorded_utc": "2026-10-07T13:51:41.556499+00:00",
+    "path": "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+    "sha256": "09727985de18cf1d73a270cbdff66596647ad31ed0581117890063bac1b2ad87",
+    "bytes": 18857472,
+    "build_command": [
+      "cargo",
+      "+1.97.1",
+      "build",
+      "--locked",
+      "-j1"
+    ],
+    "selected_registry_packages": [
+      {
+        "name": "grafting",
+        "version": "0.6.0",
+        "source": "registry+https://github.com/rust-lang/crates.io-index",
+        "manifest_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\Cargo.toml",
+        "package_checksum": "384d9d63669dd2b92a2433f2d0f36c7e8b775865b673deeb9ca34d7e631d4be1",
+        "preserved_archive": "release072-registry-win-grafting-0.6.0.crate",
+        "bytes": 76827,
+        "source_root": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0"
+      },
+      {
+        "name": "scrying",
+        "version": "0.7.2",
+        "source": "registry+https://github.com/rust-lang/crates.io-index",
+        "manifest_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\Cargo.toml",
+        "package_checksum": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740",
+        "preserved_archive": "release072-registry-win-scrying-0.7.2.crate",
+        "bytes": 338664,
+        "source_root": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2"
+      },
+      {
+        "name": "welding",
+        "version": "0.14.1",
+        "source": "registry+https://github.com/rust-lang/crates.io-index",
+        "manifest_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\Cargo.toml",
+        "package_checksum": "6fc43b8b7f4f09b452ef9699a0dd23c9c6cc1cf874374c39a9faa1f6e0bff085",
+        "preserved_archive": "release072-registry-win-welding-0.14.1.crate",
+        "bytes": 139698,
+        "source_root": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1"
+      }
+    ],
+    "frozen_input_zip_sha256": "3a0aae8369c7f32820b090f6ff8e5667fbc0c45189392b05191c79b37fe78e37"
+  },
+  "actual_command_exits": {
+    "stage": 0,
+    "verify": 0,
+    "build": 0,
+    "pixels": 0,
+    "core": 0,
+    "capture": 0
+  },
+  "native_gate_summary": {
+    "Core": {
+      "modes": 23,
+      "observed_native_exits_all_zero": true
+    },
+    "Capture": {
+      "modes": 3,
+      "observed_native_exits_all_zero": true
+    },
+    "direct_first_frame_pixel_exit": 0,
+    "timeouts": 0,
+    "script_default_timeout_seconds": 90
+  },
+  "actual_adapter": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "actual_backend": "Dx12",
+  "driver_version": "32.0.16.1088",
+  "first_frame_pixels_bgra": {
+    "tl": [
+      42,
+      32,
+      23,
+      255
+    ],
+    "tr": [
+      42,
+      32,
+      23,
+      255
+    ],
+    "bl": [
+      42,
+      32,
+      23,
+      255
+    ],
+    "br": [
+      42,
+      32,
+      23,
+      255
+    ],
+    "center": [
+      37,
+      71,
+      211,
+      255
+    ]
+  },
+  "pixel_scope": "Dedicated pixel-test fixture, one imported420x260 frame, original fourcorner\u00b16 assertion plus exact center. No claim that original normal HTML corner control passes.",
+  "primary_dirty_docs_preserved": [
+    {
+      "path": "README.md",
+      "bytes": 5116,
+      "sha256": "0345476e74b1cabc02ab37f566ad75e91bd144a024dcaec15ae0967faabc7f5a"
+    },
+    {
+      "path": "design_docs/2026-05-07_platform_ceilings.md",
+      "bytes": 70730,
+      "sha256": "f692a9953676dd655d7303466c50129396082527666c64358879f6e631cd7aa6"
+    },
+    {
+      "path": "design_docs/2026-05-09_browser_parity_checklist.md",
+      "bytes": 17666,
+      "sha256": "6c8c8e4596755e679b6cebd99a1f27fe5fda6152bd57d0b29d074c68cf5aea7a"
+    },
+    {
+      "path": "design_docs/2026-05-11_windows_webview2_target.md",
+      "bytes": 39788,
+      "sha256": "441fc850ed01a3f282e3f167b29cd6b4a8420e1df967c55744976a9578a8df5f"
+    },
+    {
+      "path": "design_docs/2026-05-15_phase4_strategy.md",
+      "bytes": 50514,
+      "sha256": "d96918a5ce2735b21057f616c88543cd5c78beebd0e6c4a6859c6d8734c4fbdd"
+    },
+    {
+      "path": "design_docs/2026-06-28_improvement_backlog.md",
+      "bytes": 11172,
+      "sha256": "33a1b0dfc0df40fb57d21cf19cab00d5a3892fb559bd7d60173af0d13268b5b0"
+    },
+    {
+      "path": "design_docs/DOC_README.md",
+      "bytes": 4522,
+      "sha256": "70c318ab23c5aa9df1de4242c96a8bdf1307254971b02575eb81eac75ce2333d"
+    },
+    {
+      "path": "docs/parity-matrix.md",
+      "bytes": 13777,
+      "sha256": "61300e80fbfe24b74902e609c438ca5ba89a1af262cc5243241a29220c8f8ec1"
+    }
+  ],
+  "source_and_executable_unchanged_after_native": true,
+  "build_native_processes_after": [],
+  "retained_generated_stage": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry",
+  "retained_detached_worktree": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "retained_stable_target": "C:/t/cargo-targets/wgpu-scry",
+  "retained_runtime_cache": {
+    "path": "C:\\t\\cargo-targets\\wgpu-scry\\native-registry-runtime",
+    "file_count": 4061,
+    "bytes": 261232156,
+    "marker_sha256": "3196e925016695321b2276ea3183bfcc88cb007f5a8f764989416372ef172709",
+    "owner": "root after handoff",
+    "reason": "Actual native profile custody retained for release receipt review."
+  },
+  "prior_runtime_caches_preserved": [
+    "C:/t/cargo-targets/wgpu-scry/native-smoke-runtime",
+    "C:/t/cargo-targets/wgpu-scry/native-render-tick-runtime"
+  ],
+  "no_isolated_cargo_home": true,
+  "no_source_edits_or_publish_by_this_qualification_lane": true
+}

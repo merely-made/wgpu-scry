@@ -1,0 +1,46 @@
+{
+  "recorded_utc": "2026-10-07T13:51:41.556499+00:00",
+  "path": "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+  "sha256": "09727985de18cf1d73a270cbdff66596647ad31ed0581117890063bac1b2ad87",
+  "bytes": 18857472,
+  "build_command": [
+    "cargo",
+    "+1.97.1",
+    "build",
+    "--locked",
+    "-j1"
+  ],
+  "selected_registry_packages": [
+    {
+      "name": "grafting",
+      "version": "0.6.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0\\Cargo.toml",
+      "package_checksum": "384d9d63669dd2b92a2433f2d0f36c7e8b775865b673deeb9ca34d7e631d4be1",
+      "preserved_archive": "release072-registry-win-grafting-0.6.0.crate",
+      "bytes": 76827,
+      "source_root": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\grafting-0.6.0"
+    },
+    {
+      "name": "scrying",
+      "version": "0.7.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2\\Cargo.toml",
+      "package_checksum": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740",
+      "preserved_archive": "release072-registry-win-scrying-0.7.2.crate",
+      "bytes": 338664,
+      "source_root": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\scrying-0.7.2"
+    },
+    {
+      "name": "welding",
+      "version": "0.14.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "manifest_path": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1\\Cargo.toml",
+      "package_checksum": "6fc43b8b7f4f09b452ef9699a0dd23c9c6cc1cf874374c39a9faa1f6e0bff085",
+      "preserved_archive": "release072-registry-win-welding-0.14.1.crate",
+      "bytes": 139698,
+      "source_root": "C:\\Users\\mark_\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\welding-0.14.1"
+    }
+  ],
+  "frozen_input_zip_sha256": "3a0aae8369c7f32820b090f6ff8e5667fbc0c45189392b05191c79b37fe78e37"
+}

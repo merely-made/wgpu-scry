@@ -1,0 +1,155 @@
+{
+  "recorded_utc": "2026-10-07T13:38:09.549518+00:00",
+  "source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "results": [
+    {
+      "label": "list",
+      "command": [
+        "cargo",
+        "+1.92.0",
+        "package",
+        "--locked",
+        "-p",
+        "scrying",
+        "--list"
+      ],
+      "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+      "source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+      "started_utc": "2026-10-07T13:37:53.390526+00:00",
+      "environment": {
+        "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+        "CARGO_BUILD_JOBS": "1",
+        "RUSTUP_TOOLCHAIN": "1.92.0"
+      },
+      "priority": "BelowNormal",
+      "owned_pid": 32456,
+      "actual_exit_code": 0,
+      "finished_utc": "2026-10-07T13:37:53.752498+00:00",
+      "elapsed_seconds": 0.359,
+      "final_source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+      "source_status": "",
+      "stdout_sha256": "9e62e62ed427878f9d7ddc6893a5ca9d5648ce01864accba0e04deb705dc0840",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "verify",
+      "command": [
+        "cargo",
+        "+1.92.0",
+        "package",
+        "--locked",
+        "-p",
+        "scrying",
+        "-j1"
+      ],
+      "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+      "source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+      "started_utc": "2026-10-07T13:37:53.951936+00:00",
+      "environment": {
+        "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+        "CARGO_BUILD_JOBS": "1",
+        "RUSTUP_TOOLCHAIN": "1.92.0"
+      },
+      "priority": "BelowNormal",
+      "owned_pid": 2068,
+      "actual_exit_code": 0,
+      "finished_utc": "2026-10-07T13:38:05.996085+00:00",
+      "elapsed_seconds": 12.031,
+      "final_source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+      "source_status": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c1de5466e19dd7e3d7f789831c051d09da4622532c955dcd01d24f664cbb784d",
+      "generated_crate": {
+        "generated_path": "C:\\t\\cargo-targets\\wgpu-scry\\package\\scrying-0.7.2.crate",
+        "preserved_path": "release072-package-verify.crate",
+        "bytes": 338664,
+        "sha256": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740"
+      }
+    },
+    {
+      "label": "dry-run",
+      "command": [
+        "cargo",
+        "+1.92.0",
+        "publish",
+        "--dry-run",
+        "--locked",
+        "-p",
+        "scrying",
+        "-j1"
+      ],
+      "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+      "source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+      "started_utc": "2026-10-07T13:38:06.206059+00:00",
+      "environment": {
+        "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+        "CARGO_BUILD_JOBS": "1",
+        "RUSTUP_TOOLCHAIN": "1.92.0"
+      },
+      "priority": "BelowNormal",
+      "owned_pid": 32688,
+      "actual_exit_code": 0,
+      "finished_utc": "2026-10-07T13:38:09.419956+00:00",
+      "elapsed_seconds": 3.219,
+      "final_source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+      "source_status": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ffbc4b49031c48c31a1ea1df132d74aff43a0d32292f20afa3b95fd3e23d803b",
+      "generated_crate": {
+        "generated_path": "C:\\t\\cargo-targets\\wgpu-scry\\package\\scrying-0.7.2.crate",
+        "preserved_path": "release072-package-dry-run.crate",
+        "bytes": 338664,
+        "sha256": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740"
+      }
+    }
+  ],
+  "all_three_gates_exit_zero": true,
+  "source_inputs_unchanged": true,
+  "source_status": "",
+  "primary_dirty_docs_after": [
+    {
+      "path": "README.md",
+      "sha256": "0345476e74b1cabc02ab37f566ad75e91bd144a024dcaec15ae0967faabc7f5a",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-07_platform_ceilings.md",
+      "sha256": "f692a9953676dd655d7303466c50129396082527666c64358879f6e631cd7aa6",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-09_browser_parity_checklist.md",
+      "sha256": "6c8c8e4596755e679b6cebd99a1f27fe5fda6152bd57d0b29d074c68cf5aea7a",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-11_windows_webview2_target.md",
+      "sha256": "441fc850ed01a3f282e3f167b29cd6b4a8420e1df967c55744976a9578a8df5f",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-15_phase4_strategy.md",
+      "sha256": "d96918a5ce2735b21057f616c88543cd5c78beebd0e6c4a6859c6d8734c4fbdd",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-06-28_improvement_backlog.md",
+      "sha256": "33a1b0dfc0df40fb57d21cf19cab00d5a3892fb559bd7d60173af0d13268b5b0",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/DOC_README.md",
+      "sha256": "70c318ab23c5aa9df1de4242c96a8bdf1307254971b02575eb81eac75ce2333d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/parity-matrix.md",
+      "sha256": "61300e80fbfe24b74902e609c438ca5ba89a1af262cc5243241a29220c8f8ec1",
+      "unchanged": true
+    }
+  ],
+  "primary_head_after": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "retained_clean_worktree": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "retained_stable_target": "C:\\t\\cargo-targets\\wgpu-scry",
+  "no_actual_publish_or_tag": true
+}

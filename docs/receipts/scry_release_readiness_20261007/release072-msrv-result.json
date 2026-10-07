@@ -1,0 +1,143 @@
+{
+  "recorded_utc": "2026-10-07T13:39:17.1357383Z",
+  "head_sha": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "run_id": 37629684987,
+  "run_conclusion": "success",
+  "required_jobs_passed": 12,
+  "jobs": [
+    {
+      "job_id": 112820392921,
+      "name": "Rust 1.92 / Linux / WPE",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820392921.log",
+      "bytes": 184928,
+      "sha256": "fb957b4df2ef46a7cd1b51126df4e00144315494f16ffd1f8910b5a8d2a753a6",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    },
+    {
+      "job_id": 112820393190,
+      "name": "platform-api / Rust 1.92.0 / macos-latest / wgpu-28",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820393190.log",
+      "bytes": 58833,
+      "sha256": "074d6c84c2e762278a5b089d4d8ecd4090f1ca198648f0c6471209ef03e9e5a6",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    },
+    {
+      "job_id": 112820393206,
+      "name": "platform-api / Rust 1.92.0 / ubuntu-latest / wgpu-28",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820393206.log",
+      "bytes": 53898,
+      "sha256": "4b8834708084726550789dd4fed826ffdd7bef599490202730ac23efd2cd02e9",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    },
+    {
+      "job_id": 112820393232,
+      "name": "platform-api / Rust 1.92.0 / ubuntu-latest / wgpu-29",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820393232.log",
+      "bytes": 54427,
+      "sha256": "c73bd00919f5d31e78e1bf74aff28b7dfdeafd1996adeee99cda7cb8d7547115",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    },
+    {
+      "job_id": 112820393298,
+      "name": "platform-api / Rust 1.92.0 / macos-latest / wgpu-29",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820393298.log",
+      "bytes": 57828,
+      "sha256": "d3c6d397607d2b20e9171744793b309b161211e40324f03e6e1e7fa92d5d31a6",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    },
+    {
+      "job_id": 112820393322,
+      "name": "platform-api / Rust 1.92.0 / macos-latest / wgpu-30",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820393322.log",
+      "bytes": 57524,
+      "sha256": "10467011434c7a0c3e2704f7a06eea71e497f9f2d2d0394d4aca650f9c4c4bb8",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    },
+    {
+      "job_id": 112820393437,
+      "name": "Rust 1.92 / Linux / WebKitGTK 4.1 fallback",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820393437.log",
+      "bytes": 159823,
+      "sha256": "59824c76bdbba24836dd6f8455ea8987f7a3f526050b6431f07ecd1ad679569d",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    },
+    {
+      "job_id": 112820393469,
+      "name": "platform-api / Rust 1.92.0 / ubuntu-latest / wgpu-30",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820393469.log",
+      "bytes": 53775,
+      "sha256": "744be86ba96ca9216d606320c65ac938a4308206a8f8b63c66d005d6526b5cdb",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    },
+    {
+      "job_id": 112820393497,
+      "name": "Rust 1.92 / Linux / WebKitGTK 6.0",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820393497.log",
+      "bytes": 247944,
+      "sha256": "b7a2e5f73c03b1c443bddf3c4547796fb066f537d8507788633be2428c470fe8",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    },
+    {
+      "job_id": 112820393505,
+      "name": "platform-api / Rust 1.92.0 / windows-latest / wgpu-30",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820393505.log",
+      "bytes": 57878,
+      "sha256": "9fac0a1c91cffdc025e7a295b7e62bda65d0f5686246a0d45702df428ce14d89",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    },
+    {
+      "job_id": 112820393570,
+      "name": "platform-api / Rust 1.92.0 / windows-latest / wgpu-29",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820393570.log",
+      "bytes": 58491,
+      "sha256": "24d532a1352ab8c3e52ca4a41c05beee048e8b701df5b4a617540ee16bd8dce4",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    },
+    {
+      "job_id": 112820393664,
+      "name": "platform-api / Rust 1.92.0 / windows-latest / wgpu-28",
+      "conclusion": "success",
+      "path": "release072-msrv-job-112820393664.log",
+      "bytes": 58326,
+      "sha256": "9b354750f200b62ac9d95b6933e6220a8d7d27180fd3f7fc0ad2b4b5bdb61852",
+      "actual_checkout_sha_present": true,
+      "rust_1_92_present": true,
+      "locked_lib_command_present": true
+    }
+  ],
+  "scope": "Fresh compile qualification, not native hardware",
+  "optional_job_skipped": 1
+}

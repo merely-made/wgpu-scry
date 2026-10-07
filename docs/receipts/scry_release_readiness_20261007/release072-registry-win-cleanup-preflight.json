@@ -1,0 +1,866 @@
+{
+  "recorded_utc": "2026-10-07T13:54:27.956476+00:00",
+  "owned_worktree": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "owned_generated_stage": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry",
+  "head": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "remote_main": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "detached": true,
+  "tracked_source_clean": true,
+  "staged_file_count": 18,
+  "staged_inputs": [
+    {
+      "path": "consumer/Cargo.lock",
+      "bytes": 93242,
+      "sha256": "2d5751adf3dea460fbc1e163bb4d3b1c7005915d769c7b786335b783745bb0e4",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\Cargo.lock"
+    },
+    {
+      "path": "consumer/Cargo.toml",
+      "bytes": 989,
+      "sha256": "fdbe41c21b28bacb44b48cb3f07aff155012ef68975c4a04fabe5503924fa901",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\Cargo.toml"
+    },
+    {
+      "path": "consumer/scripts/test-win.ps1",
+      "bytes": 3682,
+      "sha256": "4e9c255a34b2303ff6d2105e79660aecc373ef4e236f4da1de246c7fc77e251a",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\scripts\\test-win.ps1"
+    },
+    {
+      "path": "consumer/src/gpu.rs",
+      "bytes": 6429,
+      "sha256": "9dab71d3c8387955378b66972e92008402a33203e5e99cf2d5868600224f2de1",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\gpu.rs"
+    },
+    {
+      "path": "consumer/src/main.rs",
+      "bytes": 30714,
+      "sha256": "128ca9cd873e5efcd0072828d04f3c3b68e9ab19f53428947f0ca542b2370b59",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\main.rs"
+    },
+    {
+      "path": "consumer/src/multi_pane.rs",
+      "bytes": 9880,
+      "sha256": "8a726b58077ebfe2e4fd063f0b9615f99df5ae8fd28728a59a96e4d2334067aa",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\multi_pane.rs"
+    },
+    {
+      "path": "consumer/src/probe.rs",
+      "bytes": 32836,
+      "sha256": "62ccfb6f0dedec6684eafb674717648118a135adbb1a61670e30e38ed7166cc4",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\probe.rs"
+    },
+    {
+      "path": "consumer/src/renderer.rs",
+      "bytes": 19970,
+      "sha256": "d523b9b2852ca3266abf32ee4aead63c0175b6dff7be4a2e98d8cf6f5fb1048a",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\renderer.rs"
+    },
+    {
+      "path": "consumer/src/smokes/browser.rs",
+      "bytes": 13009,
+      "sha256": "8a5584fee3bcbac379381e6b183ee6ebb7581959efb4b44f43d1eb3aec002c27",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\browser.rs"
+    },
+    {
+      "path": "consumer/src/smokes/capture.rs",
+      "bytes": 3728,
+      "sha256": "f57856c6bdb3ae04febd42a5e3e418b99649ba72a4dcf4f61327c8999572ffba",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\capture.rs"
+    },
+    {
+      "path": "consumer/src/smokes/composition_focus_hwnd.rs",
+      "bytes": 13122,
+      "sha256": "0f0c7362addc0603756da190fb90bffd6cfc451a67010ac8c628807222c1ef4c",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\composition_focus_hwnd.rs"
+    },
+    {
+      "path": "consumer/src/smokes/input.rs",
+      "bytes": 32336,
+      "sha256": "4cdcceae42965efb67471d7f0a303e14246fff436e121e842e5097b68288731e",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\input.rs"
+    },
+    {
+      "path": "consumer/src/smokes/mod.rs",
+      "bytes": 478,
+      "sha256": "d4e664a54f941cdf2b8ff5cc3f0c54bac61fb691a6ffcd364d24d7ac4cf45793",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\mod.rs"
+    },
+    {
+      "path": "consumer/src/smokes/network.rs",
+      "bytes": 16914,
+      "sha256": "fb47df4da772ecfdd6d72b52fea7e30cda78f73df124a8aad39290583234563f",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\network.rs"
+    },
+    {
+      "path": "consumer/src/smokes/profile.rs",
+      "bytes": 12600,
+      "sha256": "d64b5acf98b431c3c0babf197907ab741081fb490f7b2e88f809818c80e7fb95",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\profile.rs"
+    },
+    {
+      "path": "consumer/src/smokes/window_to_visual.rs",
+      "bytes": 22288,
+      "sha256": "f277df4217b6de7b7921fc522b83abbc6ed3e5369fa3eb7dc06b757b2f218dd0",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\smokes\\window_to_visual.rs"
+    },
+    {
+      "path": "consumer/src/waits.rs",
+      "bytes": 11336,
+      "sha256": "da1769aa40540003cbba215fa9aedca7cbd7e2665a67cd16934ac07ecfe61a17",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\src\\waits.rs"
+    },
+    {
+      "path": "consumer/staging-source.json",
+      "bytes": 323,
+      "sha256": "362b9ee48fa22611d5e870036aa141fec69aaab65508529b298cc69b3b04accf",
+      "actual_path": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\registry-consumer-scry\\staging-source.json"
+    }
+  ],
+  "source_archive": "C:\\Users\\mark_\\Code\\repos\\wgpu-scry\\docs\\receipts\\scry_release_readiness_20261007\\release072-registry-win-source-inputs.zip",
+  "source_archive_sha256": "3a0aae8369c7f32820b090f6ff8e5667fbc0c45189392b05191c79b37fe78e37",
+  "all_source_inputs_and_raw_zip_verified": true,
+  "primary_dirty_docs_guarded": [
+    {
+      "path": "README.md",
+      "bytes": 5116,
+      "sha256": "0345476e74b1cabc02ab37f566ad75e91bd144a024dcaec15ae0967faabc7f5a"
+    },
+    {
+      "path": "design_docs/2026-05-07_platform_ceilings.md",
+      "bytes": 70730,
+      "sha256": "f692a9953676dd655d7303466c50129396082527666c64358879f6e631cd7aa6"
+    },
+    {
+      "path": "design_docs/2026-05-09_browser_parity_checklist.md",
+      "bytes": 17666,
+      "sha256": "6c8c8e4596755e679b6cebd99a1f27fe5fda6152bd57d0b29d074c68cf5aea7a"
+    },
+    {
+      "path": "design_docs/2026-05-11_windows_webview2_target.md",
+      "bytes": 39788,
+      "sha256": "441fc850ed01a3f282e3f167b29cd6b4a8420e1df967c55744976a9578a8df5f"
+    },
+    {
+      "path": "design_docs/2026-05-15_phase4_strategy.md",
+      "bytes": 50514,
+      "sha256": "d96918a5ce2735b21057f616c88543cd5c78beebd0e6c4a6859c6d8734c4fbdd"
+    },
+    {
+      "path": "design_docs/2026-06-28_improvement_backlog.md",
+      "bytes": 11172,
+      "sha256": "33a1b0dfc0df40fb57d21cf19cab00d5a3892fb559bd7d60173af0d13268b5b0"
+    },
+    {
+      "path": "design_docs/DOC_README.md",
+      "bytes": 4522,
+      "sha256": "70c318ab23c5aa9df1de4242c96a8bdf1307254971b02575eb81eac75ce2333d"
+    },
+    {
+      "path": "docs/parity-matrix.md",
+      "bytes": 13777,
+      "sha256": "61300e80fbfe24b74902e609c438ca5ba89a1af262cc5243241a29220c8f8ec1"
+    }
+  ],
+  "worktree_primary_before": "worktree C:/Users/mark_/Code/repos/wgpu-scry\nHEAD 4d8d1d3f8dd450b712960c90b74263a45b46e35b\nbranch refs/heads/main\n\nworktree C:/Users/mark_/Code/worktrees/wgpu-scry-release\nHEAD 4d8d1d3f8dd450b712960c90b74263a45b46e35b\ndetached",
+  "matching_live_processes": [],
+  "build_native_processes": [],
+  "excluded_only_observer_ancestor_pids": [
+    1600,
+    1724,
+    2772,
+    7744,
+    18176,
+    30900,
+    31224,
+    41064,
+    49760
+  ],
+  "process_observer_limitations": [
+    {
+      "pid": 0,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 236,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 280,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 412,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 832,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 848,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 924,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1020,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1316,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1336,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1600,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1612,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1700,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1724,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1764,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1772,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1784,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1900,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1916,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1924,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2036,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2148,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2172,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2188,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2196,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2220,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2400,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2448,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2460,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2500,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2516,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2532,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2540,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2764,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2772,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2816,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2836,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2864,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3116,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3304,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3372,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3388,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3440,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3540,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3580,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3588,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3596,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3652,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3808,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3820,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4012,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4176,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4240,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4292,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4440,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4628,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4652,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4796,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4820,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4904,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4972,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4992,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5044,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5168,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5192,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5228,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5304,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5308,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5320,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5360,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5436,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5444,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5524,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5556,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5636,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5652,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5740,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5784,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5792,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5828,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5848,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5856,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6020,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6256,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6352,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6424,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6440,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6456,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6468,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6480,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6488,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6496,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6504,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6512,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6520,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6528,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6536,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6544,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6552,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6560,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6576,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6584,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6592,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6600,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6620,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6632,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6656,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6672,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6684,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6696,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6704,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6952,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7152,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7256,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7356,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7376,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7464,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7480,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7504,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7792,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 8204,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 8256,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 8624,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 8780,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 8964,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9172,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9220,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9348,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9372,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9548,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9804,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9820,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10156,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10320,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10424,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10692,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10728,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10888,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10996,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 11012,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 11104,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 13480,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 14512,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 15340,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 15564,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 15632,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 17420,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 17604,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 18236,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 18564,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 19828,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 19968,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 20436,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 21876,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 24372,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 24616,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 28056,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 29968,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 31940,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 33740,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 34152,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 34244,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 35160,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 37196,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 37300,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 39960,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 40672,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 46696,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 49244,
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 50724,
+      "reason": "AccessDenied"
+    }
+  ],
+  "scope": "Remove only archived generated stage, then normal Git remove exact clean detached owned worktree. Primary source/docs and retained runtime caches remain."
+}

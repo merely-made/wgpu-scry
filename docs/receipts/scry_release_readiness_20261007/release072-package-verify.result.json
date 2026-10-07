@@ -1,0 +1,35 @@
+{
+  "label": "verify",
+  "command": [
+    "cargo",
+    "+1.92.0",
+    "package",
+    "--locked",
+    "-p",
+    "scrying",
+    "-j1"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "started_utc": "2026-10-07T13:37:53.951936+00:00",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.92.0"
+  },
+  "priority": "BelowNormal",
+  "owned_pid": 2068,
+  "actual_exit_code": 0,
+  "finished_utc": "2026-10-07T13:38:05.996085+00:00",
+  "elapsed_seconds": 12.031,
+  "final_source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "source_status": "",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "c1de5466e19dd7e3d7f789831c051d09da4622532c955dcd01d24f664cbb784d",
+  "generated_crate": {
+    "generated_path": "C:\\t\\cargo-targets\\wgpu-scry\\package\\scrying-0.7.2.crate",
+    "preserved_path": "release072-package-verify.crate",
+    "bytes": 338664,
+    "sha256": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740"
+  }
+}

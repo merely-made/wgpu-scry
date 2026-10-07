@@ -1,0 +1,4 @@
+registry proof: grafting 0.6.0 <- registry+https://github.com/rust-lang/crates.io-index
+registry proof: scrying 0.7.2 <- registry+https://github.com/rust-lang/crates.io-index
+registry proof: welding 0.14.1 <- registry+https://github.com/rust-lang/crates.io-index
+registry proof: PASS (C:\Users\mark_\Code\worktrees\wgpu-scry-release\registry-consumer-scry)

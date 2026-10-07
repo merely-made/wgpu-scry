@@ -1,0 +1,9 @@
+    Updating crates.io index
+   Packaging scrying v0.7.2 (C:\Users\mark_\Code\worktrees\wgpu-scry-release\scrying)
+    Updating crates.io index
+    Packaged 93 files, 1.3MiB (330.7KiB compressed)
+   Verifying scrying v0.7.2 (C:\Users\mark_\Code\worktrees\wgpu-scry-release\scrying)
+   Compiling scrying v0.7.2 (C:\t\cargo-targets\wgpu-scry\package\scrying-0.7.2)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.13s
+   Uploading scrying v0.7.2 (C:\Users\mark_\Code\worktrees\wgpu-scry-release\scrying)
+warning: aborting upload due to dry run

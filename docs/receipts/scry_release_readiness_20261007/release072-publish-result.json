@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-10-07T13:42:17.850119+00:00",
+  "started_utc": "2026-10-07T13:42:11.899377+00:00",
+  "command": [
+    "cargo",
+    "+1.92.0",
+    "publish",
+    "--locked",
+    "-p",
+    "scrying",
+    "-j1"
+  ],
+  "source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "version": "0.7.2",
+  "actual_exit_code": 0,
+  "elapsed_seconds": 5.953,
+  "source_status_after": "",
+  "qualified_archive_sha256": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740",
+  "generated_archive_sha256_after": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740",
+  "priority": "BelowNormal",
+  "jobs": 1
+}

@@ -1,0 +1,483 @@
+{
+  "recorded_utc": "2026-10-07T13:57:09.7671437Z",
+  "source_commit": "4d8d1d3f8dd450b712960c90b74263a45b46e35b",
+  "phase": "Publication, fresh MSRV and Windows registry proof; failed three-host Servo fixture resolution retained",
+  "artifact_count": 95,
+  "artifacts": [
+    {
+      "path": "release072-msrv-job-112820392921.log",
+      "bytes": 184928,
+      "sha256": "fb957b4df2ef46a7cd1b51126df4e00144315494f16ffd1f8910b5a8d2a753a6"
+    },
+    {
+      "path": "release072-msrv-job-112820393190.log",
+      "bytes": 58833,
+      "sha256": "074d6c84c2e762278a5b089d4d8ecd4090f1ca198648f0c6471209ef03e9e5a6"
+    },
+    {
+      "path": "release072-msrv-job-112820393206.log",
+      "bytes": 53898,
+      "sha256": "4b8834708084726550789dd4fed826ffdd7bef599490202730ac23efd2cd02e9"
+    },
+    {
+      "path": "release072-msrv-job-112820393232.log",
+      "bytes": 54427,
+      "sha256": "c73bd00919f5d31e78e1bf74aff28b7dfdeafd1996adeee99cda7cb8d7547115"
+    },
+    {
+      "path": "release072-msrv-job-112820393298.log",
+      "bytes": 57828,
+      "sha256": "d3c6d397607d2b20e9171744793b309b161211e40324f03e6e1e7fa92d5d31a6"
+    },
+    {
+      "path": "release072-msrv-job-112820393322.log",
+      "bytes": 57524,
+      "sha256": "10467011434c7a0c3e2704f7a06eea71e497f9f2d2d0394d4aca650f9c4c4bb8"
+    },
+    {
+      "path": "release072-msrv-job-112820393437.log",
+      "bytes": 159823,
+      "sha256": "59824c76bdbba24836dd6f8455ea8987f7a3f526050b6431f07ecd1ad679569d"
+    },
+    {
+      "path": "release072-msrv-job-112820393469.log",
+      "bytes": 53775,
+      "sha256": "744be86ba96ca9216d606320c65ac938a4308206a8f8b63c66d005d6526b5cdb"
+    },
+    {
+      "path": "release072-msrv-job-112820393497.log",
+      "bytes": 247944,
+      "sha256": "b7a2e5f73c03b1c443bddf3c4547796fb066f537d8507788633be2428c470fe8"
+    },
+    {
+      "path": "release072-msrv-job-112820393505.log",
+      "bytes": 57878,
+      "sha256": "9fac0a1c91cffdc025e7a295b7e62bda65d0f5686246a0d45702df428ce14d89"
+    },
+    {
+      "path": "release072-msrv-job-112820393570.log",
+      "bytes": 58491,
+      "sha256": "24d532a1352ab8c3e52ca4a41c05beee048e8b701df5b4a617540ee16bd8dce4"
+    },
+    {
+      "path": "release072-msrv-job-112820393664.log",
+      "bytes": 58326,
+      "sha256": "9b354750f200b62ac9d95b6933e6220a8d7d27180fd3f7fc0ad2b4b5bdb61852"
+    },
+    {
+      "path": "release072-msrv-jobs.json",
+      "bytes": 31366,
+      "sha256": "8fce2f0411975f94816cc71a22e48b2bc46ac12e106188f9e1899ee99a2f27c6"
+    },
+    {
+      "path": "release072-msrv-result.json",
+      "bytes": 5445,
+      "sha256": "295e0d1d9c587a7a9a49700d013a9e1e66e68a2508e2a22b302169ad58aab854"
+    },
+    {
+      "path": "release072-msrv-run.json",
+      "bytes": 12466,
+      "sha256": "99afd9bc7434bd4b119d5d3a3e3cd904267280c002cf469b6f9b14c0dbac706b"
+    },
+    {
+      "path": "release072-package-audit.json",
+      "bytes": 111273,
+      "sha256": "bd5956b581da6c8f958fc79562537560b6d07542e1a2753abb722b20866f7072"
+    },
+    {
+      "path": "release072-package-dry-run.crate",
+      "bytes": 338664,
+      "sha256": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740"
+    },
+    {
+      "path": "release072-package-dry-run.result.json",
+      "bytes": 1181,
+      "sha256": "e91e01f06a6af33036ce94601999e6b2893ebafad1d6d204db5c10e90e81d70f"
+    },
+    {
+      "path": "release072-package-dry-run.stderr.log",
+      "bytes": 561,
+      "sha256": "ffbc4b49031c48c31a1ea1df132d74aff43a0d32292f20afa3b95fd3e23d803b"
+    },
+    {
+      "path": "release072-package-dry-run.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "release072-package-final-guards.json",
+      "bytes": 6434,
+      "sha256": "4e4daf17e32ed3fc1d1e594ccea0b7e6caccc419ba32c72d294215d778d1fd7f"
+    },
+    {
+      "path": "release072-package-generated-lock.toml",
+      "bytes": 107867,
+      "sha256": "8fd01f55d11dd189ff81d4535228bfffada2480fa01d46c7d462b0df45283c50"
+    },
+    {
+      "path": "release072-package-hashes.json",
+      "bytes": 4068,
+      "sha256": "5d5963c159b0e6feb6272fcec54ca812f57895a0c270ae2936e4d811bd531c7d"
+    },
+    {
+      "path": "release072-package-inputs.json",
+      "bytes": 30605,
+      "sha256": "fb439a1d037ddaa0d6e369a5721659877bb07a821900c7f854cf50fb526a3850"
+    },
+    {
+      "path": "release072-package-list.result.json",
+      "bytes": 889,
+      "sha256": "1b4a3f4ca56342260bd510733bfca267e7da45b6fcee930dbd2cccbb774a9a34"
+    },
+    {
+      "path": "release072-package-list.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "release072-package-list.stdout.log",
+      "bytes": 3038,
+      "sha256": "9e62e62ed427878f9d7ddc6893a5ca9d5648ce01864accba0e04deb705dc0840"
+    },
+    {
+      "path": "release072-package-normalized-manifest.toml",
+      "bytes": 6491,
+      "sha256": "cb5dd6e6be57a2304e9a35b0e42467e9e112feb848175eaff224134c06c791f8"
+    },
+    {
+      "path": "release072-package-original-manifest.toml",
+      "bytes": 8404,
+      "sha256": "54254f5ba1a87e8dd227ab59f58da4590c3f2a898295f317d99726df52eaf5ad"
+    },
+    {
+      "path": "release072-package-root-audit.json",
+      "bytes": 556,
+      "sha256": "465c729ca28b5df4fa57a67d9fa0ab6acf6537c3999d4dbe43824a72d52debda"
+    },
+    {
+      "path": "release072-package-root-audit.py",
+      "bytes": 2155,
+      "sha256": "ec0b404fc0c2d7accb6ab09e2bd8b8588a6c5c05670832c0b4c4ac33dcd0da33"
+    },
+    {
+      "path": "release072-package-runner.py",
+      "bytes": 4978,
+      "sha256": "5a28e708baf8795def897db7996de03db9293195c260f7fdd32e31aee554c705"
+    },
+    {
+      "path": "release072-package-source-inputs.zip",
+      "bytes": 784914,
+      "sha256": "dd7614155f9a007f54ffeea981b3cd14bbc90a7066119e943cc9ce002d2ea703"
+    },
+    {
+      "path": "release072-package-summary.json",
+      "bytes": 5552,
+      "sha256": "2225664220e971576d525756e607da25c33f206a6a91fe38157b35c0f357cc7b"
+    },
+    {
+      "path": "release072-package-vcs.json",
+      "bytes": 106,
+      "sha256": "2b2d5ed1e532a610649f085b92e8835ea06369e25caf177efd8755310552aa8d"
+    },
+    {
+      "path": "release072-package-verify.crate",
+      "bytes": 338664,
+      "sha256": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740"
+    },
+    {
+      "path": "release072-package-verify.result.json",
+      "bytes": 1162,
+      "sha256": "ad6b21c319c15bd983689fbdb0e8e5458ead94a120a365a65fc5bb8038ea6534"
+    },
+    {
+      "path": "release072-package-verify.stderr.log",
+      "bytes": 525,
+      "sha256": "c1de5466e19dd7e3d7f789831c051d09da4622532c955dcd01d24f664cbb784d"
+    },
+    {
+      "path": "release072-package-verify.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "release072-publication-README.md",
+      "bytes": 3834,
+      "sha256": "151c6d8e1659d88384ec3ac02131546c263d32aa7cd1c150f7e6dab262ed95c1"
+    },
+    {
+      "path": "release072-publish-result.json",
+      "bytes": 657,
+      "sha256": "186f9b8112e136630c321fa092346e011861995bef556c509b31a24877efb703"
+    },
+    {
+      "path": "release072-publish.py",
+      "bytes": 2346,
+      "sha256": "5f76c0f1f446ec1f55b9e775b8f5ba20a9eb41edd4871b8f949716fd67d73aad"
+    },
+    {
+      "path": "release072-publish.stderr.log",
+      "bytes": 780,
+      "sha256": "c3397ffc1744dfc663be904ed65b1986ca7967b9eb2c2aae5a8aaa8bac20d735"
+    },
+    {
+      "path": "release072-publish.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "release072-registry-download.crate",
+      "bytes": 338664,
+      "sha256": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740"
+    },
+    {
+      "path": "release072-registry-job-112825053959.log",
+      "bytes": 152308,
+      "sha256": "ce260086228bd9b204249288aab313a3123972409a6770805eb5698859aaa577"
+    },
+    {
+      "path": "release072-registry-job-112825054211.log",
+      "bytes": 157532,
+      "sha256": "898112ab65ae8f4b21d71a757fc2dc35da0699c5c55a190c6700d73eb86d5a6f"
+    },
+    {
+      "path": "release072-registry-job-112825054270.log",
+      "bytes": 149365,
+      "sha256": "a1cfabab5343f3ab7b86417aa81930e9dc17cd9f9c483d68b512704dc03c5309"
+    },
+    {
+      "path": "release072-registry-metadata.json",
+      "bytes": 2953,
+      "sha256": "c5da8a085e8cda949c15ff029ec339423a2ea4f27a4beb6dcad0e0e529e441d9"
+    },
+    {
+      "path": "release072-registry-win-build.py",
+      "bytes": 5181,
+      "sha256": "a8268bb7ba0c2123e0766f1230e92d4b15a53bd2f973ac403ad3e4084d0cb985"
+    },
+    {
+      "path": "release072-registry-win-build.result.json",
+      "bytes": 565,
+      "sha256": "d192d11c373c1ae89c20302a53a00391cded488907e6c0a3edae4d67ce5f8184"
+    },
+    {
+      "path": "release072-registry-win-build.stderr.log",
+      "bytes": 2654,
+      "sha256": "e61013ad9efdf7a869b8163cd61d1a391ea4860d9fffdd8cc8639b2271636d0e"
+    },
+    {
+      "path": "release072-registry-win-build.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "release072-registry-win-capture.result.json",
+      "bytes": 2092,
+      "sha256": "1cd28dfd806716f1689847f7f7b7eebbe2b389abd3708e9cfd9c096a8cf9d8c9"
+    },
+    {
+      "path": "release072-registry-win-capture.stderr.log",
+      "bytes": 271,
+      "sha256": "98f12d3ae11263cd0a09f7e3de93a921ec2aaa1b31e580079810b307d2cce1fa"
+    },
+    {
+      "path": "release072-registry-win-capture.stdout.log",
+      "bytes": 3984,
+      "sha256": "bcf43a75edde87377f0a42e7ebe6dd5bcebb24c2f94bd0e57b718ca04b855a4a"
+    },
+    {
+      "path": "release072-registry-win-cleanup-preflight.json",
+      "bytes": 18768,
+      "sha256": "0d0277a94229f902d8a17bb8b242a848c114b88240786f7a6a25118504f0d0fb"
+    },
+    {
+      "path": "release072-registry-win-cleanup-preflight.py",
+      "bytes": 3312,
+      "sha256": "df95604856ba31aa4591cef778c09897ce505884abd9090f554c6ff3dc3c5418"
+    },
+    {
+      "path": "release072-registry-win-cleanup-result.json",
+      "bytes": 872,
+      "sha256": "2e82307349e3e91871b6f52fb7ecd3aaf692812770ca4fe3df9fe521ecf98009"
+    },
+    {
+      "path": "release072-registry-win-core.result.json",
+      "bytes": 7503,
+      "sha256": "9f2791462c152c461e121d396e7fd82ecdf139c75528a916482deb9b3a7d6a32"
+    },
+    {
+      "path": "release072-registry-win-core.stderr.log",
+      "bytes": 3322,
+      "sha256": "1ca6ae307b7b7abe2951e9b1a58f7ef820b2870d6ed644ed2c5224a5c7e39888"
+    },
+    {
+      "path": "release072-registry-win-core.stdout.log",
+      "bytes": 33799,
+      "sha256": "9781326c9ba652787d1bd45bc4bb8bb27f85bad3b61dd92a571b81454201941e"
+    },
+    {
+      "path": "release072-registry-win-executable.json",
+      "bytes": 2160,
+      "sha256": "1a9e43d23bd6029381f1c789ec95049766dca08254f1694127a902cf521c6150"
+    },
+    {
+      "path": "release072-registry-win-generated-Cargo.lock",
+      "bytes": 93242,
+      "sha256": "2d5751adf3dea460fbc1e163bb4d3b1c7005915d769c7b786335b783745bb0e4"
+    },
+    {
+      "path": "release072-registry-win-generated-Cargo.toml",
+      "bytes": 989,
+      "sha256": "fdbe41c21b28bacb44b48cb3f07aff155012ef68975c4a04fabe5503924fa901"
+    },
+    {
+      "path": "release072-registry-win-generated-staging-source.json",
+      "bytes": 323,
+      "sha256": "362b9ee48fa22611d5e870036aa141fec69aaab65508529b298cc69b3b04accf"
+    },
+    {
+      "path": "release072-registry-win-grafting-0.6.0.crate",
+      "bytes": 76827,
+      "sha256": "384d9d63669dd2b92a2433f2d0f36c7e8b775865b673deeb9ca34d7e631d4be1"
+    },
+    {
+      "path": "release072-registry-win-hashes.json",
+      "bytes": 7806,
+      "sha256": "ee7c0eb22e33bc9408b3479edc4f6127804aa2ed370956f7af86443bc88054c2"
+    },
+    {
+      "path": "release072-registry-win-initial-guards.json",
+      "bytes": 2052,
+      "sha256": "6619c85e73265057bad563597c1fbd05dc1167aa1cb58cf45145204a0bc0e4e1"
+    },
+    {
+      "path": "release072-registry-win-inputs.json",
+      "bytes": 60638,
+      "sha256": "bfcc3c002f69a3a1958faac0c74a6a7af9263e56a04f6ad1a45aa65588d16057"
+    },
+    {
+      "path": "release072-registry-win-native-summary.json",
+      "bytes": 13100,
+      "sha256": "162ab836bd3fd450c5c7a1d6efb108c784fd7eaa3ced60a483c77876a6b78cc3"
+    },
+    {
+      "path": "release072-registry-win-native.py",
+      "bytes": 5277,
+      "sha256": "f3c273c3b1f5a9eea81d02135b655635548a37bad5e162ddce7edeecca90f142"
+    },
+    {
+      "path": "release072-registry-win-pixels.result.json",
+      "bytes": 1422,
+      "sha256": "729702505a7e16bcb424d748002b20add4f3a5fc6f4a3036e8e516dcde817dcb"
+    },
+    {
+      "path": "release072-registry-win-pixels.stderr.log",
+      "bytes": 48,
+      "sha256": "4cddb20527009609e49c68d98baa91fca1fc6f34f73b073a74ea7a60f5c3ff14"
+    },
+    {
+      "path": "release072-registry-win-pixels.stdout.log",
+      "bytes": 1488,
+      "sha256": "11e1090256f56e5822277e99f36e7a121e602f529287668631fc39a5e9465bfc"
+    },
+    {
+      "path": "release072-registry-win-prepare.py",
+      "bytes": 3135,
+      "sha256": "a60c1588d73a7066501e681c4a6ef652b9685d733118b8e4dc2280b64fbf7567"
+    },
+    {
+      "path": "release072-registry-win-qualification.json",
+      "bytes": 6448,
+      "sha256": "a348ecafad9f480280c530fa7618be1ef681baa9ccf7004171a5e854c676288c"
+    },
+    {
+      "path": "release072-registry-win-registry-source-audit.json",
+      "bytes": 30668,
+      "sha256": "fa0daa1544eb0034eadbd18eb319834abb51d152558216f1a300410c5fe21312"
+    },
+    {
+      "path": "release072-registry-win-resolver/Cargo.lock",
+      "bytes": 96945,
+      "sha256": "17277fc223c345d16b91657b8927b22378ce1dd23f353f15c94480ac77f12f4b"
+    },
+    {
+      "path": "release072-registry-win-resolver/allowed-non-registry.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "release072-registry-win-resolver/cargo-tree.txt",
+      "bytes": 20931,
+      "sha256": "5a68e6554217ef605a8f26424cf4eb89dcac6565607825b67aef0f17e9f5f839"
+    },
+    {
+      "path": "release072-registry-win-resolver/metadata.json",
+      "bytes": 2032079,
+      "sha256": "9687c5ffa4b34ffda98b5578802474e564eed46132954b90c7cf0a9f8834d84d"
+    },
+    {
+      "path": "release072-registry-win-resolver/release-inputs.json",
+      "bytes": 343,
+      "sha256": "feea873f28e7b9890bf5bb879b8e8738efbb1fe0dcd7cbfb7504d067aaf54bb6"
+    },
+    {
+      "path": "release072-registry-win-scrying-0.7.2.crate",
+      "bytes": 338664,
+      "sha256": "74486b58a87ac1ea36ba33e24ffaf513570845bcd1d1c099cc872923dc83d740"
+    },
+    {
+      "path": "release072-registry-win-source-inputs.zip",
+      "bytes": 765039,
+      "sha256": "3a0aae8369c7f32820b090f6ff8e5667fbc0c45189392b05191c79b37fe78e37"
+    },
+    {
+      "path": "release072-registry-win-stage.result.json",
+      "bytes": 1023,
+      "sha256": "2b725262d3a06269bfffda67a326c84096461a4c8568658fe5bd4b2c7a1c291c"
+    },
+    {
+      "path": "release072-registry-win-stage.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "release072-registry-win-stage.stdout.log",
+      "bytes": 107,
+      "sha256": "f7ac874e2e4f7bf6c0e1a116232a35ac1be28e1b9c8deef855a6bf262dab2245"
+    },
+    {
+      "path": "release072-registry-win-verify.result.json",
+      "bytes": 1091,
+      "sha256": "ebae8faa93a39a50cf92cb6fa5403406d5061c93c2001028ab93e913e7b213c7"
+    },
+    {
+      "path": "release072-registry-win-verify.stderr.log",
+      "bytes": 403,
+      "sha256": "d83c2ef82c03b806ccca5ba146aacd7a885fbdae2108080960df95f24651db1d"
+    },
+    {
+      "path": "release072-registry-win-verify.stdout.log",
+      "bytes": 361,
+      "sha256": "c45df282f5b17cea66158842c43c790d0f4795fe35fb3593d30d588e150aaae3"
+    },
+    {
+      "path": "release072-registry-win-video-controller.json",
+      "bytes": 371,
+      "sha256": "a9e11b92fa2499402834dd14a22f79d1e5675784fd67692bce2a13de63a9e78a"
+    },
+    {
+      "path": "release072-registry-win-welding-0.14.1.crate",
+      "bytes": 139698,
+      "sha256": "6fc43b8b7f4f09b452ef9699a0dd23c9c6cc1cf874374c39a9faa1f6e0bff085"
+    },
+    {
+      "path": "release072-registry-workflow-failed-jobs.json",
+      "bytes": 12199,
+      "sha256": "70cd1612249741519117da9572f7b2127fea3db74da712b9c0c7c94e8ff9cb8d"
+    },
+    {
+      "path": "release072-registry-workflow-run.json",
+      "bytes": 12562,
+      "sha256": "2819394b66aef7d0fe15e60d3787918a1f5df79fe5b577e17ba997c6edbefff2"
+    }
+  ]
+}

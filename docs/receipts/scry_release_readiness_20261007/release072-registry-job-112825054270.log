@@ -1,0 +1,1888 @@
+﻿2026-10-07T13:45:26.0455170Z Current runner version: '2.337.0'
+2026-10-07T13:45:26.0457750Z Runner name: 'wgpu-imac-m4'
+2026-10-07T13:45:26.0458080Z Runner group name: 'wgpu-hardware'
+2026-10-07T13:45:26.0458530Z Machine name: 'Mayolas-iMac'
+2026-10-07T13:45:26.0459750Z ##[group]GITHUB_TOKEN Permissions
+2026-10-07T13:45:26.0460470Z Contents: read
+2026-10-07T13:45:26.0460730Z Metadata: read
+2026-10-07T13:45:26.0491160Z ##[endgroup]
+2026-10-07T13:45:26.0492070Z Secret source: Actions
+2026-10-07T13:45:26.0492440Z Cache mode: write
+2026-10-07T13:45:26.0492730Z Prepare workflow directory
+2026-10-07T13:45:26.0852680Z Prepare all required actions
+2026-10-07T13:45:26.0875930Z Getting action download info
+2026-10-07T13:45:26.4511090Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-07T13:45:27.1311050Z Download action repository 'dtolnay/rust-toolchain@1.97.1' (SHA:9ca9f0b320e19763058bc9531663c225d20db487)
+2026-10-07T13:45:27.3881150Z Download action repository 'astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d' (SHA:20cfd1bf945f4377ade1205e4dbc17946fc9a30d)
+2026-10-07T13:45:28.0393160Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-07T13:45:28.6941040Z Complete job name: Apple M4 registry-only triplet proof
+2026-10-07T13:45:28.7198430Z ##[group]Run actions/checkout@v4
+2026-10-07T13:45:28.7198630Z with:
+2026-10-07T13:45:28.7198720Z   repository: merely-made/wgpu-graft
+2026-10-07T13:45:28.7199850Z   token: ***
+2026-10-07T13:45:28.7199940Z   ssh-strict: true
+2026-10-07T13:45:28.7200020Z   ssh-user: git
+2026-10-07T13:45:28.7200110Z   persist-credentials: true
+2026-10-07T13:45:28.7200220Z   clean: true
+2026-10-07T13:45:28.7200310Z   sparse-checkout-cone-mode: true
+2026-10-07T13:45:28.7200450Z   fetch-depth: 1
+2026-10-07T13:45:28.7200530Z   fetch-tags: false
+2026-10-07T13:45:28.7200630Z   show-progress: true
+2026-10-07T13:45:28.7200720Z   lfs: false
+2026-10-07T13:45:28.7200790Z   submodules: false
+2026-10-07T13:45:28.7200880Z   set-safe-directory: true
+2026-10-07T13:45:28.7201000Z   allow-unsafe-pr-checkout: false
+2026-10-07T13:45:28.7201160Z env:
+2026-10-07T13:45:28.7201240Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:28.7201370Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:28.7201490Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:28.7201580Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:28.7201680Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:28.7201800Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:28.7201970Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:28.7202100Z   WGPU_BACKEND: metal
+2026-10-07T13:45:28.7202220Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:28.7202360Z   CAPTURE: 1
+2026-10-07T13:45:28.7202440Z   TIMEOUT: 90
+2026-10-07T13:45:28.7202520Z   VISIBLE: 1
+2026-10-07T13:45:28.7202600Z   PROOF_HOST: m4
+2026-10-07T13:45:28.7202690Z ##[endgroup]
+2026-10-07T13:45:28.9352940Z Syncing repository: merely-made/wgpu-graft
+2026-10-07T13:45:28.9353630Z ##[group]Getting Git version info
+2026-10-07T13:45:28.9353870Z Working directory is '/Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft'
+2026-10-07T13:45:28.9354260Z [command]/usr/bin/git version
+2026-10-07T13:45:28.9524950Z git version 2.50.1 (Apple Git-155)
+2026-10-07T13:45:28.9532350Z ##[endgroup]
+2026-10-07T13:45:28.9535920Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/be4183f6-7800-4263-a918-41e965e1b0fd/.gitconfig'
+2026-10-07T13:45:28.9539960Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/be4183f6-7800-4263-a918-41e965e1b0fd' before making global git config changes
+2026-10-07T13:45:28.9540430Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T13:45:28.9542300Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft
+2026-10-07T13:45:29.1403270Z [command]/usr/bin/git config --local --get remote.origin.url
+2026-10-07T13:45:29.1476610Z https://github.com/merely-made/wgpu-graft
+2026-10-07T13:45:29.1482630Z ##[group]Removing previously created refs, to avoid conflicts
+2026-10-07T13:45:29.1484410Z [command]/usr/bin/git rev-parse --symbolic-full-name --verify --quiet HEAD
+2026-10-07T13:45:29.1566140Z refs/heads/main
+2026-10-07T13:45:29.1571220Z [command]/usr/bin/git checkout --detach
+2026-10-07T13:45:29.1840650Z HEAD is now at 403a30c Record grafting-frame release receipt [skip ci]
+2026-10-07T13:45:29.1941000Z [command]/usr/bin/git branch --delete --force main
+2026-10-07T13:45:29.2027160Z Deleted branch main (was 403a30c).
+2026-10-07T13:45:29.2105600Z ##[endgroup]
+2026-10-07T13:45:29.2107140Z [command]/usr/bin/git submodule status
+2026-10-07T13:45:29.3158010Z ##[group]Cleaning the repository
+2026-10-07T13:45:29.3159910Z [command]/usr/bin/git clean -ffdx
+2026-10-07T13:45:29.3275000Z [command]/usr/bin/git reset --hard HEAD
+2026-10-07T13:45:29.3494980Z HEAD is now at 403a30c Record grafting-frame release receipt [skip ci]
+2026-10-07T13:45:29.3498660Z ##[endgroup]
+2026-10-07T13:45:29.3499250Z ##[group]Disabling automatic garbage collection
+2026-10-07T13:45:29.3501120Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-07T13:45:29.3581960Z ##[endgroup]
+2026-10-07T13:45:29.3582220Z ##[group]Setting up auth
+2026-10-07T13:45:29.3585120Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T13:45:29.3659850Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T13:45:29.4283130Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T13:45:29.4353740Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T13:45:29.4878720Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T13:45:29.4952120Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T13:45:29.5465680Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-07T13:45:29.5541500Z ##[endgroup]
+2026-10-07T13:45:29.5541810Z ##[group]Fetching the repository
+2026-10-07T13:45:29.5547300Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +dcab3700cb8bbf208d1c4206433275c2c97cd715:refs/remotes/origin/main
+2026-10-07T13:45:30.2623910Z From https://github.com/merely-made/wgpu-graft
+2026-10-07T13:45:30.2624300Z  + 403a30c...dcab370 dcab3700cb8bbf208d1c4206433275c2c97cd715 -> origin/main  (forced update)
+2026-10-07T13:45:30.2674060Z ##[endgroup]
+2026-10-07T13:45:30.2674410Z ##[group]Determining the checkout info
+2026-10-07T13:45:30.2675140Z ##[endgroup]
+2026-10-07T13:45:30.2688390Z [command]/usr/bin/git sparse-checkout disable
+2026-10-07T13:45:30.2779640Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-07T13:45:30.2853420Z ##[group]Checking out the ref
+2026-10-07T13:45:30.2855220Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-07T13:45:30.3230530Z Warning: you are leaving 1 commit behind, not connected to
+2026-10-07T13:45:30.3230750Z any of your branches:
+2026-10-07T13:45:30.3230840Z 
+2026-10-07T13:45:30.3230920Z   403a30c Record grafting-frame release receipt [skip ci]
+2026-10-07T13:45:30.3231060Z 
+2026-10-07T13:45:30.3231180Z If you want to keep it by creating a new branch, this may be a good time
+2026-10-07T13:45:30.3231410Z to do so with:
+2026-10-07T13:45:30.3231470Z 
+2026-10-07T13:45:30.3231540Z  git branch <new-branch-name> 403a30c
+2026-10-07T13:45:30.3231630Z 
+2026-10-07T13:45:30.3244180Z Switched to a new branch 'main'
+2026-10-07T13:45:30.3247880Z branch 'main' set up to track 'origin/main'.
+2026-10-07T13:45:30.3252700Z ##[endgroup]
+2026-10-07T13:45:30.3344410Z [command]/usr/bin/git log -1 --format=%H
+2026-10-07T13:45:30.3416230Z dcab3700cb8bbf208d1c4206433275c2c97cd715
+2026-10-07T13:45:30.3551690Z ##[group]Run ./.github/actions/host-hardware-lock
+2026-10-07T13:45:30.3551880Z with:
+2026-10-07T13:45:30.3551980Z   timeout_seconds: 7200
+2026-10-07T13:45:30.3552100Z   stale_seconds: 14400
+2026-10-07T13:45:30.3552220Z   poll_seconds: 5
+2026-10-07T13:45:30.3552330Z env:
+2026-10-07T13:45:30.3552440Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:30.3552560Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:30.3552670Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:30.3552780Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:30.3552900Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:30.3553050Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:30.3553230Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:30.3553400Z   WGPU_BACKEND: metal
+2026-10-07T13:45:30.3553550Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:30.3553700Z   CAPTURE: 1
+2026-10-07T13:45:30.3553790Z   TIMEOUT: 90
+2026-10-07T13:45:30.3553880Z   VISIBLE: 1
+2026-10-07T13:45:30.3553990Z   PROOF_HOST: m4
+2026-10-07T13:45:30.3554090Z ##[endgroup]
+2026-10-07T13:45:30.3930510Z Acquired host hardware lock at /var/folders/96/dck6q6xj3490x43zr8fb8pbm0000gp/T/merely-wgpu-hardware-lock/host.lock
+2026-10-07T13:45:30.4023770Z ##[group]Run dtolnay/rust-toolchain@1.97.1
+2026-10-07T13:45:30.4023920Z with:
+2026-10-07T13:45:30.4024010Z env:
+2026-10-07T13:45:30.4024120Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:30.4024240Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:30.4024350Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:30.4024490Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:30.4024600Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:30.4024740Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:30.4024920Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:30.4025100Z   WGPU_BACKEND: metal
+2026-10-07T13:45:30.4025230Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:30.4025370Z   CAPTURE: 1
+2026-10-07T13:45:30.4025450Z   TIMEOUT: 90
+2026-10-07T13:45:30.4025550Z   VISIBLE: 1
+2026-10-07T13:45:30.4025650Z   PROOF_HOST: m4
+2026-10-07T13:45:30.4025750Z ##[endgroup]
+2026-10-07T13:45:30.4059580Z ##[start-action display=Parse toolchain version;id=__dtolnay_rust-toolchain.parse]
+2026-10-07T13:45:30.4086890Z ##[group]Run if [[ -z $toolchain ]]; then
+2026-10-07T13:45:30.4087140Z [36;1mif [[ -z $toolchain ]]; then[0m
+2026-10-07T13:45:30.4087460Z [36;1m  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070[0m
+2026-10-07T13:45:30.4087760Z [36;1m  echo "'toolchain' is a required input" >&2[0m
+2026-10-07T13:45:30.4087930Z [36;1m  exit 1[0m
+2026-10-07T13:45:30.4088110Z [36;1melif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then[0m
+2026-10-07T13:45:30.4088350Z [36;1m  if [[ macOS == macOS ]]; then[0m
+2026-10-07T13:45:30.4088650Z [36;1m    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2026-10-07T13:45:30.4088930Z [36;1m  else[0m
+2026-10-07T13:45:30.4089180Z [36;1m    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2026-10-07T13:45:30.4089430Z [36;1m  fi[0m
+2026-10-07T13:45:30.4089590Z [36;1melif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then[0m
+2026-10-07T13:45:30.4089880Z [36;1m  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT[0m
+2026-10-07T13:45:30.4090120Z [36;1melif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then[0m
+2026-10-07T13:45:30.4090410Z [36;1m  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT[0m
+2026-10-07T13:45:30.4090680Z [36;1melse[0m
+2026-10-07T13:45:30.4090980Z [36;1m  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT[0m
+2026-10-07T13:45:30.4091130Z [36;1mfi[0m
+2026-10-07T13:45:30.4103610Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:30.4103770Z env:
+2026-10-07T13:45:30.4103880Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:30.4104000Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:30.4113220Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:30.4113400Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:30.4113530Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:30.4113700Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:30.4113910Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:30.4114080Z   WGPU_BACKEND: metal
+2026-10-07T13:45:30.4114230Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:30.4114390Z   CAPTURE: 1
+2026-10-07T13:45:30.4114500Z   TIMEOUT: 90
+2026-10-07T13:45:30.4114600Z   VISIBLE: 1
+2026-10-07T13:45:30.4114690Z   PROOF_HOST: m4
+2026-10-07T13:45:30.4114790Z   toolchain: 1.97.1
+2026-10-07T13:45:30.4114900Z ##[endgroup]
+2026-10-07T13:45:30.4379390Z ##[end-action id=__dtolnay_rust-toolchain.parse;outcome=success;conclusion=success;duration_ms=31]
+2026-10-07T13:45:30.4384510Z ##[start-action display=Construct rustup command line;id=__dtolnay_rust-toolchain.flags]
+2026-10-07T13:45:30.4399020Z ##[group]Run echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+2026-10-07T13:45:30.4399360Z [36;1mecho "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT[0m
+2026-10-07T13:45:30.4399670Z [36;1mecho "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT[0m
+2026-10-07T13:45:30.4399930Z [36;1mecho "downgrade=" >> $GITHUB_OUTPUT[0m
+2026-10-07T13:45:30.4407020Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:30.4407190Z env:
+2026-10-07T13:45:30.4407290Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:30.4407470Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:30.4407600Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:30.4407720Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:30.4407840Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:30.4407990Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:30.4408180Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:30.4408330Z   WGPU_BACKEND: metal
+2026-10-07T13:45:30.4408470Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:30.4408620Z   CAPTURE: 1
+2026-10-07T13:45:30.4408720Z   TIMEOUT: 90
+2026-10-07T13:45:30.4408830Z   VISIBLE: 1
+2026-10-07T13:45:30.4408920Z   PROOF_HOST: m4
+2026-10-07T13:45:30.4409030Z   targets: 
+2026-10-07T13:45:30.4409140Z   components: 
+2026-10-07T13:45:30.4409240Z ##[endgroup]
+2026-10-07T13:45:30.4592890Z ##[end-action id=__dtolnay_rust-toolchain.flags;outcome=success;conclusion=success;duration_ms=20]
+2026-10-07T13:45:30.4594140Z ##[start-action display=Set $CARGO_HOME;id=__dtolnay_rust-toolchain.__run]
+2026-10-07T13:45:30.4604640Z ##[group]Run echo CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV
+2026-10-07T13:45:30.4604880Z [36;1mecho CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV[0m
+2026-10-07T13:45:30.4611280Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:30.4611470Z env:
+2026-10-07T13:45:30.4611570Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:30.4611710Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:30.4611810Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:30.4611950Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:30.4612060Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:30.4612200Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:30.4612420Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:30.4612610Z   WGPU_BACKEND: metal
+2026-10-07T13:45:30.4612760Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:30.4612910Z   CAPTURE: 1
+2026-10-07T13:45:30.4613000Z   TIMEOUT: 90
+2026-10-07T13:45:30.4613220Z   VISIBLE: 1
+2026-10-07T13:45:30.4613310Z   PROOF_HOST: m4
+2026-10-07T13:45:30.4613410Z ##[endgroup]
+2026-10-07T13:45:30.4800660Z ##[end-action id=__dtolnay_rust-toolchain.__run;outcome=success;conclusion=success;duration_ms=20]
+2026-10-07T13:45:30.4801890Z ##[start-action display=Install rustup if needed;id=__dtolnay_rust-toolchain.__run_2]
+2026-10-07T13:45:30.4815080Z ##[group]Run if ! command -v rustup &>/dev/null; then
+2026-10-07T13:45:30.4815280Z [36;1mif ! command -v rustup &>/dev/null; then[0m
+2026-10-07T13:45:30.4815660Z [36;1m  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y[0m
+2026-10-07T13:45:30.4816020Z [36;1m  echo "$CARGO_HOME/bin" >> $GITHUB_PATH[0m
+2026-10-07T13:45:30.4816160Z [36;1mfi[0m
+2026-10-07T13:45:30.4822680Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:30.4822840Z env:
+2026-10-07T13:45:30.4822930Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:30.4823100Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:30.4823210Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:30.4823330Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:30.4823450Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:30.4823580Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:30.4823770Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:30.4824040Z   WGPU_BACKEND: metal
+2026-10-07T13:45:30.4824180Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:30.4824320Z   CAPTURE: 1
+2026-10-07T13:45:30.4824420Z   TIMEOUT: 90
+2026-10-07T13:45:30.4824520Z   VISIBLE: 1
+2026-10-07T13:45:30.4824620Z   PROOF_HOST: m4
+2026-10-07T13:45:30.4824720Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:30.4824850Z ##[endgroup]
+2026-10-07T13:45:30.7241460Z info: downloading installer
+2026-10-07T13:45:31.5010710Z warn: it looks like you have an existing rustup settings file at:
+2026-10-07T13:45:31.5011380Z warn: /Users/markik/.rustup/settings.toml
+2026-10-07T13:45:31.5012110Z warn: rustup will install the default toolchain as specified in the settings file,
+2026-10-07T13:45:31.5012840Z warn: instead of the one inferred from the default host tuple.
+2026-10-07T13:45:31.5222960Z info: profile set to default
+2026-10-07T13:45:31.5223590Z info: default host tuple is aarch64-apple-darwin
+2026-10-07T13:45:31.5224120Z info: skipping toolchain installation
+2026-10-07T13:45:31.5224490Z 
+2026-10-07T13:45:31.5226460Z 
+2026-10-07T13:45:31.5226940Z Rust is installed now. Great!
+2026-10-07T13:45:31.5227540Z 
+2026-10-07T13:45:31.5227810Z To get started you may need to restart your current shell.
+2026-10-07T13:45:31.5228510Z This would reload your PATH environment variable to include
+2026-10-07T13:45:31.5229100Z Cargo's bin directory ($HOME/.cargo/bin).
+2026-10-07T13:45:31.5229430Z 
+2026-10-07T13:45:31.5229680Z To configure your current shell, you need to source the
+2026-10-07T13:45:31.5230610Z corresponding env file under $HOME/.cargo.
+2026-10-07T13:45:31.5231000Z 
+2026-10-07T13:45:31.5231400Z Consider running the right command for your shell (note the leading DOT):
+2026-10-07T13:45:31.5232140Z . "$HOME/.cargo/env"           # For sh/ash/dash/pdksh/zsh
+2026-10-07T13:45:31.5232730Z source "$HOME/.cargo/env.tcsh" # For tcsh
+2026-10-07T13:45:31.5372250Z ##[end-action id=__dtolnay_rust-toolchain.__run_2;outcome=success;conclusion=success;duration_ms=1056]
+2026-10-07T13:45:31.5374450Z ##[start-action display=Install rustup if needed on windows;id=__dtolnay_rust-toolchain.__run_3]
+2026-10-07T13:45:31.5432930Z ##[end-action id=__dtolnay_rust-toolchain.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-07T13:45:31.5439570Z ##[start-action display=rustup toolchain install 1.97.1;id=__dtolnay_rust-toolchain.__run_4]
+2026-10-07T13:45:31.5454790Z ##[group]Run log=$(mktemp)
+2026-10-07T13:45:31.5454950Z [36;1mlog=$(mktemp)[0m
+2026-10-07T13:45:31.5455100Z [36;1mtrap 'rm -f "$log"' EXIT[0m
+2026-10-07T13:45:31.5455290Z [36;1mfor attempt in 1 2 3 4 5; do[0m
+2026-10-07T13:45:31.5455830Z [36;1m  if rustup toolchain install 1.97.1 --profile minimal --no-self-update --force-non-host 2>&1 | tee "$log"; then[0m
+2026-10-07T13:45:31.5456180Z [36;1m    break[0m
+2026-10-07T13:45:31.5456300Z [36;1m  else[0m
+2026-10-07T13:45:31.5456440Z [36;1m    status=$?[0m
+2026-10-07T13:45:31.5456560Z [36;1m  fi[0m
+2026-10-07T13:45:31.5456770Z [36;1m  if [[ $attempt == 5 ]] || ! grep -Fq 'checksum failed for ' "$log" \[0m
+2026-10-07T13:45:31.5457160Z [36;1m      || ! grep -Fq 'this is likely due to an ongoing update of the official release server' "$log"; then[0m
+2026-10-07T13:45:31.5457460Z [36;1m    exit "$status"[0m
+2026-10-07T13:45:31.5457620Z [36;1m  fi[0m
+2026-10-07T13:45:31.5457840Z [36;1m  echo "Retrying rustup toolchain install in 30 seconds (retry $attempt of 4)" >&2[0m
+2026-10-07T13:45:31.5458100Z [36;1m  sleep 30[0m
+2026-10-07T13:45:31.5458210Z [36;1mdone[0m
+2026-10-07T13:45:31.5471080Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:31.5471450Z env:
+2026-10-07T13:45:31.5471670Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:31.5471960Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:31.5472190Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:31.5472410Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:31.5472650Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:31.5472950Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:31.5473600Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:31.5473980Z   WGPU_BACKEND: metal
+2026-10-07T13:45:31.5474260Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:31.5474590Z   CAPTURE: 1
+2026-10-07T13:45:31.5474810Z   TIMEOUT: 90
+2026-10-07T13:45:31.5475000Z   VISIBLE: 1
+2026-10-07T13:45:31.5475210Z   PROOF_HOST: m4
+2026-10-07T13:45:31.5475430Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:31.5475730Z   RUSTUP_PERMIT_COPY_RENAME: 1
+2026-10-07T13:45:31.5475990Z ##[endgroup]
+2026-10-07T13:45:33.2223500Z info: syncing channel updates for 1.97.1-aarch64-apple-darwin
+2026-10-07T13:45:33.3547150Z 
+2026-10-07T13:45:33.3710050Z   1.97.1-aarch64-apple-darwin unchanged - rustc 1.97.1 (8bab26f4f 2026-07-14)
+2026-10-07T13:45:33.3710380Z 
+2026-10-07T13:45:33.3779820Z ##[end-action id=__dtolnay_rust-toolchain.__run_4;outcome=success;conclusion=success;duration_ms=1833]
+2026-10-07T13:45:33.3783140Z ##[start-action display=rustup default 1.97.1;id=__dtolnay_rust-toolchain.__run_5]
+2026-10-07T13:45:33.3799280Z ##[group]Run rustup default 1.97.1 --force-non-host
+2026-10-07T13:45:33.3799570Z [36;1mrustup default 1.97.1 --force-non-host[0m
+2026-10-07T13:45:33.3811420Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:33.3811620Z env:
+2026-10-07T13:45:33.3811760Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:33.3811930Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:33.3812070Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:33.3812220Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:33.3812350Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:33.3812610Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:33.3812840Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:33.3813030Z   WGPU_BACKEND: metal
+2026-10-07T13:45:33.3813180Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:33.3813370Z   CAPTURE: 1
+2026-10-07T13:45:33.3813480Z   TIMEOUT: 90
+2026-10-07T13:45:33.3813600Z   VISIBLE: 1
+2026-10-07T13:45:33.3813710Z   PROOF_HOST: m4
+2026-10-07T13:45:33.3813850Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:33.3814030Z ##[endgroup]
+2026-10-07T13:45:33.4109170Z info: using existing install for 1.97.1-aarch64-apple-darwin
+2026-10-07T13:45:33.4159620Z info: default toolchain set to 1.97.1-aarch64-apple-darwin
+2026-10-07T13:45:33.4159770Z 
+2026-10-07T13:45:33.4236410Z   1.97.1-aarch64-apple-darwin unchanged - rustc 1.97.1 (8bab26f4f 2026-07-14)
+2026-10-07T13:45:33.4236610Z 
+2026-10-07T13:45:33.4239480Z info: note that the toolchain '1.97.1-aarch64-apple-darwin' is currently in use (overridden by '/Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/rust-toolchain.toml')
+2026-10-07T13:45:33.4249600Z ##[end-action id=__dtolnay_rust-toolchain.__run_5;outcome=success;conclusion=success;duration_ms=46]
+2026-10-07T13:45:33.4250900Z ##[start-action display=Create cachekey;id=__dtolnay_rust-toolchain.rustc-version]
+2026-10-07T13:45:33.4261110Z ##[group]Run DATE=$(rustc +1.97.1 --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+2026-10-07T13:45:33.4261500Z [36;1mDATE=$(rustc +1.97.1 --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')[0m
+2026-10-07T13:45:33.4261790Z [36;1mHASH=$(rustc +1.97.1 --version --verbose | sed -ne 's/^commit-hash: //p')[0m
+2026-10-07T13:45:33.4262030Z [36;1mecho "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT[0m
+2026-10-07T13:45:33.4268910Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:33.4269050Z env:
+2026-10-07T13:45:33.4269150Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:33.4269280Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:33.4269390Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:33.4269490Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:33.4269600Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:33.4269740Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:33.4270020Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:33.4270190Z   WGPU_BACKEND: metal
+2026-10-07T13:45:33.4270300Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:33.4270450Z   CAPTURE: 1
+2026-10-07T13:45:33.4270530Z   TIMEOUT: 90
+2026-10-07T13:45:33.4270610Z   VISIBLE: 1
+2026-10-07T13:45:33.4270690Z   PROOF_HOST: m4
+2026-10-07T13:45:33.4270800Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:33.4270910Z ##[endgroup]
+2026-10-07T13:45:33.4759830Z ##[end-action id=__dtolnay_rust-toolchain.rustc-version;outcome=success;conclusion=success;duration_ms=50]
+2026-10-07T13:45:33.4761170Z ##[start-action display=Disable incremental compilation;id=__dtolnay_rust-toolchain.__run_6]
+2026-10-07T13:45:33.4770510Z ##[group]Run if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+2026-10-07T13:45:33.4770680Z [36;1mif [ -z "${CARGO_INCREMENTAL+set}" ]; then[0m
+2026-10-07T13:45:33.4770840Z [36;1m  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV[0m
+2026-10-07T13:45:33.4770980Z [36;1mfi[0m
+2026-10-07T13:45:33.4777660Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:33.4777800Z env:
+2026-10-07T13:45:33.4777910Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:33.4778030Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:33.4778140Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:33.4778270Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:33.4778380Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:33.4778530Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:33.4778720Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:33.4778870Z   WGPU_BACKEND: metal
+2026-10-07T13:45:33.4778990Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:33.4779140Z   CAPTURE: 1
+2026-10-07T13:45:33.4787410Z   TIMEOUT: 90
+2026-10-07T13:45:33.4787510Z   VISIBLE: 1
+2026-10-07T13:45:33.4787590Z   PROOF_HOST: m4
+2026-10-07T13:45:33.4787710Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:33.4787810Z ##[endgroup]
+2026-10-07T13:45:33.4970220Z ##[end-action id=__dtolnay_rust-toolchain.__run_6;outcome=success;conclusion=success;duration_ms=20]
+2026-10-07T13:45:33.4971440Z ##[start-action display=Enable colors in Cargo output;id=__dtolnay_rust-toolchain.__run_7]
+2026-10-07T13:45:33.4980990Z ##[group]Run if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+2026-10-07T13:45:33.4981170Z [36;1mif [ -z "${CARGO_TERM_COLOR+set}" ]; then[0m
+2026-10-07T13:45:33.4981350Z [36;1m  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV[0m
+2026-10-07T13:45:33.4981490Z [36;1mfi[0m
+2026-10-07T13:45:33.4988310Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:33.4988470Z env:
+2026-10-07T13:45:33.4988710Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:33.4988830Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:33.4988950Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:33.4989040Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:33.4989150Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:33.4989280Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:33.4989460Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:33.4989610Z   WGPU_BACKEND: metal
+2026-10-07T13:45:33.4989740Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:33.4989870Z   CAPTURE: 1
+2026-10-07T13:45:33.4989960Z   TIMEOUT: 90
+2026-10-07T13:45:33.4990050Z   VISIBLE: 1
+2026-10-07T13:45:33.4990130Z   PROOF_HOST: m4
+2026-10-07T13:45:33.4990230Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:33.4990350Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:33.4990450Z ##[endgroup]
+2026-10-07T13:45:33.5147690Z ##[end-action id=__dtolnay_rust-toolchain.__run_7;outcome=success;conclusion=success;duration_ms=17]
+2026-10-07T13:45:33.5148960Z ##[start-action display=Enable Cargo sparse registry;id=__dtolnay_rust-toolchain.__run_8]
+2026-10-07T13:45:33.5159930Z ##[group]Run # implemented in 1.66, stabilized in 1.68, made default in 1.70
+2026-10-07T13:45:33.5160180Z [36;1m# implemented in 1.66, stabilized in 1.68, made default in 1.70[0m
+2026-10-07T13:45:33.5160710Z [36;1mif [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/Users/markik/actions-runner-wgpu/_work/_temp"/.implicit_cargo_registries_crates_io_protocol ]; then[0m
+2026-10-07T13:45:33.5161090Z [36;1m  if rustc +1.97.1 --version --verbose | grep -q '^release: 1\.6[89]\.'; then[0m
+2026-10-07T13:45:33.5161400Z [36;1m    touch "/Users/markik/actions-runner-wgpu/_work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2026-10-07T13:45:33.5161690Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV[0m
+2026-10-07T13:45:33.5161930Z [36;1m  elif rustc +1.97.1 --version --verbose | grep -q '^release: 1\.6[67]\.'; then[0m
+2026-10-07T13:45:33.5162240Z [36;1m    touch "/Users/markik/actions-runner-wgpu/_work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2026-10-07T13:45:33.5162520Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV[0m
+2026-10-07T13:45:33.5162690Z [36;1m  fi[0m
+2026-10-07T13:45:33.5162770Z [36;1mfi[0m
+2026-10-07T13:45:33.5169630Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:33.5169780Z env:
+2026-10-07T13:45:33.5169890Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:33.5170010Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:33.5170120Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:33.5170220Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:33.5170330Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:33.5170460Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:33.5170640Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:33.5170770Z   WGPU_BACKEND: metal
+2026-10-07T13:45:33.5170910Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:33.5171050Z   CAPTURE: 1
+2026-10-07T13:45:33.5171130Z   TIMEOUT: 90
+2026-10-07T13:45:33.5171220Z   VISIBLE: 1
+2026-10-07T13:45:33.5171300Z   PROOF_HOST: m4
+2026-10-07T13:45:33.5171400Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:33.5171520Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:33.5171620Z   CARGO_TERM_COLOR: always
+2026-10-07T13:45:33.5171730Z ##[endgroup]
+2026-10-07T13:45:33.5630430Z ##[end-action id=__dtolnay_rust-toolchain.__run_8;outcome=success;conclusion=success;duration_ms=48]
+2026-10-07T13:45:33.5631760Z ##[start-action display=Work around spurious network errors in curl 8.0;id=__dtolnay_rust-toolchain.__run_9]
+2026-10-07T13:45:33.5642710Z ##[group]Run # https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+2026-10-07T13:45:33.5643070Z [36;1m# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation[0m
+2026-10-07T13:45:33.5643360Z [36;1mif rustc +1.97.1 --version --verbose | grep -q '^release: 1\.7[01]\.'; then[0m
+2026-10-07T13:45:33.5643790Z [36;1m  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV[0m
+2026-10-07T13:45:33.5643940Z [36;1mfi[0m
+2026-10-07T13:45:33.5650900Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:33.5651060Z env:
+2026-10-07T13:45:33.5651160Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:33.5651310Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:33.5651430Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:33.5651540Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:33.5651650Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:33.5651780Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:33.5651970Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:33.5652110Z   WGPU_BACKEND: metal
+2026-10-07T13:45:33.5652250Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:33.5652380Z   CAPTURE: 1
+2026-10-07T13:45:33.5652480Z   TIMEOUT: 90
+2026-10-07T13:45:33.5652560Z   VISIBLE: 1
+2026-10-07T13:45:33.5652650Z   PROOF_HOST: m4
+2026-10-07T13:45:33.5652760Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:33.5652880Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:33.5652990Z   CARGO_TERM_COLOR: always
+2026-10-07T13:45:33.5653090Z ##[endgroup]
+2026-10-07T13:45:33.5955460Z ##[end-action id=__dtolnay_rust-toolchain.__run_9;outcome=success;conclusion=success;duration_ms=32]
+2026-10-07T13:45:33.5957560Z ##[start-action display=rustc +1.97.1 --version --verbose;id=__dtolnay_rust-toolchain.__run_10]
+2026-10-07T13:45:33.5966790Z ##[group]Run rustc +1.97.1 --version --verbose
+2026-10-07T13:45:33.5966960Z [36;1mrustc +1.97.1 --version --verbose[0m
+2026-10-07T13:45:33.5973720Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T13:45:33.5973870Z env:
+2026-10-07T13:45:33.5973980Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:33.5974130Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:33.5974250Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:33.5974370Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:33.5974520Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:33.5974680Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:33.5974870Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:33.5975040Z   WGPU_BACKEND: metal
+2026-10-07T13:45:33.5975170Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:33.5982200Z   CAPTURE: 1
+2026-10-07T13:45:33.5982310Z   TIMEOUT: 90
+2026-10-07T13:45:33.5982390Z   VISIBLE: 1
+2026-10-07T13:45:33.5982470Z   PROOF_HOST: m4
+2026-10-07T13:45:33.5982560Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:33.5982680Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:33.5982770Z   CARGO_TERM_COLOR: always
+2026-10-07T13:45:33.5982880Z ##[endgroup]
+2026-10-07T13:45:33.6273310Z rustc 1.97.1 (8bab26f4f 2026-07-14)
+2026-10-07T13:45:33.6273580Z binary: rustc
+2026-10-07T13:45:33.6273730Z commit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452
+2026-10-07T13:45:33.6273930Z commit-date: 2026-07-14
+2026-10-07T13:45:33.6274090Z host: aarch64-apple-darwin
+2026-10-07T13:45:33.6274230Z release: 1.97.1
+2026-10-07T13:45:33.6276280Z LLVM version: 22.1.6
+2026-10-07T13:45:33.6287460Z ##[end-action id=__dtolnay_rust-toolchain.__run_10;outcome=success;conclusion=success;duration_ms=32]
+2026-10-07T13:45:33.6345610Z ##[group]Run actions/checkout@v4
+2026-10-07T13:45:33.6345750Z with:
+2026-10-07T13:45:33.6345860Z   repository: merely-made/wgpu-graft
+2026-10-07T13:45:33.6346000Z   ref: 816f3e7857afee863200e1c25b300c43b1532aae
+2026-10-07T13:45:33.6346150Z   path: .registry-proof-source/graft
+2026-10-07T13:45:33.6347290Z   token: ***
+2026-10-07T13:45:33.6347390Z   ssh-strict: true
+2026-10-07T13:45:33.6347490Z   ssh-user: git
+2026-10-07T13:45:33.6347590Z   persist-credentials: true
+2026-10-07T13:45:33.6347710Z   clean: true
+2026-10-07T13:45:33.6347810Z   sparse-checkout-cone-mode: true
+2026-10-07T13:45:33.6347940Z   fetch-depth: 1
+2026-10-07T13:45:33.6348030Z   fetch-tags: false
+2026-10-07T13:45:33.6348140Z   show-progress: true
+2026-10-07T13:45:33.6348420Z   lfs: false
+2026-10-07T13:45:33.6348510Z   submodules: false
+2026-10-07T13:45:33.6348610Z   set-safe-directory: true
+2026-10-07T13:45:33.6348730Z   allow-unsafe-pr-checkout: false
+2026-10-07T13:45:33.6348860Z env:
+2026-10-07T13:45:33.6348980Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:33.6349110Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:33.6349220Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:33.6349330Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:33.6349430Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:33.6349570Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:33.6349750Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:33.6349900Z   WGPU_BACKEND: metal
+2026-10-07T13:45:33.6350020Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:33.6350160Z   CAPTURE: 1
+2026-10-07T13:45:33.6350250Z   TIMEOUT: 90
+2026-10-07T13:45:33.6350340Z   VISIBLE: 1
+2026-10-07T13:45:33.6350420Z   PROOF_HOST: m4
+2026-10-07T13:45:33.6350520Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:33.6350650Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:33.6350750Z   CARGO_TERM_COLOR: always
+2026-10-07T13:45:33.6350850Z ##[endgroup]
+2026-10-07T13:45:33.6878460Z Syncing repository: merely-made/wgpu-graft
+2026-10-07T13:45:33.6880840Z ##[group]Getting Git version info
+2026-10-07T13:45:33.6881130Z Working directory is '/Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/graft'
+2026-10-07T13:45:33.6890510Z [command]/usr/bin/git version
+2026-10-07T13:45:33.6968270Z git version 2.50.1 (Apple Git-155)
+2026-10-07T13:45:33.6974950Z ##[endgroup]
+2026-10-07T13:45:33.6978320Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/e649bc70-4688-45e5-b9df-d8f5c0ce64ea/.gitconfig'
+2026-10-07T13:45:33.6981860Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/e649bc70-4688-45e5-b9df-d8f5c0ce64ea' before making global git config changes
+2026-10-07T13:45:33.6982310Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T13:45:33.6983920Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/graft
+2026-10-07T13:45:33.7457130Z ##[group]Initializing the repository
+2026-10-07T13:45:33.7459330Z [command]/usr/bin/git init /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/graft
+2026-10-07T13:45:33.7566240Z Initialized empty Git repository in /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/graft/.git/
+2026-10-07T13:45:33.7570550Z [command]/usr/bin/git remote add origin https://github.com/merely-made/wgpu-graft
+2026-10-07T13:45:33.7639710Z ##[endgroup]
+2026-10-07T13:45:33.7639910Z ##[group]Disabling automatic garbage collection
+2026-10-07T13:45:33.7641440Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-07T13:45:33.7705730Z ##[endgroup]
+2026-10-07T13:45:33.7705920Z ##[group]Setting up auth
+2026-10-07T13:45:33.7708600Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T13:45:33.7773170Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T13:45:33.8247040Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T13:45:33.8314730Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T13:45:33.8794120Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T13:45:33.8863710Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T13:45:33.9365330Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-07T13:45:33.9440380Z ##[endgroup]
+2026-10-07T13:45:33.9440600Z ##[group]Fetching the repository
+2026-10-07T13:45:33.9443440Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 816f3e7857afee863200e1c25b300c43b1532aae
+2026-10-07T13:45:34.7752410Z From https://github.com/merely-made/wgpu-graft
+2026-10-07T13:45:34.7752690Z  * branch            816f3e7857afee863200e1c25b300c43b1532aae -> FETCH_HEAD
+2026-10-07T13:45:34.7791880Z ##[endgroup]
+2026-10-07T13:45:34.7792100Z ##[group]Determining the checkout info
+2026-10-07T13:45:34.7792720Z ##[endgroup]
+2026-10-07T13:45:34.7794880Z [command]/usr/bin/git sparse-checkout disable
+2026-10-07T13:45:34.7875130Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-07T13:45:34.7943320Z ##[group]Checking out the ref
+2026-10-07T13:45:34.7945090Z [command]/usr/bin/git checkout --progress --force 816f3e7857afee863200e1c25b300c43b1532aae
+2026-10-07T13:45:34.8870950Z Note: switching to '816f3e7857afee863200e1c25b300c43b1532aae'.
+2026-10-07T13:45:34.8871130Z 
+2026-10-07T13:45:34.8871250Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-07T13:45:34.8871530Z changes and commit them, and you can discard any commits you make in this
+2026-10-07T13:45:34.8871810Z state without impacting any branches by switching back to a branch.
+2026-10-07T13:45:34.8871950Z 
+2026-10-07T13:45:34.8872050Z If you want to create a new branch to retain commits you create, you may
+2026-10-07T13:45:34.8872290Z do so (now or later) by using -c with the switch command. Example:
+2026-10-07T13:45:34.8872430Z 
+2026-10-07T13:45:34.8872480Z   git switch -c <new-branch-name>
+2026-10-07T13:45:34.8872580Z 
+2026-10-07T13:45:34.8872630Z Or undo this operation with:
+2026-10-07T13:45:34.8872720Z 
+2026-10-07T13:45:34.8872770Z   git switch -
+2026-10-07T13:45:34.8872820Z 
+2026-10-07T13:45:34.8872950Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-07T13:45:34.8873110Z 
+2026-10-07T13:45:34.8873210Z HEAD is now at 816f3e7 Fix move-only frame access in Bevy demo
+2026-10-07T13:45:34.8878500Z ##[endgroup]
+2026-10-07T13:45:34.8963410Z [command]/usr/bin/git log -1 --format=%H
+2026-10-07T13:45:34.9031730Z 816f3e7857afee863200e1c25b300c43b1532aae
+2026-10-07T13:45:34.9108080Z ##[group]Run actions/checkout@v4
+2026-10-07T13:45:34.9108220Z with:
+2026-10-07T13:45:34.9108310Z   repository: merely-made/wgpu-scry
+2026-10-07T13:45:34.9108440Z   ref: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:34.9108580Z   path: .registry-proof-source/scry
+2026-10-07T13:45:34.9109740Z   token: ***
+2026-10-07T13:45:34.9109840Z   ssh-strict: true
+2026-10-07T13:45:34.9109940Z   ssh-user: git
+2026-10-07T13:45:34.9110040Z   persist-credentials: true
+2026-10-07T13:45:34.9110140Z   clean: true
+2026-10-07T13:45:34.9110240Z   sparse-checkout-cone-mode: true
+2026-10-07T13:45:34.9110360Z   fetch-depth: 1
+2026-10-07T13:45:34.9110460Z   fetch-tags: false
+2026-10-07T13:45:34.9110550Z   show-progress: true
+2026-10-07T13:45:34.9110650Z   lfs: false
+2026-10-07T13:45:34.9110730Z   submodules: false
+2026-10-07T13:45:34.9110840Z   set-safe-directory: true
+2026-10-07T13:45:34.9110960Z   allow-unsafe-pr-checkout: false
+2026-10-07T13:45:34.9111070Z env:
+2026-10-07T13:45:34.9111190Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:34.9111310Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:34.9111410Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:34.9111520Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:34.9111620Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:34.9111750Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:34.9111910Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:34.9112060Z   WGPU_BACKEND: metal
+2026-10-07T13:45:34.9112180Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:34.9112310Z   CAPTURE: 1
+2026-10-07T13:45:34.9112400Z   TIMEOUT: 90
+2026-10-07T13:45:34.9112600Z   VISIBLE: 1
+2026-10-07T13:45:34.9112680Z   PROOF_HOST: m4
+2026-10-07T13:45:34.9112780Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:34.9112900Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:34.9113000Z   CARGO_TERM_COLOR: always
+2026-10-07T13:45:34.9113110Z ##[endgroup]
+2026-10-07T13:45:34.9655690Z Syncing repository: merely-made/wgpu-scry
+2026-10-07T13:45:34.9657310Z ##[group]Getting Git version info
+2026-10-07T13:45:34.9657620Z Working directory is '/Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/scry'
+2026-10-07T13:45:34.9665690Z [command]/usr/bin/git version
+2026-10-07T13:45:34.9741630Z git version 2.50.1 (Apple Git-155)
+2026-10-07T13:45:34.9748550Z ##[endgroup]
+2026-10-07T13:45:34.9752170Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/239bd34d-d50c-43d4-a683-514d03d9f383/.gitconfig'
+2026-10-07T13:45:34.9756270Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/239bd34d-d50c-43d4-a683-514d03d9f383' before making global git config changes
+2026-10-07T13:45:34.9756750Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T13:45:34.9758370Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/scry
+2026-10-07T13:45:35.0228160Z ##[group]Initializing the repository
+2026-10-07T13:45:35.0230460Z [command]/usr/bin/git init /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/scry
+2026-10-07T13:45:35.0331190Z Initialized empty Git repository in /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/scry/.git/
+2026-10-07T13:45:35.0336230Z [command]/usr/bin/git remote add origin https://github.com/merely-made/wgpu-scry
+2026-10-07T13:45:35.0414930Z ##[endgroup]
+2026-10-07T13:45:35.0415180Z ##[group]Disabling automatic garbage collection
+2026-10-07T13:45:35.0416780Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-07T13:45:35.0490720Z ##[endgroup]
+2026-10-07T13:45:35.0490920Z ##[group]Setting up auth
+2026-10-07T13:45:35.0493830Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T13:45:35.0565300Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T13:45:35.1080360Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T13:45:35.1150180Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T13:45:35.1666250Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T13:45:35.1735780Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T13:45:35.2251550Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-07T13:45:35.2323610Z ##[endgroup]
+2026-10-07T13:45:35.2323850Z ##[group]Fetching the repository
+2026-10-07T13:45:35.2326920Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:36.1746150Z From https://github.com/merely-made/wgpu-scry
+2026-10-07T13:45:36.1746660Z  * branch            4d8d1d3f8dd450b712960c90b74263a45b46e35b -> FETCH_HEAD
+2026-10-07T13:45:36.1798520Z ##[endgroup]
+2026-10-07T13:45:36.1798780Z ##[group]Determining the checkout info
+2026-10-07T13:45:36.1799170Z ##[endgroup]
+2026-10-07T13:45:36.1801850Z [command]/usr/bin/git sparse-checkout disable
+2026-10-07T13:45:36.1901710Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-07T13:45:36.1979190Z ##[group]Checking out the ref
+2026-10-07T13:45:36.1982740Z [command]/usr/bin/git checkout --progress --force 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:36.2608530Z Note: switching to '4d8d1d3f8dd450b712960c90b74263a45b46e35b'.
+2026-10-07T13:45:36.2608700Z 
+2026-10-07T13:45:36.2608820Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-07T13:45:36.2609090Z changes and commit them, and you can discard any commits you make in this
+2026-10-07T13:45:36.2609340Z state without impacting any branches by switching back to a branch.
+2026-10-07T13:45:36.2609470Z 
+2026-10-07T13:45:36.2609580Z If you want to create a new branch to retain commits you create, you may
+2026-10-07T13:45:36.2609810Z do so (now or later) by using -c with the switch command. Example:
+2026-10-07T13:45:36.2609950Z 
+2026-10-07T13:45:36.2610000Z   git switch -c <new-branch-name>
+2026-10-07T13:45:36.2610100Z 
+2026-10-07T13:45:36.2610150Z Or undo this operation with:
+2026-10-07T13:45:36.2610230Z 
+2026-10-07T13:45:36.2610290Z   git switch -
+2026-10-07T13:45:36.2610350Z 
+2026-10-07T13:45:36.2610460Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-07T13:45:36.2610620Z 
+2026-10-07T13:45:36.2610780Z HEAD is now at 4d8d1d3 Release scrying 0.7.2 with explicit paint waits and native pixel qualification
+2026-10-07T13:45:36.2615690Z ##[endgroup]
+2026-10-07T13:45:36.2703070Z [command]/usr/bin/git log -1 --format=%H
+2026-10-07T13:45:36.2773640Z 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:36.2857860Z ##[group]Run actions/checkout@v4
+2026-10-07T13:45:36.2858010Z with:
+2026-10-07T13:45:36.2858120Z   repository: merely-made/wgpu-weld
+2026-10-07T13:45:36.2858260Z   ref: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:36.2858410Z   path: .registry-proof-source/weld
+2026-10-07T13:45:36.2859670Z   token: ***
+2026-10-07T13:45:36.2859770Z   ssh-strict: true
+2026-10-07T13:45:36.2859860Z   ssh-user: git
+2026-10-07T13:45:36.2859960Z   persist-credentials: true
+2026-10-07T13:45:36.2860070Z   clean: true
+2026-10-07T13:45:36.2860180Z   sparse-checkout-cone-mode: true
+2026-10-07T13:45:36.2860300Z   fetch-depth: 1
+2026-10-07T13:45:36.2860400Z   fetch-tags: false
+2026-10-07T13:45:36.2860490Z   show-progress: true
+2026-10-07T13:45:36.2860590Z   lfs: false
+2026-10-07T13:45:36.2860680Z   submodules: false
+2026-10-07T13:45:36.2860780Z   set-safe-directory: true
+2026-10-07T13:45:36.2860910Z   allow-unsafe-pr-checkout: false
+2026-10-07T13:45:36.2861020Z env:
+2026-10-07T13:45:36.2861130Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:36.2861260Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:36.2861370Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:36.2861480Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:36.2861580Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:36.2861700Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:36.2861870Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:36.2862020Z   WGPU_BACKEND: metal
+2026-10-07T13:45:36.2862140Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:36.2862280Z   CAPTURE: 1
+2026-10-07T13:45:36.2862350Z   TIMEOUT: 90
+2026-10-07T13:45:36.2862430Z   VISIBLE: 1
+2026-10-07T13:45:36.2862510Z   PROOF_HOST: m4
+2026-10-07T13:45:36.2862620Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:36.2862730Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:36.2862830Z   CARGO_TERM_COLOR: always
+2026-10-07T13:45:36.2862920Z ##[endgroup]
+2026-10-07T13:45:36.3511410Z Syncing repository: merely-made/wgpu-weld
+2026-10-07T13:45:36.3513600Z ##[group]Getting Git version info
+2026-10-07T13:45:36.3513920Z Working directory is '/Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/weld'
+2026-10-07T13:45:36.3522240Z [command]/usr/bin/git version
+2026-10-07T13:45:36.3601780Z git version 2.50.1 (Apple Git-155)
+2026-10-07T13:45:36.3608140Z ##[endgroup]
+2026-10-07T13:45:36.3611490Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/5e59316e-bebb-4cd9-b410-f74ab38881ab/.gitconfig'
+2026-10-07T13:45:36.3615620Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/5e59316e-bebb-4cd9-b410-f74ab38881ab' before making global git config changes
+2026-10-07T13:45:36.3616060Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T13:45:36.3618020Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/weld
+2026-10-07T13:45:36.4126370Z ##[group]Initializing the repository
+2026-10-07T13:45:36.4128440Z [command]/usr/bin/git init /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/weld
+2026-10-07T13:45:36.4224660Z Initialized empty Git repository in /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/weld/.git/
+2026-10-07T13:45:36.4229330Z [command]/usr/bin/git remote add origin https://github.com/merely-made/wgpu-weld
+2026-10-07T13:45:36.4305100Z ##[endgroup]
+2026-10-07T13:45:36.4305320Z ##[group]Disabling automatic garbage collection
+2026-10-07T13:45:36.4306730Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-07T13:45:36.4375220Z ##[endgroup]
+2026-10-07T13:45:36.4375420Z ##[group]Setting up auth
+2026-10-07T13:45:36.4378200Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T13:45:36.4447650Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T13:45:36.4954280Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T13:45:36.5021990Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T13:45:36.5496190Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T13:45:36.5566910Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T13:45:36.6038350Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-07T13:45:36.6113390Z ##[endgroup]
+2026-10-07T13:45:36.6113620Z ##[group]Fetching the repository
+2026-10-07T13:45:36.6116500Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:37.1826170Z From https://github.com/merely-made/wgpu-weld
+2026-10-07T13:45:37.1826770Z  * branch            c7b7b4c52138643e22580a918542e8e036a0b24a -> FETCH_HEAD
+2026-10-07T13:45:37.1882110Z ##[endgroup]
+2026-10-07T13:45:37.1882330Z ##[group]Determining the checkout info
+2026-10-07T13:45:37.1882990Z ##[endgroup]
+2026-10-07T13:45:37.1885540Z [command]/usr/bin/git sparse-checkout disable
+2026-10-07T13:45:37.1967180Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-07T13:45:37.2036720Z ##[group]Checking out the ref
+2026-10-07T13:45:37.2038570Z [command]/usr/bin/git checkout --progress --force c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:37.2185450Z Note: switching to 'c7b7b4c52138643e22580a918542e8e036a0b24a'.
+2026-10-07T13:45:37.2185590Z 
+2026-10-07T13:45:37.2185710Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-07T13:45:37.2185980Z changes and commit them, and you can discard any commits you make in this
+2026-10-07T13:45:37.2186230Z state without impacting any branches by switching back to a branch.
+2026-10-07T13:45:37.2186380Z 
+2026-10-07T13:45:37.2186480Z If you want to create a new branch to retain commits you create, you may
+2026-10-07T13:45:37.2186710Z do so (now or later) by using -c with the switch command. Example:
+2026-10-07T13:45:37.2186850Z 
+2026-10-07T13:45:37.2186910Z   git switch -c <new-branch-name>
+2026-10-07T13:45:37.2187000Z 
+2026-10-07T13:45:37.2187310Z Or undo this operation with:
+2026-10-07T13:45:37.2187390Z 
+2026-10-07T13:45:37.2187450Z   git switch -
+2026-10-07T13:45:37.2187510Z 
+2026-10-07T13:45:37.2187630Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-07T13:45:37.2187780Z 
+2026-10-07T13:45:37.2187870Z HEAD is now at c7b7b4c Refuse unsafe CEF DevTools windows
+2026-10-07T13:45:37.2190920Z ##[endgroup]
+2026-10-07T13:45:37.2268130Z [command]/usr/bin/git log -1 --format=%H
+2026-10-07T13:45:37.2330510Z c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:37.2378250Z ##[group]Run brew_bin="$(command -v brew || true)"
+2026-10-07T13:45:37.2378450Z [36;1mbrew_bin="$(command -v brew || true)"[0m
+2026-10-07T13:45:37.2378640Z [36;1mif [ -z "$brew_bin" ]; then[0m
+2026-10-07T13:45:37.2378910Z [36;1m  if [ -x /opt/homebrew/bin/brew ]; then brew_bin=/opt/homebrew/bin/brew; else brew_bin=/usr/local/bin/brew; fi[0m
+2026-10-07T13:45:37.2379170Z [36;1mfi[0m
+2026-10-07T13:45:37.2379330Z [36;1m"$brew_bin" list cmake >/dev/null 2>&1 || "$brew_bin" install cmake[0m
+2026-10-07T13:45:37.2379580Z [36;1m"$brew_bin" list ninja >/dev/null 2>&1 || "$brew_bin" install ninja[0m
+2026-10-07T13:45:37.2379810Z [36;1mecho "$("$brew_bin" --prefix)/bin" >> "$GITHUB_PATH"[0m
+2026-10-07T13:45:37.2387880Z shell: /bin/bash -e {0}
+2026-10-07T13:45:37.2388000Z env:
+2026-10-07T13:45:37.2388110Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:37.2388240Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:37.2388370Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:37.2388520Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:37.2388620Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:37.2388750Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:37.2388930Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:37.2389080Z   WGPU_BACKEND: metal
+2026-10-07T13:45:37.2389190Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:37.2389340Z   CAPTURE: 1
+2026-10-07T13:45:37.2389420Z   TIMEOUT: 90
+2026-10-07T13:45:37.2389530Z   VISIBLE: 1
+2026-10-07T13:45:37.2389620Z   PROOF_HOST: m4
+2026-10-07T13:45:37.2389720Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:37.2389850Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:37.2389940Z   CARGO_TERM_COLOR: always
+2026-10-07T13:45:37.2390050Z ##[endgroup]
+2026-10-07T13:45:38.3031880Z ##[group]Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+2026-10-07T13:45:38.3032080Z with:
+2026-10-07T13:45:38.3032180Z   version: 0.12.8
+2026-10-07T13:45:38.3032280Z   enable-cache: false
+2026-10-07T13:45:38.3032390Z   activate-environment: false
+2026-10-07T13:45:38.3032510Z   no-project: false
+2026-10-07T13:45:38.3032680Z   working-directory: /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft
+2026-10-07T13:45:38.3033900Z   github-token: ***
+2026-10-07T13:45:38.3034170Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-10-07T13:45:38.3034460Z   restore-cache: true
+2026-10-07T13:45:38.3034590Z   save-cache: true
+2026-10-07T13:45:38.3034690Z   prune-cache: false
+2026-10-07T13:45:38.3034790Z   cache-python: false
+2026-10-07T13:45:38.3034900Z   ignore-nothing-to-cache: false
+2026-10-07T13:45:38.3035030Z   ignore-empty-workdir: false
+2026-10-07T13:45:38.3035170Z   download-from-astral-mirror: true
+2026-10-07T13:45:38.3035300Z   add-problem-matchers: true
+2026-10-07T13:45:38.3035410Z   quiet: false
+2026-10-07T13:45:38.3035500Z   resolution-strategy: highest
+2026-10-07T13:45:38.3035610Z env:
+2026-10-07T13:45:38.3035710Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:38.3035830Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:38.3035950Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:38.3036060Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:38.3036170Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:38.3036310Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:38.3036480Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:38.3036760Z   WGPU_BACKEND: metal
+2026-10-07T13:45:38.3036870Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:38.3037010Z   CAPTURE: 1
+2026-10-07T13:45:38.3037100Z   TIMEOUT: 90
+2026-10-07T13:45:38.3037190Z   VISIBLE: 1
+2026-10-07T13:45:38.3037270Z   PROOF_HOST: m4
+2026-10-07T13:45:38.3037380Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:38.3037510Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:38.3037610Z   CARGO_TERM_COLOR: always
+2026-10-07T13:45:38.3037790Z   RUNNER_TOOL_CACHE: /Users/markik/actions-runner-wgpu/_work/_temp/uv-tool-cache
+2026-10-07T13:45:38.3037970Z ##[endgroup]
+2026-10-07T13:45:38.3944240Z Found uv in tool-cache for 0.12.8
+2026-10-07T13:45:38.3945230Z Added /Users/markik/.local/bin to the path
+2026-10-07T13:45:38.3948230Z Added /Users/markik/actions-runner-wgpu/_work/_tool/uv/0.12.8/aarch64 to the path
+2026-10-07T13:45:38.3948790Z Set UV_PYTHON_INSTALL_DIR to /Users/markik/.local/share/uv/python
+2026-10-07T13:45:38.3949130Z Added /Users/markik/.local/share/uv/python to the path
+2026-10-07T13:45:38.3960500Z Successfully installed uv version 0.12.8
+2026-10-07T13:45:39.0635790Z ##[group]Run uv python install --no-bin 3.13
+2026-10-07T13:45:39.0636480Z [36;1muv python install --no-bin 3.13[0m
+2026-10-07T13:45:39.0636950Z [36;1mpython_bin="$(uv python find 3.13)"[0m
+2026-10-07T13:45:39.0637470Z [36;1mmkdir -p "$RUNNER_TEMP/python-bin"[0m
+2026-10-07T13:45:39.0638040Z [36;1mln -sf "$python_bin" "$RUNNER_TEMP/python-bin/python"[0m
+2026-10-07T13:45:39.0638710Z [36;1mln -sf "$python_bin" "$RUNNER_TEMP/python-bin/python3"[0m
+2026-10-07T13:45:39.0639370Z [36;1mecho "$RUNNER_TEMP/python-bin" >> "$GITHUB_PATH"[0m
+2026-10-07T13:45:39.0709960Z shell: /bin/bash -e {0}
+2026-10-07T13:45:39.0710340Z env:
+2026-10-07T13:45:39.0710700Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:39.0711120Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:39.0711430Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:39.0711760Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:39.0712050Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:39.0712540Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:39.0713060Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:39.0713530Z   WGPU_BACKEND: metal
+2026-10-07T13:45:39.0713880Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:39.0714330Z   CAPTURE: 1
+2026-10-07T13:45:39.0714590Z   TIMEOUT: 90
+2026-10-07T13:45:39.0714880Z   VISIBLE: 1
+2026-10-07T13:45:39.0715120Z   PROOF_HOST: m4
+2026-10-07T13:45:39.0715420Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:39.0715780Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:39.0716100Z   CARGO_TERM_COLOR: always
+2026-10-07T13:45:39.0716590Z   UV_PYTHON_INSTALL_DIR: /Users/markik/actions-runner-wgpu/_work/_temp/uv-python
+2026-10-07T13:45:39.0717290Z   UV_CACHE_DIR: /Users/markik/actions-runner-wgpu/_work/_temp/uv-cache
+2026-10-07T13:45:39.0717770Z ##[endgroup]
+2026-10-07T13:45:39.4527120Z Downloading cpython-3.13.15-macos-aarch64-none (download) (24.0MiB)
+2026-10-07T13:45:40.2054140Z  Downloaded cpython-3.13.15-macos-aarch64-none (download)
+2026-10-07T13:45:40.2319820Z Installed Python 3.13.15 in 1.10s
+2026-10-07T13:45:40.2320430Z  + cpython-3.13.15-macos-aarch64-none
+2026-10-07T13:45:40.6019900Z ##[group]Run root="$RUNNER_TEMP/registry-triplet"
+2026-10-07T13:45:40.6020150Z [36;1mroot="$RUNNER_TEMP/registry-triplet"[0m
+2026-10-07T13:45:40.6020690Z [36;1mpython3 scripts/stage_registry_triplet.py --kind graft-servo --source .registry-proof-source/graft --destination "$root/graft" --grafting-version "$GRAFTING_VERSION" --scrying-version "$SCRYING_VERSION" --welding-version "$WELDING_VERSION"[0m
+2026-10-07T13:45:40.6021510Z [36;1mpython3 scripts/stage_registry_triplet.py --kind scry-mac --source .registry-proof-source/scry --destination "$root/scry" --grafting-version "$GRAFTING_VERSION" --scrying-version "$SCRYING_VERSION" --welding-version "$WELDING_VERSION"[0m
+2026-10-07T13:45:40.6022330Z [36;1mpython3 scripts/stage_registry_triplet.py --kind weld-mac --source .registry-proof-source/weld --destination "$root/weld" --grafting-version "$GRAFTING_VERSION" --scrying-version "$SCRYING_VERSION" --welding-version "$WELDING_VERSION"[0m
+2026-10-07T13:45:40.6023350Z [36;1mpython3 scripts/verify_registry_triplet.py --consumer "$root/graft" --receipt-dir "$root/receipts/graft" --grafting-version "$GRAFTING_VERSION" --scrying-version "$SCRYING_VERSION" --welding-version "$WELDING_VERSION" --allow-servo-git[0m
+2026-10-07T13:45:40.6024150Z [36;1mpython3 scripts/verify_registry_triplet.py --consumer "$root/scry" --receipt-dir "$root/receipts/scry" --grafting-version "$GRAFTING_VERSION" --scrying-version "$SCRYING_VERSION" --welding-version "$WELDING_VERSION"[0m
+2026-10-07T13:45:40.6024890Z [36;1mpython3 scripts/verify_registry_triplet.py --consumer "$root/weld" --receipt-dir "$root/receipts/weld" --grafting-version "$GRAFTING_VERSION" --scrying-version "$SCRYING_VERSION" --welding-version "$WELDING_VERSION"[0m
+2026-10-07T13:45:40.6034100Z shell: /bin/bash -e {0}
+2026-10-07T13:45:40.6034220Z env:
+2026-10-07T13:45:40.6034320Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:40.6034460Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:40.6034590Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:40.6034700Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:40.6034810Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:40.6034960Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:40.6035150Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:40.6035300Z   WGPU_BACKEND: metal
+2026-10-07T13:45:40.6035420Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:40.6035570Z   CAPTURE: 1
+2026-10-07T13:45:40.6035670Z   TIMEOUT: 90
+2026-10-07T13:45:40.6035780Z   VISIBLE: 1
+2026-10-07T13:45:40.6035870Z   PROOF_HOST: m4
+2026-10-07T13:45:40.6035980Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:40.6036110Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:40.6036240Z   CARGO_TERM_COLOR: always
+2026-10-07T13:45:40.6036380Z   UV_PYTHON_INSTALL_DIR: /Users/markik/.local/share/uv/python
+2026-10-07T13:45:40.6036560Z ##[endgroup]
+2026-10-07T13:45:40.7210420Z staged graft-servo registry consumer: /Users/markik/actions-runner-wgpu/_work/_temp/registry-triplet/graft
+2026-10-07T13:45:40.7577710Z staged scry-mac registry consumer: /Users/markik/actions-runner-wgpu/_work/_temp/registry-triplet/scry
+2026-10-07T13:45:40.7950000Z staged weld-mac registry consumer: /Users/markik/actions-runner-wgpu/_work/_temp/registry-triplet/weld
+2026-10-07T13:45:41.1803380Z [1m[92m    Updating[0m git repository `https://github.com/jamienicol/glslopt-rs`
+2026-10-07T13:45:41.1858060Z [1m[92m    Updating[0m crates.io index
+2026-10-07T13:45:41.1894800Z [1m[92m    Updating[0m git repository `https://github.com/servo/servo`
+2026-10-07T13:45:45.9261070Z [1m[92m     Locking[0m 972 packages to latest compatible versions
+2026-10-07T13:45:45.9302300Z [1m[92m      Adding[0m argon2 v0.6.0-rc.8 [1m[33m(available: v0.6.0)[0m
+2026-10-07T13:45:45.9542790Z [1m[92m      Adding[0m generic-array v0.14.7 [1m[33m(available: v0.14.9)[0m
+2026-10-07T13:45:45.9553810Z [1m[92m      Adding[0m gleam v0.15.1 [1m[33m(available: v0.16.0)[0m
+2026-10-07T13:45:45.9558300Z [1m[92m      Adding[0m glow v0.17.0 [1m[33m(available: v0.18.0)[0m
+2026-10-07T13:45:45.9631350Z [1m[92m      Adding[0m icu_capi v1.5.0 [1m[33m(available: v1.5.1)[0m
+2026-10-07T13:45:45.9748970Z [1m[92m      Adding[0m mozangle v0.6.0 [1m[33m(available: v0.7.1)[0m
+2026-10-07T13:45:45.9750660Z [1m[92m      Adding[0m mozjs_sys v140.14.0-0 [1m[33m(available: v140.14.0-0-lts)[0m
+2026-10-07T13:45:45.9827000Z [1m[92m      Adding[0m ocb3 v0.2.0-rc.3 [1m[33m(available: v0.2.0)[0m
+2026-10-07T13:45:45.9888940Z [1m[92m      Adding[0m pollster v0.4.0 [1m[33m(available: v1.0.1)[0m
+2026-10-07T13:45:45.9984410Z [1m[92m      Adding[0m rsa v0.10.0-rc.18 [1m[33m(available: v0.10.0-rc.19)[0m
+2026-10-07T13:45:46.0149980Z [1m[92m      Adding[0m surfman v0.13.0 [1m[33m(available: v0.14.0)[0m
+2026-10-07T13:45:46.0544160Z [1m[92m      Adding[0m wgpu v28.0.0 [1m[33m(available: v30.0.1)[0m
+2026-10-07T13:45:46.0545750Z [1m[92m      Adding[0m wgpu v29.0.4 [1m[33m(available: v30.0.1)[0m
+2026-10-07T13:45:46.6182230Z [1m[92m Downloading[0m crates ...
+2026-10-07T13:45:47.2424480Z [1m[92m  Downloaded[0m arbitrary v1.5.0
+2026-10-07T13:45:47.2479510Z [1m[92m  Downloaded[0m alloc-stdlib v0.3.0
+2026-10-07T13:45:47.2491540Z [1m[92m  Downloaded[0m alloc-no-stdlib v3.0.0
+2026-10-07T13:45:47.2509700Z [1m[92m  Downloaded[0m compression-codecs v0.4.45
+2026-10-07T13:45:47.2567800Z [1m[92m  Downloaded[0m core_detect v1.0.0
+2026-10-07T13:45:47.2591340Z [1m[92m  Downloaded[0m async-recursion v1.2.0
+2026-10-07T13:45:47.2649970Z [1m[92m  Downloaded[0m async-compression v0.4.50
+2026-10-07T13:45:47.2757910Z [1m[92m  Downloaded[0m headers v0.4.2
+2026-10-07T13:45:47.2862140Z [1m[92m  Downloaded[0m brotli-decompressor v6.0.1
+2026-10-07T13:45:47.2966960Z [1m[92m  Downloaded[0m encoding_rs v0.8.42
+2026-10-07T13:45:47.3091930Z [1m[92m  Downloaded[0m brotli v9.0.0
+2026-10-07T13:45:47.3252650Z [1m[92m  Downloaded[0m jiff-static v0.2.38
+2026-10-07T13:45:47.3263350Z [1m[92m  Downloaded[0m jiff-core v0.1.1
+2026-10-07T13:45:47.3338390Z [1m[92m  Downloaded[0m js-sys v0.3.106
+2026-10-07T13:45:47.3366420Z [1m[92m  Downloaded[0m libredox v0.1.25
+2026-10-07T13:45:47.3374170Z [1m[92m  Downloaded[0m jiff v0.2.38
+2026-10-07T13:45:47.3686700Z [1m[92m  Downloaded[0m multiversion_no_op v1.0.0
+2026-10-07T13:45:47.3695420Z [1m[92m  Downloaded[0m ohos-sys-opaque-types v0.1.12
+2026-10-07T13:45:47.3704380Z [1m[92m  Downloaded[0m ohos-window-sys v0.1.8
+2026-10-07T13:45:47.3731070Z [1m[92m  Downloaded[0m ohos-media-sys v0.1.2
+2026-10-07T13:45:47.3846690Z [1m[92m  Downloaded[0m redox_syscall v0.9.4
+2026-10-07T13:45:47.3883010Z [1m[92m  Downloaded[0m rustls-platform-verifier-android v0.2.0
+2026-10-07T13:45:47.3891750Z [1m[92m  Downloaded[0m scrying v0.7.2
+2026-10-07T13:45:47.4055120Z [1m[92m  Downloaded[0m thin-vec v0.2.20
+2026-10-07T13:45:47.4086110Z [1m[92m  Downloaded[0m wasm-bindgen-futures v0.4.79
+2026-10-07T13:45:47.4094870Z [1m[92m  Downloaded[0m web-sys v0.3.106
+2026-10-07T13:45:47.5703410Z [1m[92m  Downloaded[0m ohos-deviceinfo-sys v0.1.8
+2026-10-07T13:45:47.5713610Z [1m[92m  Downloaded[0m pkcs1 v0.8.0-rc.5
+2026-10-07T13:45:47.5739880Z [1m[92m  Downloaded[0m yuv v0.8.19
+2026-10-07T13:45:47.6016430Z [1m[92m  Downloaded[0m zstd v0.14.0
+2026-10-07T13:45:47.6061380Z [1m[92m  Downloaded[0m zstd-safe v8.0.0
+2026-10-07T13:45:48.2181730Z registry proof: grafting 0.6.0 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T13:45:48.2182090Z registry proof: scrying 0.7.2 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T13:45:48.2182420Z registry proof: welding 0.14.1 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T13:45:48.2182800Z registry proof: PASS (/Users/markik/actions-runner-wgpu/_work/_temp/registry-triplet/graft)
+2026-10-07T13:45:48.2601510Z [1m[92m    Updating[0m crates.io index
+2026-10-07T13:45:48.7759730Z [1m[92m     Locking[0m 366 packages to latest Rust 1.97.1 compatible versions
+2026-10-07T13:45:48.7917150Z [1m[92m      Adding[0m objc2 v0.6.3 [1m[33m(available: v0.6.5)[0m
+2026-10-07T13:45:48.8001720Z [1m[92m      Adding[0m pollster v0.4.0 [1m[33m(available: v1.0.1)[0m
+2026-10-07T13:45:49.1644540Z registry proof: grafting 0.6.0 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T13:45:49.1644910Z registry proof: scrying 0.7.2 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T13:45:49.1645220Z registry proof: welding 0.14.1 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T13:45:49.1645570Z registry proof: PASS (/Users/markik/actions-runner-wgpu/_work/_temp/registry-triplet/scry)
+2026-10-07T13:45:49.2076800Z [1m[92m    Updating[0m crates.io index
+2026-10-07T13:45:51.9079330Z [1m[92m     Locking[0m 467 packages to latest Rust 1.97.1 compatible versions
+2026-10-07T13:45:51.9128540Z [1m[92m      Adding[0m cef v151.8.1+151.3.24 [1m[33m(available: v154.5.0+154.0.34)[0m
+2026-10-07T13:45:51.9361120Z [1m[92m      Adding[0m pollster v0.4.0 [1m[33m(available: v1.0.1)[0m
+2026-10-07T13:45:52.1212550Z [1m[92m Downloading[0m crates ...
+2026-10-07T13:45:52.2591350Z [1m[92m  Downloaded[0m camino v1.2.6
+2026-10-07T13:45:52.2607550Z [1m[92m  Downloaded[0m clap_derive v4.6.7
+2026-10-07T13:45:52.2845120Z [1m[92m  Downloaded[0m clap v4.6.7
+2026-10-07T13:45:52.3006900Z [1m[92m  Downloaded[0m clap_lex v1.1.1
+2026-10-07T13:45:52.3050190Z [1m[92m  Downloaded[0m console v0.16.6
+2026-10-07T13:45:52.3086490Z [1m[92m  Downloaded[0m clap_builder v4.6.7
+2026-10-07T13:45:52.3155300Z [1m[92m  Downloaded[0m fs-err v3.3.2
+2026-10-07T13:45:52.3186810Z [1m[92m  Downloaded[0m ureq-proto v0.6.4
+2026-10-07T13:45:52.3250930Z [1m[92m  Downloaded[0m ureq v3.4.2
+2026-10-07T13:45:52.5143360Z registry proof: grafting 0.6.0 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T13:45:52.5143770Z registry proof: scrying 0.7.2 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T13:45:52.5144080Z registry proof: welding 0.14.1 <- registry+https://github.com/rust-lang/crates.io-index
+2026-10-07T13:45:52.5144400Z registry proof: PASS (/Users/markik/actions-runner-wgpu/_work/_temp/registry-triplet/weld)
+2026-10-07T13:45:52.5193780Z ##[group]Run export CARGO_TARGET_DIR="$RUNNER_TEMP/registry-triplet-target/graft"
+2026-10-07T13:45:52.5194070Z [36;1mexport CARGO_TARGET_DIR="$RUNNER_TEMP/registry-triplet-target/graft"[0m
+2026-10-07T13:45:52.5194280Z [36;1mcd "$RUNNER_TEMP/registry-triplet/graft"[0m
+2026-10-07T13:45:52.5194450Z [36;1mcargo build --locked -p demo-servo-winit[0m
+2026-10-07T13:45:52.5194590Z [36;1mset -o pipefail[0m
+2026-10-07T13:45:52.5194860Z [36;1mbash scripts/smoke-demo-mac.sh 2>&1 | tee "$RUNNER_TEMP/registry-graft-$PROOF_HOST.log"[0m
+2026-10-07T13:45:52.5204300Z shell: /bin/bash -e {0}
+2026-10-07T13:45:52.5204400Z env:
+2026-10-07T13:45:52.5204510Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:45:52.5204640Z   RUSTFLAGS: -D warnings
+2026-10-07T13:45:52.5204750Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:45:52.5204860Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:45:52.5204960Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:45:52.5205120Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:45:52.5205300Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:45:52.5205450Z   WGPU_BACKEND: metal
+2026-10-07T13:45:52.5205570Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:45:52.5205710Z   CAPTURE: 1
+2026-10-07T13:45:52.5205800Z   TIMEOUT: 90
+2026-10-07T13:45:52.5205890Z   VISIBLE: 1
+2026-10-07T13:45:52.5205980Z   PROOF_HOST: m4
+2026-10-07T13:45:52.5206080Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:45:52.5206200Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:45:52.5206310Z   CARGO_TERM_COLOR: always
+2026-10-07T13:45:52.5206440Z   UV_PYTHON_INSTALL_DIR: /Users/markik/.local/share/uv/python
+2026-10-07T13:45:52.5206590Z ##[endgroup]
+2026-10-07T13:45:53.2015930Z [1m[92m   Compiling[0m unicode-ident v1.0.26
+2026-10-07T13:45:53.2016250Z [1m[92m   Compiling[0m proc-macro2 v1.0.107
+2026-10-07T13:45:53.2016600Z [1m[92m   Compiling[0m quote v1.0.47
+2026-10-07T13:45:53.2016780Z [1m[92m   Compiling[0m libc v0.2.190
+2026-10-07T13:45:53.2016980Z [1m[92m   Compiling[0m cfg-if v1.0.5
+2026-10-07T13:45:53.2017190Z [1m[92m   Compiling[0m serde_core v1.0.229
+2026-10-07T13:45:53.2027030Z [1m[92m   Compiling[0m serde v1.0.229
+2026-10-07T13:45:53.2027240Z [1m[92m   Compiling[0m libm v0.2.16
+2026-10-07T13:45:53.2027420Z [1m[92m   Compiling[0m autocfg v1.5.1
+2026-10-07T13:45:53.2027580Z [1m[92m   Compiling[0m typenum v1.20.1
+2026-10-07T13:45:53.3400810Z [1m[92m   Compiling[0m rand_core v0.10.1
+2026-10-07T13:45:53.4293410Z [1m[92m   Compiling[0m getrandom v0.4.3
+2026-10-07T13:45:53.4488900Z [1m[92m   Compiling[0m log v0.4.34
+2026-10-07T13:45:53.5642460Z [1m[92m   Compiling[0m shlex v2.0.1
+2026-10-07T13:45:53.5895800Z [1m[92m   Compiling[0m num-traits v0.2.19
+2026-10-07T13:45:53.6383060Z [1m[92m   Compiling[0m find-msvc-tools v0.1.14
+2026-10-07T13:45:53.7690450Z [1m[92m   Compiling[0m stable_deref_trait v1.2.1
+2026-10-07T13:45:53.7906590Z [1m[92m   Compiling[0m subtle v2.6.1
+2026-10-07T13:45:53.7981840Z [1m[92m   Compiling[0m cmov v0.5.4
+2026-10-07T13:45:53.8461710Z [1m[92m   Compiling[0m version_check v0.9.5
+2026-10-07T13:45:53.8797400Z [1m[92m   Compiling[0m ctutils v0.4.3
+2026-10-07T13:45:53.9440760Z [1m[92m   Compiling[0m once_cell v1.21.4
+2026-10-07T13:45:53.9531840Z [1m[92m   Compiling[0m memchr v2.8.3
+2026-10-07T13:45:54.0141820Z [1m[92m   Compiling[0m siphasher v1.0.4
+2026-10-07T13:45:54.0310490Z [1m[92m   Compiling[0m scopeguard v1.2.0
+2026-10-07T13:45:54.0577320Z [1m[92m   Compiling[0m foldhash v0.2.0
+2026-10-07T13:45:54.0803600Z [1m[92m   Compiling[0m arrayvec v0.7.8
+2026-10-07T13:45:54.1262580Z [1m[92m   Compiling[0m phf_shared v0.13.1
+2026-10-07T13:45:54.1614860Z [1m[92m   Compiling[0m crossbeam-utils v0.8.23
+2026-10-07T13:45:54.1671840Z [1m[92m   Compiling[0m fastrand v2.5.0
+2026-10-07T13:45:54.1947430Z [1m[92m   Compiling[0m itoa v1.0.18
+2026-10-07T13:45:54.2434840Z [1m[92m   Compiling[0m phf_generator v0.13.1
+2026-10-07T13:45:54.2728190Z [1m[92m   Compiling[0m adler2 v2.0.1
+2026-10-07T13:45:54.3152770Z [1m[92m   Compiling[0m equivalent v1.0.2
+2026-10-07T13:45:54.3209310Z [1m[92m   Compiling[0m thiserror v2.0.21
+2026-10-07T13:45:54.3391640Z [1m[92m   Compiling[0m fnv v1.0.7
+2026-10-07T13:45:54.3667970Z [1m[92m   Compiling[0m hashbrown v0.17.1
+2026-10-07T13:45:54.4551790Z [1m[92m   Compiling[0m parking_lot_core v0.9.12
+2026-10-07T13:45:54.6000580Z [1m[92m   Compiling[0m bytes v1.12.1
+2026-10-07T13:45:54.6055470Z [1m[92m   Compiling[0m simd-adler32 v0.3.10
+2026-10-07T13:45:54.6630510Z [1m[92m   Compiling[0m zerocopy v0.8.61
+2026-10-07T13:45:54.8634530Z [1m[92m   Compiling[0m rayon-core v1.13.0
+2026-10-07T13:45:54.9319780Z [1m[92m   Compiling[0m new_debug_unreachable v1.0.6
+2026-10-07T13:45:55.1257850Z [1m[92m   Compiling[0m syn v2.0.119
+2026-10-07T13:45:55.1444550Z [1m[92m   Compiling[0m syn v3.0.6
+2026-10-07T13:45:55.1799190Z [1m[92m   Compiling[0m bitflags v2.13.2
+2026-10-07T13:45:55.5245950Z [1m[92m   Compiling[0m jobserver v0.1.35
+2026-10-07T13:45:55.5526410Z [1m[92m   Compiling[0m indexmap v2.14.2
+2026-10-07T13:45:55.6442110Z [1m[92m   Compiling[0m cc v1.6.0
+2026-10-07T13:45:55.6560560Z [1m[92m   Compiling[0m crossbeam-epoch v0.9.21
+2026-10-07T13:45:55.7337770Z [1m[92m   Compiling[0m crossbeam-deque v0.8.8
+2026-10-07T13:45:55.8107650Z [1m[92m   Compiling[0m rustversion v1.0.23
+2026-10-07T13:45:55.9067790Z [1m[92m   Compiling[0m crc32fast v1.5.2
+2026-10-07T13:45:55.9533660Z [1m[92m   Compiling[0m phf_codegen v0.13.1
+2026-10-07T13:45:55.9693100Z [1m[92m   Compiling[0m utf8_iter v1.0.4
+2026-10-07T13:45:56.0106230Z [1m[92m   Compiling[0m either v1.19.0
+2026-10-07T13:45:56.0507100Z [1m[92m   Compiling[0m writeable v0.6.4
+2026-10-07T13:45:56.1162340Z [1m[92m   Compiling[0m pin-project-lite v0.2.17
+2026-10-07T13:45:56.1522300Z [1m[92m   Compiling[0m miniz_oxide v0.9.1
+2026-10-07T13:45:56.2372240Z [1m[92m   Compiling[0m core-foundation-sys v0.8.7
+2026-10-07T13:45:56.3575830Z [1m[92m   Compiling[0m rustc-hash v2.1.3
+2026-10-07T13:45:56.4029980Z [1m[92m   Compiling[0m litemap v0.8.3
+2026-10-07T13:45:56.4115740Z [1m[92m   Compiling[0m khronos_api v3.1.0
+2026-10-07T13:45:56.5533820Z [1m[92m   Compiling[0m same-file v1.0.6
+2026-10-07T13:45:56.5637760Z [1m[92m   Compiling[0m objc2-encode v4.1.0
+2026-10-07T13:45:56.6173730Z [1m[92m   Compiling[0m walkdir v2.5.0
+2026-10-07T13:45:56.6872750Z [1m[92m   Compiling[0m flate2 v1.1.10
+2026-10-07T13:45:56.7028360Z [1m[92m   Compiling[0m rayon v1.12.0
+2026-10-07T13:45:56.7908830Z [1m[92m   Compiling[0m encoding_rs v0.8.42
+2026-10-07T13:45:56.7998680Z [1m[92m   Compiling[0m miniz_oxide v0.8.9
+2026-10-07T13:45:56.8210200Z [1m[92m   Compiling[0m xml-rs v0.8.29
+2026-10-07T13:45:56.8351670Z [1m[92m   Compiling[0m ident_case v1.0.1
+2026-10-07T13:45:56.8787940Z [1m[92m   Compiling[0m precomputed-hash v0.1.1
+2026-10-07T13:45:56.8874090Z [1m[92m   Compiling[0m num-integer v0.1.47
+2026-10-07T13:45:56.9165450Z [1m[92m   Compiling[0m string_cache_codegen v0.6.1
+2026-10-07T13:45:56.9678450Z [1m[92m   Compiling[0m simdutf8 v0.1.5
+2026-10-07T13:45:57.0014190Z [1m[92m   Compiling[0m multiversion_no_op v1.0.0
+2026-10-07T13:45:57.1016030Z [1m[92m   Compiling[0m icu_normalizer_data v2.3.0
+2026-10-07T13:45:57.1021670Z [1m[92m   Compiling[0m icu_properties_data v2.3.0
+2026-10-07T13:45:57.1476300Z [1m[92m   Compiling[0m socket2 v0.6.5
+2026-10-07T13:45:57.1858520Z [1m[92m   Compiling[0m synstructure v0.13.2
+2026-10-07T13:45:57.2611990Z [1m[92m   Compiling[0m gl_generator v0.14.0
+2026-10-07T13:45:57.2802410Z [1m[92m   Compiling[0m darling_core v0.20.11
+2026-10-07T13:45:57.4634470Z [1m[92m   Compiling[0m synstructure v0.14.0
+2026-10-07T13:45:57.5028080Z [1m[92m   Compiling[0m mio v1.2.4
+2026-10-07T13:45:57.5128070Z [1m[92m   Compiling[0m http v1.5.0
+2026-10-07T13:45:57.6260090Z [1m[92m   Compiling[0m fdeflate v0.3.7
+2026-10-07T13:45:57.6789380Z [1m[92m   Compiling[0m winnow v1.0.4
+2026-10-07T13:45:57.7144490Z [1m[92m   Compiling[0m lazy_static v1.5.1
+2026-10-07T13:45:57.7631570Z [1m[92m   Compiling[0m writeable v0.5.5
+2026-10-07T13:45:57.8877080Z [1m[92m   Compiling[0m litemap v0.7.5
+2026-10-07T13:45:57.9511030Z [1m[92m   Compiling[0m png v0.18.1
+2026-10-07T13:45:58.0355050Z [1m[92m   Compiling[0m toml_datetime v1.1.1+spec-1.1.0
+2026-10-07T13:45:58.0441840Z [1m[92m   Compiling[0m generic-array v0.14.7
+2026-10-07T13:45:58.0708540Z [1m[92m   Compiling[0m percent-encoding v2.3.2
+2026-10-07T13:45:58.1699650Z [1m[92m   Compiling[0m objc2 v0.6.5
+2026-10-07T13:45:58.1849360Z [1m[92m   Compiling[0m itertools v0.14.0
+2026-10-07T13:45:58.2165330Z [1m[92m   Compiling[0m core_maths v0.1.1
+2026-10-07T13:45:58.2575570Z [1m[92m   Compiling[0m quick-error v2.0.1
+2026-10-07T13:45:58.2680510Z [1m[92m   Compiling[0m polycool v0.4.0
+2026-10-07T13:45:58.3089210Z [1m[92m   Compiling[0m weezl v0.1.12
+2026-10-07T13:45:58.3521730Z [1m[92m   Compiling[0m zeroize_derive v1.5.0
+2026-10-07T13:45:58.3783660Z [1m[92m   Compiling[0m zerocopy-derive v0.8.61
+2026-10-07T13:45:58.5144900Z [1m[92m   Compiling[0m yoke-derive v0.7.5
+2026-10-07T13:45:58.5455150Z [1m[92m   Compiling[0m zerovec-derive v0.10.4
+2026-10-07T13:45:58.5673590Z [1m[92m   Compiling[0m serde_derive v1.0.229
+2026-10-07T13:45:58.6019140Z [1m[92m   Compiling[0m zerofrom-derive v0.1.8
+2026-10-07T13:45:58.6975300Z [1m[92m   Compiling[0m bytemuck_derive v1.12.1
+2026-10-07T13:45:58.7277210Z [1m[92m   Compiling[0m zeroize v1.9.1
+2026-10-07T13:45:58.8366450Z [1m[92m   Compiling[0m displaydoc v0.2.7
+2026-10-07T13:45:58.9798110Z [1m[92m   Compiling[0m hybrid-array v0.4.15
+2026-10-07T13:45:59.0210410Z [1m[92m   Compiling[0m thiserror-impl v2.0.21
+2026-10-07T13:45:59.1003640Z [1m[92m   Compiling[0m yoke-derive v0.8.4
+2026-10-07T13:45:59.1647380Z [1m[92m   Compiling[0m zerovec-derive v0.11.6
+2026-10-07T13:45:59.2017420Z [1m[92m   Compiling[0m phf_macros v0.13.1
+2026-10-07T13:45:59.2899200Z [1m[92m   Compiling[0m darling_macro v0.20.11
+2026-10-07T13:45:59.3651870Z [1m[92m   Compiling[0m bytemuck v1.25.2
+2026-10-07T13:45:59.4281170Z [1m[92m   Compiling[0m zerofrom v0.1.8
+2026-10-07T13:45:59.4782710Z [1m[92m   Compiling[0m tokio-macros v2.7.2
+2026-10-07T13:45:59.6681590Z [1m[92m   Compiling[0m crypto-common v0.2.2
+2026-10-07T13:45:59.6803590Z [1m[92m   Compiling[0m block-buffer v0.12.1
+2026-10-07T13:45:59.7141590Z [1m[92m   Compiling[0m phf v0.13.1
+2026-10-07T13:45:59.7727090Z [1m[92m   Compiling[0m darling v0.20.11
+2026-10-07T13:45:59.7893630Z [1m[92m   Compiling[0m yoke v0.8.3
+2026-10-07T13:45:59.8035000Z [1m[92m   Compiling[0m yoke v0.7.5
+2026-10-07T13:45:59.8302630Z [1m[92m   Compiling[0m toml_parser v1.1.3+spec-1.1.0
+2026-10-07T13:45:59.8588470Z [1m[92m   Compiling[0m tokio v1.53.2
+2026-10-07T13:46:00.2310650Z [1m[92m   Compiling[0m num-derive v0.4.2
+2026-10-07T13:46:00.2949870Z [1m[92m   Compiling[0m getrandom v0.3.4
+2026-10-07T13:46:00.4024980Z [1m[92m   Compiling[0m dtoa v1.0.11
+2026-10-07T13:46:00.4395720Z [1m[92m   Compiling[0m zune-core v0.5.3
+2026-10-07T13:46:00.4623500Z [1m[92m   Compiling[0m dtoa-short v0.3.5
+2026-10-07T13:46:00.5060170Z [1m[92m   Compiling[0m zerovec v0.11.8
+2026-10-07T13:46:00.5124790Z [1m[92m   Compiling[0m zerotrie v0.2.5
+2026-10-07T13:46:00.5374780Z [1m[92m   Compiling[0m zune-jpeg v0.5.15
+2026-10-07T13:46:00.6799880Z [1m[92m   Compiling[0m zerovec v0.10.4
+2026-10-07T13:46:00.7830930Z [1m[92m   Compiling[0m rgb v0.8.53
+2026-10-07T13:46:00.8135130Z [1m[92m   Compiling[0m cssparser-macros v0.7.1
+2026-10-07T13:46:00.9028490Z [1m[92m   Compiling[0m derive_more-impl v2.1.1
+2026-10-07T13:46:00.9419290Z [1m[92m   Compiling[0m form_urlencoded v1.2.2
+2026-10-07T13:46:00.9567700Z [1m[92m   Compiling[0m web_atoms v0.2.6
+2026-10-07T13:46:01.0047660Z [1m[92m   Compiling[0m aho-corasick v1.1.5
+2026-10-07T13:46:01.1891760Z [1m[92m   Compiling[0m regex-syntax v0.8.11
+2026-10-07T13:46:01.3717050Z [1m[92m   Compiling[0m smallvec v1.16.2
+2026-10-07T13:46:01.4812550Z [1m[92m   Compiling[0m euclid v0.22.14
+2026-10-07T13:46:01.6409530Z [1m[92m   Compiling[0m lock_api v0.4.14
+2026-10-07T13:46:01.7568480Z [1m[92m   Compiling[0m parking_lot v0.12.5
+2026-10-07T13:46:01.8000560Z [1m[92m   Compiling[0m app_units v0.7.8
+2026-10-07T13:46:01.8668720Z [1m[92m   Compiling[0m byteorder-lite v0.1.0
+2026-10-07T13:46:01.9873780Z [1m[92m   Compiling[0m string_cache v0.9.0
+2026-10-07T13:46:02.0003620Z [1m[92m   Compiling[0m color_quant v1.1.0
+2026-10-07T13:46:02.0552070Z [1m[92m   Compiling[0m tinystr v0.8.4
+2026-10-07T13:46:02.0680130Z [1m[92m   Compiling[0m potential_utf v0.1.6
+2026-10-07T13:46:02.0990690Z [1m[92m   Compiling[0m pkg-config v0.3.34
+2026-10-07T13:46:02.1046330Z [1m[92m   Compiling[0m gif v0.14.2
+2026-10-07T13:46:02.1667900Z [1m[92m   Compiling[0m icu_locale_core v2.3.0
+2026-10-07T13:46:02.1765870Z [1m[92m   Compiling[0m icu_collections v2.3.0
+2026-10-07T13:46:02.1942790Z [1m[92m   Compiling[0m kurbo v0.13.1
+2026-10-07T13:46:02.2823440Z [1m[92m   Compiling[0m regex-automata v0.4.18
+2026-10-07T13:46:02.4198000Z [1m[92m   Compiling[0m tinystr v0.7.6
+2026-10-07T13:46:02.5226370Z [1m[92m   Compiling[0m icu_locid v1.5.0
+2026-10-07T13:46:02.5321800Z [1m[92m   Compiling[0m derive_more v2.1.1
+2026-10-07T13:46:02.5325050Z [1m[92m   Compiling[0m image-webp v0.2.4
+2026-10-07T13:46:02.7125760Z [1m[92m   Compiling[0m cssparser v0.37.0
+2026-10-07T13:46:02.7908360Z [1m[92m   Compiling[0m servo_arc v0.4.3
+2026-10-07T13:46:02.8793870Z [1m[92m   Compiling[0m icu_provider v2.3.1
+2026-10-07T13:46:03.2164400Z [1m[92m   Compiling[0m icu_normalizer v2.3.0
+2026-10-07T13:46:03.2683610Z [1m[92m   Compiling[0m icu_properties v2.3.0
+2026-10-07T13:46:03.5002190Z [1m[92m   Compiling[0m block-buffer v0.10.4
+2026-10-07T13:46:03.5068960Z [1m[92m   Compiling[0m crypto-common v0.1.7
+2026-10-07T13:46:03.5143630Z [1m[92m   Compiling[0m foreign-types-macros v0.2.4
+2026-10-07T13:46:03.5629730Z [1m[92m   Compiling[0m gleam v0.15.1
+2026-10-07T13:46:03.5710660Z [1m[92m   Compiling[0m serde_spanned v1.1.1
+2026-10-07T13:46:03.5811160Z [1m[92m   Compiling[0m core-foundation v0.9.4
+2026-10-07T13:46:03.5893870Z [1m[92m   Compiling[0m selectors v0.40.0
+2026-10-07T13:46:03.5979320Z [1m[92m   Compiling[0m crossbeam-channel v0.5.17
+2026-10-07T13:46:03.6516760Z [1m[92m   Compiling[0m thin-vec v0.2.20
+2026-10-07T13:46:03.7098950Z [1m[92m   Compiling[0m bitflags v1.3.2
+2026-10-07T13:46:03.7476410Z [1m[92m   Compiling[0m foreign-types-shared v0.3.1
+2026-10-07T13:46:03.7877060Z [1m[92m   Compiling[0m toml_writer v1.1.2+spec-1.1.0
+2026-10-07T13:46:03.8072360Z [1m[92m   Compiling[0m num-conv v0.2.2
+2026-10-07T13:46:03.8276860Z [1m[92m   Compiling[0m time-core v0.1.9
+2026-10-07T13:46:03.8379190Z [1m[92m   Compiling[0m unicode-bidi v0.3.18
+2026-10-07T13:46:03.8979550Z [1m[92m   Compiling[0m smallbitvec v2.6.1
+2026-10-07T13:46:03.8995090Z [1m[92m   Compiling[0m foreign-types v0.5.0
+2026-10-07T13:46:03.9047080Z [1m[92m   Compiling[0m toml v1.1.6+spec-1.1.0
+2026-10-07T13:46:03.9544930Z [1m[92m   Compiling[0m time-macros v0.2.32
+2026-10-07T13:46:03.9930580Z [1m[92m   Compiling[0m idna_adapter v1.2.2
+2026-10-07T13:46:04.0778030Z [1m[92m   Compiling[0m idna v1.1.0
+2026-10-07T13:46:04.1161830Z [1m[92m   Compiling[0m to_shmem v0.5.0
+2026-10-07T13:46:04.2143160Z [1m[92m   Compiling[0m core-graphics-types v0.1.3
+2026-10-07T13:46:04.2618360Z [1m[92m   Compiling[0m url v2.5.8
+2026-10-07T13:46:04.2786050Z [1m[92m   Compiling[0m regex v1.13.1
+2026-10-07T13:46:04.2817000Z [1m[92m   Compiling[0m digest v0.10.7
+2026-10-07T13:46:04.3986640Z [1m[92m   Compiling[0m block2 v0.6.2
+2026-10-07T13:46:04.5700310Z [1m[92m   Compiling[0m to_shmem_derive v0.1.0
+2026-10-07T13:46:04.5772140Z [1m[92m   Compiling[0m font-types v0.12.6
+2026-10-07T13:46:04.6591890Z [1m[92m   Compiling[0m malloc_size_of_derive v0.1.3
+2026-10-07T13:46:04.6664140Z [1m[92m   Compiling[0m glslopt v0.1.14 (https://github.com/jamienicol/glslopt-rs?rev=68019f02a1437d785408ebc8ce7fd20341fffb8a#68019f02)
+2026-10-07T13:46:04.8140650Z [1m[92m   Compiling[0m stylo v0.20.0
+2026-10-07T13:46:04.8247870Z [1m[92m   Compiling[0m cpufeatures v0.2.17
+2026-10-07T13:46:04.8407750Z [1m[92m   Compiling[0m num_threads v0.1.7
+2026-10-07T13:46:04.8473430Z [1m[92m   Compiling[0m num_cpus v1.17.0
+2026-10-07T13:46:04.8573920Z [1m[92m   Compiling[0m deranged v0.5.8
+2026-10-07T13:46:04.8699610Z [1m[92m   Compiling[0m slotmap v1.1.1
+2026-10-07T13:46:04.8898580Z [1m[92m   Compiling[0m powerfmt v0.2.1
+2026-10-07T13:46:04.8949450Z [1m[92m   Compiling[0m static_assertions v1.1.0
+2026-10-07T13:46:04.9619630Z [1m[92m   Compiling[0m icu_locale_fallback_data v2.3.0
+2026-10-07T13:46:04.9750220Z [1m[92m   Compiling[0m float-cmp v0.9.0
+2026-10-07T13:46:05.0227250Z [1m[92m   Compiling[0m strict-num v0.1.1
+2026-10-07T13:46:05.0735430Z [1m[92m   Compiling[0m stylo_static_prefs v0.20.0
+2026-10-07T13:46:05.0919040Z [1m[92m   Compiling[0m read-fonts v0.41.0
+2026-10-07T13:46:05.1916170Z [1m[92m   Compiling[0m dispatch2 v0.3.1
+2026-10-07T13:46:05.2142000Z [1m[92m   Compiling[0m core-graphics v0.23.2
+2026-10-07T13:46:05.2604900Z [1m[92m   Compiling[0m tendril v0.5.1
+2026-10-07T13:46:05.3889410Z [1m[92m   Compiling[0m peek-poke-derive v0.3.0
+2026-10-07T13:46:05.4345370Z [1m[92m   Compiling[0m stylo_atoms v0.20.0
+2026-10-07T13:46:05.4576420Z [1m[92m   Compiling[0m time v0.3.55
+2026-10-07T13:46:05.4787020Z [1m[92m   Compiling[0m tikv-jemalloc-sys v0.6.1+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7
+2026-10-07T13:46:05.5837850Z [1m[92m   Compiling[0m serde_bytes v0.11.19
+2026-10-07T13:46:05.5947840Z [1m[92m   Compiling[0m base64 v0.23.1
+2026-10-07T13:46:05.6483570Z [1m[92m   Compiling[0m arrayref v0.3.9
+2026-10-07T13:46:05.6663300Z [1m[92m   Compiling[0m void v1.0.2
+2026-10-07T13:46:05.6711850Z [1m[92m   Compiling[0m base64 v0.22.1
+2026-10-07T13:46:05.6906390Z [1m[92m   Compiling[0m icu_segmenter_data v2.3.0
+2026-10-07T13:46:05.7001770Z [1m[92m   Compiling[0m mime v0.3.17
+2026-10-07T13:46:05.7931730Z [1m[92m   Compiling[0m typeid v1.0.3
+2026-10-07T13:46:05.8273640Z [1m[92m   Compiling[0m heck v0.5.0
+2026-10-07T13:46:05.8543150Z [1m[92m   Compiling[0m byteorder v1.5.0
+2026-10-07T13:46:05.9207760Z [1m[92m   Compiling[0m strum_macros v0.28.0
+2026-10-07T13:46:05.9770350Z [1m[92m   Compiling[0m tiny-skia-path v0.12.0
+2026-10-07T13:46:06.1963100Z [1m[92m   Compiling[0m peek-poke v0.3.0
+2026-10-07T13:46:06.4336850Z [1m[92m   Compiling[0m stylo_malloc_size_of v0.20.0
+2026-10-07T13:46:06.5125770Z [1m[92m   Compiling[0m objc2-core-foundation v0.3.2
+2026-10-07T13:46:06.5257440Z [1m[92m   Compiling[0m markup5ever v0.39.0
+2026-10-07T13:46:06.8473010Z [1m[92m   Compiling[0m build-parallel v0.1.2
+2026-10-07T13:46:06.9069900Z [1m[92m   Compiling[0m rand_core v0.9.5
+2026-10-07T13:46:06.9748490Z [1m[92m   Compiling[0m wr_malloc_size_of v0.2.2
+2026-10-07T13:46:07.0167750Z [1m[92m   Compiling[0m ppv-lite86 v0.2.21
+2026-10-07T13:46:07.0473690Z [1m[92m   Compiling[0m webrender_build v0.70.0
+2026-10-07T13:46:07.0584690Z [1m[92m   Compiling[0m memmap2 v0.9.11
+2026-10-07T13:46:07.0651730Z [1m[92m   Compiling[0m zeitstempel v0.2.2
+2026-10-07T13:46:07.0993390Z [1m[92m   Compiling[0m malloc_buf v0.0.6
+2026-10-07T13:46:07.1427810Z [1m[92m   Compiling[0m unic-char-range v0.9.0
+2026-10-07T13:46:07.1912630Z [1m[92m   Compiling[0m tinyvec v1.13.3
+2026-10-07T13:46:07.1986830Z [1m[92m   Compiling[0m unic-common v0.9.0
+2026-10-07T13:46:07.2028140Z [1m[92m   Compiling[0m sha1_smol v1.0.1
+2026-10-07T13:46:07.2529030Z [1m[92m   Compiling[0m unic-ucd-version v0.9.0
+2026-10-07T13:46:07.2979730Z [1m[92m   Compiling[0m uuid v1.27.0
+2026-10-07T13:46:07.3065750Z [1m[92m   Compiling[0m unic-char-property v0.9.0
+2026-10-07T13:46:07.3408650Z [1m[92m   Compiling[0m rand_chacha v0.9.0
+2026-10-07T13:46:07.3575570Z [1m[92m   Compiling[0m objc v0.2.7
+2026-10-07T13:46:07.4036590Z [1m[92m   Compiling[0m fontdb v0.24.0
+2026-10-07T13:46:07.4472140Z [1m[92m   Compiling[0m webrender_api v0.70.0
+2026-10-07T13:46:07.4708520Z [1m[92m   Compiling[0m strum v0.28.0
+2026-10-07T13:46:07.6255450Z [1m[92m   Compiling[0m icu_locale_fallback v2.3.0
+2026-10-07T13:46:07.6507570Z [1m[92m   Compiling[0m core-text v20.1.0
+2026-10-07T13:46:07.7839340Z [1m[92m   Compiling[0m svgtypes v0.16.1
+2026-10-07T13:46:07.8461400Z [1m[92m   Compiling[0m cobs v0.3.0
+2026-10-07T13:46:07.8638220Z [1m[92m   Compiling[0m roxmltree v0.21.1
+2026-10-07T13:46:07.8757430Z [1m[92m   Compiling[0m simplecss v0.2.2
+2026-10-07T13:46:07.9372370Z [1m[92m   Compiling[0m unicode-script v0.5.8
+2026-10-07T13:46:07.9449570Z [1m[92m   Compiling[0m unicode-vo v0.1.0
+2026-10-07T13:46:07.9627600Z [1m[92m   Compiling[0m pico-args v0.5.0
+2026-10-07T13:46:08.0114140Z [1m[92m   Compiling[0m xmlwriter v0.1.0
+2026-10-07T13:46:08.0822040Z [1m[92m   Compiling[0m svg_fmt v0.4.5
+2026-10-07T13:46:08.1169040Z [1m[92m   Compiling[0m data-url v0.3.2
+2026-10-07T13:46:08.1566210Z [1m[92m   Compiling[0m tracy-rs v0.1.2
+2026-10-07T13:46:08.1938100Z [1m[92m   Compiling[0m imagesize v0.15.0
+2026-10-07T13:46:08.2118040Z [1m[92m   Compiling[0m etagere v0.2.15
+2026-10-07T13:46:08.2286660Z [1m[92m   Compiling[0m postcard v1.1.3
+2026-10-07T13:46:08.2990870Z [1m[92m   Compiling[0m icu_segmenter v2.3.0
+2026-10-07T13:46:08.3421560Z [1m[92m   Compiling[0m stylo_traits v0.20.0
+2026-10-07T13:46:08.4358860Z [1m[92m   Compiling[0m ron v0.12.2
+2026-10-07T13:46:08.4832000Z [1m[92m   Compiling[0m rand v0.9.5
+2026-10-07T13:46:08.5467600Z [1m[92m   Compiling[0m unic-ucd-ident v0.9.0
+2026-10-07T13:46:08.5565640Z [1m[92m   Compiling[0m stylo_dom v0.20.0
+2026-10-07T13:46:08.6031920Z [1m[92m   Compiling[0m tiny-skia v0.12.0
+2026-10-07T13:46:08.6736150Z [1m[92m   Compiling[0m sha2 v0.10.9
+2026-10-07T13:46:08.7730020Z [1m[92m   Compiling[0m plane-split v0.18.0
+2026-10-07T13:46:08.8520580Z [1m[92m   Compiling[0m harfrust v0.12.0
+2026-10-07T13:46:08.8890860Z [1m[92m   Compiling[0m skrifa v0.44.0
+2026-10-07T13:46:08.9246500Z [1m[92m   Compiling[0m bincode v1.3.3
+2026-10-07T13:46:09.2205240Z [1m[92m   Compiling[0m allocator-api2 v0.2.21
+2026-10-07T13:46:09.2325880Z [1m[92m   Compiling[0m stylo_derive v0.20.0
+2026-10-07T13:46:09.7327390Z [1m[92m   Compiling[0m uluru v3.1.0
+2026-10-07T13:46:09.7747240Z [1m[92m   Compiling[0m unicode-segmentation v1.13.3
+2026-10-07T13:46:09.8327750Z [1m[92m   Compiling[0m zmij v1.0.23
+2026-10-07T13:46:09.9930820Z [1m[92m   Compiling[0m atomic_refcell v0.1.14
+2026-10-07T13:46:10.0495850Z [1m[92m   Compiling[0m topological-sort v0.1.0
+2026-10-07T13:46:10.0629250Z [1m[92m   Compiling[0m const-oid v0.10.2
+2026-10-07T13:46:10.1210870Z [1m[92m   Compiling[0m grid v1.0.1
+2026-10-07T13:46:10.2463970Z [1m[92m   Compiling[0m taffy v0.12.2
+2026-10-07T13:46:10.3569000Z [1m[92m   Compiling[0m keyboard-types v0.8.3
+2026-10-07T13:46:10.9226360Z [1m[92m   Compiling[0m wr_glyph_rasterizer v0.70.0
+2026-10-07T13:46:11.1661380Z [1m[92m   Compiling[0m usvg v0.48.1
+2026-10-07T13:46:11.8996330Z [1m[92m   Compiling[0m ipc-channel v0.22.0
+2026-10-07T13:46:11.9066320Z [1m[92m   Compiling[0m content-security-policy v0.8.2
+2026-10-07T13:46:12.0211900Z [1m[92m   Compiling[0m urlpattern v0.3.0
+2026-10-07T13:46:12.3179700Z [1m[92m   Compiling[0m resvg v0.48.1
+2026-10-07T13:46:12.4169280Z [1m[92m   Compiling[0m objc2-foundation v0.3.2
+2026-10-07T13:46:12.7833950Z [1m[92m   Compiling[0m cfg_aliases v0.2.2
+2026-10-07T13:46:12.8191510Z [1m[92m   Compiling[0m serde_json v1.0.151
+2026-10-07T13:46:12.8632300Z [1m[92m   Compiling[0m digest v0.11.3
+2026-10-07T13:46:12.9731780Z [1m[92m   Compiling[0m half v2.7.1
+2026-10-07T13:46:13.1463000Z [1m[92m   Compiling[0m enumn v0.1.14
+2026-10-07T13:46:13.2454130Z [1m[92m   Compiling[0m servo-config-macro v0.5.0 (https://github.com/servo/servo?rev=1d44e5dd6a8b64c02f9dbf7fcbdf4ebdd0740019#1d44e5dd)
+2026-10-07T13:46:13.3517040Z [1m[92m   Compiling[0m accesskit v0.24.1
+2026-10-07T13:46:13.3998670Z [1m[92m   Compiling[0m toml_edit v0.25.15+spec-1.1.0
+2026-10-07T13:46:13.4464880Z [1m[92m   Compiling[0m equator-macro v0.4.2
+2026-10-07T13:46:13.5364060Z [1m[92m   Compiling[0m profiling-procmacros v1.0.18
+2026-10-07T13:46:13.7289310Z [1m[92m   Compiling[0m mach2 v0.6.0
+2026-10-07T13:46:13.8270750Z [1m[92m   Compiling[0m proc-macro-crate v3.5.0
+2026-10-07T13:46:13.9954440Z [1m[92m   Compiling[0m futures-core v0.3.34
+2026-10-07T13:46:14.0900610Z [1m[92m   Compiling[0m equator v0.4.2
+2026-10-07T13:46:14.1336870Z [1m[92m   Compiling[0m profiling v1.0.18
+2026-10-07T13:46:14.1428880Z [1m[92m   Compiling[0m num_enum_derive v0.7.6
+2026-10-07T13:46:14.1671420Z [1m[92m   Compiling[0m paste v1.0.15
+2026-10-07T13:46:14.3239890Z [1m[92m   Compiling[0m anyhow v1.0.104
+2026-10-07T13:46:14.3936970Z [1m[92m   Compiling[0m aligned-vec v0.6.4
+2026-10-07T13:46:14.4849480Z [1m[92m   Compiling[0m num-complex v0.4.6
+2026-10-07T13:46:14.4940070Z [1m[92m   Compiling[0m icu_provider_macros v1.5.0
+2026-10-07T13:46:14.5324510Z [1m[92m   Compiling[0m num-bigint v0.4.8
+2026-10-07T13:46:14.6474340Z [1m[92m   Compiling[0m nom v8.0.0
+2026-10-07T13:46:14.6909560Z [1m[92m   Compiling[0m num_enum v0.7.6
+2026-10-07T13:46:14.7309780Z [1m[92m   Compiling[0m futures-sink v0.3.34
+2026-10-07T13:46:14.7535580Z [1m[92m   Compiling[0m icu_provider v1.5.0
+2026-10-07T13:46:15.0177320Z [1m[92m   Compiling[0m v_frame v0.3.9
+2026-10-07T13:46:15.0356780Z [1m[92m   Compiling[0m as-slice v0.2.1
+2026-10-07T13:46:15.0625030Z [1m[92m   Compiling[0m built v0.8.1
+2026-10-07T13:46:15.1536170Z [1m[92m   Compiling[0m servo-config v0.5.0 (https://github.com/servo/servo?rev=1d44e5dd6a8b64c02f9dbf7fcbdf4ebdd0740019#1d44e5dd)
+2026-10-07T13:46:15.1613170Z [1m[92m   Compiling[0m num-rational v0.4.2
+2026-10-07T13:46:15.3843620Z [1m[92m   Compiling[0m av-scenechange v0.14.1
+2026-10-07T13:46:15.5093490Z [1m[92m   Compiling[0m rav1e v0.8.1
+2026-10-07T13:46:15.5470710Z [1m[92m   Compiling[0m aligned v0.4.3
+2026-10-07T13:46:15.6117070Z [1m[92m   Compiling[0m arg_enum_proc_macro v0.3.4
+2026-10-07T13:46:15.6285980Z [1m[92m   Compiling[0m no_std_io2 v0.9.4
+2026-10-07T13:46:15.6330600Z [1m[92m   Compiling[0m pulp v0.22.3
+2026-10-07T13:46:15.6657270Z [1m[92m   Compiling[0m pastey v0.1.1
+2026-10-07T13:46:15.6809830Z [1m[92m   Compiling[0m slab v0.4.12
+2026-10-07T13:46:15.7692240Z [1m[92m   Compiling[0m y4m v0.8.0
+2026-10-07T13:46:15.8983410Z [1m[92m   Compiling[0m bitstream-io v4.10.0
+2026-10-07T13:46:16.0176260Z [1m[92m   Compiling[0m maybe-rayon v0.1.1
+2026-10-07T13:46:16.0511660Z [1m[92m   Compiling[0m simd_helpers v0.1.0
+2026-10-07T13:46:16.2238500Z [1m[92m   Compiling[0m imgref v1.12.3
+2026-10-07T13:46:16.2838790Z [1m[92m   Compiling[0m reborrow v0.5.5
+2026-10-07T13:46:16.2901600Z [1m[92m   Compiling[0m icu_segmenter_data v1.5.1
+2026-10-07T13:46:16.3266190Z [1m[92m   Compiling[0m noop_proc_macro v0.3.0
+2026-10-07T13:46:16.3481460Z [1m[92m   Compiling[0m httparse v1.10.1
+2026-10-07T13:46:16.3562490Z [1m[92m   Compiling[0m pulp-wasm-simd-flag v0.1.1
+2026-10-07T13:46:16.4691100Z [1m[92m   Compiling[0m av1-grain v0.2.5
+2026-10-07T13:46:16.4967820Z [1m[92m   Compiling[0m loop9 v0.1.5
+2026-10-07T13:46:16.5420310Z [1m[92m   Compiling[0m icu_collections v1.5.0
+2026-10-07T13:46:16.5633250Z [1m[92m   Compiling[0m zune-inflate v0.2.54
+2026-10-07T13:46:16.7488330Z [1m[92m   Compiling[0m avif-serialize v0.8.9
+2026-10-07T13:46:16.9242690Z [1m[92m   Compiling[0m tracing-core v0.1.36
+2026-10-07T13:46:16.9303750Z [1m[92m   Compiling[0m bit_field v0.10.3
+2026-10-07T13:46:16.9968510Z [1m[92m   Compiling[0m fax v0.2.7
+2026-10-07T13:46:17.0818850Z [1m[92m   Compiling[0m pxfm v0.1.30
+2026-10-07T13:46:17.1571200Z [1m[92m   Compiling[0m lebe v0.5.3
+2026-10-07T13:46:17.2421450Z [1m[92m   Compiling[0m tracing v0.1.44
+2026-10-07T13:46:17.2763500Z [1m[92m   Compiling[0m tiff v0.11.3
+2026-10-07T13:46:17.4960530Z [1m[92m   Compiling[0m qoi v0.4.1
+2026-10-07T13:46:17.5455100Z [1m[92m   Compiling[0m block-padding v0.4.2
+2026-10-07T13:46:17.6101800Z [1m[92m   Compiling[0m cpufeatures v0.3.1
+2026-10-07T13:46:17.6124080Z [1m[92m   Compiling[0m raw-window-handle v0.6.2
+2026-10-07T13:46:17.6684260Z [1m[92m   Compiling[0m atomic-waker v1.1.2
+2026-10-07T13:46:17.7275230Z [1m[92m   Compiling[0m inout v0.2.2
+2026-10-07T13:46:17.7500870Z [1m[92m   Compiling[0m icu_segmenter v1.5.0
+2026-10-07T13:46:17.8060500Z [1m[92m   Compiling[0m tokio-util v0.7.19
+2026-10-07T13:46:18.2548900Z [1m[92m   Compiling[0m futures-channel v0.3.34
+2026-10-07T13:46:18.3870190Z [1m[92m   Compiling[0m moxcms v0.8.1
+2026-10-07T13:46:18.5637480Z [1m[92m   Compiling[0m http-body v1.1.0
+2026-10-07T13:46:18.5882130Z [1m[92m   Compiling[0m try-lock v0.2.5
+2026-10-07T13:46:18.6321500Z [1m[92m   Compiling[0m want v0.3.2
+2026-10-07T13:46:18.6356350Z [1m[92m   Compiling[0m h2 v0.4.20
+2026-10-07T13:46:18.7048390Z [1m[92m   Compiling[0m cipher v0.5.2
+2026-10-07T13:46:18.8500270Z [1m[92m   Compiling[0m cookie v0.18.2
+2026-10-07T13:46:18.9636200Z [1m[92m   Compiling[0m cookie v0.16.2
+2026-10-07T13:46:19.0824090Z [1m[92m   Compiling[0m base64ct v1.8.3
+2026-10-07T13:46:19.2283540Z [1m[92m   Compiling[0m thiserror v1.0.69
+2026-10-07T13:46:19.5348540Z [1m[92m   Compiling[0m exr v1.74.2
+2026-10-07T13:46:19.7645340Z [1m[92m   Compiling[0m sha1 v0.10.7
+2026-10-07T13:46:19.8504840Z [1m[92m   Compiling[0m ravif v0.13.0
+2026-10-07T13:46:19.9339890Z [1m[92m   Compiling[0m thiserror-impl v1.0.69
+2026-10-07T13:46:20.4936870Z [1m[92m   Compiling[0m hyper v1.12.0
+2026-10-07T13:46:20.7314170Z [1m[92m   Compiling[0m headers-core v0.3.0
+2026-10-07T13:46:20.7794860Z [1m[92m   Compiling[0m httpdate v1.0.3
+2026-10-07T13:46:20.9233980Z [1m[92m   Compiling[0m headers v0.4.2
+2026-10-07T13:46:21.3159940Z [1m[92m   Compiling[0m objc2-io-surface v0.3.2
+2026-10-07T13:46:21.4873950Z [1m[92m   Compiling[0m objc2-metal v0.3.2
+2026-10-07T13:46:21.5162380Z [1m[92m   Compiling[0m image v0.25.10
+2026-10-07T13:46:21.6008590Z [1m[92m   Compiling[0m objc2-core-data v0.3.2
+2026-10-07T13:46:22.0474850Z [1m[92m   Compiling[0m objc2-core-image v0.3.2
+2026-10-07T13:46:22.3683340Z [1m[92m   Compiling[0m objc2-cloud-kit v0.3.2
+2026-10-07T13:46:23.1350700Z [1m[92m   Compiling[0m http v0.2.12
+2026-10-07T13:46:23.2812950Z [1m[92m   Compiling[0m servo-embedder-traits v0.5.0 (https://github.com/servo/servo?rev=1d44e5dd6a8b64c02f9dbf7fcbdf4ebdd0740019#1d44e5dd)
+2026-10-07T13:46:23.4116570Z [1m[92m   Compiling[0m glob v0.3.4
+2026-10-07T13:46:23.6431070Z [1m[92m   Compiling[0m webdriver v0.53.0
+2026-10-07T13:46:23.8273550Z [1m[92m   Compiling[0m servo-hyper-serde v0.5.0 (https://github.com/servo/servo?rev=1d44e5dd6a8b64c02f9dbf7fcbdf4ebdd0740019#1d44e5dd)
+2026-10-07T13:46:23.8537160Z [1m[92m   Compiling[0m surfman v0.13.0
+2026-10-07T13:46:23.9324230Z [1m[92m   Compiling[0m rustls-pki-types v1.15.1
+2026-10-07T13:46:24.2781000Z [1m[92m   Compiling[0m inventory v0.3.24
+2026-10-07T13:46:24.3199100Z [1m[92m   Compiling[0m glow v0.17.0
+2026-10-07T13:46:24.4208680Z [1m[92m   Compiling[0m vcpkg v0.2.15
+2026-10-07T13:46:24.8036950Z [1m[92m   Compiling[0m pem-rfc7468 v1.0.0
+2026-10-07T13:46:24.9958570Z [1m[92m   Compiling[0m cgl v0.3.2
+2026-10-07T13:46:25.0315350Z [1m[92m   Compiling[0m dpi v0.1.2
+2026-10-07T13:46:25.0444410Z [1m[92m   Compiling[0m cpubits v0.1.1
+2026-10-07T13:46:25.0768820Z [1m[92m   Compiling[0m der v0.8.2
+2026-10-07T13:46:25.1227240Z [1m[92m   Compiling[0m futures-task v0.3.34
+2026-10-07T13:46:25.2074280Z [1m[92m   Compiling[0m futures-util v0.3.34
+2026-10-07T13:46:25.5890740Z [1m[92m   Compiling[0m chacha20 v0.10.2
+2026-10-07T13:46:25.7147460Z [1m[92m   Compiling[0m cmake v0.1.58
+2026-10-07T13:46:25.7433790Z [1m[92m   Compiling[0m dunce v1.0.5
+2026-10-07T13:46:25.7835410Z [1m[92m   Compiling[0m spki v0.8.1
+2026-10-07T13:46:25.9044500Z [1m[92m   Compiling[0m fs_extra v1.3.0
+2026-10-07T13:46:25.9355520Z [1m[92m   Compiling[0m objc2-quartz-core v0.3.2
+2026-10-07T13:46:26.0698010Z [1m[92m   Compiling[0m objc2-core-graphics v0.3.2
+2026-10-07T13:46:26.1757000Z [1m[92m   Compiling[0m aws-lc-sys v0.45.0
+2026-10-07T13:46:26.3737010Z [1m[92m   Compiling[0m servo-tracing v0.5.0 (https://github.com/servo/servo?rev=1d44e5dd6a8b64c02f9dbf7fcbdf4ebdd0740019#1d44e5dd)
+2026-10-07T13:46:26.4687270Z [1m[92m   Compiling[0m icu_locid_transform_data v1.5.1
+2026-10-07T13:46:26.5569050Z [1m[92m   Compiling[0m tower-service v0.3.3
+2026-10-07T13:46:26.5928360Z [1m[92m   Compiling[0m pkcs8 v0.11.0
+2026-10-07T13:46:26.6077050Z [1m[92m   Compiling[0m rand v0.10.3
+2026-10-07T13:46:26.7643350Z [1m[92m   Compiling[0m hashbrown v0.16.1
+2026-10-07T13:46:26.9795880Z [1m[92m   Compiling[0m objc2-core-video v0.3.2
+2026-10-07T13:46:26.9935960Z [1m[92m   Compiling[0m objc2-core-text v0.3.2
+2026-10-07T13:46:27.0892330Z [1m[92m   Compiling[0m ipnet v2.12.2
+2026-10-07T13:46:27.2015610Z [1m[92m   Compiling[0m crypto-bigint v0.7.5
+2026-10-07T13:46:27.2515350Z [1m[92m   Compiling[0m hyper-util v0.1.21
+2026-10-07T13:46:27.4541510Z [1m[92m   Compiling[0m libz-sys v1.1.29
+2026-10-07T13:46:27.6492150Z [1m[92m   Compiling[0m objc2-app-kit v0.3.2
+2026-10-07T13:46:27.6649060Z [1m[92m   Compiling[0m aws-lc-rs v1.18.1
+2026-10-07T13:46:27.8802890Z [1m[92m   Compiling[0m icu_locid_transform v1.5.0
+2026-10-07T13:46:28.2448070Z [1m[92m   Compiling[0m icu_properties_data v1.5.1
+2026-10-07T13:46:28.2944730Z [1m[92m   Compiling[0m sys-locale v0.3.2
+2026-10-07T13:46:28.3749230Z [1m[92m   Compiling[0m clang-sys v1.9.1
+2026-10-07T13:46:28.5444640Z [1m[92m   Compiling[0m ff v0.14.0
+2026-10-07T13:46:28.5732440Z [1m[92m   Compiling[0m alloc-no-stdlib v2.0.4
+2026-10-07T13:46:28.6298260Z [1m[92m   Compiling[0m alloc-stdlib v0.2.4
+2026-10-07T13:46:28.7625760Z [1m[92m   Compiling[0m hmac v0.13.0
+2026-10-07T13:46:28.8449460Z [1m[92m   Compiling[0m signature v3.0.0
+2026-10-07T13:46:28.8804450Z [1m[92m   Compiling[0m errno v0.3.14
+2026-10-07T13:46:28.9440180Z [1m[92m   Compiling[0m minimal-lexical v0.2.1
+2026-10-07T13:46:29.0459040Z [1m[92m   Compiling[0m foldhash v0.1.5
+2026-10-07T13:46:29.0769950Z [1m[92m   Compiling[0m nom v7.1.3
+2026-10-07T13:46:29.1253930Z [1m[92m   Compiling[0m hashbrown v0.15.5
+2026-10-07T13:46:29.4285640Z [1m[92m   Compiling[0m icu_properties v1.5.1
+2026-10-07T13:46:29.4337670Z [1m[92m   Compiling[0m brotli-decompressor v5.0.3
+2026-10-07T13:46:30.0442710Z [1m[92m   Compiling[0m group v0.14.0
+2026-10-07T13:46:30.1291290Z [1m[92m   Compiling[0m keccak v0.2.2
+2026-10-07T13:46:30.1332660Z [1m[92m   Compiling[0m libloading v0.8.9
+2026-10-07T13:46:30.1384540Z [1m[92m   Compiling[0m fixedbitset v0.5.7
+2026-10-07T13:46:30.2267220Z [1m[92m   Compiling[0m bindgen v0.72.1
+2026-10-07T13:46:30.2375080Z [1m[92m   Compiling[0m base16ct v1.0.0
+2026-10-07T13:46:30.3151920Z [1m[92m   Compiling[0m wuff-capi v0.2.0
+2026-10-07T13:46:30.4414500Z [1m[92m   Compiling[0m itertools v0.13.0
+2026-10-07T13:46:30.5617800Z [1m[92m   Compiling[0m sec1 v0.8.1
+2026-10-07T13:46:30.7603480Z [1m[92m   Compiling[0m petgraph v0.8.3
+2026-10-07T13:46:30.9492640Z [1m[92m   Compiling[0m cexpr v0.6.0
+2026-10-07T13:46:31.0892620Z [1m[92m   Compiling[0m hkdf v0.13.0
+2026-10-07T13:46:31.1421190Z [1m[92m   Compiling[0m servo-media-derive v0.5.0 (https://github.com/servo/servo?rev=1d44e5dd6a8b64c02f9dbf7fcbdf4ebdd0740019#1d44e5dd)
+2026-10-07T13:46:31.2621130Z [1m[92m   Compiling[0m shlex v1.3.0
+2026-10-07T13:46:31.3438750Z [1m[92m   Compiling[0m rustix v1.1.5
+2026-10-07T13:46:31.3600360Z [1m[92m   Compiling[0m speexdsp-resampler v0.1.0
+2026-10-07T13:46:31.3791250Z [1m[92m   Compiling[0m byte-slice-cast v1.2.3
+2026-10-07T13:46:31.4984600Z [1m[92m   Compiling[0m elliptic-curve v0.14.1
+2026-10-07T13:46:31.5690690Z [1m[92m   Compiling[0m wuff v0.2.9
+2026-10-07T13:46:31.7780000Z [1m[92m   Compiling[0m fontsan v0.7.0
+2026-10-07T13:46:31.8117770Z [1m[92m   Compiling[0m harfbuzz-sys v0.7.0
+2026-10-07T13:46:31.9248590Z [1m[92m   Compiling[0m zstd-sys v2.1.0+zstd.1.5.7
+2026-10-07T13:46:31.9584900Z [1m[92m   Compiling[0m itertools v0.15.0
+2026-10-07T13:46:32.1347310Z [1m[92m   Compiling[0m untrusted v0.9.0
+2026-10-07T13:46:32.1582160Z [1m[92m   Compiling[0m sponge-cursor v0.1.0
+2026-10-07T13:46:32.1739110Z [1m[92m   Compiling[0m rustls v0.23.45
+2026-10-07T13:46:34.1327250Z [1m[92m   Compiling[0m sha2 v0.11.0
+2026-10-07T13:46:34.6724030Z [1m[92m   Compiling[0m naga v29.0.4
+2026-10-07T13:46:34.8217180Z [1m[92m   Compiling[0m iana-time-zone v0.1.65
+2026-10-07T13:46:34.8846940Z [1m[92m   Compiling[0m bit-vec v0.9.1
+2026-10-07T13:46:35.0963880Z [1m[92m   Compiling[0m unicode-width v0.2.2
+2026-10-07T13:46:35.2140540Z [1m[92m   Compiling[0m strck v0.1.2
+2026-10-07T13:46:35.2705860Z [1m[92m   Compiling[0m icu_calendar_data v1.5.1
+2026-10-07T13:46:35.5651670Z [1m[92m   Compiling[0m strck_ident v0.1.2
+2026-10-07T13:46:35.6252860Z [1m[92m   Compiling[0m codespan-reporting v0.13.1
+2026-10-07T13:46:35.9236150Z [1m[92m   Compiling[0m bit-set v0.9.1
+2026-10-07T13:46:36.0673430Z [1m[92m   Compiling[0m xattr v1.6.1
+2026-10-07T13:46:36.2089750Z [1m[92m   Compiling[0m filetime v0.2.29
+2026-10-07T13:46:36.2543250Z [1m[92m   Compiling[0m semver v1.0.28
+2026-10-07T13:46:36.2785370Z [1m[92m   Compiling[0m zstd-safe v8.0.0
+2026-10-07T13:46:36.3929180Z [1m[92m   Compiling[0m encoding_c_mem v0.2.6
+2026-10-07T13:46:36.3969920Z [1m[92m   Compiling[0m hexf-parse v0.2.1
+2026-10-07T13:46:36.6025810Z [1m[92m   Compiling[0m alloc-no-stdlib v3.0.0
+2026-10-07T13:46:36.6140630Z [1m[92m   Compiling[0m encoding_c v0.9.8
+2026-10-07T13:46:36.6485500Z [1m[92m   Compiling[0m unicase v2.10.0
+2026-10-07T13:46:36.7087800Z [1m[92m   Compiling[0m unicode-properties v0.1.4
+2026-10-07T13:46:36.7408870Z [1m[92m   Compiling[0m ohos-deviceinfo-sys v0.1.8
+2026-10-07T13:46:36.7780620Z [1m[92m   Compiling[0m rustc-hash v1.1.0
+2026-10-07T13:46:36.8335290Z [1m[92m   Compiling[0m mime_guess v2.0.5
+2026-10-07T13:46:36.8630270Z [1m[92m   Compiling[0m webrender v0.70.0
+2026-10-07T13:46:37.2927070Z [1m[92m   Compiling[0m alloc-stdlib v0.3.0
+2026-10-07T13:46:37.4982360Z [1m[92m   Compiling[0m diplomat_core v0.8.1
+2026-10-07T13:46:37.7947580Z [1m[92m   Compiling[0m rustc_version v0.4.1
+2026-10-07T13:46:37.9800250Z [1m[92m   Compiling[0m tar v0.4.46
+2026-10-07T13:46:38.4990920Z [1m[92m   Compiling[0m primefield v0.14.0
+2026-10-07T13:46:38.5978010Z [1m[92m   Compiling[0m wgpu-types v29.0.4
+2026-10-07T13:46:38.6522630Z [1m[92m   Compiling[0m sha1 v0.11.0
+2026-10-07T13:46:38.7892070Z [1m[92m   Compiling[0m wgpu-hal v29.0.4
+2026-10-07T13:46:38.9639780Z [1m[92m   Compiling[0m universal-hash v0.6.1
+2026-10-07T13:46:39.0197370Z [1m[92m   Compiling[0m calendrical_calculations v0.1.3
+2026-10-07T13:46:39.4037310Z [1m[92m   Compiling[0m object v0.37.3
+2026-10-07T13:46:39.7434580Z [1m[92m   Compiling[0m icu_calendar v1.5.2
+2026-10-07T13:46:39.9256950Z [1m[92m   Compiling[0m mozjs_sys v140.14.0-0
+2026-10-07T13:46:40.2038650Z [1m[92m   Compiling[0m wnaf v0.14.1
+2026-10-07T13:46:40.3265050Z [1m[92m   Compiling[0m diplomat v0.8.0
+2026-10-07T13:46:40.3952410Z [1m[92m   Compiling[0m curve25519-dalek v5.0.0
+2026-10-07T13:46:40.6728680Z [1m[92m   Compiling[0m brotli-decompressor v6.0.1
+2026-10-07T13:46:41.0601270Z [1m[92m   Compiling[0m wgpu-naga-bridge v29.0.4
+2026-10-07T13:46:41.1186720Z [1m[92m   Compiling[0m rfc6979 v0.6.0
+2026-10-07T13:46:41.1869840Z [1m[92m   Compiling[0m icu_provider_adapters v1.5.0
+2026-10-07T13:46:41.2545220Z [1m[92m   Compiling[0m raw-window-metal v1.1.0
+2026-10-07T13:46:41.2929680Z [1m[92m   Compiling[0m html5ever v0.39.0
+2026-10-07T13:46:41.4284380Z [1m[92m   Compiling[0m color v0.3.3
+2026-10-07T13:46:41.5636050Z [1m[92m   Compiling[0m font-types v0.11.3
+2026-10-07T13:46:41.6801270Z [1m[92m   Compiling[0m ahash v0.8.12
+2026-10-07T13:46:41.8182530Z [1m[92m   Compiling[0m prettyplease v0.2.37
+2026-10-07T13:46:41.9246600Z [1m[92m   Compiling[0m diplomat-runtime v0.8.3
+2026-10-07T13:46:41.9347230Z [1m[92m   Compiling[0m gimli v0.32.3
+2026-10-07T13:46:41.9499970Z [1m[92m   Compiling[0m linebender_resource_handle v0.1.1
+2026-10-07T13:46:42.0033120Z [1m[92m   Compiling[0m objc-sys v0.3.5
+2026-10-07T13:46:42.3256390Z [1m[92m   Compiling[0m peniko v0.6.1
+2026-10-07T13:46:42.4571480Z [1m[92m   Compiling[0m icu_capi v1.5.0
+2026-10-07T13:46:43.2173870Z [1m[92m   Compiling[0m read-fonts v0.39.2
+2026-10-07T13:46:43.3932850Z [1m[92m   Compiling[0m addr2line v0.25.1
+2026-10-07T13:46:43.5433580Z [1m[92m   Compiling[0m zstd v0.14.0
+2026-10-07T13:46:43.7407030Z [1m[92m   Compiling[0m servo-script-bindings v0.5.0 (https://github.com/servo/servo?rev=1d44e5dd6a8b64c02f9dbf7fcbdf4ebdd0740019#1d44e5dd)
+2026-10-07T13:46:44.0187730Z [1m[92m   Compiling[0m brotli v9.0.0
+2026-10-07T13:46:45.0256580Z [1m[92m   Compiling[0m ecdsa v0.17.0
+2026-10-07T13:46:46.1249030Z [1m[92m   Compiling[0m primeorder v0.14.0
+2026-10-07T13:46:46.3838860Z [1m[92m   Compiling[0m chrono v0.4.45
+2026-10-07T13:46:46.4263350Z [1m[92m   Compiling[0m shake v0.1.0
+2026-10-07T13:46:46.4846800Z [1m[92m   Compiling[0m libsqlite3-sys v0.36.0
+2026-10-07T13:46:46.6832100Z [1m[92m   Compiling[0m webpki-roots v1.0.9
+2026-10-07T13:46:46.7409060Z [1m[92m   Compiling[0m aead v0.6.1
+2026-10-07T13:46:46.8161270Z [1m[92m   Compiling[0m wgpu-core v29.0.4
+2026-10-07T13:46:46.9871350Z [1m[92m   Compiling[0m guillotiere v0.7.0
+2026-10-07T13:46:47.1907390Z [1m[92m   Compiling[0m core-foundation v0.10.1
+2026-10-07T13:46:47.4433350Z [1m[92m   Compiling[0m security-framework-sys v2.17.0
+2026-10-07T13:46:47.5474800Z [1m[92m   Compiling[0m fearless_simd v0.4.1
+2026-10-07T13:46:47.6276750Z [1m[92m   Compiling[0m futures-io v0.3.34
+2026-10-07T13:46:47.6963800Z [1m[92m   Compiling[0m compression-core v0.4.33
+2026-10-07T13:46:47.7701670Z [1m[92m   Compiling[0m litrs v1.0.0
+2026-10-07T13:46:48.1350420Z [1m[92m   Compiling[0m data-encoding v2.11.1
+2026-10-07T13:46:48.4682710Z [1m[92m   Compiling[0m fst v0.4.7
+2026-10-07T13:46:48.6350440Z [1m[92m   Compiling[0m rustc-demangle v0.1.28
+2026-10-07T13:46:48.8405220Z [1m[92m   Compiling[0m backtrace v0.3.76
+2026-10-07T13:46:49.1300350Z [1m[92m   Compiling[0m document-features v0.2.12
+2026-10-07T13:46:49.3722250Z [1m[92m   Compiling[0m vello_common v0.0.9
+2026-10-07T13:46:49.5190140Z [1m[92m   Compiling[0m compression-codecs v0.4.45
+2026-10-07T13:46:50.1951430Z [1m[92m   Compiling[0m security-framework v3.7.0
+2026-10-07T13:46:50.2405570Z [1m[92m   Compiling[0m skrifa v0.42.1
+2026-10-07T13:46:50.8212730Z [1m[92m   Compiling[0m wgpu-core-deps-apple v29.0.4
+2026-10-07T13:46:52.0844680Z [1m[92m   Compiling[0m polyval v0.7.3
+2026-10-07T13:46:52.1629670Z [1m[92m   Compiling[0m mozangle v0.6.0
+2026-10-07T13:46:52.2147050Z [1m[92m   Compiling[0m hash2curve v0.14.0
+2026-10-07T13:46:52.3503470Z [1m[92m   Compiling[0m ed448 v0.5.0
+2026-10-07T13:46:52.5400610Z [1m[92m   Compiling[0m aes v0.9.3
+2026-10-07T13:46:52.5624080Z [1m[92m   Compiling[0m phc v0.6.1
+2026-10-07T13:46:52.6416790Z [1m[92m   Compiling[0m ctr v0.10.1
+2026-10-07T13:46:52.7358600Z [1m[92m   Compiling[0m wgpu v29.0.4
+2026-10-07T13:46:52.7631400Z [1m[92m   Compiling[0m module-lattice v0.2.3
+2026-10-07T13:46:52.8632820Z [1m[92m   Compiling[0m tower-layer v0.3.3
+2026-10-07T13:46:52.8824840Z [1m[92m   Compiling[0m sync_wrapper v1.0.2
+2026-10-07T13:46:52.9350630Z [1m[92m   Compiling[0m heck v0.4.1
+2026-10-07T13:46:52.9693560Z [1m[92m   Compiling[0m tower v0.5.3
+2026-10-07T13:46:53.0627260Z [1m[92m   Compiling[0m sea-query-derive v1.0.0
+2026-10-07T13:46:53.0922840Z [1m[92m   Compiling[0m tempfile v3.27.0
+2026-10-07T13:46:53.2665220Z [1m[92m   Compiling[0m password-hash v0.6.1
+2026-10-07T13:46:53.3431450Z [1m[92m   Compiling[0m ed448-goldilocks v0.14.0-pre.15
+2026-10-07T13:46:53.4114710Z [1m[92m   Compiling[0m ghash v0.6.0
+2026-10-07T13:46:53.4860280Z [1m[92m   Compiling[0m servo-dom-struct v0.5.0 (https://github.com/servo/servo?rev=1d44e5dd6a8b64c02f9dbf7fcbdf4ebdd0740019#1d44e5dd)
+2026-10-07T13:46:53.6887270Z [1m[92m   Compiling[0m objc2 v0.5.3
+2026-10-07T13:46:53.7770220Z [1m[92m   Compiling[0m glifo v0.1.1
+2026-10-07T13:46:54.3661510Z [1m[92m   Compiling[0m quick_cache v0.6.24
+2026-10-07T13:46:54.5245580Z [1m[92m   Compiling[0m mozjs v0.21.6
+2026-10-07T13:46:54.6444240Z [1m[92m   Compiling[0m async-compression v0.4.50
+2026-10-07T13:46:54.9365710Z [1m[92m   Compiling[0m futures v0.3.34
+2026-10-07T13:46:54.9482980Z [1m[92m   Compiling[0m poly1305 v0.9.1
+2026-10-07T13:46:54.9721070Z [1m[92m   Compiling[0m sha3 v0.11.0
+2026-10-07T13:46:55.0420120Z [1m[92m   Compiling[0m ed25519 v3.0.0
+2026-10-07T13:46:55.2220200Z [1m[92m   Compiling[0m crypto-primes v0.7.2
+2026-10-07T13:46:55.2359250Z [1m[92m   Compiling[0m hashlink v0.11.1
+2026-10-07T13:46:55.3497830Z [1m[92m   Compiling[0m pkcs1 v0.8.0-rc.5
+2026-10-07T13:46:55.3880450Z [1m[92m   Compiling[0m http-body-util v0.1.5
+2026-10-07T13:46:55.4066110Z [1m[92m   Compiling[0m nom-language v0.1.0
+2026-10-07T13:46:55.4130980Z [1m[92m   Compiling[0m tokio-stream v0.1.19
+2026-10-07T13:46:55.4879870Z [1m[92m   Compiling[0m blake2 v0.11.0
+2026-10-07T13:46:55.5129100Z [1m[92m   Compiling[0m xml5ever v0.39.0
+2026-10-07T13:46:55.5408660Z [1m[92m   Compiling[0m ordered-channel v1.2.0
+2026-10-07T13:46:55.5907590Z [1m[92m   Compiling[0m kem v0.3.0
+2026-10-07T13:46:55.6370810Z [1m[92m   Compiling[0m dbl v0.5.0
+2026-10-07T13:46:55.6575060Z [1m[92m   Compiling[0m async-recursion v1.2.0
+2026-10-07T13:46:55.6844320Z [1m[92m   Compiling[0m servo-jstraceable-derive v0.5.0 (https://github.com/servo/servo?rev=1d44e5dd6a8b64c02f9dbf7fcbdf4ebdd0740019#1d44e5dd)
+2026-10-07T13:46:55.8882420Z [1m[92m   Compiling[0m servo-deny-public-fields v0.5.0 (https://github.com/servo/servo?rev=1d44e5dd6a8b64c02f9dbf7fcbdf4ebdd0740019#1d44e5dd)
+2026-10-07T13:46:55.9346900Z [1m[92m   Compiling[0m grafting v0.6.0
+2026-10-07T13:46:55.9745060Z [1m[92m   Compiling[0m thread_local v1.1.10
+2026-10-07T13:46:55.9805170Z [1m[92m   Compiling[0m imsz v0.4.1
+2026-10-07T13:46:56.0589050Z [1m[92m   Compiling[0m utf8parse v0.2.2
+2026-10-07T13:46:56.0713510Z [1m[92m   Compiling[0m servo-script v0.5.0 (https://github.com/servo/servo?rev=1d44e5dd6a8b64c02f9dbf7fcbdf4ebdd0740019#1d44e5dd)
+2026-10-07T13:46:56.1027580Z [1m[92m   Compiling[0m fallible-streaming-iterator v0.1.9
+2026-10-07T13:46:56.1088660Z [1m[92m   Compiling[0m fallible-iterator v0.3.0
+2026-10-07T13:46:56.1678530Z [1m[92m   Compiling[0m anstyle-parse v1.0.0
+2026-10-07T13:46:56.2313330Z [1m[92m   Compiling[0m vello_cpu v0.0.9
+2026-10-07T13:46:56.2474410Z [1m[92m   Compiling[0m rusqlite v0.38.0
+2026-10-07T13:46:56.2595400Z [1m[92m   Compiling[0m ocb3 v0.2.0-rc.3
+2026-10-07T13:46:56.3087130Z [1m[92m   Compiling[0m rsa v0.10.0-rc.18
+2026-10-07T13:46:56.3461260Z [1m[92m   Compiling[0m argon2 v0.6.0-rc.8
+2026-10-07T13:46:56.4105000Z [1m[91merror[E0107][0m[1m: struct takes 0 lifetime arguments but 1 lifetime argument was supplied[0m
+2026-10-07T13:46:56.4187990Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rsa-0.10.0-rc.18/src/encoding.rs:44:35
+2026-10-07T13:46:56.4188930Z    [1m[94m|[0m
+2026-10-07T13:46:56.4190730Z [1m[94m44[0m [1m[94m|[0m     fn try_from(pkcs1_key: pkcs1::RsaPrivateKey<'_>) -> pkcs1::Result<RsaPrivateKey> {
+2026-10-07T13:46:56.4192150Z    [1m[94m|[0m                                   [1m[91m^^^^^^^^^^^^^[0m[1m[94m----[0m [1m[94mhelp: remove the unnecessary generics[0m
+2026-10-07T13:46:56.4192970Z    [1m[94m|[0m                                   [1m[91m|[0m
+2026-10-07T13:46:56.4193550Z    [1m[94m|[0m                                   [1m[91mexpected 0 lifetime arguments[0m
+2026-10-07T13:46:56.4194920Z    [1m[94m|[0m
+2026-10-07T13:46:56.4195420Z [1m[92mnote[0m: struct defined here, with 0 lifetime parameters
+2026-10-07T13:46:56.4196380Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pkcs1-0.8.0-rc.5/src/private_key.rs:55:12
+2026-10-07T13:46:56.4197170Z    [1m[94m|[0m
+2026-10-07T13:46:56.4199190Z [1m[94m55[0m [1m[94m|[0m pub struct RsaPrivateKey<U> {
+2026-10-07T13:46:56.4199920Z    [1m[94m|[0m            [1m[92m^^^^^^^^^^^^^[0m
+2026-10-07T13:46:56.4200160Z 
+2026-10-07T13:46:56.4200650Z [1m[91merror[E0107][0m[1m: struct takes 1 generic argument but 0 generic arguments were supplied[0m
+2026-10-07T13:46:56.4201720Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rsa-0.10.0-rc.18/src/encoding.rs:44:35
+2026-10-07T13:46:56.4202410Z    [1m[94m|[0m
+2026-10-07T13:46:56.4203290Z [1m[94m44[0m [1m[94m|[0m     fn try_from(pkcs1_key: pkcs1::RsaPrivateKey<'_>) -> pkcs1::Result<RsaPrivateKey> {
+2026-10-07T13:46:56.4204150Z    [1m[94m|[0m                                   [1m[91m^^^^^^^^^^^^^[0m [1m[91mexpected 1 generic argument[0m
+2026-10-07T13:46:56.4204790Z    [1m[94m|[0m
+2026-10-07T13:46:56.4205240Z [1m[92mnote[0m: struct defined here, with 1 generic parameter: `U`
+2026-10-07T13:46:56.4206130Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pkcs1-0.8.0-rc.5/src/private_key.rs:55:12
+2026-10-07T13:46:56.4206940Z    [1m[94m|[0m
+2026-10-07T13:46:56.4207300Z [1m[94m55[0m [1m[94m|[0m pub struct RsaPrivateKey<U> {
+2026-10-07T13:46:56.4208010Z    [1m[94m|[0m            [1m[92m^^^^^^^^^^^^^[0m [1m[94m-[0m
+2026-10-07T13:46:56.4208500Z [1m[96mhelp[0m: add missing generic argument
+2026-10-07T13:46:56.4208930Z    [1m[94m|[0m
+2026-10-07T13:46:56.4209690Z [1m[94m44[0m [1m[94m| [0m    fn try_from(pkcs1_key: pkcs1::RsaPrivateKey<'_[92m, U[0m>) -> pkcs1::Result<RsaPrivateKey> {
+2026-10-07T13:46:56.4210520Z    [1m[94m|[0m                                                   [92m+++[0m
+2026-10-07T13:46:56.4210860Z 
+2026-10-07T13:46:56.4211310Z [1m[91merror[E0107][0m[1m: struct takes 0 lifetime arguments but 1 lifetime argument was supplied[0m
+2026-10-07T13:46:56.4212350Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rsa-0.10.0-rc.18/src/encoding.rs:73:35
+2026-10-07T13:46:56.4213340Z    [1m[94m|[0m
+2026-10-07T13:46:56.4213770Z [1m[94m73[0m [1m[94m|[0m     fn try_from(pkcs1_key: pkcs1::RsaPublicKey<'_>) -> pkcs1::Result<Self> {
+2026-10-07T13:46:56.4214270Z    [1m[94m|[0m                                   [1m[91m^^^^^^^^^^^^[0m[1m[94m----[0m [1m[94mhelp: remove the unnecessary generics[0m
+2026-10-07T13:46:56.4215100Z    [1m[94m|[0m                                   [1m[91m|[0m
+2026-10-07T13:46:56.4215400Z    [1m[94m|[0m                                   [1m[91mexpected 0 lifetime arguments[0m
+2026-10-07T13:46:56.4215630Z    [1m[94m|[0m
+2026-10-07T13:46:56.4215870Z [1m[92mnote[0m: struct defined here, with 0 lifetime parameters
+2026-10-07T13:46:56.4216310Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pkcs1-0.8.0-rc.5/src/public_key.rs:35:12
+2026-10-07T13:46:56.4216690Z    [1m[94m|[0m
+2026-10-07T13:46:56.4216870Z [1m[94m35[0m [1m[94m|[0m pub struct RsaPublicKey<U> {
+2026-10-07T13:46:56.4217130Z    [1m[94m|[0m            [1m[92m^^^^^^^^^^^^[0m
+2026-10-07T13:46:56.4217260Z 
+2026-10-07T13:46:56.4217480Z [1m[91merror[E0107][0m[1m: struct takes 1 generic argument but 0 generic arguments were supplied[0m
+2026-10-07T13:46:56.4217950Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rsa-0.10.0-rc.18/src/encoding.rs:73:35
+2026-10-07T13:46:56.4218300Z    [1m[94m|[0m
+2026-10-07T13:46:56.4218610Z [1m[94m73[0m [1m[94m|[0m     fn try_from(pkcs1_key: pkcs1::RsaPublicKey<'_>) -> pkcs1::Result<Self> {
+2026-10-07T13:46:56.4219300Z    [1m[94m|[0m                                   [1m[91m^^^^^^^^^^^^[0m [1m[91mexpected 1 generic argument[0m
+2026-10-07T13:46:56.4219570Z    [1m[94m|[0m
+2026-10-07T13:46:56.4219810Z [1m[92mnote[0m: struct defined here, with 1 generic parameter: `U`
+2026-10-07T13:46:56.4220270Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pkcs1-0.8.0-rc.5/src/public_key.rs:35:12
+2026-10-07T13:46:56.4220600Z    [1m[94m|[0m
+2026-10-07T13:46:56.4220810Z [1m[94m35[0m [1m[94m|[0m pub struct RsaPublicKey<U> {
+2026-10-07T13:46:56.4221070Z    [1m[94m|[0m            [1m[92m^^^^^^^^^^^^[0m [1m[94m-[0m
+2026-10-07T13:46:56.4221330Z [1m[96mhelp[0m: add missing generic argument
+2026-10-07T13:46:56.4221520Z    [1m[94m|[0m
+2026-10-07T13:46:56.4221870Z [1m[94m73[0m [1m[94m| [0m    fn try_from(pkcs1_key: pkcs1::RsaPublicKey<'_[92m, U[0m>) -> pkcs1::Result<Self> {
+2026-10-07T13:46:56.4222240Z    [1m[94m|[0m                                                  [92m+++[0m
+2026-10-07T13:46:56.4222400Z 
+2026-10-07T13:46:56.4222630Z [1m[91merror[E0107][0m[1m: struct takes 0 lifetime arguments but 1 lifetime argument was supplied[0m
+2026-10-07T13:46:56.4223150Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rsa-0.10.0-rc.18/src/encoding.rs:41:21
+2026-10-07T13:46:56.4223470Z    [1m[94m|[0m
+2026-10-07T13:46:56.4223760Z [1m[94m41[0m [1m[94m|[0m impl TryFrom<pkcs1::RsaPrivateKey<'_>> for RsaPrivateKey {
+2026-10-07T13:46:56.4224150Z    [1m[94m|[0m                     [1m[91m^^^^^^^^^^^^^[0m[1m[94m----[0m [1m[94mhelp: remove the unnecessary generics[0m
+2026-10-07T13:46:56.4224480Z    [1m[94m|[0m                     [1m[91m|[0m
+2026-10-07T13:46:56.4224730Z    [1m[94m|[0m                     [1m[91mexpected 0 lifetime arguments[0m
+2026-10-07T13:46:56.4224960Z    [1m[94m|[0m
+2026-10-07T13:46:56.4225190Z [1m[92mnote[0m: struct defined here, with 0 lifetime parameters
+2026-10-07T13:46:56.4225610Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pkcs1-0.8.0-rc.5/src/private_key.rs:55:12
+2026-10-07T13:46:56.4225970Z    [1m[94m|[0m
+2026-10-07T13:46:56.4226150Z [1m[94m55[0m [1m[94m|[0m pub struct RsaPrivateKey<U> {
+2026-10-07T13:46:56.4226420Z    [1m[94m|[0m            [1m[92m^^^^^^^^^^^^^[0m
+2026-10-07T13:46:56.4226560Z 
+2026-10-07T13:46:56.4226750Z [1m[91merror[E0107][0m[1m: struct takes 1 generic argument but 0 generic arguments were supplied[0m
+2026-10-07T13:46:56.4227250Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rsa-0.10.0-rc.18/src/encoding.rs:41:21
+2026-10-07T13:46:56.4227590Z    [1m[94m|[0m
+2026-10-07T13:46:56.4227940Z [1m[94m41[0m [1m[94m|[0m impl TryFrom<pkcs1::RsaPrivateKey<'_>> for RsaPrivateKey {
+2026-10-07T13:46:56.4228310Z    [1m[94m|[0m                     [1m[91m^^^^^^^^^^^^^[0m [1m[91mexpected 1 generic argument[0m
+2026-10-07T13:46:56.4228560Z    [1m[94m|[0m
+2026-10-07T13:46:56.4228780Z [1m[92mnote[0m: struct defined here, with 1 generic parameter: `U`
+2026-10-07T13:46:56.4229200Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pkcs1-0.8.0-rc.5/src/private_key.rs:55:12
+2026-10-07T13:46:56.4229550Z    [1m[94m|[0m
+2026-10-07T13:46:56.4229740Z [1m[94m55[0m [1m[94m|[0m pub struct RsaPrivateKey<U> {
+2026-10-07T13:46:56.4230050Z    [1m[94m|[0m            [1m[92m^^^^^^^^^^^^^[0m [1m[94m-[0m
+2026-10-07T13:46:56.4230300Z [1m[96mhelp[0m: add missing generic argument
+2026-10-07T13:46:56.4230470Z    [1m[94m|[0m
+2026-10-07T13:46:56.4230790Z [1m[94m41[0m [1m[94m| [0mimpl TryFrom<pkcs1::RsaPrivateKey<'_[92m, U[0m>> for RsaPrivateKey {
+2026-10-07T13:46:56.4231120Z    [1m[94m|[0m                                     [92m+++[0m
+2026-10-07T13:46:56.4231280Z 
+2026-10-07T13:46:56.4231490Z [1m[91merror[E0107][0m[1m: struct takes 0 lifetime arguments but 1 lifetime argument was supplied[0m
+2026-10-07T13:46:56.4232100Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rsa-0.10.0-rc.18/src/encoding.rs:70:21
+2026-10-07T13:46:56.4232480Z    [1m[94m|[0m
+2026-10-07T13:46:56.4232750Z [1m[94m70[0m [1m[94m|[0m impl TryFrom<pkcs1::RsaPublicKey<'_>> for RsaPublicKey {
+2026-10-07T13:46:56.4233140Z    [1m[94m|[0m                     [1m[91m^^^^^^^^^^^^[0m[1m[94m----[0m [1m[94mhelp: remove the unnecessary generics[0m
+2026-10-07T13:46:56.4233560Z    [1m[94m|[0m                     [1m[91m|[0m
+2026-10-07T13:46:56.4233800Z    [1m[94m|[0m                     [1m[91mexpected 0 lifetime arguments[0m
+2026-10-07T13:46:56.4234030Z    [1m[94m|[0m
+2026-10-07T13:46:56.4234220Z [1m[92mnote[0m: struct defined here, with 0 lifetime parameters
+2026-10-07T13:46:56.4234650Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pkcs1-0.8.0-rc.5/src/public_key.rs:35:12
+2026-10-07T13:46:56.4235010Z    [1m[94m|[0m
+2026-10-07T13:46:56.4235200Z [1m[94m35[0m [1m[94m|[0m pub struct RsaPublicKey<U> {
+2026-10-07T13:46:56.4235480Z    [1m[94m|[0m            [1m[92m^^^^^^^^^^^^[0m
+2026-10-07T13:46:56.4235590Z 
+2026-10-07T13:46:56.4235790Z [1m[91merror[E0107][0m[1m: struct takes 1 generic argument but 0 generic arguments were supplied[0m
+2026-10-07T13:46:56.4236290Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rsa-0.10.0-rc.18/src/encoding.rs:70:21
+2026-10-07T13:46:56.4236610Z    [1m[94m|[0m
+2026-10-07T13:46:56.4236900Z [1m[94m70[0m [1m[94m|[0m impl TryFrom<pkcs1::RsaPublicKey<'_>> for RsaPublicKey {
+2026-10-07T13:46:56.4237230Z    [1m[94m|[0m                     [1m[91m^^^^^^^^^^^^[0m [1m[91mexpected 1 generic argument[0m
+2026-10-07T13:46:56.4237490Z    [1m[94m|[0m
+2026-10-07T13:46:56.4237720Z [1m[92mnote[0m: struct defined here, with 1 generic parameter: `U`
+2026-10-07T13:46:56.4238160Z   [1m[94m--> [0m/Users/markik/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pkcs1-0.8.0-rc.5/src/public_key.rs:35:12
+2026-10-07T13:46:56.4238510Z    [1m[94m|[0m
+2026-10-07T13:46:56.4238690Z [1m[94m35[0m [1m[94m|[0m pub struct RsaPublicKey<U> {
+2026-10-07T13:46:56.4238960Z    [1m[94m|[0m            [1m[92m^^^^^^^^^^^^[0m [1m[94m-[0m
+2026-10-07T13:46:56.4239180Z [1m[96mhelp[0m: add missing generic argument
+2026-10-07T13:46:56.4239420Z    [1m[94m|[0m
+2026-10-07T13:46:56.4239780Z [1m[94m70[0m [1m[94m| [0mimpl TryFrom<pkcs1::RsaPublicKey<'_[92m, U[0m>> for RsaPublicKey {
+2026-10-07T13:46:56.4240110Z    [1m[94m|[0m                                    [92m+++[0m
+2026-10-07T13:46:56.4240260Z 
+2026-10-07T13:46:56.6140890Z [1mFor more information about this error, try `rustc --explain E0107`.[0m
+2026-10-07T13:46:56.6174580Z [1m[91merror[0m: could not compile `rsa` (lib) due to 8 previous errors
+2026-10-07T13:46:56.6177010Z [1m[33mwarning[0m: build failed, waiting for other jobs to finish...
+2026-10-07T13:47:21.3314740Z ##[error]Process completed with exit code 101.
+2026-10-07T13:47:21.3370620Z ##[group]Run actions/upload-artifact@v4
+2026-10-07T13:47:21.3370770Z with:
+2026-10-07T13:47:21.3370870Z   name: registry-triplet-metal-m4
+2026-10-07T13:47:21.3371400Z   path: /Users/markik/actions-runner-wgpu/_work/_temp/registry-triplet
+/Users/markik/actions-runner-wgpu/_work/_temp/registry-graft-m4.log
+/Users/markik/actions-runner-wgpu/_work/_temp/registry-scry-m4.log
+/Users/markik/actions-runner-wgpu/_work/_temp/registry-weld-m4
+
+2026-10-07T13:47:21.3371940Z   if-no-files-found: warn
+2026-10-07T13:47:21.3372040Z   compression-level: 6
+2026-10-07T13:47:21.3372140Z   overwrite: false
+2026-10-07T13:47:21.3372240Z   include-hidden-files: false
+2026-10-07T13:47:21.3372350Z env:
+2026-10-07T13:47:21.3372450Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T13:47:21.3372570Z   RUSTFLAGS: -D warnings
+2026-10-07T13:47:21.3372680Z   GRAFTING_VERSION: 0.6.0
+2026-10-07T13:47:21.3372780Z   SCRYING_VERSION: 0.7.2
+2026-10-07T13:47:21.3372870Z   WELDING_VERSION: 0.14.1
+2026-10-07T13:47:21.3373020Z   SCRY_SOURCE_REF: 4d8d1d3f8dd450b712960c90b74263a45b46e35b
+2026-10-07T13:47:21.3373200Z   WELD_SOURCE_REF: c7b7b4c52138643e22580a918542e8e036a0b24a
+2026-10-07T13:47:21.3373350Z   WGPU_BACKEND: metal
+2026-10-07T13:47:21.3373460Z   CEF_PATH: /Users/markik/Code/cef-cache/wgpu-weld
+2026-10-07T13:47:21.3373590Z   CAPTURE: 1
+2026-10-07T13:47:21.3373670Z   TIMEOUT: 90
+2026-10-07T13:47:21.3373750Z   VISIBLE: 1
+2026-10-07T13:47:21.3373830Z   PROOF_HOST: m4
+2026-10-07T13:47:21.3373930Z   CARGO_HOME: /Users/markik/.cargo
+2026-10-07T13:47:21.3374040Z   CARGO_INCREMENTAL: 0
+2026-10-07T13:47:21.3374130Z   CARGO_TERM_COLOR: always
+2026-10-07T13:47:21.3374270Z   UV_PYTHON_INSTALL_DIR: /Users/markik/.local/share/uv/python
+2026-10-07T13:47:21.3374430Z ##[endgroup]
+2026-10-07T13:47:21.5243670Z (node:32131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-07T13:47:21.5244080Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-07T13:47:21.5305830Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-07T13:47:21.5306520Z The least common ancestor is /Users/markik/actions-runner-wgpu/_work/_temp. This will be the root directory of the artifact
+2026-10-07T13:47:21.5306840Z With the provided path, there will be 67 files uploaded
+2026-10-07T13:47:21.5308300Z Artifact name is valid!
+2026-10-07T13:47:21.5308660Z Root directory input is valid!
+2026-10-07T13:47:21.8931260Z Beginning upload of artifact content to blob storage
+2026-10-07T13:47:21.9934120Z (node:32131) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-07T13:47:22.5699810Z Uploaded bytes 1190673
+2026-10-07T13:47:22.6371300Z Finished uploading artifact content to blob storage!
+2026-10-07T13:47:22.6372970Z SHA256 digest of uploaded artifact zip is a967640c9f9b2ebc2d908d454386d234972d5946bc0b20afd25cd4ae4273e83f
+2026-10-07T13:47:22.6375750Z Finalizing artifact upload
+2026-10-07T13:47:22.8939660Z Artifact registry-triplet-metal-m4.zip successfully finalized. Artifact ID 11487240199
+2026-10-07T13:47:22.8942200Z Artifact registry-triplet-metal-m4 has been successfully uploaded! Final size is 1190673 bytes. Artifact ID is 11487240199
+2026-10-07T13:47:22.8973860Z Artifact download URL: https://github.com/merely-made/wgpu-graft/actions/runs/37631036166/artifacts/11487240199
+2026-10-07T13:47:22.9304410Z Post job cleanup.
+2026-10-07T13:47:23.0108010Z [command]/usr/bin/git version
+2026-10-07T13:47:23.0262600Z git version 2.50.1 (Apple Git-155)
+2026-10-07T13:47:23.0274270Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/7c0adce0-20eb-4010-b6c9-d17dcb792067/.gitconfig'
+2026-10-07T13:47:23.0280160Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/7c0adce0-20eb-4010-b6c9-d17dcb792067' before making global git config changes
+2026-10-07T13:47:23.0280630Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T13:47:23.0282330Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/weld
+2026-10-07T13:47:23.0804780Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T13:47:23.0879760Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T13:47:23.1484850Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T13:47:23.1555030Z http.https://github.com/.extraheader
+2026-10-07T13:47:23.1559540Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-07T13:47:23.1632520Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T13:47:23.2145680Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T13:47:23.2218860Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T13:47:23.2794700Z Post job cleanup.
+2026-10-07T13:47:23.3334860Z [command]/usr/bin/git version
+2026-10-07T13:47:23.3420790Z git version 2.50.1 (Apple Git-155)
+2026-10-07T13:47:23.3432940Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/8671ffb4-d04e-4910-873d-4c1b856a1e8f/.gitconfig'
+2026-10-07T13:47:23.3439960Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/8671ffb4-d04e-4910-873d-4c1b856a1e8f' before making global git config changes
+2026-10-07T13:47:23.3440420Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T13:47:23.3442640Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/scry
+2026-10-07T13:47:23.3952320Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T13:47:23.4027970Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T13:47:23.4562580Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T13:47:23.4633500Z http.https://github.com/.extraheader
+2026-10-07T13:47:23.4637700Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-07T13:47:23.4710170Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T13:47:23.5223390Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T13:47:23.5298470Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T13:47:23.5879140Z Post job cleanup.
+2026-10-07T13:47:23.6444430Z [command]/usr/bin/git version
+2026-10-07T13:47:23.6527620Z git version 2.50.1 (Apple Git-155)
+2026-10-07T13:47:23.6539140Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/6c80f349-4d97-4218-9aaf-81df6201e61a/.gitconfig'
+2026-10-07T13:47:23.6543230Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/6c80f349-4d97-4218-9aaf-81df6201e61a' before making global git config changes
+2026-10-07T13:47:23.6543860Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T13:47:23.6545390Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft/.registry-proof-source/graft
+2026-10-07T13:47:23.7051450Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T13:47:23.7126830Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T13:47:23.7658230Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T13:47:23.7728600Z http.https://github.com/.extraheader
+2026-10-07T13:47:23.7733350Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-07T13:47:23.7807250Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T13:47:23.8322170Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T13:47:23.8395930Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T13:47:23.8961540Z Post job cleanup.
+2026-10-07T13:47:23.9320420Z Released host hardware lock at /var/folders/96/dck6q6xj3490x43zr8fb8pbm0000gp/T/merely-wgpu-hardware-lock/host.lock
+2026-10-07T13:47:23.9371050Z Post job cleanup.
+2026-10-07T13:47:23.9954270Z [command]/usr/bin/git version
+2026-10-07T13:47:24.0036600Z git version 2.50.1 (Apple Git-155)
+2026-10-07T13:47:24.0047980Z Copying '/Users/markik/.gitconfig' to '/Users/markik/actions-runner-wgpu/_work/_temp/f6d41be3-cdbc-4090-9591-a822e11155b6/.gitconfig'
+2026-10-07T13:47:24.0052040Z Temporarily overriding HOME='/Users/markik/actions-runner-wgpu/_work/_temp/f6d41be3-cdbc-4090-9591-a822e11155b6' before making global git config changes
+2026-10-07T13:47:24.0052490Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T13:47:24.0054290Z [command]/usr/bin/git config --global --add safe.directory /Users/markik/actions-runner-wgpu/_work/wgpu-graft/wgpu-graft
+2026-10-07T13:47:24.0560260Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T13:47:24.0637850Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T13:47:24.1179430Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T13:47:24.1249650Z http.https://github.com/.extraheader
+2026-10-07T13:47:24.1254650Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-07T13:47:24.1325930Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T13:47:24.1838910Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T13:47:24.1912500Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T13:47:24.2487360Z Cleaning up orphan processes
+2026-10-07T13:47:24.5072660Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,31 @@
+[package]
+name = "registry-triplet-scry-win"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[[bin]]
+name = "demo-win"
+path = "src/main.rs"
+
+[dependencies]
+grafting = { version = "=0.6.0", default-features = false, features = ["wgpu-30"] }
+scrying = { version = "=0.7.2" }
+welding = { version = "=0.14.1", default-features = false, features = ["wgpu-30"] }
+pollster = "0.4.0"
+wgpu = { version = "=30.0.1", features = ["metal"] }
+winit = "=0.30.13"
+
+[target.'cfg(windows)'.dependencies]
+raw-window-handle = "=0.6.2"
+webview2-com = "=0.39.1"
+windows = { version = "=0.62.2", features = [
+    "Foundation", "System", "UI", "UI_Composition", "UI_Composition_Core",
+    "UI_Composition_Desktop", "Win32_Foundation",
+    "Win32_System_Com_StructuredStorage", "Win32_System_Memory",
+    "Win32_System_Threading", "Win32_System_WinRT",
+    "Win32_System_WinRT_Composition", "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_UI_WindowsAndMessaging",
+] }
