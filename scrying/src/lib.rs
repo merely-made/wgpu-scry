@@ -49,6 +49,9 @@ pub(crate) fn lock_fd_table() -> std::sync::MutexGuard<'static, ()> {
 
 pub mod native_frame;
 
+#[cfg(any(target_os = "macos", test))]
+mod latest_image_sample;
+
 #[cfg(target_os = "macos")]
 mod wgpu_compat;
 

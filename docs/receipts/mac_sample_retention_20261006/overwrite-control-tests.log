@@ -1,0 +1,18 @@
+
+running 2 tests
+test tests::newer_image_replaces_only_one_pending_image ... ok
+
+thread 'tests::status_only_burst_preserves_pending_image_and_its_custody' (49184) panicked at docs/receipts/mac_sample_retention_20261006/status_only_overwrite_control.rs:48:9:
+assertion `left == right` failed
+  left: 1
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test tests::status_only_burst_preserves_pending_image_and_its_custody ... FAILED
+
+failures:
+
+failures:
+    tests::status_only_burst_preserves_pending_image_and_its_custody
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+

@@ -1,0 +1,18 @@
+2026-10-06T21:21:50.3933020Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +97b7579ca5e2818aff08a83b2f66d2ea4a82e77d:refs/remotes/origin/main
+2026-10-06T21:21:50.8186360Z  + 889d3b6...97b7579 97b7579ca5e2818aff08a83b2f66d2ea4a82e77d -> origin/main  (forced update)
+2026-10-06T21:21:50.8421180Z 97b7579ca5e2818aff08a83b2f66d2ea4a82e77d
+2026-10-06T21:21:50.8756510Z [command]/usr/bin/git log -1 --format=%H
+2026-10-06T21:21:50.8824140Z 97b7579ca5e2818aff08a83b2f66d2ea4a82e77d
+2026-10-06T21:21:52.5087960Z [command]/usr/bin/git log -1 --format=%H
+2026-10-06T21:23:00.0574060Z demo-mac: capture-test: FAIL
+2026-10-06T21:23:00.0574250Z   - captured 3 frame(s) within 30s without observing 5 frame(s) at every expected size
+2026-10-06T21:23:00.0574480Z   - observed 3 frame(s) at 1024x1536, expected at least 5
+2026-10-06T21:23:00.0574840Z   - pre-import frame diagnostics: no-latest-sample=1318997, no-image-payload=0, config-revision-pending=0, source-dimension-mismatch=0, empty-crop=0
+2026-10-06T21:23:00.0575290Z   - SCK frame statuses: missing=0, complete=3, idle=0, blank=0, suspended=0, started=0, stopped=0, unknown=0, last=Some(0)
+2026-10-06T21:23:00.0575780Z   - capture revisions: requested=0, applied=0; last source dimensions=Some(PhysicalSize { width: 2048, height: 1600 }), expected host dimensions=Some(PhysicalSize { width: 2048, height: 1600 })
+2026-10-06T21:23:33.4522110Z demo-mac: capture-test: FAIL
+2026-10-06T21:23:33.4522500Z   - captured 11 frame(s) within 30s without observing 3 frame(s) at every expected size
+2026-10-06T21:23:33.4522750Z   - observed 2 frame(s) at 1024x1536, expected at least 3
+2026-10-06T21:23:33.4523110Z   - pre-import frame diagnostics: no-latest-sample=1300571, no-image-payload=0, config-revision-pending=0, source-dimension-mismatch=0, empty-crop=0
+2026-10-06T21:23:33.4523570Z   - SCK frame statuses: missing=0, complete=11, idle=0, blank=0, suspended=0, started=0, stopped=0, unknown=0, last=Some(0)
+2026-10-06T21:23:33.4524150Z   - capture revisions: requested=3, applied=3; last source dimensions=Some(PhysicalSize { width: 2048, height: 1464 }), expected host dimensions=Some(PhysicalSize { width: 2048, height: 1464 })

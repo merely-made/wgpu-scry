@@ -45,3 +45,6 @@
 *.mill merge=weave
 *.dart merge=weave
 *.sh text eol=lf
+
+# Preserve qualification receipts and deliberate regression-control sources.
+docs/receipts/mac_sample_retention_20261006/** -text -whitespace

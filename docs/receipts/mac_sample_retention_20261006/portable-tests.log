@@ -1,0 +1,7 @@
+
+running 2 tests
+test tests::newer_image_replaces_only_one_pending_image ... ok
+test tests::status_only_burst_preserves_pending_image_and_its_custody ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+

@@ -56,8 +56,9 @@ unsafe impl Send for QueuedSampleBuffer {}
 /// Latest screen-capture sample handed off from the
 /// `SCStreamOutput::stream:didOutputSampleBuffer:ofType:` callback
 /// (which fires on a background dispatch queue) to `try_acquire_frame`
-/// on the main thread. Only the most recent sample is kept; older
-/// samples are dropped on overwrite.
+/// on the main thread. Only the most recent image-bearing sample is kept;
+/// older images are dropped on overwrite. Status-only callbacks are recorded
+/// in diagnostics without replacing an image awaiting consumption.
 pub(super) type LatestSample = Mutex<Option<QueuedSampleBuffer>>;
 
 /// State the SCK output delegate writes to from the background
@@ -103,7 +104,8 @@ pub struct CaptureMetrics {
 pub struct CaptureDiagnostics {
     /// `try_acquire_frame` found no sample in the latest-sample slot.
     pub no_latest_sample: u64,
-    /// The dequeued ScreenCaptureKit sample did not carry an image buffer.
+    /// ScreenCaptureKit callbacks which did not carry an image buffer. These
+    /// are counted before handoff so they cannot evict a pending image.
     pub sample_without_image_payload: u64,
     /// A sample arrived while `updateConfiguration:` had a newer requested
     /// revision than its last successful acknowledgement.
@@ -301,12 +303,22 @@ define_class!(
             state
                 .diagnostics
                 .record_frame_status(screen_frame_status(sample_buffer));
-            // Retain the sample; the protocol contract is that the
-            // callee must retain if it wants to outlive this call.
-            let retained = unsafe { CFRetained::retain(NonNull::from(sample_buffer)) };
-            if let Ok(mut slot) = state.latest.lock() {
-                *slot = Some(QueuedSampleBuffer(retained));
+            // SCK sends Idle/Started/etc. samples without image payloads.
+            // They may arrive after a Complete sample before the host polls;
+            // replacing the slot with them would discard the pending frame.
+            let image = unsafe { sample_buffer.image_buffer() }.map(|_| {
+                // Retain only an image-bearing sample; it must outlive this
+                // callback until the main-thread consumer acquires it.
+                let retained = unsafe { CFRetained::retain(NonNull::from(sample_buffer)) };
+                QueuedSampleBuffer(retained)
+            });
+            if image.is_none() {
+                state
+                    .diagnostics
+                    .sample_without_image_payload
+                    .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
             }
+            crate::latest_image_sample::update_latest_image(&state.latest, image);
         }
     }
 );

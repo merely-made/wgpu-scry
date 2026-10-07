@@ -161,6 +161,13 @@ window). Once `capture_status` reports `Live`, drains 5 frames
 via `try_acquire_frame` and asserts each frame's reported
 `(width, height)` matches the configured webview size.
 
+ScreenCaptureKit's status-only callbacks are counted in capture diagnostics
+without replacing the latest unconsumed image. A burst of Idle callbacks must
+leave that image available to the host; a newer image replaces it and releases
+the older sample. The hardware workflow checks this custody rule before the
+native capture modes. The live gates retain five frames at the base size and
+three at each resize size within the existing thirty-second live-stream window.
+
 The default `scripts/test-mac.sh` suite still holds this out because Screen
 Recording permission can't be granted from inside the test process. Trusted
 headed runners with a pre-grant execute it through `CAPTURE=1`; that suite also

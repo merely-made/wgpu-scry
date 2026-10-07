@@ -1,0 +1,13 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 48.93s
+     Running unittests src\lib.rs (C:/t/cargo-targets/wgpu-scry\debug\deps\scrying-5d8ca0c59b3e5c8c.exe)
+
+running 2 tests
+test latest_image_sample::tests::newer_image_replaces_only_one_pending_image ... ok
+test latest_image_sample::tests::status_only_burst_preserves_pending_image_and_its_custody ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 27 filtered out; finished in 0.04s
+
