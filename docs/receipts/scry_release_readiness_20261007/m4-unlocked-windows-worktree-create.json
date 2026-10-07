@@ -1,0 +1,13 @@
+{
+  "command": [
+    "git",
+    "worktree",
+    "add",
+    "--detach",
+    "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+    "4771072a6827695dfaba9db104cd48b87e6cd543"
+  ],
+  "exit_code": 0,
+  "stdout": "HEAD is now at 4771072 Record Scry 0.7.2 preparation and remaining native release gates\n",
+  "stderr": "Preparing worktree (detached HEAD 4771072)\n"
+}

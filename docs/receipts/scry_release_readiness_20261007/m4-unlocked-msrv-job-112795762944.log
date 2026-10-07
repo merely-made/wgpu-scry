@@ -1,0 +1,1820 @@
+﻿2026-10-07T12:38:23.6193518Z Current runner version: '2.337.0'
+2026-10-07T12:38:23.6218162Z ##[group]Runner Image Provisioner
+2026-10-07T12:38:23.6219063Z Hosted Compute Agent
+2026-10-07T12:38:23.6219784Z Version: 20260901.588
+2026-10-07T12:38:23.6220685Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-07T12:38:23.6221406Z Build Date: 2026-09-01T19:56:44Z
+2026-10-07T12:38:23.6222197Z Worker ID: {783a1cfe-4381-4039-b4be-1c8f3ee1a307}
+2026-10-07T12:38:23.6222970Z Azure Region: westus
+2026-10-07T12:38:23.6223577Z ##[endgroup]
+2026-10-07T12:38:23.6225286Z ##[group]Operating System
+2026-10-07T12:38:23.6225933Z Ubuntu
+2026-10-07T12:38:23.6226534Z 24.04.5
+2026-10-07T12:38:23.6227085Z LTS
+2026-10-07T12:38:23.6227657Z ##[endgroup]
+2026-10-07T12:38:23.6228265Z ##[group]Runner Image
+2026-10-07T12:38:23.6228858Z Image: ubuntu-24.04
+2026-10-07T12:38:23.6229503Z Version: 20260927.320.1
+2026-10-07T12:38:23.6231230Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-07T12:38:23.6232945Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-07T12:38:23.6233920Z ##[endgroup]
+2026-10-07T12:38:23.6235067Z ##[group]GITHUB_TOKEN Permissions
+2026-10-07T12:38:23.6236973Z Contents: read
+2026-10-07T12:38:23.6237677Z Metadata: read
+2026-10-07T12:38:23.6238242Z ##[endgroup]
+2026-10-07T12:38:23.6240972Z Secret source: Actions
+2026-10-07T12:38:23.6241950Z Cache mode: write
+2026-10-07T12:38:23.6242776Z Prepare workflow directory
+2026-10-07T12:38:23.6724482Z Prepare all required actions
+2026-10-07T12:38:23.6776565Z Getting action download info
+2026-10-07T12:38:24.0308457Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-07T12:38:24.1257160Z Download action repository 'dtolnay/rust-toolchain@1.92.0' (SHA:1e7c0e2ba8d6443512f43fe0c99104527001da2e)
+2026-10-07T12:38:24.4727706Z Complete job name: Rust 1.92 / Linux / WPE
+2026-10-07T12:38:24.5328495Z ##[group]Checking docker version
+2026-10-07T12:38:24.5341849Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+2026-10-07T12:38:24.6204396Z '1.48'
+2026-10-07T12:38:24.6221875Z Docker daemon API version: '1.48'
+2026-10-07T12:38:24.6222727Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+2026-10-07T12:38:24.6392960Z '1.48'
+2026-10-07T12:38:24.6405928Z Docker client API version: '1.48'
+2026-10-07T12:38:24.6411388Z ##[endgroup]
+2026-10-07T12:38:24.6414894Z ##[group]Clean up resources from previous jobs
+2026-10-07T12:38:24.6420745Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=3b2900"
+2026-10-07T12:38:24.6582311Z ##[command]/usr/bin/docker network prune --force --filter "label=3b2900"
+2026-10-07T12:38:24.6714862Z ##[endgroup]
+2026-10-07T12:38:24.6715444Z ##[group]Create local container network
+2026-10-07T12:38:24.6725361Z ##[command]/usr/bin/docker network create --label 3b2900 github_network_a667b3ace73848e0992a7df40e27ece3
+2026-10-07T12:38:24.7321578Z 417ca28f0ede3da431bc1dd7b8675c48b3d37bebfd2f68d540509e1a51459bc6
+2026-10-07T12:38:24.7337045Z ##[endgroup]
+2026-10-07T12:38:24.7361211Z ##[group]Starting job container
+2026-10-07T12:38:24.7385503Z ##[command]/usr/bin/docker pull fedora:44
+2026-10-07T12:38:25.6118015Z 44: Pulling from library/fedora
+2026-10-07T12:38:25.8750805Z 59259e167f13: Pulling fs layer
+2026-10-07T12:38:26.3238802Z 59259e167f13: Verifying Checksum
+2026-10-07T12:38:26.3241085Z 59259e167f13: Download complete
+2026-10-07T12:38:28.6599173Z 59259e167f13: Pull complete
+2026-10-07T12:38:28.6664988Z Digest: sha256:43b29f65a41eb9c35e1cd5323e3bdf3b655c2357a9f4f1ff2f9c2798e5045d80
+2026-10-07T12:38:28.6679752Z Status: Downloaded newer image for fedora:44
+2026-10-07T12:38:28.6685727Z docker.io/library/fedora:44
+2026-10-07T12:38:28.6770847Z ##[command]/usr/bin/docker create --name 3679862ffd994063b80ba4944a03027a_fedora44_d43e57 --label 3b2900 --workdir /__w/wgpu-scry/wgpu-scry --network github_network_a667b3ace73848e0992a7df40e27ece3  -e "HOME=/github/home" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work":"/__w" -v "/home/runner/actions-runner/cached/2.337.0/externals":"/__e":ro -v "/home/runner/work/_temp":"/__w/_temp" -v "/home/runner/work/_actions":"/__w/_actions" -v "/opt/hostedtoolcache":"/__t" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" --entrypoint "tail" fedora:44 "-f" "/dev/null"
+2026-10-07T12:38:30.9227304Z 3bb0b9722f1f1c3d9daa318fdd26ce9bfc56c1fc42fb3e99579f66d540fc6d6f
+2026-10-07T12:38:30.9252097Z ##[command]/usr/bin/docker start 3bb0b9722f1f1c3d9daa318fdd26ce9bfc56c1fc42fb3e99579f66d540fc6d6f
+2026-10-07T12:38:31.1132216Z 3bb0b9722f1f1c3d9daa318fdd26ce9bfc56c1fc42fb3e99579f66d540fc6d6f
+2026-10-07T12:38:31.1151156Z ##[command]/usr/bin/docker ps --all --filter id=3bb0b9722f1f1c3d9daa318fdd26ce9bfc56c1fc42fb3e99579f66d540fc6d6f --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+2026-10-07T12:38:31.1269647Z 3bb0b9722f1f1c3d9daa318fdd26ce9bfc56c1fc42fb3e99579f66d540fc6d6f Up Less than a second
+2026-10-07T12:38:31.1287094Z ##[command]/usr/bin/docker inspect --format "{{range .Config.Env}}{{println .}}{{end}}" 3bb0b9722f1f1c3d9daa318fdd26ce9bfc56c1fc42fb3e99579f66d540fc6d6f
+2026-10-07T12:38:31.1406848Z HOME=/github/home
+2026-10-07T12:38:31.1407293Z GITHUB_ACTIONS=true
+2026-10-07T12:38:31.1407694Z CI=true
+2026-10-07T12:38:31.1408166Z PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+2026-10-07T12:38:31.1408798Z DISTTAG=f44container
+2026-10-07T12:38:31.1409173Z FGC=f44
+2026-10-07T12:38:31.1409481Z FBR=f44
+2026-10-07T12:38:31.1426511Z ##[endgroup]
+2026-10-07T12:38:31.1436154Z ##[group]Waiting for all services to be ready
+2026-10-07T12:38:31.1438107Z ##[endgroup]
+2026-10-07T12:38:31.1652387Z ##[group]Run dnf install -y dnf-plugins-core git curl gcc gcc-c++ \
+2026-10-07T12:38:31.1652965Z [36;1mdnf install -y dnf-plugins-core git curl gcc gcc-c++ \[0m
+2026-10-07T12:38:31.1653421Z [36;1m  pkgconf-pkg-config mesa-libgbm-devel libdrm-devel \[0m
+2026-10-07T12:38:31.1653808Z [36;1m  vulkan-loader-devel[0m
+2026-10-07T12:38:31.1654089Z [36;1mdnf copr enable -y philn/wpewebkit[0m
+2026-10-07T12:38:31.1654516Z [36;1mdnf install -y wpewebkit-devel libwpe-devel wpebackend-fdo-devel[0m
+2026-10-07T12:38:31.1658001Z shell: sh -e {0}
+2026-10-07T12:38:31.1658482Z env:
+2026-10-07T12:38:31.1658691Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:38:31.1658954Z ##[endgroup]
+2026-10-07T12:38:31.2867877Z Updating and loading repositories:
+2026-10-07T12:38:33.6798518Z  Fedora 44 openh264 (From Cisco) - x86_ 100% |   2.7 KiB/s |   5.3 KiB |  00m02s
+2026-10-07T12:38:34.7850493Z  Fedora 44 - x86_64 - Updates           100% |   3.4 MiB/s |  11.9 MiB |  00m03s
+2026-10-07T12:38:35.1230654Z  Fedora 44 - x86_64                     100% |  15.1 MiB/s |  47.6 MiB |  00m03s
+2026-10-07T12:38:39.4712951Z Repositories loaded.
+2026-10-07T12:38:41.1231744Z Package "curl-8.18.0-8.fc44.x86_64" is already installed.
+2026-10-07T12:38:41.1232487Z 
+2026-10-07T12:38:41.1263079Z Package                             Arch   Version                   Repository                            Size
+2026-10-07T12:38:41.1264147Z Upgrading:
+2026-10-07T12:38:41.1265119Z  elfutils-libelf                    x86_64 0:0.196-1.fc44            updates                            1.4 MiB
+2026-10-07T12:38:41.1266432Z    replacing elfutils-libelf        x86_64 0:0.195-1.fc44            0eae96ab45874228a86a12a132e699ed   1.2 MiB
+2026-10-07T12:38:41.1267750Z  elfutils-libs                      x86_64 0:0.196-1.fc44            updates                          715.4 KiB
+2026-10-07T12:38:41.1268952Z    replacing elfutils-libs          x86_64 0:0.195-1.fc44            0eae96ab45874228a86a12a132e699ed 715.3 KiB
+2026-10-07T12:38:41.1270294Z  glibc                              x86_64 0:2.43-9.fc44             updates                            6.9 MiB
+2026-10-07T12:38:41.1271674Z    replacing glibc                  x86_64 0:2.43-8.fc44             0eae96ab45874228a86a12a132e699ed   6.9 MiB
+2026-10-07T12:38:41.1274732Z  glibc-common                       x86_64 0:2.43-9.fc44             updates                            1.0 MiB
+2026-10-07T12:38:41.1275806Z    replacing glibc-common           x86_64 0:2.43-8.fc44             0eae96ab45874228a86a12a132e699ed   1.0 MiB
+2026-10-07T12:38:41.1276810Z  glibc-minimal-langpack             x86_64 0:2.43-9.fc44             updates                            0.0   B
+2026-10-07T12:38:41.1277916Z    replacing glibc-minimal-langpack x86_64 0:2.43-8.fc44             0eae96ab45874228a86a12a132e699ed   0.0   B
+2026-10-07T12:38:41.1278466Z Installing:
+2026-10-07T12:38:41.1279089Z  dnf-plugins-core                   noarch 0:4.10.1-9.fc44           fedora                            23.0 KiB
+2026-10-07T12:38:41.1280257Z  gcc                                x86_64 0:16.2.1-2.fc44           updates                          121.8 MiB
+2026-10-07T12:38:41.1280830Z  gcc-c++                            x86_64 0:16.2.1-2.fc44           updates                           46.8 MiB
+2026-10-07T12:38:41.1281349Z  git                                x86_64 0:2.56.0-1.fc44           updates                           57.7 KiB
+2026-10-07T12:38:41.1281893Z  libdrm-devel                       x86_64 0:2.4.134-1.fc44          updates                          743.6 KiB
+2026-10-07T12:38:41.1282462Z  mesa-libgbm-devel                  x86_64 0:26.2.3-1.fc44           updates                           30.1 KiB
+2026-10-07T12:38:41.1283037Z  pkgconf-pkg-config                 x86_64 0:2.5.1-1.fc44            fedora                           989.0   B
+2026-10-07T12:38:41.1283634Z  vulkan-loader-devel                x86_64 0:1.4.341.0-1.fc44        fedora                             8.0 KiB
+2026-10-07T12:38:41.1284087Z Installing dependencies:
+2026-10-07T12:38:41.1284767Z  binutils                           x86_64 0:2.46.1-1.fc44           updates                           28.2 MiB
+2026-10-07T12:38:41.1285576Z  cmake-filesystem                   x86_64 0:4.3.0-1.fc44            fedora                             0.0   B
+2026-10-07T12:38:41.1288396Z  cpp                                x86_64 0:16.2.1-2.fc44           updates                           42.6 MiB
+2026-10-07T12:38:41.1289384Z  dbus-libs                          x86_64 1:1.16.2-1.fc44           fedora                           357.4 KiB
+2026-10-07T12:38:41.1290541Z  dnf-data                           noarch 0:4.24.0-3.fc44           fedora                            39.7 KiB
+2026-10-07T12:38:41.1291480Z  dns-root-data                      noarch 0:2026260100-2.fc44       fedora                            10.9 KiB
+2026-10-07T12:38:41.1292125Z  elfutils-debuginfod-client         x86_64 0:0.196-1.fc44            updates                           83.8 KiB
+2026-10-07T12:38:41.1292731Z  expat                              x86_64 0:2.8.5-1.fc44            updates                          342.2 KiB
+2026-10-07T12:38:41.1293261Z  git-core                           x86_64 0:2.56.0-1.fc44           updates                           27.7 MiB
+2026-10-07T12:38:41.1293799Z  git-core-doc                       noarch 0:2.56.0-1.fc44           updates                           19.1 MiB
+2026-10-07T12:38:41.1294406Z  glibc-devel                        x86_64 0:2.43-9.fc44             updates                            2.3 MiB
+2026-10-07T12:38:41.1294962Z  groff-base                         x86_64 0:1.23.0-12.fc44          fedora                             3.9 MiB
+2026-10-07T12:38:41.1295481Z  hiredis                            x86_64 0:1.2.0-8.fc44            fedora                           105.7 KiB
+2026-10-07T12:38:41.1296000Z  hwdata                             noarch 0:0.412-1.fc44            updates                           10.1 MiB
+2026-10-07T12:38:41.1296520Z  jansson                            x86_64 0:2.14-4.fc44             fedora                            88.9 KiB
+2026-10-07T12:38:41.1297091Z  kernel-headers                     x86_64 0:7.2.4-200.fc44          updates                            7.0 MiB
+2026-10-07T12:38:41.1297658Z  less                               x86_64 0:704-4.fc44              updates                          479.5 KiB
+2026-10-07T12:38:41.1298397Z  libX11-xcb                         x86_64 0:1.8.13-3.fc44           updates                           10.8 KiB
+2026-10-07T12:38:41.1298947Z  libXau                             x86_64 0:1.0.12-4.fc44           fedora                            72.8 KiB
+2026-10-07T12:38:41.1299497Z  libatomic                          x86_64 0:16.2.1-2.fc44           updates                           45.6 KiB
+2026-10-07T12:38:41.1300626Z  libcomps                           x86_64 0:0.1.24-1.fc44           fedora                           209.2 KiB
+2026-10-07T12:38:41.1301410Z  libdisplay-info                    x86_64 0:0.3.0-1.fc44            fedora                           226.5 KiB
+2026-10-07T12:38:41.1302008Z  libdnf                             x86_64 0:0.76.0-1.fc44           updates                            2.3 MiB
+2026-10-07T12:38:41.1302583Z  libdrm                             x86_64 0:2.4.134-1.fc44          updates                          405.8 KiB
+2026-10-07T12:38:41.1303175Z  libedit                            x86_64 0:3.1-59.20260512cvs.fc44 updates                          248.3 KiB
+2026-10-07T12:38:41.1303760Z  libfdisk                           x86_64 0:2.41.5-1.fc44           updates                          388.3 KiB
+2026-10-07T12:38:41.1304324Z  libgit2                            x86_64 0:1.9.7-1.fc44            updates                            1.4 MiB
+2026-10-07T12:38:41.1304921Z  liblastlog2                        x86_64 0:2.41.5-1.fc44           updates                           41.6 KiB
+2026-10-07T12:38:41.1305491Z  libmpc                             x86_64 0:1.4.1-1.fc44            updates                          168.7 KiB
+2026-10-07T12:38:41.1306215Z  libpciaccess                       x86_64 0:0.16-17.fc44            fedora                            48.4 KiB
+2026-10-07T12:38:41.1306833Z  libpciaccess-devel                 x86_64 0:0.16-17.fc44            fedora                            15.3 KiB
+2026-10-07T12:38:41.1307431Z  libpkgconf                         x86_64 0:2.5.1-1.fc44            fedora                            90.1 KiB
+2026-10-07T12:38:41.1308005Z  libssh2                            x86_64 0:1.11.1-9.fc44           updates                          338.6 KiB
+2026-10-07T12:38:41.1308585Z  libstdc++-devel                    x86_64 0:16.2.1-2.fc44           updates                           41.2 MiB
+2026-10-07T12:38:41.1309195Z  libwayland-client                  x86_64 0:1.26.0-1.fc44           updates                           66.0 KiB
+2026-10-07T12:38:41.1309770Z  libxcb                             x86_64 0:1.17.0-7.fc44           fedora                             1.1 MiB
+2026-10-07T12:38:41.1310685Z  libxcrypt-devel                    x86_64 0:4.5.2-3.fc44            fedora                            31.0 KiB
+2026-10-07T12:38:41.1311276Z  libxshmfence                       x86_64 0:1.3.2-8.fc44            fedora                            12.3 KiB
+2026-10-07T12:38:41.1311833Z  llhttp                             x86_64 0:9.3.1-1.fc44            fedora                            96.6 KiB
+2026-10-07T12:38:41.1312409Z  llvm-filesystem                    x86_64 0:22.1.8-4.fc44           updates                            0.0   B
+2026-10-07T12:38:41.1312990Z  llvm-libs                          x86_64 0:22.1.8-4.fc44           updates                          140.5 MiB
+2026-10-07T12:38:41.1313563Z  lm_sensors-libs                    x86_64 0:3.6.0-24.fc44           fedora                            85.7 KiB
+2026-10-07T12:38:41.1314125Z  make                               x86_64 1:4.4.1-12.fc44           fedora                             1.8 MiB
+2026-10-07T12:38:41.1314696Z  mesa-filesystem                    x86_64 0:26.2.3-1.fc44           updates                            3.6 KiB
+2026-10-07T12:38:41.1315272Z  mesa-libgbm                        x86_64 0:26.2.3-1.fc44           updates                           19.5 KiB
+2026-10-07T12:38:41.1315833Z  mpdecimal                          x86_64 0:4.0.1-3.fc44            fedora                           217.1 KiB
+2026-10-07T12:38:41.1316530Z  ncurses                            x86_64 0:6.6-1.fc44              fedora                           611.4 KiB
+2026-10-07T12:38:41.1317106Z  oniguruma                          x86_64 0:6.9.10-4.fc44           fedora                           770.9 KiB
+2026-10-07T12:38:41.1317676Z  openssh                            x86_64 0:10.2p1-14.fc44          updates                            1.4 MiB
+2026-10-07T12:38:41.1318258Z  openssh-clients                    x86_64 0:10.2p1-14.fc44          updates                            2.7 MiB
+2026-10-07T12:38:41.1318882Z  perl-AutoLoader                    noarch 0:5.74-525.fc44           updates                           20.6 KiB
+2026-10-07T12:38:41.1319477Z  perl-B                             x86_64 0:1.89-525.fc44           updates                          501.2 KiB
+2026-10-07T12:38:41.1320212Z  perl-Carp                          noarch 0:1.54-521.fc44           fedora                            46.6 KiB
+2026-10-07T12:38:41.1320819Z  perl-Class-Struct                  noarch 0:0.68-525.fc44           updates                           25.4 KiB
+2026-10-07T12:38:41.1321441Z  perl-Data-Dumper                   x86_64 0:2.192-523.fc44          updates                          115.5 KiB
+2026-10-07T12:38:41.1322029Z  perl-Digest                        noarch 0:1.20-521.fc44           fedora                            35.3 KiB
+2026-10-07T12:38:41.1322609Z  perl-Digest-MD5                    x86_64 0:2.59-521.fc44           fedora                            59.6 KiB
+2026-10-07T12:38:41.1323201Z  perl-DynaLoader                    x86_64 0:1.57-525.fc44           updates                           32.1 KiB
+2026-10-07T12:38:41.1323897Z  perl-Encode                        x86_64 4:3.21-521.fc44           fedora                             4.7 MiB
+2026-10-07T12:38:41.1324465Z  perl-Errno                         x86_64 0:1.38-525.fc44           updates                            8.4 KiB
+2026-10-07T12:38:41.1325040Z  perl-Error                         noarch 1:0.17030-3.fc44          fedora                            76.8 KiB
+2026-10-07T12:38:41.1325622Z  perl-Exporter                      noarch 0:5.79-521.fc44           fedora                            54.3 KiB
+2026-10-07T12:38:41.1391271Z  perl-Fcntl                         x86_64 0:1.20-525.fc44           updates                           48.7 KiB
+2026-10-07T12:38:41.1392381Z  perl-File-Basename                 noarch 0:2.86-525.fc44           updates                           14.0 KiB
+2026-10-07T12:38:41.1393459Z  perl-File-Path                     noarch 0:2.18-522.fc44           fedora                            63.5 KiB
+2026-10-07T12:38:41.1394702Z  perl-File-Temp                     noarch 1:0.231.200-2.fc44        fedora                           163.7 KiB
+2026-10-07T12:38:41.1395948Z  perl-File-stat                     noarch 0:1.14-525.fc44           updates                           12.5 KiB
+2026-10-07T12:38:41.1396971Z  perl-FileHandle                    noarch 0:2.05-525.fc44           updates                            9.4 KiB
+2026-10-07T12:38:41.1398098Z  perl-Getopt-Long                   noarch 1:2.58-521.fc44           fedora                           144.5 KiB
+2026-10-07T12:38:41.1399296Z  perl-Getopt-Std                    noarch 0:1.14-525.fc44           updates                           11.2 KiB
+2026-10-07T12:38:41.1400634Z  perl-Git                           noarch 0:2.56.0-1.fc44           updates                           64.4 KiB
+2026-10-07T12:38:41.1401747Z  perl-HTTP-Tiny                     noarch 0:0.096-1.fc44            updates                          162.4 KiB
+2026-10-07T12:38:41.1402846Z  perl-IO                            x86_64 0:1.55-525.fc44           updates                          147.3 KiB
+2026-10-07T12:38:41.1403919Z  perl-IO-Socket-IP                  noarch 0:0.43-522.fc44           fedora                           100.3 KiB
+2026-10-07T12:38:41.1405127Z  perl-IO-Socket-SSL                 noarch 0:2.098-2.fc44            fedora                           723.5 KiB
+2026-10-07T12:38:41.1406539Z  perl-IPC-Open3                     noarch 0:1.24-525.fc44           updates                           27.7 KiB
+2026-10-07T12:38:41.1407692Z  perl-MIME-Base32                   noarch 0:1.303-25.fc44           fedora                            30.7 KiB
+2026-10-07T12:38:41.1408882Z  perl-MIME-Base64                   x86_64 0:3.16-521.fc44           fedora                            41.9 KiB
+2026-10-07T12:38:41.1410296Z  perl-Net-SSLeay                    x86_64 0:1.94-12.fc44            fedora                             1.3 MiB
+2026-10-07T12:38:41.1411248Z  perl-POSIX                         x86_64 0:2.23-525.fc44           updates                          229.4 KiB
+2026-10-07T12:38:41.1411865Z  perl-PathTools                     x86_64 0:3.94-521.fc44           fedora                           179.9 KiB
+2026-10-07T12:38:41.1412503Z  perl-Pod-Escapes                   noarch 1:1.07-521.fc44           fedora                            24.9 KiB
+2026-10-07T12:38:41.1413137Z  perl-Pod-Perldoc                   noarch 0:3.28.01-522.fc44        fedora                           163.7 KiB
+2026-10-07T12:38:41.1413795Z  perl-Pod-Simple                    noarch 1:3.47-4.fc44             fedora                           565.3 KiB
+2026-10-07T12:38:41.1414402Z  perl-Pod-Usage                     noarch 4:2.05-521.fc44           fedora                            86.3 KiB
+2026-10-07T12:38:41.1415022Z  perl-Scalar-List-Utils             x86_64 5:1.70-2.fc44             fedora                           144.8 KiB
+2026-10-07T12:38:41.1415648Z  perl-SelectSaver                   noarch 0:1.02-525.fc44           updates                            2.2 KiB
+2026-10-07T12:38:41.1416415Z  perl-Socket                        x86_64 4:2.043-1.fc44            updates                          121.8 KiB
+2026-10-07T12:38:41.1417005Z  perl-Storable                      x86_64 1:3.37-522.fc44           fedora                           235.1 KiB
+2026-10-07T12:38:41.1417600Z  perl-Symbol                        noarch 0:1.09-525.fc44           updates                            6.8 KiB
+2026-10-07T12:38:41.1418201Z  perl-Term-ANSIColor                noarch 0:5.01-522.fc44           fedora                            97.5 KiB
+2026-10-07T12:38:41.1418912Z  perl-Term-Cap                      noarch 0:1.18-521.fc44           fedora                            29.3 KiB
+2026-10-07T12:38:41.1421444Z  perl-TermReadKey                   x86_64 0:2.38-27.fc44            fedora                            63.9 KiB
+2026-10-07T12:38:41.1424867Z  perl-Text-ParseWords               noarch 0:3.31-521.fc44           fedora                            13.6 KiB
+2026-10-07T12:38:41.1426163Z  perl-Text-Tabs+Wrap                noarch 0:2024.001-521.fc44       fedora                            22.6 KiB
+2026-10-07T12:38:41.1427365Z  perl-Time-HiRes                    x86_64 4:1.9778-521.fc44         fedora                           115.6 KiB
+2026-10-07T12:38:41.1428542Z  perl-Time-Local                    noarch 2:1.350-521.fc44          fedora                            69.0 KiB
+2026-10-07T12:38:41.1429601Z  perl-URI                           noarch 0:5.36-1.fc44             updates                          275.7 KiB
+2026-10-07T12:38:41.1430967Z  perl-Unicode-Normalize             x86_64 0:1.32-521.fc44           fedora                           486.0 KiB
+2026-10-07T12:38:41.1432139Z  perl-base                          noarch 0:2.27-525.fc44           updates                           12.6 KiB
+2026-10-07T12:38:41.1433277Z  perl-constant                      noarch 0:1.33-522.fc44           fedora                            26.2 KiB
+2026-10-07T12:38:41.1434412Z  perl-if                            noarch 0:0.61.000-525.fc44       updates                            5.8 KiB
+2026-10-07T12:38:41.1435879Z  perl-interpreter                   x86_64 4:5.42.3-525.fc44         updates                          118.8 KiB
+2026-10-07T12:38:41.1436880Z  perl-lib                           x86_64 0:0.65-525.fc44           updates                            8.5 KiB
+2026-10-07T12:38:41.1438034Z  perl-libnet                        noarch 0:3.15-522.fc44           fedora                           289.4 KiB
+2026-10-07T12:38:41.1438931Z  perl-libs                          x86_64 4:5.42.3-525.fc44         updates                           11.6 MiB
+2026-10-07T12:38:41.1439668Z  perl-locale                        noarch 0:1.13-525.fc44           updates                            6.1 KiB
+2026-10-07T12:38:41.1440974Z  perl-mro                           x86_64 0:1.29-525.fc44           updates                           41.4 KiB
+2026-10-07T12:38:41.1441974Z  perl-overload                      noarch 0:1.40-525.fc44           updates                           71.6 KiB
+2026-10-07T12:38:41.1442629Z  perl-overloading                   noarch 0:0.02-525.fc44           updates                            4.9 KiB
+2026-10-07T12:38:41.1443246Z  perl-parent                        noarch 1:0.244-521.fc44          fedora                            10.3 KiB
+2026-10-07T12:38:41.1443855Z  perl-podlators                     noarch 1:6.0.2-522.fc44          updates                          317.7 KiB
+2026-10-07T12:38:41.1444444Z  perl-vars                          noarch 0:1.05-525.fc44           updates                            3.9 KiB
+2026-10-07T12:38:41.1444999Z  pkgconf                            x86_64 0:2.5.1-1.fc44            fedora                            92.7 KiB
+2026-10-07T12:38:41.1445553Z  pkgconf-m4                         noarch 0:2.5.1-1.fc44            fedora                            14.3 KiB
+2026-10-07T12:38:41.1446111Z  protobuf-c                         x86_64 0:1.5.2-2.fc44            fedora                            53.7 KiB
+2026-10-07T12:38:41.1446868Z  python-pip-wheel                   noarch 0:26.0.1-3.fc44           updates                            1.2 MiB
+2026-10-07T12:38:41.1447456Z  python3                            x86_64 0:3.14.8-1.fc44           updates                           28.7 KiB
+2026-10-07T12:38:41.1448050Z  python3-dateutil                   noarch 1:2.9.0.post0-7.fc44      fedora                           878.0 KiB
+2026-10-07T12:38:41.1448642Z  python3-dbus                       x86_64 0:1.4.0-9.fc44            fedora                           536.7 KiB
+2026-10-07T12:38:41.1449214Z  python3-distro                     noarch 0:1.9.0-11.fc44           fedora                           210.2 KiB
+2026-10-07T12:38:41.1450252Z  python3-dnf                        noarch 0:4.24.0-3.fc44           fedora                             2.7 MiB
+2026-10-07T12:38:41.1450911Z  python3-dnf-plugins-core           noarch 0:4.10.1-9.fc44           fedora                             1.2 MiB
+2026-10-07T12:38:41.1451547Z  python3-hawkey                     x86_64 0:0.76.0-1.fc44           updates                          303.2 KiB
+2026-10-07T12:38:41.1452141Z  python3-libcomps                   x86_64 0:0.1.24-1.fc44           fedora                           147.3 KiB
+2026-10-07T12:38:41.1452749Z  python3-libdnf                     x86_64 0:0.76.0-1.fc44           updates                            4.0 MiB
+2026-10-07T12:38:41.1453325Z Total size of inbound packages is 217 MiB. Need to download 217 MiB.
+2026-10-07T12:38:41.1453849Z After this operation, 873 MiB extra will be used (install 883 MiB, remove 10 MiB).
+2026-10-07T12:38:41.1454417Z  python3-libs                       x86_64 0:3.14.8-1.fc44           updates                           44.1 MiB
+2026-10-07T12:38:41.1454995Z  python3-rpm                        x86_64 0:6.0.2-1.fc44            updates                          179.2 KiB
+2026-10-07T12:38:41.1455564Z  python3-six                        noarch 0:1.17.0-8.fc44           fedora                           118.0 KiB
+2026-10-07T12:38:41.1456145Z  python3-systemd                    x86_64 0:235-18.fc44             fedora                           346.9 KiB
+2026-10-07T12:38:41.1456733Z  spirv-tools-libs                   x86_64 0:2026.1-1.fc44           fedora                             6.1 MiB
+2026-10-07T12:38:41.1457316Z  unbound-libs                       x86_64 0:1.26.1-1.fc44           updates                            1.6 MiB
+2026-10-07T12:38:41.1458019Z  util-linux                         x86_64 0:2.41.5-1.fc44           updates                            3.5 MiB
+2026-10-07T12:38:41.1458592Z  vulkan-headers                     noarch 0:1.4.341.0-1.fc44        fedora                            36.1 MiB
+2026-10-07T12:38:41.1459175Z  vulkan-loader                      x86_64 0:1.4.341.0-1.fc44        fedora                           577.6 KiB
+2026-10-07T12:38:41.1459604Z Installing weak dependencies:
+2026-10-07T12:38:41.1460242Z  7zip                               x86_64 0:26.03-1.fc44            updates                            3.3 MiB
+2026-10-07T12:38:41.1460790Z  bat                                x86_64 0:0.26.1-4.fc44           updates                            5.3 MiB
+2026-10-07T12:38:41.1461331Z  less-color                         x86_64 0:704-4.fc44              updates                            2.4 KiB
+2026-10-07T12:38:41.1461914Z  mesa-dri-drivers                   x86_64 0:26.2.3-1.fc44           updates                           53.2 MiB
+2026-10-07T12:38:41.1462507Z  mesa-vulkan-drivers                x86_64 0:26.2.3-1.fc44           updates                          173.9 MiB
+2026-10-07T12:38:41.1463094Z  perl-NDBM_File                     x86_64 0:1.18-525.fc44           updates                           28.4 KiB
+2026-10-07T12:38:41.1463716Z  python-unversioned-command         noarch 0:3.14.8-1.fc44           updates                           23.0   B
+2026-10-07T12:38:41.1464356Z  python3-html2text                  noarch 0:2025.4.15-6.fc44        fedora                           289.4 KiB
+2026-10-07T12:38:41.1465081Z  python3-unbound                    x86_64 0:1.26.1-1.fc44           updates                          524.4 KiB
+2026-10-07T12:38:41.1465659Z  unbound-anchor                     x86_64 0:1.26.1-1.fc44           updates                           56.4 KiB
+2026-10-07T12:38:41.1466209Z  unzip                              x86_64 0:6.0-69.fc44             fedora                           445.8 KiB
+2026-10-07T12:38:41.1466511Z 
+2026-10-07T12:38:41.1466610Z Transaction Summary:
+2026-10-07T12:38:41.1466839Z  Installing:       154 packages
+2026-10-07T12:38:41.1467089Z  Upgrading:          5 packages
+2026-10-07T12:38:41.1467332Z  Replacing:          5 packages
+2026-10-07T12:38:41.1467476Z 
+2026-10-07T12:38:41.2630283Z [  1/159] dnf-plugins-core-0:4.10.1-9.f 100% | 312.4 KiB/s |  37.5 KiB |  00m00s
+2026-10-07T12:38:41.3480687Z [  2/159] python3-dbus-0:1.4.0-9.fc44.x 100% |   1.9 MiB/s | 164.0 KiB |  00m00s
+2026-10-07T12:38:41.3627743Z [  3/159] python3-dnf-plugins-core-0:4. 100% |   1.4 MiB/s | 314.1 KiB |  00m00s
+2026-10-07T12:38:41.3648370Z [  4/159] python3-dateutil-1:2.9.0.post 100% |   1.5 MiB/s | 344.3 KiB |  00m00s
+2026-10-07T12:38:41.3776797Z [  5/159] python3-distro-0:1.9.0-11.fc4 100% |   1.6 MiB/s |  47.2 KiB |  00m00s
+2026-10-07T12:38:41.3980684Z [  6/159] python3-systemd-0:235-18.fc44 100% |   3.2 MiB/s | 108.7 KiB |  00m00s
+2026-10-07T12:38:41.4072497Z [  7/159] python3-six-0:1.17.0-8.fc44.n 100% |   1.4 MiB/s |  42.0 KiB |  00m00s
+2026-10-07T12:38:41.4349610Z [  8/159] dbus-libs-1:1.16.2-1.fc44.x86 100% |   4.2 MiB/s | 155.1 KiB |  00m00s
+2026-10-07T12:38:41.4361103Z [  9/159] dnf-data-0:4.24.0-3.fc44.noar 100% |   1.3 MiB/s |  37.9 KiB |  00m00s
+2026-10-07T12:38:41.4524906Z [ 10/159] python3-dnf-0:4.24.0-3.fc44.n 100% |   7.0 MiB/s | 638.4 KiB |  00m00s
+2026-10-07T12:38:41.4664135Z [ 11/159] python3-libcomps-0:0.1.24-1.f 100% |   1.6 MiB/s |  49.7 KiB |  00m00s
+2026-10-07T12:38:41.4675597Z [ 12/159] libcomps-0:0.1.24-1.fc44.x86_ 100% |   2.5 MiB/s |  78.7 KiB |  00m00s
+2026-10-07T12:38:41.6789387Z [ 13/159] git-0:2.56.0-1.fc44.x86_64    100% | 180.8 KiB/s |  40.8 KiB |  00m00s
+2026-10-07T12:38:41.7856188Z [ 14/159] perl-Git-0:2.56.0-1.fc44.noar 100% | 353.1 KiB/s |  37.4 KiB |  00m00s
+2026-10-07T12:38:41.8174084Z [ 15/159] perl-Getopt-Long-1:2.58-521.f 100% |   2.0 MiB/s |  63.6 KiB |  00m00s
+2026-10-07T12:38:41.8518856Z [ 16/159] perl-PathTools-0:3.94-521.fc4 100% |   2.5 MiB/s |  87.3 KiB |  00m00s
+2026-10-07T12:38:41.8807206Z [ 17/159] perl-TermReadKey-0:2.38-27.fc 100% |   1.2 MiB/s |  35.5 KiB |  00m00s
+2026-10-07T12:38:42.0625521Z [ 18/159] expat-0:2.8.5-1.fc44.x86_64   100% | 742.5 KiB/s | 134.4 KiB |  00m00s
+2026-10-07T12:38:42.0924115Z [ 19/159] perl-Error-1:0.17030-3.fc44.n 100% |   1.4 MiB/s |  40.3 KiB |  00m00s
+2026-10-07T12:38:42.1211598Z [ 20/159] perl-Exporter-0:5.79-521.fc44 100% |   1.1 MiB/s |  30.8 KiB |  00m00s
+2026-10-07T12:38:42.1490590Z [ 21/159] perl-constant-0:1.33-522.fc44 100% | 848.2 KiB/s |  22.9 KiB |  00m00s
+2026-10-07T12:38:42.1790177Z [ 22/159] perl-Pod-Usage-4:2.05-521.fc4 100% |   1.4 MiB/s |  40.7 KiB |  00m00s
+2026-10-07T12:38:42.2059664Z [ 23/159] perl-Text-ParseWords-0:3.31-5 100% | 633.6 KiB/s |  16.5 KiB |  00m00s
+2026-10-07T12:38:42.2339704Z [ 24/159] perl-Carp-0:1.54-521.fc44.noa 100% |   1.0 MiB/s |  28.8 KiB |  00m00s
+2026-10-07T12:38:42.2671440Z [ 25/159] perl-Scalar-List-Utils-5:1.70 100% |   2.3 MiB/s |  75.4 KiB |  00m00s
+2026-10-07T12:38:42.3014438Z [ 26/159] perl-Pod-Perldoc-0:3.28.01-52 100% |   2.5 MiB/s |  86.1 KiB |  00m00s
+2026-10-07T12:38:42.4185526Z [ 27/159] git-core-doc-0:2.56.0-1.fc44. 100% |   3.4 MiB/s |   3.2 MiB |  00m01s
+2026-10-07T12:38:42.4366710Z [ 28/159] groff-base-0:1.23.0-12.fc44.x 100% |   8.4 MiB/s |   1.1 MiB |  00m00s
+2026-10-07T12:38:42.4467972Z [ 29/159] perl-File-Temp-1:0.231.200-2. 100% |   2.2 MiB/s |  59.6 KiB |  00m00s
+2026-10-07T12:38:42.4679729Z [ 30/159] perl-Pod-Simple-1:3.47-4.fc44 100% |   7.2 MiB/s | 220.0 KiB |  00m00s
+2026-10-07T12:38:42.4737516Z [ 31/159] perl-parent-1:0.244-521.fc44. 100% | 572.3 KiB/s |  14.9 KiB |  00m00s
+2026-10-07T12:38:42.4943929Z [ 32/159] perl-File-Path-0:2.18-522.fc4 100% |   1.3 MiB/s |  35.3 KiB |  00m00s
+2026-10-07T12:38:42.5010059Z [ 33/159] perl-Pod-Escapes-1:1.07-521.f 100% | 761.2 KiB/s |  19.8 KiB |  00m00s
+2026-10-07T12:38:42.5208109Z [ 34/159] perl-Text-Tabs+Wrap-0:2024.00 100% | 836.6 KiB/s |  21.8 KiB |  00m00s
+2026-10-07T12:38:42.5870258Z [ 35/159] git-core-0:2.56.0-1.fc44.x86_ 100% |   5.1 MiB/s |   5.7 MiB |  00m01s
+2026-10-07T12:38:42.6270646Z [ 36/159] make-1:4.4.1-12.fc44.x86_64   100% |  14.7 MiB/s | 588.7 KiB |  00m00s
+2026-10-07T12:38:43.0185408Z [ 37/159] cpp-0:16.2.1-2.fc44.x86_64    100% |  29.4 MiB/s |  14.6 MiB |  00m00s
+2026-10-07T12:38:43.0721321Z [ 38/159] gcc-c++-0:16.2.1-2.fc44.x86_6 100% |  39.1 MiB/s |  17.3 MiB |  00m00s
+2026-10-07T12:38:43.0733947Z [ 39/159] pkgconf-pkg-config-0:2.5.1-1. 100% | 175.3 KiB/s |   9.5 KiB |  00m00s
+2026-10-07T12:38:43.0991978Z [ 40/159] pkgconf-0:2.5.1-1.fc44.x86_64 100% |   1.8 MiB/s |  48.7 KiB |  00m00s
+2026-10-07T12:38:43.1003225Z [ 41/159] pkgconf-m4-0:2.5.1-1.fc44.noa 100% | 529.0 KiB/s |  13.8 KiB |  00m00s
+2026-10-07T12:38:43.1260257Z [ 42/159] libpkgconf-0:2.5.1-1.fc44.x86 100% |   1.6 MiB/s |  42.7 KiB |  00m00s
+2026-10-07T12:38:43.1737012Z [ 43/159] mesa-libgbm-devel-0:26.2.3-1. 100% | 195.0 KiB/s |  14.0 KiB |  00m00s
+2026-10-07T12:38:43.1973775Z [ 44/159] mesa-libgbm-0:26.2.3-1.fc44.x 100% | 210.5 KiB/s |  14.9 KiB |  00m00s
+2026-10-07T12:38:43.2484022Z [ 45/159] libdrm-devel-0:2.4.134-1.fc44 100% |   2.5 MiB/s | 186.9 KiB |  00m00s
+2026-10-07T12:38:43.2704450Z [ 46/159] libdrm-0:2.4.134-1.fc44.x86_6 100% |   2.3 MiB/s | 166.7 KiB |  00m00s
+2026-10-07T12:38:43.2751405Z [ 47/159] libpciaccess-0:0.16-17.fc44.x 100% |   1.0 MiB/s |  27.2 KiB |  00m00s
+2026-10-07T12:38:43.2973653Z [ 48/159] vulkan-loader-devel-0:1.4.341 100% | 474.1 KiB/s |  12.3 KiB |  00m00s
+2026-10-07T12:38:43.3015166Z [ 49/159] cmake-filesystem-0:4.3.0-1.fc 100% | 599.7 KiB/s |  15.0 KiB |  00m00s
+2026-10-07T12:38:43.3309739Z [ 50/159] vulkan-loader-0:1.4.341.0-1.f 100% |   5.6 MiB/s | 165.8 KiB |  00m00s
+2026-10-07T12:38:43.3920961Z [ 51/159] vulkan-headers-0:1.4.341.0-1. 100% |  17.6 MiB/s |   1.7 MiB |  00m00s
+2026-10-07T12:38:43.4059116Z [ 52/159] python3-0:3.14.8-1.fc44.x86_6 100% | 397.3 KiB/s |  29.4 KiB |  00m00s
+2026-10-07T12:38:43.4355909Z [ 53/159] mpdecimal-0:4.0.1-3.fc44.x86_ 100% |   3.3 MiB/s |  99.1 KiB |  00m00s
+2026-10-07T12:38:43.5115731Z [ 54/159] python3-hawkey-0:0.76.0-1.fc4 100% |   1.4 MiB/s | 104.9 KiB |  00m00s
+2026-10-07T12:38:43.6100559Z [ 55/159] libdnf-0:0.76.0-1.fc44.x86_64 100% |   7.4 MiB/s | 739.7 KiB |  00m00s
+2026-10-07T12:38:43.7114820Z [ 56/159] python3-libdnf-0:0.76.0-1.fc4 100% |   9.0 MiB/s | 917.3 KiB |  00m00s
+2026-10-07T12:38:43.7350940Z [ 57/159] python3-libs-0:3.14.8-1.fc44. 100% |  29.7 MiB/s |  10.2 MiB |  00m00s
+2026-10-07T12:38:43.8207686Z [ 58/159] gcc-0:16.2.1-2.fc44.x86_64    100% |  32.8 MiB/s |  43.3 MiB |  00m01s
+2026-10-07T12:38:43.8221663Z [ 59/159] python3-rpm-0:6.0.2-1.fc44.x8 100% | 626.8 KiB/s |  69.0 KiB |  00m00s
+2026-10-07T12:38:43.8638418Z [ 60/159] perl-libs-4:5.42.3-525.fc44.x 100% |  20.3 MiB/s |   2.6 MiB |  00m00s
+2026-10-07T12:38:43.8855932Z [ 61/159] perl-interpreter-4:5.42.3-525 100% |   1.1 MiB/s |  71.7 KiB |  00m00s
+2026-10-07T12:38:43.8949489Z [ 62/159] perl-Errno-0:1.38-525.fc44.x8 100% | 197.9 KiB/s |  14.3 KiB |  00m00s
+2026-10-07T12:38:43.9352608Z [ 63/159] perl-DynaLoader-0:1.57-525.fc 100% | 356.4 KiB/s |  25.3 KiB |  00m00s
+2026-10-07T12:38:43.9489905Z [ 64/159] perl-vars-0:1.05-525.fc44.noa 100% | 195.1 KiB/s |  12.3 KiB |  00m00s
+2026-10-07T12:38:43.9620209Z [ 65/159] perl-Term-ANSIColor-0:5.01-52 100% |   1.8 MiB/s |  47.7 KiB |  00m00s
+2026-10-07T12:38:43.9691661Z [ 66/159] perl-podlators-1:6.0.2-522.fc 100% |   1.7 MiB/s | 128.2 KiB |  00m00s
+2026-10-07T12:38:43.9760214Z [ 67/159] perl-Term-Cap-0:1.18-521.fc44 100% | 846.1 KiB/s |  22.0 KiB |  00m00s
+2026-10-07T12:38:43.9976123Z [ 68/159] ncurses-0:6.6-1.fc44.x86_64   100% |  12.0 MiB/s | 429.8 KiB |  00m00s
+2026-10-07T12:38:44.0330968Z [ 69/159] perl-File-Basename-0:2.86-525 100% | 261.7 KiB/s |  16.5 KiB |  00m00s
+2026-10-07T12:38:44.0486541Z [ 70/159] perl-Symbol-0:1.09-525.fc44.n 100% | 187.7 KiB/s |  13.5 KiB |  00m00s
+2026-10-07T12:38:44.0686277Z [ 71/159] perl-if-0:0.61.000-525.fc44.n 100% | 190.1 KiB/s |  13.3 KiB |  00m00s
+2026-10-07T12:38:44.0954447Z [ 72/159] perl-MIME-Base64-0:3.16-521.f 100% |   1.1 MiB/s |  29.8 KiB |  00m00s
+2026-10-07T12:38:44.0967174Z [ 73/159] perl-overload-0:1.40-525.fc44 100% | 712.1 KiB/s |  44.9 KiB |  00m00s
+2026-10-07T12:38:44.0999982Z [ 74/159] perl-Encode-4:3.21-521.fc44.x 100% |  20.6 MiB/s |   1.1 MiB |  00m00s
+2026-10-07T12:38:44.1235171Z [ 75/159] perl-Storable-1:3.37-522.fc44 100% |   3.6 MiB/s | 100.9 KiB |  00m00s
+2026-10-07T12:38:44.1535335Z [ 76/159] perl-IO-Socket-SSL-0:2.098-2. 100% |   7.9 MiB/s | 234.7 KiB |  00m00s
+2026-10-07T12:38:44.1604353Z [ 77/159] perl-Fcntl-0:1.20-525.fc44.x8 100% | 461.2 KiB/s |  29.1 KiB |  00m00s
+2026-10-07T12:38:44.1729054Z [ 78/159] perl-HTTP-Tiny-0:0.096-1.fc44 100% | 802.7 KiB/s |  57.8 KiB |  00m00s
+2026-10-07T12:38:44.1855957Z [ 79/159] perl-Net-SSLeay-0:1.94-12.fc4 100% |  11.8 MiB/s | 373.4 KiB |  00m00s
+2026-10-07T12:38:44.1875419Z [ 80/159] perl-Time-HiRes-4:1.9778-521. 100% |   2.1 MiB/s |  57.2 KiB |  00m00s
+2026-10-07T12:38:44.2126580Z [ 81/159] perl-IO-Socket-IP-0:0.43-522. 100% |   1.6 MiB/s |  42.2 KiB |  00m00s
+2026-10-07T12:38:44.2519280Z [ 82/159] perl-IO-0:1.55-525.fc44.x86_6 100% |   1.2 MiB/s |  81.5 KiB |  00m00s
+2026-10-07T12:38:44.2853465Z [ 83/159] perl-IPC-Open3-0:1.24-525.fc4 100% | 322.6 KiB/s |  23.2 KiB |  00m00s
+2026-10-07T12:38:44.2915449Z [ 84/159] perl-Time-Local-2:1.350-521.f 100% | 292.4 KiB/s |  34.5 KiB |  00m00s
+2026-10-07T12:38:44.3155714Z [ 85/159] perl-AutoLoader-0:5.74-525.fc 100% | 326.1 KiB/s |  20.5 KiB |  00m00s
+2026-10-07T12:38:44.3419064Z [ 86/159] perl-MIME-Base32-0:1.303-25.f 100% | 789.2 KiB/s |  20.5 KiB |  00m00s
+2026-10-07T12:38:44.3584715Z [ 87/159] perl-Socket-4:2.043-1.fc44.x8 100% | 769.6 KiB/s |  55.4 KiB |  00m00s
+2026-10-07T12:38:44.3646968Z [ 88/159] perl-URI-0:5.36-1.fc44.noarch 100% |   2.0 MiB/s | 149.3 KiB |  00m00s
+2026-10-07T12:38:44.3690646Z [ 89/159] perl-Unicode-Normalize-0:1.32 100% |   2.8 MiB/s |  74.4 KiB |  00m00s
+2026-10-07T12:38:44.3862955Z [ 90/159] perl-libnet-0:3.15-522.fc44.n 100% |   4.6 MiB/s | 128.4 KiB |  00m00s
+2026-10-07T12:38:44.3999777Z [ 91/159] perl-Digest-0:1.20-521.fc44.n 100% | 828.6 KiB/s |  24.9 KiB |  00m00s
+2026-10-07T12:38:44.4121414Z [ 92/159] perl-Digest-MD5-0:2.59-521.fc 100% | 766.3 KiB/s |  36.0 KiB |  00m00s
+2026-10-07T12:38:44.4509963Z [ 93/159] perl-POSIX-0:2.23-525.fc44.x8 100% |   1.5 MiB/s |  96.3 KiB |  00m00s
+2026-10-07T12:38:44.4726456Z [ 94/159] perl-base-0:2.27-525.fc44.noa 100% | 215.6 KiB/s |  15.5 KiB |  00m00s
+2026-10-07T12:38:44.4849360Z [ 95/159] perl-Getopt-Std-0:1.14-525.fc 100% | 208.3 KiB/s |  15.0 KiB |  00m00s
+2026-10-07T12:38:44.5349913Z [ 96/159] hwdata-0:0.412-1.fc44.noarch  100% |  20.7 MiB/s |   1.7 MiB |  00m00s
+2026-10-07T12:38:44.5588771Z [ 97/159] python-pip-wheel-0:26.0.1-3.f 100% |  13.5 MiB/s |   1.1 MiB |  00m00s
+2026-10-07T12:38:44.5597244Z [ 98/159] perl-mro-0:1.29-525.fc44.x86_ 100% | 393.5 KiB/s |  29.1 KiB |  00m00s
+2026-10-07T12:38:44.5986151Z [ 99/159] perl-overloading-0:0.02-525.f 100% | 193.8 KiB/s |  12.2 KiB |  00m00s
+2026-10-07T12:38:44.6312073Z [100/159] perl-locale-0:1.13-525.fc44.n 100% | 180.4 KiB/s |  12.8 KiB |  00m00s
+2026-10-07T12:38:44.6324040Z [101/159] perl-Data-Dumper-0:2.192-523. 100% | 770.7 KiB/s |  56.3 KiB |  00m00s
+2026-10-07T12:38:44.6623470Z [102/159] perl-File-stat-0:1.14-525.fc4 100% | 259.7 KiB/s |  16.4 KiB |  00m00s
+2026-10-07T12:38:44.7035562Z [103/159] perl-Class-Struct-0:0.68-525. 100% | 305.6 KiB/s |  21.4 KiB |  00m00s
+2026-10-07T12:38:44.7044487Z [104/159] perl-SelectSaver-0:1.02-525.f 100% | 153.2 KiB/s |  11.0 KiB |  00m00s
+2026-10-07T12:38:44.7277707Z [105/159] perl-B-0:1.89-525.fc44.x86_64 100% |   2.7 MiB/s | 177.1 KiB |  00m00s
+2026-10-07T12:38:44.7309768Z [106/159] libpciaccess-devel-0:0.16-17. 100% | 480.5 KiB/s |  12.5 KiB |  00m00s
+2026-10-07T12:38:44.7965524Z [107/159] kernel-headers-0:7.2.4-200.fc 100% |  19.0 MiB/s |   1.7 MiB |  00m00s
+2026-10-07T12:38:44.7979394Z [108/159] less-0:704-4.fc44.x86_64      100% |   3.2 MiB/s | 227.8 KiB |  00m00s
+2026-10-07T12:38:44.8179545Z [109/159] openssh-clients-0:10.2p1-14.f 100% |   8.8 MiB/s | 779.1 KiB |  00m00s
+2026-10-07T12:38:44.8639576Z [110/159] openssh-0:10.2p1-14.fc44.x86_ 100% |   5.2 MiB/s | 356.3 KiB |  00m00s
+2026-10-07T12:38:44.8702317Z [111/159] perl-lib-0:0.65-525.fc44.x86_ 100% | 197.7 KiB/s |  14.2 KiB |  00m00s
+2026-10-07T12:38:44.8896095Z [112/159] libmpc-0:1.4.1-1.fc44.x86_64  100% |   1.0 MiB/s |  75.5 KiB |  00m00s
+2026-10-07T12:38:44.9162533Z [113/159] jansson-0:2.14-4.fc44.x86_64  100% |   1.8 MiB/s |  47.1 KiB |  00m00s
+2026-10-07T12:38:45.0066285Z [114/159] glibc-devel-0:2.43-9.fc44.x86 100% |   6.7 MiB/s | 619.5 KiB |  00m00s
+2026-10-07T12:38:45.0335919Z [115/159] libxcrypt-devel-0:4.5.2-3.fc4 100% |   1.1 MiB/s |  30.0 KiB |  00m00s
+2026-10-07T12:38:45.0481667Z [116/159] libstdc++-devel-0:16.2.1-2.fc 100% |  32.7 MiB/s |   6.0 MiB |  00m00s
+2026-10-07T12:38:45.0650633Z [117/159] binutils-0:2.46.1-1.fc44.x86_ 100% |  31.9 MiB/s |   6.2 MiB |  00m00s
+2026-10-07T12:38:45.1055381Z [118/159] libatomic-0:16.2.1-2.fc44.x86 100% | 779.0 KiB/s |  55.3 KiB |  00m00s
+2026-10-07T12:38:45.1121792Z [119/159] elfutils-debuginfod-client-0: 100% | 737.5 KiB/s |  46.5 KiB |  00m00s
+2026-10-07T12:38:45.1379459Z [120/159] perl-FileHandle-0:2.05-525.fc 100% | 205.6 KiB/s |  14.8 KiB |  00m00s
+2026-10-07T12:38:45.1789470Z [121/159] libedit-0:3.1-59.20260512cvs. 100% |   1.5 MiB/s | 110.4 KiB |  00m00s
+2026-10-07T12:38:45.1987676Z [122/159] util-linux-0:2.41.5-1.fc44.x8 100% |  14.0 MiB/s |   1.2 MiB |  00m00s
+2026-10-07T12:38:45.2121708Z [123/159] libfdisk-0:2.41.5-1.fc44.x86_ 100% |   2.3 MiB/s | 168.6 KiB |  00m00s
+2026-10-07T12:38:45.2503588Z [124/159] liblastlog2-0:2.41.5-1.fc44.x 100% | 340.5 KiB/s |  24.2 KiB |  00m00s
+2026-10-07T12:38:45.2639503Z [125/159] python3-unbound-0:1.26.1-1.fc 100% |   1.9 MiB/s | 123.2 KiB |  00m00s
+2026-10-07T12:38:45.2771763Z [126/159] hiredis-0:1.2.0-8.fc44.x86_64 100% |   2.0 MiB/s |  52.6 KiB |  00m00s
+2026-10-07T12:38:45.2911286Z [127/159] unbound-libs-0:1.26.1-1.fc44. 100% |   7.7 MiB/s | 614.3 KiB |  00m00s
+2026-10-07T12:38:45.2921682Z [128/159] protobuf-c-0:1.5.2-2.fc44.x86 100% |   1.2 MiB/s |  33.7 KiB |  00m00s
+2026-10-07T12:38:45.3034803Z [129/159] dns-root-data-0:2026260100-2. 100% | 560.8 KiB/s |  14.6 KiB |  00m00s
+2026-10-07T12:38:45.3335170Z [130/159] libxcb-0:1.17.0-7.fc44.x86_64 100% |   8.0 MiB/s | 238.0 KiB |  00m00s
+2026-10-07T12:38:45.3597403Z [131/159] libxshmfence-0:1.3.2-8.fc44.x 100% | 508.3 KiB/s |  13.2 KiB |  00m00s
+2026-10-07T12:38:45.3653899Z [132/159] mesa-filesystem-0:26.2.3-1.fc 100% | 124.2 KiB/s |   8.9 KiB |  00m00s
+2026-10-07T12:38:45.3879854Z [133/159] lm_sensors-libs-0:3.6.0-24.fc 100% |   1.5 MiB/s |  41.9 KiB |  00m00s
+2026-10-07T12:38:45.4149272Z [134/159] libXau-0:1.0.12-4.fc44.x86_64 100% |   1.3 MiB/s |  33.7 KiB |  00m00s
+2026-10-07T12:38:45.4231091Z [135/159] spirv-tools-libs-0:2026.1-1.f 100% |  30.5 MiB/s |   1.7 MiB |  00m00s
+2026-10-07T12:38:45.4503397Z [136/159] libdisplay-info-0:0.3.0-1.fc4 100% |   3.4 MiB/s |  89.6 KiB |  00m00s
+2026-10-07T12:38:45.5237236Z [137/159] python-unversioned-command-0: 100% | 158.5 KiB/s |  11.6 KiB |  00m00s
+2026-10-07T12:38:45.6167531Z [138/159] mesa-dri-drivers-0:26.2.3-1.f 100% |  42.5 MiB/s |  13.8 MiB |  00m00s
+2026-10-07T12:38:45.6179672Z [139/159] perl-NDBM_File-0:1.18-525.fc4 100% | 234.7 KiB/s |  21.8 KiB |  00m00s
+2026-10-07T12:38:45.6463534Z [140/159] unzip-0:6.0-69.fc44.x86_64    100% |   7.0 MiB/s | 199.6 KiB |  00m00s
+2026-10-07T12:38:45.6731185Z [141/159] python3-html2text-0:2025.4.15 100% |   3.1 MiB/s |  81.7 KiB |  00m00s
+2026-10-07T12:38:45.7051616Z [142/159] 7zip-0:26.03-1.fc44.x86_64    100% |  15.0 MiB/s |   1.3 MiB |  00m00s
+2026-10-07T12:38:45.7448111Z [143/159] less-color-0:704-4.fc44.x86_6 100% | 150.7 KiB/s |  10.7 KiB |  00m00s
+2026-10-07T12:38:45.7697613Z [144/159] libX11-xcb-0:1.8.13-3.fc44.x8 100% | 169.3 KiB/s |  10.8 KiB |  00m00s
+2026-10-07T12:38:45.8167600Z [145/159] libwayland-client-0:1.26.0-1. 100% | 499.8 KiB/s |  35.5 KiB |  00m00s
+2026-10-07T12:38:45.8890500Z [146/159] llvm-filesystem-0:22.1.8-4.fc 100% | 141.1 KiB/s |  10.0 KiB |  00m00s
+2026-10-07T12:38:45.9692352Z [147/159] mesa-vulkan-drivers-0:26.2.3- 100% |  50.2 MiB/s |  27.8 MiB |  00m01s
+2026-10-07T12:38:45.9705886Z [148/159] unbound-anchor-0:1.26.1-1.fc4 100% | 513.6 KiB/s |  41.6 KiB |  00m00s
+2026-10-07T12:38:46.0002106Z [149/159] oniguruma-0:6.9.10-4.fc44.x86 100% |   7.4 MiB/s | 220.0 KiB |  00m00s
+2026-10-07T12:38:46.0910695Z [150/159] libgit2-0:1.9.7-1.fc44.x86_64 100% |   6.7 MiB/s | 614.5 KiB |  00m00s
+2026-10-07T12:38:46.0990454Z [151/159] bat-0:0.26.1-4.fc44.x86_64    100% |  19.3 MiB/s |   2.5 MiB |  00m00s
+2026-10-07T12:38:46.1184932Z [152/159] llhttp-0:9.3.1-1.fc44.x86_64  100% |   1.4 MiB/s |  37.8 KiB |  00m00s
+2026-10-07T12:38:46.1756309Z [153/159] libssh2-0:1.11.1-9.fc44.x86_6 100% |   1.9 MiB/s | 149.1 KiB |  00m00s
+2026-10-07T12:38:46.2501566Z [154/159] glibc-0:2.43-9.fc44.x86_64    100% |  18.1 MiB/s |   2.4 MiB |  00m00s
+2026-10-07T12:38:46.2567483Z [155/159] glibc-common-0:2.43-9.fc44.x8 100% |   4.6 MiB/s | 375.6 KiB |  00m00s
+2026-10-07T12:38:46.3645411Z [156/159] llvm-libs-0:22.1.8-4.fc44.x86 100% |  57.4 MiB/s |  34.1 MiB |  00m01s
+2026-10-07T12:38:46.3659359Z [157/159] glibc-minimal-langpack-0:2.43 100% | 749.0 KiB/s |  85.4 KiB |  00m00s
+2026-10-07T12:38:46.3670575Z [158/159] elfutils-libelf-0:0.196-1.fc4 100% |   2.1 MiB/s | 238.2 KiB |  00m00s
+2026-10-07T12:38:46.4319947Z [159/159] elfutils-libs-0:0.196-1.fc44. 100% |   4.2 MiB/s | 284.5 KiB |  00m00s
+2026-10-07T12:38:46.4320975Z --------------------------------------------------------------------------------
+2026-10-07T12:38:46.4321712Z [159/159] Total                         100% |  41.0 MiB/s | 217.4 MiB |  00m05s
+2026-10-07T12:38:46.4335321Z Running transaction
+2026-10-07T12:38:48.8925452Z [  1/166] Verify package files          100% | 203.0   B/s | 159.0   B |  00m01s
+2026-10-07T12:38:48.9766226Z [  2/166] Prepare transaction           100% |   1.3 KiB/s | 164.0   B |  00m00s
+2026-10-07T12:38:49.0071392Z [  3/166] Upgrading glibc-0:2.43-9.fc44 100% |  99.1 MiB/s |   6.9 MiB |  00m00s
+2026-10-07T12:38:49.0355278Z [  4/166] Upgrading glibc-common-0:2.43 100% |  36.6 MiB/s |   1.0 MiB |  00m00s
+2026-10-07T12:38:49.0398096Z [  5/166] Upgrading glibc-minimal-langp 100% | 121.1 KiB/s | 124.0   B |  00m00s
+2026-10-07T12:38:49.0577220Z [  6/166] Installing expat-0:2.8.5-1.fc 100% |  19.8 MiB/s | 344.3 KiB |  00m00s
+2026-10-07T12:38:49.0612972Z [  7/166] Upgrading elfutils-libelf-0:0 100% | 288.6 MiB/s |   1.4 MiB |  00m00s
+2026-10-07T12:38:49.0661798Z [  8/166] Installing libmpc-0:1.4.1-1.f 100% |  83.2 MiB/s | 170.4 KiB |  00m00s
+2026-10-07T12:38:49.0752618Z [  9/166] Installing vulkan-loader-0:1. 100% | 113.3 MiB/s | 580.2 KiB |  00m00s
+2026-10-07T12:38:49.0824757Z [ 10/166] Installing libdnf-0:0.76.0-1. 100% | 251.1 MiB/s |   2.3 MiB |  00m00s
+2026-10-07T12:38:49.0993661Z [ 11/166] Installing less-0:704-4.fc44. 100% |  24.8 MiB/s | 483.2 KiB |  00m00s
+2026-10-07T12:38:49.1026922Z [ 12/166] Installing libedit-0:3.1-59.2 100% |  81.4 MiB/s | 250.0 KiB |  00m00s
+2026-10-07T12:38:49.1054704Z [ 13/166] Installing hiredis-0:1.2.0-8. 100% |  35.0 MiB/s | 107.4 KiB |  00m00s
+2026-10-07T12:38:49.1086094Z [ 14/166] Installing protobuf-c-0:1.5.2 100% |  27.0 MiB/s |  55.2 KiB |  00m00s
+2026-10-07T12:38:49.1095778Z [ 15/166] Installing libxshmfence-0:1.3 100% |   6.6 MiB/s |  13.4 KiB |  00m00s
+2026-10-07T12:38:49.1313168Z [ 16/166] Installing spirv-tools-libs-0 100% | 290.3 MiB/s |   6.1 MiB |  00m00s
+2026-10-07T12:38:49.1329508Z [ 17/166] Installing libX11-xcb-0:1.8.1 100% |  11.4 MiB/s |  11.6 KiB |  00m00s
+2026-10-07T12:38:49.2108892Z [ 18/166] Installing mesa-filesystem-0: 100% |   1.4 MiB/s |   4.3 KiB |  00m00s
+2026-10-07T12:38:49.2813264Z [ 19/166] Installing kernel-headers-0:7 100% |  52.2 MiB/s |   7.1 MiB |  00m00s
+2026-10-07T12:38:49.3118745Z [ 20/166] Installing cmake-filesystem-0 100% |   1.0 MiB/s |   9.4 KiB |  00m00s
+2026-10-07T12:38:49.4216298Z [ 21/166] Installing cpp-0:16.2.1-2.fc4 100% | 310.9 MiB/s |  42.6 MiB |  00m00s
+2026-10-07T12:38:49.4310604Z [ 22/166] Upgrading elfutils-libs-0:0.1 100% | 116.7 MiB/s | 717.2 KiB |  00m00s
+2026-10-07T12:38:49.4475690Z [ 23/166] Installing elfutils-debuginfo 100% |   4.9 MiB/s |  86.2 KiB |  00m00s
+2026-10-07T12:38:49.4518512Z [ 24/166] Installing libcomps-0:0.1.24- 100% |  68.5 MiB/s | 210.5 KiB |  00m00s
+2026-10-07T12:38:49.4953677Z [ 25/166] Installing dbus-libs-1:1.16.2 100% |  29.2 MiB/s | 358.5 KiB |  00m00s
+2026-10-07T12:38:49.5226248Z [ 26/166] Installing groff-base-0:1.23. 100% |  66.0 MiB/s |   3.9 MiB |  00m00s
+2026-10-07T12:38:49.5434976Z [ 27/166] Installing make-1:4.4.1-12.fc 100% |  90.0 MiB/s |   1.8 MiB |  00m00s
+2026-10-07T12:38:49.5480145Z [ 28/166] Installing libpkgconf-0:2.5.1 100% |  29.7 MiB/s |  91.3 KiB |  00m00s
+2026-10-07T12:38:49.5645160Z [ 29/166] Installing pkgconf-0:2.5.1-1. 100% |   5.5 MiB/s |  95.2 KiB |  00m00s
+2026-10-07T12:38:49.5710532Z [ 30/166] Installing mpdecimal-0:4.0.1- 100% |  71.2 MiB/s | 218.6 KiB |  00m00s
+2026-10-07T12:38:49.5879528Z [ 31/166] Installing ncurses-0:6.6-1.fc 100% |  30.2 MiB/s | 618.0 KiB |  00m00s
+2026-10-07T12:38:49.5898259Z [ 32/166] Installing perl-Digest-0:1.20 100% |  18.1 MiB/s |  37.1 KiB |  00m00s
+2026-10-07T12:38:49.5947788Z [ 33/166] Installing perl-FileHandle-0: 100% |   9.6 MiB/s |   9.8 KiB |  00m00s
+2026-10-07T12:38:49.5987175Z [ 34/166] Installing perl-B-0:1.89-525. 100% |  98.5 MiB/s | 504.4 KiB |  00m00s
+2026-10-07T12:38:49.6034790Z [ 35/166] Installing perl-Digest-MD5-0: 100% |  20.0 MiB/s |  61.5 KiB |  00m00s
+2026-10-07T12:38:49.6071181Z [ 36/166] Installing perl-libnet-0:3.15 100% |  57.6 MiB/s | 294.7 KiB |  00m00s
+2026-10-07T12:38:49.6115115Z [ 37/166] Installing perl-Data-Dumper-0 100% |  38.2 MiB/s | 117.4 KiB |  00m00s
+2026-10-07T12:38:49.6143910Z [ 38/166] Installing perl-Unicode-Norma 100% | 119.2 MiB/s | 488.3 KiB |  00m00s
+2026-10-07T12:38:49.6236727Z [ 39/166] Installing perl-MIME-Base32-0 100% |  15.7 MiB/s |  32.2 KiB |  00m00s
+2026-10-07T12:38:49.6277929Z [ 40/166] Installing perl-URI-0:5.36-1. 100% |  28.3 MiB/s | 289.5 KiB |  00m00s
+2026-10-07T12:38:49.6295770Z [ 41/166] Installing perl-IO-Socket-IP- 100% |  49.9 MiB/s | 102.2 KiB |  00m00s
+2026-10-07T12:38:49.6333670Z [ 42/166] Installing perl-AutoLoader-0: 100% |  20.5 MiB/s |  21.0 KiB |  00m00s
+2026-10-07T12:38:49.6356037Z [ 43/166] Installing perl-IO-Socket-SSL 100% | 177.6 MiB/s | 727.6 KiB |  00m00s
+2026-10-07T12:38:49.6486370Z [ 44/166] Installing perl-locale-0:1.13 100% |   6.4 MiB/s |   6.5 KiB |  00m00s
+2026-10-07T12:38:49.6530420Z [ 45/166] Installing perl-Net-SSLeay-0: 100% |  96.2 MiB/s |   1.3 MiB |  00m00s
+2026-10-07T12:38:49.6560901Z [ 46/166] Installing perl-Time-Local-2: 100% |  34.5 MiB/s |  70.6 KiB |  00m00s
+2026-10-07T12:38:49.6583608Z [ 47/166] Installing perl-Time-HiRes-4: 100% |  38.3 MiB/s | 117.7 KiB |  00m00s
+2026-10-07T12:38:49.6602081Z [ 48/166] Installing perl-if-0:0.61.000 100% |   6.1 MiB/s |   6.2 KiB |  00m00s
+2026-10-07T12:38:49.6620517Z [ 49/166] Installing perl-File-Path-0:2 100% |  63.0 MiB/s |  64.5 KiB |  00m00s
+2026-10-07T12:38:49.6640768Z [ 50/166] Installing perl-Pod-Escapes-1 100% |  25.3 MiB/s |  25.9 KiB |  00m00s
+2026-10-07T12:38:49.6666009Z [ 51/166] Installing perl-Text-Tabs+Wra 100% |  23.3 MiB/s |  23.9 KiB |  00m00s
+2026-10-07T12:38:49.6695224Z [ 52/166] Installing perl-HTTP-Tiny-0:0 100% |  53.5 MiB/s | 164.5 KiB |  00m00s
+2026-10-07T12:38:49.6716443Z [ 53/166] Installing perl-Class-Struct- 100% |  25.3 MiB/s |  25.9 KiB |  00m00s
+2026-10-07T12:38:49.6740995Z [ 54/166] Installing perl-IPC-Open3-0:1 100% |  13.9 MiB/s |  28.5 KiB |  00m00s
+2026-10-07T12:38:49.6770847Z [ 55/166] Installing perl-File-Temp-1:0 100% |  80.8 MiB/s | 165.5 KiB |  00m00s
+2026-10-07T12:38:49.6834846Z [ 56/166] Installing perl-POSIX-0:2.23- 100% |  75.1 MiB/s | 230.6 KiB |  00m00s
+2026-10-07T12:38:49.6863963Z [ 57/166] Installing perl-Pod-Simple-1: 100% |  93.6 MiB/s | 574.9 KiB |  00m00s
+2026-10-07T12:38:49.6887181Z [ 58/166] Installing perl-Term-Cap-0:1. 100% |  14.9 MiB/s |  30.6 KiB |  00m00s
+2026-10-07T12:38:49.6926107Z [ 59/166] Installing perl-Term-ANSIColo 100% |  48.4 MiB/s |  99.2 KiB |  00m00s
+2026-10-07T12:38:49.7099505Z [ 60/166] Installing perl-Pod-Perldoc-0 100% |   9.7 MiB/s | 169.2 KiB |  00m00s
+2026-10-07T12:38:49.7248381Z [ 61/166] Installing perl-podlators-1:6 100% |  19.6 MiB/s | 321.7 KiB |  00m00s
+2026-10-07T12:38:49.7268015Z [ 62/166] Installing perl-File-stat-0:1 100% |   6.4 MiB/s |  13.1 KiB |  00m00s
+2026-10-07T12:38:49.7300619Z [ 63/166] Installing perl-SelectSaver-0 100% |   2.6 MiB/s |   2.6 KiB |  00m00s
+2026-10-07T12:38:49.7327155Z [ 64/166] Installing perl-Socket-4:2.04 100% |  30.2 MiB/s | 123.8 KiB |  00m00s
+2026-10-07T12:38:49.7351700Z [ 65/166] Installing perl-Symbol-0:1.09 100% |   7.1 MiB/s |   7.3 KiB |  00m00s
+2026-10-07T12:38:49.7528506Z [ 66/166] Installing perl-Pod-Usage-4:2 100% |   5.4 MiB/s |  87.9 KiB |  00m00s
+2026-10-07T12:38:49.7556431Z [ 67/166] Installing perl-IO-0:1.55-525 100% |  29.6 MiB/s | 151.5 KiB |  00m00s
+2026-10-07T12:38:49.7580965Z [ 68/166] Installing perl-overloading-0 100% |   5.4 MiB/s |   5.6 KiB |  00m00s
+2026-10-07T12:38:49.7602298Z [ 69/166] Installing perl-mro-0:1.29-52 100% |  20.8 MiB/s |  42.5 KiB |  00m00s
+2026-10-07T12:38:49.7625049Z [ 70/166] Installing perl-base-0:2.27-5 100% |  12.7 MiB/s |  13.0 KiB |  00m00s
+2026-10-07T12:38:49.7642873Z [ 71/166] Installing perl-Fcntl-0:1.20- 100% |  24.3 MiB/s |  49.8 KiB |  00m00s
+2026-10-07T12:38:49.7668152Z [ 72/166] Installing perl-Text-ParseWor 100% |  14.2 MiB/s |  14.6 KiB |  00m00s
+2026-10-07T12:38:49.7702640Z [ 73/166] Installing perl-Getopt-Long-1 100% |  47.9 MiB/s | 147.2 KiB |  00m00s
+2026-10-07T12:38:49.7728129Z [ 74/166] Installing perl-Storable-1:3. 100% |  77.1 MiB/s | 236.7 KiB |  00m00s
+2026-10-07T12:38:49.7745625Z [ 75/166] Installing perl-overload-0:1. 100% |  70.3 MiB/s |  72.0 KiB |  00m00s
+2026-10-07T12:38:49.7772853Z [ 76/166] Installing perl-Getopt-Std-0: 100% |  11.5 MiB/s |  11.8 KiB |  00m00s
+2026-10-07T12:38:49.7796619Z [ 77/166] Installing perl-MIME-Base64-0 100% |  14.4 MiB/s |  44.2 KiB |  00m00s
+2026-10-07T12:38:49.7813110Z [ 78/166] Installing perl-File-Basename 100% |  14.3 MiB/s |  14.6 KiB |  00m00s
+2026-10-07T12:38:49.7828782Z [ 79/166] Installing perl-vars-0:1.05-5 100% |   4.2 MiB/s |   4.3 KiB |  00m00s
+2026-10-07T12:38:49.7845054Z [ 80/166] Installing perl-Errno-0:1.38- 100% |   8.6 MiB/s |   8.8 KiB |  00m00s
+2026-10-07T12:38:49.7886747Z [ 81/166] Installing perl-parent-1:0.24 100% |  10.7 MiB/s |  11.0 KiB |  00m00s
+2026-10-07T12:38:49.7909826Z [ 82/166] Installing perl-Scalar-List-U 100% |  36.3 MiB/s | 148.5 KiB |  00m00s
+2026-10-07T12:38:49.8148975Z [ 83/166] Installing perl-constant-0:1. 100% |  26.7 MiB/s |  27.4 KiB |  00m00s
+2026-10-07T12:38:49.8312012Z [ 84/166] Installing perl-Encode-4:3.21 100% | 123.5 MiB/s |   4.7 MiB |  00m00s
+2026-10-07T12:38:49.8354634Z [ 85/166] Installing perl-DynaLoader-0: 100% |  31.7 MiB/s |  32.5 KiB |  00m00s
+2026-10-07T12:38:49.8387558Z [ 86/166] Installing perl-PathTools-0:3 100% |  36.0 MiB/s | 184.4 KiB |  00m00s
+2026-10-07T12:38:49.8408126Z [ 87/166] Installing perl-Carp-0:1.54-5 100% |  23.3 MiB/s |  47.7 KiB |  00m00s
+2026-10-07T12:38:49.9543959Z [ 88/166] Installing perl-Exporter-0:5. 100% |  18.1 MiB/s |  55.6 KiB |  00m00s
+2026-10-07T12:38:49.9625765Z [ 89/166] Installing perl-libs-4:5.42.3 100% | 100.6 MiB/s |  11.7 MiB |  00m00s
+2026-10-07T12:38:49.9785654Z [ 90/166] Installing perl-interpreter-4 100% |   7.8 MiB/s | 120.5 KiB |  00m00s
+2026-10-07T12:38:49.9814432Z [ 91/166] Installing perl-TermReadKey-0 100% |  21.5 MiB/s |  66.1 KiB |  00m00s
+2026-10-07T12:38:49.9834991Z [ 92/166] Installing perl-Error-1:0.170 100% |  39.0 MiB/s |  80.0 KiB |  00m00s
+2026-10-07T12:38:49.9864191Z [ 93/166] Installing perl-lib-0:0.65-52 100% |   8.7 MiB/s |   8.9 KiB |  00m00s
+2026-10-07T12:38:50.0462754Z [ 94/166] Installing jansson-0:2.14-4.f 100% |  29.4 MiB/s |  90.3 KiB |  00m00s
+2026-10-07T12:38:50.0726117Z [ 95/166] Installing binutils-0:2.46.1- 100% | 340.5 MiB/s |  28.3 MiB |  00m00s
+2026-10-07T12:38:50.0775052Z [ 96/166] Installing libatomic-0:16.2.1 100% |  22.7 MiB/s |  46.6 KiB |  00m00s
+2026-10-07T12:38:50.0824059Z [ 97/166] Installing libfdisk-0:2.41.5- 100% |  95.1 MiB/s | 389.4 KiB |  00m00s
+2026-10-07T12:38:50.1502666Z [ 98/166] Installing liblastlog2-0:2.41 100% |   3.6 MiB/s |  43.7 KiB |  00m00s
+2026-10-07T12:38:50.1792162Z [ 99/166] Installing util-linux-0:2.41. 100% |  41.2 MiB/s |   3.6 MiB |  00m00s
+2026-10-07T12:38:50.2114612Z [100/166] Installing openssh-0:10.2p1-1 100% |  71.6 MiB/s |   1.4 MiB |  00m00s
+2026-10-07T12:38:50.2812525Z [101/166] Installing openssh-clients-0: 100% |  81.5 MiB/s |   2.7 MiB |  00m00s
+2026-10-07T12:38:50.3371480Z [102/166] Installing git-core-0:2.56.0- 100% | 315.3 MiB/s |  27.7 MiB |  00m00s
+2026-10-07T12:38:50.3449466Z [103/166] Installing git-core-doc-0:2.5 100% | 917.5 MiB/s |  19.3 MiB |  00m00s
+2026-10-07T12:38:50.3474953Z [104/166] Installing git-0:2.56.0-1.fc4 100% |  28.8 MiB/s |  59.0 KiB |  00m00s
+2026-10-07T12:38:50.3503616Z [105/166] Installing perl-Git-0:2.56.0- 100% |  31.9 MiB/s |  65.4 KiB |  00m00s
+2026-10-07T12:38:50.3526936Z [106/166] Installing lm_sensors-libs-0: 100% |  28.3 MiB/s |  86.8 KiB |  00m00s
+2026-10-07T12:38:50.3698341Z [107/166] Installing libXau-0:1.0.12-4. 100% |  36.3 MiB/s |  74.3 KiB |  00m00s
+2026-10-07T12:38:50.3747798Z [108/166] Installing libxcb-0:1.17.0-7. 100% |  59.9 MiB/s |   1.1 MiB |  00m00s
+2026-10-07T12:38:50.3775001Z [109/166] Installing libdisplay-info-0: 100% |  74.2 MiB/s | 227.9 KiB |  00m00s
+2026-10-07T12:38:50.3821019Z [110/166] Installing libwayland-client- 100% |  32.8 MiB/s |  67.2 KiB |  00m00s
+2026-10-07T12:38:50.3852830Z [111/166] Installing oniguruma-0:6.9.10 100% | 188.7 MiB/s | 773.1 KiB |  00m00s
+2026-10-07T12:38:50.3887067Z [112/166] Installing llhttp-0:9.3.1-1.f 100% |  31.9 MiB/s |  98.0 KiB |  00m00s
+2026-10-07T12:38:50.3958184Z [113/166] Installing libssh2-0:1.11.1-9 100% | 110.8 MiB/s | 340.2 KiB |  00m00s
+2026-10-07T12:38:50.3989518Z [114/166] Installing libgit2-0:1.9.7-1. 100% | 200.0 MiB/s |   1.4 MiB |  00m00s
+2026-10-07T12:38:50.4833165Z [115/166] Installing llvm-filesystem-0: 100% | 531.2 KiB/s |   1.1 KiB |  00m00s
+2026-10-07T12:38:50.7460835Z [116/166] Installing llvm-libs-0:22.1.8 100% | 408.3 MiB/s | 140.5 MiB |  00m00s
+2026-10-07T12:38:50.7865755Z [117/166] Installing dns-root-data-0:20 100% |   3.1 MiB/s |  12.5 KiB |  00m00s
+2026-10-07T12:38:50.9349129Z [118/166] Installing libstdc++-devel-0: 100% | 227.1 MiB/s |  41.3 MiB |  00m00s
+2026-10-07T12:38:50.9886093Z [119/166] Installing python-pip-wheel-0 100% | 135.9 MiB/s |   1.2 MiB |  00m00s
+2026-10-07T12:38:51.2753938Z [120/166] Installing python3-libs-0:3.1 100% | 133.6 MiB/s |  44.5 MiB |  00m00s
+2026-10-07T12:38:51.2915762Z [121/166] Installing python3-0:3.14.8-1 100% |   1.9 MiB/s |  30.4 KiB |  00m00s
+2026-10-07T12:38:51.3120401Z [122/166] Installing python3-libdnf-0:0 100% | 221.5 MiB/s |   4.0 MiB |  00m00s
+2026-10-07T12:38:51.3356307Z [123/166] Installing python3-hawkey-0:0 100% |  14.9 MiB/s | 306.2 KiB |  00m00s
+2026-10-07T12:38:51.3357007Z >>> Running sysusers scriptlet: unbound-libs-0:1.26.1-1.fc44.x86_64
+2026-10-07T12:38:51.3357630Z >>> Finished sysusers scriptlet: unbound-libs-0:1.26.1-1.fc44.x86_64
+2026-10-07T12:38:51.3358098Z >>> Scriptlet output:
+2026-10-07T12:38:51.3358399Z >>> Creating group 'unbound' with GID 999.
+2026-10-07T12:38:51.3358894Z >>> Creating user 'unbound' (Unbound DNS resolver) with UID 999 and GID 999.
+2026-10-07T12:38:51.3359408Z >>> 
+2026-10-07T12:38:51.3462470Z [124/166] Installing unbound-libs-0:1.2 100% | 173.5 MiB/s |   1.6 MiB |  00m00s
+2026-10-07T12:38:51.3523439Z [125/166] Installing python3-dbus-0:1.4 100% |  53.7 MiB/s | 549.8 KiB |  00m00s
+2026-10-07T12:38:51.3746752Z [126/166] Installing python3-distro-0:1 100% |  11.7 MiB/s | 214.9 KiB |  00m00s
+2026-10-07T12:38:51.3791487Z [127/166] Installing python3-systemd-0: 100% |  38.6 MiB/s | 355.9 KiB |  00m00s
+2026-10-07T12:38:51.3896714Z [128/166] Installing python3-six-0:1.17 100% |  39.2 MiB/s | 120.3 KiB |  00m00s
+2026-10-07T12:38:51.3925146Z [129/166] Installing python3-dateutil-1 100% |  79.1 MiB/s | 891.5 KiB |  00m00s
+2026-10-07T12:38:51.4558094Z [130/166] Installing python3-libcomps-0 100% |  36.6 MiB/s | 149.8 KiB |  00m00s
+2026-10-07T12:38:51.4601750Z [131/166] Installing vulkan-headers-0:1 100% | 582.8 MiB/s |  36.1 MiB |  00m00s
+2026-10-07T12:38:51.4819334Z [132/166] Installing python3-rpm-0:6.0. 100% |  59.6 MiB/s | 183.0 KiB |  00m00s
+2026-10-07T12:38:51.4846817Z [133/166] Installing hwdata-0:0.412-1.f 100% | 480.8 MiB/s |  10.1 MiB |  00m00s
+2026-10-07T12:38:51.4911800Z [134/166] Installing libpciaccess-0:0.1 100% |  16.2 MiB/s |  49.8 KiB |  00m00s
+2026-10-07T12:38:51.4938818Z [135/166] Installing libdrm-0:2.4.134-1 100% |  57.2 MiB/s | 409.7 KiB |  00m00s
+2026-10-07T12:38:51.6252941Z [136/166] Installing mesa-dri-drivers-0 100% | 409.3 MiB/s |  53.2 MiB |  00m00s
+2026-10-07T12:38:51.6307744Z [137/166] Installing mesa-libgbm-0:26.2 100% |   3.3 MiB/s |  20.4 KiB |  00m00s
+2026-10-07T12:38:51.6329732Z [138/166] Installing pkgconf-m4-0:2.5.1 100% |  14.4 MiB/s |  14.7 KiB |  00m00s
+2026-10-07T12:38:51.6482141Z [139/166] Installing pkgconf-pkg-config 100% | 118.2 KiB/s |   1.8 KiB |  00m00s
+2026-10-07T12:38:51.6503023Z [140/166] Installing libpciaccess-devel 100% |   7.8 MiB/s |  15.9 KiB |  00m00s
+2026-10-07T12:38:51.7113255Z [141/166] Installing libxcrypt-devel-0: 100% |  10.8 MiB/s |  33.3 KiB |  00m00s
+2026-10-07T12:38:51.8124343Z [142/166] Installing glibc-devel-0:2.43 100% |  37.3 MiB/s |   2.4 MiB |  00m00s
+2026-10-07T12:38:52.0269322Z [143/166] Installing gcc-0:16.2.1-2.fc4 100% | 394.5 MiB/s | 121.9 MiB |  00m00s
+2026-10-07T12:38:52.0611515Z [144/166] Installing dnf-data-0:4.24.0- 100% |  10.2 MiB/s |  41.7 KiB |  00m00s
+2026-10-07T12:38:52.0865295Z [145/166] Installing python3-dnf-0:4.24 100% |  58.7 MiB/s |   2.8 MiB |  00m00s
+2026-10-07T12:38:52.0899206Z [146/166] Installing python3-dnf-plugin 100% | 111.1 MiB/s |   1.2 MiB |  00m00s
+2026-10-07T12:38:52.1279175Z [147/166] Installing dnf-plugins-core-0 100% |  25.5 MiB/s |  26.2 KiB |  00m00s
+2026-10-07T12:38:52.2455883Z [148/166] Installing gcc-c++-0:16.2.1-2 100% | 306.2 MiB/s |  46.8 MiB |  00m00s
+2026-10-07T12:38:52.2552788Z [149/166] Installing libdrm-devel-0:2.4 100% |  81.7 MiB/s | 752.7 KiB |  00m00s
+2026-10-07T12:38:52.2585049Z [150/166] Installing mesa-libgbm-devel- 100% |  10.0 MiB/s |  30.8 KiB |  00m00s
+2026-10-07T12:38:52.3466747Z [151/166] Installing vulkan-loader-deve 100% |   4.4 MiB/s |   9.1 KiB |  00m00s
+2026-10-07T12:38:52.5968091Z [152/166] Installing mesa-vulkan-driver 100% | 520.6 MiB/s | 173.9 MiB |  00m00s
+2026-10-07T12:38:52.6005314Z [153/166] Installing python3-unbound-0: 100% | 129.3 MiB/s | 529.7 KiB |  00m00s
+2026-10-07T12:38:52.6219646Z [154/166] Installing unbound-anchor-0:1 100% |   2.6 MiB/s |  57.9 KiB |  00m00s
+2026-10-07T12:38:52.6412213Z [155/166] Installing python-unversioned 100% |  29.6 KiB/s | 424.0   B |  00m00s
+2026-10-07T12:38:52.6557318Z [156/166] Installing python3-html2text- 100% |  15.3 MiB/s | 297.9 KiB |  00m00s
+2026-10-07T12:38:52.6875039Z [157/166] Installing bat-0:0.26.1-4.fc4 100% | 176.3 MiB/s |   5.3 MiB |  00m00s
+2026-10-07T12:38:52.6891694Z [158/166] Installing perl-NDBM_File-0:1 100% |  14.4 MiB/s |  29.5 KiB |  00m00s
+2026-10-07T12:38:52.7059490Z [159/166] Installing less-color-0:704-4 100% | 204.0 KiB/s |   2.7 KiB |  00m00s
+2026-10-07T12:38:52.7306363Z [160/166] Installing unzip-0:6.0-69.fc4 100% |  25.8 MiB/s | 449.3 KiB |  00m00s
+2026-10-07T12:38:52.7450858Z [161/166] Installing 7zip-0:26.03-1.fc4 100% | 139.7 MiB/s |   3.4 MiB |  00m00s
+2026-10-07T12:38:52.7511753Z [162/166] Removing elfutils-libs-0:0.19 100% |   5.9 KiB/s |  12.0   B |  00m00s
+2026-10-07T12:38:52.7607978Z [163/166] Removing elfutils-libelf-0:0. 100% |   1.1 KiB/s |  15.0   B |  00m00s
+2026-10-07T12:38:52.7766942Z [164/166] Removing glibc-0:2.43-8.fc44. 100% |   6.8 KiB/s | 105.0   B |  00m00s
+2026-10-07T12:38:52.7873028Z [165/166] Removing glibc-minimal-langpa 100% |  12.2 KiB/s | 100.0   B |  00m00s
+2026-10-07T12:38:54.9311032Z [166/166] Removing glibc-common-0:2.43- 100% |  24.0   B/s |  52.0   B |  00m02s
+2026-10-07T12:38:54.9314169Z Complete!
+2026-10-07T12:38:55.5202173Z  https://copr.fedorainfracloud.org/api_ 100% | 756.0   B/s | 407.0   B |  00m01s
+2026-10-07T12:38:55.5214259Z Enabling a Copr repository. Please note that this repository is not part
+2026-10-07T12:38:55.5215015Z of the main distribution, and quality may vary.
+2026-10-07T12:38:55.5215339Z 
+2026-10-07T12:38:55.5215690Z The Fedora Project does not exercise any power over the contents of
+2026-10-07T12:38:55.5216162Z this repository beyond the rules outlined in the Copr FAQ at
+2026-10-07T12:38:55.5217112Z <https://docs.copr.fedorainfracloud.org/user_documentation.html#what-i-can-build-in-copr>,
+2026-10-07T12:38:55.5218135Z and packages are not held to any quality or security level.
+2026-10-07T12:38:55.5218648Z 
+2026-10-07T12:38:55.5219070Z Please do not file bug reports about these packages in Fedora
+2026-10-07T12:38:55.5220143Z Bugzilla. In case of problems, contact the owner of this repository.
+2026-10-07T12:38:55.5571179Z Updating and loading repositories:
+2026-10-07T12:38:55.9755054Z  Copr repo for wpewebkit owned by philn 100% |  20.1 KiB/s |   6.3 KiB |  00m00s
+2026-10-07T12:38:56.0548330Z Repositories loaded.
+2026-10-07T12:38:56.2835807Z Package                     Arch   Version                          Repository                                          Size
+2026-10-07T12:38:56.2837091Z Upgrading:
+2026-10-07T12:38:56.2837656Z  libselinux                 x86_64 0:3.11-2.fc44                    updates                                        205.2 KiB
+2026-10-07T12:38:56.2838645Z    replacing libselinux     x86_64 0:3.11-1.fc44                    0eae96ab45874228a86a12a132e699ed               205.2 KiB
+2026-10-07T12:38:56.2839215Z Installing:
+2026-10-07T12:38:56.2839732Z  libwpe-devel               x86_64 0:1.16.3-1.fc44                  copr:copr.fedorainfracloud.org:philn:wpewebkit 259.6 KiB
+2026-10-07T12:38:56.2841356Z  wpebackend-fdo-devel       x86_64 0:1.16.1-1.fc44                  copr:copr.fedorainfracloud.org:philn:wpewebkit  45.4 KiB
+2026-10-07T12:38:56.2842940Z  wpewebkit-devel            x86_64 0:2.54.1-1.fc44                  copr:copr.fedorainfracloud.org:philn:wpewebkit 682.1 KiB
+2026-10-07T12:38:56.2843748Z Installing dependencies:
+2026-10-07T12:38:56.2844299Z  abattis-cantarell-vf-fonts noarch 0:0.301-17.fc44                  fedora                                         192.7 KiB
+2026-10-07T12:38:56.2845091Z  alsa-lib                   x86_64 0:1.2.16.1-1.fc44                updates                                          1.5 MiB
+2026-10-07T12:38:56.2845808Z  at-spi2-atk                x86_64 0:2.60.7-1.fc44                  updates                                        284.1 KiB
+2026-10-07T12:38:56.2846543Z  at-spi2-core               x86_64 0:2.60.7-1.fc44                  updates                                          1.6 MiB
+2026-10-07T12:38:56.2847271Z  atk                        x86_64 0:2.60.7-1.fc44                  updates                                        252.5 KiB
+2026-10-07T12:38:56.2847946Z  brotli                     x86_64 0:1.2.0-3.fc44                   fedora                                          33.4 KiB
+2026-10-07T12:38:56.2848651Z  brotli-devel               x86_64 0:1.2.0-3.fc44                   fedora                                          65.9 KiB
+2026-10-07T12:38:56.2849367Z  bubblewrap                 x86_64 0:0.12.0-1.fc44                  updates                                        139.8 KiB
+2026-10-07T12:38:56.2850247Z  cairo                      x86_64 0:1.18.6-1.fc44                  updates                                          1.8 MiB
+2026-10-07T12:38:56.2850844Z  cdparanoia-libs            x86_64 0:10.2-50.fc44                   fedora                                         113.3 KiB
+2026-10-07T12:38:56.2851601Z  dbus                       x86_64 1:1.16.2-1.fc44                  fedora                                           0.0   B
+2026-10-07T12:38:56.2852208Z  default-fonts-core-sans    noarch 0:4.3-1.fc44                     fedora                                          11.9 KiB
+2026-10-07T12:38:56.2852814Z  duktape                    x86_64 0:2.7.0-11.fc44                  fedora                                         623.6 KiB
+2026-10-07T12:38:56.2853371Z  enchant2                   x86_64 0:2.8.21-1.fc44                  updates                                        245.7 KiB
+2026-10-07T12:38:56.2853931Z  flac-libs                  x86_64 0:1.5.0-8.fc44                   fedora                                         627.3 KiB
+2026-10-07T12:38:56.2854486Z  flite                      x86_64 0:2.2-13.fc44                    fedora                                          21.5 MiB
+2026-10-07T12:38:56.2855047Z  fontconfig                 x86_64 0:2.17.0-4.fc44                  fedora                                         776.4 KiB
+2026-10-07T12:38:56.2855641Z  fonts-filesystem           noarch 1:5.0.0-2.fc44                   fedora                                           0.0   B
+2026-10-07T12:38:56.2856242Z  freetype                   x86_64 0:2.14.3-1.fc44                  updates                                        918.3 KiB
+2026-10-07T12:38:56.2856807Z  fribidi                    x86_64 0:1.0.16-4.fc44                  fedora                                         190.0 KiB
+2026-10-07T12:38:56.2857384Z  glib-networking            x86_64 0:2.80.1-4.fc44                  fedora                                         750.4 KiB
+2026-10-07T12:38:56.2858222Z  glib2-devel                x86_64 0:2.88.3-1.fc44                  updates                                         15.8 MiB
+2026-10-07T12:38:56.2859743Z  google-noto-fonts-common   noarch 0:20251201-2.fc44                fedora                                          17.7 KiB
+2026-10-07T12:38:56.2861331Z  google-noto-sans-vf-fonts  noarch 0:20251201-2.fc44                fedora                                           1.4 MiB
+2026-10-07T12:38:56.2862420Z  graphene                   x86_64 0:1.10.8-4.fc44                  fedora                                         158.3 KiB
+2026-10-07T12:38:56.2862999Z  graphite2                  x86_64 0:1.3.14-20.fc44                 fedora                                         191.5 KiB
+2026-10-07T12:38:56.2863797Z  gsettings-desktop-schemas  x86_64 0:50.1-1.fc44                    updates                                          6.1 MiB
+2026-10-07T12:38:56.2864416Z  gsm                        x86_64 0:1.0.24-2.fc44                  fedora                                          65.7 KiB
+2026-10-07T12:38:56.2864993Z  gstreamer1                 x86_64 0:1.28.7-1.fc44                  updates                                          5.5 MiB
+2026-10-07T12:38:56.2865608Z  gstreamer1-plugins-base    x86_64 0:1.28.7-1.fc44                  updates                                          7.5 MiB
+2026-10-07T12:38:56.2866217Z  harfbuzz                   x86_64 0:14.1.0-2.fc44                  updates                                          2.8 MiB
+2026-10-07T12:38:56.2866790Z  harfbuzz-icu               x86_64 0:14.1.0-2.fc44                  updates                                         15.2 KiB
+2026-10-07T12:38:56.2867359Z  hidapi                     x86_64 0:0.15.0-3.fc44                  fedora                                         110.2 KiB
+2026-10-07T12:38:56.2867909Z  highway                    x86_64 0:1.3.0-2.fc44                   fedora                                           5.5 MiB
+2026-10-07T12:38:56.2868474Z  hunspell                   x86_64 0:1.7.4-2.fc44                   updates                                          1.3 MiB
+2026-10-07T12:38:56.2869074Z  hunspell-en-AU             noarch 0:0.20260225-2.fc44              updates                                        502.1 KiB
+2026-10-07T12:38:56.2870209Z  hunspell-en-CA             noarch 0:0.20260225-2.fc44              updates                                        499.6 KiB
+2026-10-07T12:38:56.2870925Z  hunspell-en-GB             noarch 0:0.20260225-2.fc44              updates                                        543.2 KiB
+2026-10-07T12:38:56.2871567Z  hunspell-en-US             noarch 0:0.20260225-2.fc44              updates                                        506.7 KiB
+2026-10-07T12:38:56.2872201Z  hunspell-filesystem        x86_64 0:1.7.4-2.fc44                   updates                                          0.0   B
+2026-10-07T12:38:56.2872791Z  hyphen                     x86_64 0:2.8.8-28.fc44                  fedora                                          51.5 KiB
+2026-10-07T12:38:56.2873347Z  iso-codes                  noarch 0:4.20.1-3.fc44                  fedora                                          22.3 MiB
+2026-10-07T12:38:56.2873933Z  keyutils-libs-devel        x86_64 0:1.6.3-7.fc44                   fedora                                          48.2 KiB
+2026-10-07T12:38:56.2874529Z  krb5-devel                 x86_64 0:1.22.2-4.fc44                  updates                                        709.9 KiB
+2026-10-07T12:38:56.2875091Z  lame-libs                  x86_64 0:3.100-21.fc44                  fedora                                           1.2 MiB
+2026-10-07T12:38:56.2875645Z  lcms2                      x86_64 0:2.16-7.fc44                    fedora                                         445.7 KiB
+2026-10-07T12:38:56.2876184Z  libX11                     x86_64 0:1.8.13-3.fc44                  updates                                          1.3 MiB
+2026-10-07T12:38:56.2876760Z  libX11-common              noarch 0:1.8.13-3.fc44                  updates                                          1.1 MiB
+2026-10-07T12:38:56.2877342Z  libX11-devel               x86_64 0:1.8.13-3.fc44                  updates                                          1.0 MiB
+2026-10-07T12:38:56.2877917Z  libXau-devel               x86_64 0:1.0.12-4.fc44                  fedora                                           7.3 KiB
+2026-10-07T12:38:56.2878479Z  libXext                    x86_64 0:1.3.6-5.fc44                   fedora                                          89.8 KiB
+2026-10-07T12:38:56.2879022Z  libXft                     x86_64 0:2.3.8-10.fc44                  fedora                                         168.3 KiB
+2026-10-07T12:38:56.2879684Z  libXi                      x86_64 0:1.8.3-1.fc44                   updates                                         80.6 KiB
+2026-10-07T12:38:56.2880577Z  libXrender                 x86_64 0:0.9.12-4.fc44                  fedora                                          49.9 KiB
+2026-10-07T12:38:56.2881143Z  libXtst                    x86_64 0:1.2.5-4.fc44                   fedora                                          33.4 KiB
+2026-10-07T12:38:56.2881683Z  libXv                      x86_64 0:1.0.13-4.fc44                  fedora                                          25.9 KiB
+2026-10-07T12:38:56.2882234Z  libXxf86vm                 x86_64 0:1.1.6-4.fc44                   fedora                                          25.1 KiB
+2026-10-07T12:38:56.2882787Z  libaom                     x86_64 0:3.13.3-1.fc44                  updates                                          5.1 MiB
+2026-10-07T12:38:56.2883345Z  libasyncns                 x86_64 0:0.8-34.fc44                    updates                                         55.4 KiB
+2026-10-07T12:38:56.2883913Z  libavif                    x86_64 0:1.3.0-4.fc44                   fedora                                         265.8 KiB
+2026-10-07T12:38:56.2884484Z  libblkid-devel             x86_64 0:2.41.5-1.fc44                  updates                                         44.9 KiB
+2026-10-07T12:38:56.2885077Z  libcom_err-devel           x86_64 0:1.47.3-4.fc44                  fedora                                          16.7 KiB
+2026-10-07T12:38:56.2885654Z  libdatrie                  x86_64 0:0.2.14-2.fc44                  fedora                                          61.7 KiB
+2026-10-07T12:38:56.2886344Z  libdav1d                   x86_64 0:1.5.4-1.fc44                   updates                                          1.8 MiB
+2026-10-07T12:38:56.2887065Z  libepoxy                   x86_64 0:1.5.10-12.fc44                 fedora                                           1.1 MiB
+2026-10-07T12:38:56.2887643Z  libevdev                   x86_64 0:1.13.7-1.fc44                  updates                                         89.9 KiB
+2026-10-07T12:38:56.2888222Z  libffi-devel               x86_64 0:3.5.2-2.fc44                   fedora                                          33.9 KiB
+2026-10-07T12:38:56.2888792Z  libglvnd                   x86_64 1:1.7.0-9.fc44                   fedora                                         526.5 KiB
+2026-10-07T12:38:56.2889375Z  libglvnd-core-devel        x86_64 1:1.7.0-9.fc44                   fedora                                          40.3 KiB
+2026-10-07T12:38:56.2890323Z  libglvnd-devel             x86_64 1:1.7.0-9.fc44                   fedora                                           2.1 MiB
+2026-10-07T12:38:56.2890920Z  libglvnd-egl               x86_64 1:1.7.0-9.fc44                   fedora                                          68.6 KiB
+2026-10-07T12:38:56.2891494Z  libglvnd-gles              x86_64 1:1.7.0-9.fc44                   fedora                                          97.7 KiB
+2026-10-07T12:38:56.2892081Z  libglvnd-glx               x86_64 1:1.7.0-9.fc44                   fedora                                         601.0 KiB
+2026-10-07T12:38:56.2892663Z  libglvnd-opengl            x86_64 1:1.7.0-9.fc44                   fedora                                         144.7 KiB
+2026-10-07T12:38:56.2893233Z  libgudev                   x86_64 0:238-9.fc44                     fedora                                          91.7 KiB
+2026-10-07T12:38:56.2893778Z  libicu                     x86_64 0:77.1-3.fc44                    updates                                         36.6 MiB
+2026-10-07T12:38:56.2894332Z  libinput                   x86_64 0:1.31.3-1.fc44                  updates                                        701.6 KiB
+2026-10-07T12:38:56.2894901Z  libjpeg-turbo              x86_64 0:3.1.3-1.fc44                   fedora                                         818.2 KiB
+2026-10-07T12:38:56.2895468Z  libjxl                     x86_64 1:0.11.2-1.fc44                  updates                                          4.1 MiB
+2026-10-07T12:38:56.2896165Z  libkadm5                   x86_64 0:1.22.2-4.fc44                  updates                                        217.8 KiB
+2026-10-07T12:38:56.2896727Z  libmanette                 x86_64 0:0.2.13-2.fc44                  fedora                                         367.2 KiB
+2026-10-07T12:38:56.2897301Z  libmount-devel             x86_64 0:2.41.5-1.fc44                  updates                                         65.5 KiB
+2026-10-07T12:38:56.2897904Z  libnghttp2-devel           x86_64 0:1.68.0-5.fc44                  updates                                        288.0 KiB
+2026-10-07T12:38:56.2898500Z  libogg                     x86_64 2:1.3.6-2.fc44                   fedora                                          45.6 KiB
+2026-10-07T12:38:56.2899050Z  libpng                     x86_64 2:1.6.58-1.fc44                  updates                                        249.6 KiB
+2026-10-07T12:38:56.2899602Z  libproxy                   x86_64 0:0.5.12-2.fc44                  fedora                                         102.1 KiB
+2026-10-07T12:38:56.2900310Z  libpsl-devel               x86_64 0:0.21.5-7.fc44                  fedora                                         110.2 KiB
+2026-10-07T12:38:56.2900876Z  libseccomp                 x86_64 0:2.6.1-2.fc44                   updates                                        222.2 KiB
+2026-10-07T12:38:56.2901459Z  libselinux-devel           x86_64 0:3.11-2.fc44                    updates                                        121.9 KiB
+2026-10-07T12:38:56.2902166Z  libsepol-devel             x86_64 0:3.11-1.fc44                    updates                                        120.7 KiB
+2026-10-07T12:38:56.2902747Z  libsndfile                 x86_64 0:1.2.2-11.fc44                  fedora                                         553.9 KiB
+2026-10-07T12:38:56.2903287Z Total size of inbound packages is 107 MiB. Need to download 107 MiB.
+2026-10-07T12:38:56.2903772Z After this operation, 358 MiB extra will be used (install 358 MiB, remove 205 KiB).
+2026-10-07T12:38:56.2904321Z  libsoup3                   x86_64 0:3.6.6-10.fc44                  updates                                          1.2 MiB
+2026-10-07T12:38:56.2904900Z  libsoup3-devel             x86_64 0:3.6.6-10.fc44                  updates                                          1.0 MiB
+2026-10-07T12:38:56.2905472Z  libthai                    x86_64 0:0.1.30-2.fc44                  fedora                                         800.9 KiB
+2026-10-07T12:38:56.2906031Z  libtheora                  x86_64 1:1.1.1-41.fc44                  fedora                                         480.9 KiB
+2026-10-07T12:38:56.2906605Z  libverto-devel             x86_64 0:0.3.2-12.fc44                  fedora                                          25.7 KiB
+2026-10-07T12:38:56.2907172Z  libvisual                  x86_64 1:0.4.2-4.fc44                   fedora                                         464.5 KiB
+2026-10-07T12:38:56.2907727Z  libvmaf                    x86_64 0:3.0.0-5.fc44                   fedora                                         846.8 KiB
+2026-10-07T12:38:56.2908278Z  libvorbis                  x86_64 1:1.3.7-14.fc44                  fedora                                         837.0 KiB
+2026-10-07T12:38:56.2908836Z  libwacom                   x86_64 0:2.19.0-1.fc44                  updates                                        114.0 KiB
+2026-10-07T12:38:56.2909411Z  libwacom-data              noarch 0:2.19.0-1.fc44                  updates                                          1.4 MiB
+2026-10-07T12:38:56.2910299Z  libwayland-cursor          x86_64 0:1.26.0-1.fc44                  updates                                         37.2 KiB
+2026-10-07T12:38:56.2910904Z  libwayland-egl             x86_64 0:1.26.0-1.fc44                  updates                                         12.3 KiB
+2026-10-07T12:38:56.2911501Z  libwayland-server          x86_64 0:1.26.0-1.fc44                  updates                                         86.5 KiB
+2026-10-07T12:38:56.2912212Z  libwebp                    x86_64 0:1.6.0-3.fc44                   fedora                                         968.0 KiB
+2026-10-07T12:38:56.2912799Z  libwpe                     x86_64 0:1.16.3-1.fc44                  copr:copr.fedorainfracloud.org:philn:wpewebkit  54.9 KiB
+2026-10-07T12:38:56.2913392Z  libxcb-devel               x86_64 0:1.17.0-7.fc44                  fedora                                           2.6 MiB
+2026-10-07T12:38:56.2913973Z  libxkbcommon               x86_64 0:1.13.1-2.fc44                  fedora                                         432.2 KiB
+2026-10-07T12:38:56.2914569Z  libxkbcommon-devel         x86_64 0:1.13.1-2.fc44                  fedora                                         393.4 KiB
+2026-10-07T12:38:56.2918195Z  libxml2-devel              x86_64 0:2.12.10-6.fc44                 fedora                                           3.4 MiB
+2026-10-07T12:38:56.2918956Z  libxslt                    x86_64 0:1.1.43-6.fc44                  fedora                                         471.8 KiB
+2026-10-07T12:38:56.2919594Z  libyuv                     x86_64 0:0-0.61.20260213git6067afd.fc44 fedora                                         683.7 KiB
+2026-10-07T12:38:56.2920324Z  lzo                        x86_64 0:2.10-16.fc44                   fedora                                         174.8 KiB
+2026-10-07T12:38:56.2920900Z  mesa-libEGL                x86_64 0:26.2.3-1.fc44                  updates                                        398.4 KiB
+2026-10-07T12:38:56.2921706Z  mesa-libGL                 x86_64 0:26.2.3-1.fc44                  updates                                        374.1 KiB
+2026-10-07T12:38:56.2922576Z  mpg123-libs                x86_64 0:1.32.10-3.fc44                 fedora                                         825.7 KiB
+2026-10-07T12:38:56.2923503Z  mtdev                      x86_64 0:1.1.6-12.fc44                  fedora                                          29.1 KiB
+2026-10-07T12:38:56.2924184Z  opus                       x86_64 0:1.6-2.fc44                     fedora                                         467.7 KiB
+2026-10-07T12:38:56.2924807Z  orc                        x86_64 0:0.4.41-3.fc44                  fedora                                         721.9 KiB
+2026-10-07T12:38:56.2925650Z  pango                      x86_64 0:1.57.1-1.fc44                  fedora                                           1.0 MiB
+2026-10-07T12:38:56.2926698Z  pcre2-devel                x86_64 0:10.47-1.fc44.1                 fedora                                           2.1 MiB
+2026-10-07T12:38:56.2927295Z  pcre2-utf16                x86_64 0:10.47-1.fc44.1                 fedora                                         655.2 KiB
+2026-10-07T12:38:56.2928123Z  pcre2-utf32                x86_64 0:10.47-1.fc44.1                 fedora                                         623.1 KiB
+2026-10-07T12:38:56.2929116Z  pixman                     x86_64 0:0.46.2-3.fc44                  fedora                                         718.2 KiB
+2026-10-07T12:38:56.2930323Z  publicsuffix-list          noarch 0:20260116-1.fc44                fedora                                         342.2 KiB
+2026-10-07T12:38:56.2930972Z  pulseaudio-libs            x86_64 0:17.0-9.fc44                    fedora                                           3.4 MiB
+2026-10-07T12:38:56.2931587Z  python3-packaging          noarch 0:25.0-8.fc44                    fedora                                         607.4 KiB
+2026-10-07T12:38:56.2932187Z  rav1e-libs                 x86_64 0:0.8.1-3.fc44                   fedora                                           3.1 MiB
+2026-10-07T12:38:56.2932791Z  shared-mime-info           x86_64 0:2.4-3.fc44                     fedora                                           5.2 MiB
+2026-10-07T12:38:56.2933372Z  sqlite                     x86_64 0:3.51.2-2.fc44                  updates                                          1.9 MiB
+2026-10-07T12:38:56.2933939Z  sqlite-devel               x86_64 0:3.51.2-2.fc44                  updates                                        694.0 KiB
+2026-10-07T12:38:56.2934715Z  svt-av1-libs               x86_64 0:3.1.2-2.fc44                   fedora                                           5.6 MiB
+2026-10-07T12:38:56.2935338Z  sysprof-capture-devel      x86_64 0:50.0-1.fc44                    fedora                                         813.8 KiB
+2026-10-07T12:38:56.2935992Z  wpebackend-fdo             x86_64 0:1.16.1-1.fc44                  copr:copr.fedorainfracloud.org:philn:wpewebkit 105.1 KiB
+2026-10-07T12:38:56.2936636Z  wpewebkit                  x86_64 0:2.54.1-1.fc44                  copr:copr.fedorainfracloud.org:philn:wpewebkit 129.4 MiB
+2026-10-07T12:38:56.2937259Z  xdg-dbus-proxy             x86_64 0:0.1.9-1.fc44                   updates                                         95.5 KiB
+2026-10-07T12:38:56.2937861Z  xkeyboard-config           noarch 0:2.47-1.fc44                    fedora                                           6.4 MiB
+2026-10-07T12:38:56.2938461Z  xml-common                 noarch 0:0.6.3-68.fc44                  fedora                                          78.4 KiB
+2026-10-07T12:38:56.2939072Z  xorg-x11-proto-devel       noarch 0:2025.1-2.fc44                  fedora                                           1.8 MiB
+2026-10-07T12:38:56.2939662Z  xprop                      x86_64 0:1.2.8-5.fc44                   fedora                                          54.5 KiB
+2026-10-07T12:38:56.2940470Z  xz-devel                   x86_64 1:5.8.2-2.fc44                   fedora                                         258.8 KiB
+2026-10-07T12:38:56.2941181Z  zlib-ng-compat-devel       x86_64 0:2.3.3-3.fc44                   fedora                                         107.0 KiB
+2026-10-07T12:38:56.2941641Z Installing weak dependencies:
+2026-10-07T12:38:56.2958184Z  adwaita-mono-fonts         noarch 0:50.0-1.fc44                    fedora                                           5.6 MiB
+2026-10-07T12:38:56.2959059Z  adwaita-sans-fonts         noarch 0:50.0-1.fc44                    fedora                                           1.7 MiB
+2026-10-07T12:38:56.2959712Z  hunspell-en                noarch 0:0.20260225-2.fc44              updates                                          7.1 KiB
+2026-10-07T12:38:56.2960394Z 
+2026-10-07T12:38:56.2960484Z Transaction Summary:
+2026-10-07T12:38:56.2960710Z  Installing:       148 packages
+2026-10-07T12:38:56.2960960Z  Upgrading:          1 package
+2026-10-07T12:38:56.2961199Z  Replacing:          1 package
+2026-10-07T12:38:56.2961363Z 
+2026-10-07T12:38:57.3845014Z [  1/149] libwpe-devel-0:1.16.3-1.fc44. 100% |   2.8 MiB/s |  45.4 KiB |  00m00s
+2026-10-07T12:38:57.3856686Z [  2/149] wpebackend-fdo-devel-0:1.16.1 100% | 884.2 KiB/s |  15.0 KiB |  00m00s
+2026-10-07T12:38:57.3868359Z [  3/149] wpewebkit-devel-0:2.54.1-1.fc 100% |   5.3 MiB/s | 102.3 KiB |  00m00s
+2026-10-07T12:38:57.3940247Z [  4/149] libwpe-0:1.16.3-1.fc44.x86_64 100% |   3.5 MiB/s |  28.6 KiB |  00m00s
+2026-10-07T12:38:57.3959716Z [  5/149] wpebackend-fdo-0:1.16.1-1.fc4 100% |   5.9 MiB/s |  48.3 KiB |  00m00s
+2026-10-07T12:38:57.5525319Z [  6/149] wpewebkit-0:2.54.1-1.fc44.x86 100% | 234.5 MiB/s |  39.2 MiB |  00m00s
+2026-10-07T12:38:57.7748518Z [  7/149] hyphen-0:2.8.8-28.fc44.x86_64 100% | 137.1 KiB/s |  29.6 KiB |  00m00s
+2026-10-07T12:38:57.8650032Z [  8/149] fontconfig-0:2.17.0-4.fc44.x8 100% | 594.4 KiB/s | 278.2 KiB |  00m00s
+2026-10-07T12:38:57.9399976Z [  9/149] libavif-0:1.3.0-4.fc44.x86_64 100% |   1.7 MiB/s | 125.8 KiB |  00m00s
+2026-10-07T12:38:57.9825384Z [ 10/149] lcms2-0:2.16-7.fc44.x86_64    100% | 924.4 KiB/s | 191.4 KiB |  00m00s
+2026-10-07T12:38:58.0531365Z [ 11/149] libepoxy-0:1.5.10-12.fc44.x86 100% |   2.0 MiB/s | 230.4 KiB |  00m00s
+2026-10-07T12:38:58.1081057Z [ 12/149] libjpeg-turbo-0:3.1.3-1.fc44. 100% |   1.9 MiB/s | 243.4 KiB |  00m00s
+2026-10-07T12:38:58.1121803Z [ 13/149] libmanette-0:0.2.13-2.fc44.x8 100% |   1.1 MiB/s |  67.8 KiB |  00m00s
+2026-10-07T12:38:58.1839422Z [ 14/149] libxkbcommon-0:1.13.1-2.fc44. 100% |   2.6 MiB/s | 185.8 KiB |  00m00s
+2026-10-07T12:38:58.2227523Z [ 15/149] libwebp-0:1.6.0-3.fc44.x86_64 100% |   2.8 MiB/s | 329.9 KiB |  00m00s
+2026-10-07T12:38:58.2555171Z [ 16/149] libxslt-0:1.1.43-6.fc44.x86_6 100% |   2.7 MiB/s | 192.7 KiB |  00m00s
+2026-10-07T12:38:58.3113743Z [ 17/149] default-fonts-core-sans-0:4.3 100% | 531.4 KiB/s |  29.2 KiB |  00m00s
+2026-10-07T12:38:58.3439307Z [ 18/149] pulseaudio-libs-0:17.0-9.fc44 100% |   5.7 MiB/s | 705.3 KiB |  00m00s
+2026-10-07T12:38:58.3650036Z [ 19/149] fonts-filesystem-1:5.0.0-2.fc 100% | 167.9 KiB/s |   8.9 KiB |  00m00s
+2026-10-07T12:38:58.3874212Z [ 20/149] flite-0:2.2-13.fc44.x86_64    100% |  12.6 MiB/s |  12.5 MiB |  00m01s
+2026-10-07T12:38:58.3953522Z [ 21/149] xml-common-0:0.6.3-68.fc44.no 100% | 622.6 KiB/s |  31.1 KiB |  00m00s
+2026-10-07T12:38:58.4393402Z [ 22/149] libyuv-0:0-0.61.20260213git60 100% |   2.8 MiB/s | 209.3 KiB |  00m00s
+2026-10-07T12:38:58.4479873Z [ 23/149] rav1e-libs-0:0.8.1-3.fc44.x86 100% |  17.8 MiB/s |   1.1 MiB |  00m00s
+2026-10-07T12:38:58.4968419Z [ 24/149] hidapi-0:0.15.0-3.fc44.x86_64 100% | 857.1 KiB/s |  48.0 KiB |  00m00s
+2026-10-07T12:38:58.5001389Z [ 25/149] libgudev-0:238-9.fc44.x86_64  100% | 690.1 KiB/s |  35.2 KiB |  00m00s
+2026-10-07T12:38:58.5531600Z [ 26/149] libsndfile-0:1.2.2-11.fc44.x8 100% |   4.2 MiB/s | 224.1 KiB |  00m00s
+2026-10-07T12:38:58.5594821Z [ 27/149] svt-av1-libs-0:3.1.2-2.fc44.x 100% |  12.4 MiB/s |   2.0 MiB |  00m00s
+2026-10-07T12:38:58.6056981Z [ 28/149] abattis-cantarell-vf-fonts-0: 100% |   2.3 MiB/s | 120.4 KiB |  00m00s
+2026-10-07T12:38:58.6218295Z [ 29/149] google-noto-sans-vf-fonts-0:2 100% |   9.8 MiB/s | 614.9 KiB |  00m00s
+2026-10-07T12:38:58.6585598Z [ 30/149] flac-libs-0:1.5.0-8.fc44.x86_ 100% |   4.2 MiB/s | 225.7 KiB |  00m00s
+2026-10-07T12:38:58.6653264Z [ 31/149] xkeyboard-config-0:2.47-1.fc4 100% |   5.8 MiB/s |   1.0 MiB |  00m00s
+2026-10-07T12:38:58.6730732Z [ 32/149] gsm-0:1.0.24-2.fc44.x86_64    100% | 720.5 KiB/s |  36.0 KiB |  00m00s
+2026-10-07T12:38:58.7119882Z [ 33/149] lame-libs-0:3.100-21.fc44.x86 100% |   6.3 MiB/s | 341.0 KiB |  00m00s
+2026-10-07T12:38:58.7191898Z [ 34/149] libogg-2:1.3.6-2.fc44.x86_64  100% | 632.0 KiB/s |  33.5 KiB |  00m00s
+2026-10-07T12:38:58.7265230Z [ 35/149] libvorbis-1:1.3.7-14.fc44.x86 100% |   3.5 MiB/s | 191.0 KiB |  00m00s
+2026-10-07T12:38:58.7657030Z [ 36/149] mpg123-libs-0:1.32.10-3.fc44. 100% |   6.7 MiB/s | 362.3 KiB |  00m00s
+2026-10-07T12:38:58.7777281Z [ 37/149] google-noto-fonts-common-0:20 100% | 354.7 KiB/s |  17.7 KiB |  00m00s
+2026-10-07T12:38:58.7813238Z [ 38/149] opus-0:1.6-2.fc44.x86_64      100% |   4.1 MiB/s | 255.4 KiB |  00m00s
+2026-10-07T12:38:58.8303779Z [ 39/149] python3-packaging-0:25.0-8.fc 100% |   3.0 MiB/s | 161.2 KiB |  00m00s
+2026-10-07T12:38:59.1979683Z [ 40/149] libsoup3-devel-0:3.6.6-10.fc4 100% | 302.6 KiB/s | 125.9 KiB |  00m00s
+2026-10-07T12:38:59.2507459Z [ 41/149] glib-networking-0:2.80.1-4.fc 100% |   3.8 MiB/s | 202.9 KiB |  00m00s
+2026-10-07T12:38:59.3344919Z [ 42/149] libsoup3-0:3.6.6-10.fc44.x86_ 100% | 812.0 KiB/s | 408.4 KiB |  00m01s
+2026-10-07T12:38:59.3369980Z [ 43/149] libproxy-0:0.5.12-2.fc44.x86_ 100% | 528.2 KiB/s |  45.4 KiB |  00m00s
+2026-10-07T12:38:59.4067423Z [ 44/149] duktape-0:2.7.0-11.fc44.x86_6 100% |   2.4 MiB/s | 172.0 KiB |  00m00s
+2026-10-07T12:38:59.4212071Z [ 45/149] at-spi2-atk-0:2.60.7-1.fc44.x 100% |   1.1 MiB/s |  89.6 KiB |  00m00s
+2026-10-07T12:38:59.5045954Z [ 46/149] atk-0:2.60.7-1.fc44.x86_64    100% | 993.0 KiB/s |  82.4 KiB |  00m00s
+2026-10-07T12:38:59.5563011Z [ 47/149] dbus-1:1.16.2-1.fc44.x86_64   100% | 146.5 KiB/s |   7.5 KiB |  00m00s
+2026-10-07T12:38:59.5680732Z [ 48/149] at-spi2-core-0:2.60.7-1.fc44. 100% |   2.4 MiB/s | 402.1 KiB |  00m00s
+2026-10-07T12:38:59.6081361Z [ 49/149] libXtst-0:1.2.5-4.fc44.x86_64 100% | 412.2 KiB/s |  21.0 KiB |  00m00s
+2026-10-07T12:38:59.6224506Z [ 50/149] xprop-0:1.2.8-5.fc44.x86_64   100% | 653.7 KiB/s |  35.3 KiB |  00m00s
+2026-10-07T12:38:59.6574058Z [ 51/149] glib2-devel-0:2.88.3-1.fc44.x 100% |   1.7 MiB/s |   1.5 MiB |  00m01s
+2026-10-07T12:38:59.6600263Z [ 52/149] libXext-0:1.3.6-5.fc44.x86_64 100% | 798.4 KiB/s |  40.7 KiB |  00m00s
+2026-10-07T12:38:59.7082424Z [ 53/149] bubblewrap-0:0.12.0-1.fc44.x8 100% | 787.3 KiB/s |  66.9 KiB |  00m00s
+2026-10-07T12:38:59.7453032Z [ 54/149] enchant2-0:2.8.21-1.fc44.x86_ 100% |   1.1 MiB/s |  95.4 KiB |  00m00s
+2026-10-07T12:38:59.8158600Z [ 55/149] freetype-0:2.14.3-1.fc44.x86_ 100% |   2.8 MiB/s | 444.0 KiB |  00m00s
+2026-10-07T12:38:59.8678401Z [ 56/149] cdparanoia-libs-0:10.2-50.fc4 100% |   1.1 MiB/s |  56.0 KiB |  00m00s
+2026-10-07T12:38:59.9202637Z [ 57/149] graphene-0:1.10.8-4.fc44.x86_ 100% |   1.1 MiB/s |  60.9 KiB |  00m00s
+2026-10-07T12:38:59.9908647Z [ 58/149] gstreamer1-plugins-base-0:1.2 100% |   9.6 MiB/s |   2.4 MiB |  00m00s
+2026-10-07T12:39:00.0009958Z [ 59/149] iso-codes-0:4.20.1-3.fc44.noa 100% |  49.4 MiB/s |   4.0 MiB |  00m00s
+2026-10-07T12:39:00.0453392Z [ 60/149] libXv-0:1.0.13-4.fc44.x86_64  100% | 352.2 KiB/s |  18.7 KiB |  00m00s
+2026-10-07T12:39:00.0532611Z [ 61/149] libglvnd-egl-1:1.7.0-9.fc44.x 100% | 729.4 KiB/s |  37.2 KiB |  00m00s
+2026-10-07T12:39:00.1038114Z [ 62/149] libglvnd-glx-1:1.7.0-9.fc44.x 100% |   2.2 MiB/s | 132.5 KiB |  00m00s
+2026-10-07T12:39:00.1055473Z [ 63/149] libtheora-1:1.1.1-41.fc44.x86 100% |   3.2 MiB/s | 170.0 KiB |  00m00s
+2026-10-07T12:39:00.1502506Z [ 64/149] gstreamer1-0:1.28.7-1.fc44.x8 100% |   3.9 MiB/s |   1.7 MiB |  00m00s
+2026-10-07T12:39:00.1752083Z [ 65/149] orc-0:0.4.41-3.fc44.x86_64    100% |   3.2 MiB/s | 224.2 KiB |  00m00s
+2026-10-07T12:39:00.1805863Z [ 66/149] libvisual-1:0.4.2-4.fc44.x86_ 100% |   2.0 MiB/s | 158.5 KiB |  00m00s
+2026-10-07T12:39:00.2071933Z [ 67/149] pango-0:1.57.1-1.fc44.x86_64  100% |   6.4 MiB/s | 366.1 KiB |  00m00s
+2026-10-07T12:39:00.2273803Z [ 68/149] libglvnd-1:1.7.0-9.fc44.x86_6 100% |   2.2 MiB/s | 114.7 KiB |  00m00s
+2026-10-07T12:39:00.2373293Z [ 69/149] fribidi-0:1.0.16-4.fc44.x86_6 100% | 960.0 KiB/s |  53.8 KiB |  00m00s
+2026-10-07T12:39:00.2592322Z [ 70/149] libXft-0:2.3.8-10.fc44.x86_64 100% |   1.4 MiB/s |  74.3 KiB |  00m00s
+2026-10-07T12:39:00.2791064Z [ 71/149] libXrender-0:0.9.12-4.fc44.x8 100% | 546.8 KiB/s |  27.9 KiB |  00m00s
+2026-10-07T12:39:00.2983327Z [ 72/149] libthai-0:0.1.30-2.fc44.x86_6 100% |   3.5 MiB/s | 216.1 KiB |  00m00s
+2026-10-07T12:39:00.3104836Z [ 73/149] libdatrie-0:0.2.14-2.fc44.x86 100% | 661.1 KiB/s |  33.1 KiB |  00m00s
+2026-10-07T12:39:00.3513019Z [ 74/149] graphite2-0:1.3.14-20.fc44.x8 100% |   1.8 MiB/s |  96.5 KiB |  00m00s
+2026-10-07T12:39:00.3876406Z [ 75/149] harfbuzz-icu-0:14.1.0-2.fc44. 100% | 218.4 KiB/s |  16.6 KiB |  00m00s
+2026-10-07T12:39:00.3909158Z [ 76/149] harfbuzz-0:14.1.0-2.fc44.x86_ 100% |   9.9 MiB/s |   1.1 MiB |  00m00s
+2026-10-07T12:39:00.4428037Z [ 77/149] mtdev-0:1.1.6-12.fc44.x86_64  100% | 415.4 KiB/s |  21.2 KiB |  00m00s
+2026-10-07T12:39:00.4842352Z [ 78/149] libinput-0:1.31.3-1.fc44.x86_ 100% |   2.8 MiB/s | 277.8 KiB |  00m00s
+2026-10-07T12:39:00.5434363Z [ 79/149] highway-0:1.3.0-2.fc44.x86_64 100% |  11.7 MiB/s | 694.6 KiB |  00m00s
+2026-10-07T12:39:00.5980142Z [ 80/149] shared-mime-info-0:2.4-3.fc44 100% |   7.3 MiB/s | 402.0 KiB |  00m00s
+2026-10-07T12:39:00.6080035Z [ 81/149] libjxl-1:0.11.2-1.fc44.x86_64 100% |   7.4 MiB/s |   1.2 MiB |  00m00s
+2026-10-07T12:39:00.6902985Z [ 82/149] libpng-2:1.6.58-1.fc44.x86_64 100% |   1.4 MiB/s | 129.5 KiB |  00m00s
+2026-10-07T12:39:00.6913196Z [ 83/149] libseccomp-0:2.6.1-2.fc44.x86 100% | 915.3 KiB/s |  76.0 KiB |  00m00s
+2026-10-07T12:39:00.7680233Z [ 84/149] libwayland-egl-0:1.26.0-1.fc4 100% | 161.2 KiB/s |  12.4 KiB |  00m00s
+2026-10-07T12:39:00.7702899Z [ 85/149] libwayland-server-0:1.26.0-1. 100% | 564.1 KiB/s |  44.0 KiB |  00m00s
+2026-10-07T12:39:00.8230611Z [ 86/149] libglvnd-devel-1:1.7.0-9.fc44 100% |   3.0 MiB/s | 162.1 KiB |  00m00s
+2026-10-07T12:39:00.8506060Z [ 87/149] xdg-dbus-proxy-0:0.1.9-1.fc44 100% | 577.5 KiB/s |  47.4 KiB |  00m00s
+2026-10-07T12:39:00.8746276Z [ 88/149] libglvnd-core-devel-1:1.7.0-9 100% | 338.1 KiB/s |  17.2 KiB |  00m00s
+2026-10-07T12:39:00.9047567Z [ 89/149] libglvnd-gles-1:1.7.0-9.fc44. 100% | 539.7 KiB/s |  28.6 KiB |  00m00s
+2026-10-07T12:39:00.9263681Z [ 90/149] libglvnd-opengl-1:1.7.0-9.fc4 100% | 728.5 KiB/s |  37.2 KiB |  00m00s
+2026-10-07T12:39:00.9608391Z [ 91/149] libxkbcommon-devel-0:1.13.1-2 100% |   1.3 MiB/s |  74.8 KiB |  00m00s
+2026-10-07T12:39:00.9862908Z [ 92/149] libicu-0:77.1-3.fc44.x86_64   100% |  17.1 MiB/s |  10.8 MiB |  00m01s
+2026-10-07T12:39:00.9873560Z [ 93/149] brotli-devel-0:1.2.0-3.fc44.x 100% | 576.9 KiB/s |  34.6 KiB |  00m00s
+2026-10-07T12:39:01.0149226Z [ 94/149] brotli-0:1.2.0-3.fc44.x86_64  100% | 455.2 KiB/s |  24.1 KiB |  00m00s
+2026-10-07T12:39:01.0646352Z [ 95/149] libkadm5-0:1.22.2-4.fc44.x86_ 100% |   1.0 MiB/s |  80.0 KiB |  00m00s
+2026-10-07T12:39:01.0753357Z [ 96/149] krb5-devel-0:1.22.2-4.fc44.x8 100% |   1.6 MiB/s | 143.4 KiB |  00m00s
+2026-10-07T12:39:01.0944348Z [ 97/149] libnghttp2-devel-0:1.68.0-5.f 100% | 681.9 KiB/s |  53.9 KiB |  00m00s
+2026-10-07T12:39:01.1163979Z [ 98/149] libpsl-devel-0:0.21.5-7.fc44. 100% | 643.3 KiB/s |  32.8 KiB |  00m00s
+2026-10-07T12:39:01.1315913Z [ 99/149] publicsuffix-list-0:20260116- 100% |   1.6 MiB/s |  91.7 KiB |  00m00s
+2026-10-07T12:39:01.1845777Z [100/149] sysprof-capture-devel-0:50.0- 100% |   3.3 MiB/s | 174.1 KiB |  00m00s
+2026-10-07T12:39:01.1907822Z [101/149] sqlite-devel-0:3.51.2-2.fc44. 100% |   1.5 MiB/s | 152.0 KiB |  00m00s
+2026-10-07T12:39:01.2364741Z [102/149] zlib-ng-compat-devel-0:2.3.3- 100% | 747.9 KiB/s |  38.1 KiB |  00m00s
+2026-10-07T12:39:01.2653051Z [103/149] sqlite-0:3.51.2-2.fc44.x86_64 100% |   6.3 MiB/s | 961.2 KiB |  00m00s
+2026-10-07T12:39:01.2733253Z [104/149] libevdev-0:1.13.7-1.fc44.x86_ 100% | 475.7 KiB/s |  39.0 KiB |  00m00s
+2026-10-07T12:39:01.3161301Z [105/149] libwacom-0:2.19.0-1.fc44.x86_ 100% | 663.2 KiB/s |  52.4 KiB |  00m00s
+2026-10-07T12:39:01.3254676Z [106/149] keyutils-libs-devel-0:1.6.3-7 100% |   1.1 MiB/s |  59.7 KiB |  00m00s
+2026-10-07T12:39:01.3582783Z [107/149] libwacom-data-0:2.19.0-1.fc44 100% |   3.7 MiB/s | 346.9 KiB |  00m00s
+2026-10-07T12:39:01.3699125Z [108/149] libcom_err-devel-0:1.47.3-4.f 100% | 317.4 KiB/s |  16.8 KiB |  00m00s
+2026-10-07T12:39:01.4152895Z [109/149] libselinux-devel-0:3.11-2.fc4 100% |   1.7 MiB/s | 151.4 KiB |  00m00s
+2026-10-07T12:39:01.4213331Z [110/149] libverto-devel-0:0.3.2-12.fc4 100% | 282.3 KiB/s |  14.4 KiB |  00m00s
+2026-10-07T12:39:01.4383072Z [111/149] libsepol-devel-0:3.11-1.fc44. 100% | 609.9 KiB/s |  48.2 KiB |  00m00s
+2026-10-07T12:39:01.4904596Z [112/149] lzo-0:2.10-16.fc44.x86_64     100% |   1.3 MiB/s |  69.7 KiB |  00m00s
+2026-10-07T12:39:01.5099863Z [113/149] cairo-0:1.18.6-1.fc44.x86_64  100% |   8.4 MiB/s | 757.6 KiB |  00m00s
+2026-10-07T12:39:01.5167269Z [114/149] alsa-lib-0:1.2.16.1-1.fc44.x8 100% |   5.5 MiB/s | 565.7 KiB |  00m00s
+2026-10-07T12:39:01.5436325Z [115/149] pixman-0:0.46.2-3.fc44.x86_64 100% |   5.6 MiB/s | 297.4 KiB |  00m00s
+2026-10-07T12:39:01.6043312Z [116/149] libX11-0:1.8.13-3.fc44.x86_64 100% |   7.1 MiB/s | 680.0 KiB |  00m00s
+2026-10-07T12:39:01.6125094Z [117/149] libX11-common-0:1.8.13-3.fc44 100% |   1.8 MiB/s | 175.3 KiB |  00m00s
+2026-10-07T12:39:01.6492049Z [118/149] libX11-devel-0:1.8.13-3.fc44. 100% |   9.7 MiB/s |   1.0 MiB |  00m00s
+2026-10-07T12:39:01.6576620Z [119/149] xorg-x11-proto-devel-0:2025.1 100% |   5.6 MiB/s | 302.3 KiB |  00m00s
+2026-10-07T12:39:01.6946735Z [120/149] libXi-0:1.8.3-1.fc44.x86_64   100% | 509.4 KiB/s |  41.3 KiB |  00m00s
+2026-10-07T12:39:01.7093336Z [121/149] libffi-devel-0:3.5.2-2.fc44.x 100% | 582.5 KiB/s |  29.7 KiB |  00m00s
+2026-10-07T12:39:01.7256641Z [122/149] libwayland-cursor-0:1.26.0-1. 100% | 253.1 KiB/s |  19.2 KiB |  00m00s
+2026-10-07T12:39:01.7642787Z [123/149] pcre2-devel-0:10.47-1.fc44.1. 100% |  10.0 MiB/s | 550.9 KiB |  00m00s
+2026-10-07T12:39:01.7740702Z [124/149] libmount-devel-0:2.41.5-1.fc4 100% | 315.1 KiB/s |  24.9 KiB |  00m00s
+2026-10-07T12:39:01.7877811Z [125/149] pcre2-utf16-0:10.47-1.fc44.1. 100% |   4.1 MiB/s | 256.3 KiB |  00m00s
+2026-10-07T12:39:01.8207174Z [126/149] pcre2-utf32-0:10.47-1.fc44.1. 100% |   4.2 MiB/s | 242.2 KiB |  00m00s
+2026-10-07T12:39:01.8620141Z [127/149] hunspell-filesystem-0:1.7.4-2 100% | 106.3 KiB/s |   7.8 KiB |  00m00s
+2026-10-07T12:39:01.8973416Z [128/149] libasyncns-0:0.8-34.fc44.x86_ 100% | 397.2 KiB/s |  30.2 KiB |  00m00s
+2026-10-07T12:39:01.9170301Z [129/149] libxml2-devel-0:2.12.10-6.fc4 100% |   9.5 MiB/s | 523.6 KiB |  00m00s
+2026-10-07T12:39:01.9299648Z [130/149] hunspell-0:1.7.4-2.fc44.x86_6 100% |   2.8 MiB/s | 449.1 KiB |  00m00s
+2026-10-07T12:39:01.9526717Z [131/149] xz-devel-1:5.8.2-2.fc44.x86_6 100% |   1.2 MiB/s |  67.0 KiB |  00m00s
+2026-10-07T12:39:01.9819703Z [132/149] libXxf86vm-0:1.1.6-4.fc44.x86 100% | 356.1 KiB/s |  18.2 KiB |  00m00s
+2026-10-07T12:39:02.0053025Z [133/149] mesa-libGL-0:26.2.3-1.fc44.x8 100% |   1.6 MiB/s | 138.5 KiB |  00m00s
+2026-10-07T12:39:02.0493077Z [134/149] mesa-libEGL-0:26.2.3-1.fc44.x 100% |   1.4 MiB/s | 140.8 KiB |  00m00s
+2026-10-07T12:39:02.0580858Z [135/149] libvmaf-0:3.0.0-5.fc44.x86_64 100% |   3.8 MiB/s | 202.9 KiB |  00m00s
+2026-10-07T12:39:02.1023651Z [136/149] libaom-0:3.13.3-1.fc44.x86_64 100% |  15.7 MiB/s |   1.9 MiB |  00m00s
+2026-10-07T12:39:02.1532839Z [137/149] libdav1d-0:1.5.4-1.fc44.x86_6 100% |   6.3 MiB/s | 664.8 KiB |  00m00s
+2026-10-07T12:39:02.1634008Z [138/149] gsettings-desktop-schemas-0:5 100% |   8.0 MiB/s | 864.4 KiB |  00m00s
+2026-10-07T12:39:02.1884323Z [139/149] libblkid-devel-0:2.41.5-1.fc4 100% | 278.7 KiB/s |  23.7 KiB |  00m00s
+2026-10-07T12:39:02.2141721Z [140/149] libxcb-devel-0:1.17.0-7.fc44. 100% |  23.9 MiB/s |   1.4 MiB |  00m00s
+2026-10-07T12:39:02.2424261Z [141/149] libXau-devel-0:1.0.12-4.fc44. 100% | 263.3 KiB/s |  14.0 KiB |  00m00s
+2026-10-07T12:39:02.2582076Z [142/149] hunspell-en-US-0:0.20260225-2 100% |   1.8 MiB/s | 171.0 KiB |  00m00s
+2026-10-07T12:39:02.2912119Z [143/149] hunspell-en-0:0.20260225-2.fc 100% | 183.9 KiB/s |  14.0 KiB |  00m00s
+2026-10-07T12:39:02.3420064Z [144/149] hunspell-en-AU-0:0.20260225-2 100% |   1.7 MiB/s | 168.8 KiB |  00m00s
+2026-10-07T12:39:02.3522413Z [145/149] hunspell-en-CA-0:0.20260225-2 100% |   1.8 MiB/s | 168.0 KiB |  00m00s
+2026-10-07T12:39:02.3819815Z [146/149] hunspell-en-GB-0:0.20260225-2 100% |   2.4 MiB/s | 224.9 KiB |  00m00s
+2026-10-07T12:39:02.4028157Z [147/149] adwaita-mono-fonts-0:50.0-1.f 100% |  23.4 MiB/s |   1.4 MiB |  00m00s
+2026-10-07T12:39:02.4344763Z [148/149] adwaita-sans-fonts-0:50.0-1.f 100% |   9.2 MiB/s | 764.9 KiB |  00m00s
+2026-10-07T12:39:02.4714029Z [149/149] libselinux-0:3.11-2.fc44.x86_ 100% |   1.1 MiB/s | 104.3 KiB |  00m00s
+2026-10-07T12:39:02.4715001Z --------------------------------------------------------------------------------
+2026-10-07T12:39:02.4715883Z [149/149] Total                         100% |  17.3 MiB/s | 106.7 MiB |  00m06s
+2026-10-07T12:39:02.4733720Z Running transaction
+2026-10-07T12:39:02.4883236Z [150/150] https://download.copr.fedorai 100% |  75.3 KiB/s |   1.0 KiB |  00m00s
+2026-10-07T12:39:02.4884016Z --------------------------------------------------------------------------------
+2026-10-07T12:39:02.4884591Z [150/150] Total                         100% |  17.3 MiB/s | 106.7 MiB |  00m06s
+2026-10-07T12:39:02.4906425Z Importing OpenPGP key 0x1515786D:
+2026-10-07T12:39:02.4907141Z  UserID     : "philn_wpewebkit (None) <philn#wpewebkit@copr.fedorahosted.org>"
+2026-10-07T12:39:02.4907866Z  Fingerprint: 83C672C9E812DF290D74B5D12EEF412A1515786D
+2026-10-07T12:39:02.4908487Z  From       : https://download.copr.fedorainfracloud.org/results/philn/wpewebkit/pubkey.gpg
+2026-10-07T12:39:02.4943233Z The key was successfully imported.
+2026-10-07T12:39:04.0602900Z [  1/152] Verify package files          100% | 353.0   B/s | 149.0   B |  00m00s
+2026-10-07T12:39:04.0658084Z [  2/152] Prepare transaction           100% |   1.2 KiB/s | 150.0   B |  00m00s
+2026-10-07T12:39:04.0698277Z [  3/152] Installing hunspell-filesyste 100% | 189.5 KiB/s | 388.0   B |  00m00s
+2026-10-07T12:39:04.0720671Z [  4/152] Installing libglvnd-1:1.7.0-9 100% | 171.8 MiB/s | 527.8 KiB |  00m00s
+2026-10-07T12:39:04.0744949Z [  5/152] Installing libogg-2:1.3.6-2.f 100% |  23.0 MiB/s |  47.1 KiB |  00m00s
+2026-10-07T12:39:04.0776260Z [  6/152] Installing fonts-filesystem-1 100% | 384.8 KiB/s | 788.0   B |  00m00s
+2026-10-07T12:39:04.0803631Z [  7/152] Installing libpng-2:1.6.58-1. 100% |  81.7 MiB/s | 250.9 KiB |  00m00s
+2026-10-07T12:39:04.0835509Z [  8/152] Installing libevdev-0:1.13.7- 100% |  44.4 MiB/s |  91.0 KiB |  00m00s
+2026-10-07T12:39:04.0862293Z [  9/152] Installing zlib-ng-compat-dev 100% |  35.3 MiB/s | 108.6 KiB |  00m00s
+2026-10-07T12:39:04.0894984Z [ 10/152] Installing libwayland-egl-0:1 100% |   6.6 MiB/s |  13.4 KiB |  00m00s
+2026-10-07T12:39:04.0941653Z [ 11/152] Installing libgudev-0:238-9.f 100% |  30.3 MiB/s |  93.2 KiB |  00m00s
+2026-10-07T12:39:04.0998301Z [ 12/152] Installing libjpeg-turbo-0:3. 100% | 200.2 MiB/s | 819.9 KiB |  00m00s
+2026-10-07T12:39:04.1037149Z [ 13/152] Installing libvorbis-1:1.3.7- 100% | 164.0 MiB/s | 839.6 KiB |  00m00s
+2026-10-07T12:39:04.1072470Z [ 14/152] Installing hunspell-en-US-0:0 100% | 165.2 MiB/s | 507.4 KiB |  00m00s
+2026-10-07T12:39:04.1274056Z [ 15/152] Upgrading libselinux-0:3.11-2 100% |  50.4 MiB/s | 206.5 KiB |  00m00s
+2026-10-07T12:39:04.1346184Z [ 16/152] Installing xorg-x11-proto-dev 100% |  85.5 MiB/s |   1.8 MiB |  00m00s
+2026-10-07T12:39:04.1373865Z [ 17/152] Installing sysprof-capture-de 100% | 159.5 MiB/s | 816.6 KiB |  00m00s
+2026-10-07T12:39:04.1668703Z [ 18/152] Installing libwayland-server- 100% |  28.5 MiB/s |  87.7 KiB |  00m00s
+2026-10-07T12:39:04.2654186Z [ 19/152] Installing libicu-0:77.1-3.fc 100% | 355.5 MiB/s |  36.6 MiB |  00m00s
+2026-10-07T12:39:04.2817549Z [ 20/152] Installing gstreamer1-0:1.28. 100% | 144.0 MiB/s |   5.5 MiB |  00m00s
+2026-10-07T12:39:04.2855789Z [ 21/152] Installing dbus-1:1.16.2-1.fc 100% | 121.1 KiB/s | 124.0   B |  00m00s
+2026-10-07T12:39:04.2945768Z [ 22/152] Installing opus-0:1.6-2.fc44. 100% |  50.9 MiB/s | 468.8 KiB |  00m00s
+2026-10-07T12:39:04.2998597Z [ 23/152] Installing xml-common-0:0.6.3 100% |  26.4 MiB/s |  81.1 KiB |  00m00s
+2026-10-07T12:39:04.3446711Z [ 24/152] Installing libepoxy-0:1.5.10- 100% | 155.1 MiB/s |   1.1 MiB |  00m00s
+2026-10-07T12:39:04.3513546Z [ 25/152] Installing iso-codes-0:4.20.1 100% | 489.8 MiB/s |  22.5 MiB |  00m00s
+2026-10-07T12:39:04.3667272Z [ 26/152] Installing xdg-dbus-proxy-0:0 100% |   6.3 MiB/s |  97.0 KiB |  00m00s
+2026-10-07T12:39:04.3827415Z [ 27/152] Installing libXau-devel-0:1.0 100% |   1.3 MiB/s |   9.1 KiB |  00m00s
+2026-10-07T12:39:04.3998755Z [ 28/152] Installing libxcb-devel-0:1.1 100% | 125.7 MiB/s |   3.0 MiB |  00m00s
+2026-10-07T12:39:04.4185857Z [ 29/152] Installing bubblewrap-0:0.12. 100% |   8.7 MiB/s | 142.1 KiB |  00m00s
+2026-10-07T12:39:04.4370656Z [ 30/152] Installing hunspell-0:1.7.4-2 100% |  75.0 MiB/s |   1.4 MiB |  00m00s
+2026-10-07T12:39:04.4542849Z [ 31/152] Installing enchant2-0:2.8.21- 100% |  14.4 MiB/s | 250.1 KiB |  00m00s
+2026-10-07T12:39:04.4581835Z [ 32/152] Installing libyuv-0:0-0.61.20 100% | 167.3 MiB/s | 685.3 KiB |  00m00s
+2026-10-07T12:39:04.4627435Z [ 33/152] Installing abattis-cantarell- 100% |  63.3 MiB/s | 194.4 KiB |  00m00s
+2026-10-07T12:39:04.4677252Z [ 34/152] Installing flac-libs-0:1.5.0- 100% | 123.1 MiB/s | 630.1 KiB |  00m00s
+2026-10-07T12:39:04.4705138Z [ 35/152] Installing libtheora-1:1.1.1- 100% | 118.0 MiB/s | 483.3 KiB |  00m00s
+2026-10-07T12:39:04.4740008Z [ 36/152] Installing libglvnd-opengl-1: 100% |  71.0 MiB/s | 145.5 KiB |  00m00s
+2026-10-07T12:39:04.4772531Z [ 37/152] Installing hunspell-en-AU-0:0 100% | 163.6 MiB/s | 502.5 KiB |  00m00s
+2026-10-07T12:39:04.4805147Z [ 38/152] Installing hunspell-en-CA-0:0 100% | 162.8 MiB/s | 500.0 KiB |  00m00s
+2026-10-07T12:39:04.4828618Z [ 39/152] Installing hunspell-en-GB-0:0 100% | 177.1 MiB/s | 543.9 KiB |  00m00s
+2026-10-07T12:39:04.4845301Z [ 40/152] Installing libblkid-devel-0:2 100% |  22.5 MiB/s |  46.0 KiB |  00m00s
+2026-10-07T12:39:04.5043771Z [ 41/152] Installing gsettings-desktop- 100% | 471.6 MiB/s |   6.1 MiB |  00m00s
+2026-10-07T12:39:04.5088929Z [ 42/152] Installing libdav1d-0:1.5.4-1 100% | 251.4 MiB/s |   1.8 MiB |  00m00s
+2026-10-07T12:39:04.5254661Z [ 43/152] Installing libvmaf-0:3.0.0-5. 100% | 207.1 MiB/s | 848.2 KiB |  00m00s
+2026-10-07T12:39:04.5300979Z [ 44/152] Installing libaom-0:3.13.3-1. 100% | 318.1 MiB/s |   5.1 MiB |  00m00s
+2026-10-07T12:39:04.5405418Z [ 45/152] Installing xz-devel-1:5.8.2-2 100% |  64.1 MiB/s | 262.6 KiB |  00m00s
+2026-10-07T12:39:04.5573267Z [ 46/152] Installing libxml2-devel-0:2. 100% | 148.5 MiB/s |   3.4 MiB |  00m00s
+2026-10-07T12:39:04.5614291Z [ 47/152] Installing libasyncns-0:0.8-3 100% |  27.7 MiB/s |  56.8 KiB |  00m00s
+2026-10-07T12:39:04.5656228Z [ 48/152] Installing pcre2-utf32-0:10.4 100% | 152.3 MiB/s | 623.9 KiB |  00m00s
+2026-10-07T12:39:04.5715056Z [ 49/152] Installing pcre2-utf16-0:10.4 100% | 160.2 MiB/s | 656.1 KiB |  00m00s
+2026-10-07T12:39:04.5860319Z [ 50/152] Installing pcre2-devel-0:10.4 100% | 117.7 MiB/s |   2.1 MiB |  00m00s
+2026-10-07T12:39:04.5895294Z [ 51/152] Installing libffi-devel-0:3.5 100% |  17.4 MiB/s |  35.6 KiB |  00m00s
+2026-10-07T12:39:04.6240693Z [ 52/152] Installing libwayland-cursor- 100% |  12.5 MiB/s |  38.3 KiB |  00m00s
+2026-10-07T12:39:04.6336864Z [ 53/152] Installing libX11-common-0:1. 100% |  33.9 MiB/s |   1.2 MiB |  00m00s
+2026-10-07T12:39:04.6366426Z [ 54/152] Installing libX11-0:1.8.13-3. 100% | 168.0 MiB/s |   1.3 MiB |  00m00s
+2026-10-07T12:39:04.6389391Z [ 55/152] Installing libXext-0:1.3.6-5. 100% |  44.5 MiB/s |  91.1 KiB |  00m00s
+2026-10-07T12:39:04.6411005Z [ 56/152] Installing libXi-0:1.8.3-1.fc 100% |  39.9 MiB/s |  81.6 KiB |  00m00s
+2026-10-07T12:39:04.6442603Z [ 57/152] Installing libXrender-0:0.9.1 100% |  25.0 MiB/s |  51.2 KiB |  00m00s
+2026-10-07T12:39:04.6480712Z [ 58/152] Installing libglvnd-egl-1:1.7 100% |  22.9 MiB/s |  70.2 KiB |  00m00s
+2026-10-07T12:39:04.6512739Z [ 59/152] Installing mesa-libEGL-0:26.2 100% | 130.0 MiB/s | 399.4 KiB |  00m00s
+2026-10-07T12:39:04.6536173Z [ 60/152] Installing libglvnd-gles-1:1. 100% |  48.4 MiB/s |  99.1 KiB |  00m00s
+2026-10-07T12:39:04.6558021Z [ 61/152] Installing libXtst-0:1.2.5-4. 100% |  16.8 MiB/s |  34.5 KiB |  00m00s
+2026-10-07T12:39:04.6579596Z [ 62/152] Installing libXv-0:1.0.13-4.f 100% |  13.2 MiB/s |  27.1 KiB |  00m00s
+2026-10-07T12:39:04.6613097Z [ 63/152] Installing libXxf86vm-0:1.1.6 100% |  12.9 MiB/s |  26.4 KiB |  00m00s
+2026-10-07T12:39:04.6661900Z [ 64/152] Installing mesa-libGL-0:26.2. 100% | 122.1 MiB/s | 375.1 KiB |  00m00s
+2026-10-07T12:39:04.6689198Z [ 65/152] Installing libglvnd-glx-1:1.7 100% | 147.1 MiB/s | 602.4 KiB |  00m00s
+2026-10-07T12:39:04.6871650Z [ 66/152] Installing xprop-0:1.2.8-5.fc 100% |   3.6 MiB/s |  55.9 KiB |  00m00s
+2026-10-07T12:39:04.6976850Z [ 67/152] Installing at-spi2-core-0:2.6 100% | 133.4 MiB/s |   1.6 MiB |  00m00s
+2026-10-07T12:39:04.7020206Z [ 68/152] Installing atk-0:2.60.7-1.fc4 100% |  82.7 MiB/s | 253.9 KiB |  00m00s
+2026-10-07T12:39:04.7104007Z [ 69/152] Installing at-spi2-atk-0:2.60 100% |  46.6 MiB/s | 286.2 KiB |  00m00s
+2026-10-07T12:39:04.7173060Z [ 70/152] Installing libX11-devel-0:1.8 100% | 138.2 MiB/s |   1.1 MiB |  00m00s
+2026-10-07T12:39:04.7203494Z [ 71/152] Installing pixman-0:0.46.2-3. 100% | 175.6 MiB/s | 719.3 KiB |  00m00s
+2026-10-07T12:39:04.7355545Z [ 72/152] Installing lzo-0:2.10-16.fc44 100% |  57.4 MiB/s | 176.4 KiB |  00m00s
+2026-10-07T12:39:04.7552989Z [ 73/152] Installing alsa-lib-0:1.2.16. 100% |  47.2 MiB/s |   1.5 MiB |  00m00s
+2026-10-07T12:39:04.7639551Z [ 74/152] Installing libverto-devel-0:0 100% |   6.4 MiB/s |  26.4 KiB |  00m00s
+2026-10-07T12:39:04.7686259Z [ 75/152] Installing libsepol-devel-0:3 100% |  17.9 MiB/s | 128.2 KiB |  00m00s
+2026-10-07T12:39:04.7726279Z [ 76/152] Installing libselinux-devel-0 100% |  38.2 MiB/s | 156.6 KiB |  00m00s
+2026-10-07T12:39:04.7754174Z [ 77/152] Installing libmount-devel-0:2 100% |  32.5 MiB/s |  66.5 KiB |  00m00s
+2026-10-07T12:39:04.7895552Z [ 78/152] Installing libcom_err-devel-0 100% |   1.2 MiB/s |  18.3 KiB |  00m00s
+2026-10-07T12:39:04.8756834Z [ 79/152] Installing keyutils-libs-deve 100% |  13.5 MiB/s |  55.2 KiB |  00m00s
+2026-10-07T12:39:04.8824366Z [ 80/152] Installing libwacom-data-0:2. 100% |  18.2 MiB/s |   1.6 MiB |  00m00s
+2026-10-07T12:39:04.8981071Z [ 81/152] Installing libwacom-0:2.19.0- 100% |   6.7 MiB/s | 116.2 KiB |  00m00s
+2026-10-07T12:39:04.9205516Z [ 82/152] Installing sqlite-0:3.51.2-2. 100% |  95.8 MiB/s |   1.9 MiB |  00m00s
+2026-10-07T12:39:04.9239552Z [ 83/152] Installing sqlite-devel-0:3.5 100% | 226.1 MiB/s | 694.7 KiB |  00m00s
+2026-10-07T12:39:04.9260937Z [ 84/152] Installing publicsuffix-list- 100% | 111.7 MiB/s | 343.2 KiB |  00m00s
+2026-10-07T12:39:04.9294525Z [ 85/152] Installing libpsl-devel-0:0.2 100% |  55.4 MiB/s | 113.5 KiB |  00m00s
+2026-10-07T12:39:04.9328354Z [ 86/152] Installing libnghttp2-devel-0 100% | 141.2 MiB/s | 289.1 KiB |  00m00s
+2026-10-07T12:39:04.9426506Z [ 87/152] Installing libkadm5-0:1.22.2- 100% |  53.6 MiB/s | 219.7 KiB |  00m00s
+2026-10-07T12:39:04.9584393Z [ 88/152] Installing krb5-devel-0:1.22. 100% |  31.9 MiB/s | 719.2 KiB |  00m00s
+2026-10-07T12:39:04.9741651Z [ 89/152] Installing brotli-0:1.2.0-3.f 100% |   2.4 MiB/s |  34.3 KiB |  00m00s
+2026-10-07T12:39:04.9766320Z [ 90/152] Installing brotli-devel-0:1.2 100% |  22.3 MiB/s |  68.4 KiB |  00m00s
+2026-10-07T12:39:04.9855774Z [ 91/152] Installing libglvnd-core-deve 100% |  20.1 MiB/s |  41.1 KiB |  00m00s
+2026-10-07T12:39:04.9891363Z [ 92/152] Installing libglvnd-devel-1:1 100% | 235.6 MiB/s |   2.1 MiB |  00m00s
+2026-10-07T12:39:04.9998745Z [ 93/152] Installing libseccomp-0:2.6.1 100% |  72.9 MiB/s | 224.0 KiB |  00m00s
+2026-10-07T12:39:05.0383049Z [ 94/152] Installing shared-mime-info-0 100% |  78.7 MiB/s |   2.6 MiB |  00m00s
+2026-10-07T12:39:05.0530570Z [ 95/152] Installing highway-0:1.3.0-2. 100% | 369.0 MiB/s |   5.5 MiB |  00m00s
+2026-10-07T12:39:05.0567289Z [ 96/152] Installing libjxl-1:0.11.2-1. 100% | 274.5 MiB/s |   4.1 MiB |  00m00s
+2026-10-07T12:39:05.0685062Z [ 97/152] Installing mtdev-0:1.1.6-12.f 100% |  14.8 MiB/s |  30.3 KiB |  00m00s
+2026-10-07T12:39:05.0928357Z [ 98/152] Installing libinput-0:1.31.3- 100% |  21.8 MiB/s | 714.9 KiB |  00m00s
+2026-10-07T12:39:05.1082529Z [ 99/152] Installing graphite2-0:1.3.14 100% |  11.1 MiB/s | 193.6 KiB |  00m00s
+2026-10-07T12:39:05.1239839Z [100/152] Installing freetype-0:2.14.3- 100% | 149.7 MiB/s | 920.0 KiB |  00m00s
+2026-10-07T12:39:05.1272675Z [101/152] Installing harfbuzz-0:14.1.0- 100% | 234.4 MiB/s |   2.8 MiB |  00m00s
+2026-10-07T12:39:05.1298614Z [102/152] Installing harfbuzz-icu-0:14. 100% |   7.9 MiB/s |  16.1 KiB |  00m00s
+2026-10-07T12:39:05.1343498Z [103/152] Installing libdatrie-0:0.2.14 100% |  30.7 MiB/s |  62.8 KiB |  00m00s
+2026-10-07T12:39:05.1380391Z [104/152] Installing libthai-0:0.1.30-2 100% | 196.0 MiB/s | 802.7 KiB |  00m00s
+2026-10-07T12:39:05.1561891Z [105/152] Installing fribidi-0:1.0.16-4 100% |  11.8 MiB/s | 192.5 KiB |  00m00s
+2026-10-07T12:39:05.1727641Z [106/152] Installing orc-0:0.4.41-3.fc4 100% |  39.3 MiB/s | 724.4 KiB |  00m00s
+2026-10-07T12:39:05.1762056Z [107/152] Installing libvisual-1:0.4.2- 100% | 114.0 MiB/s | 467.0 KiB |  00m00s
+2026-10-07T12:39:05.1796192Z [108/152] Installing graphene-0:1.10.8- 100% |  52.1 MiB/s | 160.0 KiB |  00m00s
+2026-10-07T12:39:05.1842544Z [109/152] Installing cdparanoia-libs-0: 100% |  37.3 MiB/s | 114.7 KiB |  00m00s
+2026-10-07T12:39:05.1881297Z [110/152] Installing duktape-0:2.7.0-11 100% | 152.7 MiB/s | 625.6 KiB |  00m00s
+2026-10-07T12:39:05.1948873Z [111/152] Installing libproxy-0:0.5.12- 100% |  25.5 MiB/s | 104.4 KiB |  00m00s
+2026-10-07T12:39:05.2027834Z [112/152] Installing glib-networking-0: 100% |  93.4 MiB/s | 765.3 KiB |  00m00s
+2026-10-07T12:39:05.2091803Z [113/152] Installing libsoup3-0:3.6.6-1 100% | 169.1 MiB/s |   1.2 MiB |  00m00s
+2026-10-07T12:39:05.2878003Z [114/152] Installing python3-packaging- 100% |  60.5 MiB/s | 619.9 KiB |  00m00s
+2026-10-07T12:39:05.3102962Z [115/152] Installing glib2-devel-0:2.88 100% | 179.9 MiB/s |  15.8 MiB |  00m00s
+2026-10-07T12:39:05.3149121Z [116/152] Installing libsoup3-devel-0:3 100% | 116.2 MiB/s |   1.0 MiB |  00m00s
+2026-10-07T12:39:05.3213845Z [117/152] Installing google-noto-fonts- 100% |  18.1 MiB/s |  18.5 KiB |  00m00s
+2026-10-07T12:39:05.3264699Z [118/152] Installing google-noto-sans-v 100% | 231.9 MiB/s |   1.4 MiB |  00m00s
+2026-10-07T12:39:05.3412586Z [119/152] Installing default-fonts-core 100% |   3.6 MiB/s |  18.2 KiB |  00m00s
+2026-10-07T12:39:06.3806800Z [120/152] Installing fontconfig-0:2.17. 100% | 757.1 KiB/s | 795.8 KiB |  00m01s
+2026-10-07T12:39:06.3908974Z [121/152] Installing cairo-0:1.18.6-1.f 100% | 203.1 MiB/s |   1.8 MiB |  00m00s
+2026-10-07T12:39:06.3998080Z [122/152] Installing libXft-0:2.3.8-10. 100% |  55.3 MiB/s | 169.8 KiB |  00m00s
+2026-10-07T12:39:06.4539749Z [123/152] Installing pango-0:1.57.1-1.f 100% |  44.2 MiB/s |   1.0 MiB |  00m00s
+2026-10-07T12:39:06.4640912Z [124/152] Installing gstreamer1-plugins 100% | 175.4 MiB/s |   7.5 MiB |  00m00s
+2026-10-07T12:39:06.4693977Z [125/152] Installing mpg123-libs-0:1.32 100% | 134.8 MiB/s | 828.3 KiB |  00m00s
+2026-10-07T12:39:06.4726548Z [126/152] Installing lame-libs-0:3.100- 100% | 300.6 MiB/s |   1.2 MiB |  00m00s
+2026-10-07T12:39:06.4768225Z [127/152] Installing gsm-0:1.0.24-2.fc4 100% |  32.9 MiB/s |  67.3 KiB |  00m00s
+2026-10-07T12:39:06.4815674Z [128/152] Installing libsndfile-0:1.2.2 100% | 135.6 MiB/s | 555.4 KiB |  00m00s
+2026-10-07T12:39:06.5509056Z [129/152] Installing pulseaudio-libs-0: 100% | 283.2 MiB/s |   3.4 MiB |  00m00s
+2026-10-07T12:39:06.5827083Z [130/152] Installing flite-0:2.2-13.fc4 100% | 279.3 MiB/s |  21.5 MiB |  00m00s
+2026-10-07T12:39:06.6206640Z [131/152] Installing xkeyboard-config-0 100% | 132.0 MiB/s |   6.5 MiB |  00m00s
+2026-10-07T12:39:06.6240141Z [132/152] Installing libxkbcommon-0:1.1 100% | 105.9 MiB/s | 433.9 KiB |  00m00s
+2026-10-07T12:39:06.6271968Z [133/152] Installing libwpe-0:1.16.3-1. 100% |  18.3 MiB/s |  56.3 KiB |  00m00s
+2026-10-07T12:39:06.6315693Z [134/152] Installing wpebackend-fdo-0:1 100% |  34.7 MiB/s | 106.6 KiB |  00m00s
+2026-10-07T12:39:06.6358334Z [135/152] Installing libxkbcommon-devel 100% | 128.6 MiB/s | 395.1 KiB |  00m00s
+2026-10-07T12:39:06.6390428Z [136/152] Installing libwpe-devel-0:1.1 100% |  64.1 MiB/s | 262.6 KiB |  00m00s
+2026-10-07T12:39:06.6428432Z [137/152] Installing hidapi-0:0.15.0-3. 100% |  36.7 MiB/s | 112.6 KiB |  00m00s
+2026-10-07T12:39:06.6617059Z [138/152] Installing libmanette-0:0.2.1 100% | 120.1 MiB/s | 368.9 KiB |  00m00s
+2026-10-07T12:39:06.6731719Z [139/152] Installing svt-av1-libs-0:3.1 100% | 295.3 MiB/s |   5.6 MiB |  00m00s
+2026-10-07T12:39:06.6768731Z [140/152] Installing rav1e-libs-0:0.8.1 100% | 280.3 MiB/s |   3.1 MiB |  00m00s
+2026-10-07T12:39:06.6820212Z [141/152] Installing libavif-0:1.3.0-4. 100% |  86.9 MiB/s | 266.9 KiB |  00m00s
+2026-10-07T12:39:06.6972403Z [142/152] Installing libxslt-0:1.1.43-6 100% |  25.8 MiB/s | 474.9 KiB |  00m00s
+2026-10-07T12:39:06.7067520Z [143/152] Installing libwebp-0:1.6.0-3. 100% | 135.6 MiB/s | 972.1 KiB |  00m00s
+2026-10-07T12:39:06.7095227Z [144/152] Installing lcms2-0:2.16-7.fc4 100% | 109.2 MiB/s | 447.3 KiB |  00m00s
+2026-10-07T12:39:06.7985041Z [145/152] Installing hyphen-0:2.8.8-28. 100% |   3.3 MiB/s |  53.4 KiB |  00m00s
+2026-10-07T12:39:07.0673955Z [146/152] Installing wpewebkit-0:2.54.1 100% | 398.1 MiB/s | 129.4 MiB |  00m00s
+2026-10-07T12:39:07.0722642Z [147/152] Installing wpewebkit-devel-0: 100% |  38.4 MiB/s | 708.2 KiB |  00m00s
+2026-10-07T12:39:07.0765947Z [148/152] Installing wpebackend-fdo-dev 100% |  12.1 MiB/s |  49.6 KiB |  00m00s
+2026-10-07T12:39:07.0931195Z [149/152] Installing hunspell-en-0:0.20 100% |   4.3 MiB/s |  13.3 KiB |  00m00s
+2026-10-07T12:39:07.1009795Z [150/152] Installing adwaita-mono-fonts 100% | 349.6 MiB/s |   5.6 MiB |  00m00s
+2026-10-07T12:39:07.1020678Z [151/152] Installing adwaita-sans-fonts 100% | 245.6 MiB/s |   1.7 MiB |  00m00s
+2026-10-07T12:39:08.4555585Z [152/152] Removing libselinux-0:3.11-1. 100% |   5.0   B/s |   8.0   B |  00m01s
+2026-10-07T12:39:08.4558182Z Complete!
+2026-10-07T12:39:08.4887682Z ##[group]Run actions/checkout@v4
+2026-10-07T12:39:08.4888171Z with:
+2026-10-07T12:39:08.4888390Z   repository: merely-made/wgpu-scry
+2026-10-07T12:39:08.4891429Z   token: ***
+2026-10-07T12:39:08.4891642Z   ssh-strict: true
+2026-10-07T12:39:08.4891850Z   ssh-user: git
+2026-10-07T12:39:08.4892063Z   persist-credentials: true
+2026-10-07T12:39:08.4892305Z   clean: true
+2026-10-07T12:39:08.4892517Z   sparse-checkout-cone-mode: true
+2026-10-07T12:39:08.4892770Z   fetch-depth: 1
+2026-10-07T12:39:08.4892969Z   fetch-tags: false
+2026-10-07T12:39:08.4893172Z   show-progress: true
+2026-10-07T12:39:08.4893375Z   lfs: false
+2026-10-07T12:39:08.4893560Z   submodules: false
+2026-10-07T12:39:08.4893763Z   set-safe-directory: true
+2026-10-07T12:39:08.4894005Z   allow-unsafe-pr-checkout: false
+2026-10-07T12:39:08.4894274Z env:
+2026-10-07T12:39:08.4894466Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:08.4894716Z ##[endgroup]
+2026-10-07T12:39:08.4944451Z ##[command]/usr/bin/docker exec  3bb0b9722f1f1c3d9daa318fdd26ce9bfc56c1fc42fb3e99579f66d540fc6d6f sh -c "cat /etc/*release | grep ^ID"
+2026-10-07T12:39:08.6886826Z Syncing repository: merely-made/wgpu-scry
+2026-10-07T12:39:08.6888583Z ##[group]Getting Git version info
+2026-10-07T12:39:08.6889105Z Working directory is '/__w/wgpu-scry/wgpu-scry'
+2026-10-07T12:39:08.6890144Z [command]/usr/sbin/git version
+2026-10-07T12:39:08.6890552Z git version 2.56.0
+2026-10-07T12:39:08.6891917Z ##[endgroup]
+2026-10-07T12:39:08.6897673Z Temporarily overriding HOME='/__w/_temp/9aa78e7b-779d-4781-bf32-25ca0aff1456' before making global git config changes
+2026-10-07T12:39:08.6899036Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T12:39:08.6902929Z [command]/usr/sbin/git config --global --add safe.directory /__w/wgpu-scry/wgpu-scry
+2026-10-07T12:39:08.6936960Z Deleting the contents of '/__w/wgpu-scry/wgpu-scry'
+2026-10-07T12:39:08.6941646Z ##[group]Initializing the repository
+2026-10-07T12:39:08.6945624Z [command]/usr/sbin/git init /__w/wgpu-scry/wgpu-scry
+2026-10-07T12:39:08.7012634Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-07T12:39:08.7014057Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-07T12:39:08.7017786Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-07T12:39:08.7019729Z hint: call:
+2026-10-07T12:39:08.7020434Z hint:
+2026-10-07T12:39:08.7020906Z hint: 	git config --global init.defaultBranch <name>
+2026-10-07T12:39:08.7021467Z hint:
+2026-10-07T12:39:08.7022048Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-07T12:39:08.7024305Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-07T12:39:08.7026177Z hint:
+2026-10-07T12:39:08.7026504Z hint: 	git branch -m <name>
+2026-10-07T12:39:08.7026993Z hint:
+2026-10-07T12:39:08.7027533Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-07T12:39:08.7028422Z Initialized empty Git repository in /__w/wgpu-scry/wgpu-scry/.git/
+2026-10-07T12:39:08.7030135Z [command]/usr/sbin/git remote add origin https://github.com/merely-made/wgpu-scry
+2026-10-07T12:39:08.7064786Z ##[endgroup]
+2026-10-07T12:39:08.7065526Z ##[group]Disabling automatic garbage collection
+2026-10-07T12:39:08.7070235Z [command]/usr/sbin/git config --local gc.auto 0
+2026-10-07T12:39:08.7101489Z ##[endgroup]
+2026-10-07T12:39:08.7102427Z ##[group]Setting up auth
+2026-10-07T12:39:08.7108345Z [command]/usr/sbin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T12:39:08.7140023Z [command]/usr/sbin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T12:39:08.7451631Z [command]/usr/sbin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T12:39:08.7481640Z [command]/usr/sbin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T12:39:08.7784915Z [command]/usr/sbin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T12:39:08.7815487Z [command]/usr/sbin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T12:39:08.8088158Z [command]/usr/sbin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-07T12:39:08.8125425Z ##[endgroup]
+2026-10-07T12:39:08.8126117Z ##[group]Fetching the repository
+2026-10-07T12:39:08.8135910Z [command]/usr/sbin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +4771072a6827695dfaba9db104cd48b87e6cd543:refs/remotes/origin/main
+2026-10-07T12:39:09.6759899Z From https://github.com/merely-made/wgpu-scry
+2026-10-07T12:39:09.6760864Z  * [new ref]         4771072a6827695dfaba9db104cd48b87e6cd543 -> origin/main
+2026-10-07T12:39:09.6764919Z ##[endgroup]
+2026-10-07T12:39:09.6765903Z ##[group]Determining the checkout info
+2026-10-07T12:39:09.6769009Z ##[endgroup]
+2026-10-07T12:39:09.6776070Z [command]/usr/sbin/git sparse-checkout disable
+2026-10-07T12:39:09.6816087Z [command]/usr/sbin/git config --local --unset-all extensions.worktreeConfig
+2026-10-07T12:39:09.6856785Z ##[group]Checking out the ref
+2026-10-07T12:39:09.6857691Z [command]/usr/sbin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-07T12:39:09.7112928Z Switched to a new branch 'main'
+2026-10-07T12:39:09.7116010Z branch 'main' set up to track 'origin/main'.
+2026-10-07T12:39:09.7124044Z ##[endgroup]
+2026-10-07T12:39:09.7162781Z [command]/usr/sbin/git log -1 --format=%H
+2026-10-07T12:39:09.7187246Z 4771072a6827695dfaba9db104cd48b87e6cd543
+2026-10-07T12:39:09.7487788Z ##[group]Run dtolnay/rust-toolchain@1.92.0
+2026-10-07T12:39:09.7488099Z with:
+2026-10-07T12:39:09.7488285Z env:
+2026-10-07T12:39:09.7488481Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:09.7488751Z ##[endgroup]
+2026-10-07T12:39:09.7553190Z ##[start-action display=Parse toolchain version;id=__dtolnay_rust-toolchain.parse]
+2026-10-07T12:39:09.7600230Z ##[group]Run if [[ -z $toolchain ]]; then
+2026-10-07T12:39:09.7600599Z [36;1mif [[ -z $toolchain ]]; then[0m
+2026-10-07T12:39:09.7601126Z [36;1m  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070[0m
+2026-10-07T12:39:09.7601692Z [36;1m  echo "'toolchain' is a required input" >&2[0m
+2026-10-07T12:39:09.7602002Z [36;1m  exit 1[0m
+2026-10-07T12:39:09.7602340Z [36;1melif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then[0m
+2026-10-07T12:39:09.7602766Z [36;1m  if [[ Linux == macOS ]]; then[0m
+2026-10-07T12:39:09.7603336Z [36;1m    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2026-10-07T12:39:09.7603884Z [36;1m  else[0m
+2026-10-07T12:39:09.7604296Z [36;1m    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2026-10-07T12:39:09.7604763Z [36;1m  fi[0m
+2026-10-07T12:39:09.7605062Z [36;1melif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then[0m
+2026-10-07T12:39:09.7605594Z [36;1m  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT[0m
+2026-10-07T12:39:09.7606052Z [36;1melif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then[0m
+2026-10-07T12:39:09.7606574Z [36;1m  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT[0m
+2026-10-07T12:39:09.7607077Z [36;1melse[0m
+2026-10-07T12:39:09.7607318Z [36;1m  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT[0m
+2026-10-07T12:39:09.7607616Z [36;1mfi[0m
+2026-10-07T12:39:09.7609401Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:09.7609726Z env:
+2026-10-07T12:39:09.7610219Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:09.7610692Z   toolchain: 1.92.0
+2026-10-07T12:39:09.7610900Z ##[endgroup]
+2026-10-07T12:39:09.8202031Z ##[end-action id=__dtolnay_rust-toolchain.parse;outcome=success;conclusion=success;duration_ms=64]
+2026-10-07T12:39:09.8214161Z ##[start-action display=Construct rustup command line;id=__dtolnay_rust-toolchain.flags]
+2026-10-07T12:39:09.8242895Z ##[group]Run echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+2026-10-07T12:39:09.8243567Z [36;1mecho "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT[0m
+2026-10-07T12:39:09.8244194Z [36;1mecho "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT[0m
+2026-10-07T12:39:09.8244700Z [36;1mecho "downgrade=" >> $GITHUB_OUTPUT[0m
+2026-10-07T12:39:09.8245127Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:09.8245426Z env:
+2026-10-07T12:39:09.8245625Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:09.8245876Z   targets: 
+2026-10-07T12:39:09.8246074Z   components: 
+2026-10-07T12:39:09.8246272Z ##[endgroup]
+2026-10-07T12:39:09.8808609Z ##[end-action id=__dtolnay_rust-toolchain.flags;outcome=success;conclusion=success;duration_ms=59]
+2026-10-07T12:39:09.8811579Z ##[start-action display=Set $CARGO_HOME;id=__dtolnay_rust-toolchain.__run]
+2026-10-07T12:39:09.8832236Z ##[group]Run echo CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV
+2026-10-07T12:39:09.8832713Z [36;1mecho CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV[0m
+2026-10-07T12:39:09.8833221Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:09.8833516Z env:
+2026-10-07T12:39:09.8833712Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:09.8833966Z ##[endgroup]
+2026-10-07T12:39:09.9405178Z ##[end-action id=__dtolnay_rust-toolchain.__run;outcome=success;conclusion=success;duration_ms=59]
+2026-10-07T12:39:09.9407668Z ##[start-action display=Install rustup if needed;id=__dtolnay_rust-toolchain.__run_2]
+2026-10-07T12:39:09.9434955Z ##[group]Run if ! command -v rustup &>/dev/null; then
+2026-10-07T12:39:09.9435346Z [36;1mif ! command -v rustup &>/dev/null; then[0m
+2026-10-07T12:39:09.9436105Z [36;1m  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y[0m
+2026-10-07T12:39:09.9436842Z [36;1m  echo "$CARGO_HOME/bin" >> $GITHUB_PATH[0m
+2026-10-07T12:39:09.9437123Z [36;1mfi[0m
+2026-10-07T12:39:09.9437462Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:09.9437755Z env:
+2026-10-07T12:39:09.9437957Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:09.9438220Z   CARGO_HOME: /github/home/.cargo
+2026-10-07T12:39:09.9438462Z ##[endgroup]
+2026-10-07T12:39:10.0677247Z info: downloading installer
+2026-10-07T12:39:10.2283274Z error: $HOME differs from euid-obtained home directory: you may be using sudo
+2026-10-07T12:39:10.2284147Z error: $HOME directory: /github/home
+2026-10-07T12:39:10.2284696Z error: euid-obtained home directory: /root
+2026-10-07T12:39:10.2387501Z 
+2026-10-07T12:39:10.2392607Z 
+2026-10-07T12:39:10.2392857Z Rust is installed now. Great!
+2026-10-07T12:39:10.2393204Z 
+2026-10-07T12:39:10.2393465Z To get started you may need to restart your current shell.
+2026-10-07T12:39:10.2394159Z This would reload your PATH environment variable to include
+2026-10-07T12:39:10.2394770Z Cargo's bin directory ($HOME/.cargo/bin).
+2026-10-07T12:39:10.2395097Z 
+2026-10-07T12:39:10.2395340Z To configure your current shell, you need to source the
+2026-10-07T12:39:10.2395912Z corresponding env file under $HOME/.cargo.
+2026-10-07T12:39:10.2396243Z 
+2026-10-07T12:39:10.2396588Z Consider running the right command for your shell (note the leading DOT):
+2026-10-07T12:39:10.2397079Z . "$HOME/.cargo/env" # For sh/ash/dash/pdksh
+2026-10-07T12:39:10.2397464Z cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+2026-10-07T12:39:10.2397838Z CC_x86_64-unknown-linux-gnu = None
+2026-10-07T12:39:10.2398185Z cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+2026-10-07T12:39:10.2398785Z CC_x86_64_unknown_linux_gnu = None
+2026-10-07T12:39:10.2399070Z cargo:rerun-if-env-changed=HOST_CC
+2026-10-07T12:39:10.2399346Z HOST_CC = None
+2026-10-07T12:39:10.2399580Z cargo:rerun-if-env-changed=CC
+2026-10-07T12:39:10.2400133Z CC = None
+2026-10-07T12:39:10.2400563Z info: profile set to default
+2026-10-07T12:39:10.2400966Z info: default host tuple is x86_64-unknown-linux-gnu
+2026-10-07T12:39:10.2401354Z info: skipping toolchain installation
+2026-10-07T12:39:10.2433348Z cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+2026-10-07T12:39:10.2523996Z cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+2026-10-07T12:39:10.2524629Z CRATE_CC_NO_DEFAULTS = None
+2026-10-07T12:39:10.2525146Z cargo:rerun-if-env-changed=CFLAGS
+2026-10-07T12:39:10.2525630Z CFLAGS = None
+2026-10-07T12:39:10.2526018Z cargo:rerun-if-env-changed=HOST_CFLAGS
+2026-10-07T12:39:10.2526502Z HOST_CFLAGS = None
+2026-10-07T12:39:10.2527013Z cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+2026-10-07T12:39:10.2527651Z CFLAGS_x86_64_unknown_linux_gnu = None
+2026-10-07T12:39:10.2528295Z cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+2026-10-07T12:39:10.2528912Z CFLAGS_x86_64-unknown-linux-gnu = None
+2026-10-07T12:39:10.2634997Z ##[end-action id=__dtolnay_rust-toolchain.__run_2;outcome=success;conclusion=success;duration_ms=322]
+2026-10-07T12:39:10.2637617Z ##[start-action display=Install rustup if needed on windows;id=__dtolnay_rust-toolchain.__run_3]
+2026-10-07T12:39:10.2644987Z ##[end-action id=__dtolnay_rust-toolchain.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-07T12:39:10.2656933Z ##[start-action display=rustup toolchain install 1.92.0;id=__dtolnay_rust-toolchain.__run_4]
+2026-10-07T12:39:10.2676294Z ##[group]Run log=$(mktemp)
+2026-10-07T12:39:10.2676778Z [36;1mlog=$(mktemp)[0m
+2026-10-07T12:39:10.2677023Z [36;1mtrap 'rm -f "$log"' EXIT[0m
+2026-10-07T12:39:10.2677286Z [36;1mfor attempt in 1 2 3 4 5; do[0m
+2026-10-07T12:39:10.2677814Z [36;1m  if rustup toolchain install 1.92.0 --profile minimal --no-self-update --force-non-host 2>&1 | tee "$log"; then[0m
+2026-10-07T12:39:10.2678367Z [36;1m    break[0m
+2026-10-07T12:39:10.2678567Z [36;1m  else[0m
+2026-10-07T12:39:10.2678762Z [36;1m    status=$?[0m
+2026-10-07T12:39:10.2678974Z [36;1m  fi[0m
+2026-10-07T12:39:10.2679269Z [36;1m  if [[ $attempt == 5 ]] || ! grep -Fq 'checksum failed for ' "$log" \[0m
+2026-10-07T12:39:10.2680104Z [36;1m      || ! grep -Fq 'this is likely due to an ongoing update of the official release server' "$log"; then[0m
+2026-10-07T12:39:10.2680834Z [36;1m    exit "$status"[0m
+2026-10-07T12:39:10.2681179Z [36;1m  fi[0m
+2026-10-07T12:39:10.2681715Z [36;1m  echo "Retrying rustup toolchain install in 30 seconds (retry $attempt of 4)" >&2[0m
+2026-10-07T12:39:10.2682414Z [36;1m  sleep 30[0m
+2026-10-07T12:39:10.2682752Z [36;1mdone[0m
+2026-10-07T12:39:10.2683465Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:10.2683949Z env:
+2026-10-07T12:39:10.2684260Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:10.2684738Z   CARGO_HOME: /github/home/.cargo
+2026-10-07T12:39:10.2685170Z   RUSTUP_PERMIT_COPY_RENAME: 1
+2026-10-07T12:39:10.2685557Z ##[endgroup]
+2026-10-07T12:39:10.3284122Z info: syncing channel updates for 1.92.0-x86_64-unknown-linux-gnu
+2026-10-07T12:39:10.4280125Z info: latest update on 2025-12-11 for version 1.92.0 (ded5c06cf 2025-12-08)
+2026-10-07T12:39:10.4284113Z info: downloading 3 components
+2026-10-07T12:39:17.6692902Z 
+2026-10-07T12:39:17.6767546Z   1.92.0-x86_64-unknown-linux-gnu installed - rustc 1.92.0 (ded5c06cf 2025-12-08)
+2026-10-07T12:39:17.6767947Z 
+2026-10-07T12:39:17.6773051Z info: default toolchain set to 1.92.0-x86_64-unknown-linux-gnu
+2026-10-07T12:39:17.6880775Z ##[end-action id=__dtolnay_rust-toolchain.__run_4;outcome=success;conclusion=success;duration_ms=7422]
+2026-10-07T12:39:17.6887212Z ##[start-action display=rustup default 1.92.0;id=__dtolnay_rust-toolchain.__run_5]
+2026-10-07T12:39:17.6907232Z ##[group]Run rustup default 1.92.0 --force-non-host
+2026-10-07T12:39:17.6907898Z [36;1mrustup default 1.92.0 --force-non-host[0m
+2026-10-07T12:39:17.6908680Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:17.6909062Z env:
+2026-10-07T12:39:17.6909336Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:17.6909774Z   CARGO_HOME: /github/home/.cargo
+2026-10-07T12:39:17.6910496Z ##[endgroup]
+2026-10-07T12:39:17.7502534Z info: using existing install for 1.92.0-x86_64-unknown-linux-gnu
+2026-10-07T12:39:17.7508812Z info: default toolchain set to 1.92.0-x86_64-unknown-linux-gnu
+2026-10-07T12:39:17.7509357Z 
+2026-10-07T12:39:17.7580465Z   1.92.0-x86_64-unknown-linux-gnu unchanged - rustc 1.92.0 (ded5c06cf 2025-12-08)
+2026-10-07T12:39:17.7581801Z info: note that the toolchain '1.97.1-x86_64-unknown-linux-gnu' is currently in use (overridden by '/__w/wgpu-scry/wgpu-scry/rust-toolchain.toml')
+2026-10-07T12:39:17.7582554Z 
+2026-10-07T12:39:17.7621104Z ##[end-action id=__dtolnay_rust-toolchain.__run_5;outcome=success;conclusion=success;duration_ms=73]
+2026-10-07T12:39:17.7623685Z ##[start-action display=Create cachekey;id=__dtolnay_rust-toolchain.rustc-version]
+2026-10-07T12:39:17.7645083Z ##[group]Run DATE=$(rustc +1.92.0 --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+2026-10-07T12:39:17.7645921Z [36;1mDATE=$(rustc +1.92.0 --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')[0m
+2026-10-07T12:39:17.7646546Z [36;1mHASH=$(rustc +1.92.0 --version --verbose | sed -ne 's/^commit-hash: //p')[0m
+2026-10-07T12:39:17.7647036Z [36;1mecho "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT[0m
+2026-10-07T12:39:17.7647567Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:17.7647859Z env:
+2026-10-07T12:39:17.7648252Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:17.7648530Z   CARGO_HOME: /github/home/.cargo
+2026-10-07T12:39:17.7648777Z ##[endgroup]
+2026-10-07T12:39:17.8504414Z ##[end-action id=__dtolnay_rust-toolchain.rustc-version;outcome=success;conclusion=success;duration_ms=87]
+2026-10-07T12:39:17.8506986Z ##[start-action display=Disable incremental compilation;id=__dtolnay_rust-toolchain.__run_6]
+2026-10-07T12:39:17.8529007Z ##[group]Run if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+2026-10-07T12:39:17.8529392Z [36;1mif [ -z "${CARGO_INCREMENTAL+set}" ]; then[0m
+2026-10-07T12:39:17.8529718Z [36;1m  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV[0m
+2026-10-07T12:39:17.8530313Z [36;1mfi[0m
+2026-10-07T12:39:17.8530687Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:17.8530986Z env:
+2026-10-07T12:39:17.8531185Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:17.8531455Z   CARGO_HOME: /github/home/.cargo
+2026-10-07T12:39:17.8531704Z ##[endgroup]
+2026-10-07T12:39:17.9106995Z ##[end-action id=__dtolnay_rust-toolchain.__run_6;outcome=success;conclusion=success;duration_ms=59]
+2026-10-07T12:39:17.9109498Z ##[start-action display=Enable colors in Cargo output;id=__dtolnay_rust-toolchain.__run_7]
+2026-10-07T12:39:17.9128440Z ##[group]Run if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+2026-10-07T12:39:17.9128827Z [36;1mif [ -z "${CARGO_TERM_COLOR+set}" ]; then[0m
+2026-10-07T12:39:17.9129172Z [36;1m  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV[0m
+2026-10-07T12:39:17.9129476Z [36;1mfi[0m
+2026-10-07T12:39:17.9130072Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:17.9130394Z env:
+2026-10-07T12:39:17.9130597Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:17.9130866Z   CARGO_HOME: /github/home/.cargo
+2026-10-07T12:39:17.9131119Z   CARGO_INCREMENTAL: 0
+2026-10-07T12:39:17.9131331Z ##[endgroup]
+2026-10-07T12:39:17.9708427Z ##[end-action id=__dtolnay_rust-toolchain.__run_7;outcome=success;conclusion=success;duration_ms=59]
+2026-10-07T12:39:17.9712750Z ##[start-action display=Enable Cargo sparse registry;id=__dtolnay_rust-toolchain.__run_8]
+2026-10-07T12:39:17.9743593Z ##[group]Run # implemented in 1.66, stabilized in 1.68, made default in 1.70
+2026-10-07T12:39:17.9744508Z [36;1m# implemented in 1.66, stabilized in 1.68, made default in 1.70[0m
+2026-10-07T12:39:17.9746323Z [36;1mif [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol ]; then[0m
+2026-10-07T12:39:17.9747650Z [36;1m  if rustc +1.92.0 --version --verbose | grep -q '^release: 1\.6[89]\.'; then[0m
+2026-10-07T12:39:17.9748669Z [36;1m    touch "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2026-10-07T12:39:17.9749702Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV[0m
+2026-10-07T12:39:17.9751240Z [36;1m  elif rustc +1.92.0 --version --verbose | grep -q '^release: 1\.6[67]\.'; then[0m
+2026-10-07T12:39:17.9752302Z [36;1m    touch "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2026-10-07T12:39:17.9753304Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV[0m
+2026-10-07T12:39:17.9753952Z [36;1m  fi[0m
+2026-10-07T12:39:17.9754297Z [36;1mfi[0m
+2026-10-07T12:39:17.9754887Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:17.9755424Z env:
+2026-10-07T12:39:17.9755767Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:17.9756246Z   CARGO_HOME: /github/home/.cargo
+2026-10-07T12:39:17.9756701Z   CARGO_INCREMENTAL: 0
+2026-10-07T12:39:17.9757089Z   CARGO_TERM_COLOR: always
+2026-10-07T12:39:17.9757470Z ##[endgroup]
+2026-10-07T12:39:18.0607781Z ##[end-action id=__dtolnay_rust-toolchain.__run_8;outcome=success;conclusion=success;duration_ms=89]
+2026-10-07T12:39:18.0611856Z ##[start-action display=Work around spurious network errors in curl 8.0;id=__dtolnay_rust-toolchain.__run_9]
+2026-10-07T12:39:18.0640471Z ##[group]Run # https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+2026-10-07T12:39:18.0641951Z [36;1m# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation[0m
+2026-10-07T12:39:18.0643106Z [36;1mif rustc +1.92.0 --version --verbose | grep -q '^release: 1\.7[01]\.'; then[0m
+2026-10-07T12:39:18.0643991Z [36;1m  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV[0m
+2026-10-07T12:39:18.0644579Z [36;1mfi[0m
+2026-10-07T12:39:18.0645107Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:18.0645656Z env:
+2026-10-07T12:39:18.0646006Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:18.0646501Z   CARGO_HOME: /github/home/.cargo
+2026-10-07T12:39:18.0646961Z   CARGO_INCREMENTAL: 0
+2026-10-07T12:39:18.0647353Z   CARGO_TERM_COLOR: always
+2026-10-07T12:39:18.0647781Z ##[endgroup]
+2026-10-07T12:39:18.1353847Z ##[end-action id=__dtolnay_rust-toolchain.__run_9;outcome=success;conclusion=success;duration_ms=74]
+2026-10-07T12:39:18.1357828Z ##[start-action display=rustc +1.92.0 --version --verbose;id=__dtolnay_rust-toolchain.__run_10]
+2026-10-07T12:39:18.1376813Z ##[group]Run rustc +1.92.0 --version --verbose
+2026-10-07T12:39:18.1377165Z [36;1mrustc +1.92.0 --version --verbose[0m
+2026-10-07T12:39:18.1377553Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-10-07T12:39:18.1377861Z env:
+2026-10-07T12:39:18.1378061Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:18.1378336Z   CARGO_HOME: /github/home/.cargo
+2026-10-07T12:39:18.1378596Z   CARGO_INCREMENTAL: 0
+2026-10-07T12:39:18.1378818Z   CARGO_TERM_COLOR: always
+2026-10-07T12:39:18.1379042Z ##[endgroup]
+2026-10-07T12:39:18.2019275Z rustc 1.92.0 (ded5c06cf 2025-12-08)
+2026-10-07T12:39:18.2019915Z binary: rustc
+2026-10-07T12:39:18.2021206Z commit-hash: ded5c06cf21d2b93bffd5d884aa6e96934ee4234
+2026-10-07T12:39:18.2022081Z commit-date: 2025-12-08
+2026-10-07T12:39:18.2022788Z host: x86_64-unknown-linux-gnu
+2026-10-07T12:39:18.2023125Z release: 1.92.0
+2026-10-07T12:39:18.2023343Z LLVM version: 21.1.3
+2026-10-07T12:39:18.2063406Z ##[end-action id=__dtolnay_rust-toolchain.__run_10;outcome=success;conclusion=success;duration_ms=70]
+2026-10-07T12:39:18.2120323Z ##[group]Run cargo check --locked -p scrying --lib --no-default-features --features wgpu-30,wpe
+2026-10-07T12:39:18.2121250Z [36;1mcargo check --locked -p scrying --lib --no-default-features --features wgpu-30,wpe[0m
+2026-10-07T12:39:18.2121772Z shell: sh -e {0}
+2026-10-07T12:39:18.2121973Z env:
+2026-10-07T12:39:18.2122164Z   CARGO_NET_GIT_FETCH_WITH_CLI: true
+2026-10-07T12:39:18.2122431Z   CARGO_HOME: /github/home/.cargo
+2026-10-07T12:39:18.2122681Z   CARGO_INCREMENTAL: 0
+2026-10-07T12:39:18.2122904Z   CARGO_TERM_COLOR: always
+2026-10-07T12:39:18.2123123Z ##[endgroup]
+2026-10-07T12:39:18.2704322Z info: syncing channel updates for 1.97.1-x86_64-unknown-linux-gnu
+2026-10-07T12:39:18.3646459Z info: latest update on 2026-07-16 for version 1.97.1 (8bab26f4f 2026-07-14)
+2026-10-07T12:39:18.3647557Z info: downloading 6 components
+2026-10-07T12:39:30.9511116Z warn: the missing active toolchain `1.97.1-x86_64-unknown-linux-gnu` has been auto-installed
+2026-10-07T12:39:30.9512504Z warn: this might cause rustup commands to take longer time to finish than expected
+2026-10-07T12:39:30.9513700Z info: you may opt out with `RUSTUP_AUTO_INSTALL=0` or `rustup set auto-install disable`
+2026-10-07T12:39:30.9933908Z [1m[92m    Updating[0m crates.io index
+2026-10-07T12:39:31.5832149Z [1m[92m Downloading[0m crates ...
+2026-10-07T12:39:31.6112895Z [1m[92m  Downloaded[0m adler2 v2.0.1
+2026-10-07T12:39:31.6194187Z [1m[92m  Downloaded[0m parking_lot_core v0.9.12
+2026-10-07T12:39:31.6232509Z [1m[92m  Downloaded[0m pastey v0.1.1
+2026-10-07T12:39:31.6258393Z [1m[92m  Downloaded[0m renderdoc-sys v1.1.0
+2026-10-07T12:39:31.6273724Z [1m[92m  Downloaded[0m rustc-hash v1.1.0
+2026-10-07T12:39:31.6292040Z [1m[92m  Downloaded[0m qoi v0.4.1
+2026-10-07T12:39:31.6336368Z [1m[92m  Downloaded[0m ravif v0.13.0
+2026-10-07T12:39:31.6350695Z [1m[92m  Downloaded[0m rayon v1.12.0
+2026-10-07T12:39:31.6472937Z [1m[92m  Downloaded[0m parking_lot v0.12.5
+2026-10-07T12:39:31.6511469Z [1m[92m  Downloaded[0m pulp-wasm-simd-flag v0.1.1
+2026-10-07T12:39:31.6524062Z [1m[92m  Downloaded[0m quick-error v2.0.1
+2026-10-07T12:39:31.6558605Z [1m[92m  Downloaded[0m quote v1.0.47
+2026-10-07T12:39:31.6621822Z [1m[92m  Downloaded[0m raw-window-handle v0.6.2
+2026-10-07T12:39:31.6656287Z [1m[92m  Downloaded[0m rgb v0.8.53
+2026-10-07T12:39:31.6708662Z [1m[92m  Downloaded[0m simd_helpers v0.1.0
+2026-10-07T12:39:31.6722821Z [1m[92m  Downloaded[0m slab v0.4.12
+2026-10-07T12:39:31.6742822Z [1m[92m  Downloaded[0m smallvec v1.15.2
+2026-10-07T12:39:31.6766174Z [1m[92m  Downloaded[0m soup3-sys v0.5.0
+2026-10-07T12:39:31.6793098Z [1m[92m  Downloaded[0m paste v1.0.15
+2026-10-07T12:39:31.6845125Z [1m[92m  Downloaded[0m simd-adler32 v0.3.10
+2026-10-07T12:39:31.6866536Z [1m[92m  Downloaded[0m pulp v0.22.3
+2026-10-07T12:39:31.6921237Z [1m[92m  Downloaded[0m reborrow v0.5.5
+2026-10-07T12:39:31.6929441Z [1m[92m  Downloaded[0m serde_core v1.0.229
+2026-10-07T12:39:31.6962054Z [1m[92m  Downloaded[0m rayon-core v1.13.0
+2026-10-07T12:39:31.7004971Z [1m[92m  Downloaded[0m serde v1.0.229
+2026-10-07T12:39:31.7043819Z [1m[92m  Downloaded[0m serde_derive v1.0.229
+2026-10-07T12:39:31.7078473Z [1m[92m  Downloaded[0m static_assertions v1.1.0
+2026-10-07T12:39:31.7094660Z [1m[92m  Downloaded[0m termcolor v1.4.1
+2026-10-07T12:39:31.7108354Z [1m[92m  Downloaded[0m scopeguard v1.2.0
+2026-10-07T12:39:31.7122509Z [1m[92m  Downloaded[0m toml_datetime v0.6.3
+2026-10-07T12:39:31.7133308Z [1m[92m  Downloaded[0m allocator-api2 v0.2.21
+2026-10-07T12:39:31.7162220Z [1m[92m  Downloaded[0m proc-macro-crate v2.0.2
+2026-10-07T12:39:31.7176517Z [1m[92m  Downloaded[0m stable_deref_trait v1.2.1
+2026-10-07T12:39:31.7186784Z [1m[92m  Downloaded[0m futures-macro v0.3.34
+2026-10-07T12:39:31.7198624Z [1m[92m  Downloaded[0m av1-grain v0.2.5
+2026-10-07T12:39:31.7225645Z [1m[92m  Downloaded[0m dpi v0.1.2
+2026-10-07T12:39:31.7237295Z [1m[92m  Downloaded[0m equator-macro v0.4.2
+2026-10-07T12:39:31.7246805Z [1m[92m  Downloaded[0m equator v0.4.2
+2026-10-07T12:39:31.7262168Z [1m[92m  Downloaded[0m futures-core v0.3.34
+2026-10-07T12:39:31.7278223Z [1m[92m  Downloaded[0m palette_math v0.7.7
+2026-10-07T12:39:31.7294073Z [1m[92m  Downloaded[0m new_debug_unreachable v1.0.6
+2026-10-07T12:39:31.7306295Z [1m[92m  Downloaded[0m noop_proc_macro v0.3.0
+2026-10-07T12:39:31.7317147Z [1m[92m  Downloaded[0m memoffset v0.9.1
+2026-10-07T12:39:31.7331694Z [1m[92m  Downloaded[0m arg_enum_proc_macro v0.3.4
+2026-10-07T12:39:31.7345129Z [1m[92m  Downloaded[0m bit-vec v0.9.1
+2026-10-07T12:39:31.7363605Z [1m[92m  Downloaded[0m bit_field v0.10.3
+2026-10-07T12:39:31.7377720Z [1m[92m  Downloaded[0m cfg-if v1.0.4
+2026-10-07T12:39:31.7393107Z [1m[92m  Downloaded[0m document-features v0.2.12
+2026-10-07T12:39:31.7407324Z [1m[92m  Downloaded[0m either v1.18.0
+2026-10-07T12:39:31.7424501Z [1m[92m  Downloaded[0m foldhash v0.2.0
+2026-10-07T12:39:31.7438372Z [1m[92m  Downloaded[0m gl_generator v0.14.0
+2026-10-07T12:39:31.7458290Z [1m[92m  Downloaded[0m num-derive v0.4.2
+2026-10-07T12:39:31.7479049Z [1m[92m  Downloaded[0m wgpu-core-deps-windows-linux-android v30.0.1
+2026-10-07T12:39:31.7489282Z [1m[92m  Downloaded[0m gif v0.14.2
+2026-10-07T12:39:31.7508726Z [1m[92m  Downloaded[0m libloading v0.8.9
+2026-10-07T12:39:31.7536065Z [1m[92m  Downloaded[0m as-slice v0.2.1
+2026-10-07T12:39:31.7547060Z [1m[92m  Downloaded[0m color_quant v1.1.0
+2026-10-07T12:39:31.7559743Z [1m[92m  Downloaded[0m glib-sys v0.18.1
+2026-10-07T12:39:31.7581042Z [1m[92m  Downloaded[0m gpu-allocator v0.28.0
+2026-10-07T12:39:31.7613616Z [1m[92m  Downloaded[0m image-webp v0.2.4
+2026-10-07T12:39:31.7638146Z [1m[92m  Downloaded[0m num-traits v0.2.19
+2026-10-07T12:39:31.7668006Z [1m[92m  Downloaded[0m version-compare v0.2.1
+2026-10-07T12:39:31.7683520Z [1m[92m  Downloaded[0m wasm-bindgen-shared v0.2.127
+2026-10-07T12:39:31.7695790Z [1m[92m  Downloaded[0m approx v0.5.1
+2026-10-07T12:39:31.7716258Z [1m[92m  Downloaded[0m heck v0.4.1
+2026-10-07T12:39:31.7732115Z [1m[92m  Downloaded[0m proc-macro-error-attr v1.0.4
+2026-10-07T12:39:31.7743137Z [1m[92m  Downloaded[0m profiling-procmacros v1.0.18
+2026-10-07T12:39:31.7751654Z [1m[92m  Downloaded[0m serde_spanned v0.6.9
+2026-10-07T12:39:31.7763988Z [1m[92m  Downloaded[0m version_check v0.9.5
+2026-10-07T12:39:31.7778416Z [1m[92m  Downloaded[0m wasm-bindgen-macro v0.2.127
+2026-10-07T12:39:31.7801803Z [1m[92m  Downloaded[0m wayland-sys v0.31.11
+2026-10-07T12:39:31.7810800Z [1m[92m  Downloaded[0m wgpu-naga-bridge v30.0.1
+2026-10-07T12:39:31.7814865Z [1m[92m  Downloaded[0m y4m v0.8.0
+2026-10-07T12:39:31.7828203Z [1m[92m  Downloaded[0m zune-core v0.5.3
+2026-10-07T12:39:31.7857139Z [1m[92m  Downloaded[0m aligned v0.4.3
+2026-10-07T12:39:31.7870982Z [1m[92m  Downloaded[0m aligned-vec v0.6.4
+2026-10-07T12:39:31.7882591Z [1m[92m  Downloaded[0m by_address v1.2.1
+2026-10-07T12:39:31.7892126Z [1m[92m  Downloaded[0m lock_api v0.4.14
+2026-10-07T12:39:31.7905969Z [1m[92m  Downloaded[0m presser v0.3.1
+2026-10-07T12:39:31.7925614Z [1m[92m  Downloaded[0m proc-macro-error v1.0.4
+2026-10-07T12:39:31.7966290Z [1m[92m  Downloaded[0m profiling v1.0.18
+2026-10-07T12:39:31.7979492Z [1m[92m  Downloaded[0m system-deps v6.2.2
+2026-10-07T12:39:31.8004567Z [1m[92m  Downloaded[0m target-lexicon v0.12.16
+2026-10-07T12:39:31.8028059Z [1m[92m  Downloaded[0m thiserror v1.0.69
+2026-10-07T12:39:31.8095021Z [1m[92m  Downloaded[0m thiserror v2.0.20
+2026-10-07T12:39:31.8171505Z [1m[92m  Downloaded[0m thiserror-impl v1.0.69
+2026-10-07T12:39:31.8186956Z [1m[92m  Downloaded[0m thiserror-impl v2.0.20
+2026-10-07T12:39:31.8203414Z [1m[92m  Downloaded[0m v_frame v0.3.9
+2026-10-07T12:39:31.8221281Z [1m[92m  Downloaded[0m anyhow v1.0.104
+2026-10-07T12:39:31.8267759Z [1m[92m  Downloaded[0m avif-serialize v0.8.9
+2026-10-07T12:39:31.8280584Z [1m[92m  Downloaded[0m bit-set v0.10.0
+2026-10-07T12:39:31.8297158Z [1m[92m  Downloaded[0m built v0.8.1
+2026-10-07T12:39:31.8319615Z [1m[92m  Downloaded[0m bytemuck v1.25.2
+2026-10-07T12:39:31.8356185Z [1m[92m  Downloaded[0m bytemuck_derive v1.12.0
+2026-10-07T12:39:31.8371305Z [1m[92m  Downloaded[0m crossbeam-epoch v0.9.20
+2026-10-07T12:39:31.8399084Z [1m[92m  Downloaded[0m futures-util v0.3.34
+2026-10-07T12:39:31.8554743Z [1m[92m  Downloaded[0m gio v0.18.4
+2026-10-07T12:39:31.8748161Z [1m[92m  Downloaded[0m maybe-rayon v0.1.1
+2026-10-07T12:39:31.8757638Z [1m[92m  Downloaded[0m moxcms v0.8.1
+2026-10-07T12:39:31.8876054Z [1m[92m  Downloaded[0m num-complex v0.4.6
+2026-10-07T12:39:31.8893591Z [1m[92m  Downloaded[0m pin-project-lite v0.2.17
+2026-10-07T12:39:31.8973124Z [1m[92m  Downloaded[0m pkg-config v0.3.34
+2026-10-07T12:39:31.8995308Z [1m[92m  Downloaded[0m rustversion v1.0.23
+2026-10-07T12:39:31.9028687Z [1m[92m  Downloaded[0m soup3 v0.5.0
+2026-10-07T12:39:31.9077303Z [1m[92m  Downloaded[0m spirv v0.4.0+sdk-1.4.341.0
+2026-10-07T12:39:31.9090608Z [1m[92m  Downloaded[0m unicode-ident v1.0.24
+2026-10-07T12:39:31.9122634Z [1m[92m  Downloaded[0m weezl v0.1.12
+2026-10-07T12:39:31.9150422Z [1m[92m  Downloaded[0m zune-inflate v0.2.54
+2026-10-07T12:39:31.9170032Z [1m[92m  Downloaded[0m arrayvec v0.7.8
+2026-10-07T12:39:31.9193683Z [1m[92m  Downloaded[0m autocfg v1.5.1
+2026-10-07T12:39:31.9214690Z [1m[92m  Downloaded[0m bitflags v2.13.1
+2026-10-07T12:39:31.9267190Z [1m[92m  Downloaded[0m equivalent v1.0.2
+2026-10-07T12:39:31.9278933Z [1m[92m  Downloaded[0m proc-macro2 v1.0.107
+2026-10-07T12:39:31.9312799Z [1m[92m  Downloaded[0m raw-cpuid v11.6.0
+2026-10-07T12:39:31.9349960Z [1m[92m  Downloaded[0m toml v0.8.2
+2026-10-07T12:39:31.9385853Z [1m[92m  Downloaded[0m wasm-bindgen v0.2.127
+2026-10-07T12:39:31.9415752Z [1m[92m  Downloaded[0m xml-rs v0.8.29
+2026-10-07T12:39:31.9449639Z [1m[92m  Downloaded[0m bitstream-io v4.10.0
+2026-10-07T12:39:31.9481579Z [1m[92m  Downloaded[0m toml_edit v0.20.2
+2026-10-07T12:39:31.9726291Z [1m[92m  Downloaded[0m wasm-bindgen-macro-support v0.2.127
+2026-10-07T12:39:31.9749464Z [1m[92m  Downloaded[0m zune-jpeg v0.5.15
+2026-10-07T12:39:31.9788927Z [1m[92m  Downloaded[0m tiff v0.11.3
+2026-10-07T12:39:31.9838098Z [1m[92m  Downloaded[0m zerocopy-derive v0.8.56
+2026-10-07T12:39:31.9948503Z [1m[92m  Downloaded[0m bumpalo v3.20.3
+2026-10-07T12:39:31.9978217Z [1m[92m  Downloaded[0m glib-macros v0.18.5
+2026-10-07T12:39:32.0007430Z [1m[92m  Downloaded[0m lebe v0.5.3
+2026-10-07T12:39:32.0021575Z [1m[92m  Downloaded[0m png v0.18.1
+2026-10-07T12:39:32.0067548Z [1m[92m  Downloaded[0m wgpu-types v30.0.1
+2026-10-07T12:39:32.0112604Z [1m[92m  Downloaded[0m winnow v0.5.40
+2026-10-07T12:39:32.0210904Z [1m[92m  Downloaded[0m futures-io v0.3.34
+2026-10-07T12:39:32.0220619Z [1m[92m  Downloaded[0m heck v0.5.0
+2026-10-07T12:39:32.0236028Z [1m[92m  Downloaded[0m zlib-rs v0.6.7
+2026-10-07T12:39:32.0297471Z [1m[92m  Downloaded[0m wgpu v30.0.1
+2026-10-07T12:39:32.0470835Z [1m[92m  Downloaded[0m syn v1.0.109
+2026-10-07T12:39:32.0575309Z [1m[92m  Downloaded[0m unicode-width v0.2.2
+2026-10-07T12:39:32.0632335Z [1m[92m  Downloaded[0m syn v2.0.119
+2026-10-07T12:39:32.0749139Z [1m[92m  Downloaded[0m zerocopy v0.8.56
+2026-10-07T12:39:32.0999411Z [1m[92m  Downloaded[0m half v2.7.1
+2026-10-07T12:39:32.1029198Z [1m[92m  Downloaded[0m palette v0.7.7
+2026-10-07T12:39:32.1168215Z [1m[92m  Downloaded[0m palette_derive v0.7.7
+2026-10-07T12:39:32.1189766Z [1m[92m  Downloaded[0m syn v3.0.4
+2026-10-07T12:39:32.1307175Z [1m[92m  Downloaded[0m wgpu-core v30.0.1
+2026-10-07T12:39:32.1416492Z [1m[92m  Downloaded[0m wgpu-hal v30.0.1
+2026-10-07T12:39:32.1539854Z [1m[92m  Downloaded[0m ash v0.38.0+1.3.281
+2026-10-07T12:39:32.1711267Z [1m[92m  Downloaded[0m naga-types v30.0.1
+2026-10-07T12:39:32.1723935Z [1m[92m  Downloaded[0m dlib v0.5.3
+2026-10-07T12:39:32.1735233Z [1m[92m  Downloaded[0m loop9 v0.1.5
+2026-10-07T12:39:32.1743459Z [1m[92m  Downloaded[0m av-scenechange v0.14.1
+2026-10-07T12:39:32.1863304Z [1m[92m  Downloaded[0m imgref v1.12.3
+2026-10-07T12:39:32.1875539Z [1m[92m  Downloaded[0m pxfm v0.1.30
+2026-10-07T12:39:32.2154653Z [1m[92m  Downloaded[0m fdeflate v0.3.7
+2026-10-07T12:39:32.2172976Z [1m[92m  Downloaded[0m khronos-egl v6.0.0
+2026-10-07T12:39:32.2194084Z [1m[92m  Downloaded[0m cfg_aliases v0.2.2
+2026-10-07T12:39:32.2205832Z [1m[92m  Downloaded[0m litrs v1.0.0
+2026-10-07T12:39:32.2240194Z [1m[92m  Downloaded[0m byteorder-lite v0.1.0
+2026-10-07T12:39:32.2252322Z [1m[92m  Downloaded[0m futures-task v0.3.34
+2026-10-07T12:39:32.2266848Z [1m[92m  Downloaded[0m fax v0.2.7
+2026-10-07T12:39:32.2290290Z [1m[92m  Downloaded[0m num-rational v0.4.2
+2026-10-07T12:39:32.2304520Z [1m[92m  Downloaded[0m futures-executor v0.3.34
+2026-10-07T12:39:32.2321196Z [1m[92m  Downloaded[0m no_std_io2 v0.9.4
+2026-10-07T12:39:32.2343368Z [1m[92m  Downloaded[0m crossbeam-deque v0.8.7
+2026-10-07T12:39:32.2360529Z [1m[92m  Downloaded[0m crossbeam-utils v0.8.22
+2026-10-07T12:39:32.2393147Z [1m[92m  Downloaded[0m gobject-sys v0.18.0
+2026-10-07T12:39:32.2408631Z [1m[92m  Downloaded[0m ordered-float v5.5.0
+2026-10-07T12:39:32.2428292Z [1m[92m  Downloaded[0m log v0.4.34
+2026-10-07T12:39:32.2457155Z [1m[92m  Downloaded[0m once_cell v1.21.4
+2026-10-07T12:39:32.2486619Z [1m[92m  Downloaded[0m cfg-expr v0.15.8
+2026-10-07T12:39:32.2521116Z [1m[92m  Downloaded[0m futures-channel v0.3.34
+2026-10-07T12:39:32.2542291Z [1m[92m  Downloaded[0m gio-sys v0.18.1
+2026-10-07T12:39:32.2569889Z [1m[92m  Downloaded[0m num-integer v0.1.47
+2026-10-07T12:39:32.2589180Z [1m[92m  Downloaded[0m rav1e v0.8.1
+2026-10-07T12:39:32.2951507Z [1m[92m  Downloaded[0m codespan-reporting v0.13.1
+2026-10-07T12:39:32.3040842Z [1m[92m  Downloaded[0m miniz_oxide v0.9.1
+2026-10-07T12:39:32.3069376Z [1m[92m  Downloaded[0m grafting v0.6.0
+2026-10-07T12:39:32.3106595Z [1m[92m  Downloaded[0m crc32fast v1.5.1
+2026-10-07T12:39:32.3130585Z [1m[92m  Downloaded[0m flate2 v1.1.10
+2026-10-07T12:39:32.3188517Z [1m[92m  Downloaded[0m memchr v2.8.3
+2026-10-07T12:39:32.3253701Z [1m[92m  Downloaded[0m miniz_oxide v0.8.9
+2026-10-07T12:39:32.3282637Z [1m[92m  Downloaded[0m num-bigint v0.4.8
+2026-10-07T12:39:32.3338144Z [1m[92m  Downloaded[0m hashbrown v0.16.1
+2026-10-07T12:39:32.3394564Z [1m[92m  Downloaded[0m indexmap v2.14.1
+2026-10-07T12:39:32.3442994Z [1m[92m  Downloaded[0m libm v0.2.16
+2026-10-07T12:39:32.3571848Z [1m[92m  Downloaded[0m itertools v0.14.0
+2026-10-07T12:39:32.3651382Z [1m[92m  Downloaded[0m nom v8.0.0
+2026-10-07T12:39:32.3712647Z [1m[92m  Downloaded[0m glow v0.17.0
+2026-10-07T12:39:32.3760281Z [1m[92m  Downloaded[0m hashbrown v0.17.1
+2026-10-07T12:39:32.3819453Z [1m[92m  Downloaded[0m glib v0.18.5
+2026-10-07T12:39:32.3939138Z [1m[92m  Downloaded[0m image v0.25.10
+2026-10-07T12:39:32.4043133Z [1m[92m  Downloaded[0m exr v1.74.2
+2026-10-07T12:39:32.4161839Z [1m[92m  Downloaded[0m khronos_api v3.1.0
+2026-10-07T12:39:32.4356658Z [1m[92m  Downloaded[0m libc v0.2.189
+2026-10-07T12:39:32.4852437Z [1m[92m  Downloaded[0m naga v30.0.1
+2026-10-07T12:39:32.5717741Z [1m[92m   Compiling[0m proc-macro2 v1.0.107
+2026-10-07T12:39:32.5718368Z [1m[92m   Compiling[0m unicode-ident v1.0.24
+2026-10-07T12:39:32.5718848Z [1m[92m   Compiling[0m quote v1.0.47
+2026-10-07T12:39:32.5719267Z [1m[92m    Checking[0m cfg-if v1.0.4
+2026-10-07T12:39:32.6011496Z [1m[92m   Compiling[0m pkg-config v0.3.34
+2026-10-07T12:39:32.6369516Z [1m[92m   Compiling[0m autocfg v1.5.1
+2026-10-07T12:39:32.7408929Z [1m[92m   Compiling[0m libm v0.2.16
+2026-10-07T12:39:32.9178553Z [1m[92m   Compiling[0m serde_core v1.0.229
+2026-10-07T12:39:32.9363843Z [1m[92m   Compiling[0m num-traits v0.2.19
+2026-10-07T12:39:33.1016127Z [1m[92m   Compiling[0m serde v1.0.229
+2026-10-07T12:39:33.4201385Z [1m[92m   Compiling[0m syn v2.0.119
+2026-10-07T12:39:33.4527835Z [1m[92m   Compiling[0m syn v3.0.4
+2026-10-07T12:39:34.5074716Z [1m[92m   Compiling[0m equivalent v1.0.2
+2026-10-07T12:39:34.5429436Z [1m[92m   Compiling[0m hashbrown v0.17.1
+2026-10-07T12:39:35.0928427Z [1m[92m   Compiling[0m indexmap v2.14.1
+2026-10-07T12:39:35.7245475Z [1m[92m   Compiling[0m winnow v0.5.40
+2026-10-07T12:39:35.9580600Z [1m[92m   Compiling[0m toml_datetime v0.6.3
+2026-10-07T12:39:36.1092048Z [1m[92m   Compiling[0m serde_spanned v0.6.9
+2026-10-07T12:39:36.1770505Z [1m[92m   Compiling[0m libc v0.2.189
+2026-10-07T12:39:36.4153920Z [1m[92m   Compiling[0m target-lexicon v0.12.16
+2026-10-07T12:39:37.3940593Z [1m[92m   Compiling[0m toml_edit v0.20.2
+2026-10-07T12:39:37.5254292Z [1m[92m    Checking[0m bitflags v2.13.1
+2026-10-07T12:39:37.6185062Z [1m[92m   Compiling[0m smallvec v1.15.2
+2026-10-07T12:39:37.6305633Z [1m[92m   Compiling[0m thiserror v2.0.20
+2026-10-07T12:39:37.7837128Z [1m[92m   Compiling[0m cfg-expr v0.15.8
+2026-10-07T12:39:37.8396911Z [1m[92m   Compiling[0m version-compare v0.2.1
+2026-10-07T12:39:37.9451701Z [1m[92m   Compiling[0m heck v0.5.0
+2026-10-07T12:39:38.0384386Z [1m[92m   Compiling[0m thiserror-impl v2.0.20
+2026-10-07T12:39:38.1072562Z [1m[92m   Compiling[0m version_check v0.9.5
+2026-10-07T12:39:38.2412161Z [1m[92m   Compiling[0m cfg_aliases v0.2.2
+2026-10-07T12:39:38.2718145Z [1m[92m    Checking[0m log v0.4.34
+2026-10-07T12:39:38.3291364Z [1m[92m   Compiling[0m bytemuck_derive v1.12.0
+2026-10-07T12:39:38.3650498Z [1m[92m    Checking[0m arrayvec v0.7.8
+2026-10-07T12:39:38.5075809Z [1m[92m   Compiling[0m zerocopy v0.8.56
+2026-10-07T12:39:38.7434724Z [1m[92m    Checking[0m foldhash v0.2.0
+2026-10-07T12:39:38.8433325Z [1m[92m   Compiling[0m zerocopy-derive v0.8.56
+2026-10-07T12:39:39.2054539Z [1m[92m   Compiling[0m toml v0.8.2
+2026-10-07T12:39:39.4586572Z [1m[92m    Checking[0m bytemuck v1.25.2
+2026-10-07T12:39:39.6294644Z [1m[92m   Compiling[0m system-deps v6.2.2
+2026-10-07T12:39:39.8081201Z [1m[92m   Compiling[0m crossbeam-utils v0.8.22
+2026-10-07T12:39:40.0085173Z [1m[92m   Compiling[0m crossbeam-epoch v0.9.20
+2026-10-07T12:39:40.1358769Z [1m[92m    Checking[0m once_cell v1.21.4
+2026-10-07T12:39:40.4618527Z [1m[92m    Checking[0m libloading v0.8.9
+2026-10-07T12:39:40.5524366Z [1m[92m    Checking[0m memchr v2.8.3
+2026-10-07T12:39:40.5843410Z [1m[92m   Compiling[0m crossbeam-deque v0.8.7
+2026-10-07T12:39:40.9077108Z [1m[92m   Compiling[0m profiling-procmacros v1.0.18
+2026-10-07T12:39:40.9419134Z [1m[92m    Checking[0m simd-adler32 v0.3.10
+2026-10-07T12:39:41.0294254Z [1m[92m    Checking[0m rustc-hash v1.1.0
+2026-10-07T12:39:41.0742270Z [1m[92m   Compiling[0m rayon-core v1.13.0
+2026-10-07T12:39:41.0892078Z [1m[92m    Checking[0m profiling v1.0.18
+2026-10-07T12:39:41.1792986Z [1m[92m   Compiling[0m glib-sys v0.18.1
+2026-10-07T12:39:41.2529356Z [1m[92m   Compiling[0m naga v30.0.1
+2026-10-07T12:39:41.3125320Z [1m[92m   Compiling[0m equator-macro v0.4.2
+2026-10-07T12:39:41.3644975Z [1m[92m    Checking[0m naga-types v30.0.1
+2026-10-07T12:39:41.4486075Z [1m[92m   Compiling[0m parking_lot_core v0.9.12
+2026-10-07T12:39:41.4579493Z [1m[92m    Checking[0m bit-vec v0.9.1
+2026-10-07T12:39:41.5801592Z [1m[92m    Checking[0m unicode-width v0.2.2
+2026-10-07T12:39:41.6051112Z [1m[92m   Compiling[0m ash v0.38.0+1.3.281
+2026-10-07T12:39:41.7065971Z [1m[92m    Checking[0m bit-set v0.10.0
+2026-10-07T12:39:41.7419196Z [1m[92m    Checking[0m codespan-reporting v0.13.1
+2026-10-07T12:39:41.8564824Z [1m[92m    Checking[0m equator v0.4.2
+2026-10-07T12:39:41.9701179Z [1m[92m   Compiling[0m gobject-sys v0.18.0
+2026-10-07T12:39:42.0026208Z [1m[92m   Compiling[0m proc-macro-error-attr v1.0.4
+2026-10-07T12:39:42.1059528Z [1m[92m    Checking[0m spirv v0.4.0+sdk-1.4.341.0
+2026-10-07T12:39:42.1205420Z [1m[92m    Checking[0m num-integer v0.1.47
+2026-10-07T12:39:42.1924117Z [1m[92m   Compiling[0m wayland-sys v0.31.11
+2026-10-07T12:39:42.2929168Z [1m[92m    Checking[0m raw-window-handle v0.6.2
+2026-10-07T12:39:42.3458143Z [1m[92m   Compiling[0m paste v1.0.15
+2026-10-07T12:39:42.4142674Z [1m[92m   Compiling[0m syn v1.0.109
+2026-10-07T12:39:42.4958338Z [1m[92m    Checking[0m scopeguard v1.2.0
+2026-10-07T12:39:42.5328572Z [1m[92m    Checking[0m adler2 v2.0.1
+2026-10-07T12:39:42.5776024Z [1m[92m   Compiling[0m khronos-egl v6.0.0
+2026-10-07T12:39:42.5991636Z [1m[92m    Checking[0m static_assertions v1.1.0
+2026-10-07T12:39:42.6290116Z [1m[92m   Compiling[0m anyhow v1.0.104
+2026-10-07T12:39:42.6676575Z [1m[92m    Checking[0m either v1.18.0
+2026-10-07T12:39:42.8164663Z [1m[92m    Checking[0m allocator-api2 v0.2.21
+2026-10-07T12:39:42.8824528Z [1m[92m    Checking[0m wgpu-types v30.0.1
+2026-10-07T12:39:43.0784654Z [1m[92m    Checking[0m hashbrown v0.16.1
+2026-10-07T12:39:43.2318209Z [1m[92m    Checking[0m lock_api v0.4.14
+2026-10-07T12:39:43.4088012Z [1m[92m    Checking[0m num-bigint v0.4.8
+2026-10-07T12:39:43.6658009Z [1m[92m    Checking[0m aligned-vec v0.6.4
+2026-10-07T12:39:44.0612908Z [1m[92m    Checking[0m half v2.7.1
+2026-10-07T12:39:44.4153367Z [1m[92m    Checking[0m dlib v0.5.3
+2026-10-07T12:39:44.4581287Z [1m[92m   Compiling[0m gio-sys v0.18.1
+2026-10-07T12:39:44.6091878Z [1m[92m   Compiling[0m proc-macro-error v1.0.4
+2026-10-07T12:39:44.6976962Z [1m[92m   Compiling[0m wgpu-hal v30.0.1
+2026-10-07T12:39:44.7771896Z [1m[92m    Checking[0m stable_deref_trait v1.2.1
+2026-10-07T12:39:44.8043267Z [1m[92m   Compiling[0m khronos_api v3.1.0
+2026-10-07T12:39:44.9232553Z [1m[92m   Compiling[0m crc32fast v1.5.1
+2026-10-07T12:39:44.9453665Z [1m[92m    Checking[0m presser v0.3.1
+2026-10-07T12:39:45.0014328Z [1m[92m    Checking[0m futures-core v0.3.34
+2026-10-07T12:39:45.0978469Z [1m[92m    Checking[0m as-slice v0.2.1
+2026-10-07T12:39:45.1747624Z [1m[92m    Checking[0m num-rational v0.4.2
+2026-10-07T12:39:45.2274804Z [1m[92m    Checking[0m parking_lot v0.12.5
+2026-10-07T12:39:45.4296422Z [1m[92m    Checking[0m v_frame v0.3.9
+2026-10-07T12:39:46.2517424Z [1m[92m    Checking[0m rayon v1.12.0
+2026-10-07T12:39:46.3531248Z [1m[92m   Compiling[0m futures-macro v0.3.34
+2026-10-07T12:39:46.9816037Z [1m[92m    Checking[0m ordered-float v5.5.0
+2026-10-07T12:39:47.2017688Z [1m[92m   Compiling[0m built v0.8.1
+2026-10-07T12:39:47.6531101Z [1m[92m    Checking[0m slab v0.4.12
+2026-10-07T12:39:47.7511643Z [1m[92m    Checking[0m renderdoc-sys v1.1.0
+2026-10-07T12:39:47.8031409Z [1m[92m   Compiling[0m thiserror v1.0.69
+2026-10-07T12:39:47.9661689Z [1m[92m    Checking[0m futures-task v0.3.34
+2026-10-07T12:39:48.0387262Z [1m[92m   Compiling[0m av-scenechange v0.14.1
+2026-10-07T12:39:48.0462306Z [1m[92m    Checking[0m pin-project-lite v0.2.17
+2026-10-07T12:39:48.0826441Z [1m[92m    Checking[0m glow v0.17.0
+2026-10-07T12:39:48.1762175Z [1m[92m    Checking[0m futures-util v0.3.34
+2026-10-07T12:39:49.3493137Z [1m[92m   Compiling[0m rav1e v0.8.1
+2026-10-07T12:39:49.8523504Z [1m[92m    Checking[0m aligned v0.4.3
+2026-10-07T12:39:50.0815510Z [1m[92m    Checking[0m miniz_oxide v0.9.1
+2026-10-07T12:39:50.3222371Z [1m[92m    Checking[0m no_std_io2 v0.9.4
+2026-10-07T12:39:50.3573478Z [1m[92m    Checking[0m nom v8.0.0
+2026-10-07T12:39:50.4354753Z [1m[92m   Compiling[0m proc-macro-crate v2.0.2
+2026-10-07T12:39:50.8472369Z [1m[92m   Compiling[0m pulp v0.22.3
+2026-10-07T12:39:51.0352508Z [1m[92m   Compiling[0m wgpu-core v30.0.1
+2026-10-07T12:39:51.3162718Z [1m[92m   Compiling[0m arg_enum_proc_macro v0.3.4
+2026-10-07T12:39:51.6881200Z [1m[92m   Compiling[0m thiserror-impl v1.0.69
+2026-10-07T12:39:51.7401798Z [1m[92m    Checking[0m wgpu-naga-bridge v30.0.1
+2026-10-07T12:39:51.7865774Z [1m[92m   Compiling[0m litrs v1.0.0
+2026-10-07T12:39:52.2462529Z [1m[92m    Checking[0m y4m v0.8.0
+2026-10-07T12:39:52.3359831Z [1m[92m   Compiling[0m xml-rs v0.8.29
+2026-10-07T12:39:52.7268122Z [1m[92m   Compiling[0m heck v0.4.1
+2026-10-07T12:39:52.9812635Z [1m[92m   Compiling[0m pastey v0.1.1
+2026-10-07T12:39:53.0235718Z [1m[92m    Checking[0m quick-error v2.0.1
+2026-10-07T12:39:53.0701605Z [1m[92m    Checking[0m av1-grain v0.2.5
+2026-10-07T12:39:53.2356108Z [1m[92m   Compiling[0m gl_generator v0.14.0
+2026-10-07T12:39:53.4889017Z [1m[92m    Checking[0m gpu-allocator v0.28.0
+2026-10-07T12:39:53.5772895Z [1m[92m   Compiling[0m glib-macros v0.18.5
+2026-10-07T12:39:53.7997208Z [1m[92m   Compiling[0m document-features v0.2.12
+2026-10-07T12:39:53.8339293Z [1m[92m    Checking[0m flate2 v1.1.10
+2026-10-07T12:39:54.1155870Z [1m[92m    Checking[0m bitstream-io v4.10.0
+2026-10-07T12:39:54.1876051Z [1m[92m    Checking[0m futures-executor v0.3.34
+2026-10-07T12:39:54.2951824Z [1m[92m    Checking[0m maybe-rayon v0.1.1
+2026-10-07T12:39:54.3298450Z [1m[92m    Checking[0m futures-channel v0.3.34
+2026-10-07T12:39:54.5551894Z [1m[92m    Checking[0m itertools v0.14.0
+2026-10-07T12:39:54.6520272Z [1m[92m    Checking[0m miniz_oxide v0.8.9
+2026-10-07T12:39:55.0046356Z [1m[92m   Compiling[0m soup3-sys v0.5.0
+2026-10-07T12:39:55.1399414Z [1m[92m    Checking[0m num-complex v0.4.6
+2026-10-07T12:39:55.5206849Z [1m[92m   Compiling[0m wgpu v30.0.1
+2026-10-07T12:39:55.8878199Z [1m[92m   Compiling[0m num-derive v0.4.2
+2026-10-07T12:39:55.9797754Z [1m[92m    Checking[0m raw-cpuid v11.6.0
+2026-10-07T12:39:56.3643447Z [1m[92m    Checking[0m wgpu-core-deps-windows-linux-android v30.0.1
+2026-10-07T12:39:56.3961349Z [1m[92m   Compiling[0m simd_helpers v0.1.0
+2026-10-07T12:39:56.5632285Z [1m[92m    Checking[0m weezl v0.1.12
+2026-10-07T12:39:56.6776841Z [1m[92m   Compiling[0m gio v0.18.4
+2026-10-07T12:39:56.7021938Z [1m[92m    Checking[0m zune-core v0.5.3
+2026-10-07T12:39:56.7726069Z [1m[92m    Checking[0m new_debug_unreachable v1.0.6
+2026-10-07T12:39:56.7792801Z [1m[92m    Checking[0m reborrow v0.5.5
+2026-10-07T12:39:56.8008925Z [1m[92m    Checking[0m pulp-wasm-simd-flag v0.1.1
+2026-10-07T12:39:56.8171472Z [1m[92m   Compiling[0m noop_proc_macro v0.3.0
+2026-10-07T12:39:56.8307893Z [1m[92m    Checking[0m imgref v1.12.3
+2026-10-07T12:39:56.8474084Z [1m[92m    Checking[0m zune-jpeg v0.5.15
+2026-10-07T12:39:56.9536716Z [1m[92m    Checking[0m loop9 v0.1.5
+2026-10-07T12:39:57.0122970Z [1m[92m    Checking[0m glib v0.18.5
+2026-10-07T12:40:00.6634667Z [1m[92m   Compiling[0m grafting v0.6.0
+2026-10-07T12:40:00.8808962Z [1m[92m    Checking[0m fdeflate v0.3.7
+2026-10-07T12:40:01.0906442Z [1m[92m    Checking[0m zune-inflate v0.2.54
+2026-10-07T12:40:01.1972678Z [1m[92m    Checking[0m avif-serialize v0.8.9
+2026-10-07T12:40:01.2248269Z [1m[92m    Checking[0m bit_field v0.10.3
+2026-10-07T12:40:01.3090779Z [1m[92m   Compiling[0m by_address v1.2.1
+2026-10-07T12:40:01.3638234Z [1m[92m    Checking[0m futures-io v0.3.34
+2026-10-07T12:40:01.3779943Z [1m[92m    Checking[0m color_quant v1.1.0
+2026-10-07T12:40:01.4238740Z [1m[92m    Checking[0m rgb v0.8.53
+2026-10-07T12:40:01.4489695Z [1m[92m    Checking[0m fax v0.2.7
+2026-10-07T12:40:01.6221976Z [1m[92m    Checking[0m lebe v0.5.3
+2026-10-07T12:40:01.6777726Z [1m[92m    Checking[0m pxfm v0.1.30
+2026-10-07T12:40:01.7117966Z [1m[92m    Checking[0m byteorder-lite v0.1.0
+2026-10-07T12:40:01.7289534Z [1m[92m    Checking[0m exr v1.74.2
+2026-10-07T12:40:01.8968904Z [1m[92m    Checking[0m image-webp v0.2.4
+2026-10-07T12:40:03.6968057Z [1m[92m    Checking[0m moxcms v0.8.1
+2026-10-07T12:40:04.1336928Z [1m[92m    Checking[0m ravif v0.13.0
+2026-10-07T12:40:04.2900906Z [1m[92m    Checking[0m tiff v0.11.3
+2026-10-07T12:40:04.5576939Z [1m[92m    Checking[0m gif v0.14.2
+2026-10-07T12:40:04.8157692Z [1m[92m   Compiling[0m palette_derive v0.7.7
+2026-10-07T12:40:05.2049794Z [1m[92m    Checking[0m png v0.18.1
+2026-10-07T12:40:05.7853814Z [1m[92m    Checking[0m qoi v0.4.1
+2026-10-07T12:40:05.9066880Z [1m[92m   Compiling[0m scrying v0.7.1 (/__w/wgpu-scry/wgpu-scry/scrying)
+2026-10-07T12:40:05.9302207Z [1m[92m    Checking[0m dpi v0.1.2
+2026-10-07T12:40:06.0099702Z [1m[92m    Checking[0m palette_math v0.7.7
+2026-10-07T12:40:06.0953354Z [1m[92m    Checking[0m palette v0.7.7
+2026-10-07T12:40:07.0021956Z [1m[92m    Checking[0m image v0.25.10
+2026-10-07T12:40:10.2674171Z [1m[92m    Checking[0m soup3 v0.5.0
+2026-10-07T12:40:11.7254489Z [1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 40.76s
+2026-10-07T12:40:11.8081859Z Post job cleanup.
+2026-10-07T12:40:11.8089459Z ##[command]/usr/bin/docker exec  3bb0b9722f1f1c3d9daa318fdd26ce9bfc56c1fc42fb3e99579f66d540fc6d6f sh -c "cat /etc/*release | grep ^ID"
+2026-10-07T12:40:12.0002160Z [command]/usr/sbin/git version
+2026-10-07T12:40:12.0070769Z git version 2.56.0
+2026-10-07T12:40:12.0127665Z Temporarily overriding HOME='/__w/_temp/addb85c5-1fa9-428b-b300-c8baceeafff8' before making global git config changes
+2026-10-07T12:40:12.0140280Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T12:40:12.0141477Z [command]/usr/sbin/git config --global --add safe.directory /__w/wgpu-scry/wgpu-scry
+2026-10-07T12:40:12.0175801Z [command]/usr/sbin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T12:40:12.0214802Z [command]/usr/sbin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T12:40:12.0517944Z [command]/usr/sbin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T12:40:12.0550894Z http.https://github.com/.extraheader
+2026-10-07T12:40:12.0559629Z [command]/usr/sbin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-07T12:40:12.0596007Z [command]/usr/sbin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T12:40:12.0934518Z [command]/usr/sbin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-07T12:40:12.0967791Z [command]/usr/sbin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-07T12:40:12.1404514Z Stop and remove container: 3679862ffd994063b80ba4944a03027a_fedora44_d43e57
+2026-10-07T12:40:12.1409143Z ##[command]/usr/bin/docker rm --force 3bb0b9722f1f1c3d9daa318fdd26ce9bfc56c1fc42fb3e99579f66d540fc6d6f
+2026-10-07T12:40:14.2320198Z 3bb0b9722f1f1c3d9daa318fdd26ce9bfc56c1fc42fb3e99579f66d540fc6d6f
+2026-10-07T12:40:14.2341308Z Remove container network: github_network_a667b3ace73848e0992a7df40e27ece3
+2026-10-07T12:40:14.2345817Z ##[command]/usr/bin/docker network rm github_network_a667b3ace73848e0992a7df40e27ece3
+2026-10-07T12:40:14.3620423Z github_network_a667b3ace73848e0992a7df40e27ece3
+2026-10-07T12:40:14.3699107Z Cleaning up orphan processes
+2026-10-07T12:40:14.4066107Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

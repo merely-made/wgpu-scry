@@ -1,0 +1,203 @@
+{
+  "recorded_utc": "2026-10-07T12:58:54.036641+00:00",
+  "source_sha": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "scope": "Bounded read-only source and negative-receipt review. No applications, tests, builds, source changes, or threshold changes.",
+  "published0_7_1_baseline": "8386502915e6bad0f9d9d13cc17bb7d4bbaa769a",
+  "startup_navigation_fixture_oracle_unchanged_paths": [
+    "demo-win/src/probe.rs",
+    "demo-win/src/gpu.rs",
+    "scrying/src/webview2_composition_producer/navigation.rs"
+  ],
+  "baseline_git_diff_exit": 0,
+  "confirmed_findings": [
+    {
+      "finding": "The proper probe GPU oracle failed on one generation-1 frame of the correct size. All five sampled BGRA values were zero. This run has no later-frame observation.",
+      "confidence": "Actual negative receipt and source path."
+    },
+    {
+      "finding": "navigate_to_string waits for NavigationCompleted, then schedules two rAF callbacks by returning a JavaScript Promise. The Rust waiter discards the JSON evaluation result and has no explicit rAF completion acknowledgement. This does not establish completed rAF or compositor paint.",
+      "confidence": "Confirmed source contract. Actual runtime callback timing was not measured."
+    },
+    {
+      "finding": "WGC frame availability requires an arrival notification and correct dimensions. It does not validate expected document paint, background color, or opaque content. Resource copy/import synchronization does not identify the represented page paint.",
+      "confidence": "Confirmed source."
+    },
+    {
+      "finding": "Startup readback runs after optional scripted input and other fixtures, but always uses the normal probe background oracle. The scripted fixture permits overflow and scrollbars. Gray corner failure alone cannot identify a GPU transfer defect.",
+      "confidence": "Confirmed fixed oracle, different fixture, and observed gray corners. Their precise origin remains unproved."
+    },
+    {
+      "finding": "Capture and resize PASS check frame import, size, format, and metrics without texture pixel readback. They do not close known-color pixel correctness.",
+      "confidence": "Confirmed source."
+    }
+  ],
+  "unsupported_attributions": [
+    "No proof of driver failure.",
+    "No proof of Graft import, copy, or fence failure from startup zero samples alone.",
+    "No proof that both rAF callbacks completed before the WGC sample.",
+    "No actual later-frame pixel PASS yet."
+  ],
+  "next_meaningful_gate": {
+    "proposal": "Add a bounded supplemental normal-fixture pixel gate using unchanged normal CSS and the existing RGB tolerance of \u00b16. Establish document identity, expected computed background, and readyState, then obtain an explicit acknowledgement after both rAF callbacks through a web message or bounded polling of a synchronous flag. Record acquired frame generations, sizes, and sample pixels within one existing bounded deadline after capture starts. Preserve the initial zero sample and require a later qualified frame to pass the same oracle. Fail explicitly if the deadline expires without matching pixels.",
+    "limits": "DOM/rAF acknowledgement is a readiness diagnostic, not compositor presentation proof. Actual GPU readback must still pass. Do not force repaint, refocus, or loosen tolerance. Root must choose the bounded harness/source slice and qualification identity before implementation."
+  },
+  "source_evidence": [
+    {
+      "path": "demo-win/src/probe.rs",
+      "start_line": 643,
+      "end_line": 668,
+      "note": "One-shot 420x260 size, fixture choice, and navigation before capture.",
+      "git_file_sha256": "66161299da3fd872705e057b00ce48495cfd97612b22f8eeecbb23b4de220e04",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/demo-win/src/probe.rs#L643",
+      "excerpt": "643:     let (initial_size, initial_offset_x, initial_offset_y) = if cli.one_shot() {\n644:         (\n645:             winit::dpi::PhysicalSize::new(SMOKE_PROBE_WIDTH as u32, SMOKE_PROBE_HEIGHT as u32),\n646:             SMOKE_PROBE_X,\n647:             SMOKE_PROBE_Y,\n648:         )\n649:     } else {\n650:         let window_size = window.inner_size();\n651:         let capture = capture_size_for_window(window_size);\n652:         let (x, y) = capture_offset_for_window(window_size);\n653:         (capture, x, y)\n654:     };\n655:     let mut config = scrying::PlatformWebSurfaceConfig::new(initial_size, user_data_dir.clone())\n656:         .with_offset(initial_offset_x, initial_offset_y)\n657:         .with_diagnostic_backdrop((27, 86, 96));\n658:     config = config.with_dx12_fence_synchronizer(Arc::clone(fence_synchronizer));\n659:     if cli.incognito_test {\n660:         config = config.non_persistent();\n661:     }\n662: \n663:     let producer = unsafe { scrying::PlatformWebSurfaceProducer::new(parent_hwnd, config)? };\n664:     producer.navigate_to_string(\n665:         composition_probe_html(cli.scripted),\n666:         std::time::Duration::from_secs(5),\n667:     )?;\n668:     println!(\"CompositionController visual probe: navigation completed\");"
+    },
+    {
+      "path": "demo-win/src/probe.rs",
+      "start_line": 754,
+      "end_line": 788,
+      "note": "One acquired native frame and fixed normal-fixture background oracle.",
+      "git_file_sha256": "66161299da3fd872705e057b00ce48495cfd97612b22f8eeecbb23b4de220e04",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/demo-win/src/probe.rs#L754",
+      "excerpt": "754:     let imported = if std::env::var(\"WEBVIEW_READBACK_VALIDATE\")\n755:         .ok()\n756:         .filter(|v| !v.is_empty() && v != \"0\")\n757:         .is_some()\n758:     {\n759:         let mut producer_for_readback = producer;\n760:         let captured = producer_for_readback.acquire_full_frame()?;\n761:         let content_size = captured.content_size;\n762:         let importer = WgpuTextureImporter::with_synchronizer(\n763:             host.clone(),\n764:             Box::new(Arc::clone(fence_synchronizer)),\n765:         );\n766:         let WebSurfaceFrame::Native(native_frame) = captured.frame else {\n767:             return Err(\"WebView2 composition producer did not emit a native frame\".into());\n768:         };\n769:         let imported = importer.import_frame(native_frame, &ImportOptions::default())?;\n770:         println!(\n771:             \"GraphicsCapture WebView2 CompositionController WebView target visual: captured {}x{}, imported {:?} {}x{} generation {}\",\n772:             content_size.width,\n773:             content_size.height,\n774:             imported.format,\n775:             imported.size.width,\n776:             imported.size.height,\n777:             imported.generation\n778:         );\n779:         let html_background_rgb = (0x17u8, 0x20u8, 0x2au8);\n780:         validate_imported_pixels(&imported, &host.device, &host.queue, html_background_rgb)?;\n781:         return Ok(Some(CapturedComposition {\n782:             imported: Some(imported),\n783:             producer: producer_for_readback,\n784:             dispatcher_queue,\n785:         }));\n786:     } else {\n787:         eprintln!(\n788:             \"WebView readback: skipped (set WEBVIEW_READBACK_VALIDATE=1 to enable startup pixel check + initial acquire). Renderer will perform first acquire on its own.\""
+    },
+    {
+      "path": "demo-win/src/probe.rs",
+      "start_line": 350,
+      "end_line": 409,
+      "note": "Scripted fixture permits overflow, scrolling, and input; no fixed-corner proof.",
+      "git_file_sha256": "66161299da3fd872705e057b00ce48495cfd97612b22f8eeecbb23b4de220e04",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/demo-win/src/probe.rs#L350",
+      "excerpt": "350: const COMPOSITION_WEBVIEW_SCRIPTED_HTML: &str = r#\"<!doctype html>\n351: <html>\n352: <head>\n353:     <meta charset=\"utf-8\">\n354:     <style>\n355:         html, body {\n356:             margin: 0;\n357:             width: 100%;\n358:             min-height: 100%;\n359:             background: #17202a;\n360:             color: #f8f1d8;\n361:             font-family: system-ui, sans-serif;\n362:         }\n363:         body {\n364:             box-sizing: border-box;\n365:             padding: 18px;\n366:         }\n367:         input {\n368:             box-sizing: border-box;\n369:             width: 220px;\n370:             border: 1px solid #8fd2c7;\n371:             border-radius: 4px;\n372:             background: #0f1720;\n373:             color: #f8f1d8;\n374:             padding: 6px 8px;\n375:             font: 15px system-ui, sans-serif;\n376:             letter-spacing: 0;\n377:         }\n378:         #scroll-target {\n379:             margin-top: 12px;\n380:             height: 520px;\n381:             border-top: 1px solid #8fd2c7;\n382:             color: #ffbe70;\n383:         }\n384:     </style>\n385: </head>\n386: <body>\n387:     <h1>Scrying Windows Scripted Probe</h1>\n388:     <input id=\"scripted-input\" autofocus autocomplete=\"off\" spellcheck=\"false\" aria-label=\"scripted input\">\n389:     <div id=\"scroll-target\">scroll target</div>\n390:     <script>\n391:         const post = value => window.chrome.webview.postMessage(value);\n392:         const input = document.getElementById(\"scripted-input\");\n393:         input.focus();\n394:         window.chrome.webview.addEventListener(\"message\", event => {\n395:             post(\"scripted:host-echo:\" + event.data);\n396:         });\n397:         window.addEventListener(\"wheel\", () => post(\"scripted:wheel\"));\n398:         input.addEventListener(\"input\", () => post(\"scripted:input:\" + input.value));\n399:         post(\"scripted:ready\");\n400:     </script>\n401: </body>\n402: </html>\"#;\n403: \n404: fn composition_probe_html(scripted: bool) -> &'static str {\n405:     if scripted {\n406:         COMPOSITION_WEBVIEW_SCRIPTED_HTML\n407:     } else {\n408:         COMPOSITION_WEBVIEW_PROBE_HTML\n409:     }"
+    },
+    {
+      "path": "demo-win/src/gpu.rs",
+      "start_line": 99,
+      "end_line": 140,
+      "note": "Four RGB corners must match within \u00b16; at least one sample alpha must be nonzero.",
+      "git_file_sha256": "ccd50a102d2aaa7882070641a95723a2046ba2804ef9f7c70119b268e2eb34b3",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/demo-win/src/gpu.rs#L99",
+      "excerpt": "99:     let (er, eg, eb) = expected_rgb;\n100:     println!(\n101:         \"WebView readback: expected background BGRA=({},{},{},255) from CSS rgb({},{},{})\",\n102:         eb, eg, er, er, eg, eb\n103:     );\n104:     println!(\n105:         \"WebView readback: tl=BGRA{:?} tr=BGRA{:?} bl=BGRA{:?} br=BGRA{:?} center=BGRA{:?}\",\n106:         tl, tr, bl, br, center\n107:     );\n108: \n109:     let tolerance: i32 = 6;\n110:     let close_to_background = |bgra: [u8; 4]| -> bool {\n111:         let [b, g, r, _a] = bgra;\n112:         (b as i32 - eb as i32).abs() <= tolerance\n113:             && (g as i32 - eg as i32).abs() <= tolerance\n114:             && (r as i32 - er as i32).abs() <= tolerance\n115:     };\n116:     let corners_match = close_to_background(tl)\n117:         && close_to_background(tr)\n118:         && close_to_background(bl)\n119:         && close_to_background(br);\n120:     println!(\n121:         \"WebView readback: corner pixels match background within \u00b1{tolerance}: {corners_match}\"\n122:     );\n123: \n124:     if !corners_match {\n125:         return Err(\n126:             \"WebView readback: corner pixels do not match the HTML background; \\\n127:              capture content is likely wrong (zeros, swapped channels, or empty).\"\n128:                 .into(),\n129:         );\n130:     }\n131: \n132:     let nonzero_alpha = tl[3] > 0 || tr[3] > 0 || bl[3] > 0 || br[3] > 0 || center[3] > 0;\n133:     if !nonzero_alpha {\n134:         return Err(\n135:             \"WebView readback: every sampled alpha is zero; capture is likely uninitialized.\"\n136:                 .into(),\n137:         );\n138:     }\n139: \n140:     Ok(())"
+    },
+    {
+      "path": "demo-win/src/main.rs",
+      "start_line": 563,
+      "end_line": 566,
+      "note": "One-shot modes do not install the continuously sampling renderer.",
+      "git_file_sha256": "3cf2545cd537a09388a1cb3f257a9165e312e7df914345eced9791843f7daed7",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/demo-win/src/main.rs#L563",
+      "excerpt": "563:         #[cfg(target_os = \"windows\")]\n564:         let renderer = if cli.one_shot() || cli.multi_pane_input_test {\n565:             None\n566:         } else {"
+    },
+    {
+      "path": "scrying/src/webview2_composition_producer/navigation.rs",
+      "start_line": 10,
+      "end_line": 54,
+      "note": "Navigation completion event, then a Promise-returning double-rAF script.",
+      "git_file_sha256": "d4b49a15642bd9f9eeb510e4f8c291159faaff1561024953b40179dcfc18a461",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/scrying/src/webview2_composition_producer/navigation.rs#L10",
+      "excerpt": "10:     /// Navigate the underlying WebView2 to an inline HTML document and block\n11:     /// until `NavigationCompleted` fires (or the configured timeout elapses).\n12:     pub fn navigate_to_string(&self, html: &str, timeout: Duration) -> Result<(), WebSurfaceError> {\n13:         let (tx, rx) = mpsc::channel::<()>();\n14:         let mut navigation_token = 0;\n15:         let handler = NavigationCompletedEventHandler::create(Box::new(move |_sender, _args| {\n16:             let _ = tx.send(());\n17:             Ok(())\n18:         }));\n19: \n20:         unsafe {\n21:             self.webview\n22:                 .add_NavigationCompleted(&handler, &mut navigation_token)\n23:                 .map_err(platform(\"add_NavigationCompleted\"))?;\n24:             let html = CoTaskMemPWSTR::from(html);\n25:             self.webview\n26:                 .NavigateToString(*html.as_ref().as_pcwstr())\n27:                 .map_err(platform(\"NavigateToString\"))?;\n28:         }\n29: \n30:         let result = pump_until(timeout, &rx);\n31: \n32:         unsafe {\n33:             let _ = self\n34:                 .webview\n35:                 .remove_NavigationCompleted(navigation_token)\n36:                 .map_err(webview2_com::Error::WindowsError);\n37:         }\n38: \n39:         result.map_err(|()| {\n40:             WebSurfaceError::Platform(format!(\n41:                 \"WebView2 navigation did not complete within {timeout:?}\"\n42:             ))\n43:         })?;\n44: \n45:         self.wait_for_render_tick()\n46:     }\n47: \n48:     fn wait_for_render_tick(&self) -> Result<(), WebSurfaceError> {\n49:         let script = r#\"(() => new Promise(resolve => {\n50:             requestAnimationFrame(() => requestAnimationFrame(() => resolve(\"present\")));\n51:         }))()\"#\n52:             .to_string();\n53:         execute_script_blocking(&self.webview, script)\n54:     }"
+    },
+    {
+      "path": "scrying/src/webview2_composition_producer.rs",
+      "start_line": 575,
+      "end_line": 586,
+      "note": "Only ExecuteScript completion HRESULT is awaited; JSON is discarded.",
+      "git_file_sha256": "edf6d56b0755f4f3f704911f2cf15328e840a6e2b0aeab308255cb2918d68e67",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/scrying/src/webview2_composition_producer.rs#L575",
+      "excerpt": "575: fn execute_script_blocking(webview: &ICoreWebView2, script: String) -> Result<(), WebSurfaceError> {\n576:     let webview = webview.clone();\n577:     ExecuteScriptCompletedHandler::wait_for_async_operation(\n578:         Box::new(move |handler| unsafe {\n579:             let script = CoTaskMemPWSTR::from(script.as_str());\n580:             webview\n581:                 .ExecuteScript(*script.as_ref().as_pcwstr(), &handler)\n582:                 .map_err(webview2_com::Error::WindowsError)\n583:         }),\n584:         Box::new(|error_code, _result| error_code),\n585:     )\n586:     .map_err(|error| WebSurfaceError::Platform(format!(\"ExecuteScript: {error}\")))"
+    },
+    {
+      "path": "scrying/src/webview2_composition_producer/capture.rs",
+      "start_line": 137,
+      "end_line": 141,
+      "note": "Capture starts lazily after navigation, then enters bounded acquire.",
+      "git_file_sha256": "404cd9c633a63a61e4ef659105e57ec9f5608d76478ab7bc84bd6915b93a5e0b",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/scrying/src/webview2_composition_producer/capture.rs#L137",
+      "excerpt": "137:     pub fn acquire_full_frame(&mut self) -> Result<WebView2CompositionFrame, WebSurfaceError> {\n138:         if self.capture_state.is_none() {\n139:             self.start_capture()?;\n140:         }\n141:         self.acquire_frame_with_timeout(self.frame_timeout)"
+    },
+    {
+      "path": "scrying/src/webview2_composition_producer/capture.rs",
+      "start_line": 214,
+      "end_line": 263,
+      "note": "Frame-arrival readiness and Windows message pump; returns first convertible frame.",
+      "git_file_sha256": "404cd9c633a63a61e4ef659105e57ec9f5608d76478ab7bc84bd6915b93a5e0b",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/scrying/src/webview2_composition_producer/capture.rs#L214",
+      "excerpt": "214:     pub fn acquire_frame_with_timeout(\n215:         &mut self,\n216:         timeout: Duration,\n217:     ) -> Result<WebView2CompositionFrame, WebSurfaceError> {\n218:         if self.capture_state.is_none() {\n219:             self.start_capture()?;\n220:         }\n221:         let needs_nudge = self\n222:             .capture_state\n223:             .as_ref()\n224:             .map(|state| !state.first_frame_emitted)\n225:             .unwrap_or(true);\n226:         if needs_nudge {\n227:             let _ = self.nudge_content(FIRST_FRAME_NUDGE_LABEL);\n228:         }\n229:         let deadline = Instant::now() + timeout;\n230:         loop {\n231:             let state = self\n232:                 .capture_state\n233:                 .as_mut()\n234:                 .expect(\"capture state populated above\");\n235:             if !state.frame_ready() {\n236:                 if Instant::now() < deadline {\n237:                     pump_messages_for(Duration::from_millis(16));\n238:                     continue;\n239:                 }\n240:                 return Err(WebSurfaceError::Platform(format!(\n241:                     \"WGC frame did not arrive within {timeout:?} for {}x{}\",\n242:                     self.size.width, self.size.height\n243:                 )));\n244:             }\n245:             match state.take_latest_frame() {\n246:                 Ok(frame) => match self.capture_frame_to_shared(frame)? {\n247:                     Some(frame) => return Ok(frame),\n248:                     None if Instant::now() < deadline => {\n249:                         pump_messages_for(Duration::from_millis(16))\n250:                     },\n251:                     None => {\n252:                         return Err(WebSurfaceError::NotReady(\n253:                             \"WGC only returned stale frames before the acquire timeout\",\n254:                         ));\n255:                     },\n256:                 },\n257:                 Err(_) if Instant::now() < deadline => pump_messages_for(Duration::from_millis(16)),\n258:                 Err(error) => {\n259:                     return Err(WebSurfaceError::Platform(format!(\n260:                         \"TryGetNextFrame timed out after {timeout:?} for {}x{}: {error}\",\n261:                         self.size.width, self.size.height\n262:                     )));\n263:                 },"
+    },
+    {
+      "path": "scrying/src/webview2_composition_producer/capture.rs",
+      "start_line": 266,
+      "end_line": 320,
+      "note": "Rejects wrong dimensions, copies resource, and counts emission; no DOM or pixel check.",
+      "git_file_sha256": "404cd9c633a63a61e4ef659105e57ec9f5608d76478ab7bc84bd6915b93a5e0b",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/scrying/src/webview2_composition_producer/capture.rs#L266",
+      "excerpt": "266:     }\n267: \n268:     fn capture_frame_to_shared(\n269:         &mut self,\n270:         frame: windows::Graphics::Capture::Direct3D11CaptureFrame,\n271:     ) -> Result<Option<WebView2CompositionFrame>, WebSurfaceError> {\n272:         let content_size = frame\n273:             .ContentSize()\n274:             .map_err(platform(\"Direct3D11CaptureFrame::ContentSize\"))?;\n275:         self.capture_samples_received\n276:             .fetch_add(1, Ordering::Relaxed);\n277:         let captured_size =\n278:             PhysicalSize::new(content_size.Width as u32, content_size.Height as u32);\n279:         if captured_size != self.size {\n280:             self.capture_stale_frames_dropped\n281:                 .fetch_add(1, Ordering::Relaxed);\n282:             let _ = frame.Close();\n283:             return Ok(None);\n284:         }\n285:         let surface = frame\n286:             .Surface()\n287:             .map_err(platform(\"Direct3D11CaptureFrame::Surface\"))?;\n288:         let access = surface\n289:             .cast::<IDirect3DDxgiInterfaceAccess>()\n290:             .map_err(platform(\n291:                 \"IDirect3DSurface cast to IDirect3DDxgiInterfaceAccess\",\n292:             ))?;\n293:         let texture = unsafe { access.GetInterface::<ID3D11Texture2D>() }\n294:             .map_err(platform(\"GetInterface<ID3D11Texture2D>\"))?;\n295:         let raw_texture = Interface::as_raw(&texture);\n296:         self.generation = self.generation.saturating_add(1);\n297:         // Each host-visible frame gets its own destination texture. An\n298:         // explicit fence orders this D3D11 copy before the host's D3D12\n299:         // submission, but it cannot tell the producer when the host has\n300:         // finished sampling. Reusing a destination could therefore overwrite\n301:         // an imported texture still referenced by an in-flight host submit.\n302:         self.resource_epoch = self.resource_epoch.saturating_add(1);\n303:         let dest = self.capture_factory.create_shared_texture(\n304:             captured_size,\n305:             wgpu::TextureFormat::Bgra8Unorm,\n306:             self.resource_epoch,\n307:         )?;\n308:         let fence_value = self.capture_factory.copy_capture_into_existing_target(\n309:             &dest.texture,\n310:             WebView2D3D11CaptureFrame {\n311:                 size: captured_size,\n312:                 format: wgpu::TextureFormat::Bgra8Unorm,\n313:                 generation: self.resource_epoch,\n314:                 raw_d3d11_texture: raw_texture,\n315:             },\n316:         )?;\n317:         let _ = frame.Close();\n318:         if let Some(state) = self.capture_state.as_mut() {\n319:             state.first_frame_emitted = true;\n320:         }"
+    },
+    {
+      "path": "scrying/src/webview2_composition_producer/capture.rs",
+      "start_line": 370,
+      "end_line": 408,
+      "note": "FrameArrived counter, StartCapture, and no-op nudge_content.",
+      "git_file_sha256": "404cd9c633a63a61e4ef659105e57ec9f5608d76478ab7bc84bd6915b93a5e0b",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/scrying/src/webview2_composition_producer/capture.rs#L370",
+      "excerpt": "370:         let frame_arrivals = Arc::new(AtomicU64::new(0));\n371:         let frame_arrived_handler =\n372:             TypedEventHandler::<Direct3D11CaptureFramePool, IInspectable>::new({\n373:                 let frame_arrivals = frame_arrivals.clone();\n374:                 move |_, _| {\n375:                     frame_arrivals.fetch_add(1, Ordering::Relaxed);\n376:                     Ok(())\n377:                 }\n378:             });\n379:         let frame_arrived_token = pool\n380:             .FrameArrived(&frame_arrived_handler)\n381:             .map_err(platform(\"Direct3D11CaptureFramePool::FrameArrived\"))?;\n382:         let session = pool\n383:             .CreateCaptureSession(&item)\n384:             .map_err(platform(\"CreateCaptureSession\"))?;\n385:         let _ = session.SetIsCursorCaptureEnabled(false);\n386:         let _ = session.SetIsBorderRequired(false);\n387:         session.StartCapture().map_err(platform(\"StartCapture\"))?;\n388:         self.capture_state = Some(CaptureState {\n389:             item,\n390:             pool,\n391:             session,\n392:             frame_arrivals,\n393:             frame_arrivals_observed: 0,\n394:             frame_arrived_token,\n395:             first_frame_emitted: false,\n396:         });\n397:         eprintln!(\n398:             \"[producer] start_capture: {}x{} ready in {}ms\",\n399:             item_size.Width,\n400:             item_size.Height,\n401:             started.elapsed().as_millis()\n402:         );\n403:         Ok(())\n404:     }\n405: \n406:     pub fn nudge_content(&self, label: &str) -> Result<(), WebSurfaceError> {\n407:         let _ = label;\n408:         Ok(())"
+    },
+    {
+      "path": "scrying/src/webview2_composition_producer/capture.rs",
+      "start_line": 420,
+      "end_line": 460,
+      "note": "Readiness uses the arrival counter; queued-frame drain is bounded by pool capacity.",
+      "git_file_sha256": "404cd9c633a63a61e4ef659105e57ec9f5608d76478ab7bc84bd6915b93a5e0b",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/scrying/src/webview2_composition_producer/capture.rs#L420",
+      "excerpt": "420: impl CaptureState {\n421:     fn frame_ready(&mut self) -> bool {\n422:         take_unobserved_arrival(&self.frame_arrivals, &mut self.frame_arrivals_observed)\n423:     }\n424: \n425:     fn mark_arrivals_observed(&mut self) {\n426:         mark_arrivals_observed(&self.frame_arrivals, &mut self.frame_arrivals_observed);\n427:     }\n428: \n429:     fn take_latest_frame(\n430:         &self,\n431:     ) -> windows::core::Result<windows::Graphics::Capture::Direct3D11CaptureFrame> {\n432:         newest_queued_capture_frame(\n433:             || self.pool.TryGetNextFrame(),\n434:             |frame| {\n435:                 let _ = frame.Close();\n436:             },\n437:         )\n438:     }\n439: }\n440: \n441: const CAPTURE_POOL_BUFFERS: usize = 2;\n442: \n443: /// A readiness notification coalesces all arrivals since the previous poll.\n444: /// Drain at most the pool capacity so that a static page's final queued paint\n445: /// is not stranded behind that coalesced notification. Close superseded frames\n446: /// before converting the newest sample; arrivals during this bounded drain\n447: /// retain their notification for the next poll.\n448: fn newest_queued_capture_frame<T, E>(\n449:     mut next: impl FnMut() -> Result<T, E>,\n450:     mut close: impl FnMut(T),\n451: ) -> Result<T, E> {\n452:     let mut latest = next()?;\n453:     for _ in 1..CAPTURE_POOL_BUFFERS {\n454:         let Ok(frame) = next() else {\n455:             break;\n456:         };\n457:         close(latest);\n458:         latest = frame;\n459:     }\n460:     Ok(latest)"
+    },
+    {
+      "path": "demo-win/src/smokes/capture.rs",
+      "start_line": 9,
+      "end_line": 89,
+      "note": "Capture and scale gates check import/geometry without GPU color readback.",
+      "git_file_sha256": "8233eb365e1ec605d56aa5ebcbb106e38bc19ea233402509f050274f572778b4",
+      "source_url": "https://github.com/merely-made/wgpu-scry/blob/4771072a6827695dfaba9db104cd48b87e6cd543/demo-win/src/smokes/capture.rs#L9",
+      "excerpt": "9: pub(crate) fn validate_platform_capture(\n10:     producer: &mut scrying::PlatformWebSurfaceProducer,\n11:     host: &HostWgpuContext,\n12:     fence_synchronizer: &Arc<scrying::Dx12FenceSynchronizer>,\n13: ) -> Result<(), Box<dyn std::error::Error>> {\n14:     let captured = producer.acquire_full_frame()?;\n15:     let content_size = captured.content_size;\n16:     let imported = import_and_consume(host, captured, fence_synchronizer)?;\n17:     let metrics = producer.capture_metrics();\n18:     let color_pipeline = producer.capture_color_pipeline();\n19:     let texture_format = producer.capture_texture_format();\n20:     println!(\n21:         \"demo-win: capture-test: captured {}x{}, imported {:?} {}x{} generation {}, color={:?}, texture_format={:?}, received={}, consumed={}, stale_dropped={}\",\n22:         content_size.width,\n23:         content_size.height,\n24:         imported.format,\n25:         imported.size.width,\n26:         imported.size.height,\n27:         imported.generation,\n28:         color_pipeline,\n29:         texture_format,\n30:         metrics.samples_received,\n31:         metrics.samples_consumed,\n32:         metrics.stale_frames_dropped,\n33:     );\n34:     println!(\"demo-win: capture-test: PASS - WebView2 WGC frame acquired and imported\");\n35:     Ok(())\n36: }\n37: \n38: pub(crate) fn validate_platform_scale_resize(\n39:     producer: &mut scrying::PlatformWebSurfaceProducer,\n40:     host: &HostWgpuContext,\n41:     fence_synchronizer: &Arc<scrying::Dx12FenceSynchronizer>,\n42: ) -> Result<(), Box<dyn std::error::Error>> {\n43:     let samples = [\n44:         winit::dpi::PhysicalSize::new(315, 195),\n45:         winit::dpi::PhysicalSize::new(SMOKE_PROBE_WIDTH as u32, SMOKE_PROBE_HEIGHT as u32),\n46:     ];\n47:     for target in samples {\n48:         producer.resize(target)?;\n49:         let captured = producer.acquire_full_frame()?;\n50:         let content_size = captured.content_size;\n51:         let imported = import_and_consume(host, captured, fence_synchronizer)?;\n52:         if imported.size != target {\n53:             return Err(format!(\n54:                 \"scale-test imported {}x{} after resize to {}x{}\",\n55:                 imported.size.width, imported.size.height, target.width, target.height\n56:             )\n57:             .into());\n58:         }\n59:         println!(\n60:             \"demo-win: scale-test: captured {}x{}, imported {:?} {}x{} generation {}\",\n61:             content_size.width,\n62:             content_size.height,\n63:             imported.format,\n64:             imported.size.width,\n65:             imported.size.height,\n66:             imported.generation,\n67:         );\n68:     }\n69:     let metrics = producer.capture_metrics();\n70:     println!(\n71:         \"demo-win: scale-test: PASS - simulated scale resize path, received={}, consumed={}, stale_dropped={}\",\n72:         metrics.samples_received, metrics.samples_consumed, metrics.stale_frames_dropped,\n73:     );\n74:     Ok(())\n75: }\n76: \n77: fn import_and_consume(\n78:     host: &HostWgpuContext,\n79:     captured: scrying::webview2_composition_producer::WebView2CompositionFrame,\n80:     fence_synchronizer: &Arc<scrying::Dx12FenceSynchronizer>,\n81: ) -> Result<scrying::ImportedTexture, Box<dyn std::error::Error>> {\n82:     let WebSurfaceFrame::Native(native_frame) = captured.frame else {\n83:         return Err(\"WebView2 composition producer did not emit a native frame\".into());\n84:     };\n85:     let importer = WgpuTextureImporter::with_synchronizer(\n86:         host.clone(),\n87:         Box::new(Arc::clone(fence_synchronizer)),\n88:     );\n89:     Ok(importer.import_frame(native_frame, &ImportOptions::default())?)"
+    }
+  ],
+  "bound_negative_artifacts": [
+    {
+      "path": "m4-unlocked-windows-pixels.result.json",
+      "bytes": 1567,
+      "sha256": "063d6ae6b62eb08a4cb915269a2b2ba04a18b66c32983e3f71f8c255fb6420c2"
+    },
+    {
+      "path": "m4-unlocked-windows-pixels.stdout.log",
+      "bytes": 1449,
+      "sha256": "d652bac90a9e237e99f2fc992b0ebd250b3a48eb543fd73b2d0241ddbb1d9d2a"
+    },
+    {
+      "path": "m4-unlocked-windows-pixels.stderr.log",
+      "bytes": 216,
+      "sha256": "c6eb3fc7fac5ab72182ed3c0e3379053cfe97e22eb64859f8fdfe5f64fad3e73"
+    },
+    {
+      "path": "m4-unlocked-windows-probe-pixels.result.json",
+      "bytes": 1357,
+      "sha256": "8b86c27faa59246326df40b2c0b6103e81f3acb3d29b8ae9c624dfbb492f5ce2"
+    },
+    {
+      "path": "m4-unlocked-windows-probe-pixels.stdout.log",
+      "bytes": 1322,
+      "sha256": "3f1ad11826e660f4da772755534f70e19166c510a09b1d75c667f3243253320e"
+    },
+    {
+      "path": "m4-unlocked-windows-probe-pixels.stderr.log",
+      "bytes": 216,
+      "sha256": "b628574e437e575e4bffe7f0f5be4e2e5d0bc471945d2335d2789139d6c5a8da"
+    },
+    {
+      "path": "m4-unlocked-windows-executable.json",
+      "bytes": 413,
+      "sha256": "4a5783608dc3204f693a8bea0e6a5865ecca47da810feda5e6fedebdfbf6d18c"
+    }
+  ],
+  "official_execute_script_contract": "https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/icorewebview2#executescript",
+  "official_contract_summary": "ExecuteScript completion returns the JSON-encoded JavaScript evaluation result. Invocation completion alone provides no explicit GPU/compositor presentation guarantee. Source creates a Promise but ignores returned JSON. This audit did not measure Promise-resolution timing.",
+  "eight_primary_dirty_documents_byte_unchanged": true
+}

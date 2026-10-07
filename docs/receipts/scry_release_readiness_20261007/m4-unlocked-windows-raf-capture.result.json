@@ -1,0 +1,60 @@
+{
+  "label": "capture",
+  "command": [
+    "pwsh",
+    "-NoLogo",
+    "-NoProfile",
+    "-File",
+    "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\scripts\\test-win.ps1",
+    "-Suite",
+    "Capture",
+    "-SkipBuild"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "started_utc": "2026-10-07T13:14:56.520568+00:00",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "WGPU_BACKEND": "dx12",
+    "TEMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+    "TMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+    "WEBVIEW_READBACK_VALIDATE": "0"
+  },
+  "priority": "BelowNormal",
+  "default_per_mode_timeout_seconds": 90,
+  "owned_pid": 30556,
+  "actual_exit_code": 0,
+  "finished_utc": "2026-10-07T13:14:59.860682+00:00",
+  "elapsed_seconds": 3.234,
+  "timed_out": false,
+  "native_process_observations": [
+    {
+      "pid": 43456,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--capture-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:57.107392+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 45628,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--scale-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:58.369500+00:00",
+      "actual_exit_code": 0
+    }
+  ],
+  "observer_limitations": [],
+  "final_source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "tracked_status": "M Cargo.lock\n M demo-win/src/main.rs\n M demo-win/src/probe.rs\n M demo-win/src/smokes/network.rs\n M scripts/test-win.ps1\n M scrying/Cargo.toml\n M scrying/src/webview2_composition_producer.rs\n M scrying/src/webview2_composition_producer/navigation.rs",
+  "stdout_sha256": "79d7eae7c0378f13394186516c0794267c9aee084b830b193500ea1cf5f79377",
+  "stderr_sha256": "ec80bd2182b8836d83c72062b359d48f27b387fd823eb35e20f6e49e450bfa86",
+  "executable_sha256": "f78e99efda4c20e6696186b6c0dac47db0a484bbf3404273282a7c0b4eea090f"
+}

@@ -34,6 +34,7 @@ $coreModes = @(
     "--auth-test",
     "--permission-test",
     "--visibility-test",
+    "--hidden-navigation-test",
     "--find-test",
     "--pdf-test",
     "--context-test",
@@ -45,7 +46,7 @@ $coreModes = @(
     "--accelerator-test",
     "--ime-bridge-test"
 )
-$captureModes = @("--capture-test", "--scale-test")
+$captureModes = @("--capture-test", "--scale-test", "--pixel-test")
 $modes = switch ($Suite) {
     "Core" { $coreModes }
     "Capture" { $captureModes }

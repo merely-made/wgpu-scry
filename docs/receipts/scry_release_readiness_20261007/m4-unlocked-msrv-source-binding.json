@@ -1,0 +1,13 @@
+{
+  "head_sha": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "compiled_source_baseline_sha": "2c3ebd24118851cf6125cfb193f55aab20e3ad67",
+  "unchanged_paths": [
+    "Cargo.toml",
+    "Cargo.lock",
+    "scrying/**"
+  ],
+  "git_diff_exit": 0,
+  "library_tree": "4ac6a8a0fad672dff9e4eaed8d7635b0d4f8448b",
+  "baseline_library_tree": "4ac6a8a0fad672dff9e4eaed8d7635b0d4f8448b",
+  "scope": "Docs-only newhead; exactcurrent compiled library/package source equality to2c; eachCIjobcheckout/toolchainstillverified separately"
+}

@@ -1,0 +1,72 @@
+{
+  "recorded_utc": "2026-10-07T12:47:40.130006+00:00",
+  "run_id": 37622426510,
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "user_reported_m4_unlocked": true,
+  "results": [
+    {
+      "host": "m4",
+      "job_id": 112795750733,
+      "job_conclusion": "success",
+      "log_sha256": "d5d7e167fe18b3ca0a6bca848426045083086363708d2973e8503db9c111c11c",
+      "actual_checkout_sha_present": true,
+      "mode_summaries": [
+        {
+          "passed": 10,
+          "total": 10
+        },
+        {
+          "passed": 2,
+          "total": 2
+        }
+      ],
+      "capture_results": [
+        "capture-test: PASS \u2014 SCK pipeline delivered 5 frames across [1024x1536]",
+        "capture-test: PASS \u2014 SCK pipeline delivered 805 frames across [768x1200, 1024x1400, 1024x1536, 1280x1600]",
+        "capture-test: PASS \u2014 SCK pipeline delivered 5 frames across [1024x1536]",
+        "capture-test: PASS \u2014 SCK pipeline delivered 768 frames across [768x1200, 1024x1400, 1024x1536, 1280x1600]"
+      ],
+      "native_scope": "Original battery plus separate opt-in activity diagnostic",
+      "visible_page_advancing_animation_observed": true
+    },
+    {
+      "host": "intel",
+      "job_id": 112795750842,
+      "job_conclusion": "failure",
+      "log_sha256": "1ef747786a46fd13767553ef729567ffbd339750a4a80ce55154973b6fc98fdc",
+      "actual_checkout_sha_present": true,
+      "mode_summaries": [
+        {
+          "passed": 9,
+          "total": 10
+        },
+        {
+          "passed": 1,
+          "total": 2
+        }
+      ],
+      "capture_results": [
+        "capture-test: FAIL",
+        "capture-test: PASS \u2014 SCK pipeline delivered 13 frames across [768x1200, 1024x1400, 1024x1536, 1280x1600]",
+        "capture-test: FAIL",
+        "capture-test: PASS \u2014 SCK pipeline delivered 14 frames across [768x1200, 1024x1400, 1024x1536, 1280x1600]"
+      ],
+      "native_scope": "Original battery plus separate opt-in activity diagnostic",
+      "failed_base_frames": 3,
+      "minimum_required_base_frames": 5,
+      "hidden_page_zero_animation_observed": true,
+      "session_state_independently_known": false
+    },
+    {
+      "host": "radv",
+      "job_id": 112795750846,
+      "job_conclusion": "success",
+      "log_sha256": "373392a84377f633f85dcd72a107c14c8d297223890e1b69a1848dd35cf29be2",
+      "actual_checkout_sha_present": true,
+      "mode_summaries": [],
+      "capture_results": [],
+      "native_scope": "Original WPE native pixel/input gates"
+    }
+  ],
+  "scope": "M4/native and RADV qualified in recorded scopes, Intel base capture still fails. No lock-state causal inference; aggregate run still awaits NVIDIA."
+}

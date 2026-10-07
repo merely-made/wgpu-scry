@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-10-07T13:00:01.0918767Z",
+  "user_report": "Intel is unlocked",
+  "command": "gh run rerun 37622426510 --job 112795750842",
+  "exit_code": 0,
+  "output": "",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "prior_attempt": "m4-unlocked-native-intel.log",
+  "scope": "Intel only; completed M4/RADV receipts preserved; local NVIDIA evidence separate"
+}

@@ -401,6 +401,18 @@ const COMPOSITION_WEBVIEW_SCRIPTED_HTML: &str = r#"<!doctype html>
 </body>
 </html>"#;
 
+// The visual probe includes form controls that overlap its sample corners at
+// high DPI. This pixel-only fixture reserves those corners at every CSS size.
+const COMPOSITION_WEBVIEW_PIXEL_HTML: &str = r#"<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #17202a; }
+#pixel-center { position: fixed; left: 50%; top: 50%; width: 25vw; height: 25vh;
+    transform: translate(-50%, -50%); background: rgb(211, 71, 37); }
+</style></head>
+<body><div id="pixel-center"></div></body>
+</html>"#;
+
 fn composition_probe_html(scripted: bool) -> &'static str {
     if scripted {
         COMPOSITION_WEBVIEW_SCRIPTED_HTML
@@ -662,7 +674,11 @@ pub(crate) fn run_platform_composition_visual_probe(
 
     let producer = unsafe { scrying::PlatformWebSurfaceProducer::new(parent_hwnd, config)? };
     producer.navigate_to_string(
-        composition_probe_html(cli.scripted),
+        if cli.pixel_test {
+            COMPOSITION_WEBVIEW_PIXEL_HTML
+        } else {
+            composition_probe_html(cli.scripted)
+        },
         std::time::Duration::from_secs(5),
     )?;
     println!("CompositionController visual probe: navigation completed");
@@ -710,6 +726,9 @@ pub(crate) fn run_platform_composition_visual_probe(
     if cli.visibility_test {
         validate_platform_visibility(&mut producer)?;
     }
+    if cli.hidden_navigation_test {
+        validate_platform_hidden_navigation(&mut producer)?;
+    }
     if cli.find_test {
         validate_platform_find(&mut producer)?;
     }
@@ -755,7 +774,18 @@ pub(crate) fn run_platform_composition_visual_probe(
         .ok()
         .filter(|v| !v.is_empty() && v != "0")
         .is_some()
+        || cli.pixel_geometry_test
+        || cli.pixel_test
     {
+        producer.wait_for_render_tick(std::time::Duration::from_secs(5))?;
+        if cli.pixel_geometry_test {
+            let geometry = producer.call_devtools_protocol_method_blocking(
+                "Runtime.evaluate",
+                r#"{"expression":"(() => { const dpr = devicePixelRatio; const describe = element => { if (!element) return null; const r = element.getBoundingClientRect(); const s = getComputedStyle(element); return { tag: element.tagName, id: element.id, type: element.getAttribute('type'), rect: {x:r.x,y:r.y,width:r.width,height:r.height,top:r.top,right:r.right,bottom:r.bottom,left:r.left}, backgroundColor:s.backgroundColor,color:s.color,fontSize:s.fontSize,overflow:s.overflow,display:s.display }; }; const points = [['tl',4,4],['tr',415,4],['bl',4,255],['br',415,255],['center',210,130]]; return {capturePhysical:{width:420,height:260},innerWidth,innerHeight,devicePixelRatio:dpr,readyState:document.readyState,visibilityState:document.visibilityState,scrollX,scrollY,samples:points.map(([name,x,y])=>({name,physical:{x,y},css:{x:x/dpr,y:y/dpr},target:describe(document.elementFromPoint(x/dpr,y/dpr))})),elements:Array.from(document.querySelectorAll('html,body,main,input,textarea,#matrix,#tick,#bar')).map(describe)}; })()","returnByValue":true}"#,
+                std::time::Duration::from_secs(5),
+            )?;
+            println!("demo-win: pixel-geometry: {geometry}");
+        }
         let mut producer_for_readback = producer;
         let captured = producer_for_readback.acquire_full_frame()?;
         let content_size = captured.content_size;
@@ -777,7 +807,19 @@ pub(crate) fn run_platform_composition_visual_probe(
             imported.generation
         );
         let html_background_rgb = (0x17u8, 0x20u8, 0x2au8);
-        validate_imported_pixels(&imported, &host.device, &host.queue, html_background_rgb)?;
+        let center =
+            validate_imported_pixels(&imported, &host.device, &host.queue, html_background_rgb)?;
+        if cli.pixel_test {
+            if center != [37, 71, 211, 255] {
+                return Err(format!(
+                    "pixel-test: expected opaque center BGRA[37, 71, 211, 255], got {center:?}"
+                )
+                .into());
+            }
+            println!(
+                "demo-win: pixel-test: PASS - first imported 420x260 frame, four background corners within ±6 and exact opaque center BGRA{center:?}"
+            );
+        }
         return Ok(Some(CapturedComposition {
             imported: Some(imported),
             producer: producer_for_readback,

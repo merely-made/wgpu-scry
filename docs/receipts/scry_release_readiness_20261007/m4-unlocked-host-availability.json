@@ -1,0 +1,12 @@
+{
+  "user_reported_unlocked": [
+    "M4",
+    "ThinkPad",
+    "s-pc (Surface Laptop 3, Kubuntu)"
+  ],
+  "surface_attempt": {
+    "alias": "s-pc",
+    "result": "Hostname does not resolve from current Windows machine; no remote session/library observation obtained."
+  },
+  "scope": "Availability reported by user; no native pass or Intel session state inferred."
+}

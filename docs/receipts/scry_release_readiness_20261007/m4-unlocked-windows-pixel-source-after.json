@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-10-07T13:27:33.598292+00:00",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "tracked_status": "M Cargo.lock\n M demo-win/src/gpu.rs\n M demo-win/src/main.rs\n M demo-win/src/probe.rs\n M demo-win/src/smokes/network.rs\n M scripts/test-win.ps1\n M scrying/Cargo.toml\n M scrying/src/webview2_composition_producer.rs\n M scrying/src/webview2_composition_producer/navigation.rs",
+  "input_count": 165,
+  "changed_inputs": [],
+  "executable_sha256": "f6be03e348243c526f2248351b2cc2e3ad13778f419701b0625b9a94951f3af9",
+  "all_command_exits_zero": true,
+  "results": [
+    {
+      "label": "build",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "pixels",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "core",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "capture",
+      "actual_exit_code": 0,
+      "timed_out": false
+    }
+  ],
+  "runtime_cache": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+  "runtime_cache_retained_for_review": true
+}

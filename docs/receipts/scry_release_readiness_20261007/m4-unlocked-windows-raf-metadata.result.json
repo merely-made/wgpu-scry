@@ -1,0 +1,20 @@
+{
+  "command": [
+    "cargo",
+    "+1.97.1",
+    "metadata",
+    "--offline",
+    "--format-version",
+    "1",
+    "--filter-platform",
+    "x86_64-pc-windows-msvc"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "started_utc": "2026-10-07T13:06:31.149841+00:00",
+  "priority": "BelowNormal",
+  "purpose": "Bounded lock update for one Windows-only serde_json edge before source freeze",
+  "owned_pid": 35604,
+  "actual_exit_code": 101,
+  "finished_utc": "2026-10-07T13:06:32.117125+00:00",
+  "elapsed_seconds": 0.968
+}

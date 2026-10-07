@@ -1,0 +1,70 @@
+{
+  "label": "capture",
+  "command": [
+    "pwsh",
+    "-NoLogo",
+    "-NoProfile",
+    "-File",
+    "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release\\scripts\\test-win.ps1",
+    "-Suite",
+    "Capture",
+    "-SkipBuild"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "started_utc": "2026-10-07T13:27:28.546662+00:00",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "WGPU_BACKEND": "dx12",
+    "TEMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+    "TMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+    "WEBVIEW_READBACK_VALIDATE": "0"
+  },
+  "priority": "BelowNormal",
+  "default_per_mode_timeout_seconds": 90,
+  "owned_pid": 3436,
+  "actual_exit_code": 0,
+  "finished_utc": "2026-10-07T13:27:33.369032+00:00",
+  "elapsed_seconds": 4.719,
+  "timed_out": false,
+  "native_process_observations": [
+    {
+      "pid": 19768,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--capture-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:27:29.126930+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 36820,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--scale-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:27:30.388687+00:00",
+      "actual_exit_code": 0
+    },
+    {
+      "pid": 21364,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--pixel-test"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:27:31.771406+00:00",
+      "actual_exit_code": 0
+    }
+  ],
+  "observer_limitations": [],
+  "final_source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "tracked_status": "M Cargo.lock\n M demo-win/src/gpu.rs\n M demo-win/src/main.rs\n M demo-win/src/probe.rs\n M demo-win/src/smokes/network.rs\n M scripts/test-win.ps1\n M scrying/Cargo.toml\n M scrying/src/webview2_composition_producer.rs\n M scrying/src/webview2_composition_producer/navigation.rs",
+  "stdout_sha256": "612fe45cd2c41978781f08f41c2745b5f1ac7e7deb5a15f2e034fe5a9ed109ac",
+  "stderr_sha256": "b37a3b9c372dfaaeaaafe11042225744f6099318520b7f0703bff8f441c45688",
+  "executable_sha256": "f6be03e348243c526f2248351b2cc2e3ad13778f419701b0625b9a94951f3af9"
+}

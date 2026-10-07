@@ -1,0 +1,424 @@
+
+==> --scripted
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0xaa8
+CompositionController visual probe: navigation completed
+demo-win: scripted: PASS - JS message round-trip plus mouse and CDP-backed keyboard dispatch verified
+  -> PASS
+
+==> --browser-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0xbe0
+CompositionController visual probe: navigation completed
+demo-win: browser-test: PASS - history, tab-state ceiling, reload/stop, title, settings, visibility controls, autofill toggles, and hard-throttle ceiling verified
+  -> PASS
+
+==> --cookie-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0xa7c
+CompositionController visual probe: navigation completed
+demo-win: cookie-test: PASS - set/read/delete and Set-Cookie observation verified for demo_win_cookie_25236
+  -> PASS
+
+==> --profile-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x7b0
+CompositionController visual probe: navigation completed
+demo-win: profile-test: PASS - persistent cookie store survived producer recreation with the same user_data_dir
+  -> PASS
+
+==> --incognito-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x8b4
+CompositionController visual probe: navigation completed
+demo-win: incognito-test: PASS - InPrivate cookie stayed isolated from the persistent user_data_dir profile
+  -> PASS
+
+==> --popup-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x81c
+CompositionController visual probe: navigation completed
+demo-win: popup-test: PASS - NewWindowRequested routed to the host and default popup was suppressed
+  -> PASS
+
+==> --routing-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x9dc
+CompositionController visual probe: navigation completed
+demo-win: routing-test: PASS - WebResourceRequested virtual host served app-owned content
+  -> PASS
+
+==> --process-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x860
+CompositionController visual probe: navigation completed
+demo-win: process-test: PASS - ProcessFailed surfaced and producer recovered with a fresh navigation
+  -> PASS
+
+==> --download-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x808
+CompositionController visual probe: navigation completed
+demo-win: download-test: PASS - DownloadStarting destination and completion events verified
+  -> PASS
+
+==> --auth-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x98c
+CompositionController visual probe: navigation completed
+demo-win: auth-test: PASS - BasicAuthenticationRequested used host credentials
+  -> PASS
+
+==> --permission-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x3b8
+CompositionController visual probe: navigation completed
+demo-win: permission-test: PASS - PermissionRequested mapped to host denial
+  -> PASS
+
+==> --visibility-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0xab4
+CompositionController visual probe: navigation completed
+demo-win: visibility-test: PASS - SetIsVisible reached Page Visibility state
+  -> PASS
+
+==> --hidden-navigation-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0xb3c
+CompositionController visual probe: navigation completed
+demo-win: hidden-navigation-test: PASS - NavigationCompleted and hidden document readiness without requiring animation callbacks; visibility restored
+  -> PASS
+
+==> --find-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x9d8
+CompositionController visual probe: navigation completed
+demo-win: find-test: PASS - WebView2 native find reported 2 matches
+  -> PASS
+
+==> --pdf-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x740
+CompositionController visual probe: navigation completed
+demo-win: pdf-test: PASS - WebView2 native PrintToPdfStream returned 34346 bytes
+  -> PASS
+
+==> --context-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0xa9c
+CompositionController visual probe: navigation completed
+demo-win: context-test: PASS - context-menu bridge reported link target Some("https://example.test/context")
+  -> PASS
+
+==> --drop-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x8f0
+CompositionController visual probe: navigation completed
+demo-win: drop-test: PASS - drop bridge reported primary URL Some("https://example.test/drop")
+  -> PASS
+
+==> --media-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x7e8
+CompositionController visual probe: navigation completed
+demo-win: media-test: PASS - WebMessage media bridge emitted NavigationEvent::MediaCaptureStateChanged
+  -> PASS
+
+==> --multi-view-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x760
+demo-win: multi-view-test: PASS - two simultaneous WebView2 composition producers ran on separate HWNDs
+  -> PASS
+
+==> --keyboard-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x740
+CompositionController visual probe: navigation completed
+[text-input] blurred
+[text-input] navigation starting
+[nav] starting -> data:text/html;charset=utf-8;base64,PCFkb2N0eXBlIGh0bWw+CjxodG1sPgo8aGVhZD4KICAgIDxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KICAgIDxzdHlsZT4KICAgICAgICBodG1sLCBib2R5IHsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICAgICAgICBvdmVyZmxvdzogaGlkZGVuOwogICAgICAgICAgICBiYWNrZ3JvdW5kOiAjMTcyMDJhOwogICAgICAgICAgICBjb2xvcjogI2Y4ZjFkODsKICAgICAgICAgICAgZm9udC1mYW1pbHk6IHN5c3RlbS11aSwgc2Fucy1zZXJpZjsKICAgICAgICB9CiAgICAgICAgYm9keSB7CiAgICAgICAgICAgIGRpc3BsYXk6IGdyaWQ7CiAgICAgICAgICAgIHBsYWNlLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsKICAgICAgICB9CiAgICAgICAgbWFpbiB7CiAgICAgICAgICAgIGRpc3BsYXk6IGdyaWQ7CiAgICAgICAgICAgIGdhcDogMTBweDsKICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICAgICAgICB6LWluZGV4OiAxOwogICAgICAgIH0KICAgICAgICBoMSB7CiAgICAgICAgICAgIG1hcmdpbjogMDsKICAgICAgICAgICAgZm9udC1zaXplOiAyNnB4OwogICAgICAgICAgICBmb250LXdlaWdodDogNjUwOwogICAgICAgICAgICBsZXR0ZXItc3BhY2luZzogMDsKICAgICAgICB9CiAgICAgICAgcCB7CiAgICAgICAgICAgIG1hcmdpbjogMDsKICAgICAgICAgICAgY29sb3I6ICNmZmJlNzA7CiAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICB9CiAgICAgICAgaW5wdXQsIHRleHRhcmVhIHsKICAgICAgICAgICAgd2lkdGg6IDIyMHB4OwogICAgICAgICAgICBqdXN0aWZ5LXNlbGY6IGNlbnRlcjsKICAgICAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgIzhmZDJjNzsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4OwogICAgICAgICAgICBiYWNrZ3JvdW5kOiAjMGYxNzIwOwogICAgICAgICAgICBjb2xvcjogI2Y4ZjFkODsKICAgICAgICAgICAgcGFkZGluZzogNnB4IDhweDsKICAgICAgICAgICAgZm9udDogMTVweCBzeXN0ZW0tdWksIHNhbnMtc2VyaWY7CiAgICAgICAgICAgIGxldHRlci1zcGFjaW5nOiAwOwogICAgICAgIH0KICAgICAgICB0ZXh0YXJlYSB7CiAgICAgICAgICAgIGhlaWdodDogNTRweDsKICAgICAgICAgICAgcmVzaXplOiBub25lOwogICAgICAgICAgICBsaW5lLWhlaWdodDogMjBweDsKICAgICAgICB9CiAgICAgICAgI21hdHJpeCB7CiAgICAgICAgICAgIGRpc3BsYXk6IGdyaWQ7CiAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogcmVwZWF0KDcsIG1pbm1heCgwLCAxZnIpKTsKICAgICAgICAgICAgZ2FwOiA0cHg7CiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICAgICAgICBtYXJnaW4tdG9wOiA0cHg7CiAgICAgICAgfQogICAgICAgICNtYXRyaXggaW5wdXQgewogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgcGFkZGluZzogMnB4IDRweDsKICAgICAgICAgICAgZm9udDogMTFweCBzeXN0ZW0tdWksIHNhbnMtc2VyaWY7CiAgICAgICAgfQogICAgICAgICN0aWNrIHsKICAgICAgICAgICAgcG9zaXRpb246IGFic29sdXRlOwogICAgICAgICAgICB0b3A6IDhweDsKICAgICAgICAgICAgbGVmdDogOHB4OwogICAgICAgICAgICBmb250LXNpemU6IDEzcHg7CiAgICAgICAgICAgIGNvbG9yOiAjOGZkMmM3OwogICAgICAgICAgICBmb250LXZhcmlhbnQtbnVtZXJpYzogdGFidWxhci1udW1zOwogICAgICAgIH0KICAgICAgICBAa2V5ZnJhbWVzIHN3ZWVwIHsKICAgICAgICAgICAgMCUgICB7IHRyYW5zZm9ybTogdHJhbnNsYXRlWCgwKTsgYmFja2dyb3VuZDogI2ZmNmI2YjsgfQogICAgICAgICAgICA1MCUgIHsgYmFja2dyb3VuZDogIzU2Y2ZlMTsgfQogICAgICAgICAgICAxMDAlIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKGNhbGMoMTAwJSAtIDI0cHgpKTsgYmFja2dyb3VuZDogI2ZmNmI2YjsgfQogICAgICAgIH0KICAgICAgICAjYmFyIHsKICAgICAgICAgICAgcG9zaXRpb246IGFic29sdXRlOwogICAgICAgICAgICBib3R0b206IDEycHg7CiAgICAgICAgICAgIGxlZnQ6IDEycHg7CiAgICAgICAgICAgIHJpZ2h0OiAxMnB4OwogICAgICAgICAgICBoZWlnaHQ6IDZweDsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogM3B4OwogICAgICAgICAgICBiYWNrZ3JvdW5kOiAjMmMzZTUwOwogICAgICAgICAgICBvdmVyZmxvdzogaGlkZGVuOwogICAgICAgIH0KICAgICAgICAjYmFyOjphZnRlciB7CiAgICAgICAgICAgIGNvbnRlbnQ6ICIiOwogICAgICAgICAgICBkaXNwbGF5OiBibG9jazsKICAgICAgICAgICAgd2lkdGg6IDI0cHg7CiAgICAgICAgICAgIGhlaWdodDogMTAwJTsKICAgICAgICAgICAgYmFja2dyb3VuZDogI2ZmNmI2YjsKICAgICAgICAgICAgYW5pbWF0aW9uOiBzd2VlcCAyLjRzIGxpbmVhciBpbmZpbml0ZTsKICAgICAgICB9CiAgICA8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5PgogICAgPGRpdiBpZD0idGljayI+ZnJhbWUgMDwvZGl2PgogICAgPG1haW4+CiAgICAgICAgPGgxPlNjcnlpbmcgQ29tcG9zaXRpb24gUHJvYmU8L2gxPgogICAgICAgIDxwPlJlbmRlcmVkIHRocm91Z2ggdGhlIHNlbGVjdGVkIHN5c3RlbS13ZWJ2aWV3IHByb2R1Y2VyLjwvcD4KICAgICAgICA8aW5wdXQgaWQ9ImtleWJvYXJkLXNtb2tlIiBhdXRvZm9jdXMgYXV0b2NvbXBsZXRlPSJvZmYiIHNwZWxsY2hlY2s9ImZhbHNlIiBhcmlhLWxhYmVsPSJrZXlib2FyZCBzbW9rZSBpbnB1dCI+CiAgICAgICAgPHRleHRhcmVhIGlkPSJpbWUtdGV4dGFyZWEiIGF1dG9jb21wbGV0ZT0ib2ZmIiBzcGVsbGNoZWNrPSJmYWxzZSIgYXJpYS1sYWJlbD0iSU1FIHRleHRhcmVhIj5maXJzdCBsaW5lJiMxMDtzZWNvbmQgbGluZSYjMTA7dGhpcmQgbGluZTwvdGV4dGFyZWE+CiAgICAgICAgPGlucHV0IGlkPSJwYXNzd29yZC1zbW9rZSIgdHlwZT0icGFzc3dvcmQiIGF1dG9jb21wbGV0ZT0iY3VycmVudC1wYXNzd29yZCIgYXJpYS1sYWJlbD0icGFzc3dvcmQgc3VwcHJlc3Npb24gaW5wdXQiPgogICAgICAgIDxkaXYgaWQ9Im1hdHJpeCI+CiAgICAgICAgICAgIDxpbnB1dCBpZD0icHVycG9zZS1zZWFyY2giIHR5cGU9InNlYXJjaCIgYXJpYS1sYWJlbD0icHVycG9zZSBzZWFyY2ggaW5wdXQiPgogICAgICAgICAgICA8aW5wdXQgaWQ9InB1cnBvc2UtZW1haWwiIHR5cGU9ImVtYWlsIiBhcmlhLWxhYmVsPSJwdXJwb3NlIGVtYWlsIGlucHV0Ij4KICAgICAgICAgICAgPGlucHV0IGlkPSJwdXJwb3NlLXVybCIgdHlwZT0idXJsIiBhcmlhLWxhYmVsPSJwdXJwb3NlIHVybCBpbnB1dCI+CiAgICAgICAgICAgIDxpbnB1dCBpZD0icHVycG9zZS10ZWwiIHR5cGU9InRlbCIgYXJpYS1sYWJlbD0icHVycG9zZSB0ZWwgaW5wdXQiPgogICAgICAgICAgICA8aW5wdXQgaWQ9InB1cnBvc2UtbnVtYmVyIiB0eXBlPSJudW1iZXIiIGFyaWEtbGFiZWw9InB1cnBvc2UgbnVtYmVyIGlucHV0Ij4KICAgICAgICAgICAgPGlucHV0IGlkPSJwdXJwb3NlLW51bWVyaWMtbW9kZSIgaW5wdXRtb2RlPSJudW1lcmljIiBhcmlhLWxhYmVsPSJwdXJwb3NlIG51bWVyaWMgaW5wdXRtb2RlIj4KICAgICAgICAgICAgPGlucHV0IGlkPSJwdXJwb3NlLWRpc2FibGVkIiBpbnB1dG1vZGU9Im5vbmUiIGFyaWEtbGFiZWw9InB1cnBvc2UgZGlzYWJsZWQgaW5wdXRtb2RlIj4KICAgICAgICA8L2Rpdj4KICAgIDwvbWFpbj4KICAgIDxkaXYgaWQ9ImJhciI+PC9kaXY+CiAgICA8c2NyaXB0PgogICAgICAgIGxldCBuID0gMDsKICAgICAgICBjb25zdCB0aWNrID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoInRpY2siKTsKICAgICAgICBjb25zdCBpbnB1dCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJrZXlib2FyZC1zbW9rZSIpOwogICAgICAgIGlucHV0LmZvY3VzKCk7CiAgICAgICAgaW5wdXQuYWRkRXZlbnRMaXN0ZW5lcigiaW5wdXQiLCAoKSA9PiB7CiAgICAgICAgICAgIHdpbmRvdy5fX3NjcnlpbmdLZXlib2FyZFNtb2tlTGFzdElucHV0ID0gaW5wdXQudmFsdWU7CiAgICAgICAgICAgIHdpbmRvdy5jaHJvbWUud2Vidmlldy5wb3N0TWVzc2FnZSgia2V5Ym9hcmQtc21va2U6IiArIGlucHV0LnZhbHVlKTsKICAgICAgICB9KTsKICAgICAgICBpbnB1dC5hZGRFdmVudExpc3RlbmVyKCJrZXlkb3duIiwgZXZlbnQgPT4gewogICAgICAgICAgICB3aW5kb3cuY2hyb21lLndlYnZpZXcucG9zdE1lc3NhZ2UoImtleWJvYXJkLXNtb2tlOmtleWRvd246IiArIGV2ZW50LmtleSk7CiAgICAgICAgfSk7CiAgICAgICAgaW5wdXQuYWRkRXZlbnRMaXN0ZW5lcigiY29tcG9zaXRpb25zdGFydCIsIGV2ZW50ID0+IHsKICAgICAgICAgICAgd2luZG93LmNocm9tZS53ZWJ2aWV3LnBvc3RNZXNzYWdlKCJrZXlib2FyZC1zbW9rZTpjb21wb3NpdGlvbnN0YXJ0OiIgKyBldmVudC5kYXRhKTsKICAgICAgICB9KTsKICAgICAgICBpbnB1dC5hZGRFdmVudExpc3RlbmVyKCJjb21wb3NpdGlvbnVwZGF0ZSIsIGV2ZW50ID0+IHsKICAgICAgICAgICAgd2luZG93LmNocm9tZS53ZWJ2aWV3LnBvc3RNZXNzYWdlKCJrZXlib2FyZC1zbW9rZTpjb21wb3NpdGlvbnVwZGF0ZToiICsgZXZlbnQuZGF0YSk7CiAgICAgICAgfSk7CiAgICAgICAgaW5wdXQuYWRkRXZlbnRMaXN0ZW5lcigiY29tcG9zaXRpb25lbmQiLCBldmVudCA9PiB7CiAgICAgICAgICAgIHdpbmRvdy5jaHJvbWUud2Vidmlldy5wb3N0TWVzc2FnZSgia2V5Ym9hcmQtc21va2U6Y29tcG9zaXRpb25lbmQ6IiArIGV2ZW50LmRhdGEpOwogICAgICAgIH0pOwogICAgICAgIHdpbmRvdy5jaHJvbWUud2Vidmlldy5hZGRFdmVudExpc3RlbmVyKCJtZXNzYWdlIiwgZXZlbnQgPT4gewogICAgICAgICAgICBpZiAoZXZlbnQuZGF0YSA9PT0gImtleWJvYXJkLXNtb2tlOmZvY3VzIikgewogICAgICAgICAgICAgICAgaW5wdXQuZm9jdXMoKTsKICAgICAgICAgICAgICAgIHdpbmRvdy5jaHJvbWUud2Vidmlldy5wb3N0TWVzc2FnZSgia2V5Ym9hcmQtc21va2U6Zm9jdXNlZDoiICsgZG9jdW1lbnQuYWN0aXZlRWxlbWVudC5pZCk7CiAgICAgICAgICAgIH0KICAgICAgICB9KTsKICAgICAgICBjb25zdCBwb3N0ID0gbXNnID0+IHsgdHJ5IHsgd2luZG93LmNocm9tZS53ZWJ2aWV3LnBvc3RNZXNzYWdlKG1zZyk7IH0gY2F0Y2ggKF8pIHt9IH07CiAgICAgICAgY29uc3QgaWRPZiA9IGVsID0+IChlbCAmJiBlbC5pZCkgPyBlbC5pZCA6IChlbCA/IGVsLnRhZ05hbWUudG9Mb3dlckNhc2UoKSA6ICI/Iik7CiAgICAgICAgY29uc3QgaXNQYXNzd29yZEVsID0gZWwgPT4gewogICAgICAgICAgICBpZiAoIWVsIHx8IGVsLnRhZ05hbWUgIT09ICJJTlBVVCIpIHJldHVybiBmYWxzZTsKICAgICAgICAgICAgcmV0dXJuIChlbC5nZXRBdHRyaWJ1dGUoInR5cGUiKSB8fCAiIikudG9Mb3dlckNhc2UoKSA9PT0gInBhc3N3b3JkIjsKICAgICAgICB9OwogICAgICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoImtleWRvd24iLCBldmVudCA9PiB7CiAgICAgICAgICAgIGNvbnN0IHRhcmdldCA9IGV2ZW50LnRhcmdldDsKICAgICAgICAgICAgY29uc3Qga2V5ID0gaXNQYXNzd29yZEVsKHRhcmdldCkgPyAiPHJlZGFjdGVkPiIgOiBldmVudC5rZXk7CiAgICAgICAgICAgIHBvc3QoImRvbS1rZXlkb3duOiIgKyBpZE9mKHRhcmdldCkgKyAiOiIgKyBrZXkpOwogICAgICAgIH0sIHRydWUpOwogICAgICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoImlucHV0IiwgZXZlbnQgPT4gewogICAgICAgICAgICBjb25zdCB0YXJnZXQgPSBldmVudC50YXJnZXQ7CiAgICAgICAgICAgIGNvbnN0IGxlbiA9ICh0YXJnZXQgJiYgdHlwZW9mIHRhcmdldC52YWx1ZSA9PT0gInN0cmluZyIpID8gdGFyZ2V0LnZhbHVlLmxlbmd0aCA6IC0xOwogICAgICAgICAgICBwb3N0KCJkb20taW5wdXQ6IiArIGlkT2YodGFyZ2V0KSArICI6bGVuPSIgKyBsZW4pOwogICAgICAgIH0sIHRydWUpOwogICAgICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoImNvbXBvc2l0aW9uc3RhcnQiLCBldmVudCA9PiBwb3N0KCJkb20tY29tcC1zdGFydDoiICsgaWRPZihldmVudC50YXJnZXQpKSwgdHJ1ZSk7CiAgICAgICAgZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcigiY29tcG9zaXRpb25lbmQiLCBldmVudCA9PiBwb3N0KCJkb20tY29tcC1lbmQ6IiArIGlkT2YoZXZlbnQudGFyZ2V0KSksIHRydWUpOwogICAgICAgIGZ1bmN0aW9uIGxvb3AoKSB7CiAgICAgICAgICAgIG4rKzsKICAgICAgICAgICAgdGljay50ZXh0Q29udGVudCA9ICJmcmFtZSAiICsgbjsKICAgICAgICAgICAgcmVxdWVzdEFuaW1hdGlvbkZyYW1lKGxvb3ApOwogICAgICAgIH0KICAgICAgICByZXF1ZXN0QW5pbWF0aW9uRnJhbWUobG9vcCk7CiAgICA8L3NjcmlwdD4KPC9ib2R5Pgo8L2h0bWw+
+[nav] completed (success=true) -> about:blank
+[text-input] input type=text mode= autocomplete=off purpose=Text caret=(235.5, 166.5) 1x20
+[text-input] input type=text mode= autocomplete=off purpose=Text caret=(235.5, 166.5) 1x20
+demo-win: keyboard-test: PASS - SendInput delivered "scry42" to DOM in pure CompositionController
+  -> PASS
+
+==> --cdp-input-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x820
+CompositionController visual probe: navigation completed
+demo-win: cdp-input-test: PASS - Input.dispatchKeyEvent: DOM input observed; Input.insertText: DOM input observed; Input.imeSetComposition: DOM input observed; Runtime.evaluate: DOM input observed; ExecuteScript: DOM input observed; ExecuteScript direct message and hash navigation probes passed
+  -> PASS
+
+==> --accelerator-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0xae4
+CompositionController visual probe: navigation completed
+demo-win: accelerator-test: PASS - WebView2 AcceleratorKeyPressed observed virtual key 114 (browser accelerator enabled: Some(true))
+  -> PASS
+
+==> --ime-bridge-test
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x8a8
+CompositionController visual probe: navigation completed
+demo-win: ime-bridge-test: PASS - focused editable caret state mapped to winit IME area, CDP composition and commit reached DOM; textarea scroll rect, purpose matrix (purpose-search->Search, purpose-email->Email, purpose-url->Url, purpose-tel->Tel, purpose-number->Decimal, purpose-numeric-mode->Numeric, purpose-disabled->Disabled), and password suppression passed
+  -> PASS
+
+==> summary
+  passed: 23 / 23
+  failed: 0
+  all PASS

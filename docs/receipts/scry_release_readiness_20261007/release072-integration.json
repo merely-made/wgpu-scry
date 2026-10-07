@@ -1,0 +1,58 @@
+{
+  "recorded_utc": "2026-10-07T13:31:13.984299+00:00",
+  "qualified_base_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "qualified_overlay": [
+    {
+      "path": "Cargo.lock",
+      "baseline_sha256": "866def9dd3595f08e3e2e9403c923e63aca6a8dd88838512e38deb901539a822",
+      "qualified_sha256": "81e2e8eeaf4769ebecd58edf1458b061ed318350cf9cea878fd11dc200744d3d"
+    },
+    {
+      "path": "demo-win/src/gpu.rs",
+      "baseline_sha256": "ccd50a102d2aaa7882070641a95723a2046ba2804ef9f7c70119b268e2eb34b3",
+      "qualified_sha256": "555c49fddf5f2aa25dae107a001c5bf57647962ba2517762b414ed545373ab93"
+    },
+    {
+      "path": "demo-win/src/main.rs",
+      "baseline_sha256": "3cf2545cd537a09388a1cb3f257a9165e312e7df914345eced9791843f7daed7",
+      "qualified_sha256": "81916e4b4891fac941eae6624a1c77f9df527aa4bf3a3f341fe10b05816ec9b1"
+    },
+    {
+      "path": "demo-win/src/probe.rs",
+      "baseline_sha256": "66161299da3fd872705e057b00ce48495cfd97612b22f8eeecbb23b4de220e04",
+      "qualified_sha256": "787aa5c34577efe074344e9a10d29a12c2a8a4b7e5fcbf39d88690109e3eecd4"
+    },
+    {
+      "path": "demo-win/src/smokes/network.rs",
+      "baseline_sha256": "2a01d3e39d6f39fe70b06bc272b1bb81c0817204c1c3f84a371edffc33040416",
+      "qualified_sha256": "77c040a7396b430ee4d9c5de2c294c931219645467f67850373611fca40b9722"
+    },
+    {
+      "path": "scripts/test-win.ps1",
+      "baseline_sha256": "1f31b8c3c21366ecdd322b6a0e8f07ce9c5b2a66ede75ada36f7b8a96986aef3",
+      "qualified_sha256": "7d452488ded9f2b9e67935c684036f88e3514dfb593467566a3c62dab392fdad"
+    },
+    {
+      "path": "scrying/Cargo.toml",
+      "baseline_sha256": "4746f9894939ad57a3d8a163349815e0def2c0ea7496e786943b40bf5052bed0",
+      "qualified_sha256": "6f493f805b85a39a97bc56fce3dffc04a49252adfd1ab731e2ea50886d8950bf"
+    },
+    {
+      "path": "scrying/src/webview2_composition_producer.rs",
+      "baseline_sha256": "ff19e67d0597b1772a8d777a2dce8b676ef71a5a61d271bb30dba44d691d2ebe",
+      "qualified_sha256": "357a962f14c59656e582f7524c9afbf9e2d6fe83d59621d341b546f13d99c27d"
+    },
+    {
+      "path": "scrying/src/webview2_composition_producer/navigation.rs",
+      "baseline_sha256": "d4b49a15642bd9f9eeb510e4f8c291159faaff1561024953b40179dcfc18a461",
+      "qualified_sha256": "4c0e5fa68c780852def30fb8045bbb0e6f409be20f77b586a83762cff6d66e1e"
+    }
+  ],
+  "version_only_delta": [
+    "scrying/Cargo.toml",
+    "Cargo.lock"
+  ],
+  "source_version": "0.7.2",
+  "eight_preexisting_dirty_docs_unchanged": true,
+  "publication_performed": false
+}

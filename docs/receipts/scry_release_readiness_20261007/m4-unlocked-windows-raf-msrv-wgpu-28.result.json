@@ -1,0 +1,41 @@
+{
+  "label": "msrv-wgpu-28",
+  "command": [
+    "cargo",
+    "+1.92.0",
+    "check",
+    "--locked",
+    "-p",
+    "scrying",
+    "--lib",
+    "--no-default-features",
+    "--features",
+    "wgpu-28",
+    "-j1"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "started_utc": "2026-10-07T13:16:17.159106+00:00",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "WGPU_BACKEND": "dx12",
+    "TEMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+    "TMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+    "WEBVIEW_READBACK_VALIDATE": "0"
+  },
+  "priority": "BelowNormal",
+  "default_per_mode_timeout_seconds": null,
+  "owned_pid": 4696,
+  "actual_exit_code": 0,
+  "finished_utc": "2026-10-07T13:16:27.905451+00:00",
+  "elapsed_seconds": 10.64,
+  "timed_out": false,
+  "native_process_observations": [],
+  "observer_limitations": [],
+  "final_source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "tracked_status": "M Cargo.lock\n M demo-win/src/main.rs\n M demo-win/src/probe.rs\n M demo-win/src/smokes/network.rs\n M scripts/test-win.ps1\n M scrying/Cargo.toml\n M scrying/src/webview2_composition_producer.rs\n M scrying/src/webview2_composition_producer/navigation.rs",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "fb88d63817a5b2fdedf5034c40dcadd0dd14668e0acb34bcac53c7ab4397b258"
+}

@@ -96,8 +96,9 @@ The Windows producer ([`webview2_composition_producer::WebView2CompositionProduc
 - WebView2 environment + `ICoreWebView2CompositionController` + `ICoreWebView2Controller`
 - `Windows.UI.Composition` compositor + desktop-window-target + root + WebView visuals
 - `Windows.Graphics.Capture` item, frame pool, session
-- Persistent shared D3D11 destination texture (`D3D11_RESOURCE_MISC_SHARED_NTHANDLE | D3D11_RESOURCE_MISC_SHARED_KEYEDMUTEX`) reused across frames; one allocation + one wgpu import per size change
+- A fresh NT-handle-shareable D3D11 destination texture for each delivered frame, ordered by the explicit producer fence. A texture still referenced by a host submission is not overwritten by later capture.
 - Lazy `start_capture` + bounded first-frame block + post-resize tear-down/rebuild + stall-detection escape hatch (`force_restart_capture`)
+- `navigate_to_string` and `navigate_to_url` wait for navigation completion. Call `wait_for_render_tick(timeout)` explicitly when two animation-frame callbacks are needed; hidden pages can pause those callbacks. The checked callback result does not guarantee a captured compositor paint.
 - Optional `WebView2CompositionConfig::non_persistent()` InPrivate mode for producers whose cookie, local-storage, and IndexedDB state should die with the controller instead of persisting into `user_data_dir`
 - `NewWindowRequested` event routing for `target="_blank"` / `window.open(...)`, with the default WebView2 popup suppressed so the host owns tab creation
 - `ProcessFailed` routing to `NavigationEvent::ContentProcessTerminated`, plus DevTools-protocol diagnostic calls for bounded crash/recovery smokes
@@ -112,6 +113,12 @@ The Windows producer ([`webview2_composition_producer::WebView2CompositionProduc
 - Cookie-change callbacks for host cookie writes/deletes, page-side `document.cookie` writes, and native `Set-Cookie` response headers observed through `WebResourceResponseReceived`.
 
 `WebView2 TextureStream` is not treated as the primary path because it is a page/media texture stream API, not a whole-webview compositor-output API.
+
+The Windows native battery maintains a hidden-navigation control in its Core
+suite and `--pixel-test` in its Capture suite. The pixel control checks the first
+imported frame against a dedicated fixture with background corners and an
+opaque contrasting center. The general form-control probe can cover those
+corners at high DPI and is not the pixel fixture.
 
 The lower-level building blocks live in [`windows_capture`]:
 

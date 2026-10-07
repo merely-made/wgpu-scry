@@ -1,0 +1,9 @@
+{
+  "recorded_utc": "2026-10-07T13:01:13.6649704Z",
+  "verified_windows_artifacts": 28,
+  "verified_msrv_artifacts": 19,
+  "mismatch_paths": [],
+  "required_msrv_jobs_passed": 12,
+  "msrv_head": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "root_scope": "Independent raw artifact hash verification; Windows startup pixel negatives remain failures."
+}

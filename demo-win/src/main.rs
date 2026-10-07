@@ -63,7 +63,8 @@ use smokes::input::{
 #[cfg(target_os = "windows")]
 use smokes::network::{
     validate_platform_basic_auth, validate_platform_downloads, validate_platform_permissions,
-    validate_platform_process_failure_recovery, validate_platform_virtual_host_routing,
+    validate_platform_hidden_navigation, validate_platform_process_failure_recovery,
+    validate_platform_virtual_host_routing,
     validate_platform_visibility,
 };
 #[cfg(target_os = "windows")]
@@ -106,6 +107,9 @@ struct Cli {
     auth_test: bool,
     permission_test: bool,
     visibility_test: bool,
+    hidden_navigation_test: bool,
+    pixel_geometry_test: bool,
+    pixel_test: bool,
     keyboard_test: bool,
     cdp_input_test: bool,
     accelerator_test: bool,
@@ -142,6 +146,9 @@ impl Cli {
                 "--auth-test" => cli.auth_test = true,
                 "--permission-test" => cli.permission_test = true,
                 "--visibility-test" => cli.visibility_test = true,
+                "--hidden-navigation-test" => cli.hidden_navigation_test = true,
+                "--pixel-geometry-test" => cli.pixel_geometry_test = true,
+                "--pixel-test" => cli.pixel_test = true,
                 "--keyboard-test" => cli.keyboard_test = true,
                 "--cdp-input-test" => cli.cdp_input_test = true,
                 "--accelerator-test" => cli.accelerator_test = true,
@@ -178,6 +185,9 @@ impl Cli {
             || self.auth_test
             || self.permission_test
             || self.visibility_test
+            || self.hidden_navigation_test
+            || self.pixel_geometry_test
+            || self.pixel_test
             || self.cdp_input_test
             || self.accelerator_test
             || self.ime_bridge_test

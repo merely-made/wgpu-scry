@@ -1,0 +1,909 @@
+{
+  "recorded_utc": "2026-10-07T12:56:03.071697+00:00",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "owned_detached_worktree": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "resolved_absolute_path_checked": true,
+  "non_reparse": true,
+  "status_including_ignored_untracked": "",
+  "source_archive_input_count": 165,
+  "source_archive_verified_before_cleanup": true,
+  "primary_head_before": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "primary_dirty_docs": [
+    {
+      "path": "README.md",
+      "before": "0345476e74b1cabc02ab37f566ad75e91bd144a024dcaec15ae0967faabc7f5a",
+      "after": "0345476e74b1cabc02ab37f566ad75e91bd144a024dcaec15ae0967faabc7f5a",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-07_platform_ceilings.md",
+      "before": "f692a9953676dd655d7303466c50129396082527666c64358879f6e631cd7aa6",
+      "after": "f692a9953676dd655d7303466c50129396082527666c64358879f6e631cd7aa6",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-09_browser_parity_checklist.md",
+      "before": "6c8c8e4596755e679b6cebd99a1f27fe5fda6152bd57d0b29d074c68cf5aea7a",
+      "after": "6c8c8e4596755e679b6cebd99a1f27fe5fda6152bd57d0b29d074c68cf5aea7a",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-11_windows_webview2_target.md",
+      "before": "441fc850ed01a3f282e3f167b29cd6b4a8420e1df967c55744976a9578a8df5f",
+      "after": "441fc850ed01a3f282e3f167b29cd6b4a8420e1df967c55744976a9578a8df5f",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-05-15_phase4_strategy.md",
+      "before": "d96918a5ce2735b21057f616c88543cd5c78beebd0e6c4a6859c6d8734c4fbdd",
+      "after": "d96918a5ce2735b21057f616c88543cd5c78beebd0e6c4a6859c6d8734c4fbdd",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/2026-06-28_improvement_backlog.md",
+      "before": "33a1b0dfc0df40fb57d21cf19cab00d5a3892fb559bd7d60173af0d13268b5b0",
+      "after": "33a1b0dfc0df40fb57d21cf19cab00d5a3892fb559bd7d60173af0d13268b5b0",
+      "unchanged": true
+    },
+    {
+      "path": "design_docs/DOC_README.md",
+      "before": "70c318ab23c5aa9df1de4242c96a8bdf1307254971b02575eb81eac75ce2333d",
+      "after": "70c318ab23c5aa9df1de4242c96a8bdf1307254971b02575eb81eac75ce2333d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/parity-matrix.md",
+      "before": "61300e80fbfe24b74902e609c438ca5ba89a1af262cc5243241a29220c8f8ec1",
+      "after": "61300e80fbfe24b74902e609c438ca5ba89a1af262cc5243241a29220c8f8ec1",
+      "unchanged": true
+    }
+  ],
+  "worktree_registrations_before": "worktree C:/Users/mark_/Code/repos/wgpu-scry\nHEAD 4771072a6827695dfaba9db104cd48b87e6cd543\nbranch refs/heads/main\n\nworktree C:/Users/mark_/Code/worktrees/wgpu-scry-release\nHEAD 4771072a6827695dfaba9db104cd48b87e6cd543\ndetached",
+  "process_path_matches": [],
+  "local_build_native_owners": [],
+  "observer_excluded_self_ancestors": [
+    1600,
+    1724,
+    2772,
+    7404,
+    7744,
+    40084,
+    41064,
+    48204,
+    49760
+  ],
+  "process_observer_limitations": [
+    {
+      "pid": 0,
+      "name": "System Idle Process",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4,
+      "name": "System",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 236,
+      "name": "",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 280,
+      "name": "Registry",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 412,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 832,
+      "name": "dwm.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 848,
+      "name": "smss.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 924,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1020,
+      "name": "WUDFCompanionHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1316,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1336,
+      "name": "csrss.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1612,
+      "name": "csrss.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1700,
+      "name": "winlogon.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1764,
+      "name": "LsaIso.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1772,
+      "name": "lsass.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1784,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1900,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1916,
+      "name": "fontdrvhost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 1924,
+      "name": "fontdrvhost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2036,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2148,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2172,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2188,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2196,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2220,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2400,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2448,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2460,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2500,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2516,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2532,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2540,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2764,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2816,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2836,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 2864,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3116,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3304,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3372,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3388,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3440,
+      "name": "NVDisplay.Container.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3540,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3580,
+      "name": "amdfendrsr.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3588,
+      "name": "atiesrxx.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3596,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3652,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3808,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 3820,
+      "name": "WUDFHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4012,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4176,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4240,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4292,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4440,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4628,
+      "name": "WmiPrvSE.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4652,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4796,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4820,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4904,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4972,
+      "name": "dasHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 4992,
+      "name": "WUDFHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5044,
+      "name": "WUDFHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5168,
+      "name": "WUDFCompanionHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5192,
+      "name": "WUDFCompanionHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5228,
+      "name": "dasHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5304,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5308,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5320,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5360,
+      "name": "WUDFHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5436,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5444,
+      "name": "MemCompression",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5524,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5556,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5636,
+      "name": "ctfmon.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5652,
+      "name": "DefenderSessionHelper.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5740,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5784,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5792,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5828,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5848,
+      "name": "AsusOptimization.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 5856,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6020,
+      "name": "spoolsv.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6256,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6352,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6400,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6424,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6440,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6456,
+      "name": "AsusSystemDiagnosis.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6468,
+      "name": "AsusAppService.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6480,
+      "name": "AsusSoftwareManager.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6488,
+      "name": "AsusSwitch.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6496,
+      "name": "AsusSystemAnalysis.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6504,
+      "name": "AsusPTPService.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6512,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6520,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6528,
+      "name": "wslservice.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6536,
+      "name": "DAX3API.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6544,
+      "name": "GameInputRedistService.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6552,
+      "name": "nvcontainer.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6560,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6576,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6584,
+      "name": "HPPrintScanDoctorService.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6592,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6600,
+      "name": "RtkAudUService64.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6620,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6632,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6656,
+      "name": "TCPSVCS.EXE",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6672,
+      "name": "MpDefenderCoreService.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6684,
+      "name": "OfficeClickToRun.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6696,
+      "name": "MsMpEng.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6704,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 6952,
+      "name": "SecurityHealthService.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7152,
+      "name": "gamingservices.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7256,
+      "name": "gamingservicesnet.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7356,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7376,
+      "name": "NgcIso.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7464,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7480,
+      "name": "NisSrv.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7504,
+      "name": "WmiPrvSE.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 7792,
+      "name": "wlanext.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 8204,
+      "name": "NVDisplay.Container.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 8256,
+      "name": "atieclxx.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 8624,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 8780,
+      "name": "nvcontainer.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 8964,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9172,
+      "name": "SearchIndexer.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9220,
+      "name": "AggregatorHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9348,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9372,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9548,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9804,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 9820,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10156,
+      "name": "unsecapp.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10320,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10424,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10692,
+      "name": "GameInputSvc.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10728,
+      "name": "GameInputSvc.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10888,
+      "name": "vmcompute.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 10996,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 11012,
+      "name": "DAX3API.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 11104,
+      "name": "DefenderAiPlatformHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 13480,
+      "name": "AsusSoftwareManagerAgent.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 14512,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 15340,
+      "name": "steamservice.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 15564,
+      "name": "logioptionsplus_updater.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 15632,
+      "name": "logioptionsplus_appbroker.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 16912,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 16968,
+      "name": "SearchFilterHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 17420,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 17604,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 18236,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 18564,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 19828,
+      "name": "dllhost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 19968,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 20436,
+      "name": "taskhostw.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 24372,
+      "name": "FileSyncHelper.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 24616,
+      "name": "ChsIME.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 28056,
+      "name": "audiodg.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 31940,
+      "name": "SearchFilterHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 34152,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 34244,
+      "name": "codex-windows-sandbox-service.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 35160,
+      "name": "cowork-svc.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 37196,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 37300,
+      "name": "SearchProtocolHost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 40672,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 46696,
+      "name": "svchost.exe",
+      "reason": "AccessDenied"
+    },
+    {
+      "pid": 50724,
+      "name": "SearchFilterHost.exe",
+      "reason": "AccessDenied"
+    }
+  ],
+  "runtime_cache_retained": "C:\\t\\cargo-targets\\wgpu-scry\\native-smoke-runtime",
+  "runtime_cache_reason": "Owned one-shot WebView2 profiles retained for review of the two actual startup readback failures; stable target reused, outside worktree. Raw file inventory/hashes in native-summary.json."
+}

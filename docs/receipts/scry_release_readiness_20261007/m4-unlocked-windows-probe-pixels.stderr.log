@@ -1,0 +1,2 @@
+[producer] start_capture: 420x260 ready in 27ms
+demo-win: initialization failed: WebView readback: corner pixels do not match the HTML background; capture content is likely wrong (zeros, swapped channels, or empty).

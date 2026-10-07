@@ -1,0 +1,41 @@
+{
+  "recorded_utc": "2026-10-07T12:43:34.089316+00:00",
+  "run_id": 37622426510,
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "files": [
+    {
+      "path": "m4-unlocked-native-m4.log",
+      "bytes": 201225,
+      "sha256": "d5d7e167fe18b3ca0a6bca848426045083086363708d2973e8503db9c111c11c",
+      "job": 112795750733
+    },
+    {
+      "path": "m4-unlocked-native-intel.log",
+      "bytes": 147136,
+      "sha256": "1ef747786a46fd13767553ef729567ffbd339750a4a80ce55154973b6fc98fdc",
+      "job": 112795750842
+    },
+    {
+      "path": "m4-unlocked-native-radv.log",
+      "bytes": 66525,
+      "sha256": "373392a84377f633f85dcd72a107c14c8d297223890e1b69a1848dd35cf29be2",
+      "job": 112795750846
+    },
+    {
+      "path": "m4-unlocked-native-run.json",
+      "bytes": 12319,
+      "sha256": "7d4818c09cc468d1b7f00617d6bc8633b06164f1b0b3f99257c7fdaefd564d52"
+    },
+    {
+      "path": "m4-unlocked-native-jobs.json",
+      "bytes": 10647,
+      "sha256": "fab6e0ebdb1b7bc078ba7e958bae43cd48fe59a18873712567c345e15cc73c8b"
+    },
+    {
+      "path": "m4-unlocked-native-prior-run.json",
+      "bytes": 12327,
+      "sha256": "ab6092e39ca92aba72006e9f359c1c8481a02560e2d7b70af0881ef4a447588f"
+    }
+  ],
+  "scope": "Completed M4/Intel/RADV job logs only; aggregate run still queues NVIDIA, not a four-host pass."
+}

@@ -1,0 +1,1068 @@
+{
+  "recorded_utc": "2026-10-07T13:04:18.444325+00:00",
+  "workflow_run_id": 37622426510,
+  "attempt": 2,
+  "intel_job_id": 112804741088,
+  "job_url": "https://github.com/merely-made/wgpu-scry/actions/runs/37622426510/job/112804741088",
+  "job_status": "completed",
+  "job_conclusion": "success",
+  "started_at": "2026-10-07T13:00:04Z",
+  "completed_at": "2026-10-07T13:01:41Z",
+  "actual_source_sha": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "actual_checkout_log_evidence": [
+    {
+      "line": 92,
+      "text": "2026-10-07T13:00:09.7216480Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+    },
+    {
+      "line": 104,
+      "text": "2026-10-07T13:00:09.8416400Z 4771072a6827695dfaba9db104cd48b87e6cd543"
+    }
+  ],
+  "ordinary_battery": {
+    "passed": 10,
+    "total": 10,
+    "failed": 0
+  },
+  "separate_opt_in_diagnostic": {
+    "passed": 2,
+    "total": 2,
+    "failed": 0
+  },
+  "raw_summary_evidence": [
+    {
+      "line": 792,
+      "passed": 10,
+      "total": 10,
+      "text": "2026-10-07T13:01:10.8720010Z   passed: 10 / 10"
+    },
+    {
+      "line": 882,
+      "passed": 2,
+      "total": 2,
+      "text": "2026-10-07T13:01:36.6380950Z   passed: 2 / 2"
+    }
+  ],
+  "modes": [
+    {
+      "mode": "ordinary-base",
+      "result": "PASS",
+      "final_acquired_native_frames": 5,
+      "observed_physical_sizes": [
+        {
+          "width": 1024,
+          "height": 1536
+        }
+      ],
+      "pass_log_line": "2026-10-07T13:00:53.0480160Z demo-mac: capture-test: PASS \u2014 SCK pipeline delivered 5 frames across [1024x1536]",
+      "last_observed_host_metrics": {
+        "raw_log_line": 760,
+        "elapsed_seconds": 0.0,
+        "acquired_frames_so_far": 0,
+        "frame_status_complete": 1,
+        "frame_status_idle": 0,
+        "host_visible": true,
+        "host_minimized": false,
+        "host_focused": true
+      },
+      "host_metrics": [
+        {
+          "raw_log_line": 760,
+          "elapsed_seconds": 0.0,
+          "acquired_frames_so_far": 0,
+          "frame_status_complete": 1,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        }
+      ],
+      "page_activity_reports": [],
+      "page_visible_all_reports": null,
+      "animation_frames_max": null,
+      "animation_time_max_ms": null,
+      "timers_max": null,
+      "full_final_samples_received": null,
+      "full_final_samples_consumed": null,
+      "metrics_limit": "Host complete/idle counters are periodic observations, not final pipeline totals. Final received/consumed counters are not printed for passing modes; no total or drop count inferred."
+    },
+    {
+      "mode": "ordinary-resize",
+      "result": "PASS",
+      "final_acquired_native_frames": 815,
+      "observed_physical_sizes": [
+        {
+          "width": 768,
+          "height": 1200
+        },
+        {
+          "width": 1024,
+          "height": 1400
+        },
+        {
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "width": 1280,
+          "height": 1600
+        }
+      ],
+      "pass_log_line": "2026-10-07T13:01:10.8659540Z demo-mac: capture-test: PASS \u2014 SCK pipeline delivered 815 frames across [768x1200, 1024x1400, 1024x1536, 1280x1600]",
+      "last_observed_host_metrics": {
+        "raw_log_line": 786,
+        "elapsed_seconds": 13.09,
+        "acquired_frames_so_far": 759,
+        "frame_status_complete": 764,
+        "frame_status_idle": 0,
+        "host_visible": true,
+        "host_minimized": false,
+        "host_focused": true
+      },
+      "host_metrics": [
+        {
+          "raw_log_line": 771,
+          "elapsed_seconds": 0.0,
+          "acquired_frames_so_far": 0,
+          "frame_status_complete": 1,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 772,
+          "elapsed_seconds": 1.01,
+          "acquired_frames_so_far": 58,
+          "frame_status_complete": 59,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 773,
+          "elapsed_seconds": 2.01,
+          "acquired_frames_so_far": 116,
+          "frame_status_complete": 117,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 774,
+          "elapsed_seconds": 3.02,
+          "acquired_frames_so_far": 176,
+          "frame_status_complete": 177,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 775,
+          "elapsed_seconds": 4.04,
+          "acquired_frames_so_far": 235,
+          "frame_status_complete": 236,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 776,
+          "elapsed_seconds": 5.06,
+          "acquired_frames_so_far": 294,
+          "frame_status_complete": 295,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 778,
+          "elapsed_seconds": 6.06,
+          "acquired_frames_so_far": 350,
+          "frame_status_complete": 353,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 779,
+          "elapsed_seconds": 7.06,
+          "acquired_frames_so_far": 409,
+          "frame_status_complete": 412,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 780,
+          "elapsed_seconds": 8.08,
+          "acquired_frames_so_far": 468,
+          "frame_status_complete": 471,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 781,
+          "elapsed_seconds": 9.08,
+          "acquired_frames_so_far": 526,
+          "frame_status_complete": 529,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 783,
+          "elapsed_seconds": 10.08,
+          "acquired_frames_so_far": 583,
+          "frame_status_complete": 588,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 784,
+          "elapsed_seconds": 11.08,
+          "acquired_frames_so_far": 641,
+          "frame_status_complete": 646,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 785,
+          "elapsed_seconds": 12.08,
+          "acquired_frames_so_far": 700,
+          "frame_status_complete": 705,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 786,
+          "elapsed_seconds": 13.09,
+          "acquired_frames_so_far": 759,
+          "frame_status_complete": 764,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        }
+      ],
+      "page_activity_reports": [],
+      "page_visible_all_reports": null,
+      "animation_frames_max": null,
+      "animation_time_max_ms": null,
+      "timers_max": null,
+      "full_final_samples_received": null,
+      "full_final_samples_consumed": null,
+      "metrics_limit": "Host complete/idle counters are periodic observations, not final pipeline totals. Final received/consumed counters are not printed for passing modes; no total or drop count inferred."
+    },
+    {
+      "mode": "opt-in-base",
+      "result": "PASS",
+      "final_acquired_native_frames": 5,
+      "observed_physical_sizes": [
+        {
+          "width": 1024,
+          "height": 1536
+        }
+      ],
+      "pass_log_line": "2026-10-07T13:01:18.6314220Z demo-mac: capture-test: PASS \u2014 SCK pipeline delivered 5 frames across [1024x1536]",
+      "last_observed_host_metrics": {
+        "raw_log_line": 828,
+        "elapsed_seconds": 0.0,
+        "acquired_frames_so_far": 0,
+        "frame_status_complete": 1,
+        "frame_status_idle": 0,
+        "host_visible": true,
+        "host_minimized": false,
+        "host_focused": true
+      },
+      "host_metrics": [
+        {
+          "raw_log_line": 828,
+          "elapsed_seconds": 0.0,
+          "acquired_frames_so_far": 0,
+          "frame_status_complete": 1,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        }
+      ],
+      "page_activity_reports": [
+        {
+          "raw_log_line": 823,
+          "kind": "ready",
+          "elapsedMs": 4,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 0,
+          "timerTicks": 0,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 0
+            }
+          ]
+        },
+        {
+          "raw_log_line": 824,
+          "kind": "timer",
+          "elapsedMs": 1004,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 57,
+          "timerTicks": 1,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 998
+            }
+          ]
+        },
+        {
+          "raw_log_line": 825,
+          "kind": "timer",
+          "elapsedMs": 2004,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 117,
+          "timerTicks": 2,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 1998
+            }
+          ]
+        },
+        {
+          "raw_log_line": 827,
+          "kind": "timer",
+          "elapsedMs": 3004,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 177,
+          "timerTicks": 3,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 2998
+            }
+          ]
+        }
+      ],
+      "page_visible_all_reports": true,
+      "animation_frames_max": 177,
+      "animation_time_max_ms": 2998,
+      "timers_max": 3,
+      "full_final_samples_received": null,
+      "full_final_samples_consumed": null,
+      "metrics_limit": "Host complete/idle counters are periodic observations, not final pipeline totals. Final received/consumed counters are not printed for passing modes; no total or drop count inferred."
+    },
+    {
+      "mode": "opt-in-resize",
+      "result": "PASS",
+      "final_acquired_native_frames": 813,
+      "observed_physical_sizes": [
+        {
+          "width": 768,
+          "height": 1200
+        },
+        {
+          "width": 1024,
+          "height": 1400
+        },
+        {
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "width": 1280,
+          "height": 1600
+        }
+      ],
+      "pass_log_line": "2026-10-07T13:01:36.6365730Z demo-mac: capture-test: PASS \u2014 SCK pipeline delivered 813 frames across [768x1200, 1024x1400, 1024x1536, 1280x1600]",
+      "last_observed_host_metrics": {
+        "raw_log_line": 877,
+        "elapsed_seconds": 14.07,
+        "acquired_frames_so_far": 812,
+        "frame_status_complete": 819,
+        "frame_status_idle": 1,
+        "host_visible": true,
+        "host_minimized": false,
+        "host_focused": true
+      },
+      "host_metrics": [
+        {
+          "raw_log_line": 842,
+          "elapsed_seconds": 0.0,
+          "acquired_frames_so_far": 0,
+          "frame_status_complete": 1,
+          "frame_status_idle": 0,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 844,
+          "elapsed_seconds": 1.01,
+          "acquired_frames_so_far": 58,
+          "frame_status_complete": 59,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 846,
+          "elapsed_seconds": 2.01,
+          "acquired_frames_so_far": 116,
+          "frame_status_complete": 117,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 849,
+          "elapsed_seconds": 3.03,
+          "acquired_frames_so_far": 175,
+          "frame_status_complete": 176,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 851,
+          "elapsed_seconds": 4.03,
+          "acquired_frames_so_far": 233,
+          "frame_status_complete": 234,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 853,
+          "elapsed_seconds": 5.03,
+          "acquired_frames_so_far": 291,
+          "frame_status_complete": 292,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 856,
+          "elapsed_seconds": 6.05,
+          "acquired_frames_so_far": 349,
+          "frame_status_complete": 352,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 859,
+          "elapsed_seconds": 7.07,
+          "acquired_frames_so_far": 408,
+          "frame_status_complete": 411,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 861,
+          "elapsed_seconds": 8.07,
+          "acquired_frames_so_far": 467,
+          "frame_status_complete": 470,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 863,
+          "elapsed_seconds": 9.07,
+          "acquired_frames_so_far": 525,
+          "frame_status_complete": 528,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 867,
+          "elapsed_seconds": 10.07,
+          "acquired_frames_so_far": 581,
+          "frame_status_complete": 586,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 869,
+          "elapsed_seconds": 11.07,
+          "acquired_frames_so_far": 639,
+          "frame_status_complete": 644,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 871,
+          "elapsed_seconds": 12.07,
+          "acquired_frames_so_far": 697,
+          "frame_status_complete": 702,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 873,
+          "elapsed_seconds": 13.07,
+          "acquired_frames_so_far": 756,
+          "frame_status_complete": 760,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        },
+        {
+          "raw_log_line": 877,
+          "elapsed_seconds": 14.07,
+          "acquired_frames_so_far": 812,
+          "frame_status_complete": 819,
+          "frame_status_idle": 1,
+          "host_visible": true,
+          "host_minimized": false,
+          "host_focused": true
+        }
+      ],
+      "page_activity_reports": [
+        {
+          "raw_log_line": 838,
+          "kind": "ready",
+          "elapsedMs": 4,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 0,
+          "timerTicks": 0,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 0
+            }
+          ]
+        },
+        {
+          "raw_log_line": 839,
+          "kind": "timer",
+          "elapsedMs": 1004,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 56,
+          "timerTicks": 1,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 998
+            }
+          ]
+        },
+        {
+          "raw_log_line": 840,
+          "kind": "timer",
+          "elapsedMs": 2005,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 114,
+          "timerTicks": 2,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 1999
+            }
+          ]
+        },
+        {
+          "raw_log_line": 843,
+          "kind": "timer",
+          "elapsedMs": 3005,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 174,
+          "timerTicks": 3,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 2999
+            }
+          ]
+        },
+        {
+          "raw_log_line": 845,
+          "kind": "timer",
+          "elapsedMs": 4005,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 234,
+          "timerTicks": 4,
+          "background": "rgb(221, 79, 54)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 3999
+            }
+          ]
+        },
+        {
+          "raw_log_line": 847,
+          "kind": "timer",
+          "elapsedMs": 5006,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 294,
+          "timerTicks": 5,
+          "background": "rgb(221, 79, 54)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 5000
+            }
+          ]
+        },
+        {
+          "raw_log_line": 848,
+          "kind": "timer",
+          "elapsedMs": 6006,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 354,
+          "timerTicks": 6,
+          "background": "rgb(221, 79, 54)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 6000
+            }
+          ]
+        },
+        {
+          "raw_log_line": 850,
+          "kind": "timer",
+          "elapsedMs": 7007,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 414,
+          "timerTicks": 7,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 7001
+            }
+          ]
+        },
+        {
+          "raw_log_line": 852,
+          "kind": "timer",
+          "elapsedMs": 8007,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 474,
+          "timerTicks": 8,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 8001
+            }
+          ]
+        },
+        {
+          "raw_log_line": 855,
+          "kind": "timer",
+          "elapsedMs": 9007,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            768,
+            2
+          ],
+          "animationFrames": 534,
+          "timerTicks": 9,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 9001
+            }
+          ]
+        },
+        {
+          "raw_log_line": 857,
+          "kind": "resize",
+          "elapsedMs": 9038,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            640,
+            800,
+            2
+          ],
+          "animationFrames": 534,
+          "timerTicks": 9,
+          "background": "rgb(221, 79, 54)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 9033
+            }
+          ]
+        },
+        {
+          "raw_log_line": 858,
+          "kind": "timer",
+          "elapsedMs": 10007,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            640,
+            800,
+            2
+          ],
+          "animationFrames": 592,
+          "timerTicks": 10,
+          "background": "rgb(221, 79, 54)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 10001
+            }
+          ]
+        },
+        {
+          "raw_log_line": 860,
+          "kind": "timer",
+          "elapsedMs": 11007,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            640,
+            800,
+            2
+          ],
+          "animationFrames": 652,
+          "timerTicks": 11,
+          "background": "rgb(221, 79, 54)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 11001
+            }
+          ]
+        },
+        {
+          "raw_log_line": 862,
+          "kind": "timer",
+          "elapsedMs": 12008,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            640,
+            800,
+            2
+          ],
+          "animationFrames": 712,
+          "timerTicks": 12,
+          "background": "rgb(221, 79, 54)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 12002
+            }
+          ]
+        },
+        {
+          "raw_log_line": 865,
+          "kind": "timer",
+          "elapsedMs": 13008,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            640,
+            800,
+            2
+          ],
+          "animationFrames": 772,
+          "timerTicks": 13,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 13002
+            }
+          ]
+        },
+        {
+          "raw_log_line": 866,
+          "kind": "resize",
+          "elapsedMs": 13039,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            384,
+            600,
+            2
+          ],
+          "animationFrames": 772,
+          "timerTicks": 13,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 13033
+            }
+          ]
+        },
+        {
+          "raw_log_line": 868,
+          "kind": "timer",
+          "elapsedMs": 14008,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            384,
+            600,
+            2
+          ],
+          "animationFrames": 830,
+          "timerTicks": 14,
+          "background": "rgb(23, 97, 181)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 14002
+            }
+          ]
+        },
+        {
+          "raw_log_line": 870,
+          "kind": "timer",
+          "elapsedMs": 15008,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            384,
+            600,
+            2
+          ],
+          "animationFrames": 890,
+          "timerTicks": 15,
+          "background": "rgb(221, 79, 54)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 15002
+            }
+          ]
+        },
+        {
+          "raw_log_line": 872,
+          "kind": "timer",
+          "elapsedMs": 16008,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            384,
+            600,
+            2
+          ],
+          "animationFrames": 950,
+          "timerTicks": 16,
+          "background": "rgb(221, 79, 54)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 16002
+            }
+          ]
+        },
+        {
+          "raw_log_line": 875,
+          "kind": "timer",
+          "elapsedMs": 17009,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            700,
+            2
+          ],
+          "animationFrames": 1009,
+          "timerTicks": 17,
+          "background": "rgb(221, 79, 54)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 17003
+            }
+          ]
+        },
+        {
+          "raw_log_line": 876,
+          "kind": "resize",
+          "elapsedMs": 17023,
+          "visibility": "visible",
+          "focused": false,
+          "viewport": [
+            512,
+            700,
+            2
+          ],
+          "animationFrames": 1009,
+          "timerTicks": 17,
+          "background": "rgb(221, 79, 54)",
+          "animations": [
+            {
+              "state": "running",
+              "currentTime": 17017
+            }
+          ]
+        }
+      ],
+      "page_visible_all_reports": true,
+      "animation_frames_max": 1009,
+      "animation_time_max_ms": 17017,
+      "timers_max": 17,
+      "full_final_samples_received": null,
+      "full_final_samples_consumed": null,
+      "metrics_limit": "Host complete/idle counters are periodic observations, not final pipeline totals. Final received/consumed counters are not printed for passing modes; no total or drop count inferred."
+    }
+  ],
+  "portable_custody_regression_test_evidence": [
+    {
+      "line": 538,
+      "text": "2026-10-07T13:00:16.7884500Z test latest_image_sample::tests::newer_image_replaces_only_one_pending_image ... ok"
+    },
+    {
+      "line": 539,
+      "text": "2026-10-07T13:00:16.7885360Z test latest_image_sample::tests::status_only_burst_preserves_pending_image_and_its_custody ... ok"
+    }
+  ],
+  "other_unit_result_lines": [
+    "2026-10-07T13:00:16.7886180Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 18 filtered out; finished in 0.00s",
+    "2026-10-07T13:00:17.2217710Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ],
+  "raw_log": {
+    "path": "m4-unlocked-intel-attempt2.log",
+    "bytes": 137618,
+    "sha256": "0111f3fd5213615eee05fdf3a24cfb841d310f300e6092844725035c8aec909e"
+  },
+  "jobs_api": {
+    "path": "m4-unlocked-intel-attempt2-jobs.json",
+    "sha256": "191a6ab3ac4a0ae6c411347e5b37d16823fa27cec4d4c9a01490b0978ef55e54"
+  },
+  "source_qualification": "Exact477 native Intel battery with unchanged assertions and separate opt-in diagnosis. Does not qualify an upcoming Windows-only fix head until source equivalence is reviewed.",
+  "session_evidence": "User reported Intel unlocked before attempt2. Host observations are visible, non-minimized, focused; opt-in pages report visible with advancing rAF and CSS animation. Page document.hasFocus remains false in observed reports; host focus and DOM focus are different observations. Session causation remains unproved.",
+  "prior_failure_preserved": {
+    "path": "m4-unlocked-native-intel.log",
+    "sha256": "1ef747786a46fd13767553ef729567ffbd339750a4a80ce55154973b6fc98fdc",
+    "claim": "Earlier exact-source hidden-page failure remains evidence, not overwritten or reclassified."
+  },
+  "no_further_mac_tests_or_source_changes": true
+}

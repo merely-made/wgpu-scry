@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-10-07T13:22:30.423882+00:00",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "path": "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+  "bytes": 18890752,
+  "sha256": "b1324788450b45621d493b7be6c909c33683225e2be7a3f22bb9515a2b501ee3",
+  "actual_build_command": [
+    "cargo",
+    "+1.97.1",
+    "build",
+    "--locked",
+    "-p",
+    "demo-win",
+    "-j1"
+  ]
+}

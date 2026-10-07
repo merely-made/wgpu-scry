@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-10-07T12:52:08.868763+00:00",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "tracked_status": "",
+  "input_count": 165,
+  "changed_inputs": [],
+  "executable_sha256": "8107e3b749761049a092c2a1b0b6aa52256d354f8daa8ad8bbbb1020c7ecfecb",
+  "all_command_exits_zero": false,
+  "results": [
+    {
+      "label": "build",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "core",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "capture",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "pixels",
+      "actual_exit_code": 1,
+      "timed_out": false
+    }
+  ],
+  "runtime_cache": "C:\\t\\cargo-targets\\wgpu-scry\\native-smoke-runtime",
+  "runtime_cache_retained_for_review": true
+}

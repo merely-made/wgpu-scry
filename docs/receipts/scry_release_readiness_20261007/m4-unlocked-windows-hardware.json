@@ -1,0 +1,43 @@
+{
+  "os": {
+    "Caption": "Microsoft Windows 11 Home Insider Preview",
+    "Version": "10.0.26220",
+    "BuildNumber": "26220",
+    "OSArchitecture": "64-bit"
+  },
+  "compiler_priorities": [
+    {
+      "Id": 8568,
+      "ProcessName": "cargo",
+      "PriorityClass": 16384,
+      "CPU": 0.015625
+    },
+    {
+      "Id": 34032,
+      "ProcessName": "cargo",
+      "PriorityClass": 16384,
+      "CPU": 1.515625
+    },
+    {
+      "Id": 49264,
+      "ProcessName": "rustc",
+      "PriorityClass": 16384,
+      "CPU": 0.96875
+    }
+  ],
+  "video_controllers": [
+    {
+      "Name": "AMD Radeon 780M Graphics",
+      "DriverVersion": "31.0.14084.3001",
+      "PNPDeviceID": "PCI\\VEN_1002&DEV_15BF&SUBSYS_180D1043&REV_C1\\4&98C338A&0&0041",
+      "AdapterRAM": 536870912
+    },
+    {
+      "Name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "DriverVersion": "32.0.16.1088",
+      "PNPDeviceID": "PCI\\VEN_10DE&DEV_28E0&SUBSYS_180D1043&REV_A1\\4&2B5A5DA1&0&0009",
+      "AdapterRAM": 4293918720
+    }
+  ],
+  "recorded_utc": "2026-10-07T12:48:59.0907960Z"
+}

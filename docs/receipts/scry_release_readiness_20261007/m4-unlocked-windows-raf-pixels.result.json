@@ -1,0 +1,44 @@
+{
+  "label": "pixels",
+  "command": [
+    "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+    "--probe-only"
+  ],
+  "cwd": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "started_utc": "2026-10-07T13:14:08.730637+00:00",
+  "environment": {
+    "CARGO_TARGET_DIR": "C:\\t\\cargo-targets\\wgpu-scry",
+    "CARGO_BUILD_JOBS": "1",
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "WGPU_BACKEND": "dx12",
+    "TEMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+    "TMP": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+    "WEBVIEW_READBACK_VALIDATE": "1"
+  },
+  "priority": "BelowNormal",
+  "default_per_mode_timeout_seconds": null,
+  "owned_pid": 45644,
+  "actual_exit_code": 1,
+  "finished_utc": "2026-10-07T13:14:10.814802+00:00",
+  "elapsed_seconds": 1.985,
+  "timed_out": false,
+  "native_process_observations": [
+    {
+      "pid": 45644,
+      "command": [
+        "C:\\t\\cargo-targets\\wgpu-scry\\debug\\demo-win.exe",
+        "--probe-only"
+      ],
+      "observed_priority": 16384,
+      "observed_utc": "2026-10-07T13:14:09.302272+00:00",
+      "actual_exit_code": 1
+    }
+  ],
+  "observer_limitations": [],
+  "final_source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "tracked_status": "M Cargo.lock\n M demo-win/src/main.rs\n M demo-win/src/probe.rs\n M demo-win/src/smokes/network.rs\n M scripts/test-win.ps1\n M scrying/Cargo.toml\n M scrying/src/webview2_composition_producer.rs\n M scrying/src/webview2_composition_producer/navigation.rs",
+  "stdout_sha256": "473f2f841af9d8274af439023f5b06782ddfdbae689d87eeae114638b345825a",
+  "stderr_sha256": "d572270c85026d24b1f0148a5fa17c5595047a5b418109858c2986fae9ceb365",
+  "executable_sha256": "f78e99efda4c20e6696186b6c0dac47db0a484bbf3404273282a7c0b4eea090f"
+}

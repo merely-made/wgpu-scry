@@ -1,0 +1,144 @@
+{
+  "source_sha": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "official_protocol_source_url": "https://raw.githubusercontent.com/ChromeDevTools/devtools-protocol/master/json/js_protocol.json",
+  "retrieved_protocol_sha256": "76f43fd9cb7048795ab1b945e2589f613ed3d6449c90ac9517736293381623fc",
+  "runtime_evaluate_contract": {
+    "name": "evaluate",
+    "description": "Evaluates expression on global object.",
+    "parameters": [
+      {
+        "name": "expression",
+        "description": "Expression to evaluate.",
+        "type": "string"
+      },
+      {
+        "name": "objectGroup",
+        "description": "Symbolic group name that can be used to release multiple objects.",
+        "optional": true,
+        "type": "string"
+      },
+      {
+        "name": "includeCommandLineAPI",
+        "description": "Determines whether Command Line API should be available during the evaluation.",
+        "optional": true,
+        "type": "boolean"
+      },
+      {
+        "name": "silent",
+        "description": "In silent mode exceptions thrown during evaluation are not reported and do not pause\nexecution. Overrides `setPauseOnException` state.",
+        "optional": true,
+        "type": "boolean"
+      },
+      {
+        "name": "contextId",
+        "description": "Specifies in which execution context to perform evaluation. If the parameter is omitted the\nevaluation will be performed in the context of the inspected page.\nThis is mutually exclusive with `uniqueContextId`, which offers an\nalternative way to identify the execution context that is more reliable\nin a multi-process environment.",
+        "optional": true,
+        "$ref": "ExecutionContextId"
+      },
+      {
+        "name": "returnByValue",
+        "description": "Whether the result is expected to be a JSON object that should be sent by value.",
+        "optional": true,
+        "type": "boolean"
+      },
+      {
+        "name": "generatePreview",
+        "description": "Whether preview should be generated for the result.",
+        "experimental": true,
+        "optional": true,
+        "type": "boolean"
+      },
+      {
+        "name": "userGesture",
+        "description": "Whether execution should be treated as initiated by user in the UI.",
+        "optional": true,
+        "type": "boolean"
+      },
+      {
+        "name": "awaitPromise",
+        "description": "Whether execution should `await` for resulting value and return once awaited promise is\nresolved.",
+        "optional": true,
+        "type": "boolean"
+      },
+      {
+        "name": "throwOnSideEffect",
+        "description": "Whether to throw an exception if side effect cannot be ruled out during evaluation.\nThis implies `disableBreaks` below.",
+        "experimental": true,
+        "optional": true,
+        "type": "boolean"
+      },
+      {
+        "name": "timeout",
+        "description": "Terminate execution after timing out (number of milliseconds).",
+        "experimental": true,
+        "optional": true,
+        "$ref": "TimeDelta"
+      },
+      {
+        "name": "disableBreaks",
+        "description": "Disable breakpoints during execution.",
+        "experimental": true,
+        "optional": true,
+        "type": "boolean"
+      },
+      {
+        "name": "replMode",
+        "description": "Setting this flag to true enables `let` re-declaration and top-level `await`.\nNote that `let` variables can only be re-declared if they originate from\n`replMode` themselves.",
+        "experimental": true,
+        "optional": true,
+        "type": "boolean"
+      },
+      {
+        "name": "allowUnsafeEvalBlockedByCSP",
+        "description": "The Content Security Policy (CSP) for the target might block 'unsafe-eval'\nwhich includes eval(), Function(), setTimeout() and setInterval()\nwhen called with non-callable arguments. This flag bypasses CSP for this\nevaluation and allows unsafe-eval. Defaults to true.",
+        "experimental": true,
+        "optional": true,
+        "type": "boolean"
+      },
+      {
+        "name": "uniqueContextId",
+        "description": "An alternative way to specify the execution context to evaluate in.\nCompared to contextId that may be reused across processes, this is guaranteed to be\nsystem-unique, so it can be used to prevent accidental evaluation of the expression\nin context different than intended (e.g. as a result of navigation across process\nboundaries).\nThis is mutually exclusive with `contextId`.",
+        "experimental": true,
+        "optional": true,
+        "type": "string"
+      },
+      {
+        "name": "serializationOptions",
+        "description": "Specifies the result serialization. If provided, overrides\n`generatePreview` and `returnByValue`.",
+        "experimental": true,
+        "optional": true,
+        "$ref": "SerializationOptions"
+      }
+    ],
+    "returns": [
+      {
+        "name": "result",
+        "description": "Evaluation result.",
+        "$ref": "RemoteObject"
+      },
+      {
+        "name": "exceptionDetails",
+        "description": "Exception details.",
+        "optional": true,
+        "$ref": "ExceptionDetails"
+      }
+    ]
+  },
+  "recommended_route": "Use existing call_devtools_protocol_method_blocking with Runtime.evaluate, awaitPromise:true, returnByValue:true, and one bounded timeout. Evaluate a constant double-rAF Promise resolving true. Parse the returned JSON structurally: no exceptionDetails, result.type boolean, result.value true. Return typed platform error for exception, malformed or unexpected result, disconnect, or timeout. Propagate the existing navigation deadline or explicitly bounded remaining duration. This waits for rAF completion, not compositor/WGC pixels.",
+  "existing_source_seams": [
+    {
+      "path": "scrying/src/webview2_composition_producer/navigation.rs",
+      "lines": "143-191",
+      "purpose": "Existing bounded CDP call, Windows message pump, raw JSON result and errors."
+    },
+    {
+      "path": "demo-win/src/smokes/input.rs",
+      "lines": "462-483",
+      "purpose": "Existing Runtime.evaluate awaitPromise:true route, qualified by native input smoke; not itself a double-rAF acknowledgement test."
+    }
+  ],
+  "dependency_note": "scrying currently has no direct serde_json dependency. Proper structured CDP validation needs a reviewed parser dependency or an existing structured platform parser; do not use substring matching. A new private typed parser plus tests is a narrow option, but dependency choice belongs to implementation owner.",
+  "alternative_web_message_route": "Register a private temporary WebMessageReceived handler before scheduling double-rAF, require a correlated acknowledgement token, pump until the bounded deadline, and remove the handler on every success/error/timeout path. Preserve application message order. Existing persistent handler at navigation.rs574-603 mirrors ordinary messages into public queues, so a separate acknowledgement handler alone would leak internal acknowledgements; interception/filtering or shared private routing state is required. Merely draining poll_web_message would also consume unrelated host messages.",
+  "preference_reason": "CDP reuses existing supplier transport, gives explicit awaitPromise semantics, and avoids a new internal message visible in the host WebMessage event queue.",
+  "regression_and_native_gate": "Portable parser tests for true/false/exception/malformed responses; exact native test proving acknowledgement happens after both scheduled rAF callbacks; same normal CSS and existing pixel oracle with initial/later generation receipts. No forcing repaint, threshold change, or green claim until actual execution."
+}

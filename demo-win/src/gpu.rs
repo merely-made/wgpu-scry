@@ -9,7 +9,7 @@ pub(crate) fn validate_imported_pixels(
     device: &wgpu::Device,
     queue: &wgpu::Queue,
     expected_rgb: (u8, u8, u8),
-) -> Result<(), Box<dyn std::error::Error>> {
+) -> Result<[u8; 4], Box<dyn std::error::Error>> {
     if imported.format != wgpu::TextureFormat::Bgra8Unorm {
         return Err(format!(
             "WebView readback: expected Bgra8Unorm imported texture, got {:?}",
@@ -137,7 +137,7 @@ pub(crate) fn validate_imported_pixels(
         );
     }
 
-    Ok(())
+    Ok(center)
 }
 
 pub(crate) async fn create_host_device() -> Result<

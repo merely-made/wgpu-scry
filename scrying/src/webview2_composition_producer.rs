@@ -572,20 +572,6 @@ impl crate::WebSurfaceProducer for WebView2CompositionProducer {
     }
 }
 
-fn execute_script_blocking(webview: &ICoreWebView2, script: String) -> Result<(), WebSurfaceError> {
-    let webview = webview.clone();
-    ExecuteScriptCompletedHandler::wait_for_async_operation(
-        Box::new(move |handler| unsafe {
-            let script = CoTaskMemPWSTR::from(script.as_str());
-            webview
-                .ExecuteScript(*script.as_ref().as_pcwstr(), &handler)
-                .map_err(webview2_com::Error::WindowsError)
-        }),
-        Box::new(|error_code, _result| error_code),
-    )
-    .map_err(|error| WebSurfaceError::Platform(format!("ExecuteScript: {error}")))
-}
-
 fn add_script_to_execute_on_document_created_blocking(
     webview: &ICoreWebView2,
     script: String,

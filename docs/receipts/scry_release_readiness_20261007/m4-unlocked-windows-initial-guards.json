@@ -1,0 +1,76 @@
+{
+  "recorded_utc": "2026-10-07T12:45:17.492679+00:00",
+  "primary": "C:\\Users\\mark_\\Code\\repos\\wgpu-scry",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "owned_worktree": "C:\\Users\\mark_\\Code\\worktrees\\wgpu-scry-release",
+  "approved_path_absent": true,
+  "worktree_registration_before": "worktree C:/Users/mark_/Code/repos/wgpu-scry\nHEAD 4771072a6827695dfaba9db104cd48b87e6cd543\nbranch refs/heads/main",
+  "dirty_docs_before": [
+    {
+      "path": "README.md",
+      "bytes": 5116,
+      "sha256": "0345476e74b1cabc02ab37f566ad75e91bd144a024dcaec15ae0967faabc7f5a"
+    },
+    {
+      "path": "design_docs/2026-05-07_platform_ceilings.md",
+      "bytes": 70730,
+      "sha256": "f692a9953676dd655d7303466c50129396082527666c64358879f6e631cd7aa6"
+    },
+    {
+      "path": "design_docs/2026-05-09_browser_parity_checklist.md",
+      "bytes": 17666,
+      "sha256": "6c8c8e4596755e679b6cebd99a1f27fe5fda6152bd57d0b29d074c68cf5aea7a"
+    },
+    {
+      "path": "design_docs/2026-05-11_windows_webview2_target.md",
+      "bytes": 39788,
+      "sha256": "441fc850ed01a3f282e3f167b29cd6b4a8420e1df967c55744976a9578a8df5f"
+    },
+    {
+      "path": "design_docs/2026-05-15_phase4_strategy.md",
+      "bytes": 50514,
+      "sha256": "d96918a5ce2735b21057f616c88543cd5c78beebd0e6c4a6859c6d8734c4fbdd"
+    },
+    {
+      "path": "design_docs/2026-06-28_improvement_backlog.md",
+      "bytes": 11172,
+      "sha256": "33a1b0dfc0df40fb57d21cf19cab00d5a3892fb559bd7d60173af0d13268b5b0"
+    },
+    {
+      "path": "design_docs/DOC_README.md",
+      "bytes": 4522,
+      "sha256": "70c318ab23c5aa9df1de4242c96a8bdf1307254971b02575eb81eac75ce2333d"
+    },
+    {
+      "path": "docs/parity-matrix.md",
+      "bytes": 13777,
+      "sha256": "61300e80fbfe24b74902e609c438ca5ba89a1af262cc5243241a29220c8f8ec1"
+    }
+  ],
+  "primary_status_before": "M README.md\n M design_docs/2026-05-07_platform_ceilings.md\n M design_docs/2026-05-09_browser_parity_checklist.md\n M design_docs/2026-05-11_windows_webview2_target.md\n M design_docs/2026-05-15_phase4_strategy.md\n M design_docs/2026-06-28_improvement_backlog.md\n M design_docs/DOC_README.md\n M docs/parity-matrix.md\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-dispatch.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-host-availability.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-README.md\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-hashes.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-initial-jobs.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-initial-run.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795762740.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795762944.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795762956.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795763092.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795763228.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795763240.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795763258.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795763259.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795763276.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795763279.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795763389.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-job-112795763398.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-poll-124050-jobs.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-poll-124050-run.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-result.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-msrv-source-binding.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-native-initial-files.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-native-intel.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-native-jobs.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-native-m4.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-native-prior-run.json\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-native-radv.log\n?? docs/receipts/scry_release_readiness_20261007/m4-unlocked-native-run.json",
+  "actual_gpu": [
+    {
+      "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "driver": "32.0.16.1088"
+    },
+    {
+      "name": "AMD Radeon 780M Graphics",
+      "driver": "31.0.14084.3001"
+    }
+  ],
+  "build_native_owner_inventory": {
+    "exact_names": [
+      "cargo.exe",
+      "rustc.exe",
+      "cl.exe",
+      "link.exe",
+      "demo-win.exe",
+      "turnstone.exe",
+      "demo-scrying-winit.exe",
+      "demo-mac.exe",
+      "demo-linux.exe",
+      "demo-wpe.exe"
+    ],
+    "observed_owners": []
+  }
+}

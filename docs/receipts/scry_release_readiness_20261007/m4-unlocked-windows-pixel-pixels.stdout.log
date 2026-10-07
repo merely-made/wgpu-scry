@@ -1,0 +1,19 @@
+wgpu adapter: NVIDIA GeForce RTX 4060 Laptop GPU
+wgpu backend: Dx12
+system webview backend: WebView2
+preferred surface mode: ImportedTexture
+imported texture support: Supported
+native overlay support: Supported
+CPU snapshot support: Supported
+reason: Windows target path is WebView2 CompositionController visual capture into a D3D texture, then Dx12SharedTexture import. Pure visual hosting uses WebView2 CDP Input for keyboard/text; native OS IME ownership remains host-driven.
+GraphicsCapture probe: session_supported=true winrt_d3d_device=true free_threaded_frame_pool=true
+D3D11 shared texture probe: exported RAII-owned NT handle
+D3D11 shared texture probe: imported Bgra8Unorm 64x64 generation 1
+GraphicsCapture window probe: captured 904x660, imported Bgra8Unorm 904x660 generation 1
+WebView2 explicit-fence synchronization enabled: shared fence handle 0x70c
+CompositionController visual probe: navigation completed
+GraphicsCapture WebView2 CompositionController WebView target visual: captured 420x260, imported Bgra8Unorm 420x260 generation 1
+WebView readback: expected background BGRA=(42,32,23,255) from CSS rgb(23,32,42)
+WebView readback: tl=BGRA[42, 32, 23, 255] tr=BGRA[42, 32, 23, 255] bl=BGRA[42, 32, 23, 255] br=BGRA[42, 32, 23, 255] center=BGRA[37, 71, 211, 255]
+WebView readback: corner pixels match background within ±6: true
+demo-win: pixel-test: PASS - first imported 420x260 frame, four background corners within ±6 and exact opaque center BGRA[37, 71, 211, 255]

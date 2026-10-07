@@ -1,0 +1,79 @@
+{
+  "recorded_utc": "2026-10-07T13:24:23.950645+00:00",
+  "artifact_count": 13,
+  "artifacts": [
+    {
+      "path": "m4-unlocked-windows-geometry-build.result.json",
+      "bytes": 1490,
+      "sha256": "4963a5d452dafa739f7b62b17ee1af315180df877fad6239708637762e7deb15"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-build.stderr.log",
+      "bytes": 160,
+      "sha256": "27ff205078a728b96e2bbe344a257c47c89ffd5ccd305ab4b5d6ea92deeb93b6"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-build.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-executable.json",
+      "bytes": 413,
+      "sha256": "c34cc483025a223bc4e20d794c66d6a9fd8863d3b2493a1fccf3779c1245c40b"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-geometry.result.json",
+      "bytes": 1858,
+      "sha256": "d9bb6e51ce00095f8a21850ab3674efce30021aa4c40be02a751e533cc1c484a"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-geometry.stderr.log",
+      "bytes": 216,
+      "sha256": "88fe48160ec0bb4c5094691cc7f21054d6268338a8ec6c2f095339b208891f9e"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-geometry.stdout.log",
+      "bytes": 7396,
+      "sha256": "06d615ee7870e8090342b0014bf1005da9fdff0562280fe287d30858f4e598b1"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-inputs.json",
+      "bytes": 30324,
+      "sha256": "2859b92a22a2e6985e058d538d720a5b4b7f1e606c9b52eef675c26c5dce4ca7"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-observation.json",
+      "bytes": 14929,
+      "sha256": "748fd103b30731c9bef1d713eb714542a1889abea2cab4fd1a48e7298e833142"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-runner.py",
+      "bytes": 8122,
+      "sha256": "86293c29744d114ba3e4f8ad4286ef73741725ada1a540d2cebfa0e04970507f"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-source-after.json",
+      "bytes": 902,
+      "sha256": "1402dde5fdea105f2c9da9f8699986ceddaeb3c795173a568285c6e08c2e2eb0"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-source-inputs.zip",
+      "bytes": 784197,
+      "sha256": "b7c42d4ab13fba0e9a3f28f8d7bb3f28645caf0670fc8d06838f848b32c40f64"
+    },
+    {
+      "path": "m4-unlocked-windows-geometry-source.patch",
+      "bytes": 13763,
+      "sha256": "b384b281b79262ffdbdceaa93f61db2fbb258c2774d64c69a3d9a54cfc861725"
+    }
+  ],
+  "source_inputs_verified": 165,
+  "prior_qualified_library_cargo_bytes_unchanged": [
+    "scrying/Cargo.toml",
+    "Cargo.lock",
+    "scrying/src/webview2_composition_producer.rs",
+    "scrying/src/webview2_composition_producer/navigation.rs"
+  ],
+  "scope": "Original normalHTML/samplepoints/corneroracle retainedFAIL atDPR2; measured bottompoints are insideTextarea. Diagnostic source frozen before dedicated fixture source changes."
+}

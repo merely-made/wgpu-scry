@@ -40,17 +40,21 @@ impl WebView2CompositionProducer {
             WebSurfaceError::Platform(format!(
                 "WebView2 navigation did not complete within {timeout:?}"
             ))
-        })?;
-
-        self.wait_for_render_tick()
+        })
     }
 
-    fn wait_for_render_tick(&self) -> Result<(), WebSurfaceError> {
-        let script = r#"(() => new Promise(resolve => {
-            requestAnimationFrame(() => requestAnimationFrame(() => resolve("present")));
-        }))()"#
-            .to_string();
-        execute_script_blocking(&self.webview, script)
+    /// Await two animation-frame callbacks, separately from navigation completion.
+    /// Hidden pages may pause these callbacks and return a timeout. A resolved
+    /// callback acknowledges document scheduling, not a captured compositor paint.
+    pub fn wait_for_render_tick(&self, timeout: Duration) -> Result<(), WebSurfaceError> {
+        // ExecuteScript serializes the Promise itself. CDP must explicitly await
+        // its resolution before an explicit caller can acknowledge the two render ticks.
+        let result = self.call_devtools_protocol_method_blocking(
+            "Runtime.evaluate",
+            r#"{"expression":"new Promise(resolve => { requestAnimationFrame(() => requestAnimationFrame(() => resolve('scrying:render-tick:present'))); })","awaitPromise":true,"returnByValue":true}"#,
+            timeout,
+        )?;
+        validate_render_tick_result(&result)
     }
 
     /// Navigate the underlying WebView2 to a URL and block until
@@ -86,9 +90,7 @@ impl WebView2CompositionProducer {
             WebSurfaceError::Platform(format!(
                 "WebView2 navigation did not complete within {timeout:?}"
             ))
-        })?;
-
-        self.wait_for_render_tick()
+        })
     }
 
     /// Drain the next pending [`NavigationEvent`] from the producer's queue.
@@ -623,6 +625,29 @@ pub(super) fn register_persistent_handlers(
     ))
 }
 
+/// CDP resolves this fixed expression to a string RemoteObject. A Promise,
+/// malformed reply, exception, or different value does not acknowledge a tick.
+fn validate_render_tick_result(json: &str) -> Result<(), WebSurfaceError> {
+    let reply: serde_json::Value = serde_json::from_str(json).map_err(|_| {
+        WebSurfaceError::Platform("WebView2 render tick evaluation returned malformed JSON".into())
+    })?;
+    if reply.get("exceptionDetails").is_some() {
+        return Err(WebSurfaceError::Platform(
+            "WebView2 render tick evaluation reported exceptionDetails".into(),
+        ));
+    }
+    let result = &reply["result"];
+    if result["type"].as_str() == Some("string")
+        && result["value"].as_str() == Some("scrying:render-tick:present")
+    {
+        Ok(())
+    } else {
+        Err(WebSurfaceError::Platform(
+            "WebView2 render tick evaluation did not resolve the expected string sentinel".into(),
+        ))
+    }
+}
+
 fn is_content_process_failure(kind: COREWEBVIEW2_PROCESS_FAILED_KIND) -> bool {
     matches!(
         kind,
@@ -636,6 +661,36 @@ fn is_content_process_failure(kind: COREWEBVIEW2_PROCESS_FAILED_KIND) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn render_tick_requires_resolved_string_sentinel() {
+        assert!(validate_render_tick_result(
+            "{\n  \"result\": {\"type\": \"string\", \"value\": \"scrying:render-tick:present\"}\n}"
+        ).is_ok());
+        assert!(validate_render_tick_result(
+            r#"{"result":{"value":"scrying:render-tick:present","description":"resolved","type":"string"}}"#
+        ).is_ok());
+        for rejected in [
+            r#"{"result":{"type":"object","subtype":"promise","objectId":"pending"}}"#,
+            r#"{"result":{"type":"undefined"}}"#,
+            r#"{"result":{"type":"string","value":"present"}}"#,
+            r#"{"result":{"type":"string","value":"scrying:render-tick:pre sent"}}"#,
+            r#"{"result":{"type":"string","value":"scrying:render-tick:present"},"exceptionDetails":{"text":"Uncaught"}}"#,
+            r#"{"exceptionDetails":{"text":"Promise rejected"}}"#,
+            r#"{"result":{"type":"string","value":"scrying:render-tick:present"},"exceptionDetails":null}"#,
+            r#"{"result":{"type":"string","value":true}}"#,
+            r#"{"result":{"value":"scrying:render-tick:present"}}"#,
+            r#"{"result":{"type":"string","value":"scrying:render-tick:present"}"#,
+            "null",
+            "[]",
+            "",
+        ] {
+            assert!(
+                validate_render_tick_result(rejected).is_err(),
+                "accepted {rejected}"
+            );
+        }
+    }
 
     #[test]
     fn navigation_callback_is_duplicated_without_reordering() {

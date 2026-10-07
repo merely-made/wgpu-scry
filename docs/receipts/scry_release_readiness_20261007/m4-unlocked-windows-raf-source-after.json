@@ -1,0 +1,53 @@
+{
+  "recorded_utc": "2026-10-07T13:16:33.857251+00:00",
+  "source_commit": "4771072a6827695dfaba9db104cd48b87e6cd543",
+  "tracked_status": "M Cargo.lock\n M demo-win/src/main.rs\n M demo-win/src/probe.rs\n M demo-win/src/smokes/network.rs\n M scripts/test-win.ps1\n M scrying/Cargo.toml\n M scrying/src/webview2_composition_producer.rs\n M scrying/src/webview2_composition_producer/navigation.rs",
+  "input_count": 165,
+  "changed_inputs": [],
+  "executable_sha256": "f78e99efda4c20e6696186b6c0dac47db0a484bbf3404273282a7c0b4eea090f",
+  "all_command_exits_zero": false,
+  "results": [
+    {
+      "label": "build",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "pixels",
+      "actual_exit_code": 1,
+      "timed_out": false
+    },
+    {
+      "label": "core",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "capture",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "parser-tests",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "msrv-wgpu-28",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "msrv-wgpu-29",
+      "actual_exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "msrv-wgpu-30",
+      "actual_exit_code": 0,
+      "timed_out": false
+    }
+  ],
+  "runtime_cache": "C:\\t\\cargo-targets\\wgpu-scry\\native-render-tick-runtime",
+  "runtime_cache_retained_for_review": true
+}
