@@ -1,0 +1,13 @@
+{
+  "conclusion": "",
+  "createdAt": "2026-10-07T17:28:34Z",
+  "databaseId": 37659346531,
+  "headSha": "d38c14eff9c0928f8a1e79f6ab6e0a5467ff6099",
+  "status": "in_progress",
+  "url": "https://github.com/merely-made/wgpu-graft/actions/runs/37659346531",
+  "requested_inputs": {
+    "observe_session": true,
+    "foreground_control": true
+  },
+  "recorded_utc": "2026-10-07T17:31:04.194326+00:00"
+}
