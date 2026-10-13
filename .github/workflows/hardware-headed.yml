@@ -37,7 +37,7 @@ jobs:
     timeout-minutes: 180
     env:
       CARGO_TARGET_DIR: C:\Users\mark_\Code\targets\wgpu-scry-hardware
-      RUSTUP_TOOLCHAIN: 1.97.1
+      RUSTUP_TOOLCHAIN: 1.99.0
       WGPU_BACKEND: dx12
 
     steps:
@@ -56,8 +56,8 @@ jobs:
       - name: Assert the provisioned toolchain and adapter
         shell: powershell
         run: |
-          rustc +1.97.1 --version
-          cargo +1.97.1 --version
+          rustc +1.99.0 --version
+          cargo +1.99.0 --version
           nvidia-smi --query-gpu=name,driver_version --format=csv,noheader
 
       - name: Run browser-shape assertions
@@ -90,7 +90,7 @@ jobs:
           sparse-checkout-cone-mode: false
       - name: Serialize host hardware use
         uses: ./.host-hardware-lock/.github/actions/host-hardware-lock
-      - uses: dtolnay/rust-toolchain@1.97.1
+      - uses: dtolnay/rust-toolchain@1.99.0
       - name: Check image custody across status-only capture callbacks
         run: cargo test --locked -p scrying --lib latest_image_sample
       - name: Check capture size expectations on the native toolchain
@@ -126,7 +126,7 @@ jobs:
           sparse-checkout-cone-mode: false
       - name: Serialize host hardware use
         uses: ./.host-hardware-lock/.github/actions/host-hardware-lock
-      - uses: dtolnay/rust-toolchain@1.97.1
+      - uses: dtolnay/rust-toolchain@1.99.0
       - name: Check image custody across status-only capture callbacks
         run: cargo test --locked -p scrying --lib latest_image_sample
       - name: Check capture size expectations on the native toolchain
@@ -166,7 +166,7 @@ jobs:
           sparse-checkout-cone-mode: false
       - name: Serialize host hardware use
         uses: ./.host-hardware-lock/.github/actions/host-hardware-lock
-      - uses: dtolnay/rust-toolchain@1.97.1
+      - uses: dtolnay/rust-toolchain@1.99.0
 
       - name: Assert the native Wayland and WPE environment
         run: |

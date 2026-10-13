@@ -2,7 +2,8 @@
 name = "scrying"
 version = "0.7.2"
 edition = "2024"
-rust-version = "1.92"
+
+rust-version = "1.97.1"
 license = "MPL-2.0"
 repository = "https://github.com/merely-made/wgpu-scry"
 description = "Capability-driven system-webview frame adapter for WebView2, WKWebView, WebKitGTK, and WPE"
