@@ -8,4 +8,5 @@
 # The publishable `scrying` crate's MSRV is 1.92.0 and is verified separately
 # by .github/workflows/msrv.yml. This pin is the development and CI toolchain,
 # not the MSRV, and it moves with stable.
-channel = "1.97.1"
+
+channel = "1.99.0"

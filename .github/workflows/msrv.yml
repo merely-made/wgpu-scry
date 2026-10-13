@@ -27,15 +27,15 @@ jobs:
     uses: merely-made/.github/.github/workflows/wgpu-msrv.yml@main
     with:
       crate: scrying
-      toolchain: 1.92.0
+      toolchain: 1.97.1
 
   linux-webkitgtk-fallback:
-    name: Rust 1.92 / Linux / WebKitGTK 4.1 fallback
+    name: Rust 1.97.1 / Linux / WebKitGTK 4.1 fallback
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@1.92.0
+      - uses: dtolnay/rust-toolchain@1.97.1
       - name: Install WebKitGTK 4.1 build dependencies
         run: |
           sudo apt-get update
@@ -46,7 +46,7 @@ jobs:
           --features wgpu-30,webkitgtk-fallback
 
   linux-wpe:
-    name: Rust 1.92 / Linux / WPE
+    name: Rust 1.97.1 / Linux / WPE
     runs-on: ubuntu-latest
     container: fedora:44
 
@@ -59,14 +59,14 @@ jobs:
           dnf copr enable -y philn/wpewebkit
           dnf install -y wpewebkit-devel libwpe-devel wpebackend-fdo-devel
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@1.92.0
+      - uses: dtolnay/rust-toolchain@1.97.1
       - name: Check the WPE producer family
         run: >-
           cargo check --locked -p scrying --lib --no-default-features
           --features wgpu-30,wpe
 
   linux-webkit6:
-    name: Rust 1.92 / Linux / WebKitGTK 6.0
+    name: Rust 1.97.1 / Linux / WebKitGTK 6.0
     runs-on: ubuntu-latest
     container: fedora:44
 
@@ -76,7 +76,7 @@ jobs:
           dnf install -y git curl gcc gcc-c++ pkgconf-pkg-config
           gtk4-devel webkitgtk6.0-devel
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@1.92.0
+      - uses: dtolnay/rust-toolchain@1.97.1
       - name: Check the WebKitGTK 6.0 producer family
         run: >-
           cargo check --locked -p scrying --lib --no-default-features
