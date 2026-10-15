@@ -1,8 +1,13 @@
 # Windows WebView2 integration target
 
-**Status:** target and audit doc, split from
+**Status (2026-10-05 source audit):** target and audit doc, split from
 [`2026-05-07_platform_ceilings.md`](2026-05-07_platform_ceilings.md) on
 2026-05-11.
+
+The attached-root native keyboard and shared-root multi-pane findings below
+remain separate from capture-only/offscreen-host input acceptance. See the
+[next-release and consumer gates](2026-06-28_improvement_backlog.md#next-release-and-consumer-gates)
+for the exact Turnstone prerequisites. This audit obtained no new native receipt.
 
 This document sets the Windows target for scrying's system-webview
 integration. It is deliberately Windows-specific: the cross-platform index

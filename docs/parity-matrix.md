@@ -35,7 +35,7 @@ Demo flag coverage in [`README.md`](../README.md) is what makes a row
 | Cookie get/set/delete | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Custom URL scheme handlers | ✔ | ✔ | ✔ | ✔ | ✔ [^wpe-scheme-coverage] |
 | Cursor-shape reporting | ✔ | ✔ | ✔ | ✔ [^wk6-cursor-coverage] | ✔ [^wpe-cursor-coverage] |
-| IME observability (focus/change/blur) | ? [^win-ime] | ? [^mac-ime] | ✔ | ✔ [^wk6-ime-coverage] | ✔ |
+| IME observability (focus/change/blur) | ⚠ [^win-ime] | ? [^mac-ime] | ✔ | ✔ [^wk6-ime-coverage] | ✔ |
 | Script-message bridge (host ↔ page postMessage) | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Download lifecycle observability | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Drag/drop | ✔ [^win-drag] | ✘ [^mac-drag] | ✔ [^gtk-drag] | ⚠ [^wk6-drag] | ✘ [^wpe-drag] |
@@ -200,11 +200,13 @@ suite. Marked `?` rather than guessing.
 [^gtk-touch]: WebKitGTK has no `--touch-test` flag in the demo-linux
 suite. Marked `?` rather than guessing.
 
-[^win-ime]: WebView2 has no `--ime-test` flag in the demo-win suite.
-Marked `?` rather than guessing — Windows IME goes through `WM_IME_*`
-messages which the producer's `WindowProc` does handle, but scrying
-doesn't currently surface focus/change/blur events back to the host
-the way the GTK and WPE producers do.
+[^win-ime]: WebView2 reports editable focus/change/blur with caret geometry.
+`demo-win --ime-bridge-test` exercises the host-owned winit/CDP bridge,
+password suppression, multiline geometry, offset/DPI mapping, and cancellation.
+This is not full TSF text-store parity or acceptance for multi-pane/offscreen
+input. Downstream adapters must preserve the editable-state payload to use that
+bridge; Mere currently reduces these events to diagnostic text. See
+[the Windows target](../design_docs/2026-05-11_windows_webview2_target.md).
 
 [^mac-ime]: WKWebView has no `--ime-test` flag in the demo-mac suite,
 and the module doc does not describe a JS-side IME observability path

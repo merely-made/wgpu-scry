@@ -40,6 +40,17 @@ yet.
 
 ---
 
+## Evidence scope (2026-10-05)
+
+The rows describe concrete producer capabilities. A downstream host or adapter
+must expose the corresponding operation before reporting it available to users.
+The retained registry-only release receipt covers Scry 0.7.1 on WebView2/DX12,
+WKWebView/Metal (M4 and Intel), and WPE/Vulkan (RADV); see
+`wgpu-graft/design_docs/2026-09-03_wgpu_triplet_release_plan.md`. No battery was
+rerun for this documentation audit. The more detailed Linux backend split lives
+in [the parity matrix](../docs/parity-matrix.md); a `?` here is not evidence that
+WPE remains unimplemented.
+
 ## Navigation & lifecycle
 
 | Capability | macOS | Windows | Linux | Notes |
@@ -57,11 +68,11 @@ yet.
 | --- | --- | --- | --- | --- |
 | Mouse + scroll wheel (with modifiers) | ✅ | ✅ | ? | Scroll wheel carries location + `CGEventFlags` |
 | Pointer / touch / pen synthesis | ✅ | ✅ | ? | macOS has no public direct-touch synthesis API — events arrive at JS as `pointerType: "mouse"`; Windows uses WebView2 `SendPointerInput` |
-| Keyboard + IME (composition) | ✅ | 🟡 | ? | Pure Windows visual-hosted WebView2 remains blocked for Win32/OS-native keyboard routing: `demo-win --keyboard-test` proves DOM focus plus physical-style `SendInput` still times out. `demo-win --cdp-input-test` now proves a no-overlay DOM input lane: `Input.dispatchKeyEvent`, `Input.insertText`, `Input.imeSetComposition`, `Runtime.evaluate`, and `ExecuteScript` all produced DOM input. `demo-win --ime-bridge-test` proves the hardened host-owned IME bridge: focused editable/caret state -> winit IME candidate area -> CDP composition/commit, with source-side password suppression, textarea scroll/multiline caret coverage, current offset/DPI mapping, and blur/navigation cancellation. Full TSF text-store parity remains future work. Host accelerator events are covered separately: `demo-win --accelerator-test` observes WebView2 `AcceleratorKeyPressed` in pure CompositionController mode. Window-to-Visual proves ASCII DOM input and WGC -> wgpu import, including three animated pages with avg parent capture/import around 103ms, but the stricter smokes report visible `Chrome_WidgetWin_0` child HWNDs, so it remains rejected as a no-overlay target |
+| Keyboard + IME (composition) | ✅ | 🟡 | ? | Normally focused CompositionController inputs receive real hardware keyboard and Win32 `SendInput`; the earlier timeout was a smoke focus bug, corrected in the Windows target record. `send_keyboard_input` uses CDP. `--ime-bridge-test` proves focused editable/caret state -> winit candidate area -> CDP composition/commit, including password suppression, multiline geometry, offset/DPI mapping, and blur/navigation cancellation. Shared-root multi-pane real keyboard and mouse are recorded as verified; multi-pane wheel, IME, and automated `SendInput` remain unexercised. Capture-only/offscreen host input needs its own acceptance. Full TSF parity remains open. Hidden child HWND focus alone does not deliver DOM keyboard. Window-to-Visual remains rejected as a no-overlay target. See [Windows target](2026-05-11_windows_webview2_target.md#multi-webview-scope) |
 | Cursor-change events (host mirrors WebKit cursor) | ✅ | ✅ | ? | macOS polls `NSCursor.currentSystemCursor`; Windows listens to WebView2 `CursorChanged` |
 | Drag-and-drop *in* (file / URL → page) | ✅ | ✅ | ⏳ | macOS and Windows emit `NavigationEvent::DropDetected` via a document drop bridge; Windows also has OLE `IDataObject` drag-enter / over / leave / drop helpers. Trait-level `send_drag_input` reports that Windows requires the concrete OLE data-object path. Windows bridge observability is covered by `demo-win --drop-test` |
 | Drag-and-drop *out* (page content → host) | 🚫 | ? | ⏳ | macOS path is `_WK*` SPI |
-| Context-menu interception | ✅ | ⏳ | ? | JS user-script + `WKScriptMessageHandler` always fires `NavigationEvent::ContextMenuRequested` (observability); engine-default menu suppression is gated on `window.__scryingSuppressContextMenu` and respects `WebSurfaceSettings::default_context_menus_enabled` via `evaluateJavaScript:` |
+| Context-menu interception | ✅ | ✅ | ? | macOS uses a document bridge and optional default-menu suppression. Windows registers native WebView2 `ContextMenuRequested` plus a deterministic document bridge covered by `--context-test`; producer settings control the default menu |
 
 ## Capture & rendering
 
@@ -73,6 +84,7 @@ yet.
 | Resize correctness (dim-match guard) | ✅ | ✅ | ? | macOS rejects stale pre-resize SCK samples; Windows drops WGC frames whose `ContentSize` no longer matches the producer size after resize/restart churn |
 | DPI awareness across monitor moves | ✅ | ✅ | ? | macOS backing-scale-change observer re-applies `config.size`; Windows routes winit `ScaleFactorChanged` through renderer resize and covers the capture restart path with `--scale-test` |
 | Capture cadence probe (`CaptureMetrics`) | ✅ | ✅ | ⏳ | macOS exposes `samples_received` / `samples_consumed`; Windows also reports `stale_frames_dropped` for resize/restart diagnostics |
+| Final static paint after coalesced WGC arrivals | n/a | ⏳ | n/a | October 5 local bounded queue drain repairs the one-dequeue/two-arrival mismatch; five focused tests pass, native final-pixel acceptance remains open in the [Windows plan](2026-05-12_windows_decomposition_plan.md#capture-queue-maintenance-2026-10-05). Registry 0.7.1 retains the old path; DOM titles/import counts alone do not prove freshness |
 | Cross-API GPU sync (explicit fences) | ✅ | ✅ | ✅ | macOS producer encodes `MTLCommandBuffer::encodeSignalEvent_value` and producer-side waits before handoff; Windows supports `D3D12_FENCE_FLAG_SHARED` when the host supplies a shared fence handle, with the older barrier path as fallback. Architectural follow-up on macOS: consumer-side `encodeWaitForEvent:value:` via the wgpu-hal Metal escape removes the CPU stall entirely (~1ms per acquire saved) |
 | Color management — Display P3 SDR | ✅ | 🚫 | ⏳ | macOS exposes `ColorPipeline::DisplayP3`; Windows WebView2/WGC currently reports fixed `ColorPipeline::Srgb` + `Bgra8Unorm` because the public composition capture path exposes no P3 color-space control |
 | Color management — HDR / 16-float | ✅ | 🚫 | ⏳ | macOS exposes `ColorPipeline::Hdr16f`; Windows WebView2/WGC currently has no public HDR / 16-float capture target for this path |
@@ -87,7 +99,7 @@ yet.
 | Custom URL schemes | ✅ | ✅ | ? | `WkWebViewProducer::new_with_url_schemes` on macOS; `WebView2CompositionProducer::register_virtual_host_handler` on Windows, covered by `demo-win --routing-test` |
 | Per-profile data store | ✅ | ✅ | ? | `WKWebsiteDataStore::dataStoreForIdentifier:` (macOS 14+) |
 | Incognito / non-persistent profile | ✅ | ✅ | ? | `WkWebViewProducerConfig::non_persistent` on macOS; `WebView2CompositionConfig::non_persistent` creates an InPrivate CompositionController on Windows and is covered by `demo-win --incognito-test` |
-| Multi-instance verification (cross-talk isolation) | ✅ | 🟡 | ? | Windows profile smoke proves sequential producer recreation with the same `user_data_dir`; `demo-win --multi-view-test` proves simultaneous two-producer composition on separate HWNDs. Same-HWND composition remains unsupported in the current demo setup |
+| Multi-instance verification (cross-talk isolation) | ✅ | 🟡 | ? | Windows profile smoke proves sequential recreation with the same `user_data_dir`; `--multi-view-test` proves separate-HWND producers. Same-HWND producers share one `CompositionRoot` via `new_attached`; independent roots on one HWND are forbidden by DComp. The Windows target records shared-root mouse and real keyboard acceptance; multi-pane wheel, IME, and automated `SendInput` remain unexercised. Per-producer rehosting from a shared root is rejected by the current API |
 | Cookie store (read / write / delete) | ✅ | ✅ | ? | Wraps `WKHTTPCookieStore` on macOS and WebView2 `ICoreWebView2CookieManager` on Windows |
 | Cookie / storage *change events* | ✅ | 🟡 | ⏳ | macOS uses `cookiesDidChangeInCookieStore:` for page writes, `Set-Cookie` headers, and host writes. Windows fires pulses for host `set_cookie` / `delete_cookie`, page-side `document.cookie` writes, and native `Set-Cookie` response headers via `WebResourceResponseReceived`; broader storage-change observation remains open |
 
@@ -128,15 +140,18 @@ yet.
   smoke; it now has `--scripted`, `--browser-test`, and
   `--cookie-test` / `--profile-test` one-shot modes for the shipped
   WebView2 slices. The Windows profile smoke recreates the producer
-  because one CompositionController target can be attached to a given
-  HWND at a time. The focused target and lane live in
+  because only one `DesktopWindowTarget` can bind a given HWND at a time;
+  multiple producers instead share its `CompositionRoot`. The focused target and lane live in
   [`2026-05-11_windows_webview2_target.md`](2026-05-11_windows_webview2_target.md).
-- **Linux** rows are largely "?" because the WPE producer is
-  unstarted (out-of-band slice; see roadmap in
-  [`2026-05-07_platform_ceilings.md`](2026-05-07_platform_ceilings.md)).
-  WPE structurally wins on a couple of capture rows (per-view
-  Vulkan buffers, native VkSemaphore) but loses on the embedding-
-  shell rows that require system integration.
+- **Linux** has implemented WPE, WebKitGTK 4.1, and WebKitGTK 6.0
+  producers. WPE/Vulkan has retained pixel, pointer, script, cookie, and
+  post-input-frame release receipts at its fixed headless size. Headless
+  runtime resize is unsupported, touch dispatch is blocked, and multiple
+  producers/process recovery need their own hosting solution. GTK producers
+  deliver CPU frames; WebKitGTK 6.0 input is JS-synthesized and untrusted.
+  Remaining "?" rows need backend-specific acceptance, not an inferred common
+  Linux result. See [the parity matrix](../docs/parity-matrix.md) and
+  [WPE deployment](../docs/wpe-deployment.md).
 
 ## Adding a row
 

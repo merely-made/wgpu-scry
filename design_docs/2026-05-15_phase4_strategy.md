@@ -1,7 +1,9 @@
 # Phase 4 strategy — Vulkan DMABUF import + WPE producer
 
 **Date:** 2026-05-15
-**Status:** Phase 4c arc complete (WPE first-class). Phase A arc
+**Status (2026-10-05):** Linux session-preflight repair is staged locally;
+shell syntax and eight command-mocked cases pass; native rerun remains open. Phase 4c arc complete
+(WPE first-class). Phase A arc
 complete (webkit6 to mac-level capability parity; GPU import blocked
 upstream on GTK 4.22's missing `GdkDmabufTexture` accessors).
 4a + 4a.x + 4b.1 + 4c.1 + 4c.2 + 4c.3 + 4c.4 + 4c.4.1-3 + (β) +
@@ -834,3 +836,34 @@ A.1 (script-message bridge — same shared UCM).
       "first-slice scope = navigate + snapshot" to the full subcommand
       surface; `scrying` row promotes WebKitGTK 6.0 from "planned" to
       first-class. Quick-start block lists every new flag.
+
+## Headed Linux preflight repair, 2026-10-05
+
+### Findings
+
+Exact-source hardware run [37210994529](https://github.com/merely-made/wgpu-scry/actions/runs/37210994529)
+failed at the hardcoded `loginctl show-session 2` assertion; the socket and
+WPE-version checks had passed, while WPE pixel/input tests were skipped. Session
+IDs are ephemeral and are not repository configuration.
+
+### Implementation and done-condition
+
+The workflow runs `scripts/test-active-wayland-session.sh` immediately before
+`scripts/assert-active-wayland-session.sh`. The assertion helper enumerates
+the runner user's sessions and requires matching `User`, `Active=yes`, and
+`Type=wayland`. Failed logind queries and missing properties refuse admission.
+The original Wayland socket, no-X11, and WPE-version assertions remain in place.
+The helper does not create a session or alter display selection.
+
+Local validation is done when `bash -n` passes and
+`scripts/test-active-wayland-session.sh` passes its rotated-ID positive control
+and inactive/X11/other-user/no-session/query-failure/missing-property refusals.
+Native closure requires a fresh headed preflight and the actual WPE pixel/input
+tests passing on the intended RADV host. A mock pass does not close that gate.
+
+### Progress
+
+- 2026-10-05: workflow/helper/test source staged. The coordinating lane ran
+  Git Bash `bash -n` on both scripts and the command-mocked test: all eight
+  cases passed in Scry and Weld. No native rerun or CI dispatch. The identical
+  helper is carried by Weld's standalone checkout for its same preflight fault.
