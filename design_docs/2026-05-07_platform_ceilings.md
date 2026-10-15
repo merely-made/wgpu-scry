@@ -1179,8 +1179,34 @@ correctness or change the capture admission policy.
 
 The library and demo, including their test targets, pass locked offline
 `cargo check -p scrying -p demo-mac --all-targets --target aarch64-apple-darwin`
-from Windows. This is cross-target compile coverage. The new counter test was
+from Windows. This is cross-target compile coverage. At the reconciliation, the new counter test was
 type-checked but not executed on macOS, and no new ScreenCaptureKit hardware
 receipt was obtained. Native acceptance is done when a Mac capture run records
 the new report and the counter test passes on that host. No crate release was
 published by this reconciliation.
+
+### Current headed CI inspection, 2026-10-05
+
+Run [37210994529](https://github.com/merely-made/wgpu-scry/actions/runs/37210994529),
+started October 4 at exact source `99c0a9deb783a9e9607278123d9b65c62f61e3a3`,
+provides newer source-level evidence without changing the published baseline:
+
+- M4 passed 10/10 demo cases, including five base-capture frames and 59 frames
+  across the resize sizes. Windows passed its browser-shape and capture/scale
+  jobs, which completed October 5.
+- Intel passed nine of ten cases. Base capture produced three complete
+  1024x1536 frames within 30 seconds, below the required five. The new native
+  report recorded 1,742 idle statuses, three complete statuses, no missing
+  status metadata, and no dimension mismatch. Its separate resize case passed
+  with 12 frames. This is an unresolved capture-cadence acceptance failure;
+  these facts do not establish a producer, WindowServer, or fixture root cause.
+- RADV failed the environment assertion at `loginctl show-session 2` with
+  `No session '2' known`. WPE pixel and input tests were skipped. The missing
+  ephemeral session ID is a workflow preflight failure rather than a new
+  DMABUF pixel result.
+
+The capture report has now executed natively, but this workflow builds the
+demo and runs its assertion modes; it does not execute the new library counter
+unit test. That test, the Intel cadence gate, and a fresh RADV product receipt
+after preflight repair remain open. This inspection did not dispatch CI,
+change runner sessions, or publish another crate version.

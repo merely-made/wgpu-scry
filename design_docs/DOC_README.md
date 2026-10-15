@@ -14,6 +14,8 @@ This is the canonical index for active documentation in this repository.
   windowing, embedding, navigation policy, storage policy, and fallback choice.
 - Keep the feature-selected wgpu row identical to the host row and re-export
   the selected types at the public boundary.
+- Headed Linux preflights verify current runner-owned active Wayland sessions;
+  never retain a logind session number as a durable hardware identity.
 - Publish and tag the exact source being described. Once a crate version is on
   crates.io, later public API work receives a new version.
 - Treat `README.md`, `scrying/README.md`, and `docs/parity-matrix.md` as current
@@ -22,13 +24,13 @@ This is the canonical index for active documentation in this repository.
 ## Active documents
 
 - [Documentation policy](DOC_POLICY.md): shared documentation rules and the Wgpu-scry local addendum.
-- [Platform ceilings and parity roadmap](2026-05-07_platform_ceilings.md): platform API ceilings, backend implementation record, and September 11 macOS capture-status compile receipt; native telemetry acceptance remains open.
-- [Browser-class parity checklist](2026-05-09_browser_parity_checklist.md): cross-platform browser capability and verification matrix.
+- [Platform ceilings and parity roadmap](2026-05-07_platform_ceilings.md): platform ceilings and macOS diagnostics evidence, including October 4 exact-source headed CI with unresolved Intel cadence and RADV session-preflight gates.
+- [Browser-class parity checklist](2026-05-09_browser_parity_checklist.md): concrete browser capability and verification matrix, reconciled October 5 against retained Windows and Linux receipts.
 - [WKWebView SPI evaluation](2026-05-09_spi_evaluation.md): private-API research and public-API stop lines for macOS.
 - [Windows WebView2 integration target](2026-05-11_windows_webview2_target.md): Windows composition, capture, and input target shape.
 - [Windows producer decomposition plan](2026-05-12_windows_decomposition_plan.md): separation of reusable WebView2 production from the demo host and October 5 bounded WGC queue repair with native freshness acceptance open.
 - [Linux WebKitGTK phase 2a](2026-05-14_linux_webkitgtk_phase_2a.md): WebKitGTK 4.1 baseline and the three-backend Linux strategy.
-- [Phase 4 strategy](2026-05-15_phase4_strategy.md): Vulkan DMABUF import and WPE sequencing.
+- [Phase 4 strategy](2026-05-15_phase4_strategy.md): Vulkan DMABUF/WPE sequencing and the October 5 local session-preflight repair, with native rerun open.
 - [WPE bindings decision](2026-05-20_phase4b_wpe_bindings_decision.md): ownership and generation strategy for WPE Rust bindings.
 - [WPE platform producer](2026-05-20_phase4c_wpe_platform_producer.md): headless WPEPlatform producer and DMABUF callback seam.
 - [WPE producer implementation plan](2026-05-20_phase4c2_implementation_plan.md): Phase 4c.2 implementation phases and gates.
@@ -43,7 +45,7 @@ This is the canonical index for active documentation in this repository.
 - [WPE to Vulkan round-trip record](2026-06-04_wpe_to_vulkan_roundtrip.md): integration-test implementation and hardware findings.
 - [WPE script-message bridge](2026-06-05_phase4c5a_script_message.md): script-message implementation and verification.
 - [WPE cookies](2026-06-05_phase4c5b_cookies.md): cookie API implementation and verification.
-- [Improvement backlog](2026-06-28_improvement_backlog.md): prioritized actionable gaps and upstream-blocked work.
+- [Improvement backlog](2026-06-28_improvement_backlog.md): open library and downstream adapter work, completed ownership/DCC release boundaries, and next-release/Turnstone acceptance gates.
 
 ## Maintainer-owned description
 

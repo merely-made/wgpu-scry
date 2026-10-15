@@ -9,11 +9,13 @@ the page.
 Extracted from
 [`wgpu-graft`](https://github.com/merely-made/wgpu-graft) on 2026-05-05.
 
-## Status (2026-09-04)
+## Status (2026-10-05 source audit)
 
-`scrying` 0.7.0 is published on crates.io and working across all five
-backends; `main` prepares the 0.7.1 callback-order revision. Native frame
-resources have move-only, RAII custody, and the primary WebView2, WKWebView,
+`scrying` 0.7.1 is the published callback-order release. The retained registry-only
+triplet receipt covers WebView2/DX12, WKWebView/Metal on M4 and Intel, and
+WPE/Vulkan on RADV; it does not establish identical browser capabilities across
+all five backends. See `wgpu-graft/design_docs/2026-09-03_wgpu_triplet_release_plan.md`.
+Native frame resources have move-only, RAII custody, and the primary WebView2, WKWebView,
 and WPE producers expose correlated asynchronous script results through one
 ordered event queue. It carries feature-selected wgpu 28/29/30, defaults to
 wgpu 30, and requires at least wgpu 30.0.1 on that row.
@@ -24,16 +26,28 @@ wgpu 30, and requires at least wgpu 30.0.1 on that row.
   Metal (macOS 14+); Linux WebKitGTK 4.1 and 6.0 via CPU snapshot; Linux WPE
   via DMABUF into Vulkan.
 - Beyond frames, the `WebSurfaceProducer` trait covers navigation, history,
-  input, ordered events, correlated script results, cookies, custom schemes, downloads, profiles,
-  popups, find, and PDF. Per-backend state and caveats live in
+  input, ordered events, correlated script results, and cookies. Concrete
+  producers additionally expose backend-specific custom schemes, downloads,
+  profiles, popups, find, and PDF APIs. These are not all methods on the portable
+  trait or reachable through downstream adapters. Per-backend caveats live in
   [`docs/parity-matrix.md`](docs/parity-matrix.md).
 - DX12, Metal, and Vulkan/DMABUF imports delegate to published `grafting`
   0.6.0; Scry keeps webview and sync policy.
 - CI runs the macOS suite, the WebKitGTK 4.1 Linux suite, and a required Fedora
   44 WPE producer/demo build on every push.
 
+`main` includes September 11 macOS capture-status diagnostics beyond the
+published September 4 receipt. Its manifest still reads 0.7.1; that source
+reconciliation was not published. The October 4 headed run on that exact source
+passed M4 and Windows; Intel failed the base capture cadence assertion, and
+RADV failed its session preflight before WPE tests ran. Native diagnostic output
+now exists, but the counter unit test and complete affected-platform acceptance
+remain open. See the
+[diagnostics record](design_docs/2026-05-07_platform_ceilings.md#macos-capture-status-diagnostics-2026-09-11)
+and [next-release gates](design_docs/2026-06-28_improvement_backlog.md#next-release-and-consumer-gates).
+
 Open items are a native GTK4 input path for webkit6 (current input is
-JS-synthesized), crash recovery for webkit6/WPE, IME observability parity, and
+JS-synthesized), crash recovery for webkit6/WPE, broader IME parity, and
 webkit6 zero-copy import. WPE Vulkan DCC sampling is now a hard green gate on
 AMD Renoir/RADV; the headed hardware command and receipt are documented in
 [`docs/wpe-deployment.md`](docs/wpe-deployment.md#wgpu-vulkan-pixel-correctness-receipt).
