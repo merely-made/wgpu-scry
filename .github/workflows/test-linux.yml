@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@1.99.0
+        uses: dtolnay/rust-toolchain@1.99.1
 
       # System packages required by the webkitgtk-fallback feature
       # and the demo-linux + cross-platform smoke. Mirrors the Fedora
@@ -104,7 +104,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@1.99.0
+        uses: dtolnay/rust-toolchain@1.99.1
 
       - name: Check WPE producer and demo
         run: |
@@ -136,7 +136,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@1.99.0
+        uses: dtolnay/rust-toolchain@1.99.1
 
       - name: Check WebKitGTK 6 producer and demo
         run: |
