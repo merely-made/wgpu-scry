@@ -288,6 +288,19 @@ impl MetalTextureRef {
         }
     }
 
+    /// Move the frame's retained texture into another safe importer.
+    ///
+    /// Read `size`, `format`, `generation`, `producer_sync` and `signal_value`
+    /// before consuming this value. The caller must preserve the declared
+    /// synchronization (including the producer's shared event) alongside the
+    /// texture. This transfers the existing retain; it does not borrow a raw
+    /// pointer or wait for producer completion.
+    pub fn into_retained(
+        self,
+    ) -> objc2::rc::Retained<objc2::runtime::ProtocolObject<dyn objc2_metal::MTLTexture>> {
+        self.raw_metal_texture
+    }
+
     /// Construct a frame from a raw `MTLTexture *` with one transferred retain.
     ///
     /// # Safety
