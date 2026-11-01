@@ -1,5 +1,7 @@
 # Phase 4a.x — Multi-plane DCC Import Implementation Plan
 
+> **Status (2026-11-01): Landed; archived 2026-11-01.** Shipped on `main` in bfe809b, 71f1ce9, 4c0668c and 3264a8a. The shared-fd multi-plane handling now lives at `wgpu-graft/grafting/src/vulkan_dmabuf.rs`. The disjoint-fd multi-plane and YUV/ycbcr deferral is carried by `wgpu-graft/design_docs/2026-11-01_triplet_release_plan.md` P6 (Mark, 2026-11-01: "Graft triplet plan"). All `Step` boxes below are ticked as landed; the probe commit hash below was corrected from `48c8749` to `33668c5` (same patch-id).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Extend `dmabuf::import` to accept multi-plane DMABUFs whose planes share a single kernel object (the AMD-on-Mesa DCC convention) so `wpe_to_vulkan_roundtrip` flips from documented-failure to a pixel-correct round-trip.
@@ -8,9 +10,9 @@
 
 **Tech Stack:** Rust 2024, ash (Vulkan), libc (fstat/close), the existing wgpu+HostWgpuContext path.
 
-**Spec:** [`2026-06-04_phase4a_x_multiplane_dcc_import.md`](2026-06-04_phase4a_x_multiplane_dcc_import.md)
+**Spec:** [`2026-06-04_phase4a_x_multiplane_dcc_import.md`](../../2026-06-04_phase4a_x_multiplane_dcc_import.md)
 
-**Empirical foundation (commit `48c8749` probe):**
+**Empirical foundation (commit `33668c5` probe):**
 ```
 plane[0]: fd=31 st_ino=681 offset=0       stride=4096
 plane[1]: fd=32 st_ino=681 offset=3145728 stride=1024
@@ -36,7 +38,7 @@ That's it. No new files.
 **Files:**
 - Modify: `scrying/src/native_frame/dmabuf.rs`
 
-- [ ] **Step 1: Add the helpers before the existing `pub(super) fn import`**
+- [x] **Step 1: Add the helpers before the existing `pub(super) fn import`**
 
 Insert (above `pub(super) fn import`, after the existing `DRM_FORMAT_MOD_*` constants):
 
@@ -82,7 +84,7 @@ fn planes_share_kernel_object(planes: &[DmaBufPlane]) -> bool {
 used elsewhere in this file (it imports `libc::close` in surrounding
 modules already; `libc::stat`/`libc::fstat` are in the same crate).
 
-- [ ] **Step 2: Add the unit tests at the bottom of `dmabuf.rs`**
+- [x] **Step 2: Add the unit tests at the bottom of `dmabuf.rs`**
 
 Append (or extend an existing `#[cfg(test)] mod tests { ... }` block —
 if none exists at the bottom of the file, create one):
@@ -155,19 +157,19 @@ mod plane_share_tests {
 }
 ```
 
-- [ ] **Step 3: Run the unit tests**
+- [x] **Step 3: Run the unit tests**
 
 Run: `cargo test -p scrying plane_share_tests`
 Expected: **5 passed, 0 failed.** The pipe-based fixtures exercise the same-vs-different st_ino branches without touching DMABUFs.
 
-- [ ] **Step 4: Build both feature configurations to confirm no breakage**
+- [x] **Step 4: Build both feature configurations to confirm no breakage**
 
 Run: `cargo build -p scrying`
 Run: `cargo build -p scrying --features wpe`
 
 Expected: PASS both, 0 warnings (the new helpers are now used by tests; they don't need wpe gating because dmabuf.rs is always-compiled on Linux).
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scrying/src/native_frame/dmabuf.rs
@@ -197,7 +199,7 @@ Do NOT push. Commit on `main`.
 **Files:**
 - Modify: `scrying/src/native_frame/dmabuf.rs`
 
-- [ ] **Step 1: Replace the multi-plane reject block**
+- [x] **Step 1: Replace the multi-plane reject block**
 
 In `scrying/src/native_frame/dmabuf.rs`, locate the current rejection (around lines 69-83):
 
@@ -237,7 +239,7 @@ Replace with the shared-fd guard:
     }
 ```
 
-- [ ] **Step 2: Expand `plane_layouts` to N entries**
+- [x] **Step 2: Expand `plane_layouts` to N entries**
 
 In the same file, locate (around lines 125-130):
 
@@ -270,7 +272,7 @@ Replace with a `Vec` built from every plane:
 
 The next line — `vk::ImageDrmFormatModifierExplicitCreateInfoEXT::default().plane_layouts(&plane_layouts)` — already takes `&[vk::SubresourceLayout]`, so the `&Vec` coerces correctly.
 
-- [ ] **Step 3: Close redundant plane fds after `bind_image_memory` succeeds**
+- [x] **Step 3: Close redundant plane fds after `bind_image_memory` succeeds**
 
 Locate (around line 196-204):
 
@@ -301,13 +303,13 @@ Immediately after this block (BEFORE the next `// ---- N. ...` comment / texture
         }
 ```
 
-- [ ] **Step 4: Build both configurations**
+- [x] **Step 4: Build both configurations**
 
 Run: `cargo build -p scrying`
 Run: `cargo build -p scrying --features wpe`
 Expected: PASS both, 0 warnings.
 
-- [ ] **Step 5: Run the existing gbm round-trip test as a regression check**
+- [x] **Step 5: Run the existing gbm round-trip test as a regression check**
 
 Run: `cargo test -p scrying --test dmabuf_roundtrip -- --nocapture`
 
@@ -317,7 +319,7 @@ which is unchanged (`plane_layouts` is now a `Vec` of length 1 instead
 of an array of length 1, but semantically identical for the single-plane
 path).
 
-- [ ] **Step 6: Run the WPE round-trip test — the empirical moment**
+- [x] **Step 6: Run the WPE round-trip test — the empirical moment**
 
 Run: `cargo test -p scrying --features wpe --test wpe_to_vulkan_roundtrip -- --ignored --nocapture`
 
@@ -334,7 +336,7 @@ If Outcome B fires, capture the exact error + any validation-layer output and ST
 
 If Outcome A fires, the import is working. Task 3 flips the test's panic arm and adds pixel-correctness sampling.
 
-- [ ] **Step 7: Commit (Outcome A)**
+- [x] **Step 7: Commit (Outcome A)**
 
 ```bash
 git add scrying/src/native_frame/dmabuf.rs
@@ -373,7 +375,7 @@ Do NOT push. Commit on `main`.
 **Files:**
 - Modify: `scrying/tests/wpe_to_vulkan_roundtrip.rs`
 
-- [ ] **Step 1: Drop the panic-on-Err arm; assert Ok + dimensions**
+- [x] **Step 1: Drop the panic-on-Err arm; assert Ok + dimensions**
 
 In `scrying/tests/wpe_to_vulkan_roundtrip.rs`, locate the current Err arm (the multi-line `panic!(...)` block):
 
@@ -409,7 +411,7 @@ Replace with a concise expectation that import now succeeds:
 
 The existing dimension assertions (right after the match) stay as-is — they're already in the spec for the Ok branch.
 
-- [ ] **Step 2: Add a small-center-region readback helper**
+- [x] **Step 2: Add a small-center-region readback helper**
 
 Append to the test file (before `make_vulkan_host`):
 
@@ -499,7 +501,7 @@ fn read_back_center_region(
 }
 ```
 
-- [ ] **Step 3: Add the dodger-blue assertion**
+- [x] **Step 3: Add the dodger-blue assertion**
 
 In the test body, AFTER the existing `eprintln!("wpe→vk: imported texture ...")` line, add:
 
@@ -548,7 +550,7 @@ Three notes for the implementer:
 - `imported.texture` is the wgpu::Texture inside ImportedTexture; the helper uses it as the copy source.
 - The tolerance ±8 may need widening if RADV's sRGB rounding is more aggressive than expected. If the first run shows uniformly-shifted pixels (e.g. all are BGRA `(247, 138, 25, 255)`), bump tolerance to ±12 and document the observation. If pixels are wildly different (e.g. all zero, or stripes), that's a real bug — STOP and report.
 
-- [ ] **Step 4: Run the test — the second empirical moment**
+- [x] **Step 4: Run the test — the second empirical moment**
 
 Run: `cargo test -p scrying --features wpe --test wpe_to_vulkan_roundtrip -- --ignored --nocapture`
 
@@ -565,7 +567,7 @@ test result: ok. 1 passed
 
 If `bad_pixels` is non-zero with a small uniform offset (e.g. all pixels off by ~10), widen tolerance and re-run. If pixels are wildly wrong (zero, stripes, garbage), STOP — that means the DCC layout isn't being decompressed by the GPU read. Report BLOCKED with the observed first_bad pixel; we'd need to revisit Task 2's Vulkan flags (likely a missing `VK_KHR_image_format_list` or a `VK_IMAGE_USAGE_*` mismatch).
 
-- [ ] **Step 5: Confirm non-ignored tests still pass**
+- [x] **Step 5: Confirm non-ignored tests still pass**
 
 Run: `cargo test -p scrying`
 Run: `cargo test -p scrying --features wpe`
@@ -575,7 +577,7 @@ Run the existing unit smoke as a regression check:
 `cargo test -p scrying --features wpe navigate_resize_and_render -- --ignored --nocapture`
 Expected: PASS unchanged.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add scrying/tests/wpe_to_vulkan_roundtrip.rs
@@ -607,7 +609,7 @@ Do NOT push. Commit on `main`.
 **Files:**
 - Modify: `design_docs/2026-05-15_phase4_strategy.md`
 
-- [ ] **Step 1: Add a new 4a.x line after the existing 4a entries**
+- [x] **Step 1: Add a new 4a.x line after the existing 4a entries**
 
 I (controller) will do this directly — it's a pure docs change with no subagent value. The line goes after the `4a.7` line:
 
@@ -617,7 +619,7 @@ I (controller) will do this directly — it's a pure docs change with no subagen
       via N-entry plane_layouts. Flips the WPE round-trip from Outcome B
       (documented failure) to Outcome A (Ok + pixel-correct dodger-blue
       center sample). Spec
-      [`2026-06-04_phase4a_x_multiplane_dcc_import.md`](2026-06-04_phase4a_x_multiplane_dcc_import.md),
+      [`2026-06-04_phase4a_x_multiplane_dcc_import.md`](../../2026-06-04_phase4a_x_multiplane_dcc_import.md),
       plan [`2026-06-04_phase4a_x_multiplane_dcc_plan.md`](2026-06-04_phase4a_x_multiplane_dcc_plan.md).
       Disjoint-fd multi-plane / YUV ycbcr still deferred.
 ```

@@ -1,5 +1,7 @@
 # Phase 4c.4 — Interactive Trio Input MVP Implementation Plan
 
+> **Status (2026-11-01): Landed; archived 2026-11-01.** Shipped on `main` in 514fe4a, c5b3487, aa2eca3, 2f4cc4b, 4d26267 and 0d14e3c. Native gate: `NATIVE WPE GATE PASS: wpe_input` in `docs/receipts/scry_release_readiness_20261007/m4-unlocked-native-radv.log`. All `Step` boxes below are ticked as landed; checkbox lines inside the quoted strategy-doc samples are historical text, unchanged.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Promote `WpeProducer`'s `send_keyboard_input` / `send_mouse_input` / `send_pointer_input` from `Unsupported` defaults to real impls that dispatch real WPEEvents via `wpe_view_event`. Touch/drag/IME/cursor stay `Unsupported`/deferred.
@@ -8,7 +10,7 @@
 
 **Tech Stack:** Rust 2024, hand-written `extern "C"` to `libWPEWebKit-2.0.so`, gated on `cfg(target_os = "linux") + feature = "wpe"`. glib 0.18 (already in tree).
 
-**Spec:** [`2026-06-04_phase4c4_input_mvp.md`](2026-06-04_phase4c4_input_mvp.md)
+**Spec:** [`2026-06-04_phase4c4_input_mvp.md`](../../2026-06-04_phase4c4_input_mvp.md)
 
 **Conventions:**
 - All FFI compiles only under `--features wpe`.
@@ -73,7 +75,7 @@ time. The implementer should NOT need to re-derive these.)
 **Files:**
 - Modify: `scrying/src/wpe_producer/ffi.rs`
 
-- [ ] **Step 1: Add the `WPEEvent` opaque struct + event-type constants**
+- [x] **Step 1: Add the `WPEEvent` opaque struct + event-type constants**
 
 Find the existing block of opaque structs in `ffi.rs` and add after `WPEToplevel`:
 
@@ -104,7 +106,7 @@ pub const WPE_MODIFIER_KEYBOARD_META:      u32 = 1 << 3;
 pub const WPE_MODIFIER_KEYBOARD_CAPS_LOCK: u32 = 1 << 4;
 ```
 
-- [ ] **Step 2: Add the 5 FFI decls inside the existing `unsafe extern "C"` block**
+- [x] **Step 2: Add the 5 FFI decls inside the existing `unsafe extern "C"` block**
 
 Inside the existing `unsafe extern "C" { ... }` block (grouped with the other WPE event/view symbols):
 
@@ -136,7 +138,7 @@ header (`/usr/include/wpe-webkit-2.0/wpe-platform/wpe/WPEEvent.h`) is the
 truth source. The signatures above are based on the
 `wpe_event_*_new` declarations grepped at lines ~171–230 of that header.
 
-- [ ] **Step 3: Build both configurations**
+- [x] **Step 3: Build both configurations**
 
 Run: `cargo build -p scrying`
 Expected: PASS, 0 warnings.
@@ -144,7 +146,7 @@ Expected: PASS, 0 warnings.
 Run: `cargo build -p scrying --features wpe`
 Expected: PASS. **Expected NEW dead-code warnings** on the 5 fns + the 6 event-type constants + the 5 modifier constants — they're consumed in Task 2. Don't suppress with `#[allow(dead_code)]` — they clear naturally.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add scrying/src/wpe_producer/ffi.rs
@@ -171,7 +173,7 @@ Do NOT push. Commit on `main`.
 - Modify: `scrying/src/wpe_producer/mod.rs`
 - Modify: `scrying/src/wpe_producer/producer.rs`
 
-- [ ] **Step 1: Declare `mod input;` in `mod.rs`**
+- [x] **Step 1: Declare `mod input;` in `mod.rs`**
 
 Locate the existing wpe-gated module declarations:
 
@@ -191,7 +193,7 @@ Add:
 mod input;
 ```
 
-- [ ] **Step 2: Create `scrying/src/wpe_producer/input.rs` with translation helpers + dispatch fns**
+- [x] **Step 2: Create `scrying/src/wpe_producer/input.rs` with translation helpers + dispatch fns**
 
 ```rust
 //! Input forwarding (keyboard + pointer + scroll) for the WPE producer.
@@ -500,14 +502,14 @@ mod tests {
 > doesn't read `virtual_keys`, so this is purely a test-fixture
 > concern.
 
-- [ ] **Step 3: Run the unit tests**
+- [x] **Step 3: Run the unit tests**
 
 Run: `cargo test -p scrying --features wpe wpe_producer::input::tests`
 Expected: **7 passed, 0 failed.** These exercise the translation helpers without any FFI or display.
 
 If `MouseVirtualKeys::default()` doesn't compile, fix the test fixtures per the implementation note above and re-run.
 
-- [ ] **Step 4: Promote the trait method bodies in `producer.rs`**
+- [x] **Step 4: Promote the trait method bodies in `producer.rs`**
 
 In `scrying/src/wpe_producer/producer.rs`, find the existing `impl WebSurfaceProducer for WpeProducer { ... }` block. Three trait methods currently use the trait default (returning `Unsupported`) — they may or may not be present in the impl block. Add them (or replace if present):
 
@@ -557,7 +559,7 @@ Leave `send_drag_input` alone — its default returns `Unsupported`, which is wh
 
 If `send_keyboard_input` / `send_mouse_input` / `send_pointer_input` are not yet methods in the impl block (they may have been relying on trait defaults from 4c.3), ADD them — they're new method overrides.
 
-- [ ] **Step 5: Build both configurations**
+- [x] **Step 5: Build both configurations**
 
 Run: `cargo build -p scrying`
 Expected: PASS, 0 warnings (the trait defaults are still in use here).
@@ -565,7 +567,7 @@ Expected: PASS, 0 warnings (the trait defaults are still in use here).
 Run: `cargo build -p scrying --features wpe`
 Expected: PASS, **0 warnings.** All FFI symbols and constants added in Task 1 should now be consumed.
 
-- [ ] **Step 6: Run all the (non-ignored) tests**
+- [x] **Step 6: Run all the (non-ignored) tests**
 
 Run: `cargo test -p scrying`
 Expected: 7 unit + 3 integration passing, unchanged.
@@ -576,7 +578,7 @@ Expected: **19 unit** (12 from prior phases + 7 new input::tests) + 3 integratio
 Run: `cargo test -p scrying --features wpe navigate_resize_and_render -- --ignored --nocapture`
 Expected: PASS, same `smoke#1 / smoke#2` lines as before. (Regression check that the new input wiring didn't disturb the existing seam.)
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add scrying/src/wpe_producer/input.rs scrying/src/wpe_producer/mod.rs scrying/src/wpe_producer/producer.rs
@@ -606,7 +608,7 @@ EOF
 **Files:**
 - Create: `scrying/tests/wpe_input.rs`
 
-- [ ] **Step 1: Create the integration test file**
+- [x] **Step 1: Create the integration test file**
 
 ```rust
 //! Phase 4c.4 input-forwarding integration smoke.
@@ -794,14 +796,14 @@ fn close_frame_fds_if_dmabuf(frame: &WebSurfaceFrame) {
 > (`scrying/Cargo.toml`'s `[target.'cfg(target_os = "linux")'.dev-dependencies]`).
 > No Cargo.toml change needed.
 
-- [ ] **Step 2: Build the integration binary**
+- [x] **Step 2: Build the integration binary**
 
 Run: `cargo build -p scrying --features wpe --tests`
 Expected: PASS, 0 warnings.
 
 If `KeyboardInput`/`PointerInput` struct-literal shape doesn't compile, fix per the implementation note above.
 
-- [ ] **Step 3: Run the smoke**
+- [x] **Step 3: Run the smoke**
 
 Run: `cargo test -p scrying --features wpe --test wpe_input -- --ignored --nocapture`
 Expected: **PASS, exit 0**, with two `input smoke:` lines:
@@ -819,7 +821,7 @@ If the second pump times out cleanly, soften the test to:
 
 Iterate on this empirically; report what works.
 
-- [ ] **Step 4: Regression check the existing ignored tests**
+- [x] **Step 4: Regression check the existing ignored tests**
 
 Run: `cargo test -p scrying --features wpe navigate_resize_and_render -- --ignored --nocapture`
 Expected: PASS, unchanged.
@@ -829,7 +831,7 @@ Expected: FAILS exactly as before (the durable Outcome-B failure documenting the
 
 Both integration binaries are separate processes, so all three ignored tests can coexist.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scrying/tests/wpe_input.rs
@@ -857,7 +859,7 @@ EOF
 **Files:**
 - Modify: `design_docs/2026-05-15_phase4_strategy.md`
 
-- [ ] **Step 1: Flip 4c.4 to done; add 4c.4.x sub-phases**
+- [x] **Step 1: Flip 4c.4 to done; add 4c.4.x sub-phases**
 
 Find the existing 4c.4 line:
 
@@ -875,7 +877,7 @@ Replace with:
       cover the scrying-input → WPEEvent translation; runtime
       integration smoke `tests/wpe_input.rs` verifies dispatch
       doesn't crash the renderer. Spec
-      [`2026-06-04_phase4c4_input_mvp.md`](2026-06-04_phase4c4_input_mvp.md),
+      [`2026-06-04_phase4c4_input_mvp.md`](../../2026-06-04_phase4c4_input_mvp.md),
       plan [`2026-06-04_phase4c4_implementation_plan.md`](2026-06-04_phase4c4_implementation_plan.md).
       MVP punts keyval derivation (uses 0; WebKit derives from
       keycode), modifier routing (always 0), event timestamps
@@ -896,7 +898,7 @@ Also update the status header:
 **Status:** 4a + 4b.1 + 4c.1 + 4c.2 + 4c.3 + 4c.4 shipped; 4c.4.x / 4c.5+ in flight.
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add design_docs/2026-05-15_phase4_strategy.md

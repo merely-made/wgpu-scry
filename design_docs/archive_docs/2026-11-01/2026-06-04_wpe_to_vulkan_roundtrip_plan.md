@@ -1,5 +1,7 @@
 # WPE → Vulkan Round-Trip Implementation Plan
 
+> **Status (2026-11-01): Landed; archived 2026-11-01.** Shipped on `main` in 9994b48, 7d1c872, 6f44911 and 92b405d; the import became pixel-correct later via 71f1ce9 and 4c0668c (see the archived Phase 4a.x plan). Native gate: `NATIVE WPE GATE PASS: wpe_to_vulkan_roundtrip` in `docs/receipts/scry_release_readiness_20261007/m4-unlocked-native-radv.log`. All `Step` boxes below are ticked as landed. The `Co-Authored-By` trailer lines in the embedded commit scaffolds were stripped on archival.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Create `scrying/tests/wpe_to_vulkan_roundtrip.rs` — an `#[ignore]`d integration test that takes a WPE-produced `DmaBufImage` and hands it to `WgpuTextureImporter`, surfacing whatever the import path does with a real AMD-tiled headless WPE buffer.
@@ -8,14 +10,13 @@
 
 **Tech Stack:** Rust 2024 integration test, `wgpu`, `pollster` (existing dev-deps), `scrying::{WpeProducer, WgpuTextureImporter, build_dmabuf_capable_device, ...}`, gated on `cfg(all(target_os = "linux", feature = "wpe"))`.
 
-**Spec:** [`2026-06-04_wpe_to_vulkan_roundtrip.md`](2026-06-04_wpe_to_vulkan_roundtrip.md)
+**Spec:** [`2026-06-04_wpe_to_vulkan_roundtrip.md`](../../2026-06-04_wpe_to_vulkan_roundtrip.md)
 
 **Conventions:**
 - Test is `#[ignore]`d; run manually with
   `cargo test -p scrying --features wpe --test wpe_to_vulkan_roundtrip -- --ignored --nocapture`.
 - SKIP pattern (mirrors `dmabuf_roundtrip.rs`): print `SKIP: ...` and `return` from the test body when prerequisites aren't met; cargo records the test as pass. ONLY use SKIP for *environmental* misses (no DRM device, no Vulkan adapter, missing extensions, WPE refuses to construct). Do NOT SKIP on a genuine import failure — that's the actionable signal.
-- Commit per task. Commit-trailer:
-  `Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>`.
+- Commit per task.
 
 ---
 
@@ -34,7 +35,7 @@ That's it. No other files change in this plan.
 **Files:**
 - Create: `scrying/tests/wpe_to_vulkan_roundtrip.rs`
 
-- [ ] **Step 1: Create the file with cfg-gates + the producer-side test body**
+- [x] **Step 1: Create the file with cfg-gates + the producer-side test body**
 
 ```rust
 //! End-to-end WPE → Vulkan round-trip integration test.
@@ -142,13 +143,13 @@ test deps; if the compiler complains it's not in scope, add it as
 `use libc;` — `libc` is a standard `[target.'cfg(target_os = "linux")'.dependencies]`
 in `scrying/Cargo.toml`.
 
-- [ ] **Step 2: Build the integration binary**
+- [x] **Step 2: Build the integration binary**
 
 Run: `cargo build -p scrying --features wpe --tests`
 Expected: PASS. The new test compiles. The pre-existing
 `tests/dmabuf_roundtrip.rs` still compiles (we didn't touch it).
 
-- [ ] **Step 3: Run the ignored test — must pass and print the diagnostic**
+- [x] **Step 3: Run the ignored test — must pass and print the diagnostic**
 
 Run: `cargo test -p scrying --features wpe --test wpe_to_vulkan_roundtrip -- --ignored --nocapture`
 Expected: PASS, exit 0, **with a `wpe→vk: <size> fourcc=... mod=... planes=...` line printed**.
@@ -161,7 +162,7 @@ If the test SKIPs (no display / GPU): note the SKIP reason in your
 report. The harness is still considered DONE for Task 1 — the producer
 half of the round-trip is wired up; later tasks add the wgpu half.
 
-- [ ] **Step 4: Confirm the unit-test smoke still runs in a separate
+- [x] **Step 4: Confirm the unit-test smoke still runs in a separate
       invocation (regression check that we didn't break the one-per-process
       discipline)**
 
@@ -172,7 +173,7 @@ Expected: PASS, same `smoke#1` / `smoke#2` lines as before.
 the same `cargo test` invocation is fine because cargo runs each test
 binary in its own process.)
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scrying/tests/wpe_to_vulkan_roundtrip.rs
@@ -183,8 +184,6 @@ New tests/*.rs integration binary that constructs a WpeProducer in its
 own process, navigates, and acquires one real DMABUF frame. Independent
 WebKit init keeps it from colliding with the unit-test smoke. Task 1
 of the round-trip plan; the wgpu host + importer call land in Tasks 2-3.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -200,7 +199,7 @@ Do NOT push. Commit on `main`. Don't touch other commits.
 **Files:**
 - Modify: `scrying/tests/wpe_to_vulkan_roundtrip.rs`
 
-- [ ] **Step 1: Add the `make_vulkan_host` helper and call it after acquiring the frame**
+- [x] **Step 1: Add the `make_vulkan_host` helper and call it after acquiring the frame**
 
 Append the helper (place ABOVE the `#[test]` function for readability):
 
@@ -285,7 +284,7 @@ Then INSIDE the existing `#[test]` body, after the `eprintln!("wpe→vk:
 (The `_device/_queue/_host` underscore prefixes silence unused-warning;
 Task 3 removes the underscores when it uses them.)
 
-- [ ] **Step 2: Build + run**
+- [x] **Step 2: Build + run**
 
 Run: `cargo build -p scrying --features wpe --tests`
 Expected: PASS, 0 warnings on the new test file (the underscore-prefixed
@@ -296,7 +295,7 @@ Expected: PASS. Two diagnostic lines now print: `wpe→vk: <size> ...` and
 `wpe→vk: wgpu Vulkan host up`. If `make_vulkan_host` SKIPs, only the
 first line + the SKIP reason print.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add scrying/tests/wpe_to_vulkan_roundtrip.rs
@@ -308,8 +307,6 @@ HostWgpuContext using scrying::build_dmabuf_capable_device, mirroring
 the helper in tests/dmabuf_roundtrip.rs. SKIPs cleanly when there's no
 Vulkan adapter or the required DMABUF extensions are missing. Task 2
 of the round-trip plan; Task 3 invokes WgpuTextureImporter::import_frame.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -323,7 +320,7 @@ EOF
 **Files:**
 - Modify: `scrying/tests/wpe_to_vulkan_roundtrip.rs`
 
-- [ ] **Step 1: Remove the placeholder `close_producer_fds` calls (the importer takes ownership of fds on success); call `import_frame`; inspect the result**
+- [x] **Step 1: Remove the placeholder `close_producer_fds` calls (the importer takes ownership of fds on success); call `import_frame`; inspect the result**
 
 Replace the `Task 2 -- 4. Stand up the wgpu Vulkan DMABUF-capable host`
 block with the full importer flow. Also update the top-of-file imports
@@ -435,12 +432,12 @@ fn close_producer_fds(image: &scrying::DmaBufImage) {
 }
 ```
 
-- [ ] **Step 2: Build the test**
+- [x] **Step 2: Build the test**
 
 Run: `cargo build -p scrying --features wpe --tests`
 Expected: PASS, 0 warnings.
 
-- [ ] **Step 3: Run the ignored test — THE EMPIRICAL MOMENT**
+- [x] **Step 3: Run the ignored test — THE EMPIRICAL MOMENT**
 
 Run: `cargo test -p scrying --features wpe --test wpe_to_vulkan_roundtrip -- --ignored --nocapture`
 
@@ -469,7 +466,7 @@ If neither A nor B occurs (e.g. compile error you can't resolve, or
 test SKIPs unexpectedly), STOP and report BLOCKED with the exact
 output.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 Pick the right message based on the outcome:
 
@@ -485,8 +482,6 @@ texture's size and format match the producer's frame. Pixel correctness
 is out of scope for this harness per the spec (separate Phase 4a
 expansion). The end-to-end producer→importer pipeline is now exercised
 in CI-able form (still #[ignore]d, but runnable).
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -509,8 +504,6 @@ Observed error:
 
 The harness exists and remains useful when Phase 4a expands to
 multi-plane DRM-modifier import. Test stays #[ignore]d.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```

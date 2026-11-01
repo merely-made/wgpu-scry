@@ -1,5 +1,7 @@
 # Phase 4c.2 — WPE Producer on WPEPlatform Headless: Implementation Plan
 
+> **Status (2026-11-01): Landed; archived 2026-11-01.** Shipped on `main` in 56658f8, 3a58553, 94ecdbf, b60c3b9, 73f2426, 8316866, 1aacae2, dc3a8f4 and 0d301d3 (the last marks 4c.1/4c.2 shipped and adds the [retrospective](../../2026-06-03_phase4c2_retrospective.md)). All step boxes below are ticked as landed. The `Co-Authored-By` trailer lines in the embedded commit scaffolds were stripped on archival; the rest is historical text.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Make `WpeProducer` produce real `DmaBufImage` frames from a self-owned headless WPEPlatform display + WebKitWebView via the `buffer-rendered` signal.
@@ -8,7 +10,7 @@
 
 **Tech Stack:** Rust (edition 2024), `glib` 0.22 (GObject mechanics), hand-written `extern "C"` to `libWPEWebKit-2.0.so`, pkg-config (`wpe-webkit-2.0`) via a new `build.rs`, WPEWebKit 2.52.3 / libwpe 1.16.2 on Fedora 44.
 
-**Spec:** [`2026-05-20_phase4c2_wpe_platform_producer.md`](2026-05-20_phase4c2_wpe_platform_producer.md)
+**Spec:** [`2026-05-20_phase4c_wpe_platform_producer.md`](../../2026-05-20_phase4c_wpe_platform_producer.md)
 
 **Conventions for this plan:**
 - New cargo feature `wpe` gates all FFI. The scaffold types
@@ -17,8 +19,7 @@
   without WPEWebKit dev libs installed.
 - All FFI work compiles only under `--features wpe`. Build/run commands
   below pass `--features wpe`.
-- Commit after every task. Commit trailer:
-  `Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>`.
+- Commit after every task.
 
 ---
 
@@ -60,7 +61,7 @@ be unit-tested with pipe fds and must compile without WPEWebKit;
 - Create: `scrying/src/wpe_producer/mod.rs`, `config.rs`, `producer.rs`
 - Delete: `scrying/src/wpe_producer.rs`
 
-- [ ] **Step 1: Add the `wpe` feature, `glib` dep, and `pkg-config` build-dep to `Cargo.toml`**
+- [x] **Step 1: Add the `wpe` feature, `glib` dep, and `pkg-config` build-dep to `Cargo.toml`**
 
 In `[features]` add:
 
@@ -90,7 +91,7 @@ Add a `[build-dependencies]` section (top-level, not target-scoped — the
 pkg-config = "0.3"
 ```
 
-- [ ] **Step 2: Write `build.rs` to link `wpe-webkit-2.0` only under the `wpe` feature**
+- [x] **Step 2: Write `build.rs` to link `wpe-webkit-2.0` only under the `wpe` feature**
 
 Create `scrying/build.rs`:
 
@@ -112,7 +113,7 @@ fn main() {
 }
 ```
 
-- [ ] **Step 3: Split the scaffold into a module directory (no behavior change)**
+- [x] **Step 3: Split the scaffold into a module directory (no behavior change)**
 
 Create `scrying/src/wpe_producer/config.rs` — move `WpeProducerConfig`
 (struct + `impl`) verbatim from the old file, keeping its imports
@@ -198,7 +199,7 @@ Keep `pending_frame: Arc<Mutex<Option<DmaBufImage>>>` and `generation`
 fields as-is for now (Task 4 moves `generation` into shared state).
 Delete `scrying/src/wpe_producer.rs`.
 
-- [ ] **Step 4: Verify both feature configurations build**
+- [x] **Step 4: Verify both feature configurations build**
 
 Run: `cargo build -p scrying` (no wpe)
 Expected: builds; `wpe_producer` compiles as scaffold.
@@ -208,7 +209,7 @@ Expected: builds and links `libWPEWebKit-2.0.so`. If glib fails to
 resolve, run `cargo tree -p scrying -i glib` to see the version the
 gtk4/webkit6 line pins and align the `glib = "0.22"` value to it.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scrying/Cargo.toml scrying/build.rs scrying/src/wpe_producer/ scrying/src/wpe_producer.rs
@@ -219,8 +220,6 @@ Adds the `wpe` feature gating hand-written WPEPlatform FFI, a build.rs
 that pkg-config-links wpe-webkit-2.0 only under that feature, and splits
 wpe_producer.rs into a module dir (config/producer always compiled;
 ffi/headless feature-gated). No behavior change yet.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -240,7 +239,7 @@ binding — the foundation everything else builds on.
 - Create: `scrying/src/wpe_producer/headless.rs`
 - Test: inline `#[cfg(test)]` in `headless.rs`
 
-- [ ] **Step 1: Declare the FFI surface in `ffi.rs`**
+- [x] **Step 1: Declare the FFI surface in `ffi.rs`**
 
 ```rust
 //! Hand-written `extern "C"` declarations for WPE-specific symbols in
@@ -306,7 +305,7 @@ const _: () = {
 };
 ```
 
-- [ ] **Step 2: Write the headless construction + binding-assert spike in `headless.rs`**
+- [x] **Step 2: Write the headless construction + binding-assert spike in `headless.rs`**
 
 The WebView is created with `glib::Object::new` against the WebKit
 GObject type, passing the display as the `"display"` construct property
@@ -372,7 +371,7 @@ pub(super) fn build_headless_webview() -> Result<(Object, *mut ffi::WPEDisplay),
 > Pick whichever compiles and passes; delete the other. This is the one
 > place the plan cannot pre-commit exact code — the test is the oracle.
 
-- [ ] **Step 3: Write the ignored binding test**
+- [x] **Step 3: Write the ignored binding test**
 
 Add to `headless.rs`:
 
@@ -394,14 +393,14 @@ mod tests {
 }
 ```
 
-- [ ] **Step 4: Run the spike test and iterate on the construct-property call until it passes**
+- [x] **Step 4: Run the spike test and iterate on the construct-property call until it passes**
 
 Run: `cargo test -p scrying --features wpe headless_webview_binds_display -- --ignored --nocapture`
 Expected: PASS — `bound == display` and `wpe_view` non-null. If it
 fails, adjust the construct-property call per the Step 2 note. Do not
 proceed to Task 3 until this passes.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scrying/src/wpe_producer/ffi.rs scrying/src/wpe_producer/headless.rs
@@ -412,8 +411,6 @@ extern "C" surface for WPEPlatform + an ignored runtime test that
 constructs a headless WPEDisplay and a WebKitWebView bound to it,
 asserting webkit_web_view_get_display(view) == display and a non-null
 WPEView. Resolves the display->webview binding unknown from the spec.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -426,7 +423,7 @@ EOF
 - Modify: `scrying/src/wpe_producer/producer.rs`
 - Modify: `scrying/src/wpe_producer/headless.rs`
 
-- [ ] **Step 1: Hold the owned GObject handles on the producer**
+- [x] **Step 1: Hold the owned GObject handles on the producer**
 
 In `producer.rs`, add feature-gated fields to `WpeProducer` (keep
 existing fields). Use a sub-struct so the non-`wpe` build is unaffected:
@@ -450,7 +447,7 @@ Add to the `WpeProducer` struct:
     handles: WpeHandles,
 ```
 
-- [ ] **Step 2: Implement the real `new` (feature-gated) and keep the stub for non-`wpe`**
+- [x] **Step 2: Implement the real `new` (feature-gated) and keep the stub for non-`wpe`**
 
 In `producer.rs`, replace the Task-1 placeholder block with two
 cfg-gated constructors. The `wpe` one wires headless construction:
@@ -497,7 +494,7 @@ impl WpeProducer {
 }
 ```
 
-- [ ] **Step 3: Promote the spike into `build_producer_view`**
+- [x] **Step 3: Promote the spike into `build_producer_view`**
 
 In `headless.rs`, rename `build_headless_webview` to
 `build_producer_view`, returning `(glib::Object, *mut ffi::WPEView)`
@@ -515,7 +512,7 @@ pub(super) fn build_producer_view(
 Update the Task-2 test to call `build_producer_view` and assert on the
 returned view pointer.
 
-- [ ] **Step 4: Build both configurations**
+- [x] **Step 4: Build both configurations**
 
 Run: `cargo build -p scrying`
 Expected: PASS (non-wpe stub `new`).
@@ -523,7 +520,7 @@ Expected: PASS (non-wpe stub `new`).
 Run: `cargo build -p scrying --features wpe`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scrying/src/wpe_producer/producer.rs scrying/src/wpe_producer/headless.rs
@@ -533,8 +530,6 @@ phase 4c.2: safe self-owned WpeProducer::new(config)
 Under the wpe feature, new() constructs the headless display + webview
 and holds the owned handles + glib MainContext (model A affinity). The
 non-wpe build keeps a stub new() so the lib.rs alias still resolves.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -554,7 +549,7 @@ self`, the shared state (`pending_frame` + generation) is captured by
 - Modify: `scrying/src/wpe_producer/headless.rs` (signal wiring + builder)
 - Modify: `scrying/src/wpe_producer/ffi.rs` (add `dup` via libc — already a dep)
 
-- [ ] **Step 1: Move `generation` into shared state**
+- [x] **Step 1: Move `generation` into shared state**
 
 In `producer.rs`, change the producer to share the generation counter so
 the signal closure can bump it:
@@ -574,7 +569,7 @@ Update `enqueue_dmabuf_frame` to use the shared counter:
 
 (Initialize `generation: Arc::new(AtomicU64::new(0))` in both `new`s.)
 
-- [ ] **Step 2: Add a shared frame-sink type the closure can own**
+- [x] **Step 2: Add a shared frame-sink type the closure can own**
 
 In `producer.rs`, expose the slot + generation as a cloneable bundle:
 
@@ -617,7 +612,7 @@ pub(super) fn close_frame_fds(frame: &crate::native_frame::DmaBufImage) {
 Make `WpeProducer` expose its sink: add a method
 `pub(super) fn frame_sink(&self) -> FrameSink`.
 
-- [ ] **Step 3: Build a `DmaBufImage` from a `WPEBufferDMABuf` in `headless.rs`**
+- [x] **Step 3: Build a `DmaBufImage` from a `WPEBufferDMABuf` in `headless.rs`**
 
 ```rust
 use super::ffi;
@@ -677,7 +672,7 @@ unsafe fn dmabuf_to_image(
 > shows a different fourcc via `drm_format`, map it explicitly; start
 > with `Bgra8UnormSrgb` and correct against the observed value.
 
-- [ ] **Step 4: Connect the `buffer-rendered` signal in `build_producer_view`**
+- [x] **Step 4: Connect the `buffer-rendered` signal in `build_producer_view`**
 
 Use glib's `connect_closure`/`connect_local` on the webview's WPEView.
 The signal hands `(WPEView*, WPEBuffer*)`. Inside: downcast to DMABuf via
@@ -725,12 +720,12 @@ pub(super) fn connect_buffer_rendered(
 Wire it into `build_producer_view` after the view is obtained, passing
 the producer's `FrameSink` (thread it through `new`).
 
-- [ ] **Step 5: Build under the feature**
+- [x] **Step 5: Build under the feature**
 
 Run: `cargo build -p scrying --features wpe`
 Expected: PASS.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add scrying/src/wpe_producer/
@@ -741,8 +736,6 @@ Connects the WPEView buffer-rendered signal; the closure downcasts
 WPEBufferDMABuf, dup()s each plane fd into a producer-owned DmaBufImage
 (SyncMechanism::None), releases WPE's buffer immediately, and submits to
 a shared FrameSink (generation moved into shared atomic).
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -759,7 +752,7 @@ unconsumed frame's fds. Use real pipe fds so closure is observable.
 - Modify: `scrying/src/wpe_producer/producer.rs` (Drop impl + test)
 - Test: inline `#[cfg(test)]` in `producer.rs`
 
-- [ ] **Step 1: Write the failing eviction test**
+- [x] **Step 1: Write the failing eviction test**
 
 ```rust
 #[cfg(test)]
@@ -807,13 +800,13 @@ mod fd_tests {
 }
 ```
 
-- [ ] **Step 2: Run it — expect it to PASS** (the `FrameSink::submit` +
+- [x] **Step 2: Run it — expect it to PASS** (the `FrameSink::submit` +
 `close_frame_fds` from Task 4 already implement eviction-close)
 
 Run: `cargo test -p scrying --features wpe evicting_stale_frame_closes_its_fds`
 Expected: PASS. If FAIL, fix `FrameSink::submit`/`close_frame_fds`.
 
-- [ ] **Step 3: Write the failing teardown test**
+- [x] **Step 3: Write the failing teardown test**
 
 ```rust
     #[test]
@@ -843,7 +836,7 @@ Expected: PASS. If FAIL, fix `FrameSink::submit`/`close_frame_fds`.
     }
 ```
 
-- [ ] **Step 4: Implement `Drop` for `WpeProducer` to close the unconsumed slot**
+- [x] **Step 4: Implement `Drop` for `WpeProducer` to close the unconsumed slot**
 
 In `producer.rs`:
 
@@ -859,7 +852,7 @@ impl Drop for WpeProducer {
 }
 ```
 
-- [ ] **Step 5: Run the fd tests**
+- [x] **Step 5: Run the fd tests**
 
 Run: `cargo test -p scrying --features wpe fd_tests`
 Expected: PASS (both). Also run without the feature to confirm the logic
@@ -867,7 +860,7 @@ compiles standalone: `cargo test -p scrying fd_tests` (the `wpe`-gated
 `FrameSink`/`close_frame_fds` must be available to the test; if they're
 behind `#[cfg(feature="wpe")]`, gate this test module the same way).
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add scrying/src/wpe_producer/producer.rs
@@ -877,8 +870,6 @@ phase 4c.2: fd lifecycle — close on stale-evict and producer teardown
 Drop impl closes any unconsumed frame's dup'd fds; FrameSink eviction
 closes the displaced frame's fds. Unit-tested with real pipe fds so
 closure is observable without a WPE display.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -898,7 +889,7 @@ the lowest primitive that triggers a paint.
   `load_html_for_smoke` + `pump_until` helper)
 - Modify: `scrying/src/wpe_producer/producer.rs` (test)
 
-- [ ] **Step 1: Add a glib pump helper mirroring the GTK producer**
+- [x] **Step 1: Add a glib pump helper mirroring the GTK producer**
 
 In `headless.rs`:
 
@@ -923,7 +914,7 @@ pub(super) fn pump_until(
 }
 ```
 
-- [ ] **Step 2: Add a minimal paint trigger**
+- [x] **Step 2: Add a minimal paint trigger**
 
 In `headless.rs`, a thin `load_html_for_smoke(webview, html)` that calls
 the WebKit load entry point for a `data:`/inline HTML string. Declare the
@@ -948,7 +939,7 @@ pub(super) fn load_html_for_smoke(webview: &glib::Object, html: &str) {
 }
 ```
 
-- [ ] **Step 3: Write the ignored runtime smoke test**
+- [x] **Step 3: Write the ignored runtime smoke test**
 
 In `producer.rs`:
 
@@ -999,7 +990,7 @@ mod smoke {
 }
 ```
 
-- [ ] **Step 4: Run the smoke test manually**
+- [x] **Step 4: Run the smoke test manually**
 
 Run: `cargo test -p scrying --features wpe renders_one_dmabuf_frame -- --ignored --nocapture`
 Expected: PASS, with a printed line like
@@ -1008,7 +999,7 @@ Expected: PASS, with a printed line like
 no frame arrives, raise the deadline and confirm a GPU/Wayland session
 is available (the same env `demo-linux` needs).
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scrying/src/wpe_producer/headless.rs scrying/src/wpe_producer/ffi.rs scrying/src/wpe_producer/producer.rs
@@ -1019,8 +1010,6 @@ Ignored end-to-end test: loads an inline HTML page, pumps the glib
 context until buffer-rendered fires, and asserts the resulting
 DmaBufImage (non-zero size, >=1 plane, valid dup'd fd, SyncMechanism
 None). Prints the observed fourcc/modifier to validate the format map.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```

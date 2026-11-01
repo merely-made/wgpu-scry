@@ -5,11 +5,15 @@ Prioritized, actionable follow-ups for `scrying`, distinct from the descriptive
 where*). This lists *what to do next* and why. Library work belongs here;
 host and adapter work remains with its owning repository.
 
-**Status (2026-10-05):** reconciled against local source and retained release
-records and current headed CI. Scry 0.7.1 ownership/import and ordered-completion
-release work is complete. Post-release macOS diagnostics now have native report
-evidence, while counter-test and complete capture acceptance remain open. No
-build, native test, hardware dispatch, or publication was performed by this audit.
+**Status (2026-11-01):** reconciled against git and the retained release
+receipts. Scry 0.7.1 (2026-09-04) closed ownership/import and ordered-completion
+work. Scry 0.7.2 (published 2026-10-07, tag `scrying-v0.7.2`) shipped the
+macOS capture-status diagnostics, the bounded WGC queue repair, the WPE
+main-thread guard and the explicit WebView2 render-tick wait; the repaired RADV
+session preflight passed natively. Open: the Intel capture gate (fresh
+published-package battery 9/10, activity probe 1/2), the capture-status counter
+test, and native Windows final-static-pixel acceptance. No build, native test,
+hardware dispatch, or publication was performed by this audit.
 
 ## Release mechanical closure (2026-09-03)
 
@@ -107,50 +111,55 @@ the subsequent ownership closure are recorded in the progress log below.
 
 ## Next-release and consumer gates
 
-The October 5 local Windows capture repair drains at most the two-slot WGC pool
-per coalesced readiness notification, closes superseded samples, and hands off
-the newest queued sample through the existing copy/fence/custody path. Both
-nonblocking and explicit-wait acquisition use it. Its scope and focused
-validation (five passing Windows unit tests, formatting and whitespace checks)
-are recorded in the [Windows plan](2026-05-12_windows_decomposition_plan.md#capture-queue-maintenance-2026-10-05).
-Before release or a Turnstone repin, obtain headed Windows final-static-pixel,
-resize/reconstruction, and two-page import receipts with the actual repaired
-source. The frozen October 5 Turnstone executable uses registry 0.7.1 and
-therefore does not test this repair. Its cookie persistence failures and blank
+The October 5 Windows capture repair drains at most the two-slot WGC pool per
+coalesced readiness notification, closes superseded samples, and hands off the
+newest queued sample through the existing copy/fence/custody path. Both
+nonblocking and explicit-wait acquisition use it. It shipped in `scrying` 0.7.2
+(published 2026-10-07, tag `scrying-v0.7.2`; release notes
+`docs/receipts/scry_release_readiness_20261007/release072-current-release-notes.md`).
+Its scope and focused validation (five passing Windows unit tests, formatting
+and whitespace checks) are recorded in the [Windows plan](2026-05-12_windows_decomposition_plan.md#capture-queue-maintenance-2026-10-05).
+The 0.7.2 registry consumer receipt
+(`docs/receipts/scry_release_readiness_20261007/release072-publication-README.md`)
+passes RTX 4060 / DX12 Core 23/23, Capture 3/3 and a first-frame pixel control.
+Still open before this repair counts as accepted, or before a Turnstone repin:
+headed Windows final-static-pixel, resize/reconstruction, and two-page import
+receipts. The frozen October 5 Turnstone executable used registry 0.7.1 and
+therefore did not test this repair. Its cookie persistence failures and blank
 final tiles remain open; the queue defect is not a proved cause of either.
-Linux/macOS producer paths and existing physical-keyboard/IME gates are
-unchanged by this Windows-local implementation.
+Existing physical-keyboard/IME gates are unchanged by this repair.
 
-The published September 4 baseline and local September 11 source are distinct.
-The manifest still names 0.7.1; the post-release capture-status reconciliation
-at `99c0a9d` was not published. It type-checked the library, demo, and test
-targets for Apple Silicon from Windows. That reconciliation did not execute
-the counter test or obtain a hardware receipt. Subsequent exact-source headed
-run [37210994529](https://github.com/merely-made/wgpu-scry/actions/runs/37210994529)
-now supplies native capture results, detailed in the diagnostic record below.
-Before releasing those diagnostics, run the counter test and close the failing
-Intel capture gate, retain the per-status report and usable imported frames, and select
-a fresh version/tag for the exact source. Missing or status-only samples do
-not satisfy capture acceptance. See [the diagnostic record](2026-05-07_platform_ceilings.md#macos-capture-status-diagnostics-2026-09-11).
+The September 11 post-release capture-status reconciliation (`465d9a4`; the
+same patch was earlier recorded as `99c0a9d`) shipped in 0.7.2 together with
+the retained per-status diagnostic counters. Exact-source headed run
+[37210994529](https://github.com/merely-made/wgpu-scry/actions/runs/37210994529)
+supplied the first native capture results, detailed in [the diagnostic
+record](2026-05-07_platform_ceilings.md#macos-capture-status-diagnostics-2026-09-11).
+Still open: the counter test, and the Intel capture gate. Fresh 0.7.2
+published-package Intel capture fails 9/10 in the ordinary battery and 1/2 in
+the activity probe (a separately labelled foreground control also fails 9/10 and
+1/2); the cause is unresolved, and the receipts attribute nothing to the
+producer, WindowServer or fixture. Missing or status-only samples do not
+satisfy capture acceptance.
 
 The October 4 RADV job in that run failed at `loginctl show-session 2` with
-`No session '2' known`; pixel and input steps were skipped. This is an obsolete
-session-ID preflight, not a WPE product-test result. The same hardcoded command
-fails Weld's RADV pixel workflow. A local repair now enumerates the runner
-user's current sessions and requires an active Wayland session owned by that
-user, retaining the existing socket, no-X11, and WPE-version checks. Its helper
-and command-mocked cases are recorded in the [Linux strategy](2026-05-15_phase4_strategy.md#headed-linux-preflight-repair-2026-10-05).
-Git Bash syntax and all eight mocked cases pass; the native rerun remains open.
-Do not replace this failed preflight with an
-assumed pixel pass. Intel's observed cadence failure has no established root
-cause; keep producer, WindowServer, and fixture diagnosis open.
+`No session '2' known`; pixel and input steps were skipped. That was an obsolete
+session-ID preflight, not a WPE product-test result. The repair enumerates the
+runner user's current sessions and requires an active Wayland session owned by
+that user, retaining the existing socket, no-X11, and WPE-version checks (see the
+[Linux strategy](2026-05-15_phase4_strategy.md#headed-linux-preflight-repair-2026-10-05)).
+It passed natively on 2026-10-07: `m4-unlocked-native-radv.log` reports a
+verified active Wayland session and both `NATIVE WPE GATE PASS:
+wpe_to_vulkan_roundtrip` and `NATIVE WPE GATE PASS: wpe_input`, and the 0.7.2
+RADV registry trio passes.
 
 For later producer, event-contract, or import changes, rerun the affected
 platform's deterministic browser and capture battery. A shared import change
 requires fresh DX12/Metal/Vulkan coverage; a claimed published combination
 also needs a registry-only consumer receipt with exact source versions and
 one selected host wgpu row. Keep compile, frame import, pixel, input, and
-headed hardware evidence separate, as required by the canonical triplet plan.
+headed hardware evidence separate, as required by the canonical triplet plan,
+`wgpu-graft/design_docs/2026-11-01_triplet_release_plan.md`.
 
 Turnstone's first Windows acceptance needs a live winit/UI thread, a host-owned
 wgpu-30 DX12 device/queue, matching Scry/Graft rows, explicit shared-fence

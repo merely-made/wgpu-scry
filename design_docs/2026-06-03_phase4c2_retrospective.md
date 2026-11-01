@@ -2,7 +2,7 @@
 
 **Date:** 2026-06-03
 **Scope:** Findings during execution of the
-[4c.2 plan](2026-05-20_phase4c2_implementation_plan.md) against the
+[4c.2 plan](archive_docs/2026-11-01/2026-05-20_phase4c2_implementation_plan.md) against the
 [4c.2 spec](2026-05-20_phase4c_wpe_platform_producer.md), captured here
 so 4c.3+ doesn't have to relearn them.
 

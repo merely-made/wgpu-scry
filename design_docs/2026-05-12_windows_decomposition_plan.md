@@ -1,8 +1,11 @@
 # Windows Producer / Demo Decomposition Plan
 
-**Status (2026-10-05):** decomposition retained; bounded WGC capture-queue
-repair implemented and focused tests passing locally, native freshness
-acceptance open. The published Turnstone consumer still uses registry 0.7.1.
+**Status (2026-11-01):** library and demo splits landed in `ad09375`
+(2026-05-12). The bounded WGC capture-queue repair shipped in `scrying` 0.7.2
+(published 2026-10-07, tag `scrying-v0.7.2`); native final-static-pixel
+acceptance after coalesced arrivals stays open. The frozen October 5 Turnstone
+consumer receipt used registry 0.7.1 and predates the repair; this audit did not
+check whether Turnstone has since repinned.
 
 The Windows browser-parity tranche proved the next WebView2 surface, but it
 also made two files violate the repository's 600-LOC module discipline:
@@ -17,10 +20,22 @@ existing bounded Windows smokes used after each lane.
 
 ## Library Split
 
-Convert `webview2_composition_producer.rs` into a module directory:
+**Landed in `ad09375` (2026-05-12).** The split kept
+`webview2_composition_producer.rs` as the module root (public config/types,
+producer struct, `WebSurfaceProducer` implementation, and the small shared
+pump/COM/stream helpers) and moved the rest into the sibling directory
+`scrying/src/webview2_composition_producer/`. The setup, navigation, settings
+and teardown modules were added beyond the plan below; `mod.rs`,
+`trait_impl.rs` and `helpers.rs` were not created. The original plan, retained
+for the ownership boundaries:
 
-- `mod.rs` — public config/types, producer struct, constructor, exports.
-- `trait_impl.rs` — `WebSurfaceProducer` implementation.
+- Root file — public config/types, producer struct, constructor, exports
+  (planned as `mod.rs`; the trait implementation and helpers also stayed here
+  rather than in `trait_impl.rs` and `helpers.rs`).
+- `setup.rs`, `navigation.rs`, `settings.rs`, `teardown.rs` — composition root
+  and producer construction, navigation/script/DevTools-protocol calls,
+  settings application and visibility, and `Drop` teardown (added in the
+  landed split).
 - `capture.rs` — WGC session setup, frame acquisition, restart, snapshot, and
   resize capture lifecycle.
 - `browser.rs` — find-in-page, PDF/print, context-menu events, media-capture
@@ -31,13 +46,21 @@ Convert `webview2_composition_producer.rs` into a module directory:
 - `auth_permissions.rs` — Basic auth and permission request mapping.
 - `resources.rs` — virtual-host routing, response construction, stream helpers.
 - `input.rs` — mouse, pointer, keyboard, focus, cursor, and OLE drag helpers.
-- `helpers.rs` — COM string, message-pump, timeout, and small shared utilities.
+- `helpers.rs` — COM string, message-pump, timeout, and small shared utilities
+  (not created; these remain in the root file).
 
-The first move should extract `browser.rs` because the newest tranche is a
+The first move was to extract `browser.rs` because the newest tranche is a
 cohesive unit and has clear demo coverage: `--find-test`, `--pdf-test`,
 `--context-test`, `--media-test`, and the Set-Cookie part of `--cookie-test`.
 
 ## Demo Split
+
+**Landed in `ad09375` (2026-05-12).** `demo-win/src/main.rs` is now the app
+shell, with `gpu.rs`, `probe.rs`, `renderer.rs`, `waits.rs` and
+`smokes/{browser,input,network,profile}.rs` split out (the input smokes live in
+`smokes/input.rs`, not a top-level `input.rs`). Later work added
+`smokes/{capture,composition_focus_hwnd,window_to_visual}.rs` and
+`multi_pane.rs`. The original plan, retained for the ownership boundaries:
 
 Convert `demo-win/src/main.rs` into a small app shell plus smoke modules:
 
@@ -50,8 +73,8 @@ Convert `demo-win/src/main.rs` into a small app shell plus smoke modules:
   permissions, cookies, and loopback test servers.
 - `smokes/profile.rs` — persistent profile, incognito, multi-view.
 
-Start with `smokes/browser.rs` after the library browser split so the newest
-runtime lanes stay paired.
+`smokes/browser.rs` followed the library browser split so the newest runtime
+lanes stayed paired.
 
 ## Validation After Each Lane
 
@@ -59,7 +82,7 @@ Use targeted checks, not broad/open-ended GUI runs:
 
 ```bash
 rustfmt --edition 2024 --check <edited rust files>
-cargo check --manifest-path repos/scrying/Cargo.toml -p scrying -p demo-win
+cargo check --manifest-path repos/wgpu-scry/Cargo.toml -p scrying -p demo-win
 ```
 
 For GUI/runtime coverage, use the existing bounded PowerShell wrapper with
@@ -68,11 +91,11 @@ process-tree cleanup. Do not run raw open-ended `cargo run -p demo-win`.
 Minimum smoke set for the first browser split:
 
 ```bash
-cargo run --manifest-path repos/scrying/Cargo.toml -p demo-win -- --find-test
-cargo run --manifest-path repos/scrying/Cargo.toml -p demo-win -- --pdf-test
-cargo run --manifest-path repos/scrying/Cargo.toml -p demo-win -- --context-test
-cargo run --manifest-path repos/scrying/Cargo.toml -p demo-win -- --media-test
-cargo run --manifest-path repos/scrying/Cargo.toml -p demo-win -- --cookie-test
+cargo run --manifest-path repos/wgpu-scry/Cargo.toml -p demo-win -- --find-test
+cargo run --manifest-path repos/wgpu-scry/Cargo.toml -p demo-win -- --pdf-test
+cargo run --manifest-path repos/wgpu-scry/Cargo.toml -p demo-win -- --context-test
+cargo run --manifest-path repos/wgpu-scry/Cargo.toml -p demo-win -- --media-test
+cargo run --manifest-path repos/wgpu-scry/Cargo.toml -p demo-win -- --cookie-test
 ```
 
 All GUI commands above must be wrapped by an external timeout and process-tree
@@ -121,3 +144,13 @@ reconstruction. Counts and DOM/title assertions alone do not close that gate.
   repository target is retained for reuse. No native run, consumer repin,
   package, tag, or publication performed. Existing capture/input and
   platform gates remain qualified in the browser checklist and backlog.
+- **2026-10-07:** the bounded newest-sample drain shipped in `scrying` 0.7.2
+  (published 2026-10-07, tag `scrying-v0.7.2`; release notes
+  `docs/receipts/scry_release_readiness_20261007/release072-current-release-notes.md`).
+  The registry consumer receipt
+  (`docs/receipts/scry_release_readiness_20261007/release072-publication-README.md`)
+  records RTX 4060 / DX12 Core 23/23, Capture 3/3 and a separate first-frame
+  pixel control. None of these observes the final static DOM state in imported
+  pixels after coalesced arrivals, so native final-static-pixel acceptance
+  (including resize and reconstruction) stays open, as does any Turnstone
+  repin receipt; registry 0.7.1 retains the old path.

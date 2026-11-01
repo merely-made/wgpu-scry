@@ -40,14 +40,18 @@ yet.
 
 ---
 
-## Evidence scope (2026-10-05)
+## Evidence scope (2026-11-01)
 
 The rows describe concrete producer capabilities. A downstream host or adapter
 must expose the corresponding operation before reporting it available to users.
 The retained registry-only release receipt covers Scry 0.7.1 on WebView2/DX12,
 WKWebView/Metal (M4 and Intel), and WPE/Vulkan (RADV); see
-`wgpu-graft/design_docs/archive_docs/2026-11-01/2026-09-03_wgpu_triplet_release_plan.md`. No battery was
-rerun for this documentation audit. The more detailed Linux backend split lives
+`wgpu-graft/design_docs/archive_docs/2026-11-01/2026-09-03_wgpu_triplet_release_plan.md`.
+Scry 0.7.2 (published 2026-10-07) adds registry consumer receipts for RTX 4060
+WebView2/DX12 (Core 23/23, Capture 3/3, first-frame pixel control), the M4
+trio and the RADV trio (both WPE gates); Intel capture fails 9/10 and 1/2 and
+is under diagnosis (`docs/receipts/scry_release_readiness_20261007/release072-publication-README.md`).
+No battery was rerun for this documentation audit. The more detailed Linux backend split lives
 in [the parity matrix](../docs/parity-matrix.md); a `?` here is not evidence that
 WPE remains unimplemented.
 
@@ -84,7 +88,7 @@ WPE remains unimplemented.
 | Resize correctness (dim-match guard) | ✅ | ✅ | ? | macOS rejects stale pre-resize SCK samples; Windows drops WGC frames whose `ContentSize` no longer matches the producer size after resize/restart churn |
 | DPI awareness across monitor moves | ✅ | ✅ | ? | macOS backing-scale-change observer re-applies `config.size`; Windows routes winit `ScaleFactorChanged` through renderer resize and covers the capture restart path with `--scale-test` |
 | Capture cadence probe (`CaptureMetrics`) | ✅ | ✅ | ⏳ | macOS exposes `samples_received` / `samples_consumed`; Windows also reports `stale_frames_dropped` for resize/restart diagnostics |
-| Final static paint after coalesced WGC arrivals | n/a | ⏳ | n/a | October 5 local bounded queue drain repairs the one-dequeue/two-arrival mismatch; five focused tests pass, native final-pixel acceptance remains open in the [Windows plan](2026-05-12_windows_decomposition_plan.md#capture-queue-maintenance-2026-10-05). Registry 0.7.1 retains the old path; DOM titles/import counts alone do not prove freshness |
+| Final static paint after coalesced WGC arrivals | n/a | ⏳ | n/a | The bounded queue drain that repairs the one-dequeue/two-arrival mismatch shipped in `scrying` 0.7.2 (published 2026-10-07); five focused tests pass and the 0.7.2 registry consumer passes Core 23/23, Capture 3/3 and a first-frame pixel control, but no receipt yet observes the final static DOM state in imported pixels after coalesced arrivals, so native acceptance remains open in the [Windows plan](2026-05-12_windows_decomposition_plan.md#capture-queue-maintenance-2026-10-05). Registry 0.7.1 retains the old path; DOM titles/import counts alone do not prove freshness |
 | Cross-API GPU sync (explicit fences) | ✅ | ✅ | ✅ | macOS producer encodes `MTLCommandBuffer::encodeSignalEvent_value` and producer-side waits before handoff; Windows supports `D3D12_FENCE_FLAG_SHARED` when the host supplies a shared fence handle, with the older barrier path as fallback. Architectural follow-up on macOS: consumer-side `encodeWaitForEvent:value:` via the wgpu-hal Metal escape removes the CPU stall entirely (~1ms per acquire saved) |
 | Color management — Display P3 SDR | ✅ | 🚫 | ⏳ | macOS exposes `ColorPipeline::DisplayP3`; Windows WebView2/WGC currently reports fixed `ColorPipeline::Srgb` + `Bgra8Unorm` because the public composition capture path exposes no P3 color-space control |
 | Color management — HDR / 16-float | ✅ | 🚫 | ⏳ | macOS exposes `ColorPipeline::Hdr16f`; Windows WebView2/WGC currently has no public HDR / 16-float capture target for this path |

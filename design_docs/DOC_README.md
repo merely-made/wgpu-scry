@@ -1,6 +1,6 @@
 # Wgpu-scry documentation
 
-Rust policy (2026-10-13): working toolchain 1.99.0 and shared MSRV 1.97.1, qualified separately. Canonical policy: `mere/design_docs/2026-08-12_family_composition_thesis_brief.md`, section "Shared Rust toolchain and minimum version".
+Rust policy (2026-10-13): working toolchain 1.99.1 and shared MSRV 1.97.1, qualified separately. Canonical policy: `mere/design_docs/2026-08-12_family_composition_thesis_brief.md`, section "Shared Rust toolchain and minimum version".
 
 This is the canonical index for active documentation in this repository.
 
@@ -24,28 +24,36 @@ This is the canonical index for active documentation in this repository.
 ## Active documents
 
 - [Documentation policy](DOC_POLICY.md): shared documentation rules and the Wgpu-scry local addendum.
-- [Platform ceilings and parity roadmap](2026-05-07_platform_ceilings.md): platform ceilings and macOS diagnostics evidence, including October 4 exact-source headed CI with unresolved Intel cadence and RADV session-preflight gates.
+- [Platform ceilings and parity roadmap](2026-05-07_platform_ceilings.md): platform ceilings and macOS diagnostics evidence, including October 4 exact-source headed CI with unresolved Intel cadence; the RADV session-preflight gate has since passed.
 - [Browser-class parity checklist](2026-05-09_browser_parity_checklist.md): concrete browser capability and verification matrix, reconciled October 5 against retained Windows and Linux receipts.
 - [WKWebView SPI evaluation](2026-05-09_spi_evaluation.md): private-API research and public-API stop lines for macOS.
 - [Windows WebView2 integration target](2026-05-11_windows_webview2_target.md): Windows composition, capture, and input target shape.
-- [Windows producer decomposition plan](2026-05-12_windows_decomposition_plan.md): separation of reusable WebView2 production from the demo host and October 5 bounded WGC queue repair with native freshness acceptance open.
+- [Windows producer decomposition plan](2026-05-12_windows_decomposition_plan.md): separation of reusable WebView2 production from the demo host (landed) and the bounded WGC queue repair shipped in 0.7.2, with native final-static-pixel acceptance open.
 - [Linux WebKitGTK phase 2a](2026-05-14_linux_webkitgtk_phase_2a.md): WebKitGTK 4.1 baseline and the three-backend Linux strategy.
-- [Phase 4 strategy](2026-05-15_phase4_strategy.md): Vulkan DMABUF/WPE sequencing and the October 5 local session-preflight repair, with native rerun open.
+- [Phase 4 strategy](2026-05-15_phase4_strategy.md): Vulkan DMABUF/WPE sequencing and the October 5 session-preflight repair, which passed its native rerun October 7.
 - [WPE bindings decision](2026-05-20_phase4b_wpe_bindings_decision.md): ownership and generation strategy for WPE Rust bindings.
 - [WPE platform producer](2026-05-20_phase4c_wpe_platform_producer.md): headless WPEPlatform producer and DMABUF callback seam.
-- [WPE producer implementation plan](2026-05-20_phase4c2_implementation_plan.md): Phase 4c.2 implementation phases and gates.
 - [WPE producer retrospective](2026-06-03_phase4c2_retrospective.md): findings from the completed Phase 4c.2 implementation.
-- [Navigation and resize plan](2026-06-03_phase4c3_implementation_plan.md): Phase 4c.3 implementation gates.
 - [Navigation and resize record](2026-06-03_phase4c3_navigation_resize.md): landed WPE navigation and resize behavior.
 - [Multi-plane DCC import](2026-06-04_phase4a_x_multiplane_dcc_import.md): DRM-modifier and shared-fd import findings.
-- [Multi-plane DCC plan](2026-06-04_phase4a_x_multiplane_dcc_plan.md): implementation strategy for multi-plane compressed imports.
-- [Interactive input plan](2026-06-04_phase4c4_implementation_plan.md): Phase 4c.4 input MVP gates.
 - [Interactive input record](2026-06-04_phase4c4_input_mvp.md): landed WPE mouse, keyboard, and scroll path.
-- [WPE to Vulkan round-trip plan](2026-06-04_wpe_to_vulkan_roundtrip_plan.md): end-to-end import-test strategy.
 - [WPE to Vulkan round-trip record](2026-06-04_wpe_to_vulkan_roundtrip.md): integration-test implementation and hardware findings.
 - [WPE script-message bridge](2026-06-05_phase4c5a_script_message.md): script-message implementation and verification.
 - [WPE cookies](2026-06-05_phase4c5b_cookies.md): cookie API implementation and verification.
 - [Improvement backlog](2026-06-28_improvement_backlog.md): open library and downstream adapter work, completed ownership/DCC release boundaries, and next-release/Turnstone acceptance gates.
+
+## Archived documents
+
+Landed plans retired under `archive_docs/2026-11-01/` (move, not delete; each carries a
+status header citing its commits). Open follow-ups live in the active documents above
+and in `wgpu-graft/design_docs/2026-11-01_triplet_release_plan.md` (disjoint-fd
+multi-plane and YUV/ycbcr import, item P6).
+
+- [WPE producer implementation plan](archive_docs/2026-11-01/2026-05-20_phase4c2_implementation_plan.md): Phase 4c.2 implementation phases and gates.
+- [Navigation and resize plan](archive_docs/2026-11-01/2026-06-03_phase4c3_implementation_plan.md): Phase 4c.3 implementation gates.
+- [Multi-plane DCC plan](archive_docs/2026-11-01/2026-06-04_phase4a_x_multiplane_dcc_plan.md): implementation strategy for multi-plane compressed imports.
+- [Interactive input plan](archive_docs/2026-11-01/2026-06-04_phase4c4_implementation_plan.md): Phase 4c.4 input MVP gates.
+- [WPE to Vulkan round-trip plan](archive_docs/2026-11-01/2026-06-04_wpe_to_vulkan_roundtrip_plan.md): end-to-end import-test strategy.
 
 ## Maintainer-owned description
 

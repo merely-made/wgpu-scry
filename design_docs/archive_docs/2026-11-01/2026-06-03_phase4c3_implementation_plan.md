@@ -1,5 +1,7 @@
 # Phase 4c.3 — Navigation + Resize Implementation Plan
 
+> **Status (2026-11-01): Landed; archived 2026-11-01.** Shipped on `main` in c9596fd, 0f570e3, f1feb1f, 1dc7510, 65a41e5 and 4246d3c. All `Step` boxes below are ticked as landed; checkbox lines inside the quoted strategy-doc samples are historical text, unchanged. The `Co-Authored-By` trailer lines in the embedded commit scaffolds were stripped on archival.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Promote `WpeProducer`'s `navigate_to_string` / `navigate_to_url` from `Unsupported` stubs to real loads with main-loop-pumped completion waits, wire `resize` through `WPEToplevel`, and expose the `NavigationEvent` queue.
@@ -8,13 +10,13 @@
 
 **Tech Stack:** Rust 2024, `glib` 0.18 (`connect_closure` / `closure_local!`), hand-written `extern "C"` to `libWPEWebKit-2.0.so`, model A thread-affine producer.
 
-**Spec:** [`2026-06-03_phase4c3_navigation_resize.md`](2026-06-03_phase4c3_navigation_resize.md)
+**Spec:** [`2026-06-03_phase4c3_navigation_resize.md`](../../2026-06-03_phase4c3_navigation_resize.md)
 
 **Conventions:**
 - All FFI compiles only under `--features wpe` (same gate as 4c.2).
 - glib stays 0.18 — same crate version the rest of the WPE FFI uses.
 - One `#[ignore]`d runtime-WPE test in the unit-test binary; replaces the existing `renders_one_dmabuf_frame`. Documented in `headless.rs` module doc; do not reintroduce a second.
-- Commit after every task with the trailer `Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>`.
+- Commit after every task.
 
 ---
 
@@ -33,7 +35,7 @@
 **Files:**
 - Modify: `scrying/src/wpe_producer/ffi.rs`
 
-- [ ] **Step 1: Add the WPEToplevel opaque struct and three FFI decls**
+- [x] **Step 1: Add the WPEToplevel opaque struct and three FFI decls**
 
 In `ffi.rs`, after the existing `WPEBufferDMABuf` struct, add the opaque type:
 
@@ -56,7 +58,7 @@ And the load_uri counterpart to load_html:
     pub fn webkit_web_view_load_uri(view: *mut WebKitWebView, uri: *const c_char);
 ```
 
-- [ ] **Step 2: Drop the `#[allow(dead_code)]` on `webkit_web_view_load_html`**
+- [x] **Step 2: Drop the `#[allow(dead_code)]` on `webkit_web_view_load_html`**
 
 The Task-6 cleanup put `#[allow(dead_code)]` on the load_html decl because its only caller was `#[cfg(test)] load_html_for_smoke`. Task 4 will add a real (non-test) caller in `producer.rs::load_html`. Find this in `ffi.rs`:
 
@@ -79,7 +81,7 @@ Remove the `#[allow(dead_code)]` line and update the comment:
     );
 ```
 
-- [ ] **Step 3: Verify both build configs**
+- [x] **Step 3: Verify both build configs**
 
 Run: `cargo build -p scrying`
 Expected: builds (no feature; FFI extern decls don't compile FFI calls).
@@ -87,7 +89,7 @@ Expected: builds (no feature; FFI extern decls don't compile FFI calls).
 Run: `cargo build -p scrying --features wpe`
 Expected: builds. New decls are unused so far → expect dead_code warnings on `wpe_view_get_toplevel`, `wpe_toplevel_resize`, `webkit_web_view_load_uri`. These are TRANSIENT and consumed by Tasks 2, 5. Do NOT add `#[allow(dead_code)]` to silence them; they'll be used within this plan.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add scrying/src/wpe_producer/ffi.rs
@@ -97,8 +99,6 @@ phase 4c.3: FFI decls for toplevel resize + webkit_web_view_load_uri
 Adds WPEToplevel opaque + wpe_view_get_toplevel / wpe_toplevel_resize and
 webkit_web_view_load_uri. Drops the test-only #[allow(dead_code)] on
 load_html (Task 4 of this plan adds the real caller).
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -110,7 +110,7 @@ EOF
 **Files:**
 - Modify: `scrying/src/wpe_producer/headless.rs`
 
-- [ ] **Step 1: Change `build_producer_view`'s return type and add the toplevel guard**
+- [x] **Step 1: Change `build_producer_view`'s return type and add the toplevel guard**
 
 In `headless.rs`, update the signature:
 
@@ -138,7 +138,7 @@ After the existing step 9 (`view.is_null()` guard), before `Ok(...)`, add:
 
 (Replace the existing `Ok((webview, view))` with this block.)
 
-- [ ] **Step 2: Run the existing ignored test to confirm the toplevel guard passes**
+- [x] **Step 2: Run the existing ignored test to confirm the toplevel guard passes**
 
 Build: `cargo build -p scrying --features wpe` → expect compile errors in `producer.rs` because `build_producer_view`'s caller now gets a 3-tuple. **Do not fix producer.rs yet** — Task 3 does that. Skip ahead to Task 3 to finish the wire-up, then come back here and re-run.
 
@@ -147,7 +147,7 @@ After Task 3 lands, run:
 
 This verifies the toplevel guard didn't break the empirically-known-working construction path. Expected: PASS, exit 0, same smoke output (1024x768).
 
-- [ ] **Step 3: Commit (after Task 3 makes it compile)**
+- [x] **Step 3: Commit (after Task 3 makes it compile)**
 
 ```bash
 git add scrying/src/wpe_producer/headless.rs
@@ -157,8 +157,6 @@ phase 4c.3: acquire WPEToplevel at construction with fail-fast guard
 build_producer_view now returns (webview, view, toplevel). On the headless
 display wpe_view_get_toplevel must be non-null or resize would silently
 fail later; assert at construction instead.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -172,7 +170,7 @@ EOF
 **Files:**
 - Modify: `scrying/src/wpe_producer/producer.rs`
 
-- [ ] **Step 1: Add the `toplevel` field to `WpeHandles`**
+- [x] **Step 1: Add the `toplevel` field to `WpeHandles`**
 
 In `producer.rs`, locate `WpeHandles`:
 
@@ -201,7 +199,7 @@ pub(super) struct WpeHandles {
 }
 ```
 
-- [ ] **Step 2: Update the wpe `new` constructor to consume the 3-tuple**
+- [x] **Step 2: Update the wpe `new` constructor to consume the 3-tuple**
 
 In `producer.rs`, locate the `#[cfg(feature = "wpe")] pub fn new`:
 
@@ -227,7 +225,7 @@ Change to:
 
 (The buffer-rendered `connect_buffer_rendered` call that follows construction stays as-is.)
 
-- [ ] **Step 3: Verify build + the existing smoke still passes**
+- [x] **Step 3: Verify build + the existing smoke still passes**
 
 Run: `cargo build -p scrying --features wpe`
 Expected: builds clean.
@@ -235,7 +233,7 @@ Expected: builds clean.
 Run: `cargo test -p scrying --features wpe renders_one_dmabuf_frame -- --ignored`
 Expected: PASS, exit 0 (same as before — the toplevel guard doesn't change rendered output).
 
-- [ ] **Step 4: Commit (or combine with Task 2 per the note above)**
+- [x] **Step 4: Commit (or combine with Task 2 per the note above)**
 
 ```bash
 git add scrying/src/wpe_producer/producer.rs
@@ -245,8 +243,6 @@ phase 4c.3: thread toplevel handle through WpeProducer::new
 WpeHandles gains a toplevel pointer (transfer-none borrow from the view);
 new() unpacks the 3-tuple from build_producer_view and stores it.
 Resize uses it in Task 5.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -261,7 +257,7 @@ The closure body's behavior (NavState mutation per load event) is the one piece 
 - Create: `scrying/src/wpe_producer/navigation.rs`
 - Modify: `scrying/src/wpe_producer/mod.rs` (declare the module)
 
-- [ ] **Step 1: Declare `mod navigation;` in `mod.rs`**
+- [x] **Step 1: Declare `mod navigation;` in `mod.rs`**
 
 In `scrying/src/wpe_producer/mod.rs`, locate the existing wpe-gated module declarations:
 
@@ -279,7 +275,7 @@ Add:
 mod navigation;
 ```
 
-- [ ] **Step 2: Write `navigation.rs` skeleton with the `NavState` + transition helper**
+- [x] **Step 2: Write `navigation.rs` skeleton with the `NavState` + transition helper**
 
 Create `scrying/src/wpe_producer/navigation.rs`:
 
@@ -355,7 +351,7 @@ pub(super) fn arm_navigation(state: &Rc<RefCell<NavState>>) {
 }
 ```
 
-- [ ] **Step 3: Write the failing NavState unit tests**
+- [x] **Step 3: Write the failing NavState unit tests**
 
 Append to `navigation.rs`:
 
@@ -432,12 +428,12 @@ mod tests {
 }
 ```
 
-- [ ] **Step 4: Run the unit tests; they all pass**
+- [x] **Step 4: Run the unit tests; they all pass**
 
 Run: `cargo test -p scrying --features wpe wpe_producer::navigation::tests`
 Expected: 6 passed, 0 failed. These are pure-Rust, no display — they exercise the closure body's behavior without glib.
 
-- [ ] **Step 5: Add `install_load_signals` + `wait_for_load`**
+- [x] **Step 5: Add `install_load_signals` + `wait_for_load`**
 
 Append to `navigation.rs`, before the `#[cfg(test)]` block:
 
@@ -497,12 +493,12 @@ Two empirical points the implementer should validate at the first runtime test (
 1. The glib closure arg marshalling for `load-failed`'s GError → `glib::Error`. If `connect_closure` panics with a type mismatch, drop the typed `glib::Error` arg and accept whatever glib 0.18 marshals (e.g. `String` for the message via a 2-arg form on some glib versions). Keep iterating until it connects.
 2. The `view.property::<Option<String>>("uri")` call — if glib 0.18 rejects the type or the property name, alternative is `view.property::<String>("uri")` (some glib versions don't make it optional). Adjust to what compiles.
 
-- [ ] **Step 6: Build under the feature**
+- [x] **Step 6: Build under the feature**
 
 Run: `cargo build -p scrying --features wpe`
 Expected: PASS. The new `install_load_signals` + `wait_for_load` are unused so far → warnings expected; Tasks 5–6 consume them.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add scrying/src/wpe_producer/navigation.rs scrying/src/wpe_producer/mod.rs
@@ -514,8 +510,6 @@ NavState mirrors webkitgtk_producer's: committed_uri + finished + failed
 install_load_signals connects via glib 0.18 connect_closure on the
 WebKitWebView; wait_for_load pumps until finished. Closure-body
 transitions covered by 6 pure-Rust unit tests.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -527,7 +521,7 @@ EOF
 **Files:**
 - Modify: `scrying/src/wpe_producer/producer.rs`
 
-- [ ] **Step 1: Add `nav_state` field to `WpeProducer`**
+- [x] **Step 1: Add `nav_state` field to `WpeProducer`**
 
 In `producer.rs`, add a wpe-gated field on `WpeProducer`:
 
@@ -539,7 +533,7 @@ pub struct WpeProducer {
 }
 ```
 
-- [ ] **Step 2: Initialize `nav_state` in the wpe `new` and install signals**
+- [x] **Step 2: Initialize `nav_state` in the wpe `new` and install signals**
 
 In the `#[cfg(feature = "wpe")] pub fn new(config)` body, after the `WpeHandles` construction and BEFORE `connect_buffer_rendered`:
 
@@ -560,7 +554,7 @@ In the `#[cfg(feature = "wpe")] pub fn new(config)` body, after the `WpeHandles`
 
 For the non-wpe stub `new`, don't add the field (the `#[cfg(feature = "wpe")]` gate keeps `nav_state` out of that build entirely; the stub `Ok(Self { ... })` struct expression doesn't list it).
 
-- [ ] **Step 3: Add inherent `load_html` / `load_uri` / `wait_for_load` methods**
+- [x] **Step 3: Add inherent `load_html` / `load_uri` / `wait_for_load` methods**
 
 In `producer.rs`, add (wpe-gated; place after the existing inherent impl block or in a new `#[cfg(feature = "wpe")] impl WpeProducer { ... }` block):
 
@@ -613,7 +607,7 @@ impl WpeProducer {
 }
 ```
 
-- [ ] **Step 4: Replace the `Unsupported` trait stubs with real impls**
+- [x] **Step 4: Replace the `Unsupported` trait stubs with real impls**
 
 In `producer.rs`, find the `impl WebSurfaceProducer for WpeProducer` block. Replace `navigate_to_string`, `navigate_to_url` (if present; if not, add it), `resize`, and `poll_navigation_event`. The `wpe` and non-`wpe` builds differ: under non-wpe, `navigate_*` / `resize` / `poll_navigation_event` keep returning `Unsupported`/the existing stub, since there's no display.
 
@@ -695,7 +689,7 @@ Use cfg-attribute selection on the method body to keep both builds compiling. Co
 
 If `navigate_to_url` is missing from the existing `impl` block (it was an `Unsupported` default on the trait), add it. The existing `set_offset` stays as it is.
 
-- [ ] **Step 5: Build both configurations**
+- [x] **Step 5: Build both configurations**
 
 Run: `cargo build -p scrying`
 Expected: PASS (non-wpe stubs return Unsupported / None / Ok(())).
@@ -703,12 +697,12 @@ Expected: PASS (non-wpe stubs return Unsupported / None / Ok(())).
 Run: `cargo build -p scrying --features wpe`
 Expected: PASS. Now all the Task-1/4 dead-code warnings should be gone.
 
-- [ ] **Step 6: Run the existing smoke test to confirm no regression**
+- [x] **Step 6: Run the existing smoke test to confirm no regression**
 
 Run: `cargo test -p scrying --features wpe renders_one_dmabuf_frame -- --ignored`
 Expected: PASS, exit 0 (the smoke test is unchanged at this point — Task 6 rewrites it).
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add scrying/src/wpe_producer/producer.rs
@@ -720,8 +714,6 @@ nav_state (Rc<RefCell<NavState>>) initialized in new() and wired to the
 WebKitWebView's load-changed/load-failed signals. Resize goes through
 wpe_toplevel_resize; poll_navigation_event drains the NavState event queue.
 Non-wpe build still returns Unsupported.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -735,7 +727,7 @@ The one in-crate `#[ignore]`d runtime test gets upgraded to exercise the full ne
 **Files:**
 - Modify: `scrying/src/wpe_producer/headless.rs`
 
-- [ ] **Step 1: Replace the existing test body**
+- [x] **Step 1: Replace the existing test body**
 
 Find the `#[cfg(test)] mod tests { ... fn renders_one_dmabuf_frame ... }` in `headless.rs`. Replace the whole `mod tests` with:
 
@@ -841,7 +833,7 @@ mod tests {
 }
 ```
 
-- [ ] **Step 2: Build + run the new ignored test**
+- [x] **Step 2: Build + run the new ignored test**
 
 Run: `cargo build -p scrying --features wpe`
 Expected: PASS.
@@ -849,7 +841,7 @@ Expected: PASS.
 Run: `cargo test -p scrying --features wpe navigate_resize_and_render -- --ignored --nocapture`
 Expected: PASS, exit 0. Two `smoke#…` lines printed. If `connect_closure` panics on the load-changed signature (e.g. arg-type mismatch), revisit Task 4 Step 5 — try `i32` vs `u32` for the event arg, or drop the typed `glib::Error` in load-failed for the plain string the message field carries.
 
-- [ ] **Step 3: Confirm non-ignored tests still pass**
+- [x] **Step 3: Confirm non-ignored tests still pass**
 
 Run: `cargo test -p scrying`
 Expected: 7 (no-feat) + 3 integration tests pass, 0 ignored.
@@ -857,7 +849,7 @@ Expected: 7 (no-feat) + 3 integration tests pass, 0 ignored.
 Run: `cargo test -p scrying --features wpe`
 Expected: 6 unit (the no-feat-only fd Drop test is gated out) + 3 integration tests pass, 1 ignored (the smoke).
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add scrying/src/wpe_producer/headless.rs
@@ -870,8 +862,6 @@ DmaBufImage, calls resize, then re-acquires. Honors the
 one-WPE-per-process constraint by remaining the only #[ignore]d runtime
 test in this binary. Prints observed dimensions both pre- and post-resize
 to surface any toplevel coercion.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -883,14 +873,14 @@ EOF
 **Files:**
 - Modify: `design_docs/2026-05-15_phase4_strategy.md`
 
-- [ ] **Step 1: Flip 4c.3 to done; renumber 4c.4+**
+- [x] **Step 1: Flip 4c.3 to done; renumber 4c.4+**
 
 In `design_docs/2026-05-15_phase4_strategy.md`, find the checklist block and update the 4c.3 line + renumber what was 4c.4..4c.7:
 
 ```markdown
 - [x] **4c.3** Producer navigation (navigate_to_string / navigate_to_url
       / poll_navigation_event) + resize via WPEToplevel; spec
-      [`2026-06-03_phase4c3_navigation_resize.md`](2026-06-03_phase4c3_navigation_resize.md),
+      [`2026-06-03_phase4c3_navigation_resize.md`](../../2026-06-03_phase4c3_navigation_resize.md),
       plan [`2026-06-03_phase4c3_implementation_plan.md`](2026-06-03_phase4c3_implementation_plan.md).
 - [ ] **4c.4** Input forwarding via `wpe_view_event(WPEEvent*)` —
       keyboard / pointer / scroll / touch / IME. WPEPlatform path, not
@@ -910,7 +900,7 @@ Update the doc status line at the top:
 **Status:** 4a + 4b.1 + 4c.1 + 4c.2 + 4c.3 shipped; 4c.4+ in flight.
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add design_docs/2026-05-15_phase4_strategy.md
@@ -920,8 +910,6 @@ docs: phase 4c.3 shipped — checklist + status
 Flips 4c.3 to done; bumps the input-forwarding line into its own 4c.4
 phase per the 4c.3 spec's scope decision (per-empirical-unknown phasing
 lesson from 4c.2 retrospective).
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```

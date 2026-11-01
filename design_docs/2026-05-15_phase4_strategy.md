@@ -1,17 +1,18 @@
 # Phase 4 strategy — Vulkan DMABUF import + WPE producer
 
 **Date:** 2026-05-15
-**Status (2026-10-05):** Linux session-preflight repair is staged locally;
-shell syntax and eight command-mocked cases pass; native rerun remains open. Phase 4c arc complete
+**Status (2026-11-01):** the Linux session-preflight repair passed its native
+rerun (2026-10-07; see the repair section below). Phase 4c arc complete
 (WPE first-class). Phase A arc
 complete (webkit6 to mac-level capability parity; GPU import blocked
 upstream on GTK 4.22's missing `GdkDmabufTexture` accessors).
 4a + 4a.x + 4b.1 + 4c.1 + 4c.2 + 4c.3 + 4c.4 + 4c.4.1-3 + (β) +
-4c.5.a + 4c.5.b + 4c.5.c + 4c.5.d + 4c.5.e + 4c.7 + 4c.8 + A.1 + A.2
+4c.5.a + 4c.5.b + 4c.5.c + 4c.5.d + 4c.5.e + 4c.5.f + 4c.5 + 4c.6 + 4c.7 + 4c.8 + A.1 + A.2
 + A.3 + A.4 + A.5 + A.6 + A.7 + A.8 (exploration shipped, DMABUF
 empirically unavailable via GdkTexture; see A.8 row) + A.9 (demo-
 linux6 subcommand surface + parity matrix + README closure) shipped;
-4c.5.f, 4c.6 remain (downloads-on-WPE and demo-wpe runtime probe).
+4c.5.f (downloads-on-WPE, `e2780c6`) and 4c.6 (demo-wpe runtime probe,
+`118a274`) have landed.
 
 This doc captures the plan for the Linux producer's only remaining
 structural row in the [parity matrix](2026-05-07_platform_ceilings.md#cross-platform-parity-matrix):
@@ -346,7 +347,7 @@ artifact.
       between bind and texture wrap (Vulkan-spec discipline for taking
       ownership of producer-written DMABUFs). Spec
       [`2026-06-04_phase4a_x_multiplane_dcc_import.md`](2026-06-04_phase4a_x_multiplane_dcc_import.md),
-      plan [`2026-06-04_phase4a_x_multiplane_dcc_plan.md`](2026-06-04_phase4a_x_multiplane_dcc_plan.md).
+      plan [`2026-06-04_phase4a_x_multiplane_dcc_plan.md`](archive_docs/2026-11-01/2026-06-04_phase4a_x_multiplane_dcc_plan.md).
       Import shape (size + format) verified on real WPE-on-AMD; pixel
       correctness BLOCKED on an upstream wgpu API gap —
       `create_texture_from_hal` (wgpu 29.0.3) tracks every external
@@ -375,7 +376,7 @@ artifact.
       (`buffer-rendered` signal → `WPEBufferDMABuf` → `DmaBufImage` →
       `FrameSink`); spec
       [`2026-05-20_phase4c_wpe_platform_producer.md`](2026-05-20_phase4c_wpe_platform_producer.md),
-      plan [`2026-05-20_phase4c2_implementation_plan.md`](2026-05-20_phase4c2_implementation_plan.md),
+      plan [`2026-05-20_phase4c2_implementation_plan.md`](archive_docs/2026-11-01/2026-05-20_phase4c2_implementation_plan.md),
       retrospective [`2026-06-03_phase4c2_retrospective.md`](2026-06-03_phase4c2_retrospective.md).
       Smoke renders a real `DmaBufImage` (1024×768 XR24 on AMD-tiled
       modifier); explicit-sync stays dormant (no fence getter yet).
@@ -383,7 +384,7 @@ artifact.
       `navigate_to_url`, `poll_navigation_event`) + resize via
       `WPEToplevel`; spec
       [`2026-06-03_phase4c3_navigation_resize.md`](2026-06-03_phase4c3_navigation_resize.md),
-      plan [`2026-06-03_phase4c3_implementation_plan.md`](2026-06-03_phase4c3_implementation_plan.md).
+      plan [`2026-06-03_phase4c3_implementation_plan.md`](archive_docs/2026-11-01/2026-06-03_phase4c3_implementation_plan.md).
       Empirical findings: (a) `WebKitLoadEvent` arrives in glib closures as
       the GObject enum type, not gint — required a hand-rolled
       `RustClosure::new_local` over `&[glib::Value]` extracting via
@@ -410,7 +411,7 @@ artifact.
       smoke `tests/wpe_input.rs` (independent binary) verifies dispatch
       doesn't crash. Spec
       [`2026-06-04_phase4c4_input_mvp.md`](2026-06-04_phase4c4_input_mvp.md),
-      plan [`2026-06-04_phase4c4_implementation_plan.md`](2026-06-04_phase4c4_implementation_plan.md).
+      plan [`2026-06-04_phase4c4_implementation_plan.md`](archive_docs/2026-11-01/2026-06-04_phase4c4_implementation_plan.md).
       MVP punts keyval derivation (uses 0; WebKit derives from
       keycode), event timestamps (always 0), touch input, drag input,
       and IME composition to 4c.4.x sub-phases or 4c.5. Empirical
@@ -461,7 +462,7 @@ artifact.
       WPE's WebKitWebView exposes the same primitives (`UserContentManager`,
       script-message handlers) — the implementation lands when 4c.5's
       script-message bridge does. Not a standalone WPE-only sub-phase.
-- [ ] **4c.5** Phase 2b–2e surface ported from
+- [x] **4c.5** Phase 2b–2e surface ported from
       `webkitgtk_producer/` (cookies, schemes, popups, downloads,
       cursor, IME state). Decomposed into 4c.5.a-f below — each
       independent except `e` (IME) depending on `a` (script-message).
@@ -562,8 +563,15 @@ artifact.
         the producer's `NavState.events` queue (drained by
         `poll_navigation_event`). 5 `parse_event` unit tests cover
         blur, focus, change, password, malformed.
-  - [ ] **4c.5.f** Downloads — port `downloads.rs`.
-- [ ] **4c.6** `demo-wpe` runtime probe — mirrors demo-linux
+  - [x] **4c.5.f** Downloads — port `downloads.rs`. **Shipped** in `e2780c6`
+        (`scrying/src/wpe_producer/downloads.rs`): `download-started` lives
+        on `WebKitNetworkSession` (not `WebKitWebContext`) under WPE's 2022
+        GLib API, and `webkit_download_set_destination` requires an absolute
+        path rather than a `file://` URI; both are recorded in the module
+        header.
+- [x] **4c.6** `demo-wpe` runtime probe — mirrors demo-linux. **Shipped** in
+      `118a274`: construct `WpeProducer`, navigate, acquire one DMABUF frame,
+      print plane fd/offset/stride/modifier, close fds, exit.
 - [x] **4c.7** `docs/wpe-deployment.md` — practical WPE deployment
       guide for Linux. Covers prerequisites (WPEWebKit 2.52.3, philn
       COPR with F44 URL-install workaround for the pruned engine RPM,
@@ -867,3 +875,12 @@ tests passing on the intended RADV host. A mock pass does not close that gate.
   Git Bash `bash -n` on both scripts and the command-mocked test: all eight
   cases passed in Scry and Weld. No native rerun or CI dispatch. The identical
   helper is carried by Weld's standalone checkout for its same preflight fault.
+- 2026-10-07: native rerun passed. In
+  `docs/receipts/scry_release_readiness_20261007/m4-unlocked-native-radv.log`
+  the repaired preflight reports "Verified active Wayland session 7 for runner
+  UID 1000", then both WPE gates pass on the RADV host:
+  `NATIVE WPE GATE PASS: wpe_to_vulkan_roundtrip` and
+  `NATIVE WPE GATE PASS: wpe_input`. The done-condition above (fresh headed
+  preflight plus the actual WPE pixel/input tests) is met; the post-publication
+  RADV registry trio for `scrying` 0.7.2 also passes (see the release
+  receipts under `docs/receipts/scry_release_readiness_20261007/`).

@@ -9,12 +9,17 @@ the page.
 Extracted from
 [`wgpu-graft`](https://github.com/merely-made/wgpu-graft) on 2026-05-05.
 
-## Status (2026-10-05 source audit)
+## Status (2026-11-01 source audit)
 
-`scrying` 0.7.1 is the published callback-order release. The retained registry-only
-triplet receipt covers WebView2/DX12, WKWebView/Metal on M4 and Intel, and
-WPE/Vulkan on RADV; it does not establish identical browser capabilities across
-all five backends. See `wgpu-graft/design_docs/archive_docs/2026-11-01/2026-09-03_wgpu_triplet_release_plan.md`.
+`scrying` 0.7.2 is the current published release (2026-10-07, tag
+`scrying-v0.7.2`; [release notes](docs/receipts/scry_release_readiness_20261007/release072-current-release-notes.md)).
+Its post-publication registry-only consumer receipts pass on WebView2/DX12
+(RTX 4060), WKWebView/Metal (M4) and WPE/Vulkan (RADV); Intel macOS capture
+fails its fresh published-package battery and remains under diagnosis (see
+[the publication record](docs/receipts/scry_release_readiness_20261007/release072-publication-README.md)).
+The earlier 0.7.1 callback-order release (2026-09-04) retains its registry-only
+triplet receipt, `wgpu-graft/design_docs/archive_docs/2026-11-01/2026-09-03_wgpu_triplet_release_plan.md`.
+Neither establishes identical browser capabilities across all five backends.
 Native frame resources have move-only, RAII custody, and the primary WebView2, WKWebView,
 and WPE producers expose correlated asynchronous script results through one
 ordered event queue. It carries feature-selected wgpu 28/29/30, defaults to
@@ -36,13 +41,13 @@ wgpu 30, and requires at least wgpu 30.0.1 on that row.
 - CI runs the macOS suite, the WebKitGTK 4.1 Linux suite, and a required Fedora
   44 WPE producer/demo build on every push.
 
-`main` includes September 11 macOS capture-status diagnostics beyond the
-published September 4 receipt. Its manifest still reads 0.7.1; that source
-reconciliation was not published. The October 4 headed run on that exact source
-passed M4 and Windows; Intel failed the base capture cadence assertion, and
-RADV failed its session preflight before WPE tests ran. Native diagnostic output
-now exists, but the counter unit test and complete affected-platform acceptance
-remain open. See the
+The macOS capture-status diagnostics (September 11) and the bounded WebView2
+capture-queue repair shipped in 0.7.2. The October 4 headed run on the
+diagnostics source passed M4 and Windows; Intel failed the base capture cadence
+assertion, and RADV failed its session preflight before WPE tests ran. The
+repaired preflight has since passed natively (both WPE gates on RADV). Still
+open: the Intel capture gate, the capture-status counter unit test, and native
+Windows final-static-pixel acceptance. See the
 [diagnostics record](design_docs/2026-05-07_platform_ceilings.md#macos-capture-status-diagnostics-2026-09-11)
 and [next-release gates](design_docs/2026-06-28_improvement_backlog.md#next-release-and-consumer-gates).
 
