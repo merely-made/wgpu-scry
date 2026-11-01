@@ -14,7 +14,7 @@ Extracted from
 `scrying` 0.7.1 is the published callback-order release. The retained registry-only
 triplet receipt covers WebView2/DX12, WKWebView/Metal on M4 and Intel, and
 WPE/Vulkan on RADV; it does not establish identical browser capabilities across
-all five backends. See `wgpu-graft/design_docs/2026-09-03_wgpu_triplet_release_plan.md`.
+all five backends. See `wgpu-graft/design_docs/archive_docs/2026-11-01/2026-09-03_wgpu_triplet_release_plan.md`.
 Native frame resources have move-only, RAII custody, and the primary WebView2, WKWebView,
 and WPE producers expose correlated asynchronous script results through one
 ordered event queue. It carries feature-selected wgpu 28/29/30, defaults to

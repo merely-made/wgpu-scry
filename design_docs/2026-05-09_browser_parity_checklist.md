@@ -46,7 +46,7 @@ The rows describe concrete producer capabilities. A downstream host or adapter
 must expose the corresponding operation before reporting it available to users.
 The retained registry-only release receipt covers Scry 0.7.1 on WebView2/DX12,
 WKWebView/Metal (M4 and Intel), and WPE/Vulkan (RADV); see
-`wgpu-graft/design_docs/2026-09-03_wgpu_triplet_release_plan.md`. No battery was
+`wgpu-graft/design_docs/archive_docs/2026-11-01/2026-09-03_wgpu_triplet_release_plan.md`. No battery was
 rerun for this documentation audit. The more detailed Linux backend split lives
 in [the parity matrix](../docs/parity-matrix.md); a `?` here is not evidence that
 WPE remains unimplemented.

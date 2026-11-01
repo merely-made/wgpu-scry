@@ -44,7 +44,7 @@ the subsequent ownership closure are recorded in the progress log below.
   import, and DX12/Metal/Vulkan import delegates to Graft while Scry keeps its
   producer and synchronization policy. Registry-only four-host run `33916390001`
   covers exact Graft 0.6.0, Scry 0.7.1, and Weld 0.14.1. Detailed evidence and
-  limitations live in `wgpu-graft/design_docs/2026-09-03_wgpu_triplet_release_plan.md`.
+  limitations live in `wgpu-graft/design_docs/archive_docs/2026-11-01/2026-09-03_wgpu_triplet_release_plan.md` (open work continues in `wgpu-graft/design_docs/2026-11-01_triplet_release_plan.md`).
 - **2026-09-04 — WPE DCC closure:** the wgpu-30 DMABUF path is pixel-verified
   on AMD Renoir/RADV. Foreign-queue acquire and the HAL resource-state boundary
   are handled by Graft; this is not waiting on a new wgpu initial-state API.
