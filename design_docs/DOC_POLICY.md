@@ -100,7 +100,18 @@ roots, in `<area>_docs/implementation_strategy/`. Each plan carries:
   never time estimates.
 - A **Findings** section for facts verified during the work, dated, with code
   references.
-- A **Progress** log, dated, appended as phases land.
+- A **Progress** log, dated, appended as phases land: a line per landing,
+  naming what landed.
+
+A plan holds no receipts. Receipts are not live, so they are archived from
+the start: each plan keeps one receipt file,
+`archive_docs/receipts/<plan file stem>_receipts.md`, appended under dated
+headings, and no folder of outputs, logs or captures beside it. Receipts
+are run evidence: hashes, seeds, timings, counts, commands run, run
+narratives. Evidence that matters is also a test in the repository or a line
+in Findings. Thresholds in done-conditions stay in the plan. When a plan
+grows its history past its open work, cut a new plan from its open, deferred
+and follow-on items and archive the old one whole (as on 2026-10-28).
 
 Code samples in a plan state whether they are illustrative or compile-ready.
 
