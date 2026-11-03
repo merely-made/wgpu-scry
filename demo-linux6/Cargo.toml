@@ -14,3 +14,6 @@ path = "src/main.rs"
 dpi = "0.1.2"
 image = "0.25"
 scrying = { path = "../scrying", features = ["webkit6"] }
+
+[lints]
+workspace = true

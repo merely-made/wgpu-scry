@@ -205,3 +205,6 @@ required-features = ["wpe"]
 name = "wpe_input"
 harness = false
 required-features = ["wpe"]
+
+[lints]
+workspace = true

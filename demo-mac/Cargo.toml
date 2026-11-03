@@ -21,3 +21,6 @@ scrying = { path = "../scrying" }
 [target.'cfg(target_os = "macos")'.dependencies]
 objc2 = "0.6.3"
 objc2-app-kit = "0.3.2"
+
+[lints]
+workspace = true

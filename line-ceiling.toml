@@ -1,0 +1,90 @@
+# mere/design_docs/mere_docs/implementation_strategy/2026-10-30_house_style_plan.md (H2); all physical source lines count.
+ceiling = 600
+
+[[exception]]
+path = "demo-linux/src/main.rs"
+reason = "Minimal Linux runtime probe for scrying's WebKitGTK producer. Existing source-size debt; a responsibility split must preserve Args and existing module visibility."
+
+[[exception]]
+path = "demo-mac/src/main.rs"
+reason = "Minimal winit host for scrying's macOS WKWebView producer. Existing source-size debt; a responsibility split must preserve DownloadTestUrls, Cli, App and existing module visibility."
+
+[[exception]]
+path = "demo-win/src/main.rs"
+reason = "Minimal winit + wgpu host probe for scrying system-webview texture interop. Existing source-size debt; a responsibility split must preserve Cli, App, AppState and existing module visibility."
+
+[[exception]]
+path = "demo-win/src/probe.rs"
+reason = "Probe. Existing source-size debt; a responsibility split must preserve CapturedComposition and existing module visibility."
+
+[[exception]]
+path = "demo-win/src/smokes/input.rs"
+reason = "Input. Existing source-size debt; a responsibility split must preserve CdpRouteResult and existing module visibility."
+
+[[exception]]
+path = "demo-win/src/smokes/window_to_visual.rs"
+reason = "Window to visual. Existing source-size debt; a responsibility split must preserve WindowToVisualPage, CaptureImportSample, ChildWindowInfo and existing module visibility."
+
+[[exception]]
+path = "scrying/src/lib.rs"
+reason = "Src lib. Existing source-size debt; a responsibility split must preserve WebSurfaceMode, SystemWebviewBackend, WebSurfaceCapabilities and existing module visibility."
+
+[[exception]]
+path = "scrying/src/native_frame/mod.rs"
+reason = "Native-frame import: import platform-native GPU texture handles (D3D12 NT-handle today, IOSurface and DMABUF eventually) into wgpu textures owned by the host device. Existing source-size debt; a responsibility split must preserve InteropBackend, NativeFrameKind, CapabilityStatus and existing module visibility."
+
+[[exception]]
+path = "scrying/src/webview2_composition_producer.rs"
+reason = "Windows-only WebView2 composition-controller capture producer. Existing source-size debt; a responsibility split must preserve WebView2CookieChangeHandlerFn, WebView2DownloadHandlerFn, WebView2AuthHandlerFn and existing module visibility."
+
+[[exception]]
+path = "scrying/src/webview2_composition_producer/browser.rs"
+reason = "Browser. Existing source-size debt; a responsibility split must preserve existing entry points, fixture identity and module visibility."
+
+[[exception]]
+path = "scrying/src/webview2_composition_producer/input.rs"
+reason = "Input. Existing source-size debt; a responsibility split must preserve existing entry points, fixture identity and module visibility."
+
+[[exception]]
+path = "scrying/src/webview2_composition_producer/navigation.rs"
+reason = "Navigation. Existing source-size debt; a responsibility split must preserve existing entry points, fixture identity and module visibility."
+
+[[exception]]
+path = "scrying/src/webview2_composition_producer/setup.rs"
+reason = "Setup. Existing source-size debt; a responsibility split must preserve CompositionRoot, PendingProducerAttachment, PreparedCompositionRootHost and existing module visibility."
+
+[[exception]]
+path = "scrying/src/windows_capture.rs"
+reason = "Windows WebView2 capture planning. Existing source-size debt; a responsibility split must preserve WebView2D3D11CaptureFrame, D3D11SharedTextureFactory, FenceMode and existing module visibility."
+
+[[exception]]
+path = "scrying/src/wkwebview_producer/api.rs"
+reason = "Inherent (non-trait, non-capture) public surface for the macOS producer. Existing source-size debt; a responsibility split must preserve FindOptions and existing module visibility."
+
+[[exception]]
+path = "scrying/src/wkwebview_producer/capture/blocking.rs"
+reason = "Blocking variants: [super::super::WkWebViewProducer::start_capture] and the run-loop-pumping resolve_target_window helper, plus try_acquire_frame (the non-blocking acquire used by. Existing source-size debt; a responsibility split must preserve existing entry points, fixture identity and module visibility."
+
+[[exception]]
+path = "scrying/src/wkwebview_producer/capture/mod.rs"
+reason = "ScreenCaptureKit pipeline state, delegates, and the lazy stop_capture teardown method. Existing source-size debt; a responsibility split must preserve QueuedSampleBuffer, LatestSample, OutputDelegateState and existing module visibility."
+
+[[exception]]
+path = "scrying/src/wkwebview_producer/download_handler.rs"
+reason = "WKDownloadDelegate and the unique-destination resolver. Existing source-size debt; a responsibility split must preserve DownloadHandlerFn, DownloadEntry, DownloadRegistry and existing module visibility."
+
+[[exception]]
+path = "scrying/src/wkwebview_producer/producer.rs"
+reason = "[WkWebViewProducer] struct, the [WkWebViewProducer::new] / [WkWebViewProducer::new_with_url_schemes] constructors, the Drop teardown, and a handful of small inherent helpers. Existing source-size debt; a responsibility split must preserve CursorHandlerFn, WkWebViewProducer, PendingPdfSlot and existing module visibility."
+
+[[exception]]
+path = "scrying/src/wkwebview_producer/trait_impl.rs"
+reason = "[WebSurfaceProducer] trait implementation. Existing source-size debt; a responsibility split must preserve existing entry points, fixture identity and module visibility."
+
+[[exception]]
+path = "scrying/src/wpe_producer/producer.rs"
+reason = "Producer. Existing source-size debt; a responsibility split must preserve WebSurfaceEventQueue, WpeHandles, WpeProducer and existing module visibility."
+
+[[exception]]
+path = "scrying/tests/dmabuf_roundtrip.rs"
+reason = "Phase 4a.4 round-trip integration test: 1. Existing source-size debt; a responsibility split must preserve ProducerFixture, SemaphoreSetupError, PfnGetSemaphoreFd and existing module visibility."

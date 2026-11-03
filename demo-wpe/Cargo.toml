@@ -22,3 +22,6 @@ scrying = { path = "../scrying", features = ["wpe"] }
 # them directly nameable from this binary.
 glib = "0.18"
 libc = "0.2"
+
+[lints]
+workspace = true
