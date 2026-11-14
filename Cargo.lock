@@ -845,7 +845,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "39cab71617ae0d63f51a36d69f866391735b51691dbda63cf6f96d042b63efeb"
 dependencies = [
  "libc",
- "windows-sys 0.61.2",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -1248,7 +1248,7 @@ dependencies = [
  "gobject-sys 0.22.9",
  "libc",
  "system-deps 9.0.1",
- "windows-sys 0.61.2",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -1443,8 +1443,8 @@ dependencies = [
 
 [[package]]
 name = "grafting"
-version = "0.6.1"
-source = "git+https://github.com/merely-made/wgpu-graft.git?branch=main#d903cfacf6ee663ddcc31e14539448dae3794c48"
+version = "0.6.2"
+source = "git+https://github.com/merely-made/wgpu-graft.git?branch=main#2f660c6abea4fbdc36837ad761aa40c3f535d780"
 dependencies = [
  "ash",
  "dpi",
@@ -1472,7 +1472,7 @@ dependencies = [
 [[package]]
 name = "grafting-frame"
 version = "0.1.1"
-source = "git+https://github.com/merely-made/wgpu-graft.git?branch=main#d903cfacf6ee663ddcc31e14539448dae3794c48"
+source = "git+https://github.com/merely-made/wgpu-graft.git?branch=main#2f660c6abea4fbdc36837ad761aa40c3f535d780"
 dependencies = [
  "objc2 0.6.5",
  "objc2-core-foundation",
@@ -3435,7 +3435,7 @@ dependencies = [
  "errno",
  "libc",
  "linux-raw-sys 0.12.1",
- "windows-sys 0.61.2",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -3467,7 +3467,7 @@ checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 
 [[package]]
 name = "scrying"
-version = "0.7.2"
+version = "0.7.3"
 dependencies = [
  "ash",
  "block2 0.6.2",
@@ -4969,7 +4969,7 @@ version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2a7b1c03c876122aa43f3020e6c3c3ee5c05081c9a00739faf7503aeba10d22"
 dependencies = [
- "windows-sys 0.61.2",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
