@@ -681,7 +681,7 @@ dependencies = [
  "pollster",
  "raw-window-handle",
  "scrying",
- "wgpu 30.0.1",
+ "wgpu 30.0.2",
  "winit",
 ]
 
@@ -691,7 +691,7 @@ version = "0.1.0"
 dependencies = [
  "pollster",
  "scrying",
- "wgpu 30.0.1",
+ "wgpu 30.0.2",
  "winit",
 ]
 
@@ -703,7 +703,7 @@ dependencies = [
  "raw-window-handle",
  "scrying",
  "webview2-com",
- "wgpu 30.0.1",
+ "wgpu 30.0.2",
  "windows",
  "winit",
 ]
@@ -1461,7 +1461,7 @@ dependencies = [
  "thiserror 2.0.21",
  "wgpu 28.0.0",
  "wgpu 29.0.4",
- "wgpu 30.0.1",
+ "wgpu 30.0.2",
  "wgpu-hal 28.0.1",
  "wgpu-hal 29.0.4",
  "wgpu-hal 30.0.1",
@@ -3508,7 +3508,7 @@ dependencies = [
  "webview2-com",
  "wgpu 28.0.0",
  "wgpu 29.0.4",
- "wgpu 30.0.1",
+ "wgpu 30.0.2",
  "wgpu-hal 28.0.1",
  "wgpu-hal 29.0.4",
  "wgpu-hal 30.0.1",
@@ -4518,9 +4518,9 @@ dependencies = [
 
 [[package]]
 name = "wgpu"
-version = "30.0.1"
+version = "30.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "527ccdf43dd5b2e8676eed9984ce00e2bbb0a1b85b70c1969dcb6cd2eb55ab9e"
+checksum = "146fc3d654250e6207921a66c87534c621bc886c70df83dcf466c1d66813810e"
 dependencies = [
  "arrayvec",
  "bitflags 2.13.2",
